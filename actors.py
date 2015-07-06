@@ -316,80 +316,174 @@ class actors:
         """
         return self.armor[2]
 
-    def dropPantalones(self):  # Eliminar el pantalón
+    def dropPantalones(self):
+        """
+        Eliminar el pantalón
+        :return: void
+        """
         self.armor.pop(2)
         self.armor.insert(2, None)
 
-    def addBotas(self, obj):  # Agregar zapatos
+    def addBotas(self, obj):
+        """
+        Agregar zapatos
+        :param obj: Item
+        :return: void
+        """
         self.armor.pop(3)
         self.armor.insert(3, obj)
 
-    def getBotas(self):  # Obtener las botas
+    def getBotas(self):
+        """
+        Obtener las botas
+        :return: Item
+        """
         return self.armor[3]
 
-    def dropBotas(self):  # Eliminar las botas
+    def dropBotas(self):
+        """
+        Eliminar las botas
+        :return: void
+        """
         self.armor.pop(3)
         self.armor.insert(3, None)
 
-    def dropArmor(self):  # Quitar armadura completa
+    def dropArmor(self):
+        """
+        Quitar armadura completa
+        :return: void
+        """
         for i in range(4): self.armor.pop(0)
         for i in range(4): self.armor.append(None)
 
-    def dropItems(self):  # Eliminar todos los items del jugador
+    def dropItems(self):
+        """
+        Eliminar todos los items del jugador
+        :return: void
+        """
         l = len(self.items)
         if l > 0:
             for i in range(l): self.items.pop(0)
 
-    def dropPowers(self):  # Elimina todos los poderes del jugador
+    def dropPowers(self):
+        """
+        Elimina todos los poderes del jugador
+        :return: void
+        """
         l = len(self.powers)
         if l > 0:
             for i in range(l): self.powers.pop(0)
 
-    def dropMagics(self):  # Elimina todas las magias
+    def dropMagics(self):
+        """
+        Elimina todas las magias
+        :return: void
+        """
         l = len(self.magic)
         if l > 0:
             for i in range(l): self.magic.pop(0)
 
-    def kill(self):  # Matar a un actor
+    def kill(self):
+        """
+        Matar a un actor
+        :return: void
+        """
         self.damage = self.maxLife
 
-    def setRightWeapon(self, obj):  # Definir el arma derecha
+    def setRightWeapon(self, obj):
+        """
+        Definir el arma derecha
+        :param obj: Item
+        :return: void
+        """
         self.weapons[1] = obj
 
-    def dropRightWeapon(self):  # Eliminar el arma derecha
+    def dropRightWeapon(self):
+        """
+        Eliminar el arma derecha
+        :return: void
+        """
         self.weapons[1] = None
 
-    def getRightWeapon(self):  # Obtener el arma derecha
+    def getRightWeapon(self):
+        """
+        Obtener el arma derecha
+        :return: void
+        """
         return self.weapons[1]
 
-    def setLeftWeapon(self, obj):  # Definir el arma izquierda
+    def setLeftWeapon(self, obj):
+        """
+        Definir el arma izquierda
+        :param obj: void
+        :return:
+        """
         self.weapons[0] = obj
 
-    def dropLeftWeapon(self):  # Eliminar el arma izquierda
+    def dropLeftWeapon(self):
+        """
+        Eliminar el arma izquierda
+        :return: void
+        """
         self.weapons[0] = None
 
-    def getLeftWeapon(self):  # Obtener el arma izquierda
+    def getLeftWeapon(self):
+        """
+        Obtener el arma izquierda
+        :return: Item
+        """
         return self.weapons[0]
 
-    def setVelocidad(self, vel):  # Definir la velocidad del actor
+    def setVelocidad(self, vel):
+        """
+        Definir la velocidad del actor
+        :param vel: Integer
+        :return: void
+        """
         self.velocidad = vel
 
-    def getVelocidad(self):  # Obtejer la velocidad del actor
+    def getVelocidad(self):
+        """
+        Obtejer la velocidad del actor
+        :return: Integer
+        """
         return self.velocidad
 
-    def setInfo(self, info):  # Definir la informacion
+    def setInfo(self, info):
+        """
+        Definir la información
+        :param info: String
+        :return: void
+        """
         self.info = info
 
-    def getInfo(self):  # Obtener la informacion
+    def getInfo(self):
+        """
+        Obtener la información
+        :return: void
+        """
         return self.info
 
-    def getName(self):  # Obtener el nombre
+    def getName(self):
+        """
+        Obtener el nombre
+        :return: String
+        """
         return self.name
 
-    def getType(self):  # Obtejer el tipo
+    def getType(self):
+        """
+        Obtejer el tipo
+        :return: void
+        """
         return self.tipo
 
-    def increaseDamage(self, damage):  # Incrementar el daño
+    def increaseDamage(self, damage):
+        """
+        Incrementar el daño
+        :param damage: Integer
+        :return: void
+        """
         defn = self.defensa
         try:
             defn += self.getBotas().getDefense()
@@ -415,37 +509,81 @@ class actors:
             self.damage = min(self.damage + (damage - defn), self.maxLife)
         return damage, defn
 
-    def increaseDamageNODEFN(self, damage):  # Incrementar el daño sin defensa
+    def increaseDamageNODEFN(self, damage):
+        """
+        Incrementar el daño sin defensa
+        :param damage: Integer
+        :return: void
+        """
         self.damage += damage
 
-    def setDamage(self, damage):  # Establecer el daño
+    def setDamage(self, damage):
+        """
+        Establecer el daño
+        :param damage: Integer
+        :return: void
+        """
         self.damage = min(damage, self.maxLife)
 
-    def curar(self, hp):  # Curar al jugador
+    def curar(self, hp):
+        """
+        Curar al jugador
+        :param hp: Integer
+        :return: void
+        """
         self.damage = max(0, self.damage - abs(hp))
 
-    def getDamage(self):  # Obtener el daño
+    def getDamage(self):
+        """
+        Obtener el daño
+        :return: Integer
+        """
         return self.damage
 
-    def getMaxLife(self):  # Obtener la máxima vida
+    def getMaxLife(self):
+        """
+        Obtener la máxima vida
+        :return: Integer
+        """
         return self.maxLife
 
-    def getMaxMana(self):  # Obtener el máximo mana
+    def getMaxMana(self):
+        """
+        Obtener el máximo mana
+        :return: Integer
+        """
         return self.maxMana
 
-    def getPrevMana(self):  # Obtener el mana del nivel anterior
+    def getPrevMana(self):
+        """
+        Obtener el mana del nivel anterior
+        :return: Integer
+        """
         return self.maxManaLevels[self.level]
 
-    def getPrevExp(self):  # Obtener la experiencia anterior
+    def getPrevExp(self):
+        """
+        Obtener la experiencia anterior
+        :return: Integer
+        """
         if self.level > 1:
             return self.expLevels[self.level - 1]
         else:
             return 0
 
-    def getLevel(self):  # Obtener el nivel
+    def getLevel(self):
+        """
+        Obtener el nivel
+        :return: Integer
+        """
         return self.level
 
-    def increaseExp(self, exp):  # Incrementar la experiencia
+    def increaseExp(self, exp):
+        """
+        Incrementar la experiencia
+        :param exp: Integer
+        :return: Boolean
+        """
         if self.level != 12:
             self.experiencia += exp
             if self.experiencia >= self.getMaxExperience():
@@ -460,64 +598,147 @@ class actors:
                 return True
         return False
 
-    def upgradeMana(self):  # Aumentar el mana al subir de nivel
+    def upgradeMana(self):
+        """
+        Aumentar el mana al subir de nivel
+        :return: void
+        """
         self.mana = self.maxManaLevels[self.level - 1]
         self.maxMana = self.maxManaLevels[self.level - 1]
 
-    def upgradeLife(self):  # Aumentar el la vida al subir de nivel
+    def upgradeLife(self):
+        """
+        Aumentar el la vida al subir de nivel
+        :return: void
+        """
         self.damage = 0
         self.maxLife = self.maxLifeLevels[self.level - 1]
 
-    def upgradeExp(self):  # Aumentar la experiencia al subir de nivel
+    def upgradeExp(self):
+        """
+        Aumentar la experiencia al subir de nivel
+        :return: void
+        """
         self.experiencia = self.expLevels[self.level - 1]
         self.setMaxExpLevel()
 
-    def setMap(self, mapa):  # Definir mapa
+    def setMap(self, mapa):
+        """
+        Definir mapa
+        :param mapa: String
+        :return: void
+        """
         self.map = mapa
 
-    def getMap(self):  # Obtener mapa
+    def getMap(self):
+        """
+        Obtener mapa
+        :return: String
+        """
         return self.map
 
-    def getEdad(self):  # Obtener la edad del jugador
+    def getEdad(self):
+        """
+        Obtener la edad del jugador
+        :return: Integer
+        """
         return self.edad
 
-    def getPais(self):  # Obtener el pais
+    def getPais(self):
+        """
+        Obtener el pais
+        :return: String
+        """
         return self.pais
 
-    def getLinkImage(self):  # Obtener el link de la imagen
+    def getLinkImage(self):
+        """
+        Obtener el link de la imagen
+        :return: String
+        """
         return self.linkImage
 
-    def getImages(self):  # Obtener las imágenes
+    def getImages(self):
+        """
+        Obtener las imágenes
+        :return: List
+        """
         return self.images
 
-    def setExperience(self, exp):  # Definir la experiencia
+    def setExperience(self, exp):
+        """
+        Definir la experiencia
+        :param exp: Integer
+        :return: void
+        """
         self.experiencia = exp
 
-    def setLevel(self, level):  # Definir el nivel
+    def setLevel(self, level):
+        """
+        Definir el nivel
+        :param level: Integer
+        :return: void
+        """
         if level <= 12: self.level = level
 
-    def setLinkImage(self, img):  # Definir el link de la imagen del jugador
+    def setLinkImage(self, img):
+        """
+        Definir el link de la imagen del jugador
+        :param img: String
+        :return: void
+        """
         self.linkImage = img
 
-    def setMana(self, mana):  # Definir el mana
+    def setMana(self, mana):
+        """
+        Definir el mana
+        :param mana: Integer
+        :return: void
+        """
         self.mana = mana
 
-    def setMaxExpLevel(self):  # Definir el maximo de experiencia por nivel
+    def setMaxExpLevel(self):
+        """
+        Definir el máximo de experiencia por nivel
+        :return: void
+        """
         if self.level < 12: self.maxExpLevel = self.expLevels[self.level]
 
-    def setMaxLife(self):  # Definir el maximo de vida
+    def setMaxLife(self):
+        """
+        Definir el máximo de vida
+        :return: void
+        """
         self.maxLife = self.maxLifeLevels[self.level - 1]
 
-    def setMaxMana(self):  # Definir el maximo de mana
+    def setMaxMana(self):
+        """
+        Definir el máximo de mana
+        :return: void
+        """
         self.maxMana = self.maxManaLevels[self.level - 1]
 
-    def setImage(self):  # Define la imagen del actor en función de su nivel
+    def setImage(self):
+        """
+        Define la imagen del actor en función de su nivel
+        :return: void
+        """
         self.linkImage = self.images[self.level - 1]
 
-    def setTypeDef(self, t):  # Definir el tipo de actor
+    def setTypeDef(self, t):
+        """
+        Definir el tipo de actor
+        :param t: Integer
+        :return: void
+        """
         self.tipo = t
 
-    def atacar(self, mano):  # Atacar
+    def atacar(self, mano):
+        """
+        Atacar
+        :param mano: String {izquierda, derecha, fp, sp}
+        :return: Integer
+        """
         if mano == "izquierda":  # atacar con la mano izquierda
             if self.weapons[0] is not None:  # Si posee un arma
                 self.weapons[0].usar()
@@ -541,134 +762,290 @@ class actors:
         else:
             return 0  # ataque no valido
 
-    def getAttack(self):  # Obtener el ataque
+    def getAttack(self):
+        """
+        Obtener el ataque
+        :return: Integer
+        """
         return self.ataque
 
-    def getDefensa(self):  # Obtener la defensa
+    def getDefensa(self):
+        """
+        Obtener la defensa
+        :return: Integer
+        """
         return self.defensa
 
-    def getTarget(self):  # Obtener el target
+    def getTarget(self):
+        """
+        Obtener el target
+        :return: Integer
+        """
         return self.target
 
-    def setAttack(self,
-                  cant=0):  # Definir el ataque, si cant==0 se define el ataque segun el nivel, si no se establece cant como ataque definido
+    def setAttack(self, cant=0):
+        """
+        Definir el ataque, si cant==0 se define el ataque segun el nivel, si no se establece cant como ataque definido
+        :param cant: Integer
+        :return: void
+        """
         if cant == 0:
             self.ataque = self.atkLevels[self.level - 1]
         else:
             self.ataque = cant
 
-    def setDefensa(self,
-                   cant=0):  # Definir la defensa, si cant==0 se define la defensa segun el nivel, si no se establece cant como defensa definido
+    def setDefensa(self, cant=0):
+        """
+        Definir la defensa, si cant==0 se define la defensa segun el nivel, si no se establece cant como defensa definido
+        :param cant: Integer
+        :return: void
+        """
         if cant == 0:
             self.defensa = self.defLevels[self.level - 1]
         else:
             self.defensa = cant
 
-    def setTarget(self, cant=0):  # Definir el target segun el nivel del jugador, si se define cant se deja como target
+    def setTarget(self, cant=0):
+        """
+        Definir el target segun el nivel del jugador, si se define cant se deja como target
+        :param cant: Integer
+        :return: void
+        """
         if cant == 0:
             self.target = self.defLevels[self.level - 1]
         else:
             self.target = cant
 
-    def isDead(self):  # Devuelve si esta vivo o muerto
+    def isDead(self):
+        """
+        Devuelve si esta vivo o muerto
+        :return: Boolean
+        """
         if self.damage >= self.maxLife:
             return True
         else:
             return False
 
-    def isEditor(self):  # Devuelve si el player es editor
+    def isEditor(self):
+        """
+        Devuelve si el player es editor
+        :return: Boolean
+        """
         return self.editor
 
-    def setEditor(self):  # Define al jugador como editor
+    def setEditor(self):
+        """
+        Define al jugador como editor
+        :return: void
+        """
         self.editor = True
 
-    def setNotEditor(self):  # Define al jugador como no editor
+    def setNotEditor(self):
+        """
+        Define al jugador como no editor
+        :return: void
+        """
         self.editor = False
 
-    def getItems(self):  # Devuelve los items
+    def getItems(self):
+        """
+        Devuelve los items
+        :return: List
+        """
         return self.items
 
-    def getPowers(self):  # Devuelve los poderes
+    def getPowers(self):
+        """
+        Devuelve los poderes
+        :return: List
+        """
         return self.powers
 
-    def getMagics(self):  # Devuelve la magia
+    def getMagics(self):
+        """
+        Devuelve la magia
+        :return: List
+        """
         return self.magic
 
-    def getItem(self, item):  # Devuelve un cierto item
+    def getItem(self, item):
+        """
+        Devuelve un cierto item
+        :param item: String
+        :return: Item
+        """
         return self.items[item]
 
-    def getPower(self, power):  # Devuelve un cierto poder
+    def getPower(self, power):
+        """
+        Devuelve un cierto poder
+        :param power: String
+        :return: Item
+        """
         return self.powers[power]
 
-    def setPower(self, i, power):  # Define un poder
+    def setPower(self, i, power):
+        """
+        Define un poder
+        :param i: Integer
+        :param power: Power
+        :return: void
+        """
         self.powers[i] = power
 
-    def setItem(self, i, item):  # Define un item
+    def setItem(self, i, item):
+        """
+        Define un item
+        :param i: Integer
+        :param item: Item
+        :return: void
+        """
         self.items[i] = item
 
-    def getItemAmount(self):  # Retorna la cantidad de items que tiene el jugador
+    def getItemAmount(self):
+        """
+        Retorna la cantidad de items que tiene el jugador
+        :return: Integer
+        """
         return len(self.items)
 
-    def getPowerAmount(self):  # Retorna la cantidad de poderes que tiene el jugador
+    def getPowerAmount(self):
+        """
+        Retorna la cantidad de poderes que tiene el jugador
+        :return: Integer
+        """
         return len(self.powers)
 
-    def getMagicAmount(self):  # Retorna la cantidad de magias
+    def getMagicAmount(self):
+        """
+        Retorna la cantidad de magias
+        :return: Integer
+        """
         return len(self.magic)
 
-    def setActiveBullet(self, obj):  # Define el armamento activo
+    def setActiveBullet(self, obj):
+        """
+        Define el armamento activo
+        :param obj: Item
+        :return: void
+        """
         if obj == "None": obj = None
         self.activebullet = obj
 
-    def setFirstPower(self, power):  # Define el primer poder
+    def setFirstPower(self, power):
+        """
+        Define el primer poder
+        :param power: Power
+        :return: void
+        """
         if power == "None": power = None
         self.activefirstpower = power
 
-    def setSecondPower(self, power):  # Define el poder secundario
+    def setSecondPower(self, power):
+        """
+        Define el poder secundario
+        :param power: Power
+        :return: void
+        """
         if power == "None": power = None
         self.activesecondpower = power
 
-    def getActiveBullet(self):  # Retorna el armamento
+    def getActiveBullet(self):
+        """
+        Retorna el armamento
+        :return: Item
+        """
         return self.activebullet
 
-    def getFirstPower(self):  # Retorna el primer poder
+    def getFirstPower(self):
+        """
+        Retorna el primer poder
+        :return: Power
+        """
         return self.activefirstpower
 
-    def getSecondPower(self):  # Retorna el poder secundario
+    def getSecondPower(self):
+        """
+        Retorna el poder secundario
+        :return: Power
+        """
         return self.activesecondpower
 
-    def delActiveBullet(self):  # Elimina el armamento
+    def delActiveBullet(self):
+        """
+        Elimina el armamento
+        :return: void
+        """
         self.setActiveBullet(None)
 
-    def delFirstPower(self):  # Elimina el primer poder
+    def delFirstPower(self):
+        """
+        Elimina el primer poder
+        :return: void
+        """
         self.setFirstPower(None)
 
-    def delSecondPower(self):  # Elimina el poder secundario
+    def delSecondPower(self):
+        """
+        Elimina el poder secundario
+        :return: void
+        """
         self.setSecondPower(None)
 
-    def addQuest(self, quest):  # Agrega una quest
+    def addQuest(self, quest):
+        """
+        Agrega una quest
+        :param quest: Quest
+        :return: void
+        """
         if quest not in self.playerquest: self.playerquest.insert(0, quest)
 
-    def getQuest(self):  # Retorna las quest
+    def getQuest(self):
+        """
+        Retorna las quest
+        :return: Quest
+        """
         return self.playerquest
 
-    def delQuest(self):  # Elimina las quest
+    def delQuest(self):
+        """
+        Elimina las quest
+        :return: void
+        """
         l = len(self.playerquest)
         if l > 0:
             for i in range(l): self.playerquest.pop()
 
-    def getTotalQuest(self):  # Retorna la cantidad de quest
+    def getTotalQuest(self):
+        """
+        Retorna la cantidad de quest
+        :return: Integer
+        """
         return len(self.playerquest)
 
-    def hasQuest(self):  # Retorna si existen quest
+    def hasQuest(self):
+        """
+        Retorna si existen quest
+        :return: Boolean
+        """
         if len(self.playerquest) > 0:
             return True
         else:
             return False
 
-    def getFriends(self):  # Obtener seguidores del actor
+    def getFriends(self):
+        """
+        Obtener seguidores del actor
+        :return: List
+        """
         return self.friends
 
-    def setFriends(self, friends):  # Definir los amigos
+    def setFriends(self, friends):
+        """
+        Definir los amigos
+        :param friends: String
+        :return: void
+        """
         friends = str(friends).replace("[", "").replace("]", "").split(",")
         friends_archer = friends[0].strip()
         friends_medium = friends[1].strip()
@@ -681,41 +1058,96 @@ class actors:
             self.friends[1] = friends_medium
             self.friends[2] = friends_strong
 
-    def getLightFriends(self):  # Retorna los seguidores arqueros
+    def getLightFriends(self):
+        """
+        Retorna los seguidores arqueros
+        :return: Integer
+        """
         return self.friends[0]
 
-    def getMediumFriends(self):  # Retorna los seguidores medios
+    def getMediumFriends(self):
+        """
+        Retorna los seguidores medios
+        :return: Integer
+        """
         return self.friends[1]
 
-    def getStrongFriends(self):  # Retorna los seguidores pesados
+    def getStrongFriends(self):
+        """
+        Retorna los seguidores pesados
+        :return: Integer
+        """
         return self.friends[2]
 
-    def dropFollowers(self):  # Elimina a los seguidores
+    def dropFollowers(self):
+        """
+        Elimina a los seguidores
+        :return: void
+        """
         self.friends = [0, 0, 0]
 
-    def addLightFriend(self, liv):  # Agrega un amigo liviano
+    def addLightFriend(self, liv):
+        """
+        Agrega un amigo liviano
+        :param liv: Integer
+        :return: void
+        """
         self.friends[0] = min(self.friends[0] + liv, MAX_FRIENDS - self.friends[1] - self.friends[2])
 
-    def addMediumFriend(self, mdf):  # Agrega un amigo medio
+    def addMediumFriend(self, mdf):
+        """
+        Agrega un amigo medio
+        :param mdf: Integer
+        :return: void
+        """
         self.friends[1] = min(self.friends[1] + mdf, MAX_FRIENDS - self.friends[0] - self.friends[2])
 
-    def addStrongFriend(self, strf):  # Agrega un amigo pesado
+    def addStrongFriend(self, strf):
+        """
+        Agrega un amigo pesado
+        :param strf: Integer
+        :return: void
+        """
         self.friends[2] = min(self.friends[2] + strf, MAX_FRIENDS - self.friends[0] - self.friends[1])
 
-    def getLightImageFriend(self):  # Retorna la imagen de los seguidores arqueros
+    def getLightImageFriend(self):
+        """
+        Retorna la imagen de los seguidores arqueros
+        :return: String
+        """
         return self.images_friends[0]
 
-    def getMediumImageFriend(self):  # Retorna la imagen del seguidor medio
+    def getMediumImageFriend(self):
+        """
+        Retorna la imagen del seguidor medio
+        :return: String
+        """
         return self.images_friends[1]
 
-    def getStrongImageFriend(self):  # Retorna la imagen del seguidor pesado
+    def getStrongImageFriend(self):
+        """
+        Retorna la imagen del seguidor pesado
+        :return: String
+        """
         return self.images_friends[2]
 
-    def getTotalFriends(self):  # Retorna la cantidad total de friends
+    def getTotalFriends(self):
+        """
+        Retorna la cantidad total de friends
+        :return: Integer
+        """
         return sum(self.friends)
 
-    def getArrowTexture(self):  # Retorna la textura de las flechas
+    def getArrowTexture(self):
+        """
+        Retorna la textura de las flechas
+        :return: String
+        """
         return self.images_friends_arrow[0]
 
-    def getWeaponTexture(self):  # Retorna la textura del arma del follower
+    def getWeaponTexture(self):
+        """
+        Retorna la textura del arma del follower
+        :return: String
+        """
         return self.images_friends_arrow[1]
