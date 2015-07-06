@@ -1,0 +1,103 @@
+#ACTORS
+
+#ID	#NAMEACTOR	#COMENTARIO
+
+301 	actor1 		niño
+302 	actor2 		ciclope
+303 	actor3 		vikingo
+304 	actor4 		dragon oscuro
+305 	actor7 		purple soldado
+306 	actor8 		caballero oscuro
+307 	actor9 		dragon verde
+308 	actor10 	terodactilo
+309 	actor11 	vikingo 2
+310 	actor12 	skaard
+311 	actor13 	mago
+312	actor14		spider
+313	actor15		skeleton
+314	actor16		bat
+315	actor17		hell dog
+316	actor18		ghost
+317	actor19		witch
+318	actor20		niño
+319	actor21
+320	actor22
+321	actor23
+322	actor24
+323	actor25
+324	actor26
+325	actor27
+326	actor28
+327	actor29
+328	actor30
+329	actor31
+330	actor32
+331	actor33
+332	actor34
+333	actor35
+334	actor36
+335	actor37
+336	actor38
+337	actor39
+338	actor40
+339	.
+340	.
+341	.
+342	.
+343
+344
+345
+346
+347
+348
+349
+350
+351
+352
+353
+354
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366
+367
+368
+369
+370
+371
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399	actor101

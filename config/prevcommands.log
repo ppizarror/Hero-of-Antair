@@ -1,0 +1,20 @@
+set player.atk 9999
+set player.atk 100
+set player.attack 1000
+set player.damage 0
+set player.damage 10000
+load
+load map fc_minadeanth
+show maps
+about
+version
+commands
+move map pradera2
+move map isladelmal
+move map level1
+move map infierno1
+move map legolabh1
+move map pradera1
+move map jungla1
+reload
+make

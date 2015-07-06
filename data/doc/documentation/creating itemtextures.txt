@@ -1,0 +1,23 @@
+#CREACION DE ITEMS
+#PABLO PIZARRO - 2014
+
+#CREACION
+1.- Descargar imagenes a una carpeta
+2.- Crear una carpeta 16
+3.- Copiar de nuevo el contenido en la carpeta 16
+4.- Copiar _image.py (Original en /scripts)
+5.- Ejectutar "python _image.py -fileformat gif -size 32x32 -filename %same% -lower" en la carpeta original
+6.- Ejectutar "python _image.py -fileformat gif -size 16x16 -filename %same% -lower" en la carpeta 16
+7.- Usar ant renamer, agregar _32 a todos los elementos de 32x32
+8.- Agregar _16 a todos los elementos 16x16
+9.- Crear iconos usando Ico Converter modo batch, elegir todos los elementos de 16x16
+
+#COPIADO
+1.- Copiar imagenes gif _32 y _16 en data/images/items
+2.- Copiar todos los archivos ico en data/icons
+3.- Ejecutar _creator.py en data/images/items
+4.- Copiar todo el contenido de _paste.txt en HOA / self.images reemplazando a las texturas previas
+
+#BORRADO
+1.- Cierre todos los programas
+2.- Borre todas las imagenes que no esten dentro de HOA

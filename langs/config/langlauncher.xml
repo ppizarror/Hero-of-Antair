@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Pablo\Workspace\launcher.jar</jar>
+  <outfile>Langs.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon>C:\Users\Pablo\Workspace\Hero of Antair\langs\icons\icon.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <minVersion>1.4.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <splash>
+    <file>C:\Users\Pablo\Workspace\Hero of Antair\langs\icons\banner.bmp</file>
+    <waitForWindow>true</waitForWindow>
+    <timeout>60</timeout>
+    <timeoutErr>true</timeoutErr>
+  </splash>
+  <versionInfo>
+    <fileVersion>1.8.0.0</fileVersion>
+    <txtFileVersion>1.8.0.0</txtFileVersion>
+    <fileDescription>Editor de idiomas</fileDescription>
+    <copyright>GNU</copyright>
+    <productVersion>1.8.0.0</productVersion>
+    <txtProductVersion>1.8.0.0</txtProductVersion>
+    <productName>Editor de Idioma</productName>
+    <companyName>Tf Software</companyName>
+    <internalName>Lang Editor</internalName>
+    <originalFilename>Langs.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

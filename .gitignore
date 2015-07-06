@@ -1,0 +1,27 @@
+# OSX
+.DS_Store
+
+# Pycharm
+.idea/
+
+# Pydev
+.project
+.pydevproject
+
+# Eclipse
+.settings/
+
+# Compiled python files
+*.pyc
+
+# Windows thumb file
+Thumbs.db
+
+# Windows launchers
+*.exe
+
+# Partidas guardadas
+saves/*.save
+
+# Sonidos de ambiente
+data/sound/ambience/*.wav

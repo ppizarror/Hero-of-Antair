@@ -1,0 +1,283 @@
+﻿				CHANGELOG
+			
+		
+=> Ver 0.x:
+
+	[0.1] Ventana primitiva.
+	      Nuevo menu de usuario.
+	      Se pueden crear nuevos mapas.
+              Correción de bugs.
+	      Menu agregado: archivo.
+	      Evento de mouse: click izquierdo.
+
+	[0.2] Menus de botones arreglado.
+	      Correción de errores al establecer botones.
+	      Nuevas imágenes, texturas e items.
+	      Cambio en tamaño de la pantalla.
+	
+	[0.3] Se puede guardar, cargar partidas.
+	      Modificado el menu ayuda, nueva documentación
+	      y reordenamiento.
+	      Nueva función: insertar mob.
+	      Corrección de bugs, título dinamico
+	      y creación del changelog.
+	      Menús en español, nuevos iconos, ajuste de ventanas
+	      ajuste de tamaños, reordenamento de botones.
+
+	[0.4] Eventos de ventana y atajos de teclado nuevos.
+	      Corrección de errores en la asignacion de elementos
+	      lógicos en el mapa.
+	      Solucionado error de guardado al cerrar la ventana
+	      tras un error.
+	      Corrección de variable de cambio al guardar.
+	      Creación de puertas y manejo de librerias.
+		  
+	[0.5] Corrección de errores en la creación de nuevos mobs.
+	      Corrección de errores en creación de ventanas
+	      Optimización de variables.
+	      Nueva función de insercion de edificios (buildings).
+	      Introduccion a las variables vectoriales de
+	      iluminación.
+	      Nuevo sistema de archivos "prop" en niveles.
+	      Borradas variables inútiles.
+	      Redimensionado de ventanas.
+	     
+	[0.6] Nuevo sistema de variables vectoriales.
+	      Se puede agregar un vector.
+	      Se puede modificar un vector.
+	      Se puede cargar un vector desde el fichero prop.
+	      Se puede eliminar un vector en un fichero prop.
+	      Se puede eliminar un vector.
+              El mapa se actualiza tras insertar un vector.
+              Nueva antorcha, funciónalidad vectorial a antorchas.
+              funciónalidad vectorial a objetos luminicos en general.
+              Modififacion de posicion en botones.
+	      funciónes completas de vectores.
+    	      La función que agrega vectores cambio de ataque a
+    	      una función recursiva.
+    	      Mejor uso de memoria.
+    	      Corrección de errores al insertar un vector en un margen
+    	      del mapa.
+    	      Corrección de errores al definir la luminosidad de un
+    	      vector.
+    	      Corrección de errores al reemplazar una textura con
+    	      un vector asociado.
+    	  
+   	[0.7] Nuevos botones.
+   	      Los edificios cambian de color segun la iluminación.
+	      Separadas las imágenes del programa con las globales
+   	      Redimensionado de imágenes.
+   	      Redimensionado del programa.
+   	      Elimiación de variables inutiles: globalLight y
+   	      globalTexture.
+	      Eliminación de error tras eliminar un edificio.
+   	      Eliminación de error tras eliminar una antorcha.
+   	      Las puertas ahora pueden instalarse sin definir
+   	      una llave (key) previamente.
+   	      Eliminación de error al borrar un vector cambiando
+   	      una textura (reemplazando).
+
+
+	[0.8] Eliminacion de lógica "building" a antorchas, reemplazado
+   	      por "torch".
+	      Corrección de error al poner una antorcha en el borde
+	      del mapa.
+	      Los objetos utiles tienen eventos asociados.
+	      Se habilita la insercion de cofres.
+ 	      Menu de insercion de elementos primitivo.
+	      Se eliminan carpetas sin usar.
+	      Se eliminan variables.
+	      Se habilita la insercion de librerias.
+	      Se hace foco a todas las ventanas nuevas de datos.
+	      Se elimina la seleccion tras cargar un mapa.
+	      Nuevas carpetas de sistema, se separan los iconos de
+	      los bitmap.
+	      Introduccion de sonidos al programa.
+	      
+	[0.9] Eliminación de variables.
+	      Nuevas funciónes de eventos.
+	      Actualizacion de los directorios.
+	      Eliminacion de errores en los vectores luminicos.
+	      Corrección de errores al guardar el mapa con
+	      vectores luminicos.
+	      Nuevos eventos disponibles.
+	      Actualización del icono del programa.
+	      El tamaño de la ventana paso de 1016 a 1020 pixeles de
+	      largo.
+	      Se agrega mas espaciado en la ventana, de 2px a 5px.
+	      Se cambia el título a la ventana.
+	
+	[0.9] Nuevos eventos disponibles.
+	      Nueva función move-to.
+	      Nueva función minushp, minusmana, plushp, plusmana, 
+              object, teleport.
+              Nuevos menus de eventos.
+              Se agrega boton de insertar objeto en la creación de un mob.
+	      Se eliminan las imágenes de los objetos del programa.
+              Se arreglan errores en la creacion de objetos.
+              Se redimensionan varias ventanas pop-up.
+              Se cambia el texto del boton de la creación de un
+              evento de "Cerrar" a  "Cancelar".
+
+=> Ver 1.x:
+
+	[1.0] Corrección de errores al insertar un vector lumínico
+              sobre otro.
+              Nuevos eventos suddendeath, looseobject, sound, mute,
+              no pass alert.
+              Corrección de error al no limpiar los objetos al crear
+              un nuevo mapa con uno cargado previamente.
+	      Corrección error al borrar un vector lumínico.
+	      Al reemplazar la textura de una lava se borra el
+              vector asociado.
+              Nuevo formato de dibujo.
+              Nuevos eventos.
+              Corrección de error al cerrar el rpograma.
+              Corrección error al guardar mapa.
+              Corrección de error al insertar una puerta con.
+              caracteres prohibidos.
+              Corrección error al reemplazar una antorcha.
+	      Corrección de error en el evento move.
+              Elimnacion de variables.
+
+	[1.1] Nuevo formato de imágenes.
+	      Renombre de constantes.
+	      El frame de las imágenes ahora tiene un scrolling, ahora
+	      se podrá aumentar el número de imágenes disponibles.
+	      Corrección de ortografía al changelog.
+	      Actualización del código fuente.
+	      Corrección error de idioma en pop.
+	      Actualización de ventanas: acerca de y ayuda.
+	      Actualizadas links de imágenes.
+	      La opción del menu guardad se habilita solo tras cargar o
+              crear una nueva partida.
+	      Redimensionado de ventanas tras agregar scrolling.
+	      Redimensionado de ventana para crear un mob.
+	      Eliminación de archivos .pyc tras abrir el programa.
+	   
+	[1.2] Actualizados todos los links de las imágenes.
+	      Modificación del entorno gráfico, modificación de botones, 
+	      reorganización de items y agregado de nuevas imágenes.
+	      Se agrega recuadro informativo del tamaño de cada tile.
+	      Nuevas imágenes.
+	      Introducción de diferentes tamaños, [64X64] y [128x128].
+              Redimensión de las ventanas, frames y canvas.
+	      Nueva forma de carga de texturas, uso de <etextures.py> desde
+	      <textures.py>.
+              Reorden de los botones.
+	      Nuevos iconos de ventana.
+              Cursor <hand2> sobre los botones.
+	      Nueva función <ladder>.
+	      Corrección al buscar antorchas.
+
+	[1.3]
+	      Nuevas antorchas.
+	      Modificación a la hora de buscar tiles acuáticos.
+	      Redimensión de las ventanas.
+	      Nueva ventana de creación de items, se carga el icono
+	      automáticamente, se filtra el contenido automáticamente
+	      cargando para cada tipo sus imágenes correspondientes.
+	      Corrección de las constantes del programa.
+	      Se cargan las constantes desde los archivos importados.
+	      Disminución en el tiempo de carga de la aplicación.
+	      Nuevo formato de mensajes al usuario via consola.
+	      Modificación de varios mensajes al usuario via consola.
+	      Modificación del código fuente.
+	      Nuevo formato de botones para texturas.
+	      Nuevo formato de carga de mapas.
+	      Nuevo formato analizador de texturas.
+
+	[1.4]
+	      Corregidos los carácteres lógicos de todas las imágenes
+	      sobre [32x32].
+	      Nuevo evento de <scrollbar> sobre la lista de imágenes.
+	      El evento <scrollbar> se asocia a teclas <Up>,<Down>,
+	      <repag>,<avpag>.
+	      Se renombran elementos en el menú.
+	      Al cargar o crear un mapa la página de items se mueve
+	      al principio.
+	      Si ocurre un error en la carga de los mapas vuelve la
+	      pantalla a negro.
+	      Solución de error al cargar items no existentes.
+	      Solución de error al consultar el largo de una imagen.
+	      Solución de error al cargar una textura de agua dado que
+	      no se referenciaba el sonido.
+	      Nueva función: <guardar Como>.
+              Nuevas funciones: dibujar lineas, posiciones y lógicas
+	      en el mapa.
+	      Las funciones de lineas, posiciones y logicas tienen
+	      atajos de teclado y entradas en el menú.
+	      Solución de error al cargar un mapa, cancelarlo y volver
+	      a guardar.
+
+	[1.5]
+	      Nueva entrada en menú: visualización.
+	      Nuevas funciones de mostrar/ocultar terreno, items y eventos
+	      lógicos.
+	      Solución de errores en funciones.
+	      Solución de errores al cargar mapa.
+	      Corrección en todos los shorcut del menú.
+	      Nuevos atajos de teclado para funciones.
+	      Nuevas entradas en el menú.
+	      Nuevas funciones: borrar actor, terreno y decoración.
+	      Al cerrar el mapa el título del programa también cambia.
+	      Solución de error al dibujar muy rápido.
+	      Ahora pueden escribirse items sobre el agua o lava.
+	      Corrección de error al no poder insertar sonidos.
+	      Al clickear sobre el sonido se carga la función.
+	      Nuevas imágenes de edificios.
+	      Se reordenan las imágenes de los edificios.
+	      Nuevas variables de reconocimiento lógico.
+	      Nuevo menú tras pulsar el boton derecho del mouse.
+	      Función de menú: información.
+	      Nuevos iconos para el sistema.
+
+	[1.6]
+	      Corrección en slider de imágenes.
+	      Corrección de errores al crear un nuevo mapa.
+	      Nuevo formato para carga de imágenes.
+	      Corrección de error al salir del programa, se borra la
+	      memoria al finalizar la ejecución.
+	      Nuevo control de eventos de usuario.
+ 	      Corrección de errores en los eventos de click derecho.
+	      Corrección de imágenes en 64X64.
+	      Corrección de varias variables.
+	      Eliminación de variables sin usar.
+	      Solución error fatal al guardar los mapas de 1x1.
+	      Corrección ortográfica en varios comentarios.
+
+	[1.7]
+	      Nueva función: creación de npc.
+	      Redimensión de ventana de creación de mobs.
+	      Corrección ortográfica de ventana de mobs.
+	      Corrección de error en el evento move.
+	      Corrección de error al mostrar la posición.
+	      Corrección en el evento <F2>.
+	      Nueva función: mostrar movimientos.
+	      Ahora solo se muestran las lineas y posiciones hasta el
+	      largo del mapa.
+	      Nueva función: editar.
+	      Al cambiar el tipo de objeto se modifican las propieades
+	      en la ventana de creación.
+	      Se reorganizan los actores.
+
+	[1.8]
+	      Nueva función: copiar y pegar.
+	      Optimización del código.
+	      Se corrige ortográficamente todos los archivos
+	      asociados al editor de mapas.
+	      Se corrige error al cargar mapas.
+	      Se optimiza la carga de archivos.
+	      Se corrige la importación de librerías.
+	      Corrección de comentarios.
+	      Organización de funciones.
+	      Se imprime un arte ascii al inicio del script.
+	      Se corrige la impresión de actualizaciones en consola.
+	      Se agrega funcionalidad para agregar sonidos a los mobs.
+	      Se reorganizan y redimensionan las entradas de la
+	      creación de nuevos mobs.
+	      Se reorganizan ciertas ventanas.
+
+		  
+		  
+		  

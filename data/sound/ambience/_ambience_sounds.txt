@@ -1,0 +1,23 @@
+-Sin sonido
+amanecer_en_el_pueblo_1.wav
+amanecer_en_el_pueblo_2.wav
+ambiente_de_campo_con_riachuelo.wav
+cascada_y_riachuelo_1.wav
+corriendo_agua_por_el_interior_de_una_pequena_cueva_1.wav
+mar_muy_revuelta_en_zona_de_rocas.wav
+mar_tranquila.wav
+nacimiento_de_un_manantial.wav
+nacimiento_de_un_manantial_con_chicharra.wav
+naturaleza_1.wav
+noche_de_invierno.wav
+pajaros_y_ranas_con_sonido_de_agua_corriendo.wav
+playa_sin_banistas_con_mar_revuelta.wav
+riachuelo_con_mucho_caudal_1.wav
+riachuelo_con_mucho_caudal_2.wav
+tormenta_de_verano_en_la_ciudad_1.wav
+viento_en_los_arboles.wav
+viento_fuerte_en_el_interior_de_una_casa.wav
+viento_fuerte_en_la_ciudad.wav
+viento_sobre_los_pinos.wav
+viento_y_lluvia_atraves_de_una_ventana_en_ciudad.wav
+viento_y_lluvia_en_la_ciudad_1.wav

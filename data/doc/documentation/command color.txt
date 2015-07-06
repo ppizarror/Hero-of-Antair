@@ -1,0 +1,10 @@
+{red} = rojo 				#FF0000
+{blue} = azul 				#0000FF
+{green} = verde 			#00FF00
+{white} = blanco 			#FFFFFF
+{dark gray} = gris oscuro		#5C5C5C
+{light gray} = gris claro		#B8B8B8
+{purple} = morado			#660066
+{yellow} = amarillo			#FFFF00
+{skyblue} = celeste			#00FFFF
+{orange} = naranjo 			#FF8000

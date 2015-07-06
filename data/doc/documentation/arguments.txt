@@ -1,0 +1,31 @@
+-help
+  Uso: hoa.py -arg1 -arg2 ... -argn	[Varios argumentos]
+	      /arg1 (*)
+       (*): argumento unico
+
+  donde:
+   -----Argumento-----   -------------Descipcion-------------
+  -benchmark (*)	Ejecuta una prueba benchmark del equipo
+  -changelog (*)	Carga la lista de cambios del programa	
+  -delpyc		Borra todos los archivos .pyc generados
+  -dev			Muestra la version al cargar el programa
+  -disableanimation	Desactiva las animaciones
+  -disablearmorinfo	Desactiva la informacion de la armadura
+  -disableconfig	Desactiva las configuraciones
+  -disableinfo		Desactiva todas las informaciones
+  -disableiteminfo	Desactiva la informacion de los items
+  -disablepowerinfo	Desactiva la informacion de los poderes
+  -disablesaves		Desactiva el guardado
+  -disablestdout	Desactiva los mensajes en la consola
+  -disableterminal	Desactiva los comandos
+  -disabletranslation	Desactiva las traducciones automaticas
+  -eclipse		El programa se ejecuta desde eclipse
+  -enableanimation	Activa las animaciones
+  -enableterminal	Activa la terminal
+  -enabletranslation	Activa las traducciones automaticas
+  -help	(*)		Carga esta ayuda
+  -nosound		Ejecuta el programa sin sonidos
+  -noupdates		Desactiva las actualizaciones
+  -resizable		Permite el resizado de la ventana
+  -savefile %filename	Carga la partida guardada %filename
+  -version (*)		Solo muestra la version del programa

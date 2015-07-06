@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>C:\Users\Pablo\Workspace\Hero of Antair\config\bin\hoalauncher.jar</jar>
+  <outfile>Hero of Antair.exe</outfile>
+  <errTitle></errTitle>
+  <cmdLine></cmdLine>
+  <chdir></chdir>
+  <priority>normal</priority>
+  <downloadUrl>http://java.com/download</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <manifest></manifest>
+  <icon>C:\Users\Pablo\Workspace\Hero of Antair\data\icons\hoa.ico</icon>
+  <jre>
+    <path></path>
+    <bundledJre64Bit>false</bundledJre64Bit>
+    <minVersion>1.4.0</minVersion>
+    <maxVersion></maxVersion>
+    <jdkPreference>preferJre</jdkPreference>
+    <runtimeBits>64/32</runtimeBits>
+  </jre>
+  <splash>
+    <file>C:\Users\Pablo\Workspace\Hero of Antair\data\images\other\banner2.bmp</file>
+    <waitForWindow>true</waitForWindow>
+    <timeout>60</timeout>
+    <timeoutErr>true</timeoutErr>
+  </splash>
+  <versionInfo>
+    <fileVersion>0.4.7.0</fileVersion>
+    <txtFileVersion>0.4.7.0</txtFileVersion>
+    <fileDescription>Juego de rol en 2D</fileDescription>
+    <copyright>GNU</copyright>
+    <productVersion>0.4.7.0</productVersion>
+    <txtProductVersion>0.4.7.0</txtProductVersion>
+    <productName>Hero of Antair</productName>
+    <companyName>Tf Software</companyName>
+    <internalName>HOA</internalName>
+    <originalFilename>Hero of Antair.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig>

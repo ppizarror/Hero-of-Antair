@@ -1,0 +1,17 @@
+Triangulo de Sierpinski
+
+/help
+  Uso: hoa.py -sierpinski /P L R
+       hoa.py -sierpinski L R
+
+  donde:
+   -----Argumento-----   -------------Descipcion-------------
+  /P			Parámetro principal, parámetros:
+			/help		Carga la ayuda
+			/negative	Retorna el negativo de
+					sierpinski
+			/reverse	Retorna el reverso de
+					sierpinski
+  L			Letra a dibujar
+  R			Cantidad de repeticiones (minimo 1)			
+  

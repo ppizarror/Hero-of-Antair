@@ -1,0 +1,10 @@
+AR.txt
+DE.txt
+EN.txt
+ES.txt
+FR.txt
+IT.txt
+JA.txt
+PR-PT.txt
+RU.txt
+ZH-CN.txt

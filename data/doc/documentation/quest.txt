@@ -1,0 +1,10 @@
+Las quest son id de acciones hechas
+Las quest son dadas por los npc, eventos y mobs.
+
+Las quest se separan por %, primero viene una id, luego el nombre
+y por ultimo una descripcion
+
+Ejemplos de quest:
+
+{setquest:100%Buscar a Myn%Busca al hermano de Jum}
+{setquest:200%Mata a Etreamor%Mata a etreamor}

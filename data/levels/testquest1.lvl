@@ -1,0 +1,16 @@
+testquest1
+pablo
+10,10
+Mapa para probar las quest
+%MAPSOUND%
+
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:43-0-Jum,1276,Un hermano muy perdido,Ire enseguida%XLASH%{setquest 200%Avisale al hermano%Avisale pronto},%NULL%,%NULL%,0,True,1,True,100:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:43-0-Min,1275,Un min muy enojado,Excelente%XCOM% muchas gracias%XCOM% toma esta espada por mia gradecimiento%XLASH%{give},Espada de min%XLASH%_%XLASH%Una hermosa espada%XLASH%_%XLASH%espada_fiery_relic_sword%XLASH%_%XLASH%weapon%XLASH%right%XLASH%_%XLASH%404504%XLASH%_%XLASH%False%XLASH%_%XLASH%100%XLASH%_%XLASH%int_500%XLASH%_%XLASH%int_0,%NULL%,0,True,1,True,200:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:1-999:101;0:0-0:101;0:43-0-Min,1275,Makast!,Hola%XLASH%Porfavor dile a mi hermano que venga%XCOM% volveré a penas lo tengas%XLASH%{setquest 100%Busca a Jum%Busca a mi maldito hermano},%NULL%,%NULL%,0,False,0,True,None:101;0:0-0:101;0:0-0:101
+0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101;0:0-0:101

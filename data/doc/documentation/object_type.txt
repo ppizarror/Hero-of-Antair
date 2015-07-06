@@ -1,0 +1,16 @@
+armor/casco
+armor/chaleco
+armor/botas
+armor/pantalones
+bullet
+coin
+mana/normal
+object/carry
+object/holy
+object/key
+potion/apple
+potion/food
+potion/normal
+read
+weapon/left
+weapon/right

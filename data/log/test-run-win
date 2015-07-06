@@ -1,0 +1,100 @@
+                            _   _   _____      __
+                           | | | | |  _  |    |  |
+                           | |_| | | | | |   | || |
+                           |  _  | | | | |  |  __  |
+                           | | | | | |_| | |  |  |  |
+                           |_| |_| |_____| |_| __ |_|
+                             _________________|  |__
+                           /  -------         |  |  )
+                           \ _________________|  |__)
+                                              |__|
+                                 Hero of Antair
+
+HOA - version: 0.5.1 
+Autor: Pablo Pizarro
+
+Cargando librerias ... ok
+Realizando prueba de hardware ... alto rendimiento
+Consultando configuraciones ... ok
+Consultando configuraciones del servicio de traducciones ... ok
+Cargando idioma es ... ok
+Consultando argumentos ... ok
+Cargando sonidos ... ok
+Cargando texturas ... ok
+Cargando interfaz ... ok
+Cargando eventos ... ok
+Comprobando canvas ... ok
+Buscando actualizaciones ... la version actual del software es de desarrollo
+Estado global: ok
+Cargando partida ...
+Consultando por un archivo de guardado ... ok
+Extrayendo el archivo ... ok
+Cargando los archivos de guardado ... ok
+Terminando sonidos ... ok
+Cargando los datos principales ...
+Cargando archivo '(...)/data/levels/pradera2.lvl' ... [OK]
+Consultando textura 'actor135_0.gif' ... ok
+Consultando textura 'big_tree3_1.gif' ... ok
+Consultando textura 'big_tree39_1.gif' ... ok
+Consultando textura 'big_tree14_1.gif' ... ok
+Consultando textura 'big_tree27_1.gif' ... ok
+Consultando textura 'big_tree23_1.gif' ... ok
+Consultando textura 'big_tree28_1.gif' ... ok
+Consultando textura 'ambiance_grass8_0.gif' ... ok
+Consultando textura 'big_tree3_0.gif' ... ok
+Consultando textura 'big_tree14_0.gif' ... ok
+Consultando textura 'building2_0.gif' ... ok
+Consultando textura 'bushes7_0.gif' ... ok
+Consultando textura 'big_tree27_0.gif' ... ok
+Consultando textura 'antorcha21.gif' ... ok
+Consultando textura 'ambiance_other44_0.gif' ... ok
+Consultando textura 'big_tree28_0.gif' ... ok
+Consultando textura 'big_escalera4_1.gif' ... ok
+Consultando textura 'big_ambiance_other2_0.gif' ... ok
+Consultando textura 'big_tree39_0.gif' ... ok
+Consultando textura 'big_tree13_1.gif' ... ok
+Consultando textura 'rock2_1.gif' ... ok
+Consultando textura 'big_stone7_1.gif' ... ok
+Consultando textura 'big_tree29_1.gif' ... ok
+Consultando textura 'ambiance_grass9_1.gif' ... ok
+Consultando textura 'sign1_0.gif' ... ok
+Consultando textura 'big_construction_wall44_1.gif' ... ok
+Consultando textura 'ambiance_other47_1.gif' ... ok
+Consultando textura 'big_tree8_1.gif' ... ok
+Consultando textura 'hongo11_0.gif' ... ok
+Consultando textura 'hongo11_1.gif' ... ok
+Consultando textura 'ambiance_grass9_0.gif' ... ok
+Consultando textura 'building3_1.gif' ... ok
+Consultando textura 'stone26_1.gif' ... ok
+Consultando textura 'stone26_0.gif' ... ok
+Consultando textura 'stone27_1.gif' ... ok
+Consultando textura 'cactus4_1.gif' ... ok
+Terminando sonidos ... ok
+Cargando datos lógicos del mapa previo ... ok
+Cargando texturas de items del mapa ... ok
+Cargando quests ... ok
+Cargando estadísticas ... ok
+Cargando items ... ok
+Cargando poderes ... ok
+Consultando textura 'arco_madera_32.gif' ... ok
+Consultando textura 'chaleco_leather_armor_32.gif' ... ok
+Consultando textura 'espada_diamante_32.gif' ... ok
+Consultando textura 'chaleco_leather_armor_16.gif' ... ok
+Consultando textura 'food_cake_16.gif' ... ok
+Consultando textura 'gold_1_16.gif' ... ok
+Consultando textura 'arco_madera_16.gif' ... ok
+Consultando textura 'actor135_1.gif' ... ok
+Consultando textura 'espada_diamante_16.gif' ... ok
+Consultando textura 'inskill.gif' ... ok
+Borrando archivos extraídos ... ok
+Estado de carga: ok
+Cargando archivo '(...)ta/levels/pradera2big.lvl' ... [OK]
+Terminando sonidos ... ok
+Cargando partida ...
+Extrayendo el archivo ... abortado
+Error[0x64] :: Error al buscar partida guardada, el archivo ingresado no existe
+Terminando sonidos ... ok
+Abortando ... ok
+Cargando partida ...
+Consultando por un archivo de guardado ... ok
+ExtrayendCorrecto: se termin� el proceso con PID 1192.

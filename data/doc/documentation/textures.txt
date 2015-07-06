@@ -1,0 +1,103 @@
+#TEXTURES
+
+#ID	#NAMETEXTURE
+101 	dirt1
+102 	dirt2
+103 	dirt3
+104 	grass1
+105 	grass2
+106 	grass3
+107 	sand1
+108 	sand2
+109 	water1
+110 	water2
+111 	pantano1
+112 	pisomadera1
+113 	pavimento1
+114 	grava1
+115	grava2
+116 	dirt4
+117	dirt7
+118	dirt8
+119	dirt9
+120 	nether1
+121	nether2
+122	nether3
+123	dirt10
+124	water6
+125	water7
+126	
+127	
+128	
+129	
+130 	dirt5
+131	pantano2
+132	water3
+133	grava3
+134	floor3
+135	floor4
+136	floor5
+137	floor6
+138	floor7
+139	floor8
+140	floor9
+141	floor10
+142	floor11
+143	pavimento6
+144	pavimento7
+145	pavimento8
+146	pavimento9
+147	pavimento10
+148	pavimento11
+149	pisomadera6
+150 	lava1
+151 	lava2
+152 	lava3
+153	
+154	
+155	
+156	
+157	
+158	
+159		
+160	pavimento2
+161	ladrillo1
+162 	ladrillo2
+163 	ladrillo3
+164	grass4
+165	grass5
+166 	grass6
+167	pisomadera3
+168	pisomadera4
+169	pisomadera5
+170	dirt6
+171	
+172	
+173	
+174	
+175	pavimento3
+176	pavimento4
+177	
+178	
+179	
+180	sand3
+181	sand4
+182	sand5
+183	nether4
+184	nether5
+185	floor1
+186	
+187	grass7
+188	ice1
+189	ice2
+190	ice3
+191	ladrillo4
+192	pavimento5
+193	pisomadera2
+194	water4
+195	water5
+196	floor2
+197	grass8
+198	grass9
+199	noneterrain 	#not usable
+256	black

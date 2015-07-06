@@ -1,0 +1,65 @@
+﻿#TEXTURA
+
+	LOS OBJETOS USAN TEXTURA SIN EL TAMAÑO, USE SOLO
+	#texture PARA INDICARA LA TEXTURA DE SU OBJETO, EL PROGRAMA
+	AUTOMATICAMENTE SABRA QUE TAMAÑO USAR
+	
+	INDIQUE EL ID DE SU OBJETO PARA QUE EL PROGRAMA PUEDA HACER EL
+	TRABAJO LOGICO
+
+#LOGICA
+
+	OBJ = nombre/_/descripcion/_/textura/_/tipo/_/id_item/_/stackable/_/life/_/propiedades
+	
+	STR, STR, STR, STR, INT, BOOLEAN, INT, {VAR}
+	
+	{VAR}: str:STR
+		   int:INT
+		   flt:FLOAT
+		   boo:BOOLEAN
+
+		EJEMPLO DE APLICACION:
+
+		(...)/_/str_20/_/int_300  #obj random
+		(...)/_/int_100/_/int_0   #un arma
+		
+		   
+	tipo:
+
+		- "armor/type" : Armadura, propiedades = int{0}, int{defensa}
+		  type:	-casco
+			-chaleco
+			-botas
+			-pantalones
+
+		- "bullet": Balas, propiedades = int{daño}, int{0}
+
+		- "coin": Dinero, propiedades = int{0}, int{0} #LA CANTIDAD DE DINERO SE FIJA EN "LIFE"
+
+		- "mana/type": Mana, propiedades = int{restauracion}, int{0}
+		  type: -normal
+
+		- "object/type": Objeto, propiedades = str{tipo del objeto}, str{como se usa}
+		  type: -holy #biblia
+			-key #llave
+			-carry #llevar cosas
+
+		- "potion/type": Pocion, propiedades = int{restauracion}, int{0}
+		  type: -apple #manzana
+			-food #comida normal
+			-normal #pocion normal
+
+ 		- "read": Libros, propiedades = str{Nombre del archivo ubicado en res},int{0}
+
+		- "weapon/left", "weapon/right": Armas, propiedades = int{daño}, int{0}
+
+	#int{},str{},flt{},boo{} indican el tipo de datos aceptados, no deben usarse.
+		
+#PRECAUCION
+
+	LAS COMAS NO SON VALIDAS
+	/_/ ES EL SEPARADOR ENTRE LOS ELEMENTOS LOGICOS, SU DESFACE CAUSA ERROR
+
+	LA DURACION PUEDE SER CANTIDAD, VECES UTILIZABLE, ETC
+		EJEMPLO
+	SI NO SE ESPECIFICA EL TIPO DE OBJETO SE CONSIDERA COMO NULL
