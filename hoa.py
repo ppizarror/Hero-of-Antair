@@ -11,7 +11,7 @@ libstartUp()
 # Información del autor y del programa
 AUTOR_NAME = "Pablo Pizarro"
 AUTOR_NAME_EMAIL = "pablo@ppizarror.com"
-PROGRAM_VERSION = "0.5.1"
+PROGRAM_VERSION = "0.5.2"
 PROGRAM_TITLE = "Hero Of Antair"
 
 # Introducción
@@ -35,7 +35,8 @@ try:
     import statics
     import zipfile
 except:
-    print "error"; exit()
+    print "error"
+    exit()
 print OK
 
 # Configuración de las librerías
@@ -109,17 +110,16 @@ SHOWMESSAGESTIME = 3500  # tiempo para mostrar los mensajes
 TIME_DISSAPEAR_EFFECT = 1000  # tiempo en milisegundos para mostrar efectos (flechas, fuego etc)
 WIDTHMESSAGES = 210  # largo máximo de los recuadros de texto
 
-# Configuraciones en funcion de SO
-# tamaño de la ventana del programa
+# Configuraciones en funcion de SO tamaño de la ventana del programa
 if isWindows():
     PROGRAM_SIZE = 804, 599
     _SECOND_BUTTON = "<Button-3>"
-    POP_XSIZE = 165;
+    POP_XSIZE = 165
     POP_YSIZE = 270
 else:
     PROGRAM_SIZE = 810, 580
     _SECOND_BUTTON = "<Button-2>"
-    POP_XSIZE = 175;
+    POP_XSIZE = 175
     POP_YSIZE = 390
 
 # Se cargan las configuraciones
@@ -136,11 +136,17 @@ except:  # Si ocurre un error al cargar el archivo de idiomas se termina la ejec
     exit()
 
 
-def loadConfig():  # Se cargan las configuraciones del juego
+def loadConfig():
+    """
+    Se cargan las configuraciones del juego
+    :return: void
+    """
     try:  # Se consulta el archivo de configuraciones
-        print "Consultando configuraciones ...", ;
+        print "Consultando configuraciones ...",
         conf_file = open(CONFIGURATION_FILE, "r")  # cargo archivo de configuraciones
+        # noinspection PyShadowingNames,PyShadowingNames
         for i in conf_file:
+            # noinspection PyShadowingNames
             i = i.strip()
             c_command = i.split("=")
             if c_command[0].strip() == "CONSOLE_BACKGROUND":  # Color de fondo de la consola
@@ -158,7 +164,7 @@ def loadConfig():  # Se cargan las configuraciones del juego
             if c_command[0].strip() == "LANGUAJE":  # idioma
                 c_after_command = str(c_command[1]).split(",")
                 if len(c_after_command[0].strip()) != 0 and (
-                        c_after_command[0].strip().upper() + LANG_END in LANG_LIST):
+                                c_after_command[0].strip().upper() + LANG_END in LANG_LIST):
                     CONFIGURATION_DATA[0] = c_after_command[0].strip().upper()
             if c_command[0].strip() == "SOUND":  # sonido
                 c_after_command = str(c_command[1]).split(",")
@@ -166,10 +172,10 @@ def loadConfig():  # Se cargan las configuraciones del juego
                     CONFIGURATION_DATA[1] = True
                 else:
                     CONFIGURATION_DATA[1] = False
-        conf_file.close();
+        conf_file.close()
         print OK
     except:  # Se genera un nuevo archivo de configuraciones si este no existe
-        print "generando configuraciones ...", ;
+        print "generando configuraciones ...",
         archivo = open(CONFIGURATION_FILE, "w")
         archivo.write("#Archivo de Configuraciones\n")
         archivo.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
@@ -182,37 +188,40 @@ def loadConfig():  # Se cargan las configuraciones del juego
         archivo.write("LANGUAJE = " + str(CONFIGURATION_DATA[0]) + "\n\n")
         archivo.write("#Sonidos del programa\n")
         archivo.write("SOUND = ON")
-        archivo.close();
+        archivo.close()
         print OK
 
 
-loadConfig()
-
-# Traducciones
-def loadStConfig():  # Cargo las configuraciones del servicio de traducciones
+def loadStConfig():
+    """
+    Se cargan las configuraciones del servicio de traducciones
+    :return: void
+    """
     try:  # Cargo el archivo de configuraciones de las traducciones
-        print "Consultando configuraciones del servicio de traducciones ...", ;
+        print "Consultando configuraciones del servicio de traducciones ...",
         config = open(CONFIGURATION_TNSL, "r")
+        # noinspection PyShadowingNames
         for i in config:  # Se recorren las lineas de las configuraciones
             if ("#" not in i) and i != "":  # Si la linea es válida
                 i = i.split("=")
                 if i[0].strip() == "HEADER": CONFIGURATION_DATA[5] = i[1].strip()
                 if i[0].strip() == "HREF": CONFIGURATION_DATA[6] = i[1].strip()
                 if i[0].strip() == "ACTIVE": CONFIGURATION_DATA[7] = i[1].strip()
-        config.close();
+        config.close()
         print OK
     except:  # Si no existe el archivo de configuración de las traducciones
-        print "generando configuraciones ...", ;
+        print "generando configuraciones ...",
         archivo = open(CONFIGURATION_TNSL, "w")
         archivo.write("#Configuraciones del servicio de traducciones (google)\n")
         archivo.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
         archivo.write("ACTIVE = " + str(CONFIGURATION_DATA[7]) + "\n")
         archivo.write("HEADER = " + str(CONFIGURATION_DATA[5]) + "\n")
         archivo.write("HREF = " + str(CONFIGURATION_DATA[6]))
-        archivo.close();
+        archivo.close()
         print OK
 
 
+loadConfig()
 loadStConfig()
 ST_HEADER = CONFIGURATION_DATA[5]  # header de las consultas http
 ST_HREF = CONFIGURATION_DATA[6]  # link de las consultas http
@@ -225,23 +234,30 @@ if CONFIGURATION_DATA[7] == "ON" and CONFIGURATION_DATA[8] != DEFAULT_LANG_CONTE
 else:
     CONFIGURATION_DATA[9] = False  # si no se cumple se desactiva
 if CONFIGURATION_DATA[7] == "ON" or (
-    "-enabletranslation" in sys.argv):  # Si el servicio está disponible (o se envio por parámetro)
+            "-enabletranslation" in sys.argv):  # Si el servicio está disponible (o se envio por parámetro)
     if "-enabletranslation" in sys.argv: CONFIGURATION_DATA[17] = True; CONFIGURATION_DATA[10] = True;
     CONFIGURATION_DATA[9] = True
     try:  # Consulto el servicio de traducciones (google translate) para comprobar la conexión
-        print "Conectando estado del servicio de traducciones ...", ;
-        google_translate("test", "es", ST_HEADER, ST_HREF, "en");
-        print OK;
+        print "Conectando estado del servicio de traducciones ...",
+        google_translate("test", "es", ST_HEADER, ST_HREF, "en")
+        print OK
         ST_TRANSLATE = True
     except:
+        # noinspection PyShadowingBuiltins
         CONFIGURATION_DATA[10] = False, CONFIGURATION_DATA[
-            9] = False; print "abortado"  # si ocurre algún error en la conexión en el servicio
+            9] = False
+        print "abortado"  # si ocurre algún error en la conexión en el servicio
     if CONFIGURATION_DATA[8] == "es": CONFIGURATION_DATA[10] = False; CONFIGURATION_DATA[9] = False
 
 
-def translate(text):  # Función que traduce un texto usando el servicio de google traductor
+def translate(text):
+    """
+    Función que traduce un texto usando el servicio de google traductor
+    :param text: String
+    :return: String
+    """
     if (ST_TRANSLATE and CONFIGURATION_DATA[9]) or (
-        CONFIGURATION_DATA[10] and CONFIGURATION_DATA[9]):  # Si el servicio está activo
+                CONFIGURATION_DATA[10] and CONFIGURATION_DATA[9]):  # Si el servicio está activo
         try:  # Se consulta por la traducción al servicio de google
             return google_translate(text, CONFIGURATION_DATA[8], ST_HEADER, ST_HREF)
         except:  # Si ocurre algún error en la traducción
@@ -253,13 +269,22 @@ def translate(text):  # Función que traduce un texto usando el servicio de goog
 LANG = {}  # lista de strings para el idioma
 
 
-def loadLang(first=True):  # Carga el idioma
+def loadLang(first=True):
+    """
+    Carga el idioma
+    :param first: Boolean
+    :return: void
+    """
     try:  # Se carga el idioma
         if COLORED_ARGUMENT:  # argumento colorido
             if first:
-                print "Cargando idioma",; colorcmd(CONFIGURATION_DATA[0].lower(), "lgray"); print "...",
+                print "Cargando idioma",
+                colorcmd(CONFIGURATION_DATA[0].lower(), "lgray")
+                print "...",
             else:
-                print lang(746),; colorcmd(CONFIGURATION_DATA[0].lower(), "lgray"); print "...",
+                print lang(746),
+                colorcmd(CONFIGURATION_DATA[0].lower(), "lgray")
+                print "...",
         else:
             if first:
                 print "Cargando idioma", CONFIGURATION_DATA[0].lower(), "...",
@@ -272,17 +297,26 @@ def loadLang(first=True):  # Carga el idioma
             if item[0] == "": item[0] = "10"
             LANG[int(item[0].replace("\ufeff", ""))] = item[1].replace("|", " ")  # asigno los espacios
         LANG[310] = OK
-        archivo.close();
+        archivo.close()
         print OK
     except:  # Error al cargar idioma, muestra mensaje y termina el programa
-        print "Error :: Error fatal";
+        print "Error :: Error fatal"
         pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88, 300,
              "Error al cargar el archivo de idioma '" + \
              CONFIGURATION_DATA[0] + "', " + PROGRAM_TITLE + " no puede iniciarse"]).w.mainloop(0)
         exit()
 
 
-def lang(i, a="", b="", c=""):  # Función que recibe un id y retorna el string correspondiente a dicho id (sin traducir)
+# noinspection PyShadowingNames
+def lang(i, a="", b="", c=""):
+    """
+    Función que recibe un id y retorna el string correspondiente a dicho id (sin traducir)
+    :param i: Index
+    :param a: String
+    :param b: String
+    :param c: String
+    :return: String formateado asociado al indice i
+    """
     try:  # Si existe el lang en la matriz de datos
         if len(a + b + c) != 0:
             return LANG[i].replace("%", a).replace("&", b).replace("$", c)
@@ -293,29 +327,58 @@ def lang(i, a="", b="", c=""):  # Función que recibe un id y retorna el string 
         return "%LANG ID[{0}]".format(i)
 
 
-class hoa:  # Main class
+# noinspection PyShadowingNames,PyShadowingBuiltins,PyUnboundLocalVariable,PyDeprecation,PyUnreachableCode
+class hoa:
+    """Main"""
 
-    def __init__(self, arguments=[]):  # Función constructora, ella recibe un archivo de guardado, si existe se carga
+    # noinspection PyDefaultArgument
+    def __init__(self, arguments=[]):
+        """
+        Función constructora, ella recibe un archivo de guardado, si existe se carga
+        :type self: object
+        :param arguments: Argumentos
+        :return: void
+        """
 
         # Métodos del constructor
-        def _about(e=None):  # Función que muestra el acerca de
+        def _about(e=None):
+            """
+            Función que muestra el acerca de
+            :param e: Evento
+            :return: void
+            """
             e = pop(
                 [[lang(18), lang(170), lang(171), lang(172), lang(173)], self.images.image("icon"), "about", 115, 220, \
                  AUTOR_NAME, AUTOR_NAME_EMAIL, PROGRAM_VERSION])
-            e.w.mainloop(1);
+            e.w.mainloop(1)
             del e
 
-        def _ayuda(e=None):  # Función que carga la ayuda del juego
+        def _ayuda(e=None):
+            """
+            Función que carga la ayuda del juego
+            :param e: Evento
+            :return: void
+            """
             e = pop([lang(19), self.images.image("icon"), "license", 400, 600, DATA_DOCUMENTS + "/hoa/ayuda.txt"])
-            e.w.mainloop(1);
+            e.w.mainloop(1)
             del e
 
-        def _changelog(e=None):  # Función que muestra a lista de cambios
+        def _changelog(e=None):
+            """
+            Función que muestra a lista de cambios
+            :param e: Evento
+            :return: void
+            """
             e = pop([lang(20), self.images.image("icon"), "license", 400, 650, "CHANGELOG"])
-            e.w.mainloop(1);
+            e.w.mainloop(1)
             del e
 
-        def _configure(e=None):  # Configurar el juego
+        def _configure(e=None):
+            """
+            Configurar el juego
+            :param e: Evento
+            :return: void
+            """
             if CONFIGURATION_DATA[13]:  # Si las configuraciones no están desactivadas
                 conf = pop(
                     [[lang(17), lang(217), lang(218), lang(219), lang(64), lang(273), lang(274), lang(275), lang(671), \
@@ -346,13 +409,13 @@ class hoa:  # Main class
                         archivo.write("SOUND = ON")
                     else:
                         archivo.write("SOUND = OFF")
-                    archivo.close();
+                    archivo.close()
                     print lang(310)
                     print lang(690),
                     self.info.config(bg=conf.values[3], fg=conf.values[4])
-                    CONFIGURATION_DATA[1] = conf.values[1];
+                    CONFIGURATION_DATA[1] = conf.values[1]
                     CONFIGURATION_DATA[2] = conf.values[2]
-                    CONFIGURATION_DATA[3] = conf.values[3];
+                    CONFIGURATION_DATA[3] = conf.values[3]
                     CONFIGURATION_DATA[4] = conf.values[4]
                     if not conf.values[1]:
                         self.stopSound("silent")
@@ -403,8 +466,8 @@ class hoa:  # Main class
                         self.ayudamenu.add_separator()
                         self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
                         self.ayudamenu.add_command(label=lang(326), command=self.devConsole, accelerator="F2")
-                        if ("-eclipse" in sys.argv): self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
-                                                                                accelerator="F12")
+                        if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
+                                                                              accelerator="F12")
                         self.menubar.add_cascade(label=lang(19), menu=self.ayudamenu)
                         self.vidaLabel.config(text=lang(22))
                         self.manaLabel.config(text=lang(23))
@@ -417,19 +480,19 @@ class hoa:  # Main class
                                 self.archivomenu.entryconfig(2, state=NORMAL)
                             else:
                                 self.archivomenu.entryconfig(2, state=DISABLED)
-                            self.archivomenu.entryconfig(3, state=NORMAL);
-                            self.vermenu.entryconfig(0, state=NORMAL);
+                            self.archivomenu.entryconfig(3, state=NORMAL)
+                            self.vermenu.entryconfig(0, state=NORMAL)
                             self.vermenu.entryconfig(1, state=NORMAL)
-                            self.vermenu.entryconfig(2, state=NORMAL);
-                            self.vermenu.entryconfig(3, state=NORMAL);
+                            self.vermenu.entryconfig(2, state=NORMAL)
+                            self.vermenu.entryconfig(3, state=NORMAL)
                             self.vermenu.entryconfig(4, state=NORMAL)
                         else:
                             self.archivomenu.entryconfig(2, state=DISABLED)
-                            self.archivomenu.entryconfig(3, state=DISABLED);
-                            self.vermenu.entryconfig(0, state=DISABLED);
+                            self.archivomenu.entryconfig(3, state=DISABLED)
+                            self.vermenu.entryconfig(0, state=DISABLED)
                             self.vermenu.entryconfig(1, state=DISABLED)
-                            self.vermenu.entryconfig(2, state=DISABLED);
-                            self.vermenu.entryconfig(3, state=DISABLED);
+                            self.vermenu.entryconfig(2, state=DISABLED)
+                            self.vermenu.entryconfig(3, state=DISABLED)
                             self.vermenu.entryconfig(4, state=DISABLED)
                         if CONFIGURATION_DATA[
                             8] not in AVAIABLE_LANGS_TOPRINT:  # Desactivar la función print si el idioma no es español o ingles
@@ -437,34 +500,42 @@ class hoa:  # Main class
                                                                                                                noStdOut(), noStdOut(), noStdOut()
                     else:
                         print lang(310)
-                    # Si ocurrió un cambio profundo
-                    # e = pop([[lang(220),lang(173)],self.images.image("configuration_icon"),"aviso",85,300,lang(221)])
-                    # e.w.mainloop(2); del e
+                        # Si ocurrió un cambio profundo
+                        # e = pop([[lang(220),lang(173)],self.images.image("configuration_icon"),"aviso",85,300,lang(221)])
+                        # e.w.mainloop(2); del e
                 del conf
 
-        def _consultArgument(argument, arguments):  # Función que consulta la existencia de un argumento
+        def _consultArgument(argument, arguments):
+            """
+            Función que consulta la existencia de un argumento
+            :param argument: Argumento
+            :param arguments: Lista de argumentos
+            :return: Booleano
+            """
             if len(arguments) == 0: return False
             for i in arguments:
                 if i[0] == argument:
                     if COLORED_ARGUMENT:
-                        print lang(286),; colorcmd(argument, "lgray");print ""
+                        print lang(286),
+                        colorcmd(argument, "lgray")
+                        print ""
                     else:
                         print argument + ",",
                     return True
             return False  # si no existe retorna falso
 
         def _infoSystem(e=None):  # Función que imprime la información de la memoria y las librerías cargadas
-            print "#";
-            print lang(288);
+            print "#"
+            print lang(288)
             print "#"
             all_objects = muppy.get_objects()
             libs = muppy.filter(all_objects, Type=types.ClassType)
             print lang(289)
             for i in libs: print "#\t" + str(i)
             sum1 = summary.summarize(all_objects)
-            print "#";
+            print "#"
             print lang(290)
-            summary.print_(sum1);
+            summary.print_(sum1)
             print "#"
 
         def _itemArmadura(tipo, typeClick, x=None):  # Función que maneja la armadura y los eventos
@@ -483,9 +554,9 @@ class hoa:  # Main class
                             if k.sent:  # Si se envía un evento
                                 action = k.values[0]
                                 if action == "drop":
-                                    self.player.dropCasco();
-                                    self.sfx(20);
-                                    self.setInfo(lang(40));
+                                    self.player.dropCasco()
+                                    self.sfx(20)
+                                    self.setInfo(lang(40))
                                     self.static.addDroppedArmor()
                                     self.infoArmaduraCasco.config(image=self.images.image("no_casco"), state=DISABLED,
                                                                   cursor="arrow")
@@ -501,7 +572,7 @@ class hoa:  # Main class
                                 bu = self.player.getActiveBullet().getUsos()  # se obtiene la cantidad de usos del armamento si es que tiene
                                 ba = self.player.getActiveBullet().getDamage()  # se obtiene el daño
                             else:
-                                bu = 0;
+                                bu = 0
                                 ba = 0
                             k = pop([[lang(35), lang(241), lang(242), lang(173), lang(248), lang(267), lang(266)], \
                                      DATA_ICONS_ITEMS + item.getImage() + "_16.ico", "itemInfoArmor", POP_XSIZE,
@@ -513,9 +584,9 @@ class hoa:  # Main class
                             if k.sent:  # Si se envía un evento
                                 action = k.values[0]
                                 if action == "drop":
-                                    self.player.dropLeftWeapon();
-                                    self.sfx(35);
-                                    self.setInfo(lang(41));
+                                    self.player.dropLeftWeapon()
+                                    self.sfx(35)
+                                    self.setInfo(lang(41))
                                     self.static.addDroppedWeapon()
                                     self.infoArmaduraArmaIzquierda.config(image=self.images.image("no_lw"),
                                                                           state=DISABLED, cursor="arrow")
@@ -536,9 +607,9 @@ class hoa:  # Main class
                             if k.sent:  # Si se envía un evento
                                 action = k.values[0]
                                 if action == "drop":
-                                    self.player.dropChaleco();
-                                    self.sfx(20);
-                                    self.setInfo(lang(42));
+                                    self.player.dropChaleco()
+                                    self.sfx(20)
+                                    self.setInfo(lang(42))
                                     self.static.addDroppedArmor()
                                     self.infoArmaduraChaleco.config(image=self.images.image("no_chaleco"),
                                                                     state=DISABLED, cursor="arrow")
@@ -559,9 +630,9 @@ class hoa:  # Main class
                             if k.sent:  # Si se envía un evento
                                 action = k.values[0]
                                 if action == "drop":
-                                    self.player.dropRightWeapon();
-                                    self.sfx(35);
-                                    self.setInfo(lang(43));
+                                    self.player.dropRightWeapon()
+                                    self.sfx(35)
+                                    self.setInfo(lang(43))
                                     self.static.addDroppedWeapon()
                                     self.infoArmaduraArmaDerecha.config(image=self.images.image("no_rw"),
                                                                         state=DISABLED, cursor="arrow")
@@ -580,9 +651,9 @@ class hoa:  # Main class
                             if k.sent:  # Si se envía un evento
                                 action = k.values[0]
                                 if action == "drop":
-                                    self.player.dropPantalones();
-                                    self.sfx(20);
-                                    self.setInfo(lang(44));
+                                    self.player.dropPantalones()
+                                    self.sfx(20)
+                                    self.setInfo(lang(44))
                                     self.static.addDroppedArmor()
                                     self.infoArmaduraPantalones.config(image=self.images.image("no_pantalon"),
                                                                        state=DISABLED, cursor="arrow")
@@ -600,9 +671,9 @@ class hoa:  # Main class
                             if k.sent:  # Si se envía un evento
                                 action = k.values[0]
                                 if action == "drop":
-                                    self.player.dropBotas();
-                                    self.sfx(20);
-                                    self.setInfo(lang(45));
+                                    self.player.dropBotas()
+                                    self.sfx(20)
+                                    self.setInfo(lang(45))
                                     self.static.addDroppedArmor()
                                     self.infoArmaduraBotas.config(image=self.images.image("no_botas"), state=DISABLED,
                                                                   cursor="arrow")
@@ -610,21 +681,21 @@ class hoa:  # Main class
             else:  # Click izquierdo, event:drop
                 if tipo == "casco":
                     if self.player.getCasco() is not None:
-                        self.player.addObject(self.player.getCasco());
+                        self.player.addObject(self.player.getCasco())
                         self.player.dropCasco()
                         self.infoArmaduraCasco.config(image=self.images.image("no_casco"), state=DISABLED,
                                                       cursor="arrow")
-                        self.sfx(20);
-                        self.setInfo(lang(40));
+                        self.sfx(20)
+                        self.setInfo(lang(40))
                         self.static.addDroppedArmor()
                 elif tipo == "izquierda":
                     if self.player.getLeftWeapon() is not None:
-                        self.player.addObject(self.player.getLeftWeapon());
+                        self.player.addObject(self.player.getLeftWeapon())
                         self.player.dropLeftWeapon()
-                        self.setInfo(lang(41));
+                        self.setInfo(lang(41))
                         self.static.addDroppedWeapon()
                         self.infoArmaduraArmaIzquierda.config(image=self.images.image("no_lw"), state=DISABLED,
-                                                              cursor="arrow");
+                                                              cursor="arrow")
                         self.sfx(35)
                         if self.player.getActiveBullet() is not None:  # Si el jugador tenia una bala definida para esa arma a botar
                             self.player.addObject(self.player.getActiveBullet())  # agrego como item a la bala
@@ -632,44 +703,51 @@ class hoa:  # Main class
                         self.dibujarMundo()
                 elif tipo == "chaleco":
                     if self.player.getChaleco() is not None:
-                        self.player.addObject(self.player.getChaleco());
+                        self.player.addObject(self.player.getChaleco())
                         self.player.dropChaleco()
-                        self.setInfo(lang(42));
-                        self.static.addDroppedArmor();
+                        self.setInfo(lang(42))
+                        self.static.addDroppedArmor()
                         self.sfx(20)
                         self.infoArmaduraChaleco.config(image=self.images.image("no_chaleco"), state=DISABLED,
                                                         cursor="arrow")
                 elif tipo == "derecha":
                     if self.player.getRightWeapon() is not None:
-                        self.player.addObject(self.player.getRightWeapon());
-                        self.player.dropRightWeapon();
+                        self.player.addObject(self.player.getRightWeapon())
+                        self.player.dropRightWeapon()
                         self.setInfo(lang(43))
                         self.infoArmaduraArmaDerecha.config(image=self.images.image("no_rw"), state=DISABLED,
                                                             cursor="arrow")
-                        self.sfx(35);
-                        self.static.addDroppedWeapon();
+                        self.sfx(35)
+                        self.static.addDroppedWeapon()
                         self.dibujarMundo()
                 elif tipo == "pantalones":
                     if self.player.getPantalones() is not None:
-                        self.player.addObject(self.player.getPantalones());
-                        self.player.dropPantalones();
+                        self.player.addObject(self.player.getPantalones())
+                        self.player.dropPantalones()
                         self.setInfo(lang(44))
-                        self.static.addDroppedArmor();
+                        self.static.addDroppedArmor()
                         self.sfx(20)
                         self.infoArmaduraPantalones.config(image=self.images.image("no_pantalon"), state=DISABLED,
                                                            cursor="arrow")
                 elif tipo == "botas":
                     if self.player.getBotas() is not None:
-                        self.player.addObject(self.player.getBotas());
-                        self.player.dropBotas();
+                        self.player.addObject(self.player.getBotas())
+                        self.player.dropBotas()
                         self.setInfo(lang(45))
-                        self.static.addDroppedArmor();
+                        self.static.addDroppedArmor()
                         self.sfx(20)
                         self.infoArmaduraBotas.config(image=self.images.image("no_botas"), state=DISABLED,
                                                       cursor="arrow")
             self.dibujarItems()
 
-        def _itemMenu(i, typeClick, e=None):  # Función que maneja los eventos de los items del jugador
+        def _itemMenu(i, typeClick, e=None):
+            """
+            Función que maneja los eventos de los items del jugador
+            :param i: Indice del item
+            :param typeClick: Tipo de click (izquierdo, derecho)
+            :param e: Evento
+            :return: void
+            """
             # Si se hace click el primer recuadro y está en una pagina diferente a la primera se cambia de ventana
             if i == 0 and self.itemnumberlist >= 20:
                 self.moverListaItems("left")
@@ -685,79 +763,79 @@ class hoa:  # Main class
                         if typeItem == "armor/casco":  # Casco
                             self.player.dropObject(i)  # se bota el item clickeado
                             if self.player.getCasco() is not None:  # Si el player tiene un casco
-                                self.player.addObject(self.player.getCasco());
-                                self.player.dropCasco();
+                                self.player.addObject(self.player.getCasco())
+                                self.player.dropCasco()
                                 self.static.addDroppedArmor()
-                            self.player.addCasco(item);
-                            self.dibujarArmor();
-                            self.sfx(23);
+                            self.player.addCasco(item)
+                            self.dibujarArmor()
+                            self.sfx(23)
                             self.setInfo(lang(31))
                             self.textMsg(lang(choice([491, 492, 493, 494, 495])))
                         elif typeItem == "armor/botas":  # Botas
                             self.player.dropObject(i)
                             if self.player.getBotas() is not None:  # Si el player tiene botas
-                                self.player.addObject(self.player.getBotas());
-                                self.player.dropBotas();
+                                self.player.addObject(self.player.getBotas())
+                                self.player.dropBotas()
                                 self.static.addDroppedArmor()
-                            self.player.addBotas(item);
-                            self.dibujarArmor();
-                            self.sfx(23);
+                            self.player.addBotas(item)
+                            self.dibujarArmor()
+                            self.sfx(23)
                             self.setInfo(lang(28))
                             self.textMsg(lang(choice([484, 485, 486, 487, 488, 489, 490, 495])))
                         elif typeItem == "armor/chaleco":  # Chaleco
                             self.player.dropObject(i)
                             if self.player.getChaleco() is not None:  # Si el player tiene botas
-                                self.player.addObject(self.player.dropChaleco());
-                                self.player.dropObject();
+                                self.player.addObject(self.player.dropChaleco())
+                                self.player.dropObject()
                                 self.static.addDroppedArmor()
-                            self.player.addChaleco(item);
-                            self.dibujarArmor();
-                            self.sfx(23);
+                            self.player.addChaleco(item)
+                            self.dibujarArmor()
+                            self.sfx(23)
                             self.setInfo(lang(29))
                             self.textMsg(lang(choice([495, 496, 497, 498, 499, 500])))
                         elif typeItem == "armor/pantalones":  # Pantalones
                             self.player.dropObject(i)
                             if self.player.getPantalones() is not None:  # Si el player tiene pantalones
-                                self.player.addObject(self.player.getPantalones());
-                                self.player.dropPantalones();
+                                self.player.addObject(self.player.getPantalones())
+                                self.player.dropPantalones()
                                 self.static.addDroppedArmor()
-                            self.player.addPantalones(item);
-                            self.dibujarArmor();
-                            self.sfx(23);
+                            self.player.addPantalones(item)
+                            self.dibujarArmor()
+                            self.sfx(23)
                             self.setInfo(lang(30))
                             self.textMsg(lang(choice([495, 501, 502, 503, 504, 505])))
                         elif typeItem == "potion/apple":  # Manzana
-                            self.player.upgradeLife();
-                            self.player.upgradeMana();
-                            self.player.dropObject(i);
+                            self.player.upgradeLife()
+                            self.player.upgradeMana()
+                            self.player.dropObject(i)
                             self.playerText("+", "verde")
-                            self.sfx(25);
-                            self.setInfo(lang(91));
-                            self.updateInfoPlayer();
+                            self.sfx(25)
+                            self.setInfo(lang(91))
+                            self.updateInfoPlayer()
                             self.static.addPociones()
                             self.textMsg(lang(choice([506, 507, 508, 509, 510, 511])))
                         elif typeItem == "coin":  # Fichas / Monedas / Dinero
-                            self.setInfo(lang(27, str(item.getUsos()), str(item.getName())));
+                            self.setInfo(lang(27, str(item.getUsos()), str(item.getName())))
                             self.sfx(5)
                             self.textMsg(lang(choice([512, 513, 514, 515, 516, 517, 518, 519, 520])))
                         elif typeItem == "mana/normal":  # Mana
-                            self.player.increaseMana(item.getPDV());
+                            self.player.increaseMana(item.getPDV())
                             self.setInfo(lang(104, str(item.getPDV())))
-                            self.playerText("+" + str(item.getPDV()), "azul");
-                            self.updateInfoPlayer();
+                            self.playerText("+" + str(item.getPDV()), "azul")
+                            self.updateInfoPlayer()
                             self.sfx(16)
-                            item.usar();
+                            item.usar()
                             self.static.addPociones()
                             if item.estaDestruido(): self.player.dropObject(i)
                             self.textMsg(lang(choice([521, 522, 523, 524, 525, 526, 527])))
                         elif typeItem == "object/holy":  # Biblia
-                            self.player.upgradeMana();
-                            self.setInfo(lang(102));
-                            self.playerText("+", "azul");
+                            self.player.upgradeMana()
+                            self.setInfo(lang(102))
+                            self.playerText("+", "azul")
                             self.sfx(27)
                             self.player.dropObject(i)
                         elif typeItem == "potion/normal" or typeItem == "potion/food":  # Pociones
-                            self.player.curar(item.getPDV());
+                            self.player.curar(item.getPDV())
                             self.setInfo(lang(101, str(item.getPDV())))
                             self.playerText("+" + str(item.getPDV()), "verde")
                             self.updateInfoPlayer()
@@ -781,12 +859,12 @@ class hoa:  # Main class
                         elif typeItem == "weapon/left":  # Armas segundarias (arcos, flechas)
                             self.player.dropObject(i)
                             if self.player.getLeftWeapon() is not None:  # Si el jugador tiene un arma izquierda definida
-                                self.player.addObject(self.player.getLeftWeapon());
-                                self.player.dropLeftWeapon();
+                                self.player.addObject(self.player.getLeftWeapon())
+                                self.player.dropLeftWeapon()
                                 self.static.addDroppedWeapon()
-                            self.player.setLeftWeapon(item);
-                            self.dibujarArmor();
-                            self.dibujarMundo();
+                            self.player.setLeftWeapon(item)
+                            self.dibujarArmor()
+                            self.dibujarMundo()
                             self.sfxSpecial(24, 1)
                             self.setInfo(lang(26, str(item.getName())))
                             if self.player.getActiveBullet() is not None:  # Si el jugador tenia un bullet definido para el arma
@@ -798,12 +876,12 @@ class hoa:  # Main class
                         elif typeItem == "weapon/right":  # Arma derecha
                             self.player.dropObject(i)
                             if self.player.getRightWeapon() is not None:  # Si el jugador tiene un arma derecha
-                                self.player.addObject(self.player.getRightWeapon());
-                                self.player.dropRightWeapon();
+                                self.player.addObject(self.player.getRightWeapon())
+                                self.player.dropRightWeapon()
                                 self.static.addDroppedWeapon()
-                            self.player.setRightWeapon(item);
-                            self.dibujarArmor();
-                            self.dibujarMundo();
+                            self.player.setRightWeapon(item)
+                            self.dibujarArmor()
+                            self.dibujarMundo()
                             self.sfxSpecial(34, 1)
                             self.setInfo(lang(32, str(item.getName())))
                             self.textMsg(lang(choice([537, 538, 539, 540, 541])))
@@ -881,13 +959,13 @@ class hoa:  # Main class
                                 if k.sent:  # Si se envía un evento
                                     action = k.values[0]
                                     if action == "drop":
-                                        self.player.dropObject(i);
-                                        self.sfx(35);
-                                        self.setInfo(lang(103, str(item.getName())));
+                                        self.player.dropObject(i)
+                                        self.sfx(35)
+                                        self.setInfo(lang(103, str(item.getName())))
                                         self.static.addDroppedItem()
                                         if item.getType() == "weapon/left":  # Si el objeto a botar era un arma izquierda
                                             if self.player.getActiveBullet() is not None:  # Si el jugador tenia una bala definida para esa arma a botar
-                                                self.player.addObject(self.player.getActiveBullet());
+                                                self.player.addObject(self.player.getActiveBullet())
                                                 self.player.delActiveBullet()
                                     elif action == "left":
                                         if i > 0: self.player.setItem(i,
@@ -910,8 +988,22 @@ class hoa:  # Main class
                                 print lang(354)
                     self.dibujarItems()  # se actualizan los items gráficos
 
-        def _itemPower(i, typeClick, x=None):  # Función que maneja los eventos de los poderes del jugador
-            def _setActivePowerId(name, i):  # Función que establece un id para los poderes del jugador
+        def _itemPower(i, typeClick, x=None):
+            """
+            Función que maneja los eventos de los poderes del jugador
+            :param i: Indice del item
+            :param typeClick: Tipo de click
+            :param x: Evento
+            :return: void
+            """
+
+            def _setActivePowerId(name, i):
+                """
+                Función que establece un id para los poderes del jugador
+                :param name: String
+                :param i: Index
+                :return: void
+                """
                 if name == self.activePowers[0]:
                     try:
                         self.activePowers[1][i] = 1
@@ -920,7 +1012,13 @@ class hoa:  # Main class
                 else:
                     print lang(392)
 
-            def _delActivePowerId(name, i):  # Función que elimina un id
+            def _delActivePowerId(name, i):
+                """
+                Función que elimina un id
+                :param name: String
+                :param i: Index
+                :return: void
+                """
                 if name == self.activePowers[0]:
                     try:
                         self.activePowers[1][i] = 0
@@ -940,26 +1038,26 @@ class hoa:  # Main class
                             mana_requerido = int(
                                 self.player.getMaxMana() * poder.getReqMana() / 100.0)  # se obtiene el mana necesario
                             if mana_requerido <= self.player.getMana():  # Si posee el mana necesario
-                                self.player.decreaseMana(mana_requerido);
-                                self.updateInfoPlayer();
-                                self.player.dropPower(i);
+                                self.player.decreaseMana(mana_requerido)
+                                self.updateInfoPlayer()
+                                self.player.dropPower(i)
                                 self.dibujarPowers()
                                 if poder_id == 0:  # Escape rápido
-                                    self.enemy = None;
+                                    self.enemy = None
                                     self.enemyId = 0
                                     if self.inBattle:
                                         self.textMsg(lang(choice([549, 550, 551, 552, 553, 554])))
                                     else:
                                         self.textMsg(lang(choice([555, 556, 557, 558])))
-                                    self.inBattle = False;
+                                    self.inBattle = False
                                     self.inNpc = False
                                     _setActivePowerId(self.player.getName(), 0)
                                     self.root.after(self.dificultad[5],
                                                     lambda: _delActivePowerId(self.player.getName(), 0))
                                     self.setInfo(lang(559))
                             else:  # Si no tiene el mana necesario
-                                self.textMsg(lang(448));
-                                self.setInfo(lang(449, str(abs(self.player.getMana() - mana_requerido))));
+                                self.textMsg(lang(448))
+                                self.setInfo(lang(449, str(abs(self.player.getMana() - mana_requerido))))
                                 self.setInfo(lang(450))
                         else:  # Click izquierdo
                             if CONFIGURATION_DATA[16]:  # Si está activa la opción
@@ -970,7 +1068,12 @@ class hoa:  # Main class
                                          toHour(str(float(poder.getTime() * (1 - self.dificultad[6]))))])
                                 del k
 
-        def _item_mousewheel(event):  # Función que atrapa el evento del scrolling y mueve los comandos
+        def _item_mousewheel(event):
+            """
+            Función que atrapa el evento del scrolling y mueve los comandos
+            :param event: Evento
+            :return: void
+            """
             if self.ingame:
                 if 0 <= event.x < 190 and 400 <= event.y < 575:
                     if -1 * (event.delta / 100) < 0:
@@ -979,36 +1082,79 @@ class hoa:  # Main class
                         move = 2
                     self.infoSlider.canv.yview_scroll(move, "units")
 
-        def _movebottom(event):  # Función que mueve los comandos hasta el final
+        def _movebottom(event):
+            """
+            Función que mueve los comandos hasta el final
+            :param event: Evento
+            :return: void
+            """
             if self.ingame: self.infoSlider.canv.yview_scroll(1000, "units")
 
-        def _moveLineDown(event):  # Función que mueve los comandos en una linea
+        def _moveLineDown(event):
+            """
+            Función que mueve los comandos en una linea
+            :param event: Evento
+            :return: void
+            """
             if self.ingame: self.infoSlider.canv.yview_scroll(1, "units")
 
-        def _moveLineUp(event):  # Función que mueve los comandos en una linea
+        def _moveLineUp(event):
+            """
+            Función que mueve los comandos en una linea
+            :param event: Evento
+            :return: void
+            """
             if self.ingame: self.infoSlider.canv.yview_scroll(-1, "units")
 
-        def _movetop(event):  # Función que mueve los comandos hasta el principio
+        def _movetop(event):
+            """
+            Función que mueve los comandos hasta el principio
+            :param event: Evento
+            :return: void
+            """
             if self.ingame: self.infoSlider.canv.yview_scroll(-1000, "units")
 
-        def _licence(e=None):  # Función que muestra la licencia del programa
+        def _licence(e=None):
+            """
+            Función que muestra la licencia del programa
+            :param e: Evento
+            :return: void
+            """
             e = pop([lang(99), self.images.image("text_icon"), "license", 400, 600, "LICENSE"])
-            e.w.mainloop(1);
+            e.w.mainloop(1)
             del e
 
-        def _saveshorcut(event):  # Función que asigna un evento de teclado
+        def _saveshorcut(event):
+            """
+            Función que guarda el estado del juego mediante atajo de teclado
+            :param event: Evento
+            :return: void
+            """
             self.saveGame("shorcut")
 
-        def _showMap(e=None):  # Función que muestra el mapa del mundo
+        # TODO: Mapas
+        def _showMap(e=None):
+            """
+            Función que muestra el mapa del mundo
+            :param e:
+            :return:
+            """
             if self.ingame:  # Si se encuentra en una partida
-                print "mostrar mapa"
+                pass
 
-        def _showPlayerInfo(e=None):  # Función que muestra la información del jugador
+        def _showPlayerInfo(e=None):
+            """
+            Función que muestra la información del jugador
+            :param e: Evento
+            :return: void
+            """
             if self.ingame:  # Si se encuentra en una partida
                 if isWindows():
-                    _sizex = 400; _sizey = 230
+                    _sizex = 400
+                    _sizey = 230
                 else:
-                    _sizex = 430; _sizey = 240
+                    _sizex = 430
+                    _sizey = 240
                 e = pop([[lang(323), lang(245).replace(":", ""), lang(228), lang(173), lang(22).replace(":", ""),
                           lang(23).replace(":", ""), \
                           lang(24).replace(":", ""), lang(601), lang(227), lang(381).replace(":", ""), lang(602)], \
@@ -1019,10 +1165,15 @@ class hoa:  # Main class
                          self.player.getExperience(), self.player.getPrevExp(), self.player.getMaxExperience(), \
                          Image.open(self.images.getLinkImage(self.player.getLinkImage() + "_0")), self.player.getPais(),
                          self.player.getLevel()])
-                e.w.mainloop(1);
+                e.w.mainloop(1)
                 del e
 
-        def _showStatics(e=None):  # Muestra las estadísticas del jugador
+        def _showStatics(e=None):
+            """
+            Muestra las estadísticas del jugador
+            :param e: Evento
+            :return: void
+            """
             if self.ingame:  # Si se encuentra en una partida
                 if isWindows():
                     _sizey = 490
@@ -1033,15 +1184,22 @@ class hoa:  # Main class
                                 lang(211), lang(444), lang(445), lang(446), lang(591), lang(722)],
                                self.images.image("statics"), \
                                "statics", _sizey, 280, self.static.get()])
-                statics.w.mainloop(1);
+                statics.w.mainloop(1)
                 del statics
 
-        def _verFollowers(e=None):  # Función que muestra a los seguidores del jugador
+        def _verFollowers(e=None):
+            """
+            Función que muestra a los seguidores del jugador
+            :param e: Evento
+            :return: void
+            """
             if self.ingame:  # Si se encuentra en una partida
                 if isWindows():
-                    _sizex = 450; _sizey = 120
+                    _sizex = 450
+                    _sizey = 120
                 else:
-                    _sizex = 500; _sizey = 120
+                    _sizex = 500
+                    _sizey = 120
                 p = pop([[lang(701), lang(702), lang(703), lang(706), lang(707), lang(708), lang(709), lang(710), \
                           lang(704), lang(711), lang(705), lang(712)], self.images.image("group"), "ver_followers",
                          _sizey, _sizex, \
@@ -1051,7 +1209,13 @@ class hoa:  # Main class
                 p.w.mainloop(1)
                 del p
 
-        def _verQuest(e=None):  # Función que muestra las tareas del jugador (quest)
+        # TODO: Quest fix
+        def _verQuest(e=None):
+            """
+            Función que muestra las tareas del jugador (quest)
+            :param e: Evento
+            :return: void
+            """
             if self.ingame:  # Si se encuentra en una partida
                 if isWindows():
                     _sizex = 450
@@ -1065,7 +1229,7 @@ class hoa:  # Main class
                 del p
 
         # Se define una variable para almacenar el numero total de errores y advertencias
-        totalwarnings = 0;
+        totalwarnings = 0
         totalerrors = 0
 
         # Se cargan los argumentos
@@ -1088,7 +1252,7 @@ class hoa:  # Main class
             argfile.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
             argfile.write("#ARGUMENTS\n")
             argfile.close()
-            print lang(310);
+            print lang(310)
             totalwarnings += 1
         arguments.append(ENDING_ARGUMENT)  # agrego final a la matriz de argumentos
         arg = []  # matriz de argumentos
@@ -1102,9 +1266,9 @@ class hoa:  # Main class
                         if k != len(arguments): k += 2
                     else:
                         arg_p.append("")
-                    arg.append(arg_p);
+                    arg.append(arg_p)
                     arg_p = []
-            del (arguments)
+            del arguments
 
         # Se crea la ventana
         self.root = Tk()
@@ -1179,7 +1343,7 @@ class hoa:  # Main class
         self.programTitle = PROGRAM_TITLE  # titulo del programa
         self.static = statics.Statics()  # estadíssticas
         self.tipoCombate = "NO_FIGHT"  # indica el modo de combate
-        print lang(309), ;
+        print lang(309),
 
         # Instancio los sonidos
         try:
@@ -1188,11 +1352,11 @@ class hoa:  # Main class
             self.snd = tkSnack.Sound()  # sonido inmediato
             self.sndBg = tkSnack.Sound()  # sonido de fondo
             self.sndFx = tkSnack.Sound()  # sonido de efecto
-            self.sfx(0);
+            self.sfx(0)
             print lang(310)  # cargo el sonido de introducción
         except:  # Ocurrió un error al cargar la libreria de datos de tcl, se menciona y se deshabilitan los sonidos
             CONFIGURATION_DATA[1] = False
-            print lang(756);
+            print lang(756)
             print lang(794)
             self.snd = None
             self.sndBg = None
@@ -1200,11 +1364,14 @@ class hoa:  # Main class
             totalwarnings += 1
 
         # Instancio las texturas
-        print lang(311), ;
+        print lang(311),
         if True:
-            self.images = hoaTextures([lang(394), lang(310)]); print lang(310)  # Cargo las texturas
+            self.images = hoaTextures([lang(394), lang(310)])
+            print lang(310)  # Cargo las texturas
         else:
-            print lang(398); print lang(330); exit()
+            print lang(398)
+            print lang(330)
+            exit()
 
         # Genero la interfaz gráfica
         print lang(312),
@@ -1220,7 +1387,7 @@ class hoa:  # Main class
             self.archivomenu.add_separator()
             self.archivomenu.add_command(label=lang(17), command=_configure, accelerator="Ctrl+C")
             self.archivomenu.add_command(label=lang(15), command=self.salir, accelerator="Ctrl + S")
-            self.archivomenu.entryconfig(2, state=DISABLED);
+            self.archivomenu.entryconfig(2, state=DISABLED)
             self.archivomenu.entryconfig(3, state=DISABLED)
             self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
             self.vermenu = Menu(self.menubar, tearoff=0)
@@ -1229,8 +1396,8 @@ class hoa:  # Main class
             self.vermenu.add_command(label=lang(14), command=_showStatics, accelerator="Ctrl+E")
             self.vermenu.add_command(label=lang(587), command=_verQuest, accelerator="T")
             self.vermenu.add_command(label=lang(322), command=_showMap, accelerator="M")
-            self.vermenu.entryconfig(0, state=DISABLED);
-            self.vermenu.entryconfig(1, state=DISABLED);
+            self.vermenu.entryconfig(0, state=DISABLED)
+            self.vermenu.entryconfig(1, state=DISABLED)
             self.vermenu.entryconfig(2, state=DISABLED)
             self.vermenu.entryconfig(3, state=DISABLED), self.vermenu.entryconfig(4, state=DISABLED)
             self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
@@ -1252,7 +1419,7 @@ class hoa:  # Main class
             self.archivomenu.add_separator()
             self.archivomenu.add_command(label=lang(17), command=_configure)
             self.archivomenu.add_command(label=lang(15), command=self.salir)
-            self.archivomenu.entryconfig(2, state=DISABLED);
+            self.archivomenu.entryconfig(2, state=DISABLED)
             self.archivomenu.entryconfig(3, state=DISABLED)
             self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
             self.vermenu = Menu(self.menubar, tearoff=0)
@@ -1261,8 +1428,8 @@ class hoa:  # Main class
             self.vermenu.add_command(label=lang(14), command=_showStatics)
             self.vermenu.add_command(label=lang(587), command=_verQuest)
             self.vermenu.add_command(label=lang(322), command=_showMap)
-            self.vermenu.entryconfig(0, state=DISABLED);
-            self.vermenu.entryconfig(1, state=DISABLED);
+            self.vermenu.entryconfig(0, state=DISABLED)
+            self.vermenu.entryconfig(1, state=DISABLED)
             self.vermenu.entryconfig(2, state=DISABLED)
             self.vermenu.entryconfig(3, state=DISABLED), self.vermenu.entryconfig(4, state=DISABLED)
             self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
@@ -1275,111 +1442,118 @@ class hoa:  # Main class
             self.ayudamenu.add_command(label=lang(326), command=self.devConsole)
         if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem, accelerator="F12")
         self.menubar.add_cascade(label=lang(19), menu=self.ayudamenu)
-        f = Frame(self.root);
+        f = Frame(self.root)
         f.pack()
         self.initialBg = Canvas(f, width=PROGRAM_SIZE[0] + 105, height=PROGRAM_SIZE[1] + 100, bd=-2,
-                                highlightthickness=0);
+                                highlightthickness=0)
         self.initialBg.pack()
-        self.initialBg.create_image(404, 295, image=self.images.image("background"));
+        self.initialBg.create_image(404, 295, image=self.images.image("background"))
         self.initialBg.update()
-        self.content = Frame(f);
-        self.menu = Frame(f);
+        self.content = Frame(f)
+        self.menu = Frame(f)
         self.menu2 = Frame(f)
-        menu19 = Frame(self.menu);
-        menu19.pack(pady=1, fill=X);
-        menu2 = Frame(menu19);
+        menu19 = Frame(self.menu)
+        menu19.pack(pady=1, fill=X)
+        menu2 = Frame(menu19)
         menu2.pack(fill=X)
-        self.vidaLabel = Label(menu2, text=lang(22), width=5, anchor=E);
+        self.vidaLabel = Label(menu2, text=lang(22), width=5, anchor=E)
         self.vidaLabel.pack(side=LEFT)
-        self.infoVidaCanv = Canvas(menu2, width=100, height=16, bg="#B30000", highlightthickness=0);
+        self.infoVidaCanv = Canvas(menu2, width=100, height=16, bg="#B30000", highlightthickness=0)
         self.infoVidaCanv.pack(side=LEFT)  # barra de vida
         if isWindows():
-            self.infoVida = Label(menu2, width=6, anchor=E); self.infoVida.pack()
+            self.infoVida = Label(menu2, width=6, anchor=E)
+            self.infoVida.pack()
         else:
-            self.infoVida = Label(menu2, width=9, anchor=W); self.infoVida.pack(padx=1)
-        menu7 = Frame(menu19);
+            self.infoVida = Label(menu2, width=9, anchor=W)
+            self.infoVida.pack(padx=1)
+        menu7 = Frame(menu19)
         menu7.pack(fill=X)
-        self.manaLabel = Label(menu7, text=lang(23), width=5, anchor=E);
+        self.manaLabel = Label(menu7, text=lang(23), width=5, anchor=E)
         self.manaLabel.pack(side=LEFT)
-        self.infoManaCanv = Canvas(menu7, width=100, height=16, bg="#97991E", highlightthickness=0);
+        self.infoManaCanv = Canvas(menu7, width=100, height=16, bg="#97991E", highlightthickness=0)
         self.infoManaCanv.pack(side=LEFT)  # barra de mana
         if isWindows():
-            self.infoMana = Label(menu7, width=6, anchor=E); self.infoMana.pack()
+            self.infoMana = Label(menu7, width=6, anchor=E)
+            self.infoMana.pack()
         else:
-            self.infoMana = Label(menu7, width=9, anchor=W); self.infoMana.pack(padx=1)
-        menu13 = Frame(menu19);
+            self.infoMana = Label(menu7, width=9, anchor=W)
+            self.infoMana.pack(padx=1)
+        menu13 = Frame(menu19)
         menu13.pack(fill=X)
-        self.experienciaLabel = Label(menu13, text=lang(24), width=5, anchor=E);
+        self.experienciaLabel = Label(menu13, text=lang(24), width=5, anchor=E)
         self.experienciaLabel.pack(side=LEFT)
-        self.infoExpCanv = Canvas(menu13, width=100, height=16, highlightthickness=0);
+        self.infoExpCanv = Canvas(menu13, width=100, height=16, highlightthickness=0)
         self.infoExpCanv.pack(side=LEFT)  # barra de experiencia
         if isWindows():
-            self.infoExp = Label(menu13, width=6, anchor=E); self.infoExp.pack()
+            self.infoExp = Label(menu13, width=6, anchor=E)
+            self.infoExp.pack()
         else:
-            self.infoExp = Label(menu13, width=9, anchor=W); self.infoExp.pack(padx=1)
-        menu5 = Frame(self.menu);
-        menu5.pack(pady=10);
-        a_1 = Frame(menu5);
+            self.infoExp = Label(menu13, width=9, anchor=W)
+            self.infoExp.pack(padx=1)
+        menu5 = Frame(self.menu)
+        menu5.pack(pady=10)
+        a_1 = Frame(menu5)
         a_1.pack(fill=X)
-        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED, image=self.images.image("no_casco"));
+        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED, image=self.images.image("no_casco"))
         self.infoArmaduraCasco.pack()
-        a_2 = Frame(menu5);
+        a_2 = Frame(menu5)
         a_2.pack()
-        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_lw"));
+        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_lw"))
         self.infoArmaduraArmaIzquierda.pack(side=LEFT)
-        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_chaleco"));
+        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_chaleco"))
         self.infoArmaduraChaleco.pack(side=LEFT)
-        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_rw"));
+        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_rw"))
         self.infoArmaduraArmaDerecha.pack()
-        a_3 = Frame(menu5);
+        a_3 = Frame(menu5)
         a_3.pack()
         self.infoArmaduraPantalones = Button(a_3, relief=GROOVE, state=DISABLED,
-                                             image=self.images.image("no_pantalon"));
+                                             image=self.images.image("no_pantalon"))
         self.infoArmaduraPantalones.pack()
-        a_4 = Frame(menu5);
+        a_4 = Frame(menu5)
         a_4.pack()
-        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED, image=self.images.image("no_botas"));
+        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED, image=self.images.image("no_botas"))
         self.infoArmaduraBotas.pack()
         if isWindows():
             for i in range(3): Button(self.menu, text="", state=DISABLED, border=0).pack()
-            self.poderFrame = LabelFrame(self.menu, text=" " + lang(314), border=0);
+            self.poderFrame = LabelFrame(self.menu, text=" " + lang(314), border=0)
             self.poderFrame.pack(pady=2, padx=1)  # poderes
         else:
-            self.poderFrame = LabelFrame(self.menu, text=" " + lang(314), border=0); self.poderFrame.pack(pady=0,
-                                                                                                          padx=1)  # poderes
-        z = Frame(self.poderFrame);
+            self.poderFrame = LabelFrame(self.menu, text=" " + lang(314), border=0)
+            self.poderFrame.pack(pady=0, padx=1)  # poderes
+        z = Frame(self.poderFrame)
         z.pack()
         for i in range(1, 8):
-            cmd1 = partial(_itemPower, i, 0);
+            cmd1 = partial(_itemPower, i, 0)
             cmd2 = partial(_itemPower, i, 1)
             bt = Button(z, image=self.images.image("vacio_16"), relief=GROOVE, border=1, state=DISABLED)
-            bt.bind('<Button-1>', cmd1);
+            bt.bind('<Button-1>', cmd1)
             bt.bind(_SECOND_BUTTON, cmd2)
             if i < 8:
                 bt.pack(side=LEFT, padx=3, pady=3)
             else:
                 bt.pack()
             self.botonesPoderes.append(bt)
-        self.itemFrame = LabelFrame(self.menu, text=lang(25));
-        self.itemFrame.pack();
+        self.itemFrame = LabelFrame(self.menu, text=lang(25))
+        self.itemFrame.pack()
         j = 0
         for i in range(3):  # botones para items
-            l = Frame(self.itemFrame);
+            l = Frame(self.itemFrame)
             l.pack()
+            # noinspection PyAssignmentToLoopOrWithParameter
             for i in range(7):
-                cmd1 = partial(_itemMenu, j, 0);
+                cmd1 = partial(_itemMenu, j, 0)
                 cmd2 = partial(_itemMenu, j, 1)
                 bt = Button(l, image=self.images.image("vacio_16"), relief=FLAT, border=4, state=DISABLED)
-                bt.bind('<Button-1>', cmd1);
+                bt.bind('<Button-1>', cmd1)
                 bt.bind(_SECOND_BUTTON, cmd2)
                 if i < 7:
                     bt.pack(side=LEFT)
                 else:
                     bt.pack()
-                self.botonesItems.append(bt);
+                self.botonesItems.append(bt)
                 j += 1
-        self.infoSlider = VerticalScrolledFrame(self.menu);
-        self.infoSlider.canv.config(bg="#000000");
+        self.infoSlider = VerticalScrolledFrame(self.menu)
+        self.infoSlider.canv.config(bg="#000000")
         self.infoSlider.pack(pady=2, anchor=NE, fill=BOTH, padx=1)
         if isWindows():
             self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=175, anchor=NW,
@@ -1391,39 +1565,39 @@ class hoa:  # Main class
                               fg=CONFIGURATION_DATA[4], font=self.fonts[5], relief=FLAT, border=2, cursor="xterm")
         self.info.pack(anchor=NW, fill=BOTH)
         self.infoSlider.scroller.pack_forget()
-        menu7 = Frame(self.menu);
+        menu7 = Frame(self.menu)
         menu7.pack()
-        self.world = Canvas(self.content, width=CANVAS_SIZE[0], height=CANVAS_SIZE[1]);
+        self.world = Canvas(self.content, width=CANVAS_SIZE[0], height=CANVAS_SIZE[1])
         self.world.pack(fill=X)  # canvas del mundo
         print lang(310)
 
         # Establezco los eventos del programa
         try:
-            print lang(691), ;
+            print lang(691),
             if isWindows():  # Eventos exclusivos de Windows
-                self.root.bind("<Control-A>", _ayuda);
+                self.root.bind("<Control-A>", _ayuda)
                 self.root.bind("<Control-a>", _ayuda)
-                self.root.bind("<Control-C>", _configure);
+                self.root.bind("<Control-C>", _configure)
                 self.root.bind("<Control-c>", _configure)
-                self.root.bind("<Control-E>", _showStatics);
+                self.root.bind("<Control-E>", _showStatics)
                 self.root.bind("<Control-e>", _showStatics)
-                self.root.bind("<Control-T>", self.devConsole);
+                self.root.bind("<Control-T>", self.devConsole)
                 self.root.bind("<Control-t>", self.devConsole)
-                self.root.bind("<Control-N>", self.newGame);
+                self.root.bind("<Control-N>", self.newGame)
                 self.root.bind("<Control-n>", self.newGame)
                 self.root.bind("<F1>", _ayuda)
                 self.root.bind("<F2>", lambda event: self.devConsole())
                 self.root.bind("<F5>", self.update)
                 if "-eclipse" in sys.argv: self.root.bind("<F12>", _infoSystem)
-                self.root.bind("<I>", _showPlayerInfo);
+                self.root.bind("<I>", _showPlayerInfo)
                 self.root.bind("<i>", _showPlayerInfo)
-                self.root.bind("<M>", _showMap);
+                self.root.bind("<M>", _showMap)
                 self.root.bind("<m>", _showMap)
-                self.root.bind("<T>", _verQuest);
+                self.root.bind("<T>", _verQuest)
                 self.root.bind("<t>", _verQuest)
-                self.root.bind("<U>", _verFollowers);
+                self.root.bind("<U>", _verFollowers)
                 self.root.bind("<u>", _verFollowers)
-                self.root.bind("<Control-S>", self.salir);
+                self.root.bind("<Control-S>", self.salir)
                 self.root.bind("<Control-s>", self.salir)
                 self.root.bind("<Control-Down>", _moveLineDown)
                 self.root.bind("<Control-Up>", _moveLineUp)
@@ -1435,89 +1609,90 @@ class hoa:  # Main class
                 self.root.bind("<Shift-Up>", _moveLineUp)
             self.root.bind("<F3>", _movebottom)
             self.root.bind("<F4>", _movetop)
-            self.root.bind("<Control-G>", _saveshorcut);
+            self.root.bind("<Control-G>", _saveshorcut)
             self.root.bind("<Control-g>", _saveshorcut)
-            self.root.bind("<Control-L>", self.loadGame);
+            self.root.bind("<Control-L>", self.loadGame)
             self.root.bind("<Control-l>", self.loadGame)
             self.root.protocol("WM_DELETE_WINDOW", self.salir)  # evento de salida
             self.world.bind("<ButtonRelease-1>", self.combateGrupal)
             # Eventos combinados
-            cmd = partial(self.combateGrupal, "click-izquierdo");
+            cmd = partial(self.combateGrupal, "click-izquierdo")
             self.world.bind("<ButtonRelease-1>", cmd)
-            cmd = partial(self.combateGrupal, "click-derecho");
+            cmd = partial(self.combateGrupal, "click-derecho")
             self.world.bind("<ButtonRelease-3>", cmd)
-            cmd = partial(self.combateGrupal, "pass");
+            cmd = partial(self.combateGrupal, "pass")
             self.root.bind("<Escape>", cmd)
-            cmd = partial(self.movePlayer, "up");
-            self.root.bind("<Up>", cmd);
-            self.root.bind("<w>", cmd);
+            cmd = partial(self.movePlayer, "up")
+            self.root.bind("<Up>", cmd)
+            self.root.bind("<w>", cmd)
             self.root.bind("<W>", cmd)
-            cmd = partial(self.movePlayer, "down");
-            self.root.bind("<Down>", cmd);
-            self.root.bind("<S>", cmd);
+            cmd = partial(self.movePlayer, "down")
+            self.root.bind("<Down>", cmd)
+            self.root.bind("<S>", cmd)
             self.root.bind("<s>", cmd)
-            cmd = partial(self.movePlayer, "left");
-            self.root.bind("<Left>", cmd);
-            self.root.bind("<A>", cmd);
+            cmd = partial(self.movePlayer, "left")
+            self.root.bind("<Left>", cmd)
+            self.root.bind("<A>", cmd)
             self.root.bind("<a>", cmd)
-            cmd = partial(self.movePlayer, "right");
-            self.root.bind("<Right>", cmd);
-            self.root.bind("<D>", cmd);
+            cmd = partial(self.movePlayer, "right")
+            self.root.bind("<Right>", cmd)
+            self.root.bind("<D>", cmd)
             self.root.bind("<d>", cmd)
-            cmd = partial(self.npcInteract, "yes");
-            self.root.bind("<Y>", cmd);
+            cmd = partial(self.npcInteract, "yes")
+            self.root.bind("<Y>", cmd)
             self.root.bind("<y>", cmd)
-            cmd = partial(self.npcInteract, "no");
-            self.root.bind("<N>", cmd);
+            cmd = partial(self.npcInteract, "no")
+            self.root.bind("<N>", cmd)
             self.root.bind("<n>", cmd)
-            cmd = partial(self.npcInteract, "accept");
+            cmd = partial(self.npcInteract, "accept")
             self.root.bind("<Return>", cmd)
-            cmd = partial(self.combateNormal, ["full"]);
-            self.root.bind("<k>", self.escogerArmamento, cmd);
+            cmd = partial(self.combateNormal, ["full"])
+            self.root.bind("<k>", self.escogerArmamento, cmd)
             self.root.bind("<K>", self.escogerArmamento, cmd)
-            cmd = partial(self.combateNormal, "izquierda");
-            self.root.bind("<Q>", cmd);
+            cmd = partial(self.combateNormal, "izquierda")
+            self.root.bind("<Q>", cmd)
             self.root.bind("<q>", cmd)
-            cmd = partial(self.combateNormal, "derecha");
-            self.root.bind("<E>", cmd);
+            cmd = partial(self.combateNormal, "derecha")
+            self.root.bind("<E>", cmd)
             self.root.bind("<e>", cmd)
-            cmd = partial(self.combateNormal, "fp");
-            self.root.bind("<R>", cmd);
+            cmd = partial(self.combateNormal, "fp")
+            self.root.bind("<R>", cmd)
             self.root.bind("<r>", cmd)
-            cmd = partial(self.combateNormal, "sp");
-            self.root.bind("<F>", cmd);
+            cmd = partial(self.combateNormal, "sp")
+            self.root.bind("<F>", cmd)
             self.root.bind("<f>", cmd)
-            cmd1 = partial(_itemArmadura, "casco", 0);
+            cmd1 = partial(_itemArmadura, "casco", 0)
             cmd2 = partial(_itemArmadura, "casco", 1)
-            self.infoArmaduraCasco.bind('<Button-1>', cmd1);
+            self.infoArmaduraCasco.bind('<Button-1>', cmd1)
             self.infoArmaduraCasco.bind(_SECOND_BUTTON, cmd2)
-            cmd1 = partial(_itemArmadura, "izquierda", 0);
+            cmd1 = partial(_itemArmadura, "izquierda", 0)
             cmd2 = partial(_itemArmadura, "izquierda", 1)
-            self.infoArmaduraArmaIzquierda.bind('<Button-1>', cmd1);
+            self.infoArmaduraArmaIzquierda.bind('<Button-1>', cmd1)
             self.infoArmaduraArmaIzquierda.bind(_SECOND_BUTTON, cmd2)
-            cmd1 = partial(_itemArmadura, "izquierda", 0);
+            cmd1 = partial(_itemArmadura, "izquierda", 0)
             cmd2 = partial(_itemArmadura, "izquierda", 1)
-            self.infoArmaduraArmaIzquierda.bind('<Button-1>', cmd1);
+            self.infoArmaduraArmaIzquierda.bind('<Button-1>', cmd1)
             self.infoArmaduraArmaIzquierda.bind(_SECOND_BUTTON, cmd2)
-            cmd1 = partial(_itemArmadura, "chaleco", 0);
+            cmd1 = partial(_itemArmadura, "chaleco", 0)
             cmd2 = partial(_itemArmadura, "chaleco", 1)
-            self.infoArmaduraChaleco.bind('<Button-1>', cmd1);
+            self.infoArmaduraChaleco.bind('<Button-1>', cmd1)
             self.infoArmaduraChaleco.bind(_SECOND_BUTTON, cmd2)
-            cmd1 = partial(_itemArmadura, "derecha", 0);
+            cmd1 = partial(_itemArmadura, "derecha", 0)
             cmd2 = partial(_itemArmadura, "derecha", 1)
-            self.infoArmaduraArmaDerecha.bind('<Button-1>', cmd1);
+            self.infoArmaduraArmaDerecha.bind('<Button-1>', cmd1)
             self.infoArmaduraArmaDerecha.bind(_SECOND_BUTTON, cmd2)
-            cmd1 = partial(_itemArmadura, "pantalones", 0);
+            cmd1 = partial(_itemArmadura, "pantalones", 0)
             cmd2 = partial(_itemArmadura, "pantalones", 1)
-            self.infoArmaduraPantalones.bind('<Button-1>', cmd1);
+            self.infoArmaduraPantalones.bind('<Button-1>', cmd1)
             self.infoArmaduraPantalones.bind(_SECOND_BUTTON, cmd2)
-            cmd1 = partial(_itemArmadura, "botas", 0);
+            cmd1 = partial(_itemArmadura, "botas", 0)
             cmd2 = partial(_itemArmadura, "botas", 1)
-            self.infoArmaduraBotas.bind('<Button-1>', cmd1);
+            self.infoArmaduraBotas.bind('<Button-1>', cmd1)
             self.infoArmaduraBotas.bind(_SECOND_BUTTON, cmd2)
             print lang(310)
         except:
-            print lang(758); totalerrors += 1
+            print lang(758)
+            totalerrors += 1
 
         # Se ejecutan los argumentos <consultar arguments.txt en /doc>
         if not COLORED_ARGUMENT:
@@ -1562,24 +1737,30 @@ class hoa:  # Main class
                     else:
                         savefile += ".save"
                     if COLORED_ARGUMENT:
-                        print lang(216),; colorcmd(savefile, "lgray"); print ""
+                        print lang(216),
+                        colorcmd(savefile, "lgray")
+                        print ""
                     else:
                         print lang(216), savefile, ""
                     self.loadGame("argv", savefile)
                 else:
                     self.error(lang(287))
             except:
-                totalwarnings += 1; print lang(212)
+                totalwarnings += 1
+                print lang(212)
         if _consultArgument("disablestdout", arg):
             sys.stdout, sys.stderr, sys.stdin, sys.__stdout__, sys.__stderr__, sys.__stdin__ = noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut()
 
         # Se comprueba que la versión de python del cliente tenga la api de movimieno usada en el juego
         print lang(825),
         try:
-            self.root.after(100, makeCallable(partial(arrastrarImagen, "test:canvasapi", self.world, 8, 8)));
+            self.root.after(100, makeCallable(partial(arrastrarImagen, "test:canvasapi", self.world, 8, 8)))
             print lang(310)
         except:
-            MOVEMENT_ANIMATION[0] = False; totalerrors += 1; print lang(54).lower(); print lang(826)
+            MOVEMENT_ANIMATION[0] = False
+            totalerrors += 1
+            print lang(54).lower()
+            print lang(826)
         if not isWindows(): MOVEMENT_ANIMATION[0] = False
 
         # Se consultan las actualizaciones si no se ha desactivado la función
@@ -1594,7 +1775,7 @@ class hoa:  # Main class
                     pass
                 if consultar:  # Si esta activado la consulta
                     if len(arg) >= 1: print ENDING_ARGUMENT
-                    print lang(747), ;
+                    print lang(747),
                     version = getVersion("hoa", CONFIGURATION_DATA[5])
                     comparacion = compararVersiones(version, PROGRAM_VERSION)
                     if comparacion == 2:
@@ -1613,7 +1794,8 @@ class hoa:  # Main class
                                 "-actl=1"); archivo.close()
                         del e
             except:
-                print lang(755); totalwarnings += 1
+                print lang(755)
+                totalwarnings += 1
         else:
             print ENDING_ARGUMENT
 
@@ -1628,10 +1810,15 @@ class hoa:  # Main class
                 print lang(760).format(str(totalerrors)).strip()
             elif totalwarnings != 0 and totalerrors != 0:
                 print lang(759).format(str(totalerrors), str(totalwarnings)).strip()
-        del totalwarnings;
+        del totalwarnings
         del totalerrors
 
-    def abortGame(self, e=None):  # Función que aborta el juego
+    def abortGame(self, e=None):
+        """
+        Función que aborta el juego
+        :param e: Evento
+        :return: void
+        """
         if self.ingame:  # Si se esta jugando
             self.stopSound()
             self.multiplayer_desconnect(False)
@@ -1663,8 +1850,8 @@ class hoa:  # Main class
             delMatrix(self.maplightning)
             delMatrix(self.mobs)
             delMatrix(self.npc)
-            del self.static;
-            del self.activePowers;
+            del self.static
+            del self.activePowers
             del self.player
             try:
                 del self.board
@@ -1725,26 +1912,30 @@ class hoa:  # Main class
             self.tipoCombate = "NO_FIGHT"
             print lang(310)
 
-    def checkItems(self):  # Función que comprueba el estado de los items y los elimina si se han destruido
-        if self.player.getCasco() is not None:  # Se comprueba el estado de todo
+    def checkItems(self):
+        """
+        Función que comprueba el estado de los items y los elimina si se han destruido
+        :return: void
+        """
+        if self.player.getCasco() is not None:  # Se comprueba el estado de los objetos
             if self.player.getCasco().estaDestruido():
-                self.player.dropCasco();
-                self.static.addDroppedArmor();
+                self.player.dropCasco()
+                self.static.addDroppedArmor()
                 self.sfx(20)
                 self.infoArmaduraCasco.config(image=self.images.image("no_casco"), state=DISABLED, cursor="arrow")
-                self.textMsg(lang(choice([645, 646, 647, 648])));
+                self.textMsg(lang(choice([645, 646, 647, 648])))
                 self.setInfo(lang(40))
         if self.player.getLeftWeapon() is not None:
             if self.player.getLeftWeapon().estaDestruido():
-                self.static.addDroppedWeapon();
-                self.player.dropLeftWeapon();
+                self.static.addDroppedWeapon()
+                self.player.dropLeftWeapon()
                 self.sfx(35)
                 self.world.delete("player:left_weapon")
                 self.infoArmaduraArmaIzquierda.config(image=self.images.image("no_lw"), state=DISABLED, cursor="arrow")
-                self.setInfo(lang(41));
+                self.setInfo(lang(41))
                 self.textMsg(lang(choice([649, 650, 651, 652, 653, 654])))
                 if self.player.getActiveBullet() is not None:  # Si el jugador tenia una bala definida para esa arma a botar
-                    self.player.addObject(self.player.getActiveBullet());
+                    self.player.addObject(self.player.getActiveBullet())
                     self.player.delActiveBullet()
             else:
                 if self.player.getActiveBullet() is not None:
@@ -1752,45 +1943,72 @@ class hoa:  # Main class
                         lang(276))
         if self.player.getRightWeapon() is not None:
             if self.player.getRightWeapon().estaDestruido():
-                self.player.dropRightWeapon();
-                self.static.addDroppedWeapon();
-                self.world.delete("player:right_weapon");
+                self.player.dropRightWeapon()
+                self.static.addDroppedWeapon()
+                self.world.delete("player:right_weapon")
                 self.sfx(35)
                 self.infoArmaduraArmaDerecha.config(image=self.images.image("no_rw"), state=DISABLED, cursor="arrow")
-                self.setInfo(lang(43));
+                self.setInfo(lang(43))
                 self.textMsg(lang(choice([649, 650, 651, 652, 653, 654])))
         if self.player.getChaleco() is not None:
             if self.player.getChaleco().estaDestruido():
-                self.player.dropChaleco();
-                self.static.addDroppedArmor();
+                self.player.dropChaleco()
+                self.static.addDroppedArmor()
                 self.sfx(20)
                 self.infoArmaduraChaleco.config(image=self.images.image("no_chaleco"), state=DISABLED, cursor="arrow")
-                self.setInfo(lang(42));
+                self.setInfo(lang(42))
                 self.textMsg(lang(choice([655, 656, 657, 658, 659])))
         if self.player.getPantalones() is not None:
             if self.player.getPantalones().estaDestruido():
-                self.player.dropPantalones();
-                self.static.addDroppedArmor();
+                self.player.dropPantalones()
+                self.static.addDroppedArmor()
                 self.sfx(20)
                 self.infoArmaduraPantalones.config(image=self.images.image("no_pantalon"), state=DISABLED,
                                                    cursor="arrow")
-                self.setInfo(lang(44));
+                self.setInfo(lang(44))
                 self.textMsg(lang(choice([660, 661, 662, 663, 664])))
         if self.player.getBotas() is not None:
             if self.player.getBotas().estaDestruido():
-                self.player.dropBotas();
-                self.static.addDroppedWeapon();
+                self.player.dropBotas()
+                self.static.addDroppedWeapon()
                 self.sfx(20)
                 self.infoArmaduraBotas.config(image=self.images.image("no_botas"), state=DISABLED, cursor="arrow")
-                self.setInfo(lang(45));
+                self.setInfo(lang(45))
                 self.textMsg(lang(choice([665, 666, 667, 668, 669])))
 
-    def combateGrupal(self, event=None, event2=None,
-                      breakpoint=None):  # Función que maneja el combate grupal con los mobs
-        def _lookAvaiablePos(posx, posy, movements, turn, tipo,
-                             ataque):  # Función que imprime los movimientos disponibles para el turno
-            def _look(newposx, newposy, direccmatrix, direcc, avaiablepos,
-                      tags):  # Función que busca si está disponible el movimiento
+    # TODO: Tipo de AI normal y dificil
+    def combateGrupal(self, event=None, event2=None, breakpoint=None):
+        """
+        Función que maneja el combate grupal con los mobs
+        :param event: Evento ?
+        :param event2: Evento ?
+        :param breakpoint: -
+        :return: void
+        """
+
+        def _lookAvaiablePos(posx, posy, movements, turn, tipo, ataque):
+            """
+            Función que imprime los movimientos disponibles para el turno
+            :param posx: Posición x
+            :param posy: Posición y
+            :param movements: Lista de movimientos
+            :param turn: Turno
+            :param tipo: Tipo de jugador
+            :param ataque: Ataque del jugador
+            :return:
+            """
+
+            def _look(newposx, newposy, direccmatrix, direcc, avaiablepos, tags):
+                """
+                Función que busca si está disponible el movimiento
+                :param newposx: Posición x
+                :param newposy: Posición y
+                :param direccmatrix: Matriz de direcciones
+                :param direcc: Dirección de búsqueda recursiva
+                :param avaiablepos: Tile
+                :param tags: Tags del tile
+                :return: void
+                """
                 if 0 <= newposx < self.board.getBoardSizeX() and 0 <= newposy < self.board.getBoardSizeY():  # Si se está dentro de los márgenes
                     if self.board.getLogic(newposx,
                                            newposy) == "none":  # Si es un tile válido se agrega la posición y se imprime en el canvas
@@ -1841,8 +2059,18 @@ class hoa:  # Main class
                 else:
                     direccmatrix[direcc] = 0
 
-            def _lookArrow(newposx, newposy, direccmatrix, direcc, avaiablepos, tags,
-                           tipo):  # Función que busca si está disponible el movimiento
+            def _lookArrow(newposx, newposy, direccmatrix, direcc, avaiablepos, tags, tipo):
+                """
+                Función que busca si está disponible el movimiento para un lanzamiento de flechas
+                :param newposx: Posición x
+                :param newposy: Posición y
+                :param direccmatrix: Matriz de direcciones
+                :param direcc: Dirección de búsqueda recursiva
+                :param avaiablepos: Tile
+                :param tags: Tags del tile
+                :param tipo: Tipo de ataque
+                :return: void
+                """
                 if 0 <= newposx < self.board.getBoardSizeX() and 0 <= newposy < self.board.getBoardSizeY():  # Si se está dentro de los márgenes
                     if self.board.getLogic(newposx, newposy) == "none":  # Si es un tile válido continua
                         pass
@@ -1945,7 +2173,7 @@ class hoa:  # Main class
                     else:
                         direcciones = [1, 1, 1, 1, 1, 1, 1, 1]  # NE,N,NW,W,E,SE,S,SW
                 else:
-                    [0, 0, 0, 0, 0, 0, 0, 0]  # NE,N,NW,W,E,SE,S,SW
+                    direcciones = [0, 0, 0, 0, 0, 0, 0, 0]  # NE,N,NW,W,E,SE,S,SW
             for c in range(1, movements + 1):  # Se buscan las posiciones válidas para el ataque con flecha
                 if direcciones[0] == 1: _lookArrow(posx - c, posy - c, direcciones, 0, avaiable_attack,
                                                    image_avaiable_tiles_arrow, tipo)  # se busca al nor-este
@@ -2023,8 +2251,27 @@ class hoa:  # Main class
             self.world.tag_raise(tag_self, "grupal:background")  # Actualizo el mundo
             self.world.update()
 
-        def _move(x, y, id, type):  # Mueve al grupo
-            def _drawRectangle(type, x, y, id, tag, tagnum):  # Función que escribe el recuadro
+        def _move(x, y, id, type):
+            """
+            Mueve al grupo
+            :param x: Posición x
+            :param y: Posición y
+            :param id: ID del grupo
+            :param type: Tipo de jugador
+            :return:
+            """
+
+            def _drawRectangle(type, x, y, id, tag, tagnum):
+                """
+                Función que escribe el recuadro
+                :param type: Tipo de jugador
+                :param x: Posición x
+                :param y: Posición y
+                :param id: ID del jugador
+                :param tag: Tag del tile
+                :param tagnum: Numero de tile
+                :return: void
+                """
                 try:
                     if type == "PL":  # Si no es el jugador al quien se dibuja
                         self.world.create_rectangle(14 + 32 * x + self.board.getBoardCorreccionX(),
@@ -2087,9 +2334,22 @@ class hoa:  # Main class
                 _drawRectangle(type, x, y, id, tag[1], tag[2])
             self.sonido(self.board.getSound(x, y))  # sonido del tile
 
-        def _intAlert(x, y, int):  # Dibuja un int en el mundo
-            def _deletenumber(tag):  # Función que borra un tag del mapa y lo actualiza
-                self.world.delete(tag);
+        def _intAlert(x, y, int):
+            """
+            Dibuja un int en el mundo
+            :param x: Posición x
+            :param y: Posición y
+            :param int: Integer
+            :return: void
+            """
+
+            def _deletenumber(tag):
+                """
+                Función que borra un tag del mapa y lo actualiza
+                :param tag: String
+                :return: void
+                """
+                self.world.delete(tag)
                 self.world.update()
 
             tag = generateRandom6()
@@ -2102,7 +2362,12 @@ class hoa:  # Main class
             self.world.update()
             self.root.after(TIME_ALERT, lambda: _deletenumber(tag))
 
-        def _comprobarEnd(finalize=False):  # Se comprueba si se ha terminado la partida
+        def _comprobarEnd(finalize=False):
+            """
+            Se comprueba si se ha terminado la partida
+            :param finalize: Boolean
+            :return: void
+            """
             if len(self.board.getEnemies()) == 0 or finalize:  # Si no hay más mobs
                 is_dead = True
                 followers = [0, 0, 0]  # Se recoge la cantidad de seguidores resultantes
@@ -2117,7 +2382,7 @@ class hoa:  # Main class
                     elif pl.getType() == "FS":
                         followers[2] += pl.getTotal()
                 followers_perdidos = (self.player.getLightFriends() - followers[0]) + (
-                self.player.getMediumFriends() - followers[1]) + \
+                    self.player.getMediumFriends() - followers[1]) + \
                                      (self.player.getStrongFriends() - followers[2])
                 self.player.setFriends(followers)
                 if not is_dead and not finalize:  # Si no está muerto
@@ -2156,7 +2421,7 @@ class hoa:  # Main class
                     e = pop([[lang(731), lang(173)], self.images.image("iconmuerte"), "aviso", 85, 270,
                              lang(733, str(total_experiencia)) + "\n" + \
                              lang(732, str(followers_perdidos))])
-                    e.w.mainloop(1);
+                    e.w.mainloop(1)
                     del e
                     return True
                 else:  # Si el jugador murió
@@ -2164,14 +2429,23 @@ class hoa:  # Main class
                     self.setInfo(lang(81))
                     self.sfx(29)
                     e = pop([[lang(82), lang(173)], self.images.image("iconmuerte"), "aviso", 85, 270, lang(83)])
-                    e.w.mainloop(1);
+                    e.w.mainloop(1)
                     del e
                     self.abortGame()
                     return True
             else:
                 return False
 
-        def _throwArrow(x, y, xo, yo, tipo):  # Función que Lanza una flecha hasta (x,y) desde (xo,yo)
+        def _throwArrow(x, y, xo, yo, tipo):
+            """
+            Función que Lanza una flecha hasta (x,y) desde (xo,yo)
+            :param x: Posición x final
+            :param y: Posición y final
+            :param xo: Posición x origen
+            :param yo: Posición y origen
+            :param tipo: Tipo de jugador
+            :return: void
+            """
             if MOVEMENT_ANIMATION[0]:  # Si las animaciones estan activas
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
                 if tipo == "PL":  # Si es el jugador se dibuja la flecha cargada
@@ -2192,7 +2466,18 @@ class hoa:  # Main class
                             self.board.getBoardCorreccionY() + 32 * y + 18, DPX)))  # Muevo la flecha al mob
                 self.root.after(TIME_DISSAPEAR_EFFECT, lambda: self.world.delete(flecha_id))
 
-        def _fight(group, mobs, player, x, y, mob_id, mode):  # Función que crea el combate
+        def _fight(group, mobs, player, x, y, mob_id, mode):
+            """
+            Función que crea el combate
+            :param group: Grupo de ataque
+            :param mobs: Enemigo
+            :param player: Jugador
+            :param x: Posición x
+            :param y: Posición y
+            :param mob_id: ID del movb
+            :param mode: Modo de ataque
+            :return: Boolean
+            """
             if player:
                 atk = group.getAtk() * (mobs.getCant()) + group.getAtk() * len(
                     self.board.getPlayers())  # se recoge el ataque
@@ -2224,7 +2509,7 @@ class hoa:  # Main class
             if mobs.getType() == "PL" and abs(atk - dff * group.getCant()) > 0: self.player.increaseDamageNODEFN(
                 atk - dff * group.getCant()); self.updateInfoPlayer()
             if (
-                    kills <= cant_tot and mobs.getType() == "PL") or kills < cant_tot:  # si no se han matado todos los elementos del grupo o el jugador (PL) aún tiene vida
+                            kills <= cant_tot and mobs.getType() == "PL") or kills < cant_tot:  # si no se han matado todos los elementos del grupo o el jugador (PL) aún tiene vida
                 if group.getType() == "FL" and mode == "f":
                     if self.player.getType().upper() == "MAGO":
                         self.sfx(40)  # sonido de magia
@@ -2296,14 +2581,22 @@ class hoa:  # Main class
                     return False
             self.world.update()
 
-        def _nextAITurn():  # Función que avanza el turno de los mobs
+        def _nextAITurn():
+            """
+            Función que avanza el turno de los mobs
+            :return: void
+            """
             if self.board.addAITurno():  # Si se ha terminado el turno completo de los mobs comienza el del jugador
                 self.board.disableAI()
             else:
                 self.root.after(AI_ATTACK, self.combateGrupal)
             self.combateGrupal("print")
 
-        def _nextTurn():  # Función que avanza en el turno
+        def _nextTurn():
+            """
+            Función que avanza en el turno
+            :return: void
+            """
             if self.board.addTurno():  # Si ha terminado el turno completo del jugador comienza el de los mobs
                 self.board.enableAI()
                 self.combateGrupal("print")
@@ -2325,7 +2618,7 @@ class hoa:  # Main class
                             if self.board.getLogic(x, y) == "none":  # Si no hay nada en el tile clickeado se mueve
                                 _move(x, y, self.board.getTurno(), group.getType())
                             elif self.board.getLogic(x, y) == "mob":  # Si hay un mob en dicho tile
-                                xi = group.getPosX();
+                                xi = group.getPosX()
                                 yi = group.getPosY()  # Muevo al jugador al tile más cercano disponible
                                 if yi == y:  # Si está en el mismo y
                                     if x < xi:
@@ -2404,7 +2697,7 @@ class hoa:  # Main class
                     if len(mov_candidatos) != 0:  # Si hay candidatos cercanos
                         x, y = choice(mov_candidatos)
                         group = self.board.mobs[self.board.getAITurno()]
-                        xi = group.getPosX();
+                        xi = group.getPosX()
                         yi = group.getPosY()  # Muevo al mob a la posición más cercana
                         if yi == y:  # Si está en el mismo y
                             if x < xi:
@@ -2435,10 +2728,10 @@ class hoa:  # Main class
                                 break
                             player_id += 1
                     else:
-                        px = self.board.getPlayers()[0].getPosX();
+                        px = self.board.getPlayers()[0].getPosX()
                         py = self.board.getPlayers()[0].getPosY()
                         group = self.board.mobs[self.board.getAITurno()]
-                        xi = group.getPosX();
+                        xi = group.getPosX()
                         yi = group.getPosY()
                         if xi < px:
                             dx = 1
@@ -2459,10 +2752,15 @@ class hoa:  # Main class
                             _move(to[0], to[1], self.board.getAITurno(), group.getType())
                         else:
                             self.sonidoFx(SONIDO[39][0])
+
+                # TODO:Dificultad medio
                 elif self.nivel_dificultad == DIFICULTAD_MEDIO:
-                    print "dificultad medio"
+                    print "TODO:atk-med"
+
+                # TODO:Dificultad dificil
                 else:
-                    print "dificultad dificil"
+                    print "TODO:atk-dif"
+
                 try:
                     _nextAITurn()
                 except:
@@ -2476,8 +2774,21 @@ class hoa:  # Main class
         else:
             pass
 
-    def combateNormal(self, mano, e=None):  # Función que maneja el combate normal con los mobs
-        def _animateWeapon(modo, tag):  # Mueve un objeto en la forma de ataque
+    def combateNormal(self, mano, e=None):
+        """
+        Función que maneja el combate normal con los mobs
+        :param mano: Tipo de ataque
+        :param e: Evento
+        :return: void
+        """
+
+        def _animateWeapon(modo, tag):
+            """
+            Mueve un objeto en la forma de ataque
+            :param modo: Modo de ataque
+            :param tag: Tag de imagen
+            :return: void
+            """
             if MOVEMENT_ANIMATION[0]:  # Si estan activas las animaciones
                 if modo == "fight":  # Se mueve el arma con respecto a la posición del mob
                     if self.enemy.getPosAbs() == "derecha":
@@ -2511,7 +2822,13 @@ class hoa:  # Main class
                                                          [28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
                                                           self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16]]))
 
-        def _atacarMob(y, x):  # Función que busca a un mob en (x,y) y se ataca, además se dibuja la flecha
+        def _atacarMob(y, x):
+            """
+            Función que busca a un mob en (x,y) y se ataca, además se dibuja la flecha
+            :param y: Posición x
+            :param x: Posición y
+            :return: void
+            """
             _throwArrow(x, y)  # lanzo una flecha
             for i_d in range(len(self.mobs)):  # Se recorren los mobs del mapa
                 mob = self.mobs[i_d]  # objeto mob
@@ -2557,22 +2874,42 @@ class hoa:  # Main class
                         self.textMsg(lang(choice([636, 637, 638, 639, 640])))
                         self.setInfo(lang(641))
 
-        def _allowAttack():  # Función que permite el desplazamiento
+        def _allowAttack():
+            """
+            Función que permite el desplazamiento
+            :return: void
+            """
             self.canmove = True
 
-        def _lookFor(y, x, lookmatrix,
-                     direcc):  # Función que retorna el lógico en (x,y) y define si se mantiene en la búsqueda
+        def _lookFor(y, x, lookmatrix, direcc):
+            """
+            Función que retorna el lógico en (x,y) y define si se mantiene en la búsqueda
+            :param y: Posición x
+            :param x: Posición y
+            :param lookmatrix: Matriz de direcciones
+            :param direcc: Dirección de búsqueda
+            :return: String
+            """
             if 0 <= y < self.mapSize[1] and 0 <= x < self.mapSize[0]:  # Si se mantiene en los márgenes del mapa
                 if self.mapLogic[y][x] == "mob":
-                    lookmatrix[direcc] = 100; return "finded"
+                    lookmatrix[direcc] = 100
+                    return "finded"
                 elif self.mapLogic[y][x] == "none":
                     return "pass"
                 else:
-                    lookmatrix[direcc] = 0; return "block"
+                    lookmatrix[direcc] = 0
+                    return "block"
             else:
-                lookmatrix[direcc] = -10; return "off"
+                lookmatrix[direcc] = -10
+                return "off"
 
-        def _throwArrow(x, y):  # Función que Lanza una flecha hasta (x,y)
+        def _throwArrow(x, y):
+            """
+            Función que lanza una flecha hasta (x,y)
+            :param x: Posición x
+            :param y: Posición y
+            :return: void
+            """
             if (self.player.getActiveBullet() is not None) and MOVEMENT_ANIMATION[
                 0]:  # Si poseo armamento y las animaciones están activas
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
@@ -2652,7 +2989,7 @@ class hoa:  # Main class
                                 self.sfx(29)
                                 e = pop([[lang(82), lang(173)], self.images.image("iconmuerte"), "aviso", 85, 270,
                                          lang(83)])
-                                e.w.mainloop(1);
+                                e.w.mainloop(1)
                                 del e
                                 self.abortGame()
                         else:  # Si el enemigo muere
@@ -2715,19 +3052,19 @@ class hoa:  # Main class
                                                     self.player.getTarget() / 10) + 1):  # Se recorren los tiles de acuerdo al target del jugador
                                         if look[0] == 1:  # Busca al Oeste
                                             if _lookFor(self.playerPos[1], self.playerPos[0] - c, look, 0) == "finded":
-                                                _atacarMob(self.playerPos[1], self.playerPos[0] - c);
+                                                _atacarMob(self.playerPos[1], self.playerPos[0] - c)
                                                 break
                                         if look[1] == 1:  # Busca al Sur
                                             if _lookFor(self.playerPos[1] + c, self.playerPos[0], look, 1) == "finded":
-                                                _atacarMob(self.playerPos[1] + c, self.playerPos[0]);
+                                                _atacarMob(self.playerPos[1] + c, self.playerPos[0])
                                                 break
                                         if look[2] == 1:  # Busca al Este
                                             if _lookFor(self.playerPos[1], self.playerPos[0] + c, look, 2) == "finded":
-                                                _atacarMob(self.playerPos[1], self.playerPos[0] + c);
+                                                _atacarMob(self.playerPos[1], self.playerPos[0] + c)
                                                 break
                                         if look[3] == 1:  # Busca al Norte
                                             if _lookFor(self.playerPos[1] - c, self.playerPos[0], look, 3) == "finded":
-                                                _atacarMob(self.playerPos[1] - c, self.playerPos[0]);
+                                                _atacarMob(self.playerPos[1] - c, self.playerPos[0])
                                                 break
                                     if sum(look) < 0 or int(
                                                     self.player.getTarget() / 10) == 0:  # Si la flecha se fué del mapa
@@ -2750,11 +3087,20 @@ class hoa:  # Main class
                         else:
                             self.sfx(17)  # sonido de combo
 
-    def delInfo(self):  # Función que borra la información
+    def delInfo(self):
+        """
+        Función que borra la información de la consola
+        :return: void
+        """
         delMatrix(self.console)  # se borra la matriz de mensajes
         self.info.config(text="")  # se borra el mensaje actual
 
-    def devConsole(self, e=None):  # Función que ejecuta comandos
+    def devConsole(self, e=None):
+        """
+        Función que ejecuta comandos
+        :param e: Evento
+        :return: void
+        """
         if CONFIGURATION_DATA[11]:  # Si la terminal está activa
             if "str" not in str(type(e)):  # Si la función es llamada desde el background no se pide input
                 consola = pop([[lang(326), lang(240), lang(400)], self.images.image("console_icon"), "command", 42, 280,
@@ -2770,11 +3116,15 @@ class hoa:  # Main class
                     try:
                         action = get[1].upper()
                     except:
-                        print lang(375); self.error(lang(377)); return
+                        print lang(375)
+                        self.error(lang(377))
+                        return
                     try:
                         data = get[2]
                     except:
-                        print lang(376); self.error(lang(377)); return
+                        print lang(376)
+                        self.error(lang(377))
+                        return
                     if self.ingame:  # Si se encuentra jugando
                         if action == "ID":  # Dar objeto por id
                             if data.isdigit():  # Si el id es numérico
@@ -2787,26 +3137,31 @@ class hoa:  # Main class
                                             if str(cant).isdigit():
                                                 cant = int(cant)
                                             else:
-                                                self.error(lang(107)); return;  # si el id no es numerico
+                                                self.error(lang(107))
+                                                return  # si el id no es numerico
                                         else:
                                             cant = 1
                                     except:
-                                        print lang(360); cant = 1
+                                        print lang(360)
+                                        cant = 1
                                     try:
                                         it = Item(item)  # se genera el objeto
                                     except:
-                                        print lang(374); return
+                                        print lang(374)
+                                        return
                                     try:
                                         self.images.image(it.getImage() + "_16")
                                     except:
-                                        print lang(378, it.getImage() + "_16"); return
+                                        print lang(378, it.getImage() + "_16")
+                                        return
                                     for i in range(cant): self.player.addObject(Item(item))
                                     self.dibujarItems()
                                     self.setInfo(lang(111, str(data), str(cant)))
                                     self.static.addTrucos()
                                     del it
                                 except:
-                                    print lang(359); self.error(lang(110))
+                                    print lang(359)
+                                    self.error(lang(110))
                             else:
                                 self.error(lang(107))  # si el id no es numerico
                         elif action == "ITEM":  # Dar objeto por string
@@ -2820,7 +3175,8 @@ class hoa:  # Main class
                                 self.setInfo(lang(114))
                                 self.static.addTrucos()
                             except:
-                                print lang(358); self.error(lang(113))
+                                print lang(358)
+                                self.error(lang(113))
                         elif action == "POWER":  # Dar poder por string
                             if not data.isdigit():  # Si string no es un número
                                 encontrado = False  # variable que indica si se encontró el poder o no
@@ -2831,11 +3187,12 @@ class hoa:  # Main class
                                         self.player.addPower(Power(POWERLIST[poder]))
                                         encontrado = True
                                 if encontrado:  # Si se encontró el poder
-                                    self.dibujarPowers();
-                                    self.static.addTrucos();
+                                    self.dibujarPowers()
+                                    self.static.addTrucos()
                                     self.setInfo(lang(370))
                                 else:
-                                    print lang(371); self.error(lang(372))
+                                    print lang(371)
+                                    self.error(lang(372))
                             else:
                                 self.error(lang(369))
                         elif action == "QUEST":  # Dar una quest
@@ -2852,25 +3209,31 @@ class hoa:  # Main class
                                 try:
                                     cant = int(get[3])
                                 except:
-                                    self.error(lang(694)); return
+                                    self.error(lang(694))
+                                    return
                                 if cant > 0:
                                     if data == "LIV":
-                                        self.player.addLightFriend(cant); self.setInfo(lang(698, str(cant)))
+                                        self.player.addLightFriend(cant)
+                                        self.setInfo(lang(698, str(cant)))
                                     elif data == "MED":
-                                        self.player.addMediumFriend(cant); self.setInfo(lang(699, str(cant)))
+                                        self.player.addMediumFriend(cant)
+                                        self.setInfo(lang(699, str(cant)))
                                     elif data == "STR":
-                                        self.player.addStrongFriend(cant); self.setInfo(lang(700, str(cant)))
+                                        self.player.addStrongFriend(cant)
+                                        self.setInfo(lang(700, str(cant)))
                                     elif data == "ALL":
-                                        self.player.addLightFriend(cant);
-                                        self.player.addMediumFriend(cant);
+                                        self.player.addLightFriend(cant)
+                                        self.player.addMediumFriend(cant)
                                         self.player.addStrongFriend(cant)
                                         self.setInfo(lang(723, str(cant)))
-                                    self.static.addFollower(cant);
+                                    self.static.addFollower(cant)
                                     self.static.addTrucos()
                                 else:
-                                    self.error(lang(696)); return
+                                    self.error(lang(696))
+                                    return
                             else:
-                                self.error(lang(697)); return
+                                self.error(lang(697))
+                                return
                         else:
                             self.error(lang(108))  # si no se conoce la accion
                     else:
@@ -2879,11 +3242,15 @@ class hoa:  # Main class
                     try:
                         action = get[1].upper()
                     except:
-                        print lang(375); self.error(lang(377)); return
+                        print lang(375)
+                        self.error(lang(377))
+                        return
                     try:
                         data = get[2]
                     except:
-                        print lang(376); self.error(lang(377)); return
+                        print lang(376)
+                        self.error(lang(377))
+                        return
                     if self.ingame:  # Si se encuentra jugando
                         if action == "XY":
                             pos = data.split(",")
@@ -2916,11 +3283,12 @@ class hoa:  # Main class
                             if self.player.getMap() == "%ERROR_LOADINGMAP%":  # Si ocurrió un error al cargar el mapa se deshacen los cambios
                                 self.player.setMap(prevmap)
                                 self.setWorld()
-                                self.setInfo(lang(320));
-                                self.setInfo(lang(319));
+                                self.setInfo(lang(320))
+                                self.setInfo(lang(319))
                                 self.setInfo(lang(318))
                             else:
-                                self.setInfo(lang(118, str(data))); self.static.addTrucos()
+                                self.setInfo(lang(118, str(data)))
+                                self.static.addTrucos()
                         else:
                             self.error(lang(108))  # si no se conoce la accion
                     else:
@@ -2929,11 +3297,15 @@ class hoa:  # Main class
                     try:
                         action = get[1].upper()
                     except:
-                        print lang(375); self.error(lang(377)); return
+                        print lang(375)
+                        self.error(lang(377))
+                        return
                     try:
                         data = get[2]
                     except:
-                        print lang(376); self.error(lang(377)); return
+                        print lang(376)
+                        self.error(lang(377))
+                        return
                     if self.ingame:  # Si se encuentra jugando
                         if data.isdigit():  # Si el data es numérico
                             data = int(data)
@@ -2986,7 +3358,7 @@ class hoa:  # Main class
                                             self.player.setDefensa()
                                             self.player.setTarget()
                                             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
-                                                self.player.upgradeLife();
+                                                self.player.upgradeLife()
                                                 self.player.upgradeMana()
                                         else:
                                             break
@@ -3000,7 +3372,7 @@ class hoa:  # Main class
                                             self.player.setDefensa()
                                             self.player.setTarget()
                                             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
-                                                self.player.upgradeLife();
+                                                self.player.upgradeLife()
                                                 self.player.upgradeMana()
                                             if self.player.getLevel() == 1: break
                                     else:
@@ -3017,33 +3389,40 @@ class hoa:  # Main class
                                 self.static.addTrucos()
                             elif action == "ATK" or action == "PLAYER.ATK":
                                 if int(data) >= 0:
-                                    self.player.setAttack(int(data)); self.setInfo(
-                                        lang(187, str(data))); self.static.addTrucos()
+                                    self.player.setAttack(int(data))
+                                    self.setInfo(
+                                        lang(187, str(data)))
+                                    self.static.addTrucos()
                                 else:
                                     self.error(lang(186))  # si el dato es negativo
                             elif action == "DEF" or action == "PLAYER.DEF":
                                 if int(data) >= 0:
-                                    self.player.setDefensa(int(data)); self.setInfo(
-                                        lang(188, str(data))); self.static.addTrucos()
+                                    self.player.setDefensa(int(data))
+                                    self.setInfo(
+                                        lang(188, str(data)))
+                                    self.static.addTrucos()
                                 else:
                                     self.error(lang(186))  # si el dato es negativo
                             elif action == "TARGET" or action == "PLAYER.TARGET":
                                 if int(data) >= 0:
-                                    self.player.setTarget(int(data)); self.setInfo(
-                                        lang(189, str(data))); self.static.addTrucos()
+                                    self.player.setTarget(int(data))
+                                    self.setInfo(
+                                        lang(189, str(data)))
+                                    self.static.addTrucos()
                                 else:
                                     self.error(lang(186))  # si el dato es negativo
                             elif action == "TIMEMOB" or action == "MOB.TIME.MOVEMENT":
                                 if 100 <= int(data):
-                                    self.dificultad[5] = int(data); self.setInfo(lang(284, str(data)))
+                                    self.dificultad[5] = int(data)
+                                    self.setInfo(lang(284, str(data)))
                                 else:
                                     self.error(lang(285), 85)  # si el tiempo no es mayor a 100
                             else:
                                 self.error(lang(108))  # si no se conoce la accion
                         else:  # Si el data no es numérico
                             if action == "NAME" or action == "PLAYER.NAME":
-                                self.player.setName(data);
-                                self.setInfo(lang(159, str(data)));
+                                self.player.setName(data)
+                                self.setInfo(lang(159, str(data)))
                                 self.static.addTrucos()
                             elif action == "TEXTURE" or action == "PLAYER.TEXTURE":
                                 data = data.replace("_0", "").replace("_1", "")
@@ -3054,27 +3433,27 @@ class hoa:  # Main class
                                         self.player.getLinkImage() + "_0"
                                     else:
                                         self.player.getLinkImage() + "_1"
-                                    self.dibujarMundo();
+                                    self.dibujarMundo()
                                     self.static.addTrucos()
                                 else:
                                     self.error(lang(166))  # textura no válida
                             elif action == "PAIS" or action == "PLAYER.PAIS":
-                                self.player.setPais(data);
-                                self.setInfo(lang(161, str(data)));
+                                self.player.setPais(data)
+                                self.setInfo(lang(161, str(data)))
                                 self.static.addTrucos()
                             elif action == "INFO" or action == "PLAYER.INFO":
-                                self.player.setInfo(str(data).replace("_", " "));
+                                self.player.setInfo(str(data).replace("_", " "))
                                 self.setInfo(lang(190, str(data).replace("_", " ")))
                                 self.static.addTrucos()
                             elif action == "DIFICULTAD" or action == "PLAYER.DIF":
                                 data = data.lower()
                                 if data in [DIFICULTAD_FACIL, DIFICULTAD_MEDIO,
                                             DIFICULTAD_DIFICIL]:  # Si la dificultad es correcta
-                                    self.nivel_dificultad = data;
-                                    self.setDificultad();
+                                    self.nivel_dificultad = data
+                                    self.setDificultad()
                                     self.player.setPais(data)
-                                    self.setInfo(lang(164, str(data).upper()));
-                                    self.static.addTrucos();
+                                    self.setInfo(lang(164, str(data).upper()))
+                                    self.static.addTrucos()
                                     self.update()
                                 else:
                                     self.error(lang(165))  # la dificultad es desconocida
@@ -3086,67 +3465,69 @@ class hoa:  # Main class
                     try:
                         action = get[1].upper()
                     except:
-                        print lang(375); self.error(lang(377)); return
+                        print lang(375)
+                        self.error(lang(377))
+                        return
                     if self.ingame:  # Si se encuentra jugando
                         if action == "ALL":
                             for i in range(
-                                self.player.getItemAmount()): self.static.addDroppedItem()  # aumenta la estadística
-                            self.player.delActiveBullet();
-                            self.player.delFirstPower();
+                                    self.player.getItemAmount()): self.static.addDroppedItem()  # aumenta la estadística
+                            self.player.delActiveBullet()
+                            self.player.delFirstPower()
                             self.player.delQuest()
-                            self.player.delSecondPower();
-                            self.player.dropArmor();
+                            self.player.delSecondPower()
+                            self.player.dropArmor()
                             self.player.dropFollowers()
-                            self.player.dropItems();
-                            self.player.dropLeftWeapon();
+                            self.player.dropItems()
+                            self.player.dropLeftWeapon()
                             self.player.dropMagics()
-                            self.player.dropPowers();
-                            self.player.dropRightWeapon();
+                            self.player.dropPowers()
+                            self.player.dropRightWeapon()
                             self.setInfo(lang(121))
-                            self.static.addTrucos();
-                            self.itemnumberlist = 0;
+                            self.static.addTrucos()
+                            self.itemnumberlist = 0
                             self.dibujarArmor()
-                            self.dibujarItems();
-                            self.dibujarMundo();
+                            self.dibujarItems()
+                            self.dibujarMundo()
                             self.dibujarPowers()
                         elif action == "ARMOR":
-                            self.dibujarArmor();
-                            self.player.dropArmor();
-                            self.setInfo(lang(122));
+                            self.dibujarArmor()
+                            self.player.dropArmor()
+                            self.setInfo(lang(122))
                             self.static.addTrucos()
                         elif action == "ITEMS":
                             for i in range(
-                                self.player.getItemAmount()): self.static.addDroppedItem()  # aumenta la estadística
-                            self.player.dropItems();
-                            self.setInfo(lang(123));
+                                    self.player.getItemAmount()): self.static.addDroppedItem()  # aumenta la estadística
+                            self.player.dropItems()
+                            self.setInfo(lang(123))
                             self.static.addTrucos()
-                            self.itemnumberlist = 0;
+                            self.itemnumberlist = 0
                             self.dibujarItems()
                         elif action == "POWERS":
                             for i in range(
-                                self.player.getPowerAmount()): self.static.addDroppedItem()  # aumenta la estadística
-                            self.player.dropPowers();
-                            self.dibujarPowers();
-                            self.setInfo(lang(373));
+                                    self.player.getPowerAmount()): self.static.addDroppedItem()  # aumenta la estadística
+                            self.player.dropPowers()
+                            self.dibujarPowers()
+                            self.setInfo(lang(373))
                             self.static.addTrucos()
                         elif action == "WEAPONS":
-                            self.player.delActiveBullet();
-                            self.player.delFirstPower();
+                            self.player.delActiveBullet()
+                            self.player.delFirstPower()
                             self.player.delSecondPower()
-                            self.player.dropLeftWeapon();
-                            self.player.dropRightWeapon();
+                            self.player.dropLeftWeapon()
+                            self.player.dropRightWeapon()
                             self.setInfo(lang(124))
-                            self.static.addTrucos();
-                            self.dibujarArmor();
+                            self.static.addTrucos()
+                            self.dibujarArmor()
                             self.dibujarMundo()
                         elif action == "QUEST":
-                            self.player.delQuest();
-                            self.setInfo(lang(585));
-                            self.static.addTrucos();
+                            self.player.delQuest()
+                            self.setInfo(lang(585))
+                            self.static.addTrucos()
                             self.dibujarMundo()
                         elif action == "FOLLOWERS":
-                            self.player.dropFollowers();
-                            self.setInfo(lang(693));
+                            self.player.dropFollowers()
+                            self.setInfo(lang(693))
                             self.static.addTrucos()
                         else:
                             self.error(lang(108))  # si no se conoce la accion
@@ -3157,7 +3538,7 @@ class hoa:  # Main class
                 elif comando == "COMMANDS":
                     e = pop([lang(192), self.images.image("text_icon"), "license", 400, 720,
                              DATA_DOCUMENTS + "/documentation/commands.txt", True])
-                    e.w.mainloop(1);
+                    e.w.mainloop(1)
                     del e
                 elif comando == "EXIT" or comando == "QUIT":
                     self.salir("command")
@@ -3185,7 +3566,9 @@ class hoa:  # Main class
                         try:
                             action = get[1].upper()
                         except:
-                            print lang(375); self.error(lang(377)); return
+                            print lang(375)
+                            self.error(lang(377))
+                            return
                         if action.isdigit():
                             self.setInfo(lang(int(action)), False)
                         else:
@@ -3209,7 +3592,9 @@ class hoa:  # Main class
                     try:
                         action = get[1].upper()
                     except:
-                        print lang(375); self.error(lang(377)); return
+                        print lang(375)
+                        self.error(lang(377))
+                        return
                     if self.ingame:  # Si se encuentra jugando
                         if action == "ACTUALMAP" or action == "PLAYER.MAP":
                             self.setInfo(lang(134, str(self.player.getMap())))
@@ -3310,7 +3695,9 @@ class hoa:  # Main class
                         try:
                             action = get[1].upper()
                         except:
-                            print lang(375); self.error(lang(377)); return
+                            print lang(375)
+                            self.error(lang(377))
+                            return
                         self.setInfo(translate(action))
                     else:
                         self.error(lang(109), 70)  # si no se encuentra jugando
@@ -3319,7 +3706,9 @@ class hoa:  # Main class
                         try:
                             action = get[1].upper()
                         except:
-                            print lang(375); self.error(lang(377)); return
+                            print lang(375)
+                            self.error(lang(377))
+                            return
                         if action == "ITEMS":
                             try:
                                 first = 0
@@ -3397,11 +3786,15 @@ class hoa:  # Main class
                 else:
                     self.error(lang(133), 70)  # el comando no existe
             try:
-                del (consola)
+                del consola
             except:
                 print lang(351)
 
-    def dibujarArmor(self):  # Función para dibujar la armadura
+    def dibujarArmor(self):
+        """
+        Función para dibujar la armadura
+        :return: void
+        """
         # Borro todas las imágenes anteriores
         self.infoArmaduraArmaDerecha.config(image=self.images.image("no_rw"), state=DISABLED, cursor="arrow")
         self.infoArmaduraArmaIzquierda.config(image=self.images.image("no_lw"), state=DISABLED, cursor="arrow")
@@ -3429,7 +3822,11 @@ class hoa:  # Main class
         if item is not None: self.infoArmaduraBotas.config(image=self.images.image(item.getImage() + "_32"),
                                                            state=NORMAL, cursor="hand2")
 
-    def dibujarItems(self):  # Función para dibujar los items del jugador en el tablero de items
+    def dibujarItems(self):
+        """
+        Función para dibujar los items del jugador en el tablero de items
+        :return: void
+        """
         # Se eliminan las imágenes previas
         for bt in self.botonesItems: bt.config(image=self.images.image("vacio_16"), state=DISABLED, command=None,
                                                cursor="arrow")
@@ -3460,10 +3857,15 @@ class hoa:  # Main class
                                   state=NORMAL, cursor="hand2")
                         break
                     elif (k + self.itemnumberlist >= j and self.itemnumberlist == 0) or (
-                                    k + self.itemnumberlist - 1 >= j and self.itemnumberlist != 0):
+                                            k + self.itemnumberlist - 1 >= j and self.itemnumberlist != 0):
                         break
 
-    def dibujarMundo(self, event=None):  # Función que dibuja el mundo (más tableros de combate)
+    def dibujarMundo(self, event=None):
+        """
+        Función que dibuja el mundo (más tableros de combate)
+        :param event: Event
+        :return: void
+        """
         self.world.delete(ALL)  # Se borran todos los objetos
         if not (self.inBattle and (self.tipoCombate == MODE_FIGHT_GROUP or self.tipoCombate == MODE_FIGHT_LINEAL)):
             # Se dibuja al jugador
@@ -3508,7 +3910,7 @@ class hoa:  # Main class
                 self.lifeBar(i.getLife(), i.getMaxLife(), i.getPosicionX(), i.getPosicionY(), k)  # barra de vida
                 # Si son varios se dibuja un icono de grupo en la esquina inferior derecha
                 if i.getTipoCombate() == MODE_FIGHT_GROUP and (
-                        self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO):
+                                self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO):
                     self.world.create_image(26 + 32 * i.getPosicionX() + self.canvasCorrecion[1],
                                             self.canvasCorrecion[0] + 32 * i.getPosicionY() + 26, \
                                             image=self.images.image(GROUP_TEXTURE_CREW),
@@ -3542,7 +3944,7 @@ class hoa:  # Main class
                         if isIn(self.mapItemsTextures[k][j], LOWER_TEXTURES): self.world.lower(i)
             # Inserto el fondo
             self.world.lower(self.world.create_image(306, 290, image=self.mapImage[0], tag="background"))
-        elif (self.tipoCombate == MODE_FIGHT_GROUP and self.inBattle):  # Si el modo de combate es grupal
+        elif self.tipoCombate == MODE_FIGHT_GROUP and self.inBattle:  # Si el modo de combate es grupal
             # Dibujo la sangre
             for blood in self.board.getBlood():
                 self.world.create_image(18 + 32 * blood[0] + self.board.getBoardCorreccionX(),
@@ -3644,7 +4046,11 @@ class hoa:  # Main class
             self.combateGrupal("print")
             self.world.update()
 
-    def dibujarPowers(self):  # Función que dibuja los poderes del jugador en la lista de poderes
+    def dibujarPowers(self):
+        """
+        Función que dibuja los poderes del jugador en la lista de poderes
+        :return: void
+        """
         # Se eliminan las imágenes previas
         for bt in self.botonesPoderes: bt.config(image=self.images.image("vacio_16"), state=DISABLED, command=None,
                                                  cursor="arrow")
@@ -3656,18 +4062,31 @@ class hoa:  # Main class
             else:
                 bt.config(image=self.images.image(power.getImage()), state=DISABLED, cursor="arrow")
 
-    def error(self, text, h=70, w=300, icon=""):  # Función que muestra un pop-up de error
+    def error(self, text, h=70, w=300, icon=""):
+        """
+        Función que muestra un pop-up de error
+        :param text: String
+        :param h: Ancho de la ventana
+        :param w: Alto de la ventana
+        :param icon: String de icono
+        :return:
+        """
         self.initialBg.config(cursor="arrow")
-        if (icon == ""):
+        if icon == "":
             e = pop([[lang(54), lang(173)], self.images.image("alert_icon"), "aviso", h, w, text])
-            e.w.mainloop(2);
+            e.w.mainloop(2)
             del e
         else:
             e = pop([[lang(54), lang(173)], self.images.image(icon), "aviso", h, w, text])
-            e.w.mainloop(2);
+            e.w.mainloop(2)
             del e
 
-    def escogerArmamento(self, e):  # Escoger armamento y poderes
+    def escogerArmamento(self, e):
+        """
+        Escoger armamento y poderes
+        :param e: Evento
+        :return: void
+        """
         if self.ingame:  # Si se encuentra jugando una partida
             if e == "automatic_bullet":  # Si bullet se escoge automaticamente
                 armamento = []  # matriz que se usara para buscar armamento
@@ -3717,14 +4136,19 @@ class hoa:  # Main class
                     e = pop(
                         [[lang(271), lang(173)], DATA_ICONS_ITEMS + self.player.getLeftWeapon().getImage() + "_16.ico", \
                          "aviso", 85, 270, lang(270)])
-                    e.w.mainloop(2);
+                    e.w.mainloop(2)
                     del e
                 del armamento
             self.dibujarItems()
             if self.inBattle and self.tipoCombate == MODE_FIGHT_GROUP:  # Si se encuentra en dicho modo de combate y juega el usuario
                 if self.board.returnControl(): self.combateGrupal("print")
 
-    def getActivePowerId(self, i):  # Función que retorna un poder en especifico
+    def getActivePowerId(self, i):
+        """
+        Función que retorna un poder en especifico
+        :param i: Index
+        :return: Boolean
+        """
         try:
             if self.activePowers[0] == self.player.getName():  # Si el poder corresponde al jugador
                 if self.activePowers[1][i] == 1:
@@ -3734,23 +4158,37 @@ class hoa:  # Main class
         except:
             print lang(390)
 
-    def incrementarExperiencia(self, experiencia):  # Aumenta la experiencia del jugador
+    def incrementarExperiencia(self, experiencia):
+        """
+        Aumenta la experiencia del jugador
+        :param experiencia: Integer
+        :return: void
+        """
         while self.player.increaseExp(experiencia):  # Ganar experiencia
             # Si se juega en medio o fácil la vida y el mana aumentan al máximo (tras subir de nivel)
             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
-                self.player.upgradeMana();
-                self.player.upgradeLife();
-                self.setInfo(lang(91));
+                self.player.upgradeMana()
+                self.player.upgradeLife()
+                self.setInfo(lang(91))
                 self.playerText("+", "verde", True)
             self.sfx(30)
             self.setInfo(lang(92))
             e = pop([[lang(92), lang(173)], self.images.image("icon"), "aviso", 70, 270,
                      lang(93, str(self.player.getLevel()))])
-            e.w.mainloop(1);
+            e.w.mainloop(1)
             del e
         self.setInfo(lang(94, str(experiencia)))
 
-    def lifeBar(self, prev, tot, x, y, k=0):  # Función que dibuja una barra bajo un mob indicando su vida
+    def lifeBar(self, prev, tot, x, y, k=0):
+        """
+        Función que dibuja una barra bajo un mob indicando su vida
+        :param prev: Vida previa
+        :param tot: Vida total
+        :param x: Posición x
+        :param y: Posición y
+        :param k: Index en el mapa
+        :return: void
+        """
         pos = prev * 100 / tot  # calcula el porcentaje de vida
         # Según el porcentaje se define la barra de vida a utilizar
         if 0 <= pos < 10:
@@ -3779,10 +4217,22 @@ class hoa:  # Main class
         except:
             print lang(366)
 
-    def loadGame(self, e=None, b=""):  # Función que carga una partida
+    def loadGame(self, e=None, b=""):
+        """
+        Función que carga una partida
+        :param e: Event
+        :param b: String de partida por argumento
+        :return: void
+        """
         global load, key1, console
 
-        def _loadingScreen(image, e=None):  # Pantalla de cargando
+        def _loadingScreen(image, e=None):
+            """
+            Pantalla de cargando
+            :param image: String de imagen
+            :param e: Evento
+            :return: void
+            """
             self.initialBg.create_image(405, 299, image=image)
             self.initialBg.update()
             time.sleep(0.025)
@@ -3802,7 +4252,8 @@ class hoa:  # Main class
                         except:
                             print lang(398)
                     elif v.values[0] == "cancel":
-                        del v; return
+                        del v
+                        return
                 del v
             totalerrors = 0
             print lang(407)
@@ -3833,11 +4284,17 @@ class hoa:  # Main class
                     loadfile.close()
                     print lang(310)
                 except:  # Error al extraer el archivo de guardado
-                    print lang(398);
+                    print lang(398)
                     if e != "argv":
-                        print lang(353); self.abortGame(); self.error(lang(214)); return
+                        print lang(353)
+                        self.abortGame()
+                        self.error(lang(214))
+                        return
                     else:
-                        print lang(773); self.abortGame(); self.error(lang(772)); return
+                        print lang(773)
+                        self.abortGame()
+                        self.error(lang(772))
+                        return
                 try:  # Se cargan los archivos de guardado
                     print lang(409),
                     load = loadFromArchive(archivo.replace(".save", ".sav"), lang(400),
@@ -3865,9 +4322,9 @@ class hoa:  # Main class
                     console.reverse()  # se invierte el orden de los comandos
                     print lang(310)
                 except:  # Error al cargar los archivos del guardado
-                    print lang(398);
-                    print lang(352);
-                    self.abortGame();
+                    print lang(398)
+                    print lang(352)
+                    self.abortGame()
                     self.error(lang(215), 85)
                 if (amir(archivo.replace(".save", ".sav")).strip() == key1[0] and amir(
                         archivo.replace(".save", ".statics")).strip() == key2[0] and \
@@ -3879,7 +4336,8 @@ class hoa:  # Main class
                     try:
                         self.delInfo()  # se borra la consola
                     except:
-                        totalerrors += 1; print lang(351)
+                        totalerrors += 1
+                        print lang(351)
                     if console[0] != "%NOCONSOLE%":  # Si la consola no está vacía
                         for i in console: self.console.insert(0, i)  # se carga la consola
                     try:
@@ -3924,10 +4382,10 @@ class hoa:  # Main class
                         self.activePowers[0] = load[1]  # nombre a los poderes
                         self.player.setFriends(load[17])  # se cargan los amigos
                     except:  # Error al cargar los datos del usuario
-                        print lang(398);
-                        print lang(350);
-                        self.abortGame();
-                        self.error(lang(145));
+                        print lang(398)
+                        print lang(350)
+                        self.abortGame()
+                        self.error(lang(145))
                         return
                     editorkey = base64.b64encode(
                         md5.new(self.player.getName()).digest())  # se comprueba si el jugador es editor o no
@@ -3952,10 +4410,10 @@ class hoa:  # Main class
                             y += 1
                         print lang(310)
                     except:  # Error al cargar los elementos lógicos
-                        print lang(398);
-                        print lang(349);
-                        self.abortGame();
-                        self.error(lang(146), 85);
+                        print lang(398)
+                        print lang(349)
+                        self.abortGame()
+                        self.error(lang(146), 85)
                         return
                     try:  # Se cargan las texturas de los items del mapa
                         print lang(412),
@@ -3971,10 +4429,10 @@ class hoa:  # Main class
                             y += 1
                         print lang(310)
                     except:  # Error al cargar las texturas de los items
-                        print lang(398);
-                        print lang(348);
-                        self.abortGame();
-                        self.error(lang(223), 85);
+                        print lang(398)
+                        print lang(348)
+                        self.abortGame()
+                        self.error(lang(223), 85)
                         return
                     if len(self.mobs) != 0:  # Si hay mobs en el mapa que se cargó
                         try:  # Se cargan los mob
@@ -4001,10 +4459,10 @@ class hoa:  # Main class
                                 self.movement = False
                             print lang(310)
                         except:  # Error al cargar los mob
-                            print lang(398);
-                            print lang(347);
-                            self.abortGame();
-                            self.error(lang(147), 85);
+                            print lang(398)
+                            print lang(347)
+                            self.abortGame()
+                            self.error(lang(147), 85)
                             return
                     if len(self.npc) != 0:  # Si hay npc en el mapa actual
                         try:  # Cargo los npc
@@ -4022,7 +4480,7 @@ class hoa:  # Main class
                                             int(elem[14]), int(elem[15]), elem[16]))
                             movement = False
                             for elem in self.npc:
-                                if elem.getMove() == True:
+                                if elem.getMove():
                                     movement = True
                                     break
                             if movement:
@@ -4037,10 +4495,10 @@ class hoa:  # Main class
                             del movement
                             print lang(310)
                         except:
-                            print lang(398);
-                            print lang(442);
-                            self.abortGame();
-                            self.error(lang(443), 85);
+                            print lang(398)
+                            print lang(442)
+                            self.abortGame()
+                            self.error(lang(443), 85)
                             return
                     try:  # Se cargan las quest
                         print lang(583),
@@ -4048,7 +4506,11 @@ class hoa:  # Main class
                             loadquest[quest].replace("\n", ""))
                         print lang(310)
                     except:
-                        print lang(398); print lang(581); self.abortGame(); self.error(lang(582)); return
+                        print lang(398)
+                        print lang(581)
+                        self.abortGame()
+                        self.error(lang(582))
+                        return
                     try:  # Se cargan las estadísticas
                         print lang(414),
                         self.static.restart()  # borro las estadíssticas anteriores
@@ -4064,18 +4526,18 @@ class hoa:  # Main class
                                              int(loadstatics[19]))
                         print lang(310)
                     except:  # Error al cargar las estadísticas
-                        print lang(398);
-                        print lang(346);
-                        self.error(lang(175), 70);
+                        print lang(398)
+                        print lang(346)
+                        self.error(lang(175), 70)
                         return
                     try:  # Se carga la posición y la textura
                         self.playerPos[0] = int(load[14])
                         self.playerPos[1] = int(load[15])
                         self.mapLogic[self.playerPos[1]][self.playerPos[0]] = "player"
                     except:  # Error al cargar la posición y/o la textura
-                        print lang(345);
-                        self.abortGame();
-                        self.error(lang(183), 70);
+                        print lang(345)
+                        self.abortGame()
+                        self.error(lang(183), 70)
                         return
                     self.root.after(1, _loadingScreen(self.images.image("loading3")))  # ventana de cargado
                     print lang(415),
@@ -4093,21 +4555,21 @@ class hoa:  # Main class
                         else:
                             self.player.delSecondPower()
                     except:  # Error al cargar las balas y los poderes
-                        print lang(398);
+                        print lang(398)
                         print lang(344)
                         self.player.delActiveBullet()
                         self.player.delFirstPower()
                         self.player.delSecondPower()
                         self.setInfo(lang(53))
-                        self.error(lang(263));
+                        self.error(lang(263))
                         return
                     try:  # Se cargan las armas
                         if load[22] != "%NULL%": self.player.setLeftWeapon(Item(parseObject(load[22])))
                         if load[23] != "%NULL%": self.player.setRightWeapon(Item(parseObject(load[23])))
                     except:  # Error al cargar las armas
-                        print lang(398);
-                        print lang(343);
-                        self.error(lang(148));
+                        print lang(398)
+                        print lang(343)
+                        self.error(lang(148))
                         return
                     try:  # Se carga la armadura
                         if load[25] != "%NULL%": self.player.addCasco(Item(parseObject(load[25])))
@@ -4115,9 +4577,9 @@ class hoa:  # Main class
                         if load[27] != "%NULL%": self.player.addPantalones(Item(parseObject(load[27])))
                         if load[28] != "%NULL%": self.player.addBotas(Item(parseObject(load[28])))
                     except:  # Error al cargar la armadura
-                        print lang(398);
-                        print lang(342);
-                        self.error(lang(149));
+                        print lang(398)
+                        print lang(342)
+                        self.error(lang(149))
                         return
                     try:  # Se cargan los items
                         i = 0
@@ -4133,9 +4595,9 @@ class hoa:  # Main class
                                 break
                         print lang(310)
                     except:  # Si ocurre un error al cargar
-                        print lang(398);
-                        print lang(341);
-                        self.error(lang(150));
+                        print lang(398)
+                        print lang(341)
+                        self.error(lang(150))
                         return
                     try:  # Se cargan los poderes
                         print lang(584),
@@ -4144,26 +4606,26 @@ class hoa:  # Main class
                             self.player.addPower(Power(poder))
                         print lang(310)
                     except:
-                        print lang(398);
-                        print lang(387);
-                        self.error(lang(388));
+                        print lang(398)
+                        print lang(387)
+                        self.error(lang(388))
                         return
                     try:  # Borro las listas cargadas
-                        del load;
-                        del key1;
-                        del key2;
-                        del key3;
-                        del key4;
-                        del key5;
+                        del load
+                        del key1
+                        del key2
+                        del key3
+                        del key4
+                        del key5
                         del console
-                        del loadmapmob;
-                        del loadstatics;
-                        del loadmaplogic;
-                        del loadmapnpc;
+                        del loadmapmob
+                        del loadstatics
+                        del loadmaplogic
+                        del loadmapnpc
                         del loadpowers
                     except:  # Ocurre un error al borrar las listas
-                        print lang(340);
-                        self.setInfo(lang(53));
+                        print lang(340)
+                        self.setInfo(lang(53))
                         self.error(lang(176))
                     # Establezco las variables que indica que el mapa esta cargado
                     self.loaded = True
@@ -4183,11 +4645,11 @@ class hoa:  # Main class
                     self.sfx(30)
                     self.setInfo(lang(447, self.player.getName()))  # Mensaje de bienvenida
                 else:  # Si el archivo ha sido modificado
-                    self.abortGame();
-                    self.setInfo(lang(56));
+                    self.abortGame()
+                    self.setInfo(lang(56))
                     self.error(lang(57), 85)
-                print lang(416), ;
-                borrarArchivosGuardado(archivo);
+                print lang(416),
+                borrarArchivosGuardado(archivo)
                 print lang(310)  # borro los archivos extraidos
                 print lang(417),
                 if totalerrors == 0:
@@ -4199,9 +4661,20 @@ class hoa:  # Main class
                 print lang(398)
         self.initialBg.config(cursor="arrow")
 
-    def move(self, x, y):  # Función que mueve la imagen del jugador y modifica el campo lógico
+    def move(self, x, y):
+        """
+        Función que mueve la imagen del jugador y modifica el campo lógico
+        :param x: Posición x
+        :param y: Posición y
+        :return: void
+        """
         try:
+
             def _allow():
+                """
+                Activa el movimiento
+                :return: void
+                """
                 self.canmove = True
 
             self.canmove = False
@@ -4218,6 +4691,10 @@ class hoa:  # Main class
             self.static.addMovimientos()
 
             def _moveNoAnimation():
+                """
+                Mueve la textura sin animación
+                :return: void
+                """
                 self.world.coords("player", 18 + 32 * x + self.canvasCorrecion[1],
                                   self.canvasCorrecion[0] + 32 * y + 18)
                 self.world.coords("player:left_weapon", 9 + 32 * x + self.canvasCorrecion[1],
@@ -4238,7 +4715,8 @@ class hoa:  # Main class
                                 28 + 32 * self.playerPos[0] + self.canvasCorrecion[1], \
                                 self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16)))
                 except:
-                    _moveNoAnimation(); print lang(389)
+                    _moveNoAnimation()
+                    print lang(389)
             else:  # Movimiento sin animación
                 _moveNoAnimation()
             self.root.after(MOVETIME, _allow)
@@ -4248,7 +4726,11 @@ class hoa:  # Main class
             self.setInfo(lang(567))
             self.root.after(ERROR_DELAY, self.abortGame)
 
-    def moveMobs(self):  # Función para mover a los enemigos
+    def moveMobs(self):
+        """
+        Función para mover a los enemigos
+        :return: void
+        """
         try:
             self.root.after_cancel(self.lastmovementId)  # se borra el ultimo elemento
         except:
@@ -4325,7 +4807,7 @@ class hoa:  # Main class
                     if (abs(mob.getPosicionX() - self.playerPos[0]) == 1 and mob.getPosicionY() == self.playerPos[1]) or \
                             (abs(mob.getPosicionY() - self.playerPos[1]) == 1 and mob.getPosicionX() == self.playerPos[
                                 0]):
-                        self.setCombat(mob, i_d);
+                        self.setCombat(mob, i_d)
                         break
             del mob_id  # borro la matriz de ids
         if self.movement:  # Se ejecuta la funcion nuevamente
@@ -4335,7 +4817,11 @@ class hoa:  # Main class
             except:
                 print lang(363)
 
-    def moveNpc(self):  # Función que mueve a los npc
+    def moveNpc(self):
+        """
+        Función que mueve a los npc
+        :return: void
+        """
         try:
             self.root.after_cancel(self.lastnpcmovementid)
         except:
@@ -4404,11 +4890,19 @@ class hoa:  # Main class
             except:
                 pass
 
-    def movePlayer(self, direccion, e=None):  # Función para mover al jugador
-        if (
-                not self.inBattle and not self.player.isDead() and not self.inNpc) and self.canmove:  # Si se puede mover y no está en contacto con un mob y/o npc
+    def movePlayer(self, direccion, e=None):
+        """
+        Función para mover al jugador
+        :param direccion: Dirección de movimiento
+        :param e: Evento
+        :return: void
+        """
+
+        # Si se puede mover y no está en contacto con un mob y/o npc
+        if (not self.inBattle and not self.player.isDead() and not self.inNpc) and self.canmove:
             try:
-                self.world.delete("textmsg"); self.world.delete("textback")
+                self.world.delete("textmsg")
+                self.world.delete("textback")
             except:
                 pass
             x = self.playerPos[0]
@@ -4432,7 +4926,7 @@ class hoa:  # Main class
                     k = 0
                     for mob in self.mobs:  # Se busca el mob que comenzara la batalla
                         if mob.getPosicionX() == x and mob.getPosicionY() == y:  # Si las posiciones coinciden
-                            self.setCombat(mob, k);
+                            self.setCombat(mob, k)
                             break  # establezco el combate
                         k += 1
                 elif logic == "npc":  # Si es un npc comienza la interacción
@@ -4463,7 +4957,7 @@ class hoa:  # Main class
                             self.player.setMap(path)
                             self.setWorld()
                             if self.player.getMap() == "%ERROR_LOADINGMAP%":  # Error inesperado al cargar el mapa (se devuelve)
-                                self.player.setMap(prevmap);
+                                self.player.setMap(prevmap)
                                 self.setWorld()
                             self.static.addDoor()
                         else:  # Si necesita de una llave para abrir
@@ -4488,10 +4982,10 @@ class hoa:  # Main class
                             if not opened:  # Si la llave no se encuentra
                                 self.sfx(2)
                                 if "door" in action:
-                                    self.setInfo(lang(65, translate(key)));
+                                    self.setInfo(lang(65, translate(key)))
                                     self.textMsg(lang(65, translate(key)), "normal")
                                 else:
-                                    self.setInfo(lang(66, translate(key)));
+                                    self.setInfo(lang(66, translate(key)))
                                     self.textMsg(lang(66, translate(key)), "normal")
                     elif path == "%SELF%":  # Si es una puerta al mismo mapa
                         if key == "%NULL%":  # Si no requiere de llaves
@@ -4678,7 +5172,7 @@ class hoa:  # Main class
                     self.setInfo(lang(82))
                     self.sfx(29)
                     e = pop([[lang(82), lang(173)], self.images.image("iconmuerte"), "aviso", 85, 270, lang(83)])
-                    e.w.mainloop(1);
+                    e.w.mainloop(1)
                     del e
                     self.abortGame()
                 elif logic == "nopassalert":  # No pasar con alerta de sonido
@@ -4691,14 +5185,24 @@ class hoa:  # Main class
             if self.tipoCombate == MODE_FIGHT_NORMAL:  # Si el tipo de combate es normal
                 self.setInfo(lang(choice([596, 597, 598, 599, 600])))
 
-    def moverListaItems(self, direccion):  # Función que mueve las páginas cambiando el parámetro de paginado
+    def moverListaItems(self, direccion):
+        """
+        Función que mueve las páginas cambiando el parámetro de paginado
+        :param direccion: Dirección de movimiento
+        :return: void
+        """
         if direccion == "left" and self.itemnumberlist > 0:
             self.itemnumberlist -= 20  # página anterior
         else:
             self.itemnumberlist += 20  # página siguiente
         self.dibujarItems()  # se dibujan los items
 
-    def multiplayer_connect(self):  # Conectar a un servidor
+    # TODO:Conectarse al multiplayer
+    def multiplayer_connect(self):
+        """
+        Conectar a un servidor
+        :return: void
+        """
         if self.ingame:
             if not self.inBattle:
                 if not self.inNpc:
@@ -4719,7 +5223,7 @@ class hoa:  # Main class
                                 self.setInfo(lang(792, ventana.values[0], str(ventana.values[1])), True)
                                 print lang(310)
                             except:
-                                print lang(398);
+                                print lang(398)
                                 print lang(793)
                                 self.multiplayer_desconnect(False, True)
                                 self.setInfo(lang(804))
@@ -4740,7 +5244,14 @@ class hoa:  # Main class
             else:
                 self.error(lang(818), 82)  # se encuentra en una batalla
 
-    def multiplayer_desconnect(self, abort=False, error=False):  # Desconectar de un servidor
+    # TODO:Desconectarse del multiplayer
+    def multiplayer_desconnect(self, abort=False, error=False):
+        """
+        Desconectar de un servidor
+        :param abort: Boolean
+        :param error: Boolean
+        :return: void
+        """
         delMatrix(self.multiplayer_players)
         delMatrix(self.multiplayer_players_id)
         self.multiplayer_isconected = False
@@ -4752,7 +5263,12 @@ class hoa:  # Main class
         if not error: self.setInfo(lang(803, self.multiplayer_server))
         self.multiplayer_server = "0.0.0.0:0"
 
-    def multiplayer_joinLobby(self):  # Unirse a una partida multijugador
+    # TODO:Unirse a lobby
+    def multiplayer_joinLobby(self):
+        """
+        Unirse a una partida multijugador
+        :return: void
+        """
         if self.multiplayer_isconected and self.ingame:  # Si está conectado
             data = simplejson.loads(self.multiplayer_me_conn.recv(2000))
             if len(data) != 0:  # Si existen entradas en el servidor
@@ -4771,7 +5287,8 @@ class hoa:  # Main class
                             self.multiplayer_lobby = datalobby[0]
                             self.setInfo(lang(816, self.multiplayer_lobby))
                         else:
-                            self.multiplayer_desconnect(False, True); self.error(lang(815), 82)
+                            self.multiplayer_desconnect(False, True)
+                            self.error(lang(815), 82)
                     elif ventana.values[0] == "create":
                         ventana1 = pop([[lang(808), lang(225), lang(820), lang(54)], self.images.image("server_add"),
                                         "server_create", 42, 280])
@@ -4786,17 +5303,23 @@ class hoa:  # Main class
                                     newdata = simplejson.dumps(
                                         [self.multiplayer_lobby, self.player.getName(), self.player.getMap()])
                                     self.multiplayer_me_conn.send(newdata)
-                                    self.setInfo(lang(822, self.multiplayer_lobby));
+                                    self.setInfo(lang(822, self.multiplayer_lobby))
                                     self.setInfo(lang(816, self.multiplayer_lobby))
                                 except:
-                                    self.multiplayer_desconnect(False, False); self.error(
+                                    self.multiplayer_desconnect(False, False)
+                                    self.error(
                                         lang(821))  # error al crear el lobby
                         del ventana1
                 else:
                     self.multiplayer_desconnect(False, False)
                 del ventana
 
-    def multiplayer_update(self):  # Actualizar los datos del servidor
+    # TODO:Subir y actualizar jugadores del lobby
+    def multiplayer_update(self):
+        """
+        Actualizar los datos del servidor
+        :return: void
+        """
         if self.multiplayer_isconected and self.ingame:  # Se ejecuta la funcion nuevamente
             try:
                 self.root.after_cancel(self.lastmultiplayerId)  # se borra el ultimo elemento
@@ -4806,7 +5329,12 @@ class hoa:  # Main class
             # except: print lang(363)
             pass
 
-    def newGame(self, e=None):  # Función que genera una nueva partida
+    def newGame(self, e=None):
+        """
+        Función que genera una nueva partida
+        :param e: Evento
+        :return: void
+        """
         if not self.isNewGameCreating:  # Si no hay otra ventana de creación abierta
             if self.multiplayer_isconected:  # Si el jugador está conectado a un servidor
                 v = pop([[lang(795), lang(799), lang(797), lang(239)], self.images.image("server_disconnect"),
@@ -4822,13 +5350,16 @@ class hoa:  # Main class
                         except:
                             print lang(398)
                     elif v.values[0] == "cancel":
-                        del v; return
+                        del v
+                        return
                 del v
             self.isNewGameCreating = True
             if isWindows():
-                _sizex = 354; _sizey = 242
+                _sizex = 354
+                _sizey = 242
             else:
-                _sizex = 455; _sizey = 270
+                _sizex = 455
+                _sizey = 270
             ventana = pop(
                 [[lang(46), lang(224), lang(225), lang(226), lang(227), lang(228), lang(229), "[Fácil/Medio/Difícil]", \
                   lang(245).replace(":", ""), "[Guerrero/Mago/Skaard/Ugraar]", lang(233), lang(781), lang(782),
@@ -4880,23 +5411,30 @@ class hoa:  # Main class
                     self.initialBg.pack_forget()
                     if CONFIGURATION_DATA[12]: self.archivomenu.entryconfig(2, state=NORMAL)
                     self.archivomenu.entryconfig(3, state=NORMAL)
-                    self.vermenu.entryconfig(0, state=NORMAL);
+                    self.vermenu.entryconfig(0, state=NORMAL)
                     self.vermenu.entryconfig(1, state=NORMAL)
-                    self.vermenu.entryconfig(2, state=NORMAL);
-                    self.vermenu.entryconfig(3, state=NORMAL);
+                    self.vermenu.entryconfig(2, state=NORMAL)
+                    self.vermenu.entryconfig(3, state=NORMAL)
                     self.vermenu.entryconfig(4, state=NORMAL)
                 except:  # Error al crear la nueva partida
-                    print lang(398);
+                    print lang(398)
                     print lang(604)
                     self.isNewGameCreating = False  # termina el estado creativo
                     self.ingame = False
                     self.abortGame()
-                    self.error(lang(605));
+                    self.error(lang(605))
                     return
             self.isNewGameCreating = False  # termina el estado creativo
             del ventana
 
-    def npcInteract(self, action, e=None):  # Interactuar con un npc
+    # TODO: Interacción con NPC
+    def npcInteract(self, action, e=None):
+        """
+        Interactuar con un npc
+        :param action: Acción del npc
+        :param e: Event
+        :return: void
+        """
         if self.ingame:  # Si hay un juego en proceso
             if self.inNpc:  # Si hay un npc en proceso
                 try:
@@ -4957,8 +5495,8 @@ class hoa:  # Main class
                                             self.textMsg(lang(560, translate(req.getName())))
                                         else:
                                             self.textMsg(lang(choice([561, 562])))
-                                            self.inNpc = False;
-                                            self.npcId = -1;
+                                            self.inNpc = False
+                                            self.npcId = -1
                                             self.currentNpc = None
                                 elif ("{setquest" in line) and ("}" in line):
                                     line = translate(line.replace("{setquest ", "").replace("}", ""))
@@ -5013,7 +5551,7 @@ class hoa:  # Main class
                             adv = True
                     if adv:  # Si termina el diálogo con el npc
                         if (
-                                    self.currentNpc.getStringAmount() == self.currentNpc.getCount() and self.npcId >= 0 and adv) or line == "{end}":
+                                            self.currentNpc.getStringAmount() == self.currentNpc.getCount() and self.npcId >= 0 and adv) or line == "{end}":
                             def _setnonpc():  # Elimina al npc activo
                                 self.inNpc = False
                                 self.npcId = -1
@@ -5026,7 +5564,8 @@ class hoa:  # Main class
                                 self.root.after(SHOWMESSAGESTIME / 2, _setnonpc)
                             else:
                                 def _delnpc():
-                                    self.dibujarMundo(); self.moveNpc()  # elimina al npc
+                                    self.dibujarMundo()
+                                    self.moveNpc()  # elimina al npc
 
                                 self.currentNpc.end()
                                 self.root.after(SHOWMESSAGESTIME / 2, _setnonpc)
@@ -5038,8 +5577,15 @@ class hoa:  # Main class
                 except AttributeError:
                     pass
 
-    def playerText(self, msg, c="rojo", player=True,
-                   bold=True):  # Función que escribe un mensaje sobre el jugador (o enemigo) y lo borra al segundo
+    def playerText(self, msg, c="rojo", player=True, bold=True):
+        """
+        Función que escribe un mensaje sobre el jugador (o enemigo) y lo borra al segundo
+        :param msg: String
+        :param c: Color
+        :param player: Jugador o enemigo
+        :param bold: Bold
+        :return: void
+        """
         if not self.tipoCombate == MODE_FIGHT_GROUP:
             if c == "azul":
                 color = "#0000ff"
@@ -5088,12 +5634,17 @@ class hoa:  # Main class
             except:
                 print lang(367)
 
-    def salir(self, e=None):  # Función para salir del juego
+    def salir(self, e=None):
+        """
+        Función para salir del juego
+        :param e: Event
+        :return: void
+        """
         print lang(402),
         if (self.ingame and e != "command" and not self.inBattle and not self.inNpc) and CONFIGURATION_DATA[
             12]:  # Si hay una partida en curso y no está en una batalla
             if CONFIGURATION_DATA[2] and self.namePartida != "":  # Si está habilitado guardar al salir
-                print lang(403);
+                print lang(403)
                 self.saveGame("exit")
             else:  # Si no está habilitado guardar al salir
                 e = pop([[lang(64), lang(236), lang(237), lang(238), lang(239)], self.images.image("save_icon"),
@@ -5102,15 +5653,17 @@ class hoa:  # Main class
                 e.w.mainloop(1)
                 if e.sent:  # Se procede en función de la respuesta
                     if e.values[0] == "si":
-                        print lang(403); self.saveGame("exit")
+                        print lang(403)
+                        self.saveGame("exit")
                     elif e.values[0] == "no":
                         print lang(310)
                     else:
-                        print lang(398); return
+                        print lang(398)
+                        return
                 del e
         else:
             print lang(310)
-        print lang(745), ;
+        print lang(745),
         print "",
         if self.multiplayer_isconected: self.multiplayer_desconnect(False)
         if os.name == "nt":
@@ -5120,11 +5673,16 @@ class hoa:  # Main class
 
             os.kill(os.getpid(), signal.SIGKILL)
 
-    def saveGame(self, tipo=None):  # Función que guarda una partida
+    def saveGame(self, tipo=None):
+        """
+        Función que guarda una partida
+        :param tipo: Tipo de guardado
+        :return: void
+        """
         if (self.ingame and not self.player.isDead()) and CONFIGURATION_DATA[
             12]:  # Si se esta jugando (esto evita que se pueda guardar sin hacer nada
             if not self.inBattle and not self.inNpc:  # Si no se encuentra peleando ni interactuando con un npc
-                nameSav = "";
+                nameSav = ""
                 continuar = False
                 if not self.loaded:  # Si no se ha cargado (es una nueva partida) se pregunta por un nombre
                     ventana = pop([[lang(60), lang(234), lang(235), lang(64), lang(781), lang(787), lang(788)], \
@@ -5133,7 +5691,8 @@ class hoa:  # Main class
                     if ventana.sent: nameSav = ventana.values[0]; continuar = True; self.namePartida = nameSav
                     del ventana
                 else:
-                    nameSav = self.namePartida; continuar = True
+                    nameSav = self.namePartida
+                    continuar = True
                 if len(nameSav) > 0 and continuar:  # Si está todo listo
                     nameSav = nameSav.replace(u"\ufeff",
                                               "")  # reemplazo caracteres no válidos para el nombre del archivo
@@ -5173,10 +5732,10 @@ class hoa:  # Main class
                             archivo.write("%NULL%\n")
                         print lang(310)
                     except:  # Error al guardar la información básica del jugador
-                        print lang(398);
-                        print lang(339);
-                        self.setInfo(lang(63));
-                        self.error(lang(151));
+                        print lang(398)
+                        print lang(339)
+                        self.setInfo(lang(63))
+                        self.error(lang(151))
                         return
                     try:  # Información de las armas
                         print lang(419),
@@ -5191,10 +5750,10 @@ class hoa:  # Main class
                             archivo.write("%NULL%\n")
                         print lang(310)
                     except:  # Error al escribir la información de las armas
-                        print lang(398);
-                        print lang(338);
-                        self.setInfo(lang(63));
-                        self.error(lang(152));
+                        print lang(398)
+                        print lang(338)
+                        self.setInfo(lang(63))
+                        self.error(lang(152))
                         return
                     try:  # Información de la armadura
                         print lang(420),
@@ -5217,10 +5776,10 @@ class hoa:  # Main class
                             archivo.write("%NULL%\n")
                         print lang(310)
                     except:  # Error al escribir la información de la armadura
-                        print lang(398);
-                        print lang(337);
-                        self.setInfo(lang(63));
-                        self.error(lang(153));
+                        print lang(398)
+                        print lang(337)
+                        self.setInfo(lang(63))
+                        self.error(lang(153))
                         return
                     try:  # Items del jugador
                         print lang(421),
@@ -5230,10 +5789,10 @@ class hoa:  # Main class
                         archivo.close()
                         print lang(310)
                     except:  # Error al escribir los items del jugador
-                        print lang(398);
-                        print lang(336);
-                        self.setInfo(lang(63));
-                        self.error(lang(154));
+                        print lang(398)
+                        print lang(336)
+                        self.setInfo(lang(63))
+                        self.error(lang(154))
                         return
                     try:  # Quest del jugador
                         print lang(569),
@@ -5245,10 +5804,10 @@ class hoa:  # Main class
                         archivo14.close()
                         print lang(310)
                     except:  # Error al escribir las quest del jugador
-                        print lang(398);
-                        print lang(568);
-                        self.setInfo(lang(63));
-                        self.error(lang(570));
+                        print lang(398)
+                        print lang(568)
+                        self.setInfo(lang(63))
+                        self.error(lang(570))
                         return
                     try:  # Poderes del jugador
                         print lang(430),
@@ -5258,10 +5817,10 @@ class hoa:  # Main class
                         archivo12.close()
                         print lang(310)
                     except:  # Error al escribir los poderes del jugador
-                        print lang(398);
-                        print lang(385);
-                        self.setInfo(lang(63));
-                        self.error(lang(386));
+                        print lang(398)
+                        print lang(385)
+                        self.setInfo(lang(63))
+                        self.error(lang(386))
                         return
                     try:  # Archivo de comandos
                         print lang(422),
@@ -5273,10 +5832,10 @@ class hoa:  # Main class
                         archivo3.close()
                         print lang(310)
                     except:  # Error al exportar los comandos
-                        print lang(398);
-                        print lang(335);
-                        self.setInfo(lang(63));
-                        self.error(lang(156));
+                        print lang(398)
+                        print lang(335)
+                        self.setInfo(lang(63))
+                        self.error(lang(156))
                         return
                     try:  # Archivo del mapa lógico
                         print lang(423),
@@ -5288,10 +5847,10 @@ class hoa:  # Main class
                         archivo4.close()
                         print lang(310)
                     except:  # Error al guardar el mapa lógico
-                        print lang(398);
-                        print lang(334);
-                        self.setInfo(lang(63));
-                        self.error(lang(157));
+                        print lang(398)
+                        print lang(334)
+                        self.setInfo(lang(63))
+                        self.error(lang(157))
                         return
                     try:  # Archivo de mobs del mapa actual
                         print lang(424),
@@ -5303,10 +5862,10 @@ class hoa:  # Main class
                         archivo5.close()
                         print lang(310)
                     except:  # Error al crear el mapa actual
-                        print lang(398);
-                        print lang(333);
-                        self.setInfo(lang(63));
-                        self.error(lang(158));
+                        print lang(398)
+                        print lang(333)
+                        self.setInfo(lang(63))
+                        self.error(lang(158))
                         return
                     try:  # Archivo de estadísticas
                         print lang(425),
@@ -5315,10 +5874,10 @@ class hoa:  # Main class
                         archivo6.close()
                         print lang(310)
                     except:  # Error al exportar las estadísticas del jugador
-                        print lang(398);
-                        print lang(332);
-                        self.setInfo(lang(63));
-                        self.error(lang(174));
+                        print lang(398)
+                        print lang(332)
+                        self.setInfo(lang(63))
+                        self.error(lang(174))
                         return
                     try:  # Archivo de npc del mapa actual
                         print lang(437),
@@ -5330,10 +5889,10 @@ class hoa:  # Main class
                         archivo13.close()
                         print lang(310)
                     except:  # Error al exportar npc
-                        print lang(398);
-                        print lang(438);
-                        self.setInfo(lang(63));
-                        self.error(lang(439));
+                        print lang(398)
+                        print lang(438)
+                        self.setInfo(lang(63))
+                        self.error(lang(439))
                         return
                     try:  # Archivos de seguridad
                         print lang(426)
@@ -5353,10 +5912,10 @@ class hoa:  # Main class
                         archivo10.write(amir(DATA_SAVES + nameSav + ".mapmob") + "\n")
                         archivo10.close()
                     except:  # Error al crear archivos de seguridad
-                        print lang(398);
-                        print lang(331);
-                        self.setInfo(lang(63));
-                        self.error(lang(155));
+                        print lang(398)
+                        print lang(331)
+                        self.setInfo(lang(63))
+                        self.error(lang(155))
                         return
                     try:  # Archivo de texturas lógicas
                         print lang(427),
@@ -5370,12 +5929,12 @@ class hoa:  # Main class
                         archivo11.close()
                         print lang(310)
                     except:  # Error al crear el archivo de texturas lógicas
-                        print lang(398);
-                        print lang(330);
-                        self.setInfo(lang(63));
+                        print lang(398)
+                        print lang(330)
+                        self.setInfo(lang(63))
                         self.error(lang(222), 85)
                     try:  # Archivo de guardado
-                        print lang(428);
+                        print lang(428)
                         print lang(401).format("(...)" + (DATA_SAVES + nameSav + ".save")[-44:]),
                         filesave = zipfile.ZipFile(DATA_SAVES + nameSav + ".save",
                                                    mode='w')  # archivo final de guardado
@@ -5410,15 +5969,15 @@ class hoa:  # Main class
                         filesave.close()  # cierro el archivo generado
                         print lang(310)
                     except:  # Error al crear el archivo de guardado
-                        self.setInfo(lang(63));
-                        self.error(lang(213));
+                        self.setInfo(lang(63))
+                        self.error(lang(213))
                         print lang(440)
                     self.loaded = True  # se establece como cargada la partida
                     if tipo not in ["shorcut"]:  # Si no fue por atajo de teclado
                         if tipo not in ["exit", "autosave", "command"]:  # La partida fue guardada exitosamente
                             self.sfx(37)
                             e = pop([[lang(61), lang(173)], self.images.image("save_icon"), "aviso", 70, 270, lang(62)])
-                            e.w.mainloop(2);
+                            e.w.mainloop(2)
                             del e
                             self.setInfo(lang(61))
                         else:
@@ -5426,20 +5985,26 @@ class hoa:  # Main class
                     else:
                         self.setInfo(lang(61))
                 # Elimino los archivos generados
-                print lang(429), ;
-                borrarArchivosGenerados(DATA_SAVES + nameSav);
-                print lang(310);
+                print lang(429),
+                borrarArchivosGenerados(DATA_SAVES + nameSav)
+                print lang(310)
                 print lang(431)
             else:  # Si se encuentra peleando
-                self.setInfo(lang(278));
+                self.setInfo(lang(278))
                 self.sfx(28)
 
-    def setCombat(self, mob, i_d):  # Establece el combate entre el mob y el jugador
+    def setCombat(self, mob, i_d):
+        """
+        Establece el combate entre el mob y el jugador
+        :param mob: Mob
+        :param i_d: ID del mob
+        :return: void
+        """
         self.enemy = mob  # objeto mob
         self.enemy.setName(translate(self.enemy.getName()))
         self.enemy.setInfo(translate(self.enemy.getInformacion()))
         self.enemy.setDefensa(int(self.enemy.getDefensa() * (
-        self.dificultad[1] + 1)))  # se define la defensa basal mob en funcion de la dificultad
+            self.dificultad[1] + 1)))  # se define la defensa basal mob en funcion de la dificultad
         self.enemyId = i_d  # se obtiene el id del mob
         self.inBattle = True  # modo batalla (loop)
         try:
@@ -5486,7 +6051,11 @@ class hoa:  # Main class
         self.setInfo(self.enemy.getName() + "\n" + lang(87, self.enemy.getInformacion()), False)
         if self.tipoCombate == MODE_FIGHT_GROUP: self.setInfo(lang(724))
 
-    def setDificultad(self):  # Define la dificultad del juego
+    def setDificultad(self):
+        """
+        Define la dificultad del juego
+        :return: void
+        """
         if self.nivel_dificultad == DIFICULTAD_FACIL:
             self.dificultad = [-0.25, -0.25, 0.25, -0.25, 0.25, int(TIME_MOVE_MOBS_NORMAL * 1.25), -0.5, 1.25]
         elif self.nivel_dificultad == DIFICULTAD_MEDIO:
@@ -5494,18 +6063,28 @@ class hoa:  # Main class
         elif self.nivel_dificultad == DIFICULTAD_DIFICIL:
             self.dificultad = [0.25, 0.25, -0.25, 0.25, -0.25, int(TIME_MOVE_MOBS_NORMAL * 0.75), 0.5, 0.75]
 
-    def setInfo(self, text, hour=True):  # Función que escribe un texto en la consola
+    def setInfo(self, text, hour=True):
+        """
+        Función que escribe un texto en la consola
+        :param text: Texto
+        :param hour: Boolean
+        :return: void
+        """
         if text:  # Agrego texto a consola
             if hour:
                 self.console.insert(0, getHour() + " " + putStrict(text))  # se agrega mensaje con hora
             else:
                 self.console.insert(0, putStrict(text))
         if len(
-            self.console) > LIMIT_MESSAGES_CONSOLE: self.console.pop()  # si la consola alcanza el límite de mensajes luego se elimina el último
+                self.console) > LIMIT_MESSAGES_CONSOLE: self.console.pop()  # si la consola alcanza el límite de mensajes luego se elimina el último
         self.info.config(text=consoled(self.console))
         self.infoSlider.canv.yview_scroll(-1000, "units")
 
-    def setWorld(self):  # Función que carga el mundo desde un archivo
+    def setWorld(self):
+        """
+        Función que carga el mundo desde un archivo
+        :return: void
+        """
         try:
             mapa = loadFromArchive(DATA_LEVELS + self.player.getMap(), lang(400))  # carga del mapa
             self.root.title(self.programTitle + " - " + str(translate(mapa[0])).replace("'",
@@ -5701,7 +6280,7 @@ class hoa:  # Main class
             self.stopSound()  # Paro los sonidos
             self.sonidoBg(self.mapBackgroundSound[0])  # Cargo el sonido de fondo
             self.sfxBackgroundRepeat()  # Repito indefinidamente el sonido
-            del im;
+            del im
             del fim  # Borro las imágenes generadas
         except:  # Si ocurre algún error durante la carga del mapa
             print lang(361)
@@ -5712,10 +6291,20 @@ class hoa:  # Main class
             self.npcMovement = False
             self.error(lang(98))
 
-    def sfx(self, t):  # Función que reproduce un archivo de musica desde la libreria
+    def sfx(self, t):
+        """
+        Función que reproduce un archivo de musica desde la libreria
+        :param t: Index
+        :return: void
+        """
         self.sonidoFx(choice(SONIDO[t]))  # carga el sonido desde la lista eligiendo un sonido al azar
 
-    def sfxBackgroundRepeat(self, e=None):  # Función que repite un sonido
+    def sfxBackgroundRepeat(self, e=None):
+        """
+        Función que repite un sonido
+        :param e: Event
+        :return: void
+        """
         if CONFIGURATION_DATA[1]:  # Si los sonidos están activados
             self.sndBg.play()
             if self.mapBackgroundSound[1] is not None: self.root.after_cancel(self.mapBackgroundSound[1])
@@ -5725,10 +6314,21 @@ class hoa:  # Main class
 
             self.mapBackgroundSound[1] = self.root.after(self.mapBackgroundSound[2], _play)
 
-    def sfxSpecial(self, n, t):  # Función que reproduce un archivo especifico desde la librería de musica
+    def sfxSpecial(self, n, t):
+        """
+        Función que reproduce un archivo especifico desde la librería de musica
+        :param n: Index
+        :param t: Sub-Index
+        :return: void
+        """
         self.sonido(SONIDO[n][t])  # carga y reproduce el sonido
 
-    def sonido(self, archivo):  # Función que reproduce un archivo
+    def sonido(self, archivo):
+        """
+        Función que reproduce un archivo
+        :param archivo: Archivo de sonido
+        :return: void
+        """
         if archivo != "" and CONFIGURATION_DATA[1]:  # Si el sonido existe y los sonidos están activados
             try:
                 self.snd.read(archivo)
@@ -5736,7 +6336,12 @@ class hoa:  # Main class
             except:
                 print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
 
-    def sonidoBg(self, archivo):  # Función que reproduce un archivo
+    def sonidoBg(self, archivo):
+        """
+        Función que reproduce un archivo
+        :param archivo: String de sonido
+        :return: void
+        """
         if archivo != "" and CONFIGURATION_DATA[
             1] and archivo != SOUND_AMBIENCE + "%MAPSOUND%":  # Si el archivo existe y los sonidos están activados
             try:
@@ -5745,9 +6350,15 @@ class hoa:  # Main class
                 self.mapBackgroundSound[2] = self.sndBg.length(unit="SECONDS") * 1000
                 print lang(310)
             except:
-                print lang(398); print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
+                print lang(398)
+                print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
 
-    def sonidoFx(self, archivo):  # Función que reproduce un archivo
+    def sonidoFx(self, archivo):
+        """
+        Función que reproduce un archivo
+        :param archivo: String de sonido
+        :return: void
+        """
         if archivo != "" and CONFIGURATION_DATA[1]:  # Si el archivo existe y los sonidos están activados
             try:
                 self.sndFx.stop()
@@ -5756,7 +6367,12 @@ class hoa:  # Main class
             except:
                 print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
 
-    def stopSound(self, mode="normal"):  # Función que detiene todos los sonidos
+    def stopSound(self, mode="normal"):
+        """
+        Función que detiene todos los sonidos
+        :param mode: Modo de reproducción
+        :return: void
+        """
         if CONFIGURATION_DATA[1] or mode == "silent":  # Si los sonidos están activados
             if mode != "silent": print lang(432),
             try:
@@ -5774,6 +6390,12 @@ class hoa:  # Main class
             if mode != "silent": print lang(310)
 
     def textMsg(self, txt, mode="normal"):
+        """
+        Escribe un texto en el mapa
+        :param txt: Texto
+        :param mode: Modo de dibujo
+        :return: void
+        """
         try:
             self.world.delete("textmsg")
             self.world.delete("textback")
@@ -5823,7 +6445,12 @@ class hoa:  # Main class
                 print lang(433)
             self.world.update()
 
-    def update(self, e=None):  # Función que actualiza el juego
+    def update(self, e=None):
+        """
+        Función que actualiza el juego
+        :param e: Event
+        :return: void
+        """
         if self.ingame:  # Si se encuentra jugando
             self.checkItems()
             self.dibujarArmor()
@@ -5832,7 +6459,11 @@ class hoa:  # Main class
             self.dibujarPowers()
             self.updateInfoPlayer()
 
-    def updateInfoPlayer(self):  # Función que actualiza los contadores del jugador
+    def updateInfoPlayer(self):
+        """
+        Función que actualiza los contadores del jugador
+        :return: void
+        """
         life = self.player.getLife()
         maxl = self.player.getActualMaximumLife()
         barras = min(100, int((life * 100) / max(1, maxl)))

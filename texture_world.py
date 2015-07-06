@@ -1,6 +1,6 @@
 # @PydevCodeAnalysisIgnore
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # Texture_world - Texturas del mundo
 # Pablo Pizarro, 2014-2015
 
@@ -15,7 +15,7 @@ IMAGES = {
     # Vehículos
     "ship_0": DATA_IMAGES_VEHICLES + "ship_0.gif", \
     "ship_1": DATA_IMAGES_VEHICLES + "ship_1.gif", \
-
+ \
     # Actores
     "actor_arrow": DATA_IMAGES_ACTORS + "actor_arrow.gif", \
     "actor_groupal_1": DATA_IMAGES_ACTORS + "actor_groupal_1.gif", \
@@ -291,7 +291,7 @@ IMAGES = {
     "actor135_1": DATA_IMAGES_ACTORS + "actor135_1.gif", \
     "actor136_0": DATA_IMAGES_ACTORS + "actor136_0.gif", \
     "actor136_1": DATA_IMAGES_ACTORS + "actor136_1.gif", \
-
+ \
     # Construcción
     "big_construction_wall1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall1_0.gif", \
     "big_construction_wall1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall1_1.gif", \
@@ -679,7 +679,7 @@ IMAGES = {
     "puerta11_1": DATA_IMAGES_CONSTRUCTION + "puerta11_1.gif", \
     "puerta12_0": DATA_IMAGES_CONSTRUCTION + "puerta12_0.gif", \
     "puerta12_1": DATA_IMAGES_CONSTRUCTION + "puerta12_1.gif", \
-
+ \
     # Decoración #interiores
     "barril1_0": DATA_IMAGES_INTERIOR + "barril1_0.gif", \
     "barril1_1": DATA_IMAGES_INTERIOR + "barril1_1.gif", \
@@ -1055,7 +1055,7 @@ IMAGES = {
     "trophy19_1": DATA_IMAGES_INTERIOR + "trophy19_1.gif", \
     "trophy20_0": DATA_IMAGES_INTERIOR + "trophy20_0.gif", \
     "trophy20_1": DATA_IMAGES_INTERIOR + "trophy20_1.gif", \
-
+ \
     # Ambiente
     "ambiance_grass1_0": DATA_IMAGES_AMBIANCE + "ambiance_grass1_0.gif", \
     "ambiance_grass1_1": DATA_IMAGES_AMBIANCE + "ambiance_grass1_1.gif", \
@@ -1894,7 +1894,7 @@ IMAGES = {
     "tronco1_1": DATA_IMAGES_AMBIANCE + "tronco1_1.gif", \
     "tronco2_0": DATA_IMAGES_AMBIANCE + "tronco2_0.gif", \
     "tronco2_1": DATA_IMAGES_AMBIANCE + "tronco2_1.gif", \
-
+ \
     # Edificios
     "building1_0": DATA_IMAGES_BUILDING_BIG + "building1_0.gif", \
     "building1_1": DATA_IMAGES_BUILDING_BIG + "building1_1.gif", \
@@ -2093,7 +2093,7 @@ IMAGES = {
     "house_0": DATA_IMAGES_BUILDING + "house_0.gif", \
     "house_1": DATA_IMAGES_BUILDING + "house_1.gif", \
     "volcan": DATA_IMAGES_BUILDING + "volcan.gif", \
-
+ \
     # Powers
     "dobdam": DATA_IMAGES_POWERS + "dobdam.gif", \
     "dobdef": DATA_IMAGES_POWERS + "dobdef.gif", \
@@ -2114,4 +2114,4 @@ IMAGES = {
     "repwep": DATA_IMAGES_POWERS + "repwep.gif", \
     "robym": DATA_IMAGES_POWERS + "robym.gif", \
     "upexp": DATA_IMAGES_POWERS + "upexp.gif", \
-}
+    }

@@ -26,8 +26,12 @@ LANGS = {"AR": "العربي",
          "ZH-CN": "中国的"}
 
 
-# Función interna que retorna un dato dependiendo del tipo que sea
 def desParseType(a):
+    """
+    Función interna que retorna un dato dependiendo del tipo que sea
+    :param a: String
+    :return: String formateado
+    """
     if a.replace(".", "").isdigit():  # Si la variable a es un digito
         if "." in a:
             a = "flt_" + str(float(a))  # Si el numero es un flotante
@@ -44,8 +48,14 @@ def desParseType(a):
     return a
 
 
-# Función que ordena las columnas segun orden
 def sortby(tree, col, descending):
+    """
+    Función que ordena las columnas segun orden
+    :param tree: Tree
+    :param col: Columna
+    :param descending: Boolean
+    :return: void
+    """
     data = [(tree.set(child, col), child)
             for child in tree.get_children('')]  # obtiene los datos para ordenar
     data.sort(reverse=descending)  # se reonrdenan y modifican
@@ -55,9 +65,17 @@ def sortby(tree, col, descending):
         tree, col, int(not descending)))
 
 
-class pop:  # Ventanas emergentes
+class pop:
+    """
+    Ventanas emergentes
+    """
 
-    def __init__(self, properties):  # Función constructora
+    def __init__(self, properties):
+        """
+        Función constructora
+        :param properties: Propiedades de la ventana
+        :return: void
+        """
         self.lang = properties[0]
         if "list" in str(type(self.lang)):
             title = self.lang[0]
@@ -86,17 +104,17 @@ class pop:  # Ventanas emergentes
         self.sent = False
         if typeObject == "about":  # Acerca de
             Label(self.w, text=self.lang[
-                  1] + properties[5], font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   1] + properties[5], font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=self.lang[
-                  2] + properties[6], font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   2] + properties[6], font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=self.lang[
-                  3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
             Button(
                 self.w, text=self.lang[4], command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
         elif typeObject == "actualizacion":  # Actualización del programa
             Label(self.w, text=self.lang[
-                  4], font=DEFAULT_FONT_TITLE, border=10).pack()
+                4], font=DEFAULT_FONT_TITLE, border=10).pack()
             Label(self.w, text=self.lang[1].format(
                 properties[5]), font=DEFAULT_FONT_TITLE, border=1).pack()
             Label(self.w, text=self.lang[2].format(
@@ -112,7 +130,7 @@ class pop:  # Ventanas emergentes
             self.buscaractualizacion = IntVar(self.w)
             self.buscaractualizacion.set(0)
             c = Checkbutton(self.w, text=self.lang[
-                            3], variable=self.buscaractualizacion, onvalue=1, offvalue=0)
+                3], variable=self.buscaractualizacion, onvalue=1, offvalue=0)
             c.pack()
         elif typeObject == "command":  # Ventana de comandos
             self.commandsfile = properties[5] + "prevcommands.log"
@@ -121,9 +139,19 @@ class pop:  # Ventanas emergentes
             self.lastcommand = -1
 
             def _caps(event):
+                """
+                Convierte el texto a mayusculas
+                :param event: Evento
+                :return: void
+                """
                 self.eventTextSv.set(self.eventTextSv.get().upper())
 
             def _prevcommand(event):
+                """
+                Carga el comando anterior
+                :param event: Event
+                :return: void
+                """
                 if len(self.commands) != 0:
                     self.lastcommand = min(
                         self.lastcommand + 1, len(self.commands) - 1)
@@ -131,6 +159,11 @@ class pop:  # Ventanas emergentes
                         self.commands[self.lastcommand].upper())
 
             def _upcommand(event):
+                """
+                Carga el comando siguiente
+                :param event: Event
+                :return: void
+                """
                 if len(self.commands) != 0:
                     self.lastcommand = max(-1, self.lastcommand - 1)
                     if self.lastcommand == -1:
@@ -138,6 +171,7 @@ class pop:  # Ventanas emergentes
                     else:
                         self.eventTextSv.set(
                             self.commands[self.lastcommand].upper())
+
             f = Frame(self.w, border=10)
             f.pack()
             Label(f, text=self.lang[1], anchor=E, width=8).pack(side=LEFT)
@@ -154,7 +188,7 @@ class pop:  # Ventanas emergentes
             self.w.bind("<F2>", self.destruir)
         elif typeObject == "config_hoa":  # Ventana de configuraciones
             Label(self.w, text=self.lang[
-                  1] + " - Hero of Antair", font=DEFAULT_FONT_TITLE, border=10).pack()
+                                   1] + " - Hero of Antair", font=DEFAULT_FONT_TITLE, border=10).pack()
             self.configon = self.lang[6].upper().strip()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
@@ -167,7 +201,7 @@ class pop:  # Ventanas emergentes
                     try:
                         if langlist[k] != "":
                             langlist[k] = langlist[k].replace(properties[8], "") + " - " + \
-                                LANGS[langlist[k].replace(properties[8], "")]
+                                          LANGS[langlist[k].replace(properties[8], "")]
                         else:
                             langlist.pop(k)
                     except:
@@ -238,8 +272,13 @@ class pop:  # Ventanas emergentes
                            [self.lang[24], "#009900"],
                            [self.lang[25], "#006600"]]
 
-            # Función que busca el nombre del color entregado por el argumento
             def _buscarNombreColor(color, mode):
+                """
+                Función que busca el nombre del color entregado por el argumento
+                :param color: Color
+                :param mode: Modo de color
+                :return:
+                """
                 for i in self.colors:
                     if i[1] == color.upper():
                         return i[0]
@@ -247,6 +286,7 @@ class pop:  # Ventanas emergentes
                     return self.lang[21]
                 else:
                     return self.lang[12]
+
             # Color fondo consola
             f = Frame(self.w, border=3)
             f.pack(fill=X)
@@ -255,10 +295,11 @@ class pop:  # Ventanas emergentes
             self.colorfondo.set(
                 _buscarNombreColor(properties[10].strip().upper(), "bg"))
             Label(f, text=self.lang[8], anchor=E, width=18).pack(side=LEFT)
-            w = apply(OptionMenu, (f, self.colorfondo) + tuple([self.lang[10], self.lang[11], self.lang[12], self.lang[13], self.lang[14], self.lang[15],
-                                                                self.lang[16], self.lang[17], self.lang[
-                                                                    18], self.lang[19], self.lang[20], self.lang[21],
-                                                                self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
+            w = apply(OptionMenu, (f, self.colorfondo) + tuple(
+                [self.lang[10], self.lang[11], self.lang[12], self.lang[13], self.lang[14], self.lang[15],
+                 self.lang[16], self.lang[17], self.lang[
+                     18], self.lang[19], self.lang[20], self.lang[21],
+                 self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
             w["width"] = 12
             w["relief"] = GROOVE
             w["anchor"] = W
@@ -271,24 +312,25 @@ class pop:  # Ventanas emergentes
             self.colortexto.set(
                 _buscarNombreColor(properties[11].strip().upper(), "fg"))
             Label(f, text=self.lang[9], anchor=E, width=18).pack(side=LEFT)
-            w = apply(OptionMenu, (f, self.colortexto) + tuple([self.lang[10], self.lang[11], self.lang[12], self.lang[13], self.lang[14], self.lang[15],
-                                                                self.lang[16], self.lang[17], self.lang[
-                                                                    18], self.lang[19], self.lang[20], self.lang[21],
-                                                                self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
+            w = apply(OptionMenu, (f, self.colortexto) + tuple(
+                [self.lang[10], self.lang[11], self.lang[12], self.lang[13], self.lang[14], self.lang[15],
+                 self.lang[16], self.lang[17], self.lang[
+                     18], self.lang[19], self.lang[20], self.lang[21],
+                 self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
             w["width"] = 12
             w["relief"] = GROOVE
             w["anchor"] = W
             w.pack(side=LEFT)
             self.w.bind("<Escape>", self.destruir)
             Button(self.w, text=self.lang[
-                   4], command=self.sendconfig, relief=GROOVE, width=7).pack(pady=5)
+                4], command=self.sendconfig, relief=GROOVE, width=7).pack(pady=5)
         elif typeObject == "deseaDesconectarse":  # Desea guardar
             if properties[5] and isWindows():
                 winsound.MessageBeep(-1)
             self.w.focus_force()
             # desea guardar
             Label(self.w, text=self.lang[
-                  1], font=DEFAULT_FONT_TITLE, border=10).pack()
+                1], font=DEFAULT_FONT_TITLE, border=10).pack()
             F = Frame(self.w)
             F.pack()
             Button(F, text=self.lang[2], command=lambda: self.response(
@@ -302,7 +344,7 @@ class pop:  # Ventanas emergentes
             self.w.focus_force()
             # desea guardar
             Label(self.w, text=self.lang[
-                  1], font=DEFAULT_FONT_TITLE, border=10).pack()
+                1], font=DEFAULT_FONT_TITLE, border=10).pack()
             F = Frame(self.w)
             F.pack()
             Button(F, text=self.lang[2], command=lambda: self.response(
@@ -317,7 +359,7 @@ class pop:  # Ventanas emergentes
             tipo = properties[5]
             # titulo
             Label(self.w, text=self.lang[
-                  1], font=DEFAULT_FONT_TITLE, border=10).pack()
+                1], font=DEFAULT_FONT_TITLE, border=10).pack()
             armamento = properties[6][0]
             armamento.sort()
             fp = properties[6][1]
@@ -327,8 +369,8 @@ class pop:  # Ventanas emergentes
                 f.pack(fill=X)
                 for k in range(len(armamento)):
                     armamento[k] = str(armamento[k][0]).strip().capitalize().ljust(45) + " / " + \
-                        self.lang[7] + " " + str(armamento[k][1]) + " - " + self.lang[8] + " " + str(
-                            armamento[k][2]) + " - " + "ID " + str(armamento[k][3])
+                                   self.lang[7] + " " + str(armamento[k][1]) + " - " + self.lang[8] + " " + str(
+                        armamento[k][2]) + " - " + "ID " + str(armamento[k][3])
                 self.escogerArmamento_bullet = StringVar(self.w)
                 self.escogerArmamento_bullet.set(
                     self.lang[5])  # texto por defecto
@@ -349,7 +391,7 @@ class pop:  # Ventanas emergentes
             if typeObject == "error" and isWindows():
                 winsound.MessageBeep(16)  # Sonido de error
             Label(self.w, text=properties[
-                  5], wraplength=250, anchor=N, border=10).pack()
+                5], wraplength=250, anchor=N, border=10).pack()
             Button(
                 self.w, text=self.lang[1], command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
@@ -357,7 +399,7 @@ class pop:  # Ventanas emergentes
         # Informacion de un objeto
         elif typeObject == "itemInfo" or typeObject == "itemInfoArmor":
             Label(self.w, text=properties[
-                  5], font=DEFAULT_FONT_TITLE, border=10).pack()
+                5], font=DEFAULT_FONT_TITLE, border=10).pack()
             tipo = properties[6]
             info = properties[7]
             F = Frame(self.w)
@@ -367,17 +409,18 @@ class pop:  # Ventanas emergentes
             # Se agrega la informacion dependiendo del tipo de objeto
             if tipo == "arma" or tipo == "armadura" or tipo == "bullet" or tipo == "pocion":
                 Label(f, text=self.lang[
-                      1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                                  1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
                 Label(
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
             elif tipo == "armawb":
                 # si el arma tiene balas
                 if properties[11] != 0:
                     Label(f, text=self.lang[
-                          1] + str(properties[8] + properties[11]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                                      1] + str(properties[8] + properties[11]) + " HP", width=13, anchor=NW).pack(
+                        side=TOP)
                 else:
                     Label(f, text=self.lang[
-                          1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                                      1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
                 Label(
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
                 if properties[10] != 0:
@@ -398,7 +441,7 @@ class pop:  # Ventanas emergentes
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
             elif tipo == "mana":
                 Label(f, text=self.lang[
-                      1] + str(properties[8]) + " PTS", width=13, anchor=NW).pack(side=TOP)
+                                  1] + str(properties[8]) + " PTS", width=13, anchor=NW).pack(side=TOP)
                 Label(
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
             f2 = Frame(F, border=5)
@@ -409,7 +452,7 @@ class pop:  # Ventanas emergentes
             bt.pack()
             if typeObject != "itemInfoArmor":
                 Button(bt, text="<-", command=lambda:
-                       self.actionitem("super_left"), relief=GROOVE).pack(side=LEFT)
+                self.actionitem("super_left"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
                 Button(bt, text="<", command=lambda: self.actionitem(
                     "left"), relief=GROOVE).pack(side=LEFT)
@@ -425,7 +468,7 @@ class pop:  # Ventanas emergentes
                     "right"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
                 Button(bt, text="->", command=lambda:
-                       self.actionitem("super_right"), relief=GROOVE).pack(side=LEFT)
+                self.actionitem("super_right"), relief=GROOVE).pack(side=LEFT)
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_game":  # Nuevo juego
@@ -489,7 +532,7 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "powerInfo":  # Información de un poder
             Label(self.w, text=properties[
-                  5], font=DEFAULT_FONT_TITLE, border=10).pack()
+                5], font=DEFAULT_FONT_TITLE, border=10).pack()
             F = Frame(self.w)
             F.pack()
             f = Frame(F, border=3, height=5)
@@ -498,13 +541,13 @@ class pop:  # Ventanas emergentes
                 f, text=self.lang[1] + str(properties[7]), width=13, anchor=NW).pack(side=TOP)
             if properties[8] != "0:00":
                 Label(f, text=self.lang[
-                      2] + str(properties[8]) + " " + self.lang[3], width=13, anchor=NW).pack(side=TOP)
+                                  2] + str(properties[8]) + " " + self.lang[3], width=13, anchor=NW).pack(side=TOP)
             else:
                 Label(f, text=self.lang[5], width=13, anchor=NW).pack(side=TOP)
             f2 = Frame(F, border=5)
             f2.pack()
             Label(f2, text=properties[
-                  6], width=27, height=5, anchor=CENTER, relief=GROOVE, wraplength=150).pack()
+                6], width=27, height=5, anchor=CENTER, relief=GROOVE, wraplength=150).pack()
             bt = Frame(self.w, border=5)
             bt.pack()
             Button(bt, text=self.lang[4], command=self.w.destroy, relief=GROOVE).pack(
@@ -527,6 +570,11 @@ class pop:  # Ventanas emergentes
             self.lastserver = -1
 
             def _prevcommand(event):
+                """
+                Carga el servidor anterior
+                :param event: Event
+                :return: void
+                """
                 if len(self.servers) != 0:
                     self.lastserver = min(
                         self.lastserver + 1, len(self.servers) - 1)
@@ -535,6 +583,11 @@ class pop:  # Ventanas emergentes
                     self.eventPort.set(server[1])
 
             def _upcommand(event):
+                """
+                Carga el servidor siguiente
+                :param event: Event
+                :return: void
+                """
                 if len(self.servers) != 0:
                     self.lastserver = max(-1, self.lastserver - 1)
                     if self.lastserver == -1:
@@ -569,7 +622,15 @@ class pop:  # Ventanas emergentes
             self.serverName.bind("<Up>", _prevcommand)
             self.serverName.bind("<Down>", _upcommand)
         elif typeObject == "server_create":  # Crear una sala
-            def _dsc(e=None): self.serverLobby("disconnect")
+
+            def _dsc(e=None):
+                """
+                Desconecta del servidor
+                :param e: Event
+                :return: void
+                """
+                self.serverLobby("disconnect")
+
             f = Frame(self.w, border=10)
             f.pack()
             Label(f, text=self.lang[1], anchor=E, width=8).pack(side=LEFT)
@@ -583,7 +644,15 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Return>", self.enviarTextoSala)
             self.w.protocol("WM_DELETE_WINDOW", _dsc)
         elif typeObject == "server_joinlobby":  # Unirse a una sala
-            def _dsc(e=None): self.serverLobby("disconnect")
+
+            def _dsc(e=None):
+                """
+                Desconecta del servidor
+                :param e: Event
+                :return: void
+                """
+                self.serverLobby("disconnect")
+
             self.serverdata = properties[5]
             lobbys = []
             for i in self.serverdata.keys():
@@ -597,7 +666,7 @@ class pop:  # Ventanas emergentes
                 avaiable = False
             # titulo
             Label(self.w, text=self.lang[
-                  1], font=DEFAULT_FONT_TITLE, border=10).pack()
+                1], font=DEFAULT_FONT_TITLE, border=10).pack()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
             Label(f, text=self.lang[6], anchor=E, width=15).pack(side=LEFT)
@@ -632,7 +701,7 @@ class pop:  # Ventanas emergentes
         # Mostrar la información del jugador
         elif typeObject == "show_info_player":
             Label(self.w, text=properties[
-                  5], border=10, font=DEFAULT_FONT_TITLE).pack()
+                5], border=10, font=DEFAULT_FONT_TITLE).pack()
             F = Frame(self.w)
             F.pack()
             f = Frame(F, border=3, height=5)
@@ -646,7 +715,7 @@ class pop:  # Ventanas emergentes
             else:
                 _sizelabel = 6
             Label(menu2, text=self.lang[
-                  4], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(side=LEFT)  # vida
+                4], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(side=LEFT)  # vida
             infoVidaCanv = Canvas(
                 menu2, width=100, height=16, bg="#B30000")  # barra de vida
             infoVidaCanv.pack(side=LEFT)
@@ -655,7 +724,7 @@ class pop:  # Ventanas emergentes
             menu3 = Frame(menu1)
             menu3.pack(fill=X)
             Label(menu3, text=self.lang[
-                  5], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(side=LEFT)  # mana
+                5], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(side=LEFT)  # mana
             infoManaCanv = Canvas(
                 menu3, width=100, height=16, bg="#97991E")  # barra de mana
             infoManaCanv.pack(side=LEFT)
@@ -889,6 +958,7 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "ver_quest":  # Ver las quest
             import ttk
+
             Label(self.w, text=self.lang[1], border=10).pack()
             data = properties[5]
             newdata = []
@@ -927,7 +997,7 @@ class pop:  # Ventanas emergentes
             Yscroll = Scrollbar(self.w, orient=VERTICAL)
             Yscroll.pack(side=RIGHT, fill=Y)
             if len(properties) > 6:
-                if properties[6] == True:
+                if properties[6]:
                     Xscroll = Scrollbar(self.w, orient=HORIZONTAL)
                     Xscroll.pack(side=BOTTOM, fill=X)
                     texto = Text(
@@ -944,7 +1014,8 @@ class pop:  # Ventanas emergentes
             texto.pack(fill=BOTH)
             texto.configure(state="disabled")
             if len(properties) > 6:
-                if properties[6] == True:
+                if properties[6]:
+                    # noinspection PyUnboundLocalVariable
                     Xscroll.config(command=texto.xview)
             Yscroll.config(command=texto.yview)
             archivo.close()
@@ -952,18 +1023,31 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
 
-    # Función que envia un booleano que indica que el objeto ha de botarse
     def actionitem(self, action):
+        """
+        Función que envia un booleano que indica que el objeto ha de botarse
+        :param action: Evento de la ui
+        :return: void
+        """
         delMatrix(self.values)
         self.values.append(action)
         self.sent = True
         self.destruir()
 
-    def destruir(self, e=None):  # Función para destruir la ventana via evento
+    def destruir(self, e=None):
+        """
+        Función para destruir la ventana via evento
+        :param e: Evento
+        :return: void
+        """
         self.w.destroy()
 
-    # Función que envía un comando y lo guarda
     def enviarComando(self, e=None):
+        """
+        Función que envía un comando y lo guarda
+        :param e: Event
+        :return: void
+        """
         delMatrix(self.values)
         a = str(self.eventText.get())
         if len(a) > 0:
@@ -988,7 +1072,12 @@ class pop:  # Ventanas emergentes
             self.sent = True
             self.destruir()
 
-    def enviarTexto(self, e=None):  # Función que envia un texto
+    def enviarTexto(self, e=None):
+        """
+        Función que envia un texto
+        :param e: Event
+        :return: void
+        """
         delMatrix(self.values)
         a = str(self.eventText.get())
         if len(a) > 0:
@@ -996,11 +1085,17 @@ class pop:  # Ventanas emergentes
             self.sent = True
             self.destruir()
 
-    def enviarTextoSala(self, e=None):  # Función que envia un texto
+    def enviarTextoSala(self, e=None):
+        """
+        Función que envia un texto
+        :param e: Event
+        :return: void
+        """
         delMatrix(self.values)
         a = str(self.eventText.get()).strip()
         if len(a) > 0:
             from server import RESTRICTED_LOBBYNAMES
+
             if a not in RESTRICTED_LOBBYNAMES:
                 self.values.append(a)
                 self.sent = True
@@ -1010,12 +1105,19 @@ class pop:  # Ventanas emergentes
                 self.eventText.focus_force()
                 return
 
-    def kill(self):  # Función que destruye la ventana
+    def kill(self):
+        """
+        Función que destruye la ventana
+        :return: void
+        """
         self.sent = False
         self.w.destroy()
 
-    # Función que envia los datos para crear un nuevo juego
     def new_game(self):
+        """
+        Función que envia los datos para crear un nuevo juego
+        :return: void
+        """
         delMatrix(self.values)
         a = self.name.get().strip()
         b = self.pais.get().strip()
@@ -1024,7 +1126,7 @@ class pop:  # Ventanas emergentes
             "é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
         e = self.tipodejugador.get().strip().lower()
         # Comprueba si los datos son correctos
-        if 0 < len(a) <= 23 and len(b) != 0 and str(c).isdigit():
+        if 23 >= len(a) > 0 != len(b) and str(c).isdigit():
             self.sent = True
             self.values.append(a.title())
             self.values.append(b.title())
@@ -1055,7 +1157,13 @@ class pop:  # Ventanas emergentes
                 self.edad.focus_force()
                 return
 
-    def response(self, res, typ="normal"):  # Función que envia una respuesta
+    def response(self, res, typ="normal"):
+        """
+        Función que envia una respuesta
+        :param res: Respuesta
+        :param typ: Tipo
+        :return: void
+        """
         delMatrix(self.values)
         self.values.append(res)
         if typ == "act":
@@ -1063,7 +1171,11 @@ class pop:  # Ventanas emergentes
         self.sent = True
         self.destruir()
 
-    def savegame(self):  # Función que envia el nombre de la partida guardada
+    def savegame(self):
+        """
+        Función que envia el nombre de la partida guardada
+        :return: void
+        """
         delMatrix(self.values)
         name = self.namePartida.get().strip().lower()
         noneTypes = "!\"#$%&/()=?¿'¡¿´+*~[]{}^`-_.:;,°|¬@"
@@ -1087,14 +1199,24 @@ class pop:  # Ventanas emergentes
                 self.namePartida.focus_force()
                 return
 
-    # Función que envia la informacion de la configuración
     def sendconfig(self, e=None):
-        # Función que busca el nombre del color entregado por el argumento
+        """
+        Función que envia la informacion de la configuración
+        :param e: Event
+        :return: void
+        """
+
         def _buscarColorNombre(nombre):
+            """
+            Función que busca el nombre del color entregado por el argumento
+            :param nombre: Nombre del color
+            :return: String
+            """
             for i in self.colors:
                 if i[0] == nombre:
                     return i[1]
             return "%NOCOLOR%"
+
         delMatrix(self.values)
         a = self.confsound.get().upper()  # sonido
         b = self.conflang.get().upper().split(" - ")  # idioma
@@ -1120,7 +1242,12 @@ class pop:  # Ventanas emergentes
                 self.sent = True
                 self.destruir()
 
-    def sendArmamento(self, t=None):  # Función que envia el armamento
+    def sendArmamento(self, t=None):
+        """
+        Función que envia el armamento
+        :param t: String
+        :return: void
+        """
         delMatrix(self.values)
         bullet = self.escogerArmamento_bullet.get().split("ID")
         if bullet[0] != t:
@@ -1132,8 +1259,12 @@ class pop:  # Ventanas emergentes
         self.sent = True
         self.destruir()
 
-    # Función que envía los datos de la conexión
     def serverConnect(self, e=None):
+        """
+        Función que envía los datos de la conexión
+        :param e: Event
+        :return: void
+        """
         a = self.serverName.get().strip()
         b = self.serverPort.get().strip()
         if len(a) > 0 and str(b).isdigit():
@@ -1166,7 +1297,12 @@ class pop:  # Ventanas emergentes
                 self.serverPort.focus_force()
                 return
 
-    def serverLobby(self, e=None):  # Función que envía los datos del lobby
+    def serverLobby(self, e=None):
+        """
+        Función que envía los datos del lobby
+        :param e: Event
+        :return: void
+        """
         if e == "disconnect":
             self.values.append("disconnect")
             self.sent = True

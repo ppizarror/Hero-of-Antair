@@ -5,7 +5,6 @@
 
 import select
 import uuid
-
 from lib import *
 
 # Importación de librerías
@@ -29,15 +28,21 @@ local_ip = []
 
 
 def getIPAddresses():
+    """
+    Obtiene la dirección IP
+    :return: void
+    """
     from ctypes import Structure, windll, sizeof
     from ctypes import POINTER, byref
     from ctypes import c_ulong, c_uint, c_ubyte, c_char
+
     MAX_ADAPTER_DESCRIPTION_LENGTH = 128
     MAX_ADAPTER_NAME_LENGTH = 256
     MAX_ADAPTER_ADDRESS_LENGTH = 8
 
     class IP_ADDR_STRING(Structure):
         pass
+
     LP_IP_ADDR_STRING = POINTER(IP_ADDR_STRING)
     IP_ADDR_STRING._fields_ = [
         ("next", LP_IP_ADDR_STRING),
@@ -45,8 +50,9 @@ def getIPAddresses():
         ("ipMask", c_char * 16),
         ("context", c_ulong)]
 
-    class IP_ADAPTER_INFO (Structure):
+    class IP_ADAPTER_INFO(Structure):
         pass
+
     LP_IP_ADAPTER_INFO = POINTER(IP_ADAPTER_INFO)
     IP_ADAPTER_INFO._fields_ = [
         ("next", LP_IP_ADAPTER_INFO),
@@ -70,6 +76,7 @@ def getIPAddresses():
     GetAdaptersInfo = windll.iphlpapi.GetAdaptersInfo
     GetAdaptersInfo.restype = c_ulong
     GetAdaptersInfo.argtypes = [LP_IP_ADAPTER_INFO, POINTER(c_ulong)]
+    # noinspection PyCallingNonCallable
     adapterList = (IP_ADAPTER_INFO * 10)()
     buflen = c_ulong(sizeof(adapterList))
     rc = GetAdaptersInfo(byref(adapterList[0]), byref(buflen))
@@ -85,10 +92,18 @@ def getIPAddresses():
                     break
 
 
-class Server:  # Clase server
+class Server:
+    """
+    Clase server
+    """
 
-    # Función constructora, toma por parámetro un host y un puerto
     def __init__(self, host, port):
+        """
+        Función constructora, toma por parámetro un host y un puerto
+        :param host: Host
+        :param port: Puerto
+        :return: void
+        """
         self.channel = {}
         self.input_list = []
 
@@ -98,6 +113,10 @@ class Server:  # Clase server
         self.server.listen(200)
 
     def main_loop(self):
+        """
+        Bucle principal
+        :return: void
+        """
         self.input_list.append(self.server)
         while True:
             time.sleep(DELAY)
@@ -108,6 +127,7 @@ class Server:  # Clase server
                     break
                 else:
                     try:
+                        # noinspection PyAttributeOutsideInit
                         self.data = self.s.recv(BUFFER_SIZE)
                     except:
                         pass
@@ -117,18 +137,30 @@ class Server:  # Clase server
                     self.on_recv()
 
     def on_accept(self):
+        """
+        Acepta a un cliente
+        :return: void
+        """
         clientsock, clientaddr = self.server.accept()
         print "\t" + str(clientaddr) + " se ha conectado"
         players[clientaddr[1]] = {}
         self.input_list.append(clientsock)
 
     def on_close(self):
+        """
+        Cierra la conexión con un cliente
+        :return: void
+        """
         clientaddr = self.s.getpeername()
         print "\tEl usuario %s se ha desconectado" % clientaddr[1]
-        del(players[clientaddr[1]])
+        del (players[clientaddr[1]])
         self.input_list.remove(self.s)
 
     def on_recv(self):
+        """
+        Recibe la consulta de un cliente
+        :return:
+        """
         _id = self.s.getpeername()[1]
         print "\tUsuario %s realizo una consulta" % _id
         try:
@@ -137,14 +169,28 @@ class Server:  # Clase server
         except:
             print "\tEl usuario %s ha cerrado la conexion" % _id
             self.s.getpeername()
-            del(players[_id])
+            del (players[_id])
             self.input_list.remove(self.s)
 
 
-class Lobby:  # Clase lobby
+class Lobby:
+    """
+    Clase lobby
+    """
 
-    # Función constructora
     def __init__(self, lobbyname, lobbyhost, lobbyid, lobbymap, lobbymobs, lobbynpc, lobbytextures, lobbyplayers):
+        """
+        Función constructora
+        :param lobbyname: Nombre
+        :param lobbyhost: Host
+        :param lobbyid: ID
+        :param lobbymap: Mapa
+        :param lobbymobs: Mobs
+        :param lobbynpc: Ncpc's
+        :param lobbytextures: Texturas
+        :param lobbyplayers: Jugadores
+        :return: void
+        """
         self.lobbyhost = lobbyhost  # host del lobby, str
         self.lobbyid = lobbyid  # id del lobby (hex), str
         self.lobbymap = lobbymap  # mapa del lobby, str
@@ -154,50 +200,97 @@ class Lobby:  # Clase lobby
         self.lobbyplayers = lobbyplayers  # jugadores del lobby, list
         self.lobbytextures = lobbytextures  # texturas del lobby, list
 
-    def __cmp__(self, lobby):  # Compara un lobby con otro
-        if (self.lobbyhost == lobby.lobbyhost):
-            if (self.lobbyid == lobby.lobbyid):
-                if (self.lobbymap == lobby.lobbymap):
-                    if (self.lobbymobs == lobby.lobbymobs):
-                        if (self.lobbyname == lobby.lobbyname):
-                            if (self.lobbynpc == lobby.lobbynpc):
-                                if (self.lobbytextures == lobby.lobbytextures):
-                                    if (self.lobbyplayers == lobby.lobbyplayers):
+    def __cmp__(self, lobby):
+        """
+        Compara un lobby con otro
+        :param lobby: Lobby secundario
+        :return: Boolean
+        """
+        if self.lobbyhost == lobby.lobbyhost:
+            if self.lobbyid == lobby.lobbyid:
+                if self.lobbymap == lobby.lobbymap:
+                    if self.lobbymobs == lobby.lobbymobs:
+                        if self.lobbyname == lobby.lobbyname:
+                            if self.lobbynpc == lobby.lobbynpc:
+                                if self.lobbytextures == lobby.lobbytextures:
+                                    if self.lobbyplayers == lobby.lobbyplayers:
                                         return True
         return False
 
-    def generateId(self):  # Genera un nuevo id
+    def generateId(self):
+        """
+        Genera un nuevo id
+        :return: void
+        """
         self.lobbyid = uuid.uuid4().hex
 
-    def getHost(self):  # Retorna el host del lobby
+    def getHost(self):
+        """
+        Retorna el host del lobby
+        :return: String
+        """
         return self.lobbyhost
 
-    def getId(self):  # Retorna el id del lobby
+    def getId(self):
+        """
+        Retorna el id del lobby
+        :return: String
+        """
         return self.lobbyid
 
-    def getMap(self):  # Retorna el mapa del lobby
+    def getMap(self):
+        """
+        Retorna el mapa del lobby
+        :return: String
+        """
         return self.lobbymap
 
-    def getMobs(self):  # Retorna los mobs del lobby
+    def getMobs(self):
+        """
+        Retorna los mobs del lobby
+        :return: List
+        """
         return self.lobbymobs
 
-    def getName(self):  # Retorna el nombre del lobby
+    def getName(self):
+        """
+        Retorna el nombre del lobby
+        :return: String
+        """
         return self.lobbyname
 
-    def getNpc(self):  # Retorna los npc del lobby
+    def getNpc(self):
+        """
+        Retorna los npc del lobby
+        :return: List
+        """
         return self.lobbynpc
 
-    def getTextures(self):  # Retorna las texturas del lobby
+    def getTextures(self):
+        """
+        Retorna las texturas del lobby
+        :return: List
+        """
         return self.lobbytextures
 
 
-def returnNullLobby():  # Retorna el lobby null
+def returnNullLobby():
+    """
+    Retorna el lobby null
+    :return: Lobby nulo
+    """
     return Lobby("null", "null", "0", "null", [], [], [], [])
 
 
-def isNullLobby(lobby):  # Retorna si es un lobby nulo
+def isNullLobby(lobby):
+    """
+    Retorna si es un lobby nulo
+    :param lobby: Boolean
+    :return:
+    """
     nulllby = returnNullLobby()
     return nulllby.__cmp__(lobby)
+
 
 if __name__ == '__main__':
     printAsciiArtServer()  # logo del programa

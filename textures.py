@@ -1,6 +1,6 @@
 # @PydevCodeAnalysisIgnore
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # Textures - Texturas y funciones analizadoras para Hero of Antair
 # Pablo Pizarro, 2014-2015
 
@@ -11,10 +11,15 @@ from texture_items import *
 from texture_world import *
 
 
-class hoaTextures:  # Clase principal de las texturas
+class hoaTextures:
+    """Clase principal de las texturas"""
 
-    # Función constructora, unica del juego donde se cargan las texturas
     def __init__(self, lang=["Cargando textura '%.gif' ...", "ok"]):
+        """
+        Función constructora, unica del juego donde se cargan las texturas
+        :param lang: Mensajes
+        :return: void
+        """
         self.lang = lang
         self.images = {
 
@@ -25,7 +30,7 @@ class hoaTextures:  # Clase principal de las texturas
             "_1": None, \
             "_16": None, \
             "_32": None, \
-
+ \
             # Gui #interfaz de usuario
             "actualizacion": DATA_ICONS + "actualizacion.ico", \
             "alert_icon": DATA_ICONS + "alert.ico", \
@@ -64,7 +69,7 @@ class hoaTextures:  # Clase principal de las texturas
             "user_icon": DATA_ICONS + "user.ico", \
             "vacio_16": PhotoImage(data="R0lGODlhEAAQAIAAAP///wAAACH5BAEAAAEALAAAAAAQABAAAAIOjI+py+0Po5y02ouzPgUAOw=="), \
             "vacio_32": PhotoImage(file=DATA_IMAGES_ITEMS + "vacio_32.gif"), \
-
+ \
             # Efectos
             "ambient_effect1_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect1_0.gif"), \
             "ambient_effect1_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect1_1.gif"), \
@@ -96,7 +101,7 @@ class hoaTextures:  # Clase principal de las texturas
             "sangre4_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre4_1.gif"), \
             "sangre5_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre5_0.gif"), \
             "sangre5_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre5_1.gif"), \
-
+ \
             # Terreno
             "black": Image.open(DATA_IMAGES_TERRAIN + "black.gif"), \
             "dirt1_0": Image.open(DATA_IMAGES_TERRAIN + "dirt1_0.gif"), \
@@ -255,9 +260,12 @@ class hoaTextures:  # Clase principal de las texturas
             "water7_0": Image.open(DATA_IMAGES_TERRAIN + "water7_0.gif"), \
             "water7_1": Image.open(DATA_IMAGES_TERRAIN + "water7_1.gif")}
 
-    # Función que llama a las imágenes, si existe se retorna el objeto
-    # PhotoImage, si no existe se crea y se agrega
     def image(self, image):
+        """
+        Función que llama a las imágenes, si existe se retorna el objeto PhotoImage, si no existe se crea y se agrega
+        :param image: String Imagen
+        :return: Imagen
+        """
         try:
             return self.images[image]
         except:
@@ -271,7 +279,12 @@ class hoaTextures:  # Clase principal de las texturas
             print self.lang[1]
             return self.images[image]
 
-    def getLinkImage(self, image):  # Función que obtiene el linkd e una imagen
+    def getLinkImage(self, image):
+        """
+        Función que obtiene el link de una imagen
+        :param image: Imagen
+        :return: String
+        """
         try:
             return IMAGES[image]
         except:
@@ -279,8 +292,15 @@ class hoaTextures:  # Clase principal de las texturas
         return "None"
 
 
-# Función que arrastra una imagen desde su posición inicial hasta (c,d)
 def arrastrarImagen(image, canvas, c, d):
+    """
+    Función que arrastra una imagen desde su posición inicial hasta (c,d)
+    :param image: Imagen
+    :param canvas: Canvas Tkinter
+    :param c: Pos x final
+    :param d: Pos y final
+    :return: void
+    """
     try:
         (a, b) = canvas.coords(image)  # obtengo la pos anterior
         a = int(a)
@@ -310,8 +330,16 @@ def arrastrarImagen(image, canvas, c, d):
         pass
 
 
-# Función que arrastra una imagen desde su posición inicial hasta (c,d)
 def arrastrarImagenPx(image, canvas, c, d, pixels):
+    """
+    Función que arrastra una imagen desde su posición inicial hasta (c,d)
+    :param image: Imagen
+    :param canvas: Canvas Tkinter
+    :param c: Pos x final
+    :param d: Pos y final
+    :param pixels: dx pixeles
+    :return: void
+    """
     try:
         (a, b) = canvas.coords(image)  # obtengo la pos anterior
         a = int(a)
@@ -341,19 +369,39 @@ def arrastrarImagenPx(image, canvas, c, d, pixels):
         pass
 
 
-def dibujarImagen(image, canvas, x, y):  # Dibuja una imagen en el canvas
+def dibujarImagen(image, canvas, x, y):
+    """
+    Dibuja una imagen en el canvas
+    :param image: Imagen
+    :param canvas: Canvas TKinter
+    :param x: Pos X
+    :param y: Pos Y
+    :return: void
+    """
     canvas.move(image, x, y)  # muevo a la imagen
     canvas.update()
 
 
-def moveWay(image_tag, canvas, way):  # Traza una ruta de movimientos
+def moveWay(image_tag, canvas, way):
+    """
+    Traza una ruta de movimientos
+    :param image_tag: Tag de la imagen (tile)
+    :param canvas: Canvas de dibujo
+    :param way: Lista de movimiento
+    :return: void
+    """
     for pos in way:  # Recorre las posiciones
         arrastrarImagen(image_tag, canvas, pos[0], pos[1])
         time.sleep(0.05)
 
 
-# Obtiene el despazamiento de las imágenes cuando no son de tamaño 32x32
 def textureMover(image, tipo):
+    """
+    Obtiene el despazamiento de las imágenes cuando no son de tamaño 32x32
+    :param image: Imagen
+    :param tipo: Tipo de eje
+    :return: void
+    """
     if image.width() == 32:
         if tipo == EJE_X:
             return 0

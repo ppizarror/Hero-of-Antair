@@ -1084,7 +1084,7 @@ class pop:  # Ventanas emergentes
             Button(self.w, text="Guardar", relief=GROOVE,
                    command=self.savegame).pack()
         # Licencia o gnu
-        elif typeObject in ["licence", "changelog", "ayuda", "longtext"]:
+        elif typeObject in ["licence", "changelog", "ayuda", "longtext", "license"]:
             archivo = open(properties[5], "r")
             Yscroll = Scrollbar(self.w)
             Yscroll.pack(side=RIGHT, fill=Y)

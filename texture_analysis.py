@@ -1,12 +1,17 @@
 # @PydevCodeAnalysisIgnore
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # Textures - Id de las texturas
 # Pablo Pizarro, 2014-2015
 
 
-# Retorna la textura de cada mob al ingresar el id
 def etextureMobAnalysis(itemTexture, light):
+    """
+    Retorna la textura de cada mob al ingresar el id
+    :param itemTexture: ID
+    :param light: Luz
+    :return: String
+    """
     if itemTexture < 1000:
         if 300 <= itemTexture < 350:
             if itemTexture == 301:
@@ -961,8 +966,14 @@ def textureMobAnalysis(prop_i):
     return mob_image
 
 
-# Retorna la textura y el sonido de cada terreno ingresado segun el id
 def textureTerrainAnalysis(tex, light, mapEditing=False):
+    """
+    Retorna la textura y el sonido de cada terreno ingresado segun el id
+    :param tex: id textura
+    :param light: luz
+    :param mapEditing: Boolean
+    :return: String
+    """
     if 100 <= tex < 150:
         if 100 <= tex < 125:
             if tex == 101:
@@ -1545,9 +1556,14 @@ def textureTerrainAnalysis(tex, light, mapEditing=False):
     return texture, sound, log
 
 
-# Función que devuelve una textura en función del id ingresado y la luz
-# ingresada
 def textureItemAnalysis(itemTexture, light, mapEditing=False):
+    """
+    Función que devuelve una textura en función del id ingresado y la luz ingresada
+    :param itemTexture: id textura
+    :param light: luz
+    :param mapEditing: Boolean
+    :return: String
+    """
     if "copy" in itemTexture:  # Reviso si no es una copia de otro element
         if mapEditing == True:
             tex = "None"

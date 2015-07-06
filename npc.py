@@ -12,10 +12,35 @@ NPC_TIME_MOVEMENT = 6000
 STRING_SEP = "/"
 
 
-class npc:  # Objetos npc
+class npc:
+    """
+    Objetos npc
+    """
 
     def __init__(self, nombre, imagen, descripcion, strings, obj, req, oro, move, dist,
-                 fade, posx, posy, ended="FALSE", count=0, initposx=-1, initposy=-1, needquest="None"):  # Función constructora
+                 fade, posx, posy, ended="FALSE", count=0, initposx=-1, initposy=-1,
+                 needquest="None"):
+        """
+        Función constructora
+        :param nombre: Nombre
+        :param imagen: Imagen
+        :param descripcion: Descripción
+        :param strings: Lineas de diálogo del npc
+        :param obj: Objeto-drop
+        :param req: Objeto requerido
+        :param oro: Oro-drop
+        :param move: Boolean
+        :param dist: Distancia maxima desde el origen
+        :param fade: Boolean - desaparecer tras dialogar
+        :param posx: Pos X
+        :param posy: Pos Y
+        :param ended: Boolean - finalizado o no
+        :param count: Indice del diálogo
+        :param initposx: Posición inicial en X
+        :param initposy: Posición inicial en Y
+        :param needquest: Quest requerida
+        :return:
+        """
         if fade.upper() == "FALSE":
             fade = False
         else:
@@ -56,87 +81,191 @@ class npc:  # Objetos npc
         # total de quest requeridas
         self.totalneededquest = len(self.neededquest)
 
-    def getName(self):  # Función para obtener el nombre
+    def getName(self):
+        """
+        Función para obtener el nombre
+        :return: String
+        """
         return self.nombre
 
-    def setName(self, name):  # Función que defiene el nombre del npc
+    def setName(self, name):
+        """
+        Función que defiene el nombre del npc
+        :param name: String
+        :return: void
+        """
         self.nombre = name
 
-    def getImage(self):  # Función para obtener la imagen
+    def getImage(self):
+        """
+        Función para obtener la imagen
+        :return: String
+        """
         return self.imagen
 
-    def getDescripcion(self):  # Función para obtener la descripcion
+    def getDescripcion(self):
+        """
+        Función para obtener la descripcion
+        :return: String
+        """
         return self.descripcion
 
-    # Función que define la descripción del npc
     def setDescripcion(self, desc):
+        """
+        Función que define la descripción del npc
+        :param desc: String
+        :return: void
+        """
         self.descripcion = desc
 
-    def getStrings(self):  # Función para obtener los strings
+    def getStrings(self):
+        """
+        Función para obtener los strings
+        :return: List
+        """
         return self.strings
 
-    def getCurrentString(self):  # Función para obtener el string actual
+    def getCurrentString(self):
+        """
+        Función para obtener el string actual
+        :return: String
+        """
         return self.string[self.stringCount]
 
-    def getStringAmount(self):  # Obtener la cantidad de strings
+    def getStringAmount(self):
+        """
+        Obtener la cantidad de strings
+        :return: Integer
+        """
         return len(self.string) - 1
 
-    def getObject(self):  # Función para obtener los objetos
+    def getObject(self):
+        """
+        Función para obtener los objetos
+        :return: Item
+        """
         return self.obj
 
-    def getRequest(self):  # Función para obtener el objeto pedido
+    def getRequest(self):
+        """
+        Función para obtener el objeto pedido
+        :return: Item
+        """
         return self.req
 
-    def getOro(self):  # Función para obtener el oro del npc
+    def getOro(self):
+        """
+        Función para obtener el oro del npc
+        :return: Integer
+        """
         return self.oro
 
-    def getMove(self):  # Función que retorna si se mueve o no
+    def getMove(self):
+        """
+        Función que retorna si se mueve o no
+        :return: Boolean
+        """
         return self.move
 
-    # Función para obtener la máxima distancia que puede alcanzar desde el
-    # punto de inicio
     def getDistance(self):
+        """
+        Función para obtener la máxima distancia que puede alcanzar desde el punto de inicio
+        :return: Integer
+        """
         return self.distance
 
-    # Función que retorna si desaparece al terminar el string o no
     def isFade(self):
+        """
+        Función que retorna si desaparece al terminar el string o no
+        :return: Boolean
+        """
         return self.fade
 
-    def getPosicion(self):  # Función que retorna la posición del npc
+    def getPosicion(self):
+        """
+        Función que retorna la posición del npc
+        :return: List
+        """
         return self.posicion
 
-    def getPosicionY(self):  # Obtener la posición y
+    def getPosicionY(self):
+        """
+        Obtener la posición y
+        :return: Integer
+        """
         return self.posicion[1]
 
-    def getPosicionX(self):  # Obtener la posición x
+    def getPosicionX(self):
+        """
+        Obtener la posición x
+        :return: Integer
+        """
         return self.posicion[0]
 
-    def getCount(self):  # Obtener el contador
+    def getCount(self):
+        """
+        Obtener el contador
+        :return: Integer
+        """
         return self.stringCount
 
-    def addCount(self):  # Incrementa el contador
+    def addCount(self):
+        """
+        Incrementa el contador
+        :return: void
+        """
         self.stringCount += 1
 
-    def NextString(self):  # Retorna el siguiente string
+    def NextString(self):
+        """
+        Retorna el siguiente string
+        :return: String
+        """
         return self.string[self.stringCount + 1]
 
-    def isEnded(self):  # Retorna si esta disponible o no
+    def isEnded(self):
+        """
+        Retorna si esta disponible o no
+        :return: Boolean
+        """
         return self.ended
 
-    def end(self):  # Termina con el npc, pero no lo destruye
+    def end(self):
+        """
+        Termina con el npc, pero no lo destruye
+        :return: void
+        """
         self.ended = True
 
-    def setPosicionX(self, x):  # Define la posición en x
+    def setPosicionX(self, x):
+        """
+        Define la posición en x
+        :param x: Integer
+        :return: void
+        """
         self.posicion[0] = x
 
-    def setPosicionY(self, y):  # Define la posición en y
+    def setPosicionY(self, y):
+        """
+        Define la posición en y
+        :param y: Integer
+        :return: void
+        """
         self.posicion[1] = y
 
-    def needQuest(self):  # Retornan los quest que se necesitan
+    def needQuest(self):
+        """
+        Retornan los quest que se necesitan
+        :return: List
+        """
         return self.needquest
 
-    # Retorna si se muede mostrar al npc o no
     def canShowByQuest(self, playerquest):
+        """
+        Retorna si se muede mostrar al npc o no
+        :param playerquest: List
+        :return: void
+        """
         if self.needquest == "None":
             return True
         else:
@@ -151,7 +280,11 @@ class npc:  # Objetos npc
             else:
                 return False
 
-    def moveNpc(self):  # Mueve al npc
+    def moveNpc(self):
+        """
+        Mueve al npc
+        :return: (x,y) Integer
+        """
         rannewposx = random.randint(-1, 1) + self.posicion[0]
         rannewposy = random.randint(-1, 1) + self.posicion[1]
         if abs(rannewposx - self.initPos[0]) <= self.distance:
@@ -164,11 +297,19 @@ class npc:  # Objetos npc
             newy = self.posicion[1]
         return newx, newy
 
-    def export(self):  # Exportar los datos
+    def export(self):
+        """
+        Exportar los datos
+        :return: String
+        """
         return replaceStrict(str(self.nombre)) + NPC_SEPARATOR + replaceStrict(str(self.imagen)) + \
-            NPC_SEPARATOR + replaceStrict(str(self.descripcion)) + NPC_SEPARATOR + replaceStrict(str(self.strings)) + \
-            NPC_SEPARATOR + replaceStrict(str(self.obj)) + NPC_SEPARATOR + replaceStrict(str(self.req)) + NPC_SEPARATOR + \
-            replaceStrict(str(self.oro)) + NPC_SEPARATOR + replaceStrict(str(self.move)) + NPC_SEPARATOR + replaceStrict(str(self.distance)) + \
-            NPC_SEPARATOR + replaceStrict(str(self.fade)) + NPC_SEPARATOR + str(self.posicion[0]) + NPC_SEPARATOR + str(self.posicion[1]) + NPC_SEPARATOR + \
-            str(self.ended) + NPC_SEPARATOR + str(self.stringCount) + NPC_SEPARATOR + str(self.initPos[0]) + NPC_SEPARATOR + str(self.initPos[1]) + \
-            NPC_SEPARATOR + str(self.needquest) + "\n"
+               NPC_SEPARATOR + replaceStrict(str(self.descripcion)) + NPC_SEPARATOR + replaceStrict(str(self.strings)) + \
+               NPC_SEPARATOR + replaceStrict(str(self.obj)) + NPC_SEPARATOR + replaceStrict(
+            str(self.req)) + NPC_SEPARATOR + \
+               replaceStrict(str(self.oro)) + NPC_SEPARATOR + replaceStrict(
+            str(self.move)) + NPC_SEPARATOR + replaceStrict(str(self.distance)) + \
+               NPC_SEPARATOR + replaceStrict(str(self.fade)) + NPC_SEPARATOR + str(
+            self.posicion[0]) + NPC_SEPARATOR + str(self.posicion[1]) + NPC_SEPARATOR + \
+               str(self.ended) + NPC_SEPARATOR + str(self.stringCount) + NPC_SEPARATOR + str(
+            self.initPos[0]) + NPC_SEPARATOR + str(self.initPos[1]) + \
+               NPC_SEPARATOR + str(self.needquest) + "\n"

@@ -226,7 +226,7 @@ class actors:
         """
         self.powers.pop(power)
 
-    def addObject(self, obj):
+    def addObject(self, obj=None):
         """
         Agregar objeto
         :param obj: Objeto a agregar <Item>

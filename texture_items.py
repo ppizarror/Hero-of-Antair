@@ -1,6 +1,6 @@
 # @PydevCodeAnalysisIgnore
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # Item textures - texturas de los items
 # Pablo Pizarro, 2014-2015
 

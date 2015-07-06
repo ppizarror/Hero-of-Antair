@@ -18,9 +18,26 @@ import pygame
 # Constantes del programa
 TARGET = False
 
-class group:  # Clase group
 
-    def __init__(self, tipo, cantidad, vida, ataque, defensa, textura, largadistancia, target, maxmovement, tattack):  # Constructor
+class group:
+    """Grupo"""
+
+    def __init__(self, tipo, cantidad, vida, ataque, defensa, textura, largadistancia, target, maxmovement,
+                 tattack):
+        """
+        Función constructora
+        :param tipo: Tipo de grupo
+        :param cantidad: Cantidad de integrantes
+        :param vida: Vida del grupo
+        :param ataque: Ataque del grupo
+        :param defensa: Defensa del grupo
+        :param textura: Textura del grupo
+        :param largadistancia: Booleano que representa el ataque de larga distancia
+        :param target: Target del grupo
+        :param maxmovement: Máximo movimiento de gruppo
+        :param tattack: Tipo de ataque
+        :return:
+        """
         self.ataque = int(ataque)  # ataque unitario por agrupación
         self.cantidad = cantidad  # cantidad de elementos en el grupo
         self.defensa = int(defensa)  # defensa de la agrupación
@@ -35,58 +52,133 @@ class group:  # Clase group
         self.tipoAtaque = tattack
         self.vida = int(vida)  # vida unitaria por agrupación
 
-    def setPos(self, x, y):  # Define la posición del grupo
+    def setPos(self, x, y):
+        """
+        Define la posición del grupo
+        :param x: Pos X
+        :param y: Pos Y
+        :return: void
+        """
         self.pos[0] = int(x)
         self.pos[1] = int(y)
 
-    def getPosX(self):  # Retorna la posición en X del grupo
+    def getPosX(self):
+        """
+        Retorna la posición en X del grupo
+        :return: Integer
+        """
         return self.pos[0]
 
-    def getPosY(self):  # Retorna la posición en Y del grupo
+    def getPosY(self):
+        """
+        Retorna la posición en Y del grupo
+        :return: Integer
+        """
         return self.pos[1]
 
-    def getImage(self):  # Retorna la imágen del grupo
+    def getImage(self):
+        """
+        Retorna la imágen del grupo
+        :return: String
+        """
         return self.textura
 
-    def getCant(self):  # Retorna la cantidad del grupo
+    def getCant(self):
+        """
+        Retorna la cantidad del grupo
+        :return: String
+        """
         return self.cantidad
 
-    def getType(self):  # Retorna el tipo de jugador
+    def getType(self):
+        """
+        Retorna el tipo de jugador
+        :return: String
+        """
         return self.tipo
 
-    def getVida(self):  # Retorna la vida total del grupo
+    def getVida(self):
+        """
+        Retorna la vida total del grupo
+        :return: Integer
+        """
         return self.vida * self.cantidad
 
-    def setMaxDistance(self, dist):  # Define la máxima distancia
+    def setMaxDistance(self, dist):
+        """
+        Define la máxima distancia
+        :param dist: Integer
+        :return: void
+        """
         self.maxdistance = dist
 
-    def getMaxMovement(self):  # Retorna la cantidad máxima de movimientos
+    def getMaxMovement(self):
+        """
+        Retorna la cantidad máxima de movimientos
+        :return: Integer
+        """
         if not self.moved1st and self.tipo == "PL":  # Si no se ha movido por primera vez
             return self.maxdistance
         else:
             return self.maxmovement
 
-    def attack(self):  # Atacar
-        if TARGET: return (self.ataque + random.randint(-int(self.target / 2), int(self.target / 2))) * self.cantidad
-        else: return self.ataque * self.cantidad
+    def attack(self):
+        """
+        Atacar
+        :return: Integer del ataque final
+        """
+        if TARGET:
+            return (self.ataque + random.randint(-int(self.target / 2), int(self.target / 2))) * self.cantidad
+        else:
+            return self.ataque * self.cantidad
 
-    def defend(self):  # Defensa
+    def defend(self):
+        """
+        Defensa
+        :return: Integer de defensa total
+        """
         return self.defensa * self.cantidad
 
-    def getLifeUnit(self):  # Retornar la vida unitaria
+    def getLifeUnit(self):
+        """
+        Retornar la vida unitaria
+        :return: Integer
+        """
         return self.vida
 
-    def getTotal(self):  # Retornar la cantidad de elementos en el grupo
+    def getTotal(self):
+        """
+        Retornar la cantidad de elementos en el grupo
+        :return: Integer
+        """
         return self.cantidad
 
-    def disminuir(self, cant):  # Disminuir la cantidad en el grupo
+    def disminuir(self, cant):
+        """
+        Disminuir la cantidad en el grupo
+        :param cant: Integer
+        :return: void
+        """
         self.cantidad = self.cantidad - cant
 
-    def setVida(self, cant):  # Definir la cantidad de vida
+    def setVida(self, cant):
+        """
+        Definir la cantidad de vida
+        :param cant: Integer
+        :return: void
+        """
         self.vida = cant
 
-    def getAtk(self):  # Retorna el ataque
+    def getAtk(self):
+        """
+        Retorna el ataque
+        :return: Integer
+        """
         return self.ataque
 
-    def getTipoAtaque(self):  # Retorna el tipo de ataque
+    def getTipoAtaque(self):
+        """
+        Retorna el tipo de ataque
+        :return: String
+        """
         return self.tipoAtaque

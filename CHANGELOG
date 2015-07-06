@@ -1396,18 +1396,12 @@
 	      Se separan las texturas del board a parametros constantes.
 
 	[0.5.0]
-
 	      Nuevo sistema operativo soportado: mac-os y linux.
-
 	      Nueva funcion: isWindows() que permite comprobar distintos sistemas cliente.
-
 	      Redimension de elementos graficos en funcion del sistema cliente.
-
 	      Reorganizacion de librerias.
-
               Correccion ortografica del changelog, adicionalmente se corrigen elementos
               no utf-8 permitiendo su lectura en sistemas posix.
-
 	      Eliminacion de acentos en el changelog.
 
 	[0.5.1]
@@ -1421,6 +1415,13 @@
               Se corrigen dimensiones de las ventanas.
               Se corrige srolling de la consola.
 
+	[0.5.2]
+	      Adopcion parcial del formato PEP-8.
+	      Formateo total del codigo.
+	      Documentadas todas las funciones y clases.
+	      Se corrigen directorios, se mueven licence y changelog a la raiz.
+	      Refactorizacion parcial de principales funciones.
+	      Se corrigen errores en la terminal para OSX.
 
 
 

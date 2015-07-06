@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-#!/usr/bin/env python
+# !/usr/bin/env python
 # Texture conts - constantes de las texturas
 # Pablo Pizarro, 2014-2015
 
@@ -12,20 +12,34 @@ ACTUAL_FOLDER = str(
 # prefijos de armas arrojadizas de flechas
 ARROW_WEAPONS_PREFIX = ["arco", "ballesta"]
 AVAIABLE_ACTOR_TEXTURES = ["actor1", "actor2", "actor3", "actor4", "actor7", "actor8", "actor9", "actor10", "actor11",
-                           "actor12", "actor13", "actor14", "actor15", "actor16", "actor17", "actor18", "actor19", "actor20",
-                           "actor21", "actor22", "actor23", "actor24", "actor25", "actor26", "actor27", "actor28", "actor29",
-                           "actor30", "actor31", "actor32", "actor33", "actor34", "actor35", "actor36", "actor37", "actor38",
-                           "actor39", "actor40", "actor41", "actor42", "actor43", "actor44", "actor45", "actor46", "actor47",
-                           "actor48", "actor49", "actor50", "actor51", "actor52", "actor53", "actor54", "actor55", "actor56",
-                           "actor57", "actor58", "actor59", "actor60", "actor61", "actor62", "actor63", "actor64", "actor65",
-                           "actor66", "actor67", "actor68", "actor69", "actor70", "actor71", "actor72", "actor73", "actor74",
-                           "actor75", "actor76", "actor77", "actor78", "actor79", "actor80", "actor81", "actor82", "actor83",
-                           "actor84", "actor85", "actor86", "actor87", "actor88", "actor89", "actor90", "actor91", "actor92",
-                           "actor93", "actor94", "actor95", "actor96", "actor97", "actor98", "actor99", "actor100", "actor101",
-                           "actor102", "actor103", "actor104", "actor105", "actor106", "actor107", "actor108", "actor109", "actor110",
-                           "actor111", "actor112", "actor113", "actor114", "actor115", "actor116", "actor117", "actor118", "actor119",
-                           "actor120", "actor121", "actor122", "actor123", "actor124", "actor125", "actor126", "actor127", "actor128",
-                           "actor129", "actor130", "actor131", "actor132", "actor133", "actor134", "actor135", "actor136"]
+                           "actor12", "actor13", "actor14", "actor15", "actor16", "actor17", "actor18", "actor19",
+                           "actor20",
+                           "actor21", "actor22", "actor23", "actor24", "actor25", "actor26", "actor27", "actor28",
+                           "actor29",
+                           "actor30", "actor31", "actor32", "actor33", "actor34", "actor35", "actor36", "actor37",
+                           "actor38",
+                           "actor39", "actor40", "actor41", "actor42", "actor43", "actor44", "actor45", "actor46",
+                           "actor47",
+                           "actor48", "actor49", "actor50", "actor51", "actor52", "actor53", "actor54", "actor55",
+                           "actor56",
+                           "actor57", "actor58", "actor59", "actor60", "actor61", "actor62", "actor63", "actor64",
+                           "actor65",
+                           "actor66", "actor67", "actor68", "actor69", "actor70", "actor71", "actor72", "actor73",
+                           "actor74",
+                           "actor75", "actor76", "actor77", "actor78", "actor79", "actor80", "actor81", "actor82",
+                           "actor83",
+                           "actor84", "actor85", "actor86", "actor87", "actor88", "actor89", "actor90", "actor91",
+                           "actor92",
+                           "actor93", "actor94", "actor95", "actor96", "actor97", "actor98", "actor99", "actor100",
+                           "actor101",
+                           "actor102", "actor103", "actor104", "actor105", "actor106", "actor107", "actor108",
+                           "actor109", "actor110",
+                           "actor111", "actor112", "actor113", "actor114", "actor115", "actor116", "actor117",
+                           "actor118", "actor119",
+                           "actor120", "actor121", "actor122", "actor123", "actor124", "actor125", "actor126",
+                           "actor127", "actor128",
+                           "actor129", "actor130", "actor131", "actor132", "actor133", "actor134", "actor135",
+                           "actor136"]
 BUILD_LINKS_KEY = ["castle_0", "castle2_0", "castle3_0", "cabana_0", "house_0",
                    "feudo_0", "building1_0", "building2_0", "building3_0", "building4_0",
                    "building5_0", "building6_0", "building7_0", "building8_0", "building9_0",

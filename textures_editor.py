@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 # @PydevCodeAnalysisIgnore
-#!/usr/bin/env python
+# !/usr/bin/env python
 # eTextures - Texturas y funciones analizadoras para Map Editor
 # Pablo Pizarro, 2014-2015
 
@@ -1163,10 +1163,14 @@ terrain = [
 ]
 
 
-class mapEditorTextures():  # Clase principal de texturas del editor de mapas
+class mapEditorTextures:
+    """Clase principal de texturas del editor de mapas"""
 
-    # Función constructora, en ella se cargan todas las imágenes
     def __init__(self):
+        """
+        Función constructora, en ella se cargan todas las imágenes
+        :return: void
+        """
         # Cargo las imagenes básicas
         self.images = hoaTextures().images
         # Cargo las imágenes del mundo
@@ -1583,14 +1587,21 @@ class mapEditorTextures():  # Clase principal de texturas del editor de mapas
             file=DATA_IMAGES_TERRAIN + "water7_1.gif")
 
 
-# Función que obtiene los nombres lógicos
 def getTileLogicNeighbor(data, j, k, logic_matrix):
+    """
+    Función que obtiene los nombres lógicos
+    :param data: Data
+    :param j: Pos X
+    :param k: Pos Y
+    :param logic_matrix: Matriz lógica
+    :return: State list
+    """
     if data != "0-0":
         if "copy" not in data:
             del_normal = [data, j, k]
             data = data.split("-")
             del_copy = data[
-                0] + "-copy(" + data[1] + "%" + str(j) + "%" + str(k) + ")"
+                           0] + "-copy(" + data[1] + "%" + str(j) + "%" + str(k) + ")"
             if len(data) > 2:
                 del_copy += "-" + data[2]
         else:
@@ -1607,8 +1618,17 @@ def getTileLogicNeighbor(data, j, k, logic_matrix):
         return "null", "null"
 
 
-# Función que elimina elementos lógicos en formato copy(id%x&y)
 def delTileLogicNeighbor(data, j, k, logic_matrix, texture_matrix):
+    """
+    Función que elimina elementos lógicos en formato copy(id%x&y)
+    :param data: Data
+    :param j: Pos X
+    :param k: Pos Y
+    :param logic_matrix: Matriz lógica
+    :param texture_matrix: Matriz de texturas
+    :return: State list
+    :return: void
+    """
     (del_copy, del_normal) = getTileLogicNeighbor(data, j, k, logic_matrix)
     if del_copy != "null":
         for y in range(len(logic_matrix)):
@@ -1626,9 +1646,17 @@ def delTileLogicNeighbor(data, j, k, logic_matrix, texture_matrix):
             logic_matrix[del_normal[1]][del_normal[2]] = "0-0"
 
 
-# Función que inserta elementos lógicos de un tile si este cumple con el
-# id pedido
+# noinspection PyShadowingBuiltins
 def logicTileCorrection(data, j, k, logic_matrix, texture_matrix):
+    """
+    Función que inserta elementos lógicos de un tile si este cumple con el id pedido
+    :param data: Data
+    :param j: Pos X
+    :param k: Pos Y
+    :param logic_matrix: Matriz lógica
+    :param texture_matrix: Matriz de texturas
+    :return: void
+    """
     data = data.split("-")
     id = int(data[1])
     logic = data[0] + "-copy(" + str(id) + "%" + str(j) + "%" + str(k) + ")"
