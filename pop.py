@@ -176,8 +176,12 @@ class pop:
             f.pack()
             Label(f, text=self.lang[1], anchor=E, width=8).pack(side=LEFT)
             self.eventTextSv = StringVar(f)
-            self.eventText = Entry(
+            if isWindows():
+                self.eventText = Entry(
                 f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv)
+            else:
+                self.eventText = Entry(
+                f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv, highlightthickness=0)
             self.eventText.pack()
             self.eventText.focus_force()
             # self.eventText.bind("<KeyRelease>", _caps)

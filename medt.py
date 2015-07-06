@@ -57,12 +57,16 @@ LOGICS = {"0": "vacío", "1": "jugador", "2": "árbol", "3": "cofre", "4": "líq
           "34": "nature", "35": "cactus", "36": "hongo", "37": "estatua", "38": "sign", \
           "39": "effect", "40": "grass", "41": "wall", "42": "ladder", "43": "npc", \
           "44": "alfombra"}
-PROGRAM_SIZE = 918, 601  # tamaño de la ventana
 TILE_BUILDING = ["7", "14", "39"]  # lógicos de la edificación
 TILE_EDIT = ["3", "6", "7", "8", "11", "13", "15", "16", "17", "18", "19", "22", "23", "24", "25", "27", "28", "30",
              "38", "42", "43"]  # tiles disponibles para la edición
 TILE_EVENT = ["1", "8", "11", "13", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", \
               "25", "28", "29", "30", "31", "32", "33"]
+
+if isWindows():
+    PROGRAM_SIZE = 918, 601  # tamaño de la ventana
+else:
+    PROGRAM_SIZE = 931, 581  # tamaño de la ventana
 
 
 class mapeditor:
@@ -321,12 +325,20 @@ class mapeditor:
                         pass
                     elif len(prop) == 17:
                         prop += ["%NOSOUND%"]
+                    elif len(prop) == 15:
+                        prop += ["NORMAL", "NORMAL", "%NOSOUND%"]
                     elif len(prop) == 14:
-                        # noinspection PyStatementEffect
-                        [0, "NORMAL", "NORMAL", "%NOSOUND%"]
+                        prop += [0, "NORMAL", "NORMAL", "%NOSOUND%"]
                     tex = prop[2]
-                    p = pop(
+                    if isWindows():
+                        p = pop(
                         ['Editar mob', self.images['group'], 'edit_mob', 398, 290, putStrict(prop[5]), prop[1], prop[7],
+                         prop[0], prop[9], \
+                         prop[3], prop[4], prop[8], prop[9], prop[14], putStrict(prop[6]), putStrict(prop[11]),
+                         prop[12], prop[13], prop[15], prop[16], prop[17]])
+                    else:
+                        p = pop(
+                        ['Editar mob', self.images['group'], 'edit_mob', 460, 350, putStrict(prop[5]), prop[1], prop[7],
                          prop[0], prop[9], \
                          prop[3], prop[4], prop[8], prop[9], prop[14], putStrict(prop[6]), putStrict(prop[11]),
                          prop[12], prop[13], prop[15], prop[16], prop[17]])
@@ -445,10 +457,16 @@ class mapeditor:
             if self.isEvent:  # Si se encuentra en edición
                 if 0 <= event.x < 307 and 0 <= event.y < 580:
                     # Se recoge la dirección
-                    if -1 * (event.delta / 100) < 0:
-                        move = -1
+                    if isWindows():
+                        if -1 * (event.delta / 100) < 0:
+                            move = -1
+                        else:
+                            move = 2
                     else:
-                        move = 2
+                        if -1 * event.delta < 0:
+                            move = -1
+                        else:
+                            move = 2
                     self.menu1.canv.yview_scroll(move, "units")
 
         def _item_moveup(event):
@@ -733,8 +751,8 @@ class mapeditor:
         self.infoEditMenu.add_command(label="Copiar", command=_copyTile)
         self.infoEditMenu.add_command(label="Editar", command=_infoTile_edit)
         self.infoEditMenu.add_command(label="Pegar", command=_pasteTile)
-        self.blackBackground = Canvas(self.core, width=1500, height=1000, bg="black")
-        self.blackBackground.pack()
+        self.blackBackground = Canvas(self.core, width=1500, height=1000, bg="black", bd=-2, highlightthickness=0)
+        self.blackBackground.pack(padx=0, pady=0)
         text_color_title = "#1F1F1F"
         self.menu1 = VerticalScrolledFrame(self.core)
         l1 = LabelFrame(self.menu1.interior, text="Nombre del mapa", foreground=text_color_title, padx=3, pady=2)
@@ -775,7 +793,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(actores): break
-        l4 = LabelFrame(self.menu1.interior, text="Terreno\t\t\t\t             [32x32]", foreground=text_color_title,
+        if isWindows():
+            labeltitle = "Terreno\t\t\t\t             [32x32]"
+        else:
+            labeltitle = "Terreno\t\t\t                 [32x32]"
+        l4 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
                         padx=3, pady=3, relief=GROOVE)
         l4.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -791,7 +813,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(terrain): break
-        l6 = LabelFrame(self.menu1.interior, text="Ambientación\t\t\t             [32x32]", foreground=text_color_title,
+        if isWindows():
+            labeltitle = "Ambientación\t\t\t             [32x32]"
+        else:
+            labeltitle = "Ambientación\t\t                 [32x32]"
+        l6 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
                         padx=3, pady=3, relief=GROOVE)
         l6.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -808,7 +834,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(environment): break
-        l10 = LabelFrame(self.menu1.interior, text="Ambientación\t\t\t             [64x64]",
+        if isWindows():
+            labeltitle = "Ambientación\t\t\t             [64x64]"
+        else:
+            labeltitle = "Ambientación\t\t                    [64x64]"
+        l10 = LabelFrame(self.menu1.interior, text=labeltitle,
                          foreground=text_color_title, padx=6, pady=3, relief=GROOVE)
         l10.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -825,7 +855,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(benvironment): break
-        l7 = LabelFrame(self.menu1.interior, text="Decoración - Interior \t\t             [32x32]",
+        if isWindows():
+            labeltitle = "Decoración - Interior \t\t             [32x32]"
+        else:
+            labeltitle = "Decoración - Interior \t                 [32x32]"
+        l7 = LabelFrame(self.menu1.interior, text=labeltitle,
                         foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l7.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -841,7 +875,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(interior): break
-        l12 = LabelFrame(self.menu1.interior, text="Decoración - Interior \t\t             [64x64]",
+        if isWindows():
+            labeltitle = "Decoración - Interior \t\t             [64x64]"
+        else:
+            labeltitle = "Decoración - Interior \t                    [64x64]"
+        l12 = LabelFrame(self.menu1.interior, text=labeltitle,
                          foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l12.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -857,7 +895,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(binterior): break
-        l9 = LabelFrame(self.menu1.interior, text="Construcción \t\t\t             [32x32]",
+        if isWindows():
+            labeltitle = "Construcción \t\t\t             [32x32]"
+        else:
+            labeltitle = "Construcción \t\t                 [32x32]"
+        l9 = LabelFrame(self.menu1.interior, text=labeltitle,
                         foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l9.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -875,7 +917,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(construccion): break
-        l11 = LabelFrame(self.menu1.interior, text="Construcción \t\t\t             [64x64]",
+        if isWindows():
+            labeltitle = "Construcción \t\t\t             [64x64]"
+        else:
+            labeltitle = "Construcción \t\t                    [64x64]"
+        l11 = LabelFrame(self.menu1.interior, text=labeltitle,
                          foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l11.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -892,7 +938,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(bconstruccion): break
-        l13 = LabelFrame(self.menu1.interior, text="Edificios\t\t\t\t         [128x128]", foreground=text_color_title,
+        if isWindows():
+            labeltitle = "Edificios\t\t\t\t         [128x128]"
+        else:
+            labeltitle = "Edificios\t\t\t                [128x128]"
+        l13 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
                          padx=3, pady=5, relief=GROOVE)
         l13.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -908,7 +958,11 @@ class mapeditor:
                     bt.pack()
                 j += 1
                 if j == len(bbuilding): break
-        l8 = LabelFrame(self.menu1.interior, text="Edificios\t\t\t\t             [32x32]", foreground=text_color_title,
+        if isWindows():
+            labeltitle = "Edificios\t\t\t\t             [32x32]"
+        else:
+            labeltitle = "Edificios\t\t\t               [32x32]"
+        l8 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
                         padx=3, pady=5, relief=GROOVE)
         l8.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -926,7 +980,7 @@ class mapeditor:
                 if j == len(building): break
         self.menu2 = Frame(self.core, border=0)
         self.mapTile = Canvas(self.menu2, width=608, height=576, bg="#000000")
-        self.mapTile.pack(pady=0, padx=1)
+        self.mapTile.pack(pady=0, padx=0)
 
         # Eventos del programa
         print "ok"
@@ -1001,9 +1055,12 @@ class mapeditor:
                 else:
                     return
             del e
-        print "# Liberando memoria"
-        print "# Programa terminado"
-        os.system("taskkill /PID " + str(os.getpid()) + " /F")
+        if isWindows():
+            os.system("taskkill /PID " + str(os.getpid()) + " /F")
+        else:
+            import signal
+
+            os.kill(os.getpid(), signal.SIGKILL)
 
     def drawTiles(self):
         """
@@ -1106,7 +1163,10 @@ class mapeditor:
         self.visualmenu.entryconfig(6, state=NORMAL)
         self.visualmenu.entryconfig(7, state=NORMAL)
         self.mapTile.bind("<Button-1>", self.editTile)
-        self.mapTile.bind("<ButtonRelease-3>", self.infoTile)
+        if isWindows():
+            self.mapTile.bind("<ButtonRelease-3>", self.infoTile)
+        else:
+            self.mapTile.bind("<ButtonRelease-2>", self.infoTile)
 
     def showOn(self, e=None):
         """
@@ -1145,7 +1205,10 @@ class mapeditor:
             self.blackBackground.pack()
             self.core.title(PROGRAM_TITLE)
             self.mapTile.bind("<Button-1>", self.breakpoint)
-            self.mapTile.bind("<ButtonRelease-3>", self.breakpoint)
+            if isWindows():
+                self.mapTile.bind("<ButtonRelease-3>", self.breakpoint)
+            else:
+                self.mapTile.bind("<ButtonRelease-2>", self.breakpoint)
 
     def newMap(self, e=None):
         """
@@ -1423,7 +1486,10 @@ class mapeditor:
                 self.actualEnvironment = -1
                 self.actualTexture = -1
             elif idItem == "events":  # Si es un evento del tipo texto a usuario
-                p = pop(['Insertar Evento', self.images['event_ico'], 'new_event', 315, 270, 0])
+                if isWindows():
+                    p = pop(['Insertar Evento', self.images['event_ico'], 'new_event', 315, 270, 0])
+                else:
+                    p = pop(['Insertar Evento', self.images['event_ico'], 'new_event', 330, 270, 0])
                 p.w.mainloop(1)
                 if p.sent:
                     evento = p.values[0]
@@ -1507,12 +1573,18 @@ class mapeditor:
             elif idItem == "delete":  # Si es un elemento de borrar
                 self.actualActor = "", "", "delete"
             else:  # Si es un mob normal
-                p = pop(['Nuevo mob', self.images['group'], 'new_mob', 442, 295])
+                if isWindows():
+                    p = pop(['Nuevo mob', self.images['group'], 'new_mob', 442, 295])
+                else:
+                    p = pop(['Nuevo mob', self.images['group'], 'new_mob', 500, 350])
                 p.w.mainloop(1)
                 if p.sent:
                     data = p.values
                     if data[0] == "create-new-npc":  # Si se crea un npc en vez de un mob
-                        k = pop(['Nuevo npc', self.images['group'], 'new_npc', 307, 290])
+                        if isWindows():
+                            k = pop(['Nuevo npc', self.images['group'], 'new_npc', 307, 290])
+                        else:
+                            k = pop(['Nuevo npc', self.images['group'], 'new_npc', 360, 360])
                         k.w.mainloop(1)
                         if k.sent:
                             npc = k.values
@@ -1891,6 +1963,6 @@ class mapeditor:
         return
 
 # Inicio del programa
-if __name__  == "__main__":
+if __name__ == "__main__":
     editor = mapeditor()
     editor.core.mainloop(0)

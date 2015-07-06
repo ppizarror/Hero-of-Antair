@@ -116,11 +116,15 @@ if isWindows():
     _SECOND_BUTTON = "<Button-3>"
     POP_XSIZE = 165
     POP_YSIZE = 270
+    DRAW_CANVAS_OFFSET_X = 0
+    DRAW_CANVAS_OFFSET_Y = 0
 else:
-    PROGRAM_SIZE = 810, 580
+    PROGRAM_SIZE = 803, 574
     _SECOND_BUTTON = "<Button-2>"
     POP_XSIZE = 175
     POP_YSIZE = 390
+    DRAW_CANVAS_OFFSET_Y = -2
+    DRAW_CANVAS_OFFSET_X = -2
 
 # Se cargan las configuraciones
 try:  # Se cargan la lista de idiomas disponibles
@@ -1076,10 +1080,16 @@ class hoa:
             """
             if self.ingame:
                 if 0 <= event.x < 190 and 400 <= event.y < 575:
-                    if -1 * (event.delta / 100) < 0:
-                        move = -1
+                    if isWindows():
+                        if -1 * (event.delta / 100) < 0:
+                            move = -1
+                        else:
+                            move = 2
                     else:
-                        move = 2
+                        if -1 * event.delta < 0:
+                            move = -1
+                        else:
+                            move = 1
                     self.infoSlider.canv.yview_scroll(move, "units")
 
         def _movebottom(event):
@@ -1450,9 +1460,9 @@ class hoa:
         self.initialBg = Canvas(f, width=PROGRAM_SIZE[0] + 105, height=PROGRAM_SIZE[1] + 100, bd=-2,
                                 highlightthickness=0)
         self.initialBg.pack()
-        self.initialBg.create_image(405, 295, image=self.images.image("background"))
+        self.initialBg.create_image(403, 295, image=self.images.image("background"))
         self.initialBg.update()
-        self.content = Frame(f)
+        self.content = Frame(f, border=0)
         self.menu = Frame(f)
         self.menu2 = Frame(f)
         menu19 = Frame(self.menu)
@@ -1570,8 +1580,11 @@ class hoa:
         self.infoSlider.scroller.pack_forget()
         menu7 = Frame(self.menu)
         menu7.pack()
-        self.world = Canvas(self.content, width=CANVAS_SIZE[0], height=CANVAS_SIZE[1])
-        self.world.pack(fill=X)  # canvas del mundo
+        if isWindows():
+            self.world = Canvas(self.content, width=CANVAS_SIZE[0], height=CANVAS_SIZE[1])
+        else:
+            self.world = Canvas(self.content, width=CANVAS_SIZE[0], height=CANVAS_SIZE[1], bd=0, highlightthickness=0)
+        self.world.pack(fill=BOTH, padx=0)  # canvas del mundo
         print lang(310)
 
         # Establezco los eventos del programa
@@ -1606,10 +1619,9 @@ class hoa:
                 self.root.bind("<Control-Up>", _moveLineUp)
                 self.root.bind("<End>", _movebottom)
                 self.root.bind("<Home>", _movetop)
-                self.root.bind("<MouseWheel>", _item_mousewheel)
-            else:  # Eventos exclusivos linux
-                self.root.bind("<Shift-Down>", _moveLineDown)
-                self.root.bind("<Shift-Up>", _moveLineUp)
+            self.root.bind("<Shift-Down>", _moveLineDown)
+            self.root.bind("<Shift-Up>", _moveLineUp)
+            self.root.bind("<MouseWheel>", _item_mousewheel)
             self.root.bind("<F3>", _movebottom)
             self.root.bind("<F4>", _movetop)
             self.root.bind("<Control-G>", _saveshorcut)
@@ -3873,49 +3885,49 @@ class hoa:
         if not (self.inBattle and (self.tipoCombate == MODE_FIGHT_GROUP or self.tipoCombate == MODE_FIGHT_LINEAL)):
             # Se dibuja al jugador
             if self.player.getLeftWeapon() is not None:  # Arma segundaria
-                self.world.create_image(9 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 9, \
+                self.world.create_image(9 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 9 + DRAW_CANVAS_OFFSET_Y, \
                                         image=self.images.image(self.player.getLeftWeapon().getImage() + "_16"),
                                         tags="player:left_weapon")
             else:
-                self.world.create_image(9 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 9, \
+                self.world.create_image(9 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 9 + DRAW_CANVAS_OFFSET_Y, \
                                         image=self.images.image("None"), tags="player:left_weapon")
             if self.maplightning[self.playerPos[1]][self.playerPos[0]] == 0:  # Textura del jugador
-                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 18, \
+                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 18 + DRAW_CANVAS_OFFSET_Y, \
                                         image=self.images.image(self.player.getLinkImage() + "_0"), tags="player")
             else:
-                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 18, \
+                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 18 + DRAW_CANVAS_OFFSET_Y, \
                                         image=self.images.image(self.player.getLinkImage() + "_1"), tags="player")
             if self.player.getRightWeapon() is not None:  # Arma primaria
-                self.world.create_image(28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16, \
+                self.world.create_image(28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y, \
                                         image=self.images.image(self.player.getRightWeapon().getImage() + "_16"),
                                         tags="player:right_weapon")
             else:
-                self.world.create_image(28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16, \
+                self.world.create_image(28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y, \
                                         image=self.images.image("None"), tags="player:right_weapon")
             # Se dibujan los mobs
             k = 0  # id del mob para dejarlo como tag
             for i in self.mobs:  # Se recorre a los mobs
                 if self.maplightning[i.getPosicionY()][i.getPosicionX()] == 0:
-                    self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1],
-                                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18, \
+                    self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y, \
                                             image=self.images.image(i.getImage() + "_0"),
                                             tags="mob:" + str(k))  # Se dibujan los mobs
                 else:
-                    self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1],
-                                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18, \
+                    self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y, \
                                             image=self.images.image(i.getImage() + "_1"), tags="mob:" + str(k))
                 self.lifeBar(i.getLife(), i.getMaxLife(), i.getPosicionX(), i.getPosicionY(), k)  # barra de vida
                 # Si son varios se dibuja un icono de grupo en la esquina inferior derecha
                 if i.getTipoCombate() == MODE_FIGHT_GROUP and (
                                 self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO):
-                    self.world.create_image(26 + 32 * i.getPosicionX() + self.canvasCorrecion[1],
-                                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 26, \
+                    self.world.create_image(26 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 26 + DRAW_CANVAS_OFFSET_Y, \
                                             image=self.images.image(GROUP_TEXTURE_CREW),
                                             tags="mob:icon:grupal:" + str(k))  # Se dibujan los mobs
                 k += 1
@@ -3924,29 +3936,35 @@ class hoa:
             for i in self.npc:  # Se recorren los npc que pueden ser dibujados (si el jugador tiene la quest requerida)
                 if i.canShowByQuest(self.player.getQuest()):
                     if self.maplightning[i.getPosicionY()][i.getPosicionX()] == 0:
-                        self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1],
-                                                self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18, \
-                                                image=self.images.image(i.getImage() + "_0"),
-                                                tags="npc:" + str(k))  # Se dibujan los mobs
+                        self.world.create_image(
+                            18 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y, \
+                            image=self.images.image(i.getImage() + "_0"),
+                            tags="npc:" + str(k))  # Se dibujan los mobs
                     else:
-                        self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1],
-                                                self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18, \
-                                                image=self.images.image(i.getImage() + "_1"), tags="npc:" + str(k))
+                        self.world.create_image(
+                            18 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                            self.canvasCorrecion[0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y, \
+                            image=self.images.image(i.getImage() + "_1"), tags="npc:" + str(k))
                 k += 1
             # Se dibujan los items
             for k in range(self.mapSize[1]):
                 for j in range(self.mapSize[0]):
                     if self.mapItemsTextures[k][j] is not None:  # Si hay una imagen que insertar
-                        i = self.world.create_image(18 + self.canvasCorrecion[1] + 32 * j + textureMover(
-                            self.images.image(self.mapItemsTextures[k][j]), EJE_X), \
-                                                    18 + self.canvasCorrecion[0] + 32 * k + textureMover(
-                                                        self.images.image(self.mapItemsTextures[k][j]), EJE_Y), \
-                                                    image=self.images.image(self.mapItemsTextures[k][j]),
-                                                    tags="item:" + str(j) + "," + str(k))
+                        i = self.world.create_image(
+                            18 + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X + 32 * j + textureMover(
+                                self.images.image(self.mapItemsTextures[k][j]), EJE_X), \
+                            18 + self.canvasCorrecion[0] + 32 * k + textureMover(
+                                self.images.image(self.mapItemsTextures[k][j]),
+                                EJE_Y) + DRAW_CANVAS_OFFSET_Y, \
+                            image=self.images.image(self.mapItemsTextures[k][j]),
+                            tags="item:" + str(j) + "," + str(k))
                         # Compruebo la imagen para ver el zindex
                         if isIn(self.mapItemsTextures[k][j], LOWER_TEXTURES): self.world.lower(i)
             # Inserto el fondo
-            self.world.lower(self.world.create_image(306, 290, image=self.mapImage[0], tag="background"))
+            self.world.lower(
+                self.world.create_image(306 + DRAW_CANVAS_OFFSET_X, 290 + DRAW_CANVAS_OFFSET_Y, image=self.mapImage[0],
+                                        tag="background"))
         elif self.tipoCombate == MODE_FIGHT_GROUP and self.inBattle:  # Si el modo de combate es grupal
             # Dibujo la sangre
             for blood in self.board.getBlood():
@@ -4045,7 +4063,8 @@ class hoa:
                                    self.board.getBoardCorreccionY() + 2 + 32 * self.board.getBoardSizeY(), \
                                    fill=LINE_BOARD_COLOR_INACTIVE)
             # Se dibuja el fondo
-            self.world.lower(self.world.create_image(306, 290, image=self.board.bgimage, tags="grupal:background"))
+            self.world.lower(self.world.create_image(306, 290, image=self.board.bgimage,
+                                                     tags="grupal:background"))
             self.combateGrupal("print")
             self.world.update()
 
@@ -4698,25 +4717,28 @@ class hoa:
                 Mueve la textura sin animación
                 :return: void
                 """
-                self.world.coords("player", 18 + 32 * x + self.canvasCorrecion[1],
-                                  self.canvasCorrecion[0] + 32 * y + 18)
-                self.world.coords("player:left_weapon", 9 + 32 * x + self.canvasCorrecion[1],
-                                  self.canvasCorrecion[0] + 32 * y + 9)
-                self.world.coords("player:right_weapon", 28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                  self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16)
+                self.world.coords("player", 18 + 32 * x + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                  self.canvasCorrecion[0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)
+                self.world.coords("player:left_weapon", 9 + 32 * x + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                  self.canvasCorrecion[0] + 32 * y + 9 + DRAW_CANVAS_OFFSET_Y)
+                self.world.coords("player:right_weapon",
+                                  28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
+                                  self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y)
 
             if MOVEMENT_ANIMATION[0]:  # Movimiento con animación
                 try:
                     self.root.after(int(TEXDT / 4), makeCallable(
-                        partial(arrastrarImagen, "player:left_weapon", self.world, 9 + 32 * x + self.canvasCorrecion[1], \
-                                self.canvasCorrecion[0] + 32 * y + 9)))
+                        partial(arrastrarImagen, "player:left_weapon", self.world,
+                                9 + 32 * x + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X, \
+                                self.canvasCorrecion[0] + 32 * y + 9 + DRAW_CANVAS_OFFSET_Y)))
                     self.root.after(int(TEXDT / 4), makeCallable(
-                        partial(arrastrarImagen, "player", self.world, 18 + 32 * x + self.canvasCorrecion[1], \
-                                self.canvasCorrecion[0] + 32 * y + 18)))
+                        partial(arrastrarImagen, "player", self.world,
+                                18 + 32 * x + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X, \
+                                self.canvasCorrecion[0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)))
                     self.root.after(int(TEXDT / 4), makeCallable(
                         partial(arrastrarImagen, "player:right_weapon", self.world,
-                                28 + 32 * self.playerPos[0] + self.canvasCorrecion[1], \
-                                self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16)))
+                                28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_x, \
+                                self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y)))
                 except:
                     _moveNoAnimation()
                     print lang(389)
@@ -4779,31 +4801,37 @@ class hoa:
                         mob.setPosicionX(x)
                     try:  # Se mueve la textura del mob
                         if not MOVEMENT_ANIMATION[0]:  # Movimiento sin animación
-                            self.world.coords("mob:" + str(i_d), 18 + 32 * mob.getPosicionX() + self.canvasCorrecion[1], \
-                                              self.canvasCorrecion[0] + 32 * mob.getPosicionY() + 18)
+                            self.world.coords("mob:" + str(i_d), 18 + 32 * mob.getPosicionX() + self.canvasCorrecion[
+                                1] + DRAW_CANVAS_OFFSET_X, self.canvasCorrecion[
+                                                  0] + 32 * mob.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y)
                             self.world.coords("lifebar:" + str(i_d),
-                                              32 * mob.getPosicionX() + self.canvasCorrecion[1] + 18, \
-                                              32 * mob.getPosicionY() + self.canvasCorrecion[0] - 9)
+                                              32 * mob.getPosicionX() + self.canvasCorrecion[
+                                                  1] + 18 + DRAW_CANVAS_OFFSET_X, \
+                                              32 * mob.getPosicionY() + self.canvasCorrecion[
+                                                  0] - 9 + DRAW_CANVAS_OFFSET_Y)
                             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
                                 self.world.coords("mob:icon:grupal:" + str(i_d),
-                                                  27 + 32 * mob.getPosicionX() + self.canvasCorrecion[1], \
-                                                  self.canvasCorrecion[0] + 32 * mob.getPosicionY() + 26)
+                                                  27 + 32 * mob.getPosicionX() + self.canvasCorrecion[
+                                                      1] + DRAW_CANVAS_OFFSET_X, \
+                                                  self.canvasCorrecion[
+                                                      0] + 32 * mob.getPosicionY() + 26 + DRAW_CANVAS_OFFSET_Y)
                         else:  # Movimiento con animación
                             self.root.after(TEXDT, makeCallable(partial(arrastrarImagen, "mob:" + str(i_d), self.world,
                                                                         17 + 32 * mob.getPosicionX() +
-                                                                        self.canvasCorrecion[1], \
+                                                                        self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X, \
                                                                         self.canvasCorrecion[
-                                                                            0] + 32 * mob.getPosicionY() + 18)))
+                                                                            0] + 32 * mob.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y)))
                             self.root.after(TEXDT, makeCallable(
                                 partial(arrastrarImagen, "lifebar:" + str(i_d), self.world,
-                                        32 * mob.getPosicionX() + self.canvasCorrecion[1] + 17, \
-                                        32 * mob.getPosicionY() + self.canvasCorrecion[0] - 10)))
+                                        32 * mob.getPosicionX() + self.canvasCorrecion[1] + 17 + DRAW_CANVAS_OFFSET_X, \
+                                        32 * mob.getPosicionY() + self.canvasCorrecion[0] - 10 + DRAW_CANVAS_OFFSET_Y)))
                             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
                                 self.root.after(TEXDT, makeCallable(
                                     partial(arrastrarImagen, "mob:icon:grupal:" + str(i_d), self.world,
                                             32 * mob.getPosicionX() + \
-                                            self.canvasCorrecion[1] + 27,
-                                            32 * mob.getPosicionY() + self.canvasCorrecion[0] + 26)))
+                                            self.canvasCorrecion[1] + 27 + DRAW_CANVAS_OFFSET_X,
+                                            32 * mob.getPosicionY() + self.canvasCorrecion[
+                                                0] + 26 + DRAW_CANVAS_OFFSET_Y)))
                     except:
                         print lang(328)
                     # Si el mob está encima, abajo, a la derecha o a la izquierda del jugador // no válido es en diagonal
@@ -5669,7 +5697,7 @@ class hoa:
         print lang(745),
         print "",
         if self.multiplayer_isconected: self.multiplayer_desconnect(False)
-        if os.name == "nt":
+        if isWindows():
             os.system("taskkill /PID " + str(os.getpid()) + " /F")
         else:
             import signal
@@ -6244,6 +6272,8 @@ class hoa:
                 self.canvasCorrecion[1] = (CANVAS_MAX_SIZE[1] - self.mapSize[0]) * 16  # Vertical
             else:
                 self.canvasCorrecion[1] = 0
+            self.canvasCorrecion[0] += DRAW_CANVAS_OFFSET_X
+            self.canvasCorrecion[1] += DRAW_CANVAS_OFFSET_Y
             if len(self.mobs) != 0:  # Activa el movimiento de los mobs
                 try:
                     self.root.after_cancel(self.lastmovementId)  # se intenta eliminar la ultima ejecución de la funcion

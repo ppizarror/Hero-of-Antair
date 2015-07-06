@@ -7,7 +7,10 @@
 from lib import *
 
 # Constantes del programa
-DEFAULT_FONT_TITLE = "Arial", 10
+if isWindows():
+    DEFAULT_FONT_TITLE = "Arial", 10
+else:
+    DEFAULT_FONT_TITLE = "Arial", 15
 COMMENT_COLOR = "#666666"
 
 
@@ -42,12 +45,12 @@ class pop:  # Ventanas emergentes
             Label(self.w, text=lang[2] + properties[6],
                   font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=lang[
-                  3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
             Button(
                 self.w, text=lang[4], command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
         elif typeObject == "deseaGuardar":  # Desea guardar
-            if properties[5]:
+            if properties[5] and isWindows():
                 winsound.MessageBeep(-1)
             self.w.focus_force()
             Label(self.w, text="¿Desea Guardar?",
@@ -63,10 +66,10 @@ class pop:  # Ventanas emergentes
             Button(F, text="Cancelar", command=lambda: self.response(
                 "cancel"), width=8, relief=GROOVE).pack()
         elif typeObject == "error" or typeObject == "aviso":  # Alerta
-            if typeObject == "error":
+            if typeObject == "error" and isWindows():
                 winsound.MessageBeep(16)  # Sonido de error
             Label(self.w, text=properties[
-                  5], wraplength=250, anchor=N, border=10).pack()
+                5], wraplength=250, anchor=N, border=10).pack()
             Label(self.w, text="")
             Button(
                 self.w, text="Cerrar", command=self.w.destroy, relief=GROOVE).pack()
@@ -104,7 +107,7 @@ class pop:  # Ventanas emergentes
             Label(f, text="Lógico", anchor=NW, width=10, fg=COMMENT_COLOR).pack(
                 side=LEFT, anchor=N)
             Label(f, text=properties[
-                  6], anchor=NW, wraplength=237, justify=LEFT, height=2).pack(side=LEFT)
+                6], anchor=NW, wraplength=237, justify=LEFT, height=2).pack(side=LEFT)
             Button(
                 self.w, text="Cerrar", command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
@@ -206,8 +209,9 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_key_building":  # Nuevo edificio con llave
-            Label(self.w, text="Rellene ambos campos para crear un edificio restrictivo, rellene solo 'Archivo de mapa' pa" +
-                  "ra crear un link a su archivo o deje ambos campos en blanco para crear solo un edificio decorativo.",
+            Label(self.w,
+                  text="Rellene ambos campos para crear un edificio restrictivo, rellene solo 'Archivo de mapa' pa" +
+                       "ra crear un link a su archivo o deje ambos campos en blanco para crear solo un edificio decorativo.",
                   border=10, wraplength=280).pack()
             f = Frame(self.w, border=3)
             f.pack()
@@ -228,7 +232,8 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_nokey_building":  # Nuevo edificio sin llave
             Label(self.w, text="Rellene 'Archivo de mapa' para crear un link a su archivo o deje el campo en " +
-                  "blanco para crear un edificio decorativo.", border=10, wraplength=280, fg=COMMENT_COLOR).pack()
+                               "blanco para crear un edificio decorativo.", border=10, wraplength=280,
+                  fg=COMMENT_COLOR).pack()
             f = Frame(self.w, border=3)
             f.pack()
             Label(f, text="Archivo del mapa ", anchor=E, width=15).pack(
@@ -278,7 +283,10 @@ class pop:  # Ventanas emergentes
                     pass
         elif typeObject == "new_sound_background":  # Sonido de fondo
             folder = properties[5]
-            tkSnack.initializeSnack(self.w)
+            try:
+                tkSnack.initializeSnack(self.w)
+            except:
+                pass
             self.sound = tkSnack.Sound()
             self.sound.config(fileformat="mp3")
             Label(
@@ -306,15 +314,21 @@ class pop:  # Ventanas emergentes
                     except:
                         pass
 
-            def _pause(e=None): self.sound.pause()
+            def _pause(e=None):
+                self.sound.pause()
 
-            def _stop(e=None): self.sound.stop()
-            Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
-                side=LEFT, padx=1, pady=1)
-            Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
-                side=LEFT, padx=1, pady=1)
-            Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
-                side=LEFT, padx=1, pady=1)
+            def _stop(e=None):
+                self.sound.stop()
+
+            try:
+                Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
+                    side=LEFT, padx=1, pady=1)
+                Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
+                    side=LEFT, padx=1, pady=1)
+                Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
+                    side=LEFT, padx=1, pady=1)
+            except:
+                pass
             Button(self.w, text="Insertar", relief=GROOVE,
                    command=self.enviarBgSound).pack(pady=10)
             self.w.bind("<Escape>", self.destruir)
@@ -348,9 +362,12 @@ class pop:  # Ventanas emergentes
                     except:
                         pass
 
-            def _pause(e=None): self.sound.pause()
+            def _pause(e=None):
+                self.sound.pause()
 
-            def _stop(e=None): self.sound.stop()
+            def _stop(e=None):
+                self.sound.stop()
+
             Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
                 side=LEFT, padx=1, pady=1)
             Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
@@ -436,20 +453,26 @@ class pop:  # Ventanas emergentes
         # Crear un nuevo mob
         elif typeObject == "new_mob" or typeObject == "edit_mob":
             def _setmusic():
-                q = pop(['Escoger sonido de fondo', str(os.getcwd()).replace("\\", "/") + "/" + "data/" + "icons/" + "sound_add.ico",
+                q = pop(['Escoger sonido de fondo',
+                         str(os.getcwd()).replace("\\", "/") + "/" + "data/" + "icons/" + "sound_add.ico",
                          'new_sound_mob', 120, 380, "data/sound/mobs/"])
                 q.w.mainloop(2)
                 if q.sent:
                     self.soundmob.delete(0, END)
                     self.soundmob.insert(
                         0, str(q.values[0]).replace(".wav", ""))
-                del(q)
-            tkSnack.initializeSnack(self.w)
+                del q
+
+            try:
+                tkSnack.initializeSnack(self.w)
+            except:
+                pass
             if typeObject == "new_mob":
                 def _newNpc():
                     self.values.append("create-new-npc")
                     self.sent = True
                     self.destruir()
+
                 f = Frame(self.w, border=8)
                 f.pack(fill=X)
                 Button(
@@ -516,22 +539,29 @@ class pop:  # Ventanas emergentes
             Label(f, text="Sonido  ", anchor=E, width=12).pack(side=LEFT)
             self.soundmob = Entry(f, relief=GROOVE, width=23)
             self.soundmob.pack(side=LEFT, padx=2)
-            Button(
-                f, bitmap='snackPlay', relief=GROOVE, command=_setmusic).pack()
+            try:
+                Button(
+                    f, bitmap='snackPlay', relief=GROOVE, command=_setmusic).pack()
+            except:
+                pass
             f = Frame(self.w)
             f.pack(fill=X, padx=3, pady=3)
             Label(f, text="Persigue  ", anchor=E, width=12).pack(side=LEFT)
+            if isWindows():
+                tuplewidth = 4
+            else:
+                tuplewidth = 9
             self.persiguemob = StringVar(f)
             self.persiguemob.set("No")  # valor por defecto
             w = apply(OptionMenu, (f, self.persiguemob) + tuple(["Si", "No"]))
-            w["width"] = 4
+            w["width"] = tuplewidth
             w["relief"] = GROOVE
             w.pack(side=LEFT)
             Label(f, text="Escapa", anchor=E, width=6).pack(side=LEFT)
             self.escapamob = StringVar(f)
             self.escapamob.set("No")  # valor por defecto
             w1 = apply(OptionMenu, (f, self.escapamob) + tuple(["Si", "No"]))
-            w1["width"] = 4
+            w1["width"] = tuplewidth
             w1["relief"] = GROOVE
             w1.pack(side=LEFT, padx=2)
             f = Frame(self.w)
@@ -541,7 +571,7 @@ class pop:  # Ventanas emergentes
             self.tipocombmob.set("Normal")  # valor por defecto
             w2 = apply(
                 OptionMenu, (f, self.tipocombmob) + tuple(["Lineal", "Normal", "Grupal"]))
-            w2["width"] = 4
+            w2["width"] = tuplewidth
             w2["relief"] = GROOVE
             w2.pack(side=LEFT)
             Label(f, text="Ataque", anchor=E, width=6).pack(side=LEFT)
@@ -549,7 +579,7 @@ class pop:  # Ventanas emergentes
             self.tipoatkmob.set("Normal")  # valor por defecto
             w3 = apply(
                 OptionMenu, (f, self.tipoatkmob) + tuple(["Normal", "Largo"]))
-            w3["width"] = 4
+            w3["width"] = tuplewidth
             w3["relief"] = GROOVE
             w3.pack(side=LEFT, padx=2)
             Label(self.w, text="", height=1).pack()
@@ -697,17 +727,21 @@ class pop:  # Ventanas emergentes
             f = Frame(self.w)
             f.pack(fill=X, padx=3, pady=1)
             Label(f, text="Mueve  ", anchor=E, width=12).pack(side=LEFT)
+            if isWindows():
+                tuplewidth = 3
+            else:
+                tuplewidth = 7
             self.movenpc = StringVar(f)
             self.movenpc.set("No")  # valor por defecto
             w = apply(OptionMenu, (f, self.movenpc) + tuple(["Si", "No"]))
-            w["width"] = 3
+            w["width"] = tuplewidth
             w["relief"] = GROOVE
             w.pack(side=LEFT)
             Label(f, text="Fade", anchor=E, width=7).pack(side=LEFT)
             self.fadenpc = StringVar(f)
             self.fadenpc.set("No")  # valor por defecto
             w1 = apply(OptionMenu, (f, self.fadenpc) + tuple(["Si", "No"]))
-            w1["width"] = 3
+            w1["width"] = tuplewidth
             w1["relief"] = GROOVE
             w1.pack()
             Label(self.w, text="", height=1).pack()
@@ -820,7 +854,10 @@ class pop:  # Ventanas emergentes
             self.stackableobj.set("False")  # valor por defecto
             w3 = apply(
                 OptionMenu, (f, self.stackableobj) + tuple(["True", "False"]))
-            w3["width"] = 4
+            if isWindows():
+                w3["width"] = 4
+            else:
+                w3["width"] = 4
             w3["relief"] = GROOVE
             w3["anchor"] = W
             w3.pack(side=LEFT, padx=6)
@@ -860,7 +897,7 @@ class pop:  # Ventanas emergentes
                         # Oculto la lista anterior
                         menu.pack_forget()
                         self.texturaobj
-                        del(menu)
+                        del menu
                         valid_textures = []
                         # Busco los elementos correctos e inserto propiedad
                         self.propiedadesobj.config(state=NORMAL)
@@ -929,8 +966,12 @@ class pop:  # Ventanas emergentes
                     else:
                         # valor por defecto
                         self.texturaobj.set("< -- >".rjust(26))
-                self.w.after(
-                    250, partial(_sortByType, self.tipoobj.get(), menu))
+                try:
+                    self.w.after(
+                        250, partial(_sortByType, self.tipoobj.get(), menu))
+                except:
+                    pass
+
             _sortByType("<all>", w1)
             fe.bind("<Button-1>", _setLast)
         # Ingresar un dígito positivo
@@ -1107,8 +1148,12 @@ class pop:  # Ventanas emergentes
 
     # Función que llama a una ventana para agregar un objeto
     def addObject(self, e=None):
-        q = pop(
+        if isWindows():
+            q = pop(
             ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
+        else:
+            q = pop(
+            ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
         q.w.mainloop(2)
         if q.sent:
             self.objetomob.delete(0, END)
@@ -1117,8 +1162,12 @@ class pop:  # Ventanas emergentes
 
     # Función que llama a una ventana para agregar un objeto
     def addObjectnpc(self, e=None):
-        q = pop(
+        if isWindows():
+            q = pop(
             ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
+        else:
+            q = pop(
+            ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
         q.w.mainloop(2)
         if q.sent:
             self.objetonpc.delete(0, END)
@@ -1333,7 +1382,8 @@ class pop:  # Ventanas emergentes
         # Se comprueban los campos numéricos
         if a.isdigit() and b.isdigit() and c.isdigit() and d.isdigit() and g.isdigit() and i.isdigit() and j.isdigit() and h.isdigit() and n.isdigit():
             # Ningún campo puede estar vacío
-            if len(e) > 0 and len(f) > 0 and int(b) > 0 and int(c) >= 0 and int(d) >= 0 and int(g) >= 0 and int(h) >= 0 and int(i) >= 0 and int(j) >= 0 and int(n) >= 0:
+            if len(e) > 0 and len(f) > 0 and int(b) > 0 and int(c) >= 0 and int(d) >= 0 and int(g) >= 0 and int(
+                    h) >= 0 and int(i) >= 0 and int(j) >= 0 and int(n) >= 0:
                 self.sent = True
                 self.values.append(a)
                 self.values.append(b)
