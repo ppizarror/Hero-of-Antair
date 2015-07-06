@@ -112,10 +112,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showNumbers:
-                    self.showNumbers = False
-                else:
-                    self.showNumbers = True
+                self.showNumbers = not self.showNumbers
                 self.drawTiles()
 
         def _lines(event=None):
@@ -125,10 +122,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showLines:
-                    self.showLines = False
-                else:
-                    self.showLines = True
+                self.showLines = not self.showLines
                 self.drawTiles()
 
         def _redib(event=None):
@@ -146,10 +140,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showLogics:
-                    self.showLogics = False
-                else:
-                    self.showLogics = True
+                self.showLogics = not self.showLogics
                 self.drawTiles()
 
         def _movements(event=None):
@@ -159,10 +150,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showMovement:
-                    self.showMovement = False
-                else:
-                    self.showMovement = True
+                self.showMovement = not self.showMovement
                 self.drawTiles()
 
         def _terrain(event=None):
@@ -172,10 +160,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showTerrain:
-                    self.showTerrain = False
-                else:
-                    self.showTerrain = True
+                self.showTerrain = not self.showTerrain
                 self.drawTiles()
 
         def _events(event=None):
@@ -185,10 +170,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showEvents:
-                    self.showEvents = False
-                else:
-                    self.showEvents = True
+                self.showEvents = not self.showEvents
                 self.drawTiles()
 
         def _items(event=None):
@@ -198,10 +180,7 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                if self.showItems:
-                    self.showItems = False
-                else:
-                    self.showItems = True
+                self.showItems = not self.showItems
                 self.drawTiles()
 
         def _delactor(event=None):
@@ -249,6 +228,7 @@ class mapeditor:
                     e.w.mainloop(1)
                     del e
 
+        #TODO: Modificar copia de luz
         def _copyTile(event=None):
             """
             Copia la información de un tile
@@ -432,7 +412,12 @@ class mapeditor:
                 elif main_logic == "43":  # Npc
                     prop += ["None"]  # se agrega vector para evitar errores
                     tex = prop[1]
-                    k = pop(['Editar npc', self.images['group'], 'edit_npc', 307, 290, putStrict(prop[0]),
+                    if isWindows():
+                        k = pop(['Editar npc', self.images['group'], 'edit_npc', 307, 290, putStrict(prop[0]),
+                             putStrict(prop[2]), putStrict(prop[3]), prop[6], prop[8], \
+                             putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
+                    else:
+                        k = pop(['Editar npc', self.images['group'], 'edit_npc', 350, 350, putStrict(prop[0]),
                              putStrict(prop[2]), putStrict(prop[3]), prop[6], prop[8], \
                              putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
                     k.w.mainloop(1)

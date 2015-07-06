@@ -1087,9 +1087,9 @@ class hoa:
                             move = 2
                     else:
                         if -1 * event.delta < 0:
-                            move = -1
+                            move = -2
                         else:
-                            move = 1
+                            move = 2
                     self.infoSlider.canv.yview_scroll(move, "units")
 
         def _movebottom(event):
@@ -1573,7 +1573,7 @@ class hoa:
                               bg=CONFIGURATION_DATA[3], \
                               fg=CONFIGURATION_DATA[4], font=self.fonts[0], relief=FLAT, border=2, cursor="xterm")
         else:
-            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=175, anchor=NW,
+            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=210, anchor=NW,
                               bg=CONFIGURATION_DATA[3], \
                               fg=CONFIGURATION_DATA[4], font=self.fonts[5], relief=FLAT, border=2, cursor="xterm")
         self.info.pack(anchor=NW, fill=BOTH)
