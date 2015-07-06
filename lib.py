@@ -28,6 +28,7 @@ except:
 # Agrego librerías al path
 _actualpath = str(os.path.abspath(os.path.dirname(__file__)))
 sys.path.append(_actualpath + "/lib/")
+sys.path.append(_actualpath + "/lib/mechanize/")
 sys.path.append(_actualpath + "/lib/pil/")
 sys.path.append(_actualpath + "/lib/pympler/")
 sys.path.append(_actualpath + "/lib/scripts/")
@@ -35,6 +36,7 @@ sys.path.append(_actualpath + "/lib/simplejson/")
 sys.path.append(_actualpath + "/lib/wconio/")
 
 # Importación de librerías de bajo nivel
+_mechanize = True
 _wconio = True
 _winsound = True
 
@@ -62,8 +64,10 @@ try:
         _wconio = False
     import base64
     import codecs
+    import cookielib
     import ctypes
     import gc
+    import htmlentitydefs
     import io
     import json
     # noinspection PyDeprecation
@@ -89,6 +93,10 @@ try:
         import winsound
     except:
         _winsound = False
+    try:
+        import mechanize
+    except:
+        _mechanize = False
 
 except:
     print "Error :: Error al cargar librerias"
@@ -97,18 +105,189 @@ except:
 # Constantes del programa
 __ALPH = " @rs3t*uv#w'xEF(9<GH$IJ&5K,L%CVWXjkl_mnop/qD0{PQ+RS[TUAY]1Z^67;8?ab>cd)efMNO.Bg}hi24-yz!"
 __L_ALPH = len(__ALPH)
+BR_ERRORxERROR_SET_FORM = 8
+BR_ERRORxERROR_SET_SUBMIT = 9
+BR_ERRORxNO_ACCESS_WEB = 1
+BR_ERRORxNO_FORM = 3
+BR_ERRORxNO_FORMID = 2
+BR_ERRORxNO_OPENED = 0
+BR_ERRORxNO_SELECTED_FORM = 5
+BR_ERRORxNO_VALIDID = 4
+BR_ERRORxNO_VALID_SUBMIT_EMPTY = 6
+BR_ERRORxNO_VALID_SUBMIT_NOT_EQUAL = 7
 CONSOLE_WRAP = -25
 CMD_COLORS = {"red": 0x40, "lred": 0xC0, "gray": 0x80, "lgray": 0x70, "white": 0xF0, "blue": 0x10, "green": 0x20,
               "purple": 0x50, "yellow": 0x60, "lblue": 0x90, "lgreen": 0xA0, \
               "lpurple": 0xD0, "lyellow": 0xE0}
 ENDING_ARGUMENT = "$end"
 DEV_MODE = True
-LINK_PPPRJ = "http://projects.ppizarror.com/version?product=HOA"
 OK = "ok"
+QUERY_WEB = True  # modo comunicación con mechanize
+LINK_PPPRJ = "http://projects.ppizarror.com/version?product=HOA"
+ERROR_TAG_CANTRETRIEVEHTML = 16
+ERROR_TAG_INITNOTCORRECTENDING = 14
+ERROR_TAG_INITNOTFINDED = 13
+ERROR_TAG_LASTNOTFINDED = 15
 WIN32 = 4
 WIN64 = 8
 
-# Funciones globales
+# Clases
+class Browser:
+    """Navegador web"""
+
+    def __init__(self):
+        """
+        Función constuctora
+        :return: void
+        """
+        self.br = mechanize.Browser()  # navegador
+        self.cookies = cookielib.LWPCookieJar()  # cookies
+        self.br.set_cookiejar(self.cookies)
+        self.opened = False  # define si una páginas se ha cargado
+        self.selectedForm = False  # define si se ha definido un formulario
+
+        # Opciones del navegador
+        self.br.set_handle_equiv(True)
+        self.br.set_handle_redirect(True)
+        self.br.set_handle_referer(True)
+        self.br.set_handle_refresh(False)
+        self.br.set_handle_robots(False)
+        # noinspection PyProtectedMember
+        self.br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+
+    def playBrowser(self):
+        """
+        Obtener el browser
+        :return: Browser
+        """
+        return self.br
+
+    def addHeaders(self, header):
+        """
+        Agregar headers al navegador
+        :param header: String de browser header
+        :return: void
+        """
+        self.br.addheaders = [('User-agent', header)]
+
+    def abrirLink(self, web):
+        """
+        Ingresar a una dirección web
+        :param web: Link a web
+        :return: Integer en caso de error
+        """
+        try:  # Intento cargar la web
+            self.br.open(web)
+            self.opened = True
+            self.selectedForm = False
+        except:
+            return BR_ERRORxNO_ACCESS_WEB
+
+    def getHtml(self):
+        """
+        Obtener el código html
+        :return: String
+        """
+        if self.opened:
+            return self.br.response().read()
+        else:
+            return BR_ERRORxNO_OPENED
+
+    def getTitle(self):
+        """
+        Obtener el título
+        :return: String
+        """
+        if self.opened:
+            return self.br.title()
+        else:
+            return BR_ERRORxNO_OPENED
+
+    def getHeaders(self):
+        """
+        Obtener los headers
+        :return: String
+        """
+        if self.opened:
+            return self.br.response().info()
+        else:
+            return BR_ERRORxNO_OPENED
+
+    def getForms(self):
+        """
+        Obtener los forms
+        :return: String
+        """
+        if self.opened:
+            return self.br.forms()
+        else:
+            return BR_ERRORxNO_OPENED
+
+    def selectFormById(self, formid):
+        """
+        Definir un formulario como activo mediante un id
+        :param formid: String
+        :return: Integer en caso de error
+        """
+        formid = str(formid)
+        if formid != "":  # Si el id no está vacío
+            if formid.isdigit():  # Si es un dígito
+                try:
+                    self.selectedForm = True
+                    return self.br.select_form(nr=int(formid))
+                except:
+                    return BR_ERRORxERROR_SET_FORM
+            else:
+                return BR_ERRORxNO_VALIDID
+        else:
+            return BR_ERRORxNO_FORMID
+
+    def selectFormByName(self, formname):
+        """
+        Definir un formulario como activo mediante un id
+        :param formname: Nombre del formulario
+        :return: Integer en caso de error
+        """
+        if formname != "":  # Si el id no está vacío
+            try:
+                self.selectedForm = True
+                return self.br.select_form(name=formname)
+            except:
+                return BR_ERRORxERROR_SET_FORM
+        else:
+            return BR_ERRORxNO_FORMID
+
+    def submitForm(self, form, values):
+        """
+        Enviar un formulario
+        :param form: Formulario
+        :param values: Valores
+        :return: Integer en caso de error
+        """
+        if self.selectedForm:
+            if len(form) > 0 and len(values) > 0:
+                if len(form) == len(values):
+                    try:
+                        for i in range(len(form)): self.br.form[form[i]] = values[i]
+                        self.br.submit()
+                    except:
+                        return BR_ERRORxERROR_SET_SUBMIT
+                else:
+                    return BR_ERRORxNO_VALID_SUBMIT_NOT_EQUAL
+            else:
+                return BR_ERRORxNO_VALID_SUBMIT_EMPTY
+        else:
+            return BR_ERRORxNO_SELECTED_FORM
+
+    def clearCookies(self):
+        """
+        Elimina las cookies
+        :return: void
+        """
+        self.cookies.clear_session_cookies()
+
+
+# Funciones
 def amir(archive):
     """
     Genera los achivos de seguridad
@@ -548,10 +727,16 @@ def getVersion(label, headers):
     :param headers: Web headers
     :return:
     """
-    http_headers = {"User-Agent": headers}
-    request_object = Request(LINK_PPPRJ, None, http_headers)
-    response = urllib2.urlopen(request_object)
-    html = response.read()
+    if _mechanize and QUERY_WEB:
+        browser = Browser()
+        browser.addHeaders(headers)
+        browser.abrirLink(LINK_PPPRJ)
+        html = browser.getHtml()
+    else:
+        http_headers = {"User-Agent": headers}
+        request_object = Request(LINK_PPPRJ, None, http_headers)
+        response = urllib2.urlopen(request_object)
+        html = response.read()
     html = getBetweenTags(getBetweenTags(html, "<" + label + ">", "</" + label + ">"), "<version>", "</version>")
     return html.strip()
 
@@ -1030,6 +1215,34 @@ def toHour(hour):
     minuto = int(hour[0])
     segundo = int(hour[1]) * 6
     return str(minuto) + ":" + str(segundo).zfill(2)
+
+
+def unescape(text):
+    """
+    Reemplaza los caracteres html
+    :param text: HTML
+    :return: HTML sin caracteres
+    """
+
+    # noinspection PyShadowingNames
+    def fixup(m):
+        text = m.group(0)
+        if text[:2] == "&#":
+            try:
+                if text[:3] == "&#x":
+                    return unichr(int(text[3:-1], 16))
+                else:
+                    return unichr(int(text[2:-1]))
+            except ValueError:
+                pass
+        else:
+            try:
+                text = unichr(htmlentitydefs.name2codepoint[text[1:-1]])
+            except KeyError:
+                pass
+        return text
+
+    return re.sub("&#?\w+;", fixup, text)
 
 
 def whatTile(x, y):

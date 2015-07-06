@@ -786,7 +786,7 @@ class hoa:
                             self.player.dropObject(i)
                             if self.player.getChaleco() is not None:  # Si el player tiene botas
                                 self.player.addObject(self.player.dropChaleco())
-                                self.player.dropObject()
+                                self.player.dropChaleco()
                                 self.static.addDroppedArmor()
                             self.player.addChaleco(item)
                             self.dibujarArmor()
@@ -1120,7 +1120,10 @@ class hoa:
             :param e: Evento
             :return: void
             """
-            e = pop([lang(99), self.images.image("text_icon"), "license", 400, 600, "LICENSE"])
+            if isWindows():
+                e = pop([lang(99), self.images.image("text_icon"), "license", 400, 600, "LICENSE"])
+            else:
+                e = pop([lang(99), self.images.image("text_icon"), "license", 400, 546, "LICENSE"])
             e.w.mainloop(1)
             del e
 
@@ -1447,7 +1450,7 @@ class hoa:
         self.initialBg = Canvas(f, width=PROGRAM_SIZE[0] + 105, height=PROGRAM_SIZE[1] + 100, bd=-2,
                                 highlightthickness=0)
         self.initialBg.pack()
-        self.initialBg.create_image(404, 295, image=self.images.image("background"))
+        self.initialBg.create_image(405, 295, image=self.images.image("background"))
         self.initialBg.update()
         self.content = Frame(f)
         self.menu = Frame(f)
