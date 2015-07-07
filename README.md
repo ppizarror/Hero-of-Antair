@@ -14,6 +14,7 @@ Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando
 - Japonés
 - Ruso
 - Tailandés
+
 Las traducciones fuera del Español fueron realizadas con el traductor de google, por lo tanto pueden contener errores 
 
 ## Requisitos
