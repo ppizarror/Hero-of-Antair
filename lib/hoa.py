@@ -10,6 +10,7 @@
 
 # Importación de librerías de alto nivel
 from lib import *
+from release import *
 
 # Inicio del sistema
 libstartUp()

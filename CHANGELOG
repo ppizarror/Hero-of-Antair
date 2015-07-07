@@ -1425,6 +1425,19 @@
 	      Se corrigen errores en la terminal para OSX.
               Reestructuracion de la UI en OSX.
 	      
-
+	[0.5.3]
+	      Reformateado formato de argumentos.
+	      Reformateado comando de ayuda —-help.
+	      Reformateo de directorios, se agrega el directorio lib/ el cual contiene
+	      todos los archivos logicos del juego.
+	      Nuevo comando: —-config.
+	      Reformateo en error printing, se agregan colores a la consola.
+	      Reformateo de archivos .py en bin/.
+	      Solucion de errores en el argumento .delpyc.
+	      El ‘resource printing’ esta sujeto a configuraciones.
+	      Solucion de error en key binding de funciones en la UI.
+	      Nuevos archivos: <release>, <color>, <errors>, <main>, <map editor>.
+	      Se modifica lanzador por defecto.
+	      El logo se imprime desplazado 20 caracteres en vez de console.width/2.
 
 
