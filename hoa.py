@@ -12,7 +12,7 @@ libstartUp()
 AUTOR_NAME = "Pablo Pizarro"
 AUTOR_NAME_EMAIL = "pablo@ppizarror.com"
 PROGRAM_VERSION = "0.5.2"
-PROGRAM_TITLE = "Hero Of Antair"
+PROGRAM_TITLE = "Hero of Antair"
 
 # Introducción
 printAsciiArtHOA()  # imprimo el logo del programa en ascii
@@ -525,7 +525,7 @@ class hoa:
                         colorcmd(argument, "lgray")
                         print ""
                     else:
-                        print argument + ",",
+                        print argument,
                     return True
             return False  # si no existe retorna falso
 
@@ -1432,7 +1432,8 @@ class hoa:
             self.ayudamenu.add_separator()
             self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
             self.ayudamenu.add_command(label=lang(326), command=self.devConsole, accelerator="F2")
-            if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem, accelerator="F12")
+            if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
+                                                                  accelerator="F12")
         else:
             self.archivomenu.add_command(label=lang(10), command=self.newGame)
             self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Ctrl+L")
@@ -1735,11 +1736,10 @@ class hoa:
             totalerrors += 1
 
         # Se ejecutan los argumentos <consultar arguments.txt en /doc>
-        if not COLORED_ARGUMENT:
-            if len(arg) == 1:
-                print lang(286),
-            elif len(arg) > 1:
-                print lang(761),
+        if len(arg) == 1:
+            print lang(286),
+        elif len(arg) > 1:
+            print lang(761),
         if _consultArgument("delpyc", arg):
             files = ["actors", "board", "group", "item", "mob", "npc", "lib", "pop", "powers", "statics", "strict", \
                      "texture_analysis", "texture_conts", "texture_items", "texture_world", "textures", "sounds"]
@@ -1748,23 +1748,38 @@ class hoa:
                     os.remove(f + ".pyc")
                 except:
                     totalwarnings += 1
-        if _consultArgument("dev", arg): self.programTitle = PROGRAM_TITLE + " v{0}".format(
-            PROGRAM_VERSION); self.root.title(self.programTitle)
-        if _consultArgument("disableanimation", arg): MOVEMENT_ANIMATION[0] = False
-        if _consultArgument("disablearmorinfo", arg): CONFIGURATION_DATA[14] = False
-        if _consultArgument("disableconfig", arg): CONFIGURATION_DATA[13] = False; self.archivomenu.entryconfig(5,
-                                                                                                                state=DISABLED)
-        if _consultArgument("disableiteminfo", arg): CONFIGURATION_DATA[15] = False
-        if _consultArgument("disableinfo", arg): CONFIGURATION_DATA[14] = False; CONFIGURATION_DATA[15] = False;
-        CONFIGURATION_DATA[16] = False
-        if _consultArgument("disablepowerinfo", arg): CONFIGURATION_DATA[16] = False
-        if _consultArgument("disablesaves", arg): CONFIGURATION_DATA[12] = False
-        if _consultArgument("disableterminal", arg): CONFIGURATION_DATA[11] = False; self.ayudamenu.entryconfig(6,
-                                                                                                                state=DISABLED)
-        if _consultArgument("disabletranslation", arg): CONFIGURATION_DATA[10] = False
-        if _consultArgument("enabletanimation", arg): MOVEMENT_ANIMATION[0] = True
-        if _consultArgument("enableterminal", arg): CONFIGURATION_DATA[11] = True
-        if _consultArgument("nosound", arg): CONFIGURATION_DATA[1] = False; self.stopSound("silent")
+        if _consultArgument("dev", arg):
+            self.programTitle = PROGRAM_TITLE + " v{0}".format(PROGRAM_VERSION)
+            self.root.title(self.programTitle)
+        if _consultArgument("disableanimation", arg):
+            MOVEMENT_ANIMATION[0] = False
+        if _consultArgument("disablearmorinfo", arg):
+            CONFIGURATION_DATA[14] = False
+        if _consultArgument("disableconfig", arg):
+            CONFIGURATION_DATA[13] = False;
+            self.archivomenu.entryconfig(5, state=DISABLED)
+        if _consultArgument("disableiteminfo", arg):
+            CONFIGURATION_DATA[15] = False
+        if _consultArgument("disableinfo", arg):
+            CONFIGURATION_DATA[14] = False
+            CONFIGURATION_DATA[15] = False
+            CONFIGURATION_DATA[16] = False
+        if _consultArgument("disablepowerinfo", arg):
+            CONFIGURATION_DATA[16] = False
+        if _consultArgument("disablesaves", arg):
+            CONFIGURATION_DATA[12] = False
+        if _consultArgument("disableterminal", arg):
+            CONFIGURATION_DATA[11] = False;
+            self.ayudamenu.entryconfig(6, state=DISABLED)
+        if _consultArgument("disabletranslation", arg):
+            CONFIGURATION_DATA[10] = False
+        if _consultArgument("enabletanimation", arg):
+            MOVEMENT_ANIMATION[0] = True
+        if _consultArgument("enableterminal", arg):
+            CONFIGURATION_DATA[11] = True
+        if _consultArgument("nosound", arg):
+            CONFIGURATION_DATA[1] = False
+            self.stopSound("silent")
         if _consultArgument("resizable", arg):
             self.root.resizable(width=True, height=True)
             self.root.minsize(width=0, height=0)
@@ -1790,19 +1805,6 @@ class hoa:
                 print lang(212)
         if _consultArgument("disablestdout", arg):
             sys.stdout, sys.stderr, sys.stdin, sys.__stdout__, sys.__stderr__, sys.__stdin__ = noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut()
-
-        # Se comprueba que la versión de python del cliente tenga la api de movimieno usada en el juego
-        print lang(825),
-        try:
-            self.root.after(100, makeCallable(partial(arrastrarImagen, "test:canvasapi", self.world, 8, 8)))
-            print lang(310)
-        except:
-            MOVEMENT_ANIMATION[0] = False
-            totalerrors += 1
-            print lang(54).lower()
-            print lang(826)
-        if not isWindows(): MOVEMENT_ANIMATION[0] = False
-
         # Se consultan las actualizaciones si no se ha desactivado la función
         if not _consultArgument("noupdates", arg):
             try:
@@ -1836,8 +1838,19 @@ class hoa:
             except:
                 print lang(755)
                 totalwarnings += 1
-        else:
-            print ENDING_ARGUMENT
+        if len(arg) >= 1: print ENDING_ARGUMENT
+
+        # Se comprueba que la versión de python del cliente tenga la api de movimieno usada en el juego
+        print lang(825),
+        try:
+            self.root.after(100, makeCallable(partial(arrastrarImagen, "test:canvasapi", self.world, 8, 8)))
+            print lang(310)
+        except:
+            MOVEMENT_ANIMATION[0] = False
+            totalerrors += 1
+            print lang(54).lower()
+            print lang(826)
+        if not isWindows(): MOVEMENT_ANIMATION[0] = False
 
         # Mensaje que indica la finalización del constructor
         print lang(395),

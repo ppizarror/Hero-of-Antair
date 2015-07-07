@@ -32,6 +32,9 @@ Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la p
 
 Hero of Antair funciona en Windows, Mac OS y Linux.
 
+## Ejecutar
+Para correr el juego ingrese en la terminal: _python hoa.py_
+
 ## Licencia
 Este proyecto está licenciado bajo GPLv2 (GNU General Public License, version 2) [https://www.gnu.org/licenses/gpl-2.0.html][11].
 

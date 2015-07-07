@@ -19,7 +19,6 @@ import sys
 # Configuración de las librerías de alto nivel
 reload(sys)
 sys.setdefaultencoding('UTF8')
-sys.dont_write_bytecode = True
 try:
     os.remove("lib.pyc")
 except:
@@ -32,6 +31,7 @@ sys.path.append(_actualpath + "/bin/mechanize/")
 sys.path.append(_actualpath + "/bin/pil/")
 sys.path.append(_actualpath + "/bin/pympler/")
 sys.path.append(_actualpath + "/bin/scripts/")
+sys.path.append(_actualpath + "/bin/snacklib/")
 sys.path.append(_actualpath + "/bin/simplejson/")
 sys.path.append(_actualpath + "/bin/wconio/")
 
@@ -119,7 +119,7 @@ CONSOLE_WRAP = -25
 CMD_COLORS = {"red": 0x40, "lred": 0xC0, "gray": 0x80, "lgray": 0x70, "white": 0xF0, "blue": 0x10, "green": 0x20,
               "purple": 0x50, "yellow": 0x60, "lblue": 0x90, "lgreen": 0xA0, \
               "lpurple": 0xD0, "lyellow": 0xE0}
-ENDING_ARGUMENT = "$end"
+ENDING_ARGUMENT = ""
 DEV_MODE = True
 OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
@@ -837,7 +837,7 @@ def lookPrimaryArguments():
     """
     (width, height) = getTerminalSize()
     if len(sys.argv) >= 2:
-        if sys.argv[1] == "-benchmark" or sys.argv[1] == "/benchmark":
+        if sys.argv[1] == "--benchmark" or sys.argv[1] == "/benchmark":
             if _wconio: WConio.clrscr()
             print "Benchmark Hero of Antair"
             print "Python " + sys.version + "\n"
@@ -862,7 +862,7 @@ def lookPrimaryArguments():
                 print "\nTiempo promedio de ejecucion: " + str(ms) + "ms"
                 print "Benchmark guardado en log/benchmark"
             exit()
-        elif sys.argv[1] == "-changelog" or sys.argv[1] == "/changelog":
+        elif sys.argv[1] == "--changelog" or sys.argv[1] == "/changelog" or sys.argv[1]=="-ch":
             try:
                 changelog = open("CHANGELOG", "r")
                 print ""
@@ -872,7 +872,7 @@ def lookPrimaryArguments():
             except:
                 print "Error al ejecutar el comando -changelog :: Archivo no encontrado"
             exit()
-        elif sys.argv[1] == "-dwi" or sys.argv[1] == "/dwi":
+        elif sys.argv[1] == "--dwi" or sys.argv[1] == "/dwi":
             try:
                 if _wconio: WConio.clrscr()
                 archivo = open("data/doc/other/dwi.txt", "r")
@@ -883,7 +883,7 @@ def lookPrimaryArguments():
             except:
                 print ""
             exit()
-        elif sys.argv[1] == "-fcfm" or sys.argv[1] == "/fcfm" or sys.argv[1] == "/850" or sys.argv[1] == "-850":
+        elif sys.argv[1] == "--fcfm" or sys.argv[1] == "/fcfm" or sys.argv[1] == "/850" or sys.argv[1] == "--850":
             try:
                 if _wconio: WConio.clrscr()
                 asciiart = open("data/doc/other/850.txt", "r")
@@ -896,7 +896,7 @@ def lookPrimaryArguments():
             except:
                 print "Error al ejecutar el comando -changelog :: Archivo no encontrado"
             exit()
-        elif sys.argv[1] == "-help" or sys.argv[1] == "/help":
+        elif sys.argv[1] == "--help" or sys.argv[1] == "/help" or sys.argv[1] == "-h":
             try:
                 helpfile = open("data/doc/documentation/arguments.txt", "r")
                 print ""
@@ -906,7 +906,7 @@ def lookPrimaryArguments():
             except:
                 print "Error :: Error al ejecutar el comando -help :: Archivo no encontrado"
             exit()
-        elif sys.argv[1] == "-linecounter" or sys.argv[1] == "/linecounter":
+        elif sys.argv[1] == "--linecounter" or sys.argv[1] == "/linecounter":
             if _wconio: WConio.clrscr()
             try:
                 total = 0
@@ -940,7 +940,7 @@ def lookPrimaryArguments():
             except:
                 print "Error :: Error al ejecutar el comando linecounter"
             exit()
-        elif sys.argv[1] == "-sierpinski" or sys.argv[1] == "/sierpinski":
+        elif sys.argv[1] == "--sierpinski" or sys.argv[1] == "/sierpinski":
             if _wconio: WConio.clrscr()
             if len(sys.argv) == 3:
                 if sys.argv[2] == "/help":
@@ -1010,7 +1010,7 @@ def lookPrimaryArguments():
                 else:
                     print i,
             exit()
-        elif sys.argv[1] == "-version" or sys.argv[1] == "/version":
+        elif sys.argv[1] == "--version" or sys.argv[1] == "/version" or sys.argv[1]=="-v":
             exit()
     else:
         pass
