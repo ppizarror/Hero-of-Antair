@@ -25,7 +25,8 @@ except:
     pass
 
 # Agrego librerías al path
-_actualpath = str(os.path.abspath(os.path.dirname(__file__)))
+_libdir = "lib"
+_actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace(_libdir, "")
 sys.path.append(_actualpath + "/bin/")
 sys.path.append(_actualpath + "/bin/mechanize/")
 sys.path.append(_actualpath + "/bin/pil/")
@@ -862,7 +863,7 @@ def lookPrimaryArguments():
                 print "\nTiempo promedio de ejecucion: " + str(ms) + "ms"
                 print "Benchmark guardado en log/benchmark"
             exit()
-        elif sys.argv[1] == "--changelog" or sys.argv[1] == "/changelog" or sys.argv[1]=="-ch":
+        elif sys.argv[1] == "--changelog" or sys.argv[1] == "/changelog" or sys.argv[1] == "-ch":
             try:
                 changelog = open("CHANGELOG", "r")
                 print ""
@@ -1010,7 +1011,7 @@ def lookPrimaryArguments():
                 else:
                     print i,
             exit()
-        elif sys.argv[1] == "--version" or sys.argv[1] == "/version" or sys.argv[1]=="-v":
+        elif sys.argv[1] == "--version" or sys.argv[1] == "/version" or sys.argv[1] == "-v":
             exit()
     else:
         pass

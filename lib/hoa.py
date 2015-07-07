@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# HOA - Archivo principal del juego
+# HOA - Clase principal del juego
 # Pablo Pizarro, 2013-2015
 
 # Importación de librerías de alto nivel
@@ -374,7 +374,7 @@ class hoa:
             :param e: Evento
             :return: void
             """
-            e = pop([lang(20), self.images.image("icon"), "license", 400, 650, "CHANGELOG"])
+            e = pop([lang(20), self.images.image("icon"), "license", 400, 650, ACTUAL_FOLDER + "CHANGELOG"])
             e.w.mainloop(1)
             del e
 
@@ -1148,9 +1148,9 @@ class hoa:
             :return: void
             """
             if isWindows():
-                e = pop([lang(99), self.images.image("text_icon"), "license", 400, 600, "LICENSE"])
+                e = pop([lang(99), self.images.image("text_icon"), "license", 400, 600, ACTUAL_FOLDER + "LICENSE"])
             else:
-                e = pop([lang(99), self.images.image("text_icon"), "license", 400, 546, "LICENSE"])
+                e = pop([lang(99), self.images.image("text_icon"), "license", 400, 546, ACTUAL_FOLDER + "LICENSE"])
             e.w.mainloop(1)
             del e
 

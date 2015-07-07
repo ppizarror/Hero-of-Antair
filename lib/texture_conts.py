@@ -7,8 +7,9 @@
 import os
 
 # Constantes del programa
+_libdir = "lib"
 ACTUAL_FOLDER = str(
-    os.path.abspath(os.path.dirname(__file__))).replace("\\", "/") + "/"
+    os.path.abspath(os.path.dirname(__file__))).replace("\\", "/").replace(_libdir, "") + "/"
 # prefijos de armas arrojadizas de flechas
 ARROW_WEAPONS_PREFIX = ["arco", "ballesta"]
 AVAIABLE_ACTOR_TEXTURES = ["actor1", "actor2", "actor3", "actor4", "actor7", "actor8", "actor9", "actor10", "actor11",
