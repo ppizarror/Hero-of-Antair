@@ -1,8 +1,12 @@
-# @PydevCodeAnalysisIgnore
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# !/usr/bin/env python
-# Texture_world - Texturas del mundo
-# Pablo Pizarro, 2014-2015
+#
+# Texturas del mundo
+
+# TEXTURE WORLD
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Constantes del programa
 from texture_conts import *

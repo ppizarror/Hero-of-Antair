@@ -1,31 +1,33 @@
-—-help
-  Uso: hoa.py [-arg1 -arg2 ... -argn]
-	      [—-help] [—-changelog] [—-benchmark] [—-version]
+Uso: <b>main</>  [-arg1 -arg2 ... -argn]
+	   [—-help] [—-changelog] [—-benchmark] [—-version]
+	   [—-config <name> <param>]
 
-  ARGUMENTOS
-  	-delpyc			Borra todos los archivos .pyc generados.
-  	-dev			Muestra la version al cargar el programa.
-  	-disableanimation	Desactiva las animaciones.
-  	-disablearmorinfo	Desactiva la informacion de la armadura.
-  	-disableconfig		Desactiva las configuraciones.
-  	-disableinfo		Desactiva todas las informaciones.
-  	-disableiteminfo	Desactiva la informacion de los items.
-  	-disablepowerinfo	Desactiva la informacion de los poderes.
-  	-disablesaves		Desactiva el guardado.
-  	-disablestdout		Desactiva los mensajes en la consola.
-  	-disableterminal	Desactiva los comandos.
-  	-disabletranslation	Desactiva las traducciones automaticas.
-  	-eclipse		El programa se ejecuta desde eclipse.
-  	-enableanimation	Activa las animaciones.
-  	-enableterminal		Activa la terminal.
-  	-enabletranslation	Activa las traducciones automaticas.
-  	-nosound		Ejecuta el programa sin sonidos
-  	-noupdates		Desactiva las actualizaciones.
-  	-resizable		Permite el resizado de la ventana.
-  	-savefile %filename	Carga la partida guardada %filename.
+<b>ARGUMENTOS</>
+	-delpyc				Borra todos los archivos .pyc generados.
+  	-dev				Muestra la version al cargar el programa.
+  	-disableanimation		Desactiva las animaciones.
+  	-disablearmorinfo		Desactiva la informacion de la armadura.
+  	-disableconfig			Desactiva las configuraciones.
+  	-disableinfo			Desactiva todas las informaciones.
+  	-disableiteminfo		Desactiva la informacion de los items.
+  	-disablepowerinfo		Desactiva la informacion de los poderes.
+  	-disablesaves			Desactiva el guardado.
+  	-disablestdout			Desactiva los mensajes en la consola.
+  	-disableterminal		Desactiva los comandos.
+  	-disabletranslation		Desactiva las traducciones automaticas.
+  	-eclipse			El programa se ejecuta desde eclipse.
+  	-enableanimation		Activa las animaciones.
+  	-enableterminal			Activa la terminal.
+  	-enabletranslation		Activa las traducciones automaticas.
+  	-nosound			Ejecuta el programa sin sonidos
+  	-noupdates			Desactiva las actualizaciones.
+  	-resizable			Permite el resizado de la ventana.
+  	-savefile <filename>		Carga la partida guardada <filename>.
 
-  OPCIONES
-  	—-benchmark, -b    	Ejecuta una prueba benchmark del equipo.
-  	—-changelog, -ch	Carga la lista de cambios del programa.
-  	—-help, -h		Despliega la ayuda.
+<b>OPCIONES</>
+  	—-benchmark, -b    		Ejecuta una prueba benchmark del equipo.
+  	—-changelog, -ch		Carga la lista de cambios del programa.
+	—-config, -c <name> <param>	Define la configuracion <name> en <param>.
+	             —-view		Muestra el valor de todas las configuraciones.
+  	—-help, -h			Despliega la ayuda.
   	—-version -v		Muestra la version del programa.

@@ -9,9 +9,8 @@ import re
 import sys
 
 from _mysql_exceptions import Warning, Error, InterfaceError, DataError, \
-     DatabaseError, OperationalError, IntegrityError, InternalError, \
-     NotSupportedError, ProgrammingError
-
+    DatabaseError, OperationalError, IntegrityError, InternalError, \
+    NotSupportedError, ProgrammingError
 
 try:
     from types import ListType, TupleType, UnicodeType
@@ -49,9 +48,7 @@ restr = r"""
 insert_values = re.compile(restr, re.S | re.I | re.X)
 
 
-
 class BaseCursor(object):
-    
     """A base for Cursor classes. Useful attributes:
     
     description
@@ -70,14 +67,14 @@ class BaseCursor(object):
     """
 
     from _mysql_exceptions import MySQLError, Warning, Error, InterfaceError, \
-         DatabaseError, DataError, OperationalError, IntegrityError, \
-         InternalError, ProgrammingError, NotSupportedError
-    
+        DatabaseError, DataError, OperationalError, IntegrityError, \
+        InternalError, ProgrammingError, NotSupportedError
+
     _defer_warnings = False
-    
+
     def __init__(self, connection):
         from weakref import proxy
-    
+
         self.connection = proxy(connection)
         self.description = None
         self.description_flags = None
@@ -91,7 +88,7 @@ class BaseCursor(object):
         self._warnings = 0
         self._info = None
         self.rownumber = None
-        
+
     def __del__(self):
         self.close()
         self.errorhandler = None
@@ -109,6 +106,7 @@ class BaseCursor(object):
 
     def _warning_check(self):
         from warnings import warn
+
         if self._warnings:
             warnings = self._get_db().show_warnings()
             if warnings:
@@ -130,7 +128,7 @@ class BaseCursor(object):
         if self._executed:
             self.fetchall()
         del self.messages[:]
-        
+
         db = self._get_db()
         nr = db.next_result()
         if nr == -1:
@@ -140,8 +138,9 @@ class BaseCursor(object):
         self._warning_check()
         return 1
 
-    def _post_get_result(self): pass
-    
+    def _post_get_result(self):
+        pass
+
     def _do_get_result(self):
         db = self._get_db()
         self._result = self._get_result()
@@ -152,10 +151,10 @@ class BaseCursor(object):
         self.lastrowid = db.insert_id()
         self._warnings = db.warning_count()
         self._info = db.info()
-    
+
     def setinputsizes(self, *args):
         """Does nothing, required by DB API."""
-      
+
     def setoutputsizes(self, *args):
         """Does nothing, required by DB API."""
 
@@ -163,7 +162,7 @@ class BaseCursor(object):
         if not self.connection:
             self.errorhandler(self, ProgrammingError, "cursor closed")
         return self.connection
-    
+
     def execute(self, query, args=None):
 
         """Execute a query.
@@ -265,7 +264,7 @@ class BaseCursor(object):
         r = self._query('\n'.join([query[:p], ',\n'.join(q), query[e:]]))
         if not self._defer_warnings: self._warning_check()
         return r
-    
+
     def callproc(self, procname, args=()):
 
         """Execute stored procedure procname with args
@@ -299,12 +298,12 @@ class BaseCursor(object):
         db = self._get_db()
         for index, arg in enumerate(args):
             q = "SET @_%s_%d=%s" % (procname, index,
-                                         db.literal(arg))
+                                    db.literal(arg))
             if isinstance(q, unicode):
                 q = q.encode(db.unicode_literal.charset)
             self._query(q)
             self.nextset()
-            
+
         q = "CALL %s(%s)" % (procname,
                              ','.join(['@_%s_%d' % (procname, i)
                                        for i in range(len(args))]))
@@ -314,7 +313,7 @@ class BaseCursor(object):
         self._executed = q
         if not self._defer_warnings: self._warning_check()
         return args
-    
+
     def _do_query(self, q):
         db = self._get_db()
         self._last_executed = q
@@ -322,8 +321,9 @@ class BaseCursor(object):
         self._do_get_result()
         return self.rowcount
 
-    def _query(self, q): return self._do_query(q)
-    
+    def _query(self, q):
+        return self._do_query(q)
+
     def _fetch_row(self, size=1):
         if not self._result:
             return ()
@@ -342,16 +342,16 @@ class BaseCursor(object):
     InternalError = InternalError
     ProgrammingError = ProgrammingError
     NotSupportedError = NotSupportedError
-   
+
 
 class CursorStoreResultMixIn(object):
-
     """This is a MixIn class which causes the entire result set to be
     stored on the client side, i.e. it uses mysql_store_result(). If the
     result set can be very large, consider adding a LIMIT clause to your
     query, or using CursorUseResultMixIn instead."""
 
-    def _get_result(self): return self._get_db().store_result()
+    def _get_result(self):
+        return self._get_db().store_result()
 
     def _query(self, q):
         rowcount = self._do_query(q)
@@ -368,7 +368,7 @@ class CursorStoreResultMixIn(object):
         self._check_executed()
         if self.rownumber >= len(self._rows): return None
         result = self._rows[self.rownumber]
-        self.rownumber = self.rownumber+1
+        self.rownumber = self.rownumber + 1
         return result
 
     def fetchmany(self, size=None):
@@ -389,7 +389,7 @@ class CursorStoreResultMixIn(object):
             result = self._rows
         self.rownumber = len(self._rows)
         return result
-    
+
     def scroll(self, value, mode='relative'):
         """Scroll the cursor in the result set to a new position according
         to mode.
@@ -413,10 +413,9 @@ class CursorStoreResultMixIn(object):
         self._check_executed()
         result = self.rownumber and self._rows[self.rownumber:] or self._rows
         return iter(result)
-    
+
 
 class CursorUseResultMixIn(object):
-
     """This is a MixIn class which causes the result set to be stored
     in the server and sent row-by-row to client side, i.e. it uses
     mysql_use_result(). You MUST retrieve the entire result set and
@@ -424,8 +423,9 @@ class CursorUseResultMixIn(object):
     the connection."""
 
     _defer_warnings = True
-    
-    def _get_result(self): return self._get_db().use_result()
+
+    def _get_result(self):
+        return self._get_db().use_result()
 
     def fetchone(self):
         """Fetches a single row from the cursor."""
@@ -436,7 +436,7 @@ class CursorUseResultMixIn(object):
             return None
         self.rownumber = self.rownumber + 1
         return r[0]
-             
+
     def fetchmany(self, size=None):
         """Fetch up to size rows from the cursor. Result set may be smaller
         than size. If size is not defined, cursor.arraysize is used."""
@@ -446,7 +446,7 @@ class CursorUseResultMixIn(object):
         if not r:
             self._warning_check()
         return r
-         
+
     def fetchall(self):
         """Fetchs all available rows from the cursor."""
         self._check_executed()
@@ -463,10 +463,9 @@ class CursorUseResultMixIn(object):
         if row is None:
             raise StopIteration
         return row
-    
+
 
 class CursorTupleRowsMixIn(object):
-
     """This is a MixIn class that causes all rows to be returned as tuples,
     which is the standard form required by DB API."""
 
@@ -474,7 +473,6 @@ class CursorTupleRowsMixIn(object):
 
 
 class CursorDictRowsMixIn(object):
-
     """This is a MixIn class that causes all rows to be returned as
     dictionaries. This is a non-standard feature."""
 
@@ -484,6 +482,7 @@ class CursorDictRowsMixIn(object):
         """Fetch a single row as a dictionary. Deprecated:
         Use fetchone() instead. Will be removed in 1.3."""
         from warnings import warn
+
         warn("fetchoneDict() is non-standard and will be removed in 1.3",
              DeprecationWarning, 2)
         return self.fetchone()
@@ -492,6 +491,7 @@ class CursorDictRowsMixIn(object):
         """Fetch several rows as a list of dictionaries. Deprecated:
         Use fetchmany() instead. Will be removed in 1.3."""
         from warnings import warn
+
         warn("fetchmanyDict() is non-standard and will be removed in 1.3",
              DeprecationWarning, 2)
         return self.fetchmany(size)
@@ -500,13 +500,13 @@ class CursorDictRowsMixIn(object):
         """Fetch all available rows as a list of dictionaries. Deprecated:
         Use fetchall() instead. Will be removed in 1.3."""
         from warnings import warn
+
         warn("fetchallDict() is non-standard and will be removed in 1.3",
              DeprecationWarning, 2)
         return self.fetchall()
 
 
 class CursorOldDictRowsMixIn(CursorDictRowsMixIn):
-
     """This is a MixIn class that returns rows as dictionaries with
     the same key convention as the old Mysqldb (MySQLmodule). Don't
     use this."""
@@ -516,29 +516,23 @@ class CursorOldDictRowsMixIn(CursorDictRowsMixIn):
 
 class Cursor(CursorStoreResultMixIn, CursorTupleRowsMixIn,
              BaseCursor):
-
     """This is the standard Cursor class that returns rows as tuples
     and stores the result set in the client."""
 
 
 class DictCursor(CursorStoreResultMixIn, CursorDictRowsMixIn,
                  BaseCursor):
+    """This is a Cursor class that returns rows as dictionaries and
+   stores the result set in the client."""
 
-     """This is a Cursor class that returns rows as dictionaries and
-    stores the result set in the client."""
-   
 
 class SSCursor(CursorUseResultMixIn, CursorTupleRowsMixIn,
                BaseCursor):
-
     """This is a Cursor class that returns rows as tuples and stores
     the result set in the server."""
 
 
 class SSDictCursor(CursorUseResultMixIn, CursorDictRowsMixIn,
                    BaseCursor):
-
     """This is a Cursor class that returns rows as dictionaries and
     stores the result set in the server."""
-
-

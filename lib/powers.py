@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+# Poderes del jugador
+
 # POWERS
-# Pablo Pizarro, 2014-2015
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2014-2015
+# Licencia: GPLv2
 
 # Constantes del programa
 POWERSEP = ";"

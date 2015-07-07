@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Statics
-# Pablo Pizarro, 2014-2015
+#
+# Estadisticas del jugador
+
+# STATICS
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Constantes del programa
 _STATIC = ";"

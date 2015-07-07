@@ -1,8 +1,12 @@
-# @PydevCodeAnalysisIgnore
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# !/usr/bin/env python
-# Textures - Texturas y funciones analizadoras para Hero of Antair
-# Pablo Pizarro, 2014-2015
+#
+# Texturas del juego
+
+# TEXTURES
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerias
 from lib import *
@@ -269,14 +273,16 @@ class hoaTextures:
         try:
             return self.images[image]
         except:
-            print str(self.lang[0]).replace("%", image),
+            if VERBOSE_TEXLOAD:
+                print str(self.lang[0]).replace("%", image),
             try:
                 # Se cargan las imágenes desde el mundo
                 self.images[image] = PhotoImage(file=IMAGES[image])
             except:
                 self.images[image] = PhotoImage(
                     file=IMAGES_ITEMS[image])  # O desde los items
-            print self.lang[1]
+            if VERBOSE_TEXLOAD:
+                print self.lang[1]
             return self.images[image]
 
     def getLinkImage(self, image):

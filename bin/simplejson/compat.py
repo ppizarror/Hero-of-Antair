@@ -2,14 +2,17 @@
 """
 import sys
 
-
 if sys.version_info[0] < 3:
     PY3 = False
+
     def b(s):
         return s
+
     def u(s):
         return unicode(s, 'unicode_escape')
+
     import cStringIO as StringIO
+
     StringIO = BytesIO = StringIO.StringIO
     text_type = unicode
     binary_type = str
@@ -17,6 +20,7 @@ if sys.version_info[0] < 3:
     integer_types = (int, long)
     unichr = unichr
     reload_module = reload
+
     def fromhex(s):
         return s.decode('hex')
 
@@ -27,11 +31,15 @@ else:
     else:
         from imp import reload as reload_module
     import codecs
+
     def b(s):
         return codecs.latin_1_encode(s)[0]
+
     def u(s):
         return s
+
     import io
+
     StringIO = io.StringIO
     BytesIO = io.BytesIO
     text_type = str

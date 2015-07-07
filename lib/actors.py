@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Actors
-# Pablo Pizarro, 2013-2015
+#
+# Actor, entidad lógica manejada por el usuario
+
+# ACTORS
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías
 import random

@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# EPOP - Editor de mapas
-# Pablo Pizarro, 2013-2015
+#
+# Maneja ventanas utilitarias del editor de mapas
+
+# MPOP
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2014-2015
+# Licencia: GPLv2
 
 # Importación de librerias
 from lib import *

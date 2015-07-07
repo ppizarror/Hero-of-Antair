@@ -13,9 +13,12 @@ from .scanner import make_scanner, JSONDecodeError
 def _import_c_scanstring():
     try:
         from ._speedups import scanstring
+
         return scanstring
     except ImportError:
         return None
+
+
 c_scanstring = _import_c_scanstring()
 
 # NOTE (3.1.0): JSONDecodeError may still be imported from this module for
@@ -23,6 +26,7 @@ c_scanstring = _import_c_scanstring()
 __all__ = ['JSONDecoder']
 
 FLAGS = re.VERBOSE | re.MULTILINE | re.DOTALL
+
 
 def _floatconstants():
     _BYTES = fromhex('7FF80000000000007FF0000000000000')
@@ -32,6 +36,7 @@ def _floatconstants():
         _BYTES = _BYTES[:8][::-1] + _BYTES[8:][::-1]
     nan, inf = struct.unpack('dd', _BYTES)
     return nan, inf, -inf
+
 
 NaN, PosInf, NegInf = _floatconstants()
 
@@ -49,9 +54,10 @@ BACKSLASH = {
 
 DEFAULT_ENCODING = "utf-8"
 
+
 def py_scanstring(s, end, encoding=None, strict=True,
-        _b=BACKSLASH, _m=STRINGCHUNK.match, _join=u('').join,
-        _PY3=PY3, _maxunicode=sys.maxunicode):
+                  _b=BACKSLASH, _m=STRINGCHUNK.match, _join=u('').join,
+                  _PY3=PY3, _maxunicode=sys.maxunicode):
     """Scan the string s for a JSON string. End is the index of the
     character in s after the quote that started the JSON string.
     Unescapes all valid JSON string escape sequences and raises ValueError
@@ -117,8 +123,8 @@ def py_scanstring(s, end, encoding=None, strict=True,
             # Note that this will join high/low surrogate pairs
             # but will also pass unpaired surrogates through
             if (_maxunicode > 65535 and
-                uni & 0xfc00 == 0xd800 and
-                s[end:end + 2] == '\\u'):
+                            uni & 0xfc00 == 0xd800 and
+                        s[end:end + 2] == '\\u'):
                 esc2 = s[end + 2:end + 6]
                 escX = esc2[1:2]
                 if len(esc2) == 4 and not (escX == 'x' or escX == 'X'):
@@ -135,16 +141,16 @@ def py_scanstring(s, end, encoding=None, strict=True,
         _append(char)
     return _join(chunks), end
 
-
 # Use speedup if available
 scanstring = c_scanstring or py_scanstring
 
 WHITESPACE = re.compile(r'[ \t\n\r]*', FLAGS)
 WHITESPACE_STR = ' \t\n\r'
 
+
 def JSONObject(state, encoding, strict, scan_once, object_hook,
-        object_pairs_hook, memo=None,
-        _w=WHITESPACE.match, _ws=WHITESPACE_STR):
+               object_pairs_hook, memo=None,
+               _w=WHITESPACE.match, _ws=WHITESPACE_STR):
     (s, end) = state
     # Backwards compatibility
     if memo is None:
@@ -236,6 +242,7 @@ def JSONObject(state, encoding, strict, scan_once, object_hook,
         pairs = object_hook(pairs)
     return pairs, end
 
+
 def JSONArray(state, scan_once, _w=WHITESPACE.match, _ws=WHITESPACE_STR):
     (s, end) = state
     values = []
@@ -272,6 +279,7 @@ def JSONArray(state, scan_once, _w=WHITESPACE.match, _ws=WHITESPACE_STR):
 
     return values, end
 
+
 class JSONDecoder(object):
     """Simple JSON <http://json.org> decoder
 
@@ -303,8 +311,8 @@ class JSONDecoder(object):
     """
 
     def __init__(self, encoding=None, object_hook=None, parse_float=None,
-            parse_int=None, parse_constant=None, strict=True,
-            object_pairs_hook=None):
+                 parse_int=None, parse_constant=None, strict=True,
+                 object_pairs_hook=None):
         """
         *encoding* determines the encoding used to interpret any
         :class:`str` objects decoded by this instance (``'utf-8'`` by

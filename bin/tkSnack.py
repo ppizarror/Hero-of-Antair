@@ -11,10 +11,10 @@ import Tkinter
 import string
 import types
 
-
 Tkroot = None
 audio = None
 mixer = None
+
 
 def initializeSnack(newroot):
     global Tkroot, audio, mixer
@@ -46,6 +46,7 @@ class NotImplementedException(Exception):
     pass
 
 
+# noinspection PyProtectedMember,PyDefaultArgument,PyClassHasNoInit
 class TkObject:
     """A mixin class for various Python/Tk communication functions,
     such as reading and setting the object's configuration options.
@@ -65,18 +66,19 @@ class TkObject:
         if astring:
             return tuple(map(float, self.tk.splitlist(astring)))
 
+    # noinspection PyMethodMayBeStatic
     def _options(self, cnf, kw=None):
         if kw:
             cnf = Tkinter._cnfmerge((cnf, kw))
         else:
             cnf = Tkinter._cnfmerge(cnf)
         res = ()
-        for k,v in cnf.items():
+        for k, v in cnf.items():
             if v is not None:
                 if k[-1] == '_': k = k[:-1]
-                #if callable(v):
+                # if callable(v):
                 #    v = self._register(v)
-                res = res + ('-'+k, v)
+                res = res + ('-' + k, v)
         return res
 
     def configure(self, cnf=None, **kw):
@@ -90,19 +92,21 @@ class TkObject:
         if cnf is None:
             cnf = {}
             for x in self.tk.split(
-                self.tk.call(self.name, 'configure')):
+                    self.tk.call(self.name, 'configure')):
                 cnf[x[0][1:]] = (x[0][1:],) + x[1:]
                 return cnf
         if type(cnf) is types.StringType:
-            x = self.tk.split(self.tk.call(self.name, 'configure', '-'+cnf))
+            x = self.tk.split(self.tk.call(self.name, 'configure', '-' + cnf))
             return (x[0][1:],) + x[1:]
         self.tk.call((self.name, 'configure') + self._options(cnf))
+
     config = configure
 
     def cget(self, key):
-        return _cast(self.tk.call(self.name, 'cget' , '-'+key))    
-    
-    # Set "cget" as the method to handle dictionary-like attribute access
+        return _cast(self.tk.call(self.name, 'cget', '-' + key))
+
+        # Set "cget" as the method to handle dictionary-like attribute access
+
     __getitem__ = cget
 
     def __setitem__(self, key, value):
@@ -116,9 +120,8 @@ class TkObject:
         return self.name
 
 
-
-class Sound (TkObject):
-    
+# noinspection PyShadowingBuiltins
+class Sound(TkObject):
     def __init__(self, name=None, master=None, **kw):
         self.name = None
         if not master:
@@ -126,23 +129,23 @@ class Sound (TkObject):
                 master = Tkroot
             else:
                 raise RuntimeError, \
-                      'Tk not intialized or not registered with Snack'
+                    'Tk not intialized or not registered with Snack'
         self.tk = master.tk
         if not name:
             self.name = self.tk.call(('sound',) + self._options(kw))
         else:
             self.name = self.tk.call(('sound', name) + self._options(kw))
-        #self._configure(cnf, kw)
-        
+            # self._configure(cnf, kw)
+
     def append(self, binarydata, **kw):
         """Appends binary string data to the end of the sound."""
         self.tk.call((self.name, 'append', binarydata) + self._options(kw))
-     
+
     def concatenate(self, othersound):
         """Concatenates the sample data from othersound to the end of
         this sound.  Both sounds must be of the same type."""
         self.tk.call(self.name, 'concatenate', othersound.name)
-        
+
     def configure(self, **kw):
         """The configure command is used to set options for a sound."""
         self.tk.call((self.name, 'configure') + self._options(kw))
@@ -175,48 +178,48 @@ class Sound (TkObject):
         if end is None:
             end = self.length()
         self.tk.call((self.name, 'cut', start, end) + self._options(kw))
-        
+
     def data(self, binarydata=None, **kw):
         """Loads sound data from, or writes to, a binary string."""
-        if binarydata: # copy data to sound
+        if binarydata:  # copy data to sound
             self.tk.call((self.name, 'data', binarydata) + self._options(kw))
-        else: # return sound data
+        else:  # return sound data
             return self.tk.call((self.name, 'data') + self._options(kw))
-                          
+
     def destroy(self):
         """Removes the Tcl command for this sound and frees the storage
         associated with it."""
         self.tk.call(self.name, 'destroy')
-        
+
     def dBPowerSpectrum(self, **kw):
         """Computes the log FFT power spectrum of the sound (at the time
         given by the start option) and returns a list of dB values."""
         result = self.tk.call((self.name, 'dBPowerSpectrum')
                               + self._options(kw))
-        return self._getdoubles(result)        
+        return self._getdoubles(result)
 
     def powerSpectrum(self, **kw):
         """Computes the FFT power spectrum of the sound (at the time
         given by the start option) and returns a list of magnitude values."""
         result = self.tk.call((self.name, 'powerSpectrum')
                               + self._options(kw))
-        return self._getdoubles(result)        
+        return self._getdoubles(result)
 
-    def filter(self, filter, **kw): #@ReservedAssignment
+    def filter(self, filter, **kw):  # @ReservedAssignment
         """Applies the given filter to the sound."""
         return self.tk.call((self.name, 'filter', filter.name) +
                             self._options(kw))
-        
+
     def formant(self, **kw):
         """Returns a list of formant trajectories."""
         result = self.tk.call((self.name, 'formant') + self._options(kw))
         return map(self._getdoubles, self.tk.splitlist(result))
-    
+
     def flush(self):
         """Removes all audio data from the sound."""
         self.tk.call(self.name, 'flush')
 
-    def info(self, format='string'): #@ReservedAssignment
+    def info(self, format='string'):  # @ReservedAssignment
         """Returns a list with information about the sound.  The entries are
         [length, rate, max, min, encoding, channels, fileFormat, headerSize]
         """
@@ -225,11 +228,11 @@ class Sound (TkObject):
             return map(self._cast, string.split(result))
         else:
             return result
-        
+
     def insert(self, sound, position, **kw):
         """Inserts sound at position."""
         self.tk.call((self.name, 'insert', sound.name, position) + self._options(kw))
-    
+
     def length(self, n=None, **kw):
         """Gets/sets the length of the sound in number of samples (default)
         or seconds, as determined by the 'units' option."""
@@ -242,12 +245,12 @@ class Sound (TkObject):
     def load(self, filename, **kw):
         """Reads new sound data from a file.  Synonym for "read"."""
         self.tk.call((self.name, 'read', filename) + self._options(kw))
-    
-    def max(self, **kw): #@ReservedAssignment
+
+    def max(self, **kw):  # @ReservedAssignment
         """Returns the largest positive sample value of the sound."""
         return _cast(self.tk.call((self.name, 'max') + self._options(kw)))
 
-    def min(self, **kw): #@ReservedAssignment
+    def min(self, **kw):  # @ReservedAssignment
         """Returns the largest negative sample value of the sound."""
         return _cast(self.tk.call((self.name, 'min') + self._options(kw)))
 
@@ -259,14 +262,14 @@ class Sound (TkObject):
         """Pause current record/play operation.  Next pause invocation
         resumes play/record."""
         self.tk.call(self.name, 'pause')
-        
+
     def pitch(self, method=None, **kw):
         """Returns a list of pitch values."""
         if method is None or method is "amdf" or method is "AMDF":
             result = self.tk.call((self.name, 'pitch') + self._options(kw))
             return self._getdoubles(result)
         else:
-            result = self.tk.call((self.name, 'pitch', '-method', method) + 
+            result = self.tk.call((self.name, 'pitch', '-method', method) +
                                   self._options(kw))
             return map(self._getdoubles, self.tk.splitlist(result))
 
@@ -279,7 +282,7 @@ class Sound (TkObject):
         given by the start option) and returns a list of power values."""
         result = self.tk.call((self.name, 'power')
                               + self._options(kw))
-        return self._getdoubles(result)        
+        return self._getdoubles(result)
 
     def read(self, filename, **kw):
         """Reads new sound data from a file."""
@@ -306,7 +309,7 @@ class Sound (TkObject):
         else:
             opts = ()
         return _cast(self.tk.call((self.name, 'sample', index) + opts))
-        
+
     def stop(self):
         """Stops current play or record operation."""
         self.tk.call(self.name, 'stop')
@@ -329,16 +332,16 @@ class AudioControllerSingleton(TkObject):
     It is intended that there only be once instance of this class, the
     one created in snack.initialize.
     """
-    
+
     def __init__(self):
         self.tk = Tkroot.tk
-    
+
     def encodings(self):
         """Returns a list of supported sample encoding formats for the
         currently selected device."""
         result = self.tk.call('snack::audio', 'encodings')
         return self.tk.splitlist(result)
-        
+
     def rates(self):
         """Returns a list of supported sample rates for the currently
         selected device."""
@@ -350,12 +353,12 @@ class AudioControllerSingleton(TkObject):
         selected device."""
         result = self.tk.call('snack::audio', 'frequencies')
         return self._getints(result)
-        
+
     def inputDevices(self):
         """Returns a list of available audio input devices"""
         result = self.tk.call('snack::audio', 'inputDevices')
         return self.tk.splitlist(result)
-        
+
     def playLatency(self, latency=None):
         """Sets/queries (in ms) how much sound will be queued up at any
         time to the audio device to play back."""
@@ -363,15 +366,15 @@ class AudioControllerSingleton(TkObject):
             return _cast(self.tk.call('snack::audio', 'playLatency', latency))
         else:
             return _cast(self.tk.call('snack::audio', 'playLatency'))
-            
+
     def pause(self):
         """Toggles between play/pause for all playback on the audio device."""
         self.tk.call('snack::audio', 'pause')
-        
+
     def play(self):
         """Resumes paused playback on the audio device."""
         self.tk.call('snack::audio', 'play')
-        
+
     def play_gain(self, gain=None):
         """Returns/sets the current play gain.  Valid values are integers
         in the range 0-100."""
@@ -379,20 +382,20 @@ class AudioControllerSingleton(TkObject):
             return _cast(self.tk.call('snack::audio', 'play_gain', gain))
         else:
             return _cast(self.tk.call('snack::audio', 'play_gain'))
-            
+
     def outputDevices(self):
         """Returns a list of available audio output devices."""
         result = self.tk.call('snack::audio', 'outputDevices')
         return self.tk.splitlist(result)
-        
+
     def selectOutput(self, device):
         """Selects an audio output device to be used as default."""
         self.tk.call('snack::audio', 'selectOutput', device)
-        
+
     def selectInput(self, device):
         """Selects an audio input device to be used as default."""
         self.tk.call('snack::audio', 'selectInput', device)
-        
+
     def stop(self):
         """Stops all playback on the audio device."""
         self.tk.call('snack::audio', 'stop')
@@ -402,8 +405,8 @@ class AudioControllerSingleton(TkObject):
         result = self.tk.call('snack::audio', 'elapsedTime')
         return self.tk.getdouble(result)
 
-class Filter(TkObject):
 
+class Filter(TkObject):
     def __init__(self, name, *args, **kw):
         global Tkroot
         self.name = None
@@ -411,7 +414,7 @@ class Filter(TkObject):
             master = Tkroot
         else:
             raise RuntimeError, \
-                 'Tk not intialized or not registered with Snack'
+                'Tk not intialized or not registered with Snack'
         self.tk = master.tk
         self.name = self.tk.call(('snack::filter', name) + args +
                                  self._options(kw))
@@ -419,33 +422,32 @@ class Filter(TkObject):
     def configure(self, *args):
         """Configures the filter."""
         self.tk.call((self.name, 'configure') + args)
-        
+
     def destroy(self):
         """Removes the Tcl command for the filter and frees its storage."""
         self.tk.call(self.name, 'destroy')
-        
-        
-class MixerControllerSingleton(TkObject):
 
+
+class MixerControllerSingleton(TkObject):
     """Like AudioControllerSingleton, this class is intended to have only
     a single instance object, which will control various aspects of the
     mixers."""
-    
+
     def __init__(self):
         self.tk = Tkroot.tk
-        
+
     def channels(self, line):
         """Returns a list with the names of the channels for the
         specified line."""
         result = self.tk.call('snack::mixer', 'channels', line)
         return self.tk.splitlist(result)
-        
+
     def devices(self):
         """Returns a list of the available mixer devices."""
         result = self.tk.call('snack::mixer', 'devices')
         return self.tk.splitlist(result)
-        
-    def input(self, jack=None, tclVar=None): #@ReservedAssignment
+
+    def input(self, jack=None, tclVar=None):  # @ReservedAssignment
         """Gets/sets the current input jack.  Optionally link a boolean
         Tcl variable."""
         opts = ()
@@ -459,12 +461,12 @@ class MixerControllerSingleton(TkObject):
         """Returns a list of available input ports."""
         result = self.tk.call('snack::mixer', 'inputs')
         return self.tk.splitlist(result)
-        
+
     def lines(self):
         """Returns a list with the names of the lines of the mixer device."""
         result = self.tk.call('snack::mixer', 'lines')
         return self.tk.splitlist(result)
-        
+
     def output(self, jack=None, tclVar=None):
         """Gets/sets the current output jack.  Optionally link a boolean
         Tcl variable."""
@@ -479,28 +481,26 @@ class MixerControllerSingleton(TkObject):
         """Returns a list of available output ports."""
         result = self.tk.call('snack::mixer', 'outputs')
         return self.tk.splitlist(result)
-        
+
     def update(self):
         """Updates all linked variables to reflect the status of the
         mixer device."""
         self.tk.call('snack::mixer', 'update')
-        
+
     def volume(self, line, leftVar=None, rightVar=None):
         if self.channels(line)[0] == 'Mono':
             return self.tk.call('snack::mixer', 'volume', line, rightVar)
         else:
             return self.tk.call('snack::mixer', 'volume', line, leftVar, rightVar)
-        
+
     def select(self, device):
         """Selects a device to be used as default."""
         self.tk.call('snack::mixer', 'select', device)
-        
 
 
 class SoundFrame(Tkinter.Frame):
-    
     """A simple "tape recorder" widget."""
-    
+
     def __init__(self, parent=None, sound=None, *args, **kw):
         Tkinter.Frame.__init__(self)
         if sound:
@@ -523,41 +523,46 @@ class SoundFrame(Tkinter.Frame):
                        ).pack(side='left')
         Tkinter.Button(bbar, text='Info', command=self.info).pack(side='left')
 
-        
     def load(self):
-        file = Tkroot.tk.call('eval', 'snack::getOpenFile') #@ReservedAssignment
+        file = Tkroot.tk.call('eval', 'snack::getOpenFile')  # @ReservedAssignment
         self.sound.read(file, progress='snack::progressCallback')
-        
+
     def play(self):
         self.sound.play()
-        
+
     def stop(self):
-        self.sound.stop()        
-        
+        self.sound.stop()
+
     def record(self):
         self.sound.record()
-        
+
     def info(self):
         print self.sound.info()
-        
+
+
+# noinspection PyProtectedMember
 def createSpectrogram(canvas, *args, **kw):
     """Draws a spectrogram of a sound on canvas."""
     return canvas._create('spectrogram', args, kw)
 
+
+# noinspection PyProtectedMember
 def createSection(canvas, *args, **kw):
     """Draws and FFT log power spectrum section on canvas."""
     return canvas._create('section', args, kw)
 
+
+# noinspection PyProtectedMember
 def createWaveform(canvas, *args, **kw):
     """Draws a waveform on canvas."""
     return canvas._create('waveform', args, kw)
 
 
+# noinspection PyDefaultArgument
 class SnackCanvas(Tkinter.Canvas):
-    
     def __init__(self, master=None, cnf={}, **kw):
         Tkinter.Widget.__init__(self, master, 'canvas', cnf, kw)
-    
+
     def create_spectrogram(self, *args, **kw):
         """Draws a spectrogram of a sound on the canvas."""
         return self._create('spectrogram', args, kw)

@@ -1,8 +1,12 @@
-# @PydevCodeAnalysisIgnore
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# !/usr/bin/env python
-# Item textures - texturas de los items
-# Pablo Pizarro, 2014-2015
+#
+# Texturas de los items
+
+# TEXTURE ITEMS
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2014-2015
+# Licencia: GPLv2
 
 # Constantes del programa
 from texture_conts import DATA_IMAGES_ITEMS

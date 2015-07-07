@@ -6,9 +6,12 @@ import re
 def _import_c_make_scanner():
     try:
         from simplejson._speedups import make_scanner
+
         return make_scanner
     except ImportError:
         return None
+
+
 c_make_scanner = _import_c_make_scanner()
 
 __all__ = ['make_scanner', 'JSONDecodeError']
@@ -16,6 +19,7 @@ __all__ = ['make_scanner', 'JSONDecodeError']
 NUMBER_RE = re.compile(
     r'(-?(?:0|[1-9]\d*))(\.\d+)?([eE][-+]?\d+)?',
     (re.VERBOSE | re.MULTILINE | re.DOTALL))
+
 
 class JSONDecodeError(ValueError):
     """Subclass of ValueError with the following additional properties:
@@ -92,7 +96,7 @@ def py_make_scanner(context):
             return parse_string(string, idx + 1, encoding, strict)
         elif nextchar == '{':
             return parse_object((string, idx + 1), encoding, strict,
-                _scan_once, object_hook, object_pairs_hook, memo)
+                                _scan_once, object_hook, object_pairs_hook, memo)
         elif nextchar == '[':
             return parse_array((string, idx + 1), _scan_once)
         elif nextchar == 'n' and string[idx:idx + 4] == 'null':
@@ -131,5 +135,6 @@ def py_make_scanner(context):
             memo.clear()
 
     return scan_once
+
 
 make_scanner = c_make_scanner or py_make_scanner

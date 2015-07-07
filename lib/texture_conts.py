@@ -1,7 +1,12 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# !/usr/bin/env python
-# Texture conts - constantes de las texturas
-# Pablo Pizarro, 2014-2015
+#
+# Constantes usadas por las texturas
+
+# TEXTURE CONTS
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerias
 import os

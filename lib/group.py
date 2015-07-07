@@ -1,15 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# GROUP
-# Pablo Pizarro, 2014-2015
-# Se define la agrupación de actores para el modo de combate grupal
-# Donde se explicitan métodos y cantidades
+#
+# Se define la agrupación de actores para el modo de combate grupal donde
+# se explicitan métodos y cantidades
 # Tipos: (pueden agregarse más)
 # FL: seguidor liviano
 # FM: seguidor medio
 # FS: seguidor fuerte
 # PL: jugador
 # MB: mob
+
+# GROUP
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: JULIO 2015
+# Licencia: GPLv2
 
 # Importación de librerías
 import random

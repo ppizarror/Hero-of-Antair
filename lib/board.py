@@ -1,8 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+#
+# Tablero para el combate grupal
+
 # BOARD
-# Pablo Pizarro, 2014-2015
-# Se define el tablero para el combate grupal
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías
 from lib import *

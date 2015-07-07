@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# POP - Hero of Antair
-# Pablo Pizarro, 2013-2015
+#
+# Ventanas emergentes de HOA
+
+# POP
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerias
 from lib import *
@@ -112,6 +117,7 @@ class pop:
             Button(
                 self.w, text=self.lang[4], command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
+            self.w.bind("<Escape>", self.destruir)
         elif typeObject == "actualizacion":  # Actualización del programa
             Label(self.w, text=self.lang[
                 4], font=DEFAULT_FONT_TITLE, border=10).pack()
@@ -1003,25 +1009,25 @@ class pop:
             except:
                 name = ""
             archivo = open(properties[5], "r")
-            Yscroll = Scrollbar(self.w, orient=VERTICAL)
+            Yscroll = Scrollbar(self.w, orient=VERTICAL, highlightthickness=0)
             Yscroll.pack(side=RIGHT, fill=Y)
             if len(properties) > 6:
                 if properties[6]:
                     Xscroll = Scrollbar(self.w, orient=HORIZONTAL)
                     Xscroll.pack(side=BOTTOM, fill=X)
                     texto = Text(
-                        self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=Xscroll.set)
+                        self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=Xscroll.set, highlightthickness=0)
                 else:
                     texto = Text(
-                        self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=None)
+                        self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=None, highlightthickness=0)
             else:
                 texto = Text(
-                    self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=None)
+                    self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=None, highlightthickness=0)
             texto.focus_force()
             for i in archivo:
                 texto.insert(INSERT, i)
             texto.pack(fill=BOTH)
-            texto.configure(state="disabled")
+            texto.configure(state="disabled", highlightthickness=0)
             if len(properties) > 6:
                 if properties[6]:
                     # noinspection PyUnboundLocalVariable

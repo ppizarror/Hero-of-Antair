@@ -1,0 +1,7 @@
+terminal.art
+core.compile
+
+verbose.load.texture
+verbose.load.file
+global.showstate
+core.error.print

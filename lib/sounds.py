@@ -1,8 +1,12 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @PydevCodeAnalysisIgnore
-# !/usr/bin/env python
-# Textures - Constantes y sonidos para Hero of Antair
-# Pablo Pizarro, 2014-2015
+#
+# Provee constantes y funciones para los sonidos del juego
+
+# SOUNDS
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías
 import os

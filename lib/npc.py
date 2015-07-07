@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Npc's
-# Pablo Pizarro, 2015
+#
+# NPC (Not player character) entidades lógicas que proveen de quest e items al jugador
+
+# NPC
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías
 from lib import *

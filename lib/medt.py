@@ -1,6 +1,12 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Map Editor - Editor de mapas para Hero of Antair
-# Pablo Pizarro, 2013-2015
+#
+# Editor de mapas
+
+# MEDT
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías de alto nivel
 from lib import *
@@ -30,13 +36,14 @@ except:
     pass
 
 # Constantes del programa
-ACTUAL_FOLDER = str(os.getcwd()).replace("\\", "/") + "/"  # se dfine el directorio actual
+_libdir = "lib"
+ACTUAL_FOLDER = str(os.getcwd()).replace("\\", "/").replace(_libdir, "") + "/"  # se dfine el directorio actual
 AUTOR = "Pablo Pizarro"  # nombre mio
 AUTOR_EMAIL = "pablo@ppizarror.com"  # mi correo
 COLOR_INFO = "#FFFFFF"  # color de las informaciones
 COLOR_MOVEMENT = ["g_mov", "c_mov"]  # colores para los elementos lógicos, g:rojo, c:naranjo
 COLOR_LINE = "#CCCCCC"  # color del grid
-DATA_FOLDER = "data/"  # directorio de los archivos
+DATA_FOLDER = ACTUAL_FOLDER + "data/"  # directorio de los archivos
 DATA_DOCUMENTS = DATA_FOLDER + "doc/"  # directorio de la documentación
 DATA_LEVELS = DATA_FOLDER + "levels/"  # directorio de los niveles
 DATA_SOUND = DATA_FOLDER + "sound/"  # directorio de sonidos
@@ -1933,8 +1940,3 @@ class mapeditor:
     # noinspection PyMethodMayBeStatic
     def breakpoint(self, e=None):  # Función que retorna nulo
         return
-
-# Inicio del programa
-if __name__ == "__main__":
-    editor = mapeditor()
-    editor.core.mainloop(0)

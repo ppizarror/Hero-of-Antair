@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Mobs
-# Pablo Pizarro, 2013-2015
+#
+# Actores (mob), entidades lógicas hostiles del juego
+
+# MOB
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías
 from lib import *

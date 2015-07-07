@@ -1,16 +1,18 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# LIB
-# Pablo Pizarro, 2013-2015
-# Este fichero carga las librerías importantes y las funciones globales
-# Importación de librerías
-
+#
+# Importa librerías, maneja constantes y provee de funciones utiliatarias
 # XCOM : Coma
 # XPYC : Punto y coma
 # XDP: Dos puntos
 # XGUI: Guion
 # XII : '
 # XLASH : /
+
+# LIB
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de liberías de alto nivel
 import os
@@ -19,10 +21,6 @@ import sys
 # Configuración de las librerías de alto nivel
 reload(sys)
 sys.setdefaultencoding('UTF8')
-try:
-    os.remove("lib.pyc")
-except:
-    pass
 
 # Agrego librerías al path
 _libdir = "lib"
@@ -31,7 +29,6 @@ sys.path.append(_actualpath + "/bin/")
 sys.path.append(_actualpath + "/bin/mechanize/")
 sys.path.append(_actualpath + "/bin/pil/")
 sys.path.append(_actualpath + "/bin/pympler/")
-sys.path.append(_actualpath + "/bin/scripts/")
 sys.path.append(_actualpath + "/bin/snacklib/")
 sys.path.append(_actualpath + "/bin/simplejson/")
 sys.path.append(_actualpath + "/bin/wconio/")
@@ -44,25 +41,17 @@ _winsound = True
 try:
     from Tkinter import *
     from VerticalScrolledFrame import *
+    from config import *
     from datetime import date
+    from errors import *
     from functools import partial
     from math import log
     from noStdOut import *
-
-    if os.name == "nt":
-        from pil import Image, ImageTk
-    else:
-        from PIL import Image, ImageTk
     from pympler import summary, muppy
     from random import choice
     from tkFileDialog import *
     from urllib import urlencode
     from urllib2 import urlopen, Request
-
-    try:
-        import WConio
-    except:
-        _wconio = False
     import base64
     import codecs
     import cookielib
@@ -86,6 +75,10 @@ try:
     import webbrowser
 
     # Librerias depentientes del SO
+    if os.name == "nt":
+        from pil import Image, ImageTk
+    else:
+        from PIL import Image, ImageTk
     try:
         import tkSnack
     except:
@@ -98,24 +91,25 @@ try:
         import mechanize
     except:
         _mechanize = False
-
+    try:
+        import WConio
+    except:
+        _wconio = False
 except:
-    print "Error :: Error al cargar librerias"
-    exit()
+    st_error("Error al cargar librerias", True)
+
+# Configuracion de librerías
+sys.dont_write_bytecode = not getConfigValue("core.compile", True)
+if getConfigValue("core.compile", True):
+    try:
+        os.remove("lib.pyc")
+    except:
+        pass
+
 
 # Constantes del programa
 __ALPH = " @rs3t*uv#w'xEF(9<GH$IJ&5K,L%CVWXjkl_mnop/qD0{PQ+RS[TUAY]1Z^67;8?ab>cd)efMNO.Bg}hi24-yz!"
 __L_ALPH = len(__ALPH)
-BR_ERRORxERROR_SET_FORM = 8
-BR_ERRORxERROR_SET_SUBMIT = 9
-BR_ERRORxNO_ACCESS_WEB = 1
-BR_ERRORxNO_FORM = 3
-BR_ERRORxNO_FORMID = 2
-BR_ERRORxNO_OPENED = 0
-BR_ERRORxNO_SELECTED_FORM = 5
-BR_ERRORxNO_VALIDID = 4
-BR_ERRORxNO_VALID_SUBMIT_EMPTY = 6
-BR_ERRORxNO_VALID_SUBMIT_NOT_EQUAL = 7
 CONSOLE_WRAP = -25
 CMD_COLORS = {"red": 0x40, "lred": 0xC0, "gray": 0x80, "lgray": 0x70, "white": 0xF0, "blue": 0x10, "green": 0x20,
               "purple": 0x50, "yellow": 0x60, "lblue": 0x90, "lgreen": 0xA0, \
@@ -125,10 +119,10 @@ DEV_MODE = True
 OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
 LINK_PPPRJ = "http://projects.ppizarror.com/version?product=HOA"
-ERROR_TAG_CANTRETRIEVEHTML = 16
-ERROR_TAG_INITNOTCORRECTENDING = 14
-ERROR_TAG_INITNOTFINDED = 13
-ERROR_TAG_LASTNOTFINDED = 15
+SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5", ".quest", ".powers", ".hoacmd", ".maplogic",
+                  ".mapmob", ".mapnpc", ".statics", ".mapitemtexture"]
+VERBOSE_FILELOAD = getConfigValue("verbose.load.file")
+VERBOSE_TEXLOAD = getConfigValue("verbose.load.texture")
 WIN32 = 4
 WIN64 = 8
 
@@ -386,62 +380,11 @@ def borrarArchivosGenerados(archivo):
     :param archivo: Archivo de partida guardada
     :return: void
     """
-    try:
-        os.remove(archivo + ".sav")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".key1")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".key2")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".key3")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".key4")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".key5")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".quest")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".powers")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".hoacmd")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".maplogic")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".mapmob")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".mapnpc")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".statics")
-    except:
-        pass
-    try:
-        os.remove(archivo + ".mapitemtexture")
-    except:
-        pass
+    for filetype in SAVE_FILETYPES:
+        try:
+            os.remove(archivo + filetype)
+        except:
+            pass
 
 
 def borrarArchivosGuardado(archivo):
@@ -450,62 +393,11 @@ def borrarArchivosGuardado(archivo):
     :param archivo: Archivo de partida guardada
     :return: void
     """
-    try:
-        os.remove(archivo.replace(".save", ".sav"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".key1"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".key2"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".key3"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".key4"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".key5"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".hoacmd"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".mapmob"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".mapnpc"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".maplogic"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".statics"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".powers"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".quest"))
-    except:
-        pass
-    try:
-        os.remove(archivo.replace(".save", ".mapitemtexture"))
-    except:
-        pass
+    for filetype in SAVE_FILETYPES:
+        try:
+            os.remove(os.remove(archivo.replace(".save", filetype)))
+        except:
+            pass
 
 
 def checkScreen(window, config, msg):
@@ -516,10 +408,9 @@ def checkScreen(window, config, msg):
     :param msg: Mensaje de error
     :return: void
     """
-    if (window.winfo_screenwidth() < config[0]) or (
-                window.winfo_screenheight() < config[1]):  # Se comprueba el tamaño de la pantalla
-        sys.stderr.write("Error :: " + msg + "\n")
-        exit()
+    # Se comprueba el tamaño de la pantalla
+    if (window.winfo_screenwidth() < config[0]) or (window.winfo_screenheight() < config[1]):
+        st_error(msg, True)
 
 
 def compararVersiones(ver1, ver2):
@@ -816,29 +707,31 @@ def loadFromArchive(archive, lang="Cargando archivo '{0}' ...",
     :param showState: Verbose
     :return: List
     """
-    if showState: print lang.format("(...)" + archive[CONSOLE_WRAP:].replace("//", "/")).replace("\"", ""),
+    if showState and VERBOSE_FILELOAD:
+        print lang.format("(...)" + archive[CONSOLE_WRAP:].replace("//", "/")).replace("\"", ""),
     try:
         l = list()
         archive = open(archive, "r")
         for i in archive:
             l.append(i.decode('utf-8').strip())
         archive.close()
-        if showState: print "[OK]"
+        if showState and VERBOSE_FILELOAD: print "ok"
     except:
-        if showState: print "error"
+        if showState and VERBOSE_FILELOAD: print "error"
         l = []
     return l
 
 
 # noinspection PyUnboundLocalVariable,PyShadowingBuiltins
-def lookPrimaryArguments():
+def lookPrimaryArguments(data=None):
     """
-    Se buscan los argumentos primarios <-help, -version, ...>
+    Se buscan los argumentos primarios <--help, --version, ...>
+    :param data: Datos extra
     :return: void
     """
     (width, height) = getTerminalSize()
     if len(sys.argv) >= 2:
-        if sys.argv[1] == "--benchmark" or sys.argv[1] == "/benchmark":
+        if sys.argv[1] == "--benchmark":
             if _wconio: WConio.clrscr()
             print "Benchmark Hero of Antair"
             print "Python " + sys.version + "\n"
@@ -856,14 +749,16 @@ def lookPrimaryArguments():
                         print "\nTiempo promedio de ejecucion: " + str(ms) + "ms"
                         print "Benchmark guardado en log/benchmark"
                     else:
-                        print "Error al ejecutar prueba benchmark, el numero de repeticiones debe ser mayor o igual a 1"
+                        st_error(
+                            "Error al ejecutar prueba benchmark, el numero de repeticiones debe ser mayor o igual a 1",
+                            True)
             else:
                 print "Realizando prueba benchmark a 5 repeticiones ..."
                 ms = benchmark(True, True)
                 print "\nTiempo promedio de ejecucion: " + str(ms) + "ms"
                 print "Benchmark guardado en log/benchmark"
             exit()
-        elif sys.argv[1] == "--changelog" or sys.argv[1] == "/changelog" or sys.argv[1] == "-ch":
+        elif sys.argv[1] == "--changelog" or sys.argv[1] == "-ch":
             try:
                 changelog = open("CHANGELOG", "r")
                 print ""
@@ -871,9 +766,9 @@ def lookPrimaryArguments():
                     if line != "": print delAcentos(str(line)).rstrip()
                 changelog.close()
             except:
-                print "Error al ejecutar el comando -changelog :: Archivo no encontrado"
+                st_error("Error al ejecutar el comando --changelog, Archivo no encontrado", True)
             exit()
-        elif sys.argv[1] == "--dwi" or sys.argv[1] == "/dwi":
+        elif sys.argv[1] == "--dwi":
             try:
                 if _wconio: WConio.clrscr()
                 archivo = open("data/doc/other/dwi.txt", "r")
@@ -884,7 +779,7 @@ def lookPrimaryArguments():
             except:
                 print ""
             exit()
-        elif sys.argv[1] == "--fcfm" or sys.argv[1] == "/fcfm" or sys.argv[1] == "/850" or sys.argv[1] == "--850":
+        elif sys.argv[1] == "--fcfm" or sys.argv[1] == "--850":
             try:
                 if _wconio: WConio.clrscr()
                 asciiart = open("data/doc/other/850.txt", "r")
@@ -895,19 +790,19 @@ def lookPrimaryArguments():
                     if counter > 15 and i.strip() != "": time.sleep(1)
                 asciiart.close()
             except:
-                print "Error al ejecutar el comando -changelog :: Archivo no encontrado"
+                st_error("Error al ejecutar el comando --changelog, Archivo no encontrado")
             exit()
-        elif sys.argv[1] == "--help" or sys.argv[1] == "/help" or sys.argv[1] == "-h":
+        elif sys.argv[1] == "--help" or sys.argv[1] == "-h":
             try:
-                helpfile = open("data/doc/documentation/arguments.txt", "r")
-                print ""
+                helpfile = open(_actualpath + "data/doc/documentation/arguments.txt", "r")
                 for h in helpfile:
-                    if h != "": print h.rstrip()
+                    if h != "":
+                        print h.replace("</>", color.END).replace("<b>", color.BOLD).rstrip()
                 helpfile.close()
             except:
-                print "Error :: Error al ejecutar el comando -help :: Archivo no encontrado"
+                st_error("Error al ejecutar el comando --help, Archivo no encontrado")
             exit()
-        elif sys.argv[1] == "--linecounter" or sys.argv[1] == "/linecounter":
+        elif sys.argv[1] == "--linecounter":
             if _wconio: WConio.clrscr()
             try:
                 total = 0
@@ -937,21 +832,21 @@ def lookPrimaryArguments():
                     brief.write("\t" + str(listedfiles[i]) + " => " + str(totallines[i]) + " lineas\n")
                 brief.write("\nTotal: " + str(sum(totallines)) + " lineas\n")
                 brief.close()
-                print "linecounter :: Archivo generado correctamente"
+                st_info("Archivo generado correctamente")
             except:
-                print "Error :: Error al ejecutar el comando linecounter"
+                st_error("Error al ejecutar el comando linecounter")
             exit()
-        elif sys.argv[1] == "--sierpinski" or sys.argv[1] == "/sierpinski":
+        elif sys.argv[1] == "--sierpinski":
             if _wconio: WConio.clrscr()
             if len(sys.argv) == 3:
                 if sys.argv[2] == "/help":
-                    helpfile = open("data/doc/other/sierpinski.txt", "r")
+                    helpfile = open(_actualpath + "data/doc/other/sierpinski.txt", "r")
                     print ""
                     for h in helpfile:
                         if h != "": print h.rstrip()
                     helpfile.close()
                 else:
-                    print "Error :: Argumentos incompletos, consulte /help"
+                    st_error("Argumentos incompletos, consulte --help")
                 exit()
             elif len(sys.argv) == 4:
                 negative = False
@@ -991,8 +886,7 @@ def lookPrimaryArguments():
                 except:
                     r = 1
             else:
-                print "Error :: Argumentos desconocidos, consulte /sierpinski /help"
-                exit()
+                st_error("Argumentos desconocidos, consulte /sierpinski /help", True)
             for x in range(height * r):
                 i = ""
                 for y in range(width):
@@ -1011,7 +905,37 @@ def lookPrimaryArguments():
                 else:
                     print i,
             exit()
-        elif sys.argv[1] == "--version" or sys.argv[1] == "/version" or sys.argv[1] == "-v":
+        elif sys.argv[1] == "--version" or sys.argv[1] == "-v":
+            print data
+            exit()
+        elif sys.argv[1] == "--config" or sys.argv[1] == "-c":
+            if len(sys.argv) > 3:
+                name = sys.argv[2]
+                value = sys.argv[3]
+                if name != "":
+                    if value != "":
+                        setConfig(name, value)
+                        addLineConfigFile(CONFIG_HOA_FILE, name)
+                    else:
+                        st_error("Valor de configuración inválido", True)
+                else:
+                    st_error("Nombre de configuración inválido", True)
+            else:
+                if len(sys.argv) == 3:
+                    if sys.argv[2] == "--view":
+                        avconf = loadConfigFile(CONFIG_HOA_FILE)
+                        files = os.listdir(CONFIG_FOLDER)
+                        maxsep = 0
+                        for conf_file in files:
+                            maxsep = max(maxsep, len(conf_file))
+                        maxsep += 5
+                        for conf_file in files:
+                            if conf_file in avconf:
+                                print conf_file.ljust(maxsep), getConfigValue(conf_file, True, True)
+                    else:
+                        st_error("config: opcion desconocida", True)
+                else:
+                    st_error("config: argumentos insuficientes", True)
             exit()
     else:
         pass
@@ -1070,8 +994,9 @@ def printAsciiArtHOA():
         if _aligned:
             for i in asciiart: print " " * (int((width - 26) / 2) - 1), i.rstrip()
         else:
-            for i in asciiart: print " " * (20), i.rstrip()
+            for i in asciiart: print " " * 20, i.rstrip()
         asciiart.close()
+        print ""
     except:
         pass
 
@@ -1193,7 +1118,7 @@ def libstartUp():
     if not (sys.version_info.major == 2 and sys.version_info.minor == 7):  # Se comprueba que Python sea 2.7.x
         version_actual = "(version actual: {0}.{1}.{2})\n".format(sys.version_info.major, sys.version_info.minor,
                                                                   sys.version_info.micro)
-        sys.stderr.write("Error :: HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
+        st_error("HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
         try:
             url = "https://www.python.org/download/releases/"
             sys.stderr.write("Redirigiendo a la pagina de descargas de Python <{0}>\n".format(url))

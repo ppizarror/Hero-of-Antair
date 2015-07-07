@@ -1,24 +1,23 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# HOA - Clase principal del juego
-# Pablo Pizarro, 2013-2015
+#
+# Hero of Antair
+
+# HOA
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerías de alto nivel
 from lib import *
 
+# Inicio del sistema
 libstartUp()
-
-# Información del autor y del programa
-AUTOR_NAME = "Pablo Pizarro"
-AUTOR_NAME_EMAIL = "pablo@ppizarror.com"
-PROGRAM_VERSION = "0.5.2"
-PROGRAM_TITLE = "Hero of Antair"
-
-# Introducción
-printAsciiArtHOA()  # imprimo el logo del programa en ascii
-colorcmd("\nHOA - version: " + PROGRAM_VERSION, choice(CMD_COLORS.keys()))
+lookPrimaryArguments(PROGRAM_VERSION)  # se buscan los argumentos primarios
+if getConfigValue("terminal.art", True):  # se imprime el arte
+    printAsciiArtHOA()
+colorcmd("HOA - version: " + PROGRAM_VERSION, choice(CMD_COLORS.keys()))
 print "\nAutor: " + AUTOR_NAME
-lookPrimaryArguments()  # se buscan los argumentos primarios
 
 # Importación de librerías
 print "\nCargando librerias ...",
@@ -138,7 +137,7 @@ try:  # Se cargan la lista de idiomas disponibles
     LANG_END = LANG_CONST[0]
     LANG_SEP = LANG_CONST[1].replace("*", " ")
 except:  # Si ocurre un error al cargar el archivo de idiomas se termina la ejecución del programa
-    print "Error :: Error fatal"
+    st_error("Error fatal")
     pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88, 300,
          "No se encuentra el archivo de idiomas, " + \
          PROGRAM_TITLE + " no puede iniciarse."]).w.mainloop(0)
@@ -305,7 +304,7 @@ def loadLang(first=True):
         archivo.close()
         print OK
     except:  # Error al cargar idioma, muestra mensaje y termina el programa
-        print "Error :: Error fatal"
+        st_error("Error fatal")
         pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88, 300,
              "Error al cargar el archivo de idioma '" + \
              CONFIGURATION_DATA[0] + "', " + PROGRAM_TITLE + " no puede iniciarse"]).w.mainloop(0)
@@ -324,11 +323,14 @@ def lang(i, a="", b="", c=""):
     """
     try:  # Si existe el lang en la matriz de datos
         if len(a + b + c) != 0:
-            return LANG[i].replace("%", a).replace("&", b).replace("$", c)
+            data = LANG[i].replace("%", a).replace("&", b).replace("$", c)
         else:
-            return LANG[i]
+            data = LANG[i]
+        if "Error[" in data:  # Formateo de error
+            data = parseLangError(data)
+        return data
     except:
-        print "Error: ID[{0}] no existe en el archivo de idiomas '".format(i) + CONFIGURATION_DATA[0] + "'"
+        st_error("ID<{0}> no existe en el archivo de idiomas '".format(i) + CONFIGURATION_DATA[0] + "'")
         return "%LANG ID[{0}]".format(i)
 
 
@@ -1742,10 +1744,11 @@ class hoa:
             print lang(761),
         if _consultArgument("delpyc", arg):
             files = ["actors", "board", "group", "item", "mob", "npc", "lib", "pop", "powers", "statics", "strict", \
-                     "texture_analysis", "texture_conts", "texture_items", "texture_world", "textures", "sounds"]
+                     "texture_analysis", "texture_conts", "texture_items", "texture_world", "textures", "sounds", "hoa",
+                     "medt", "mpop", "textures_editor", "__init__"]
             for f in files:
                 try:
-                    os.remove(f + ".pyc")
+                    os.remove("lib/" + f + ".pyc")
                 except:
                     totalwarnings += 1
         if _consultArgument("dev", arg):
@@ -1853,18 +1856,19 @@ class hoa:
         if not isWindows(): MOVEMENT_ANIMATION[0] = False
 
         # Mensaje que indica la finalización del constructor
-        print lang(395),
-        if totalwarnings == 0 and totalerrors == 0:
-            print lang(310)
-        else:
-            if totalwarnings != 0 and totalerrors == 0:
-                print lang(757).format(str(totalwarnings)).strip()
-            elif totalerrors != 0 and totalwarnings == 0:
-                print lang(760).format(str(totalerrors)).strip()
-            elif totalwarnings != 0 and totalerrors != 0:
-                print lang(759).format(str(totalerrors), str(totalwarnings)).strip()
-        del totalwarnings
-        del totalerrors
+        if getConfigValue("global.showstate"):
+            print lang(395),
+            if totalwarnings == 0 and totalerrors == 0:
+                print lang(310)
+            else:
+                if totalwarnings != 0 and totalerrors == 0:
+                    print lang(757).format(str(totalwarnings)).strip()
+                elif totalerrors != 0 and totalwarnings == 0:
+                    print lang(760).format(str(totalerrors)).strip()
+                elif totalwarnings != 0 and totalerrors != 0:
+                    print lang(759).format(str(totalerrors), str(totalwarnings)).strip()
+            del totalwarnings
+            del totalerrors
 
     def abortGame(self, e=None):
         """
@@ -4436,8 +4440,8 @@ class hoa:
                         self.nivel_dificultad = load[4]  # dificultad del juego
                         self.player.setLinkImage(load[9])  # textura
                         self.setDificultad()  # se define la dificultad
-                        if load[11] == "%ERROR_LOADINGMAP%": raise Exception(
-                            lang(98))  # si ocurre un error al cargar el mapa
+                        if load[11] == "%ERROR_LOADINGMAP%":
+                            raise Exception(lang(98))  # si ocurre un error al cargar el mapa
                         self.player.setMap(load[11])  # mapa a cargar
                         self.setWorld()  # creo el mundo para generar el fondo y consultar los elementos lógicos
                         self.root.after(1, _loadingScreen(self.images.image("loading2")))
@@ -4460,8 +4464,8 @@ class hoa:
                         self.abortGame()
                         self.error(lang(145))
                         return
-                    editorkey = base64.b64encode(
-                        md5.new(self.player.getName()).digest())  # se comprueba si el jugador es editor o no
+                    # se comprueba si el jugador es editor o no
+                    editorkey = base64.b64encode(md5.new(self.player.getName()).digest())
                     if editorkey == "NEp/Qn+3ZWEO+W63vOlSVw==" or editorkey == "Y/sQiCQbCs3XmHrwwfT35g==":
                         self.player.setEditor()
                     else:
@@ -6576,9 +6580,3 @@ class hoa:
         self.infoManaCanv.delete(ALL)
         self.infoManaCanv.create_rectangle(0, 0, barras + 1, 18, fill="#6F7116", outline="#6F7116")
         self.infoMana.config(text=str(mana).zfill(3) + "/" + str(maxm).zfill(3))
-
-# Inicio del programa
-if __name__ == '__main__':
-    loadLang(True)  # se carga el idioma por defecto
-    game = hoa(sys.argv)  # se instancia el objeto
-    game.root.mainloop(0)  # se ejecuta la interfaz gráfica

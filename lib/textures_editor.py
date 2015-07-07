@@ -1,8 +1,12 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# @PydevCodeAnalysisIgnore
-# !/usr/bin/env python
-# eTextures - Texturas y funciones analizadoras para Map Editor
-# Pablo Pizarro, 2014-2015
+#
+# Texturas usadas por el editor de mapas
+
+# TEXTURES EDITOR
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2013-2015
+# Licencia: GPLv2
 
 # Importación de librerias
 from Tkinter import PhotoImage

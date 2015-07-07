@@ -1,8 +1,12 @@
-# @PydevCodeAnalysisIgnore
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# !/usr/bin/env python
-# Textures - Id de las texturas
-# Pablo Pizarro, 2014-2015
+#
+# ID de las texturas
+
+# TEXTURE ANALYSIS
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2014-2015
+# Licencia: GPLv2
 
 
 def etextureMobAnalysis(itemTexture, light):

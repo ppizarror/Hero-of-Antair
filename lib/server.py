@@ -1,7 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Server - Servidor para poder jugar online Hero of Antair
-# Pablo Pizarro, 2014-2015
+#
+# Servidor para jugar online
+
+# SERVER
+# Autor: PABLO PIZARRO @ ppizarro
+# Fecha: 2014-2015
+# Licencia: GPLv2
 
 import select
 import uuid
