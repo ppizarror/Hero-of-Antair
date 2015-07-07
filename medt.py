@@ -221,14 +221,18 @@ class mapeditor:
             """
             if self.isEvent:
                 if sum(self.workTile) != -2:
-                    e = pop(['Información', self.images['mapinfo'], 'infoTile_info', 169, 330, self.workTile, \
+                    if isWindows():
+                        ysize = 169
+                    else:
+                        ysize = 175
+                    e = pop(['Información', self.images['mapinfo'], 'infoTile_info', ysize, 330, self.workTile, \
                              self.worldLogic[self.workTile[0]][self.workTile[1]],
                              self.worldTextures[self.workTile[0]][self.workTile[1]], \
                              self.worldLight[self.workTile[0]][self.workTile[1]]])
                     e.w.mainloop(1)
                     del e
 
-        #TODO: Modificar copia de luz
+        # TODO: Modificar copia de luz
         def _copyTile(event=None):
             """
             Copia la información de un tile
@@ -248,11 +252,16 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:  # Pego la información
+                light = "_" + str(self.worldLight[self.workTile[0]][self.workTile[1]])
                 self.worldLogic[self.workTile[0]][self.workTile[1]] = self.clipboard[0]
                 self.worldTextures[self.workTile[0]][self.workTile[1]] = self.clipboard[1]
-                self.worldGraph[self.workTile[0]][self.workTile[1]] = self.clipboard[2]
-                self.worldItems[self.workTile[0]][self.workTile[1]] = self.clipboard[3]
+                self.worldGraph[self.workTile[0]][self.workTile[1]] = self.clipboard[2].replace("_0", light).replace(
+                    "_1", light)
+                self.worldItems[self.workTile[0]][self.workTile[1]] = self.clipboard[3].replace("_0", light).replace(
+                    "_1", light)
                 self.drawTiles()
+                self.core.title(PROGRAM_TITLE + " - " + self.mapName + " (" + self.mapFile + ") *")
+                self.isMapEditing = True
 
         def _infoTile_delete(event=None):
             """
@@ -263,8 +272,8 @@ class mapeditor:
             if self.isEvent:  # Borro el vecindario
                 delTileLogicNeighbor(self.worldLogic[self.workTile[0]][self.workTile[1]], \
                                      self.workTile[0], self.workTile[1], self.worldLogic, self.worldItems)
-                if "14" or "7-407" or "39-961" in self.worldLogic[self.workTile[0]][
-                    self.workTile[1]]:  # borro los vectores luminicos
+                # borro los vectores luminicos
+                if "14" or "7-407" or "39-961" in self.worldLogic[self.workTile[0]][self.workTile[1]]:
                     self.removeLightVector(self.workTile[1], self.workTile[0])
                 logic = self.worldLogic[self.workTile[0]][self.workTile[1]].split("-")
                 # Establezco los lógicos
@@ -312,16 +321,18 @@ class mapeditor:
                     tex = prop[2]
                     if isWindows():
                         p = pop(
-                        ['Editar mob', self.images['group'], 'edit_mob', 398, 290, putStrict(prop[5]), prop[1], prop[7],
-                         prop[0], prop[9], \
-                         prop[3], prop[4], prop[8], prop[9], prop[14], putStrict(prop[6]), putStrict(prop[11]),
-                         prop[12], prop[13], prop[15], prop[16], prop[17]])
+                            ['Editar mob', self.images['group'], 'edit_mob', 398, 290, putStrict(prop[5]), prop[1],
+                             prop[7],
+                             prop[0], prop[9], \
+                             prop[3], prop[4], prop[8], prop[9], prop[14], putStrict(prop[6]), putStrict(prop[11]),
+                             prop[12], prop[13], prop[15], prop[16], prop[17]])
                     else:
                         p = pop(
-                        ['Editar mob', self.images['group'], 'edit_mob', 460, 350, putStrict(prop[5]), prop[1], prop[7],
-                         prop[0], prop[9], \
-                         prop[3], prop[4], prop[8], prop[9], prop[14], putStrict(prop[6]), putStrict(prop[11]),
-                         prop[12], prop[13], prop[15], prop[16], prop[17]])
+                            ['Editar mob', self.images['group'], 'edit_mob', 460, 350, putStrict(prop[5]), prop[1],
+                             prop[7],
+                             prop[0], prop[9], \
+                             prop[3], prop[4], prop[8], prop[9], prop[14], putStrict(prop[6]), putStrict(prop[11]),
+                             prop[12], prop[13], prop[15], prop[16], prop[17]])
                     p.w.mainloop(1)
                     if p.sent:
                         data = p.values
@@ -414,12 +425,12 @@ class mapeditor:
                     tex = prop[1]
                     if isWindows():
                         k = pop(['Editar npc', self.images['group'], 'edit_npc', 307, 290, putStrict(prop[0]),
-                             putStrict(prop[2]), putStrict(prop[3]), prop[6], prop[8], \
-                             putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
+                                 putStrict(prop[2]), putStrict(prop[3]), prop[6], prop[8], \
+                                 putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
                     else:
                         k = pop(['Editar npc', self.images['group'], 'edit_npc', 350, 350, putStrict(prop[0]),
-                             putStrict(prop[2]), putStrict(prop[3]), prop[6], prop[8], \
-                             putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
+                                 putStrict(prop[2]), putStrict(prop[3]), prop[6], prop[8], \
+                                 putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
                     k.w.mainloop(1)
                     if k.sent:
                         npc = k.values
@@ -684,11 +695,8 @@ class mapeditor:
         self.herrammenu.add_command(label='Borrar terreno', accelerator="Ctrl+K", command=_delterrain)
         self.herrammenu.add_command(label='Borrar seleción actual', accelerator="Esc", command=self.delActive)
         self.herrammenu.add_command(label='Establecer sonido de fondo', accelerator="Ctrl+M", command=_changeSound)
-        self.herrammenu.entryconfig(0, state=DISABLED)
-        self.herrammenu.entryconfig(1, state=DISABLED)
-        self.herrammenu.entryconfig(2, state=DISABLED)
-        self.herrammenu.entryconfig(3, state=DISABLED)
-        self.herrammenu.entryconfig(4, state=DISABLED)
+        for k in range(5):
+            self.herrammenu.entryconfig(k, state=DISABLED)
         menu.add_cascade(label='Herramientas', menu=self.herrammenu)
         self.visualmenu = Menu(menu, tearoff=0)
         self.visualmenu.add_command(label='Mostrar/Ocultar eventos', accelerator="F6", command=_events)
@@ -699,14 +707,8 @@ class mapeditor:
         self.visualmenu.add_command(label='Mostrar/Ocultar posiciones', accelerator="F2", command=_numbers)
         self.visualmenu.add_command(label='Mostrar/Ocultar terreno', accelerator="F8", command=_terrain)
         self.visualmenu.add_command(label='Redibujar mapa', accelerator="F5", command=_redib)
-        self.visualmenu.entryconfig(0, state=DISABLED)
-        self.visualmenu.entryconfig(1, state=DISABLED)
-        self.visualmenu.entryconfig(2, state=DISABLED)
-        self.visualmenu.entryconfig(3, state=DISABLED)
-        self.visualmenu.entryconfig(4, state=DISABLED)
-        self.visualmenu.entryconfig(5, state=DISABLED)
-        self.visualmenu.entryconfig(6, state=DISABLED)
-        self.visualmenu.entryconfig(7, state=DISABLED)
+        for k in range(8):
+            self.visualmenu.entryconfig(k, state=DISABLED)
         menu.add_cascade(label='Visualización', menu=self.visualmenu)
         ayudamenu = Menu(menu, tearoff=0)
         ayudamenu.add_command(label='Acerca de', command=_acercaDe)
@@ -1134,19 +1136,10 @@ class mapeditor:
         self.archivomenu.entryconfig(3, state=NORMAL)
         self.archivomenu.entryconfig(4, state=NORMAL)
         self.archivomenu.entryconfig(6, state=NORMAL)
-        self.herrammenu.entryconfig(0, state=NORMAL)
-        self.herrammenu.entryconfig(1, state=NORMAL)
-        self.herrammenu.entryconfig(2, state=NORMAL)
-        self.herrammenu.entryconfig(3, state=NORMAL)
-        self.herrammenu.entryconfig(4, state=NORMAL)
-        self.visualmenu.entryconfig(0, state=NORMAL)
-        self.visualmenu.entryconfig(1, state=NORMAL)
-        self.visualmenu.entryconfig(2, state=NORMAL)
-        self.visualmenu.entryconfig(3, state=NORMAL)
-        self.visualmenu.entryconfig(4, state=NORMAL)
-        self.visualmenu.entryconfig(5, state=NORMAL)
-        self.visualmenu.entryconfig(6, state=NORMAL)
-        self.visualmenu.entryconfig(7, state=NORMAL)
+        for k in range(5):
+            self.herrammenu.entryconfig(k, state=NORMAL)
+        for k in range(8):
+            self.visualmenu.entryconfig(k, state=NORMAL)
         self.mapTile.bind("<Button-1>", self.editTile)
         if isWindows():
             self.mapTile.bind("<ButtonRelease-3>", self.infoTile)
@@ -1174,19 +1167,10 @@ class mapeditor:
             self.archivomenu.entryconfig(3, state=DISABLED)
             self.archivomenu.entryconfig(4, state=DISABLED)
             self.archivomenu.entryconfig(6, state=DISABLED)
-            self.herrammenu.entryconfig(0, state=DISABLED)
-            self.herrammenu.entryconfig(1, state=DISABLED)
-            self.herrammenu.entryconfig(2, state=DISABLED)
-            self.herrammenu.entryconfig(3, state=DISABLED)
-            self.herrammenu.entryconfig(4, state=DISABLED)
-            self.visualmenu.entryconfig(0, state=DISABLED)
-            self.visualmenu.entryconfig(1, state=DISABLED)
-            self.visualmenu.entryconfig(2, state=DISABLED)
-            self.visualmenu.entryconfig(3, state=DISABLED)
-            self.visualmenu.entryconfig(4, state=DISABLED)
-            self.visualmenu.entryconfig(5, state=DISABLED)
-            self.visualmenu.entryconfig(6, state=DISABLED)
-            self.visualmenu.entryconfig(7, state=DISABLED)
+            for k in range(5):
+                self.herrammenu.entryconfig(k, state=DISABLED)
+            for k in range(8):
+                self.visualmenu.entryconfig(k, state=DISABLED)
             self.blackBackground.pack()
             self.core.title(PROGRAM_TITLE)
             self.mapTile.bind("<Button-1>", self.breakpoint)
@@ -1604,7 +1588,10 @@ class mapeditor:
             self.mapTile.bind("<B1-Motion>", self.editTile)
         elif tipo == 3:  # Environment & Building
             if prop == 1:  # Si el objeto es una puerta
-                p = pop(['Nueva puerta', self.images['door'], 'new_door', 145, 290])
+                if isWindows():
+                    p = pop(['Nueva puerta', self.images['door'], 'new_door', 145, 290])
+                else:
+                    p = pop(['Nueva puerta', self.images['door'], 'new_door', 160, 320])
                 p.w.mainloop(1)
                 if p.sent: self.actualEnvironment = "special", tex, '6-' + str(idItem) + '-' + p.values[
                     0] + ',' + replaceStrict(p.values[1]), "door"

@@ -27,13 +27,13 @@ except:
 
 # Agrego librerías al path
 _actualpath = str(os.path.abspath(os.path.dirname(__file__)))
-sys.path.append(_actualpath + "/lib/")
-sys.path.append(_actualpath + "/lib/mechanize/")
-sys.path.append(_actualpath + "/lib/pil/")
-sys.path.append(_actualpath + "/lib/pympler/")
-sys.path.append(_actualpath + "/lib/scripts/")
-sys.path.append(_actualpath + "/lib/simplejson/")
-sys.path.append(_actualpath + "/lib/wconio/")
+sys.path.append(_actualpath + "/bin/")
+sys.path.append(_actualpath + "/bin/mechanize/")
+sys.path.append(_actualpath + "/bin/pil/")
+sys.path.append(_actualpath + "/bin/pympler/")
+sys.path.append(_actualpath + "/bin/scripts/")
+sys.path.append(_actualpath + "/bin/simplejson/")
+sys.path.append(_actualpath + "/bin/wconio/")
 
 # Importación de librerías de bajo nivel
 _mechanize = True

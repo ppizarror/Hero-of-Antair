@@ -66,6 +66,8 @@ elif 0.10 < ms:
     LIMIT_MESSAGES_CONSOLE = 250  # límite máximo de mensajes en consola
     MOVETIME = 250  # tiempo minimo de tiempo para poder mover al jugador
     TEXDT = 220  # tiempo despues de mover texturas
+if not isWindows():
+    LIMIT_MESSAGES_CONSOLE = 100
 
 # Constantes del programa
 ATTACK_MIN_TIME = 350  # tiempo mínimo en milisegundos entre ataques
@@ -96,6 +98,7 @@ CONFIGURATION_ARGS = DATA_CONFIG + "args.ini"  # argumentos por defecto
 CONFIGURATION_FILE = DATA_CONFIG + "config.ini"  # archivo de configuración
 CONFIGURATION_TNSL = DATA_CONFIG + "transl.ini"  # configuración de las traducciones
 ERROR_DELAY = 5000  # tiempo de espera antes de abortar el juego
+LANG = {}  # lista de strings para el idioma
 LEVELS_RES = DATA_LEVELS + "res/"  # carpeta de los recursos del nivel
 LEVEL_SOUND = DATA_LEVELS + "sound/"  # carpeta de sonidos de los niveles
 MODE_FIGHT_GROUP = "GRUPAL"  # modo de pelea grupal (tablero)
@@ -112,19 +115,21 @@ WIDTHMESSAGES = 210  # largo máximo de los recuadros de texto
 
 # Configuraciones en funcion de SO tamaño de la ventana del programa
 if isWindows():
-    PROGRAM_SIZE = 804, 599
     _SECOND_BUTTON = "<Button-3>"
-    POP_XSIZE = 165
-    POP_YSIZE = 270
+    BAR_POND_COEF = 1.0
     DRAW_CANVAS_OFFSET_X = 0
     DRAW_CANVAS_OFFSET_Y = 0
+    POP_XSIZE = 165
+    POP_YSIZE = 270
+    PROGRAM_SIZE = 804, 599
 else:
-    PROGRAM_SIZE = 803, 574
     _SECOND_BUTTON = "<Button-2>"
+    BAR_POND_COEF = 1.2
+    DRAW_CANVAS_OFFSET_X = -2
+    DRAW_CANVAS_OFFSET_Y = -2
     POP_XSIZE = 175
     POP_YSIZE = 390
-    DRAW_CANVAS_OFFSET_Y = -2
-    DRAW_CANVAS_OFFSET_X = -2
+    PROGRAM_SIZE = 803, 574
 
 # Se cargan las configuraciones
 try:  # Se cargan la lista de idiomas disponibles
@@ -177,7 +182,6 @@ def loadConfig():
                 else:
                     CONFIGURATION_DATA[1] = False
         conf_file.close()
-        print OK
     except:  # Se genera un nuevo archivo de configuraciones si este no existe
         print "generando configuraciones ...",
         archivo = open(CONFIGURATION_FILE, "w")
@@ -193,7 +197,7 @@ def loadConfig():
         archivo.write("#Sonidos del programa\n")
         archivo.write("SOUND = ON")
         archivo.close()
-        print OK
+    print OK
 
 
 def loadStConfig():
@@ -268,9 +272,6 @@ def translate(text):
             return text
     else:
         return text
-
-# Idiomas
-LANG = {}  # lista de strings para el idioma
 
 
 def loadLang(first=True):
@@ -528,7 +529,12 @@ class hoa:
                     return True
             return False  # si no existe retorna falso
 
-        def _infoSystem(e=None):  # Función que imprime la información de la memoria y las librerías cargadas
+        def _infoSystem(e=None):
+            """
+            Función que imprime la información de la memoria y las librerías cargadas
+            :param e: Event
+            :return: void
+            """
             print "#"
             print lang(288)
             print "#"
@@ -542,7 +548,14 @@ class hoa:
             summary.print_(sum1)
             print "#"
 
-        def _itemArmadura(tipo, typeClick, x=None):  # Función que maneja la armadura y los eventos
+        def _itemArmadura(tipo, typeClick, x=None):
+            """
+            Función que maneja la armadura y los eventos
+            :param tipo: Tipo de item
+            :param typeClick: Tipo de click
+            :param x: Event
+            :return: void
+            """
             if typeClick == 1:  # Click derecho, información
                 if CONFIGURATION_DATA[14]:  # Si está activa la opción
                     if tipo == "casco":
@@ -1098,7 +1111,8 @@ class hoa:
             :param event: Evento
             :return: void
             """
-            if self.ingame: self.infoSlider.canv.yview_scroll(1000, "units")
+            if self.ingame:
+                self.infoSlider.canv.yview_scroll(1000, "units")
 
         def _moveLineDown(event):
             """
@@ -1106,7 +1120,8 @@ class hoa:
             :param event: Evento
             :return: void
             """
-            if self.ingame: self.infoSlider.canv.yview_scroll(1, "units")
+            if self.ingame:
+                self.infoSlider.canv.yview_scroll(1, "units")
 
         def _moveLineUp(event):
             """
@@ -1114,7 +1129,8 @@ class hoa:
             :param event: Evento
             :return: void
             """
-            if self.ingame: self.infoSlider.canv.yview_scroll(-1, "units")
+            if self.ingame:
+                self.infoSlider.canv.yview_scroll(-1, "units")
 
         def _movetop(event):
             """
@@ -1122,7 +1138,8 @@ class hoa:
             :param event: Evento
             :return: void
             """
-            if self.ingame: self.infoSlider.canv.yview_scroll(-1000, "units")
+            if self.ingame:
+                self.infoSlider.canv.yview_scroll(-1000, "units")
 
         def _licence(e=None):
             """
@@ -1167,7 +1184,7 @@ class hoa:
                     _sizey = 230
                 else:
                     _sizex = 430
-                    _sizey = 240
+                    _sizey = 260
                 e = pop([[lang(323), lang(245).replace(":", ""), lang(228), lang(173), lang(22).replace(":", ""),
                           lang(23).replace(":", ""), \
                           lang(24).replace(":", ""), lang(601), lang(227), lang(381).replace(":", ""), lang(602)], \
@@ -1215,10 +1232,9 @@ class hoa:
                     _sizey = 120
                 p = pop([[lang(701), lang(702), lang(703), lang(706), lang(707), lang(708), lang(709), lang(710), \
                           lang(704), lang(711), lang(705), lang(712)], self.images.image("group"), "ver_followers",
-                         _sizey, _sizex, \
-                         self.dificultad[7], self.player.getAttack(), self.player.getDefensa(),
-                         self.player.getMaxLife(), \
-                         self.player.getLightFriends(), self.player.getMediumFriends(), self.player.getStrongFriends()])
+                         _sizey, _sizex, self.dificultad[7], self.player.getAttack(), self.player.getDefensa(),
+                         self.player.getMaxLife(), self.player.getLightFriends(), self.player.getMediumFriends(),
+                         self.player.getStrongFriends()])
                 p.w.mainloop(1)
                 del p
 
@@ -1317,10 +1333,8 @@ class hoa:
         self.enemy = None  # clase mob que indica el enemigo al cual peleara el jugador
         self.enemyId = 0  # id del mob que es cargado como enemigo activo
         self.fonts = [tkFont.Font(family="Courier", size=7), tkFont.Font(family="Verdana", size=6),
-                      tkFont.Font(family="Times", size=10), \
-                      tkFont.Font(family="Times", size=10, weight=tkFont.BOLD),
-                      tkFont.Font(family="Verdana", size=6, weight=tkFont.BOLD), \
-                      tkFont.Font(family="Courier", size=11)]
+                      tkFont.Font(family="Times", size=10), tkFont.Font(family="Times", size=10, weight=tkFont.BOLD),
+                      tkFont.Font(family="Verdana", size=6, weight=tkFont.BOLD), tkFont.Font(family="Verdana", size=10)]
         self.inBattle = False  # indica que hay una batalla en proceso
         self.inNpc = False  # indica que existe una interaccion con un npc
         self.ingame = False  # indica que se esta jugando
@@ -1390,9 +1404,9 @@ class hoa:
         print lang(312),
         self.root.iconbitmap(self.images.image("icon"))  # icono del programa
         self.menubar = Menu(self.root)
+        self.root.config(menu=self.menubar)
+        self.archivomenu = Menu(self.menubar, tearoff=0)
         if isWindows():
-            self.root.config(menu=self.menubar)
-            self.archivomenu = Menu(self.menubar, tearoff=0)
             self.archivomenu.add_command(label=lang(10), command=self.newGame, accelerator="Ctrl+N")
             self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Ctrl+L")
             self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Ctrl+G")
@@ -1409,10 +1423,6 @@ class hoa:
             self.vermenu.add_command(label=lang(14), command=_showStatics, accelerator="Ctrl+E")
             self.vermenu.add_command(label=lang(587), command=_verQuest, accelerator="T")
             self.vermenu.add_command(label=lang(322), command=_showMap, accelerator="M")
-            self.vermenu.entryconfig(0, state=DISABLED)
-            self.vermenu.entryconfig(1, state=DISABLED)
-            self.vermenu.entryconfig(2, state=DISABLED)
-            self.vermenu.entryconfig(3, state=DISABLED), self.vermenu.entryconfig(4, state=DISABLED)
             self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
             self.ayudamenu = Menu(self.menubar, tearoff=0)
             self.ayudamenu.add_command(label=lang(18), command=_about)
@@ -1422,12 +1432,11 @@ class hoa:
             self.ayudamenu.add_separator()
             self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
             self.ayudamenu.add_command(label=lang(326), command=self.devConsole, accelerator="F2")
+            if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem, accelerator="F12")
         else:
-            self.root.config(menu=self.menubar)
-            self.archivomenu = Menu(self.menubar, tearoff=0)
             self.archivomenu.add_command(label=lang(10), command=self.newGame)
-            self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Control+L")
-            self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Control+G")
+            self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Ctrl+L")
+            self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Ctrl+G")
             self.archivomenu.add_command(label=lang(13), command=self.abortGame)
             self.archivomenu.add_separator()
             self.archivomenu.add_command(label=lang(17), command=_configure)
@@ -1441,19 +1450,18 @@ class hoa:
             self.vermenu.add_command(label=lang(14), command=_showStatics)
             self.vermenu.add_command(label=lang(587), command=_verQuest)
             self.vermenu.add_command(label=lang(322), command=_showMap)
-            self.vermenu.entryconfig(0, state=DISABLED)
-            self.vermenu.entryconfig(1, state=DISABLED)
-            self.vermenu.entryconfig(2, state=DISABLED)
-            self.vermenu.entryconfig(3, state=DISABLED), self.vermenu.entryconfig(4, state=DISABLED)
             self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
             self.ayudamenu = Menu(self.menubar, tearoff=0)
             self.ayudamenu.add_command(label=lang(18), command=_about)
             self.ayudamenu.add_command(label=lang(19), command=_ayuda)
+            self.ayudamenu.add_command(label=lang(20), command=_changelog)
             self.ayudamenu.add_command(label=lang(21), command=_licence)
             self.ayudamenu.add_separator()
-            self.ayudamenu.add_command(label=lang(327), command=self.update)
+            self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
             self.ayudamenu.add_command(label=lang(326), command=self.devConsole)
-        if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem, accelerator="F12")
+            if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem)
+        for k in range(5):
+            self.vermenu.entryconfig(k, state=DISABLED)
         self.menubar.add_cascade(label=lang(19), menu=self.ayudamenu)
         f = Frame(self.root)
         f.pack()
@@ -1471,60 +1479,69 @@ class hoa:
         menu2.pack(fill=X)
         self.vidaLabel = Label(menu2, text=lang(22), width=5, anchor=E)
         self.vidaLabel.pack(side=LEFT)
-        self.infoVidaCanv = Canvas(menu2, width=100, height=16, bg="#B30000", highlightthickness=0)
+        self.infoVidaCanv = Canvas(menu2, width=100 * BAR_POND_COEF, height=16, bg="#B30000", highlightthickness=0)
         self.infoVidaCanv.pack(side=LEFT)  # barra de vida
         if isWindows():
             self.infoVida = Label(menu2, width=6, anchor=E)
             self.infoVida.pack()
         else:
-            self.infoVida = Label(menu2, width=9, anchor=W)
+            self.infoVida = Label(menu2, width=7, anchor=E)
             self.infoVida.pack(padx=1)
         menu7 = Frame(menu19)
         menu7.pack(fill=X)
         self.manaLabel = Label(menu7, text=lang(23), width=5, anchor=E)
         self.manaLabel.pack(side=LEFT)
-        self.infoManaCanv = Canvas(menu7, width=100, height=16, bg="#97991E", highlightthickness=0)
+        self.infoManaCanv = Canvas(menu7, width=100 * BAR_POND_COEF, height=16, bg="#97991E", highlightthickness=0)
         self.infoManaCanv.pack(side=LEFT)  # barra de mana
         if isWindows():
             self.infoMana = Label(menu7, width=6, anchor=E)
             self.infoMana.pack()
         else:
-            self.infoMana = Label(menu7, width=9, anchor=W)
+            self.infoMana = Label(menu7, width=7, anchor=E)
             self.infoMana.pack(padx=1)
         menu13 = Frame(menu19)
         menu13.pack(fill=X)
         self.experienciaLabel = Label(menu13, text=lang(24), width=5, anchor=E)
         self.experienciaLabel.pack(side=LEFT)
-        self.infoExpCanv = Canvas(menu13, width=100, height=16, highlightthickness=0)
+        self.infoExpCanv = Canvas(menu13, width=100 * BAR_POND_COEF, height=16, highlightthickness=0)
         self.infoExpCanv.pack(side=LEFT)  # barra de experiencia
         if isWindows():
             self.infoExp = Label(menu13, width=6, anchor=E)
             self.infoExp.pack()
         else:
-            self.infoExp = Label(menu13, width=9, anchor=W)
+            self.infoExp = Label(menu13, width=7, anchor=E)
             self.infoExp.pack(padx=1)
         menu5 = Frame(self.menu)
         menu5.pack(pady=10)
         a_1 = Frame(menu5)
         a_1.pack(fill=X)
-        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED, image=self.images.image("no_casco"))
+        if isWindows():
+            buttonBorder = 2
+        else:
+            buttonBorder = 2
+        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED, image=self.images.image("no_casco"),
+                                        border=buttonBorder)
         self.infoArmaduraCasco.pack()
         a_2 = Frame(menu5)
         a_2.pack()
-        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_lw"))
-        self.infoArmaduraArmaIzquierda.pack(side=LEFT)
-        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_chaleco"))
+        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_lw"),
+                                                border=buttonBorder)
+        self.infoArmaduraArmaIzquierda.pack(side=LEFT, padx=3)
+        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_chaleco"),
+                                          border=buttonBorder)
         self.infoArmaduraChaleco.pack(side=LEFT)
-        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_rw"))
-        self.infoArmaduraArmaDerecha.pack()
+        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_rw"),
+                                              border=buttonBorder)
+        self.infoArmaduraArmaDerecha.pack(padx=3)
         a_3 = Frame(menu5)
         a_3.pack()
         self.infoArmaduraPantalones = Button(a_3, relief=GROOVE, state=DISABLED,
-                                             image=self.images.image("no_pantalon"))
+                                             image=self.images.image("no_pantalon"), border=buttonBorder)
         self.infoArmaduraPantalones.pack()
         a_4 = Frame(menu5)
-        a_4.pack()
-        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED, image=self.images.image("no_botas"))
+        a_4.pack(),
+        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED, image=self.images.image("no_botas"),
+                                        border=buttonBorder)
         self.infoArmaduraBotas.pack()
         if isWindows():
             for i in range(3): Button(self.menu, text="", state=DISABLED, border=0).pack()
@@ -1535,10 +1552,14 @@ class hoa:
             self.poderFrame.pack(pady=0, padx=1)  # poderes
         z = Frame(self.poderFrame)
         z.pack()
+        if isWindows():
+            buttonBorder = 1
+        else:
+            buttonBorder = 1
         for i in range(1, 8):
             cmd1 = partial(_itemPower, i, 0)
             cmd2 = partial(_itemPower, i, 1)
-            bt = Button(z, image=self.images.image("vacio_16"), relief=GROOVE, border=1, state=DISABLED)
+            bt = Button(z, image=self.images.image("vacio_16"), relief=GROOVE, border=buttonBorder, state=DISABLED)
             bt.bind('<Button-1>', cmd1)
             bt.bind(_SECOND_BUTTON, cmd2)
             if i < 8:
@@ -1549,6 +1570,10 @@ class hoa:
         self.itemFrame = LabelFrame(self.menu, text=lang(25))
         self.itemFrame.pack()
         j = 0
+        if isWindows():
+            buttonBorder = 4
+        else:
+            buttonBorder = 4
         for i in range(3):  # botones para items
             l = Frame(self.itemFrame)
             l.pack()
@@ -1556,7 +1581,7 @@ class hoa:
             for i in range(7):
                 cmd1 = partial(_itemMenu, j, 0)
                 cmd2 = partial(_itemMenu, j, 1)
-                bt = Button(l, image=self.images.image("vacio_16"), relief=FLAT, border=4, state=DISABLED)
+                bt = Button(l, image=self.images.image("vacio_16"), relief=FLAT, border=buttonBorder, state=DISABLED)
                 bt.bind('<Button-1>', cmd1)
                 bt.bind(_SECOND_BUTTON, cmd2)
                 if i < 7:
@@ -1573,7 +1598,7 @@ class hoa:
                               bg=CONFIGURATION_DATA[3], \
                               fg=CONFIGURATION_DATA[4], font=self.fonts[0], relief=FLAT, border=2, cursor="xterm")
         else:
-            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=210, anchor=NW,
+            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=220, anchor=NW,
                               bg=CONFIGURATION_DATA[3], \
                               fg=CONFIGURATION_DATA[4], font=self.fonts[5], relief=FLAT, border=2, cursor="xterm")
         self.info.pack(anchor=NW, fill=BOTH)
@@ -1590,35 +1615,35 @@ class hoa:
         # Establezco los eventos del programa
         try:
             print lang(691),
-            if isWindows():  # Eventos exclusivos de Windows
-                self.root.bind("<Control-A>", _ayuda)
-                self.root.bind("<Control-a>", _ayuda)
-                self.root.bind("<Control-C>", _configure)
-                self.root.bind("<Control-c>", _configure)
-                self.root.bind("<Control-E>", _showStatics)
-                self.root.bind("<Control-e>", _showStatics)
-                self.root.bind("<Control-T>", self.devConsole)
-                self.root.bind("<Control-t>", self.devConsole)
-                self.root.bind("<Control-N>", self.newGame)
-                self.root.bind("<Control-n>", self.newGame)
-                self.root.bind("<F1>", _ayuda)
-                self.root.bind("<F2>", lambda event: self.devConsole())
-                self.root.bind("<F5>", self.update)
-                if "-eclipse" in sys.argv: self.root.bind("<F12>", _infoSystem)
-                self.root.bind("<I>", _showPlayerInfo)
-                self.root.bind("<i>", _showPlayerInfo)
-                self.root.bind("<M>", _showMap)
-                self.root.bind("<m>", _showMap)
-                self.root.bind("<T>", _verQuest)
-                self.root.bind("<t>", _verQuest)
-                self.root.bind("<U>", _verFollowers)
-                self.root.bind("<u>", _verFollowers)
-                self.root.bind("<Control-S>", self.salir)
-                self.root.bind("<Control-s>", self.salir)
-                self.root.bind("<Control-Down>", _moveLineDown)
-                self.root.bind("<Control-Up>", _moveLineUp)
-                self.root.bind("<End>", _movebottom)
-                self.root.bind("<Home>", _movetop)
+            self.root.bind("<Control-A>", _ayuda)
+            self.root.bind("<Control-a>", _ayuda)
+            self.root.bind("<Control-C>", _configure)
+            self.root.bind("<Control-c>", _configure)
+            self.root.bind("<Control-E>", _showStatics)
+            self.root.bind("<Control-e>", _showStatics)
+            self.root.bind("<Control-T>", self.devConsole)
+            self.root.bind("<Control-t>", self.devConsole)
+            self.root.bind("<Control-N>", self.newGame)
+            self.root.bind("<Control-n>", self.newGame)
+            self.root.bind("<F1>", _ayuda)
+            self.root.bind("<F2>", lambda event: self.devConsole())
+            self.root.bind("<F5>", self.update)
+            if "-eclipse" in sys.argv:
+                self.root.bind("<F12>", _infoSystem)
+            self.root.bind("<I>", _showPlayerInfo)
+            self.root.bind("<i>", _showPlayerInfo)
+            self.root.bind("<M>", _showMap)
+            self.root.bind("<m>", _showMap)
+            self.root.bind("<T>", _verQuest)
+            self.root.bind("<t>", _verQuest)
+            self.root.bind("<U>", _verFollowers)
+            self.root.bind("<u>", _verFollowers)
+            self.root.bind("<Control-S>", self.salir)
+            self.root.bind("<Control-s>", self.salir)
+            self.root.bind("<Control-Down>", _moveLineDown)
+            self.root.bind("<Control-Up>", _moveLineUp)
+            self.root.bind("<End>", _movebottom)
+            self.root.bind("<Home>", _movetop)
             self.root.bind("<Shift-Down>", _moveLineDown)
             self.root.bind("<Shift-Up>", _moveLineUp)
             self.root.bind("<MouseWheel>", _item_mousewheel)
@@ -4063,7 +4088,8 @@ class hoa:
                                    self.board.getBoardCorreccionY() + 2 + 32 * self.board.getBoardSizeY(), \
                                    fill=LINE_BOARD_COLOR_INACTIVE)
             # Se dibuja el fondo
-            self.world.lower(self.world.create_image(306, 290, image=self.board.bgimage,
+            self.world.lower(self.world.create_image(306 + DRAW_CANVAS_OFFSET_X, 290 + DRAW_CANVAS_OFFSET_Y,
+                                                     image=self.board.bgimage,
                                                      tags="grupal:background"))
             self.combateGrupal("print")
             self.world.update()
@@ -4361,7 +4387,17 @@ class hoa:
                         totalerrors += 1
                         print lang(351)
                     if console[0] != "%NOCONSOLE%":  # Si la consola no está vacía
-                        for i in console: self.console.insert(0, i)  # se carga la consola
+                        if len(console) < LIMIT_MESSAGES_CONSOLE:
+                            for i in console:
+                                self.console.insert(0, i)
+                        else:
+                            difr = len(console) - LIMIT_MESSAGES_CONSOLE
+                            c = 0
+                            for i in console:
+                                if c > difr:
+                                    self.console.insert(0, i)  # se carga la consola
+                                else:
+                                    c += 1
                     try:
                         self.setInfo(False, False)
                     except:
@@ -6074,6 +6110,8 @@ class hoa:
             for i in self.board.players: i.setMaxDistance(
                 int(self.board.getBoardSizeX() * MAX_1ST_MOVEMENT))  # establezco el máximo movimiento de los grupos
             self.board.setTotalExp()
+            self.board.modifyBoardCorreccionX(DRAW_CANVAS_OFFSET_X)
+            self.board.modifyBoardCorreccionY(DRAW_CANVAS_OFFSET_Y)
             self.dibujarMundo()
             self.combateGrupal("print")
             self.setInfo(lang(725, str(int(self.enemy.getLife() * (2 - self.dificultad[7]) * 0.12)),
@@ -6499,12 +6537,13 @@ class hoa:
         """
         life = self.player.getLife()
         maxl = self.player.getActualMaximumLife()
-        barras = min(100, int((life * 100) / max(1, maxl)))
+        barras = min(100 * BAR_POND_COEF, int((life * 100 * BAR_POND_COEF) / max(1, maxl)))
         self.infoVidaCanv.delete(ALL)
         self.infoVidaCanv.create_rectangle(0, 0, barras + 1, 18, fill="#008000", outline="#008000")
         self.infoVida.config(text=str(life).zfill(3) + "/" + str(maxl).zfill(3))
-        barras = min(100, int((self.player.getExperience() - self.player.getPrevExp()) * 100 / max(1,
-                                                                                                   self.player.getMaxExperience() - self.player.getPrevExp())))
+        barras = min(100 * BAR_POND_COEF,
+                     int((self.player.getExperience() - self.player.getPrevExp()) * 100 * BAR_POND_COEF / max(1,
+                                                                                                              self.player.getMaxExperience() - self.player.getPrevExp())))
         self.infoExpCanv.delete(ALL)
         self.infoExpCanv.create_rectangle(0, 0, barras + 1, 18, fill="#000080", outline="#000080")
         if 0 <= self.player.getExperience() < 10000000:
@@ -6518,7 +6557,7 @@ class hoa:
         self.infoExp.config(text=msg)
         mana = self.player.getMana()
         maxm = self.player.getMaxMana()
-        barras = int((mana * 100) / max(1, maxm))
+        barras = int((mana * 100 * BAR_POND_COEF) / max(1, maxm))
         self.infoManaCanv.delete(ALL)
         self.infoManaCanv.create_rectangle(0, 0, barras + 1, 18, fill="#6F7116", outline="#6F7116")
         self.infoMana.config(text=str(mana).zfill(3) + "/" + str(maxm).zfill(3))

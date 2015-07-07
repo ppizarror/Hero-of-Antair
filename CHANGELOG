@@ -1419,9 +1419,12 @@
 	      Adopcion parcial del formato PEP-8.
 	      Formateo total del codigo.
 	      Documentadas todas las funciones y clases.
-	      Se corrigen directorios, se mueven licence y changelog a la raiz.
+	      Se corrigen directorios, se mueven licence y changelog a la raiz y se
+	      renombra lib/ por bin/.
 	      Refactorizacion parcial de principales funciones.
 	      Se corrigen errores en la terminal para OSX.
+              Reestructuracion de la UI en OSX.
+	      
 
 
 

@@ -178,10 +178,10 @@ class pop:
             self.eventTextSv = StringVar(f)
             if isWindows():
                 self.eventText = Entry(
-                f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv)
+                    f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv)
             else:
                 self.eventText = Entry(
-                f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv, highlightthickness=0)
+                    f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv, highlightthickness=0)
             self.eventText.pack()
             self.eventText.focus_force()
             # self.eventText.bind("<KeyRelease>", _caps)
@@ -191,6 +191,22 @@ class pop:
             self.w.bind("<Return>", self.enviarComando)
             self.w.bind("<F2>", self.destruir)
         elif typeObject == "config_hoa":  # Ventana de configuraciones
+
+            def _buscarNombreColor(color, mode):
+                """
+                Función que busca el nombre del color entregado por el argumento
+                :param color: Color
+                :param mode: Modo de color
+                :return:
+                """
+                for i in self.colors:
+                    if i[1] == color.upper():
+                        return i[0]
+                if mode == "bg":
+                    return self.lang[21]
+                else:
+                    return self.lang[12]
+
             Label(self.w, text=self.lang[
                                    1] + " - Hero of Antair", font=DEFAULT_FONT_TITLE, border=10).pack()
             self.configon = self.lang[6].upper().strip()
@@ -212,13 +228,17 @@ class pop:
                         pass
             else:
                 tkMessageBox.showerror(self.lang[28], self.lang[29])
+            if isWindows():
+                _sizelabel = 12
+            else:
+                _sizelabel = 15
             self.conflang = StringVar(self.w)
             # valor por defecto
             self.conflang.set(properties[5] + " - " + LANGS[properties[5]])
             Label(f, text=self.lang[2], anchor=E, width=18).pack(side=LEFT)
             # menu de opciones para el idioma
             w = apply(OptionMenu, (f, self.conflang) + tuple(langlist))
-            w["width"] = 12
+            w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
             w.pack(side=LEFT)
@@ -236,7 +256,7 @@ class pop:
             # menu de opciones para sonido
             w = apply(
                 OptionMenu, (f, self.confsound) + tuple([self.lang[6], self.lang[7]]))
-            w["width"] = 12
+            w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
             w.pack(side=LEFT)
@@ -254,7 +274,7 @@ class pop:
             # menu de opciones para sonido
             w = apply(
                 OptionMenu, (f, self.confsaveonexit) + tuple([self.lang[6], self.lang[7]]))
-            w["width"] = 12
+            w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
             w.pack(side=LEFT)
@@ -276,21 +296,6 @@ class pop:
                            [self.lang[24], "#009900"],
                            [self.lang[25], "#006600"]]
 
-            def _buscarNombreColor(color, mode):
-                """
-                Función que busca el nombre del color entregado por el argumento
-                :param color: Color
-                :param mode: Modo de color
-                :return:
-                """
-                for i in self.colors:
-                    if i[1] == color.upper():
-                        return i[0]
-                if mode == "bg":
-                    return self.lang[21]
-                else:
-                    return self.lang[12]
-
             # Color fondo consola
             f = Frame(self.w, border=3)
             f.pack(fill=X)
@@ -304,7 +309,7 @@ class pop:
                  self.lang[16], self.lang[17], self.lang[
                      18], self.lang[19], self.lang[20], self.lang[21],
                  self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
-            w["width"] = 12
+            w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
             w.pack(side=LEFT)
@@ -321,7 +326,7 @@ class pop:
                  self.lang[16], self.lang[17], self.lang[
                      18], self.lang[19], self.lang[20], self.lang[21],
                  self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
-            w["width"] = 12
+            w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
             w.pack(side=LEFT)

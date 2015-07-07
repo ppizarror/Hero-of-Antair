@@ -287,8 +287,13 @@ class pop:  # Ventanas emergentes
                 tkSnack.initializeSnack(self.w)
             except:
                 pass
-            self.sound = tkSnack.Sound()
-            self.sound.config(fileformat="mp3")
+            try:
+                self.sound = tkSnack.Sound()
+                _sound = True
+            except:
+                _sound = False
+            if _sound:
+                self.sound.config(fileformat="mp3")
             Label(
                 self.w, text="Escoga un sonido de fondo para el actual mapa", border=10).pack()
             f = Frame(self.w, border=3)
@@ -320,23 +325,26 @@ class pop:  # Ventanas emergentes
             def _stop(e=None):
                 self.sound.stop()
 
-            try:
+            if _sound:
                 Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
                 Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
                 Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
-            except:
-                pass
             Button(self.w, text="Insertar", relief=GROOVE,
                    command=self.enviarBgSound).pack(pady=10)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_sound_mob":  # Sonido del mob
             folder = properties[5]
-            tkSnack.initializeSnack(self.w)
-            self.sound = tkSnack.Sound()
-            self.sound.config(fileformat="mp3")
+            try:
+                tkSnack.initializeSnack(self.w)
+                _sound = True
+            except:
+                _sound = False
+            if _sound:
+                self.sound = tkSnack.Sound()
+                self.sound.config(fileformat="mp3")
             Label(
                 self.w, text="Escoja un sonido para el actual mob", border=10).pack()
             f = Frame(self.w, border=3)
@@ -368,11 +376,12 @@ class pop:  # Ventanas emergentes
             def _stop(e=None):
                 self.sound.stop()
 
-            Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
+            if _sound:
+                Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
                 side=LEFT, padx=1, pady=1)
-            Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
+                Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
                 side=LEFT, padx=1, pady=1)
-            Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
+                Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
                 side=LEFT, padx=1, pady=1)
             Button(self.w, text="Insertar", relief=GROOVE,
                    command=self.enviarBgSound).pack(pady=10)
@@ -465,8 +474,9 @@ class pop:  # Ventanas emergentes
 
             try:
                 tkSnack.initializeSnack(self.w)
+                _sound = True
             except:
-                pass
+                _sound = False
             if typeObject == "new_mob":
                 def _newNpc():
                     self.values.append("create-new-npc")
@@ -539,11 +549,9 @@ class pop:  # Ventanas emergentes
             Label(f, text="Sonido  ", anchor=E, width=12).pack(side=LEFT)
             self.soundmob = Entry(f, relief=GROOVE, width=23)
             self.soundmob.pack(side=LEFT, padx=2)
-            try:
+            if _sound:
                 Button(
                     f, bitmap='snackPlay', relief=GROOVE, command=_setmusic).pack()
-            except:
-                pass
             f = Frame(self.w)
             f.pack(fill=X, padx=3, pady=3)
             Label(f, text="Persigue  ", anchor=E, width=12).pack(side=LEFT)
@@ -1150,10 +1158,10 @@ class pop:  # Ventanas emergentes
     def addObject(self, e=None):
         if isWindows():
             q = pop(
-            ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
         else:
             q = pop(
-            ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
         q.w.mainloop(2)
         if q.sent:
             self.objetomob.delete(0, END)
@@ -1164,10 +1172,10 @@ class pop:  # Ventanas emergentes
     def addObjectnpc(self, e=None):
         if isWindows():
             q = pop(
-            ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
         else:
             q = pop(
-            ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
         q.w.mainloop(2)
         if q.sent:
             self.objetonpc.delete(0, END)

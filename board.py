@@ -379,12 +379,28 @@ class board:
         """
         return self.boardCorrecion[0]
 
+    def modifyBoardCorreccionX(self, val):
+        """
+        Modifica la corrección en X
+        :param val: valor a corregir
+        :return:
+        """
+        self.boardCorrecion[0]+=val
+
     def getBoardCorreccionY(self):
         """
         Función que retorna la corrección en Y
         :return: Integer
         """
         return self.boardCorrecion[1]
+
+    def modifyBoardCorreccionY(self, val):
+        """
+        Modifica la corrección en Y
+        :param val: valor a corregir
+        :return:
+        """
+        self.boardCorrecion[1]+=val
 
     def getItemTexture(self, j, k):
         """
