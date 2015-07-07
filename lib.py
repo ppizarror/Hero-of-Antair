@@ -1065,7 +1065,11 @@ def printAsciiArtHOA():
     try:
         (width, height) = getTerminalSize()  # se obtiene el largo de la consola para dejarlo centrado
         asciiart = open("data/doc/other/asciiart.txt", "r")
-        for i in asciiart: print " " * (int((width - 26) / 2) - 1), i.rstrip()
+        _aligned = False
+        if _aligned:
+            for i in asciiart: print " " * (int((width - 26) / 2) - 1), i.rstrip()
+        else:
+            for i in asciiart: print " " * (20), i.rstrip()
         asciiart.close()
     except:
         pass

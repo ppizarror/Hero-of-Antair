@@ -802,7 +802,7 @@ class hoa:
                         elif typeItem == "armor/chaleco":  # Chaleco
                             self.player.dropObject(i)
                             if self.player.getChaleco() is not None:  # Si el player tiene botas
-                                self.player.addObject(self.player.dropChaleco())
+                                self.player.addObject(self.player.getChaleco())
                                 self.player.dropChaleco()
                                 self.static.addDroppedArmor()
                             self.player.addChaleco(item)
@@ -1756,7 +1756,7 @@ class hoa:
         if _consultArgument("disablearmorinfo", arg):
             CONFIGURATION_DATA[14] = False
         if _consultArgument("disableconfig", arg):
-            CONFIGURATION_DATA[13] = False;
+            CONFIGURATION_DATA[13] = False
             self.archivomenu.entryconfig(5, state=DISABLED)
         if _consultArgument("disableiteminfo", arg):
             CONFIGURATION_DATA[15] = False
@@ -1769,7 +1769,7 @@ class hoa:
         if _consultArgument("disablesaves", arg):
             CONFIGURATION_DATA[12] = False
         if _consultArgument("disableterminal", arg):
-            CONFIGURATION_DATA[11] = False;
+            CONFIGURATION_DATA[11] = False
             self.ayudamenu.entryconfig(6, state=DISABLED)
         if _consultArgument("disabletranslation", arg):
             CONFIGURATION_DATA[10] = False
@@ -3397,7 +3397,7 @@ class hoa:
                                 self.player.setEdad(int(data))
                                 self.setInfo(lang(162, str(data)))
                                 self.static.addTrucos()
-                            elif action == "EXPERIENCE" or action == "PLAYER.EXPERIENCE":
+                            elif action == "EXPERIENCE" or action == "PLAYER.EXP":
                                 l = self.player.getLevel()  # nivel antes de subir
                                 self.player.setExperience(int(data))
                                 while True:  # Se revisa si ha subido de nivel
@@ -4132,6 +4132,8 @@ class hoa:
         :param icon: String de icono
         :return:
         """
+        if not isWindows():
+            if h == 70: h = 75
         self.initialBg.config(cursor="arrow")
         if icon == "":
             e = pop([[lang(54), lang(173)], self.images.image("alert_icon"), "aviso", h, w, text])
