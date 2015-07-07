@@ -864,7 +864,7 @@ def lookPrimaryArguments():
             exit()
         elif sys.argv[1] == "-changelog" or sys.argv[1] == "/changelog":
             try:
-                changelog = open("data/doc/hoa/changelog.txt", "r")
+                changelog = open("CHANGELOG", "r")
                 print ""
                 for line in changelog:
                     if line != "": print delAcentos(str(line)).rstrip()
@@ -916,6 +916,15 @@ def lookPrimaryArguments():
                     if ".py" in file:
                         listedfiles.append(file)
                         archv = open(file, "r")
+                        for l in archv:
+                            total += 1
+                        archv.close()
+                        totallines.append(total)
+                        total = 0
+                for file in os.listdir(_actualpath + "/bin/scripts/"):
+                    if ".py" in file:
+                        listedfiles.append(file)
+                        archv = open(_actualpath + "/bin/scripts/" + file, "r")
                         for l in archv:
                             total += 1
                         archv.close()
