@@ -34,9 +34,12 @@ ST_WARNING = "[WRN]"
 WRAP_ERROR_MSG = 70
 
 
-def st_error(msg, callExit=False):
+def st_error(msg, callExit=False, module=None):
     """Muestra un mensaje de error en pantalla"""
-    print color.RED + ST_ERROR + color.END + " {0}".format(msg)
+    if module is None:
+        print color.RED + ST_ERROR + color.END + " {0}".format(msg)
+    else:
+        print color.RED + ST_ERROR + color.END + " {0} ".format(msg) + "[" + color.UNDERLINE + module + color.END + "]"
     if callExit:
         exit()
 

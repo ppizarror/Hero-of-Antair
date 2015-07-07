@@ -14,8 +14,7 @@ _POWERID = -1
 
 # Poderes del juego
 POWERLIST = {
-    # ID     #NOMBRE #SHORT #DESCRIPCION #_POWERID #IMAGEN #NIVEL #TIEMPO
-    # #MANA (0=UNICO)
+    # ID     NOMBRE SHORT DESCRIPCION ID IMAGEN NIVEL TIEMPO MANA (0=UNICO)
     0: ["Escape rápido", "escrap", "Permite escapar rápidamente de cualquier enemigo", _POWERID, "fastescape", 1, 0,
         10], \
     1: ["Regenerar vida", "revida", "Tu vida se regenerará en un periodo de tiempo", _POWERID, "regvida", 3, 3, 15], \
@@ -45,9 +44,7 @@ for i in POWERLIST.keys():
 
 
 class Power:
-    """
-    Poderes
-    """
+    """Poderes"""
 
     def __init__(self, data):
         """

@@ -138,6 +138,7 @@ class pop:
             c = Checkbutton(self.w, text=self.lang[
                 3], variable=self.buscaractualizacion, onvalue=1, offvalue=0)
             c.pack()
+            self.w.bind("<Escape>", self.destruir)
         elif typeObject == "command":  # Ventana de comandos
             self.commandsfile = properties[5] + "prevcommands.log"
             self.commands = loadFromArchive(

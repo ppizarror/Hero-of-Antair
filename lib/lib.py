@@ -35,6 +35,7 @@ sys.path.append(_actualpath + "/bin/wconio/")
 
 # Importación de librerías de bajo nivel
 _mechanize = True
+_tksnack = True
 _wconio = True
 _winsound = True
 
@@ -61,6 +62,7 @@ try:
     import io
     import json
     # noinspection PyDeprecation
+    import math
     import md5
     import random
     import re
@@ -82,7 +84,7 @@ try:
     try:
         import tkSnack
     except:
-        pass
+        _tksnack = False
     try:
         import winsound
     except:
@@ -96,7 +98,7 @@ try:
     except:
         _wconio = False
 except:
-    st_error("Error al cargar librerias", True)
+    st_error("Error al cargar librerias externas", True, "lib.py")
 
 # Configuracion de librerías
 sys.dont_write_bytecode = not getConfigValue("core.compile", True)
@@ -121,7 +123,8 @@ ENDING_ARGUMENT = ""
 DEV_MODE = True
 OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
-LINK_PPPRJ = "http://projects.ppizarror.com/version?product=HOA"
+LINK_PROJECT = "https://github.com/ppizarror/Hero-of-Antair/"
+LINK_UPDATES = "http://projects.ppizarror.com/version?product=HOA"
 SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5", ".quest", ".powers", ".hoacmd", ".maplogic",
                   ".mapmob", ".mapnpc", ".statics", ".mapitemtexture"]
 VERBOSE_FILELOAD = getConfigValue("verbose.load.file")
@@ -625,11 +628,11 @@ def getVersion(label, headers):
     if _mechanize and QUERY_WEB:
         browser = Browser()
         browser.addHeaders(headers)
-        browser.abrirLink(LINK_PPPRJ)
+        browser.abrirLink(LINK_UPDATES)
         html = browser.getHtml()
     else:
         http_headers = {"User-Agent": headers}
-        request_object = Request(LINK_PPPRJ, None, http_headers)
+        request_object = Request(LINK_UPDATES, None, http_headers)
         response = urllib2.urlopen(request_object)
         html = response.read()
     html = getBetweenTags(getBetweenTags(html, "<" + label + ">", "</" + label + ">"), "<version>", "</version>")

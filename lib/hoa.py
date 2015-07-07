@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Hero of Antair
+# Hero of Antair, motor gráfico para juego RPG
 
 # HOA
 # Autor: PABLO PIZARRO @ ppizarro
@@ -36,6 +36,7 @@ try:
     import zipfile
 except:
     print "error"
+    st_error("Error al cargar librerias internas", True, "hoa.py")
     exit()
 print OK
 
@@ -111,9 +112,19 @@ PLAYER_TEXT_TIME = 600  # duración de los mensajes flash
 QUEST_DELIMITER = "%"  # short que delimita la división lógica de los quest
 SHOWMESSAGESTIME = 3500  # tiempo para mostrar los mensajes
 TIME_DISSAPEAR_EFFECT = 1000  # tiempo en milisegundos para mostrar efectos (flechas, fuego etc)
+TKSNACK = [True]  # sonidos del sistema
 WIDTHMESSAGES = 210  # largo máximo de los recuadros de texto
-
-# Configuraciones en funcion de SO tamaño de la ventana del programa
+try:
+    LANG_LIST = loadFromArchive(DATA_LANGS + "/config/langs.txt", "Cargando archivo '{0}' ...", False)
+    LANG_CONST = loadFromArchive(DATA_LANGS + "/config/const.ini", "Cargando archivo '{0}' ...", False)
+    LANG_END = LANG_CONST[0]
+    LANG_SEP = LANG_CONST[1].replace("*", " ")
+except:  # Si ocurre un error al cargar el archivo de idiomas se termina la ejecución del programa
+    st_error("Error fatal")
+    pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88, 300,
+         "No se encuentra el archivo de idiomas, " + \
+         PROGRAM_TITLE + " no puede iniciarse."]).w.mainloop(0)
+    exit()
 if isWindows():
     _SECOND_BUTTON = "<Button-3>"
     BAR_POND_COEF = 1.0
@@ -131,106 +142,77 @@ else:
     POP_YSIZE = 390
     PROGRAM_SIZE = 803, 574
 
-# Se cargan las configuraciones
-try:  # Se cargan la lista de idiomas disponibles
-    LANG_LIST = loadFromArchive(DATA_LANGS + "/config/langs.txt", "Cargando archivo '{0}' ...", False)
-    LANG_CONST = loadFromArchive(DATA_LANGS + "/config/const.ini", "Cargando archivo '{0}' ...", False)
-    LANG_END = LANG_CONST[0]
-    LANG_SEP = LANG_CONST[1].replace("*", " ")
-except:  # Si ocurre un error al cargar el archivo de idiomas se termina la ejecución del programa
-    st_error("Error fatal")
-    pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88, 300,
-         "No se encuentra el archivo de idiomas, " + \
-         PROGRAM_TITLE + " no puede iniciarse."]).w.mainloop(0)
-    exit()
-
-
-def loadConfig():
-    """
-    Se cargan las configuraciones del juego
-    :return: void
-    """
-    try:  # Se consulta el archivo de configuraciones
-        print "Consultando configuraciones ...",
-        conf_file = open(CONFIGURATION_FILE, "r")  # cargo archivo de configuraciones
-        # noinspection PyShadowingNames,PyShadowingNames
-        for i in conf_file:
-            # noinspection PyShadowingNames
-            i = i.strip()
-            c_command = i.split("=")
-            if c_command[0].strip() == "CONSOLE_BACKGROUND":  # Color de fondo de la consola
-                c_after_command = str(c_command[1]).split(",")
-                CONFIGURATION_DATA[3] = c_after_command[0].strip().upper()
-            if c_command[0].strip() == "CONSOLE_FOREGROUND":  # Color del texto de la consola
-                c_after_command = str(c_command[1]).split(",")
-                CONFIGURATION_DATA[4] = c_after_command[0].strip().upper()
-            if c_command[0].strip() == "SAVE_ON_EXIT":  # Guardar al salir
-                c_after_command = str(c_command[1]).split(",")
-                if c_after_command[0].strip().upper() == "ON":
-                    CONFIGURATION_DATA[2] = True
-                else:
-                    CONFIGURATION_DATA[2] = False
-            if c_command[0].strip() == "LANGUAJE":  # idioma
-                c_after_command = str(c_command[1]).split(",")
-                if len(c_after_command[0].strip()) != 0 and (
-                                c_after_command[0].strip().upper() + LANG_END in LANG_LIST):
-                    CONFIGURATION_DATA[0] = c_after_command[0].strip().upper()
-            if c_command[0].strip() == "SOUND":  # sonido
-                c_after_command = str(c_command[1]).split(",")
-                if c_after_command[0].strip().upper() == "ON":
-                    CONFIGURATION_DATA[1] = True
-                else:
-                    CONFIGURATION_DATA[1] = False
-        conf_file.close()
-    except:  # Se genera un nuevo archivo de configuraciones si este no existe
-        print "generando configuraciones ...",
-        archivo = open(CONFIGURATION_FILE, "w")
-        archivo.write("#Archivo de Configuraciones\n")
-        archivo.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
-        archivo.write("#Colores de la consola\n")
-        archivo.write("CONSOLE_BACKGROUND = " + str(CONFIGURATION_DATA[3]) + "\n")
-        archivo.write("CONSOLE_FOREGROUND = " + str(CONFIGURATION_DATA[4]) + "\n\n")
-        archivo.write("#Guardar al salir\n")
-        archivo.write("SAVE_ON_EXIT = OFF\n\n")
-        archivo.write("#Idioma\n")
-        archivo.write("LANGUAJE = " + str(CONFIGURATION_DATA[0]) + "\n\n")
-        archivo.write("#Sonidos del programa\n")
-        archivo.write("SOUND = ON")
-        archivo.close()
-    print OK
-
-
-def loadStConfig():
-    """
-    Se cargan las configuraciones del servicio de traducciones
-    :return: void
-    """
-    try:  # Cargo el archivo de configuraciones de las traducciones
-        print "Consultando configuraciones del servicio de traducciones ...",
-        config = open(CONFIGURATION_TNSL, "r")
+# Configuración del programa
+try:  # Se cargan las configuraciones
+    print "Consultando configuraciones ...",
+    conf_file = open(CONFIGURATION_FILE, "r")  # cargo archivo de configuraciones
+    # noinspection PyShadowingNames,PyShadowingNames
+    for i in conf_file:
         # noinspection PyShadowingNames
-        for i in config:  # Se recorren las lineas de las configuraciones
-            if ("#" not in i) and i != "":  # Si la linea es válida
-                i = i.split("=")
-                if i[0].strip() == "HEADER": CONFIGURATION_DATA[5] = i[1].strip()
-                if i[0].strip() == "HREF": CONFIGURATION_DATA[6] = i[1].strip()
-                if i[0].strip() == "ACTIVE": CONFIGURATION_DATA[7] = i[1].strip()
-        config.close()
-        print OK
-    except:  # Si no existe el archivo de configuración de las traducciones
-        print "generando configuraciones ...",
-        archivo = open(CONFIGURATION_TNSL, "w")
-        archivo.write("#Configuraciones del servicio de traducciones (google)\n")
-        archivo.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
-        archivo.write("ACTIVE = " + str(CONFIGURATION_DATA[7]) + "\n")
-        archivo.write("HEADER = " + str(CONFIGURATION_DATA[5]) + "\n")
-        archivo.write("HREF = " + str(CONFIGURATION_DATA[6]))
-        archivo.close()
-        print OK
-
-
-loadConfig()
-loadStConfig()
+        i = i.strip()
+        c_command = i.split("=")
+        if c_command[0].strip() == "CONSOLE_BACKGROUND":  # Color de fondo de la consola
+            c_after_command = str(c_command[1]).split(",")
+            CONFIGURATION_DATA[3] = c_after_command[0].strip().upper()
+        if c_command[0].strip() == "CONSOLE_FOREGROUND":  # Color del texto de la consola
+            c_after_command = str(c_command[1]).split(",")
+            CONFIGURATION_DATA[4] = c_after_command[0].strip().upper()
+        if c_command[0].strip() == "SAVE_ON_EXIT":  # Guardar al salir
+            c_after_command = str(c_command[1]).split(",")
+            if c_after_command[0].strip().upper() == "ON":
+                CONFIGURATION_DATA[2] = True
+            else:
+                CONFIGURATION_DATA[2] = False
+        if c_command[0].strip() == "LANGUAJE":  # idioma
+            c_after_command = str(c_command[1]).split(",")
+            # noinspection PyUnboundLocalVariable
+            if len(c_after_command[0].strip()) != 0 and (
+                            c_after_command[0].strip().upper() + LANG_END in LANG_LIST):
+                CONFIGURATION_DATA[0] = c_after_command[0].strip().upper()
+        if c_command[0].strip() == "SOUND":  # sonido
+            c_after_command = str(c_command[1]).split(",")
+            if c_after_command[0].strip().upper() == "ON":
+                CONFIGURATION_DATA[1] = True
+            else:
+                CONFIGURATION_DATA[1] = False
+    conf_file.close()
+except:  # Se genera un nuevo archivo de configuraciones si este no existe
+    print "generando configuraciones ...",
+    archivo = open(CONFIGURATION_FILE, "w")
+    archivo.write("#Archivo de Configuraciones\n")
+    archivo.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
+    archivo.write("#Colores de la consola\n")
+    archivo.write("CONSOLE_BACKGROUND = " + str(CONFIGURATION_DATA[3]) + "\n")
+    archivo.write("CONSOLE_FOREGROUND = " + str(CONFIGURATION_DATA[4]) + "\n\n")
+    archivo.write("#Guardar al salir\n")
+    archivo.write("SAVE_ON_EXIT = OFF\n\n")
+    archivo.write("#Idioma\n")
+    archivo.write("LANGUAJE = " + str(CONFIGURATION_DATA[0]) + "\n\n")
+    archivo.write("#Sonidos del programa\n")
+    archivo.write("SOUND = ON")
+    archivo.close()
+print OK
+try:  # Se cargan las configuraciones del servicio de traducciones
+    print "Consultando configuraciones del servicio de traducciones ...",
+    config = open(CONFIGURATION_TNSL, "r")
+    # noinspection PyShadowingNames
+    for i in config:  # Se recorren las lineas de las configuraciones
+        if ("#" not in i) and i != "":  # Si la linea es válida
+            i = i.split("=")
+            if i[0].strip() == "HEADER": CONFIGURATION_DATA[5] = i[1].strip()
+            if i[0].strip() == "HREF": CONFIGURATION_DATA[6] = i[1].strip()
+            if i[0].strip() == "ACTIVE": CONFIGURATION_DATA[7] = i[1].strip()
+    config.close()
+except:  # Si no existe el archivo de configuración de las traducciones
+    print "generando configuraciones ...",
+    archivo = open(CONFIGURATION_TNSL, "w")
+    archivo.write("#Configuraciones del servicio de traducciones (google)\n")
+    archivo.write("#No haga cambios indebidos, ellos pueden afectar al comportamiento del programa\n\n")
+    archivo.write("ACTIVE = " + str(CONFIGURATION_DATA[7]) + "\n")
+    archivo.write("HEADER = " + str(CONFIGURATION_DATA[5]) + "\n")
+    archivo.write("HREF = " + str(CONFIGURATION_DATA[6]))
+    archivo.close()
+print OK
 ST_HEADER = CONFIGURATION_DATA[5]  # header de las consultas http
 ST_HREF = CONFIGURATION_DATA[6]  # link de las consultas http
 ST_TRANSLATE = False  # lógico que define si se busca o no
@@ -258,6 +240,7 @@ if CONFIGURATION_DATA[7] == "ON" or (
     if CONFIGURATION_DATA[8] == "es": CONFIGURATION_DATA[10] = False; CONFIGURATION_DATA[9] = False
 
 
+# Funciones de idiomas
 def translate(text):
     """
     Función que traduce un texto usando el servicio de google traductor
@@ -451,31 +434,57 @@ class hoa:
                         self.info.config(bg=conf.values[3], fg=conf.values[4])
                         self.menubar.delete(0, 3)
                         self.archivomenu = Menu(self.menubar, tearoff=0)
-                        self.archivomenu.add_command(label=lang(10), command=self.newGame, accelerator="Ctrl+N")
-                        self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Ctrl+L")
-                        self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Ctrl+G")
-                        self.archivomenu.add_command(label=lang(13), command=self.abortGame)
-                        self.archivomenu.add_separator()
-                        self.archivomenu.add_command(label=lang(17), command=_configure, accelerator="Ctrl+C")
-                        self.archivomenu.add_command(label=lang(15), command=self.salir, accelerator="Ctrl+S")
-                        self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
-                        self.vermenu = Menu(self.menubar, tearoff=0)
-                        self.vermenu.add_command(label=lang(702), command=_verFollowers, accelerator="U")
-                        self.vermenu.add_command(label=lang(323), command=_showPlayerInfo, accelerator="I")
-                        self.vermenu.add_command(label=lang(14), command=_showStatics, accelerator="Ctrl+E")
-                        self.vermenu.add_command(label=lang(587), command=_verQuest, accelerator="T")
-                        self.vermenu.add_command(label=lang(322), command=_showMap, accelerator="M")
-                        self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
-                        self.ayudamenu = Menu(self.menubar, tearoff=0)
-                        self.ayudamenu.add_command(label=lang(18), command=_about)
-                        self.ayudamenu.add_command(label=lang(19), command=_ayuda, accelerator="F1")
-                        self.ayudamenu.add_command(label=lang(20), command=_changelog)
-                        self.ayudamenu.add_command(label=lang(21), command=_licence)
-                        self.ayudamenu.add_separator()
-                        self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
-                        self.ayudamenu.add_command(label=lang(326), command=self.devConsole, accelerator="F2")
-                        if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
-                                                                              accelerator="F12")
+                        if isWindows():
+                            self.archivomenu.add_command(label=lang(10), command=self.newGame, accelerator="Ctrl+N")
+                            self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Ctrl+L")
+                            self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Ctrl+G")
+                            self.archivomenu.add_command(label=lang(13), command=self.abortGame)
+                            self.archivomenu.add_separator()
+                            self.archivomenu.add_command(label=lang(17), command=_configure, accelerator="Ctrl+C")
+                            self.archivomenu.add_command(label=lang(15), command=self.salir, accelerator="Ctrl+S")
+                            self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
+                            self.vermenu = Menu(self.menubar, tearoff=0)
+                            self.vermenu.add_command(label=lang(702), command=_verFollowers, accelerator="U")
+                            self.vermenu.add_command(label=lang(323), command=_showPlayerInfo, accelerator="I")
+                            self.vermenu.add_command(label=lang(14), command=_showStatics, accelerator="Ctrl+E")
+                            self.vermenu.add_command(label=lang(587), command=_verQuest, accelerator="T")
+                            self.vermenu.add_command(label=lang(322), command=_showMap, accelerator="M")
+                            self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
+                            self.ayudamenu = Menu(self.menubar, tearoff=0)
+                            self.ayudamenu.add_command(label=lang(18), command=_about)
+                            self.ayudamenu.add_command(label=lang(19), command=_ayuda, accelerator="F1")
+                            self.ayudamenu.add_command(label=lang(20), command=_changelog)
+                            self.ayudamenu.add_command(label=lang(21), command=_licence)
+                            self.ayudamenu.add_separator()
+                            self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
+                            self.ayudamenu.add_command(label=lang(326), command=self.devConsole, accelerator="F2")
+                            if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
+                                                                                  accelerator="F12")
+                        else:
+                            self.archivomenu.add_command(label=lang(10), command=self.newGame)
+                            self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Control+L")
+                            self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Control+G")
+                            self.archivomenu.add_command(label=lang(13), command=self.abortGame)
+                            self.archivomenu.add_separator()
+                            self.archivomenu.add_command(label=lang(17), command=_configure)
+                            self.archivomenu.add_command(label=lang(15), command=self.salir)
+                            self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
+                            self.vermenu = Menu(self.menubar, tearoff=0)
+                            self.vermenu.add_command(label=lang(702), command=_verFollowers)
+                            self.vermenu.add_command(label=lang(323), command=_showPlayerInfo)
+                            self.vermenu.add_command(label=lang(14), command=_showStatics)
+                            self.vermenu.add_command(label=lang(587), command=_verQuest)
+                            self.vermenu.add_command(label=lang(322), command=_showMap)
+                            self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
+                            self.ayudamenu = Menu(self.menubar, tearoff=0)
+                            self.ayudamenu.add_command(label=lang(18), command=_about)
+                            self.ayudamenu.add_command(label=lang(19), command=_ayuda)
+                            self.ayudamenu.add_command(label=lang(20), command=_changelog)
+                            self.ayudamenu.add_command(label=lang(21), command=_licence)
+                            self.ayudamenu.add_separator()
+                            self.ayudamenu.add_command(label=lang(327), command=self.update, accelerator="F5")
+                            self.ayudamenu.add_command(label=lang(326), command=self.devConsole)
+                            if "-eclipse" in sys.argv: self.ayudamenu.add_command(label=lang(325), command=_infoSystem)
                         self.menubar.add_cascade(label=lang(19), menu=self.ayudamenu)
                         self.vidaLabel.config(text=lang(22))
                         self.manaLabel.config(text=lang(23))
@@ -489,19 +498,13 @@ class hoa:
                             else:
                                 self.archivomenu.entryconfig(2, state=DISABLED)
                             self.archivomenu.entryconfig(3, state=NORMAL)
-                            self.vermenu.entryconfig(0, state=NORMAL)
-                            self.vermenu.entryconfig(1, state=NORMAL)
-                            self.vermenu.entryconfig(2, state=NORMAL)
-                            self.vermenu.entryconfig(3, state=NORMAL)
-                            self.vermenu.entryconfig(4, state=NORMAL)
+                            for k in range(5):
+                                self.vermenu.entryconfig(k, state=NORMAL)
                         else:
                             self.archivomenu.entryconfig(2, state=DISABLED)
                             self.archivomenu.entryconfig(3, state=DISABLED)
-                            self.vermenu.entryconfig(0, state=DISABLED)
-                            self.vermenu.entryconfig(1, state=DISABLED)
-                            self.vermenu.entryconfig(2, state=DISABLED)
-                            self.vermenu.entryconfig(3, state=DISABLED)
-                            self.vermenu.entryconfig(4, state=DISABLED)
+                            for k in range(5):
+                                self.vermenu.entryconfig(k, state=DISABLED)
                         if CONFIGURATION_DATA[
                             8] not in AVAIABLE_LANGS_TOPRINT:  # Desactivar la función print si el idioma no es español o ingles
                             sys.stdout, sys.stderr, sys.stdin, sys.__stdout__, sys.__stderr__, sys.__stdin__ = noStdOut(), noStdOut(), noStdOut(), \
@@ -1384,10 +1387,11 @@ class hoa:
             self.sndFx = tkSnack.Sound()  # sonido de efecto
             self.sfx(0)
             print lang(310)  # cargo el sonido de introducción
+            TKSNACK[0] = True
         except:  # Ocurrió un error al cargar la libreria de datos de tcl, se menciona y se deshabilitan los sonidos
-            CONFIGURATION_DATA[1] = False
             print lang(756)
             print lang(794)
+            TKSNACK[0] = False
             self.snd = None
             self.sndBg = None
             self.sndFx = None
@@ -1439,8 +1443,8 @@ class hoa:
                                                                   accelerator="F12")
         else:
             self.archivomenu.add_command(label=lang(10), command=self.newGame)
-            self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Ctrl+L")
-            self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Ctrl+G")
+            self.archivomenu.add_command(label=lang(11), command=self.loadGame, accelerator="Control+L")
+            self.archivomenu.add_command(label=lang(12), command=self.saveGame, accelerator="Control+G")
             self.archivomenu.add_command(label=lang(13), command=self.abortGame)
             self.archivomenu.add_separator()
             self.archivomenu.add_command(label=lang(17), command=_configure)
@@ -1642,8 +1646,12 @@ class hoa:
             self.root.bind("<t>", _verQuest)
             self.root.bind("<U>", _verFollowers)
             self.root.bind("<u>", _verFollowers)
-            self.root.bind("<Control-S>", self.salir)
-            self.root.bind("<Control-s>", self.salir)
+            if isWindows():
+                self.root.bind("<Control-S>", self.salir)
+                self.root.bind("<Control-s>", self.salir)
+            else:
+                self.root.bind("<Control-q>", self.salir)
+                self.root.bind("<Control-Q>", self.salir)
             self.root.bind("<Control-Down>", _moveLineDown)
             self.root.bind("<Control-Up>", _moveLineUp)
             self.root.bind("<End>", _movebottom)
@@ -1830,12 +1838,18 @@ class hoa:
                         print lang(748)
                     else:
                         print lang(749)
+                        if isWindows():
+                            ysize = 145
+                            xsize = 280
+                        else:
+                            ysize = 160
+                            xsize = 320
                         e = pop([[lang(754), lang(751), lang(752), lang(753), lang(750), lang(327), lang(239)],
                                  self.images.image("actualizacion"), "actualizacion", \
-                                 145, 280, PROGRAM_VERSION, version])
+                                 ysize, xsize, PROGRAM_VERSION, version])
                         e.w.mainloop(1)
                         if e.sent:
-                            if e.values[0] == "si": webbrowser.open(LINK_PPPRJ)
+                            if e.values[0] == "si": webbrowser.open(LINK_PROJECT)
                             if e.values[1] == 1: archivo = open(CONFIGURATION_ACTL, "w"); archivo.write(
                                 "-actl=1"); archivo.close()
                         del e
@@ -1881,7 +1895,8 @@ class hoa:
             self.stopSound()
             self.multiplayer_desconnect(False)
             print lang(396),
-            if e != "newgame":  # Destruyo las ventanas y muestro la original
+            # Se destruyen las ventanas y se dibuja la inicial
+            if e != "newgame":
                 self.menu.pack_forget()
                 self.menu2.pack_forget()
                 self.content.pack_forget()
@@ -1892,14 +1907,11 @@ class hoa:
                 self.initialBg.update()
                 self.archivomenu.entryconfig(2, state=DISABLED)
                 self.archivomenu.entryconfig(3, state=DISABLED)
-                self.vermenu.entryconfig(0, state=DISABLED)
-                self.vermenu.entryconfig(1, state=DISABLED)
-                self.vermenu.entryconfig(2, state=DISABLED)
-                self.vermenu.entryconfig(3, state=DISABLED)
-                self.vermenu.entryconfig(4, state=DISABLED)
+                for k in range(5):
+                    self.vermenu.entryconfig(k, state=DISABLED)
                 self.sfx(0)
 
-            # Destruyo la información del jugador
+            # Se destruye la información del jugador
             delMatrix(self.dificultad)
             delMatrix(self.mapItemsTextures)
             delMatrix(self.mapLogic)
@@ -1916,7 +1928,7 @@ class hoa:
             except:
                 pass
 
-            # Cancelo las funciones periódicas
+            # Se cancelan los threads
             try:
                 self.root.after_cancel(self.lastnpcmovementid)
             except:
@@ -1931,7 +1943,7 @@ class hoa:
                 pass
             self.delInfo()
 
-            # Reconstruyo la información
+            # Se reconstruye el jugador
             self.activePowers = ["playername", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
             self.board = None
             self.canmove = True
@@ -3063,7 +3075,6 @@ class hoa:
                             self.mapLogic[self.enemy.getPosicionY()][
                                 self.enemy.getPosicionX()] = "none"  # se modifica el mapa lógico
                             self.incrementarExperiencia(self.enemy.getExp())  # aumenta la experiencia del jugador
-                            self.setInfo(lang(94, str(self.enemy.getExp())))
                             obj = self.enemy.getObjDrown()  # se obtiene el objeto del mob
                             if obj != "%NULL%":  # Si el objeto recogido no es vacío
                                 self.static.addObj()
@@ -4140,6 +4151,7 @@ class hoa:
         if not isWindows():
             if h == 70: h = 75
         self.initialBg.config(cursor="arrow")
+        st_error(text)
         if icon == "":
             e = pop([[lang(54), lang(173)], self.images.image("alert_icon"), "aviso", h, w, text])
             e.w.mainloop(2)
@@ -4257,28 +4269,8 @@ class hoa:
         :param k: Index en el mapa
         :return: void
         """
-        pos = prev * 100 / tot  # calcula el porcentaje de vida
-        # Según el porcentaje se define la barra de vida a utilizar
-        if 0 <= pos < 10:
-            img = "life1"
-        elif 10 < pos <= 20:
-            img = "life2"
-        elif 20 < pos <= 30:
-            img = "life3"
-        elif 30 < pos <= 40:
-            img = "life4"
-        elif 40 < pos <= 50:
-            img = "life5"
-        elif 50 < pos <= 60:
-            img = "life6"
-        elif 60 < pos <= 70:
-            img = "life7"
-        elif 70 < pos <= 80:
-            img = "life8"
-        elif 80 < pos <= 90:
-            img = "life9"
-        elif 90 < pos <= 100:
-            img = "life10"
+        # se obtiene la imagen de acuerdo al nivel de vida
+        img = "life{0}".format(int(math.ceil(max(prev * 100 / tot, 1) / 10.0)))
         try:
             self.world.create_image(32 * x + self.canvasCorrecion[1] + 18, 32 * y + self.canvasCorrecion[0] - 9,
                                     image=self.images.image(img), tags="lifebar:" + str(k))
@@ -4715,11 +4707,8 @@ class hoa:
                     self.initialBg.pack_forget()
                     if CONFIGURATION_DATA[12]: self.archivomenu.entryconfig(2, state=NORMAL)
                     self.archivomenu.entryconfig(3, state=NORMAL)
-                    self.vermenu.entryconfig(0, state=NORMAL)
-                    self.vermenu.entryconfig(1, state=NORMAL)
-                    self.vermenu.entryconfig(2, state=NORMAL)
-                    self.vermenu.entryconfig(3, state=NORMAL)
-                    self.vermenu.entryconfig(4, state=NORMAL)
+                    for k in range(5):
+                        self.vermenu.entryconfig(k, state=NORMAL)
                     self.sfx(30)
                     self.setInfo(lang(447, self.player.getName()))  # Mensaje de bienvenida
                 else:  # Si el archivo ha sido modificado
@@ -5487,7 +5476,7 @@ class hoa:
                     self.setInfo("", False)
                     self.setInfo(lang(51), False)
                     self.setInfo(lang(49), False)
-                    self.update()  # actualizo todo
+                    self.update()  # se actualiza la UI
                     self.sfx(30)  # se carga el sonido de comienzo
                     editorkey = base64.b64encode(
                         md5.new(self.player.getName()).digest())  # se comprueba si el jugador es editor o no
@@ -5780,7 +5769,7 @@ class hoa:
                 else:
                     nameSav = self.namePartida
                     continuar = True
-                if len(nameSav) > 0 and continuar:  # Si está todo listo
+                if len(nameSav) > 0 and continuar:  # Si está listo
                     nameSav = nameSav.replace(u"\ufeff",
                                               "")  # reemplazo caracteres no válidos para el nombre del archivo
                     self.static.addJuegosGuardados()
@@ -6164,8 +6153,9 @@ class hoa:
                 self.console.insert(0, getHour() + " " + putStrict(text))  # se agrega mensaje con hora
             else:
                 self.console.insert(0, putStrict(text))
-        if len(
-                self.console) > LIMIT_MESSAGES_CONSOLE: self.console.pop()  # si la consola alcanza el límite de mensajes luego se elimina el último
+        # Si la consola alcanza el límite de mensajes luego se elimina el último
+        if len(self.console) > LIMIT_MESSAGES_CONSOLE:
+            self.console.pop()
         self.info.config(text=consoled(self.console))
         self.infoSlider.canv.yview_scroll(-1000, "units")
 
@@ -6176,8 +6166,7 @@ class hoa:
         """
         try:
             mapa = loadFromArchive(DATA_LEVELS + self.player.getMap(), lang(400))  # carga del mapa
-            self.root.title(self.programTitle + " - " + str(translate(mapa[0])).replace("'",
-                                                                                        ""))  # se modifica el título de la ventana
+            self.root.title(self.programTitle + " - " + str(translate(mapa[0])).replace("'", ""))
             size = mapa[2].split(",")
             self.mapSize = int(size[0]), int(size[1])
             delMatrix(self.mapItemsTextures)
@@ -6396,7 +6385,7 @@ class hoa:
         :param e: Event
         :return: void
         """
-        if CONFIGURATION_DATA[1]:  # Si los sonidos están activados
+        if CONFIGURATION_DATA[1] and TKSNACK[0]:  # Si los sonidos están activados
             self.sndBg.play()
             if self.mapBackgroundSound[1] is not None: self.root.after_cancel(self.mapBackgroundSound[1])
 
@@ -6420,12 +6409,13 @@ class hoa:
         :param archivo: Archivo de sonido
         :return: void
         """
-        if archivo != "" and CONFIGURATION_DATA[1]:  # Si el sonido existe y los sonidos están activados
+        # Si el sonido existe y los sonidos están activados
+        if archivo != "" and CONFIGURATION_DATA[1] and TKSNACK[0]:
             try:
                 self.snd.read(archivo)
                 self.snd.play()
             except:
-                print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
+                print st_error(lang(404, "(...)" + archivo[CONSOLE_WRAP:]))
 
     def sonidoBg(self, archivo):
         """
@@ -6433,8 +6423,8 @@ class hoa:
         :param archivo: String de sonido
         :return: void
         """
-        if archivo != "" and CONFIGURATION_DATA[
-            1] and archivo != SOUND_AMBIENCE + "%MAPSOUND%":  # Si el archivo existe y los sonidos están activados
+        # Si el archivo existe y los sonidos están activados
+        if archivo != "" and CONFIGURATION_DATA[1] and archivo != SOUND_AMBIENCE + "%MAPSOUND%" and TKSNACK[0]:
             try:
                 print lang(670).format("(...)" + (self.mapBackgroundSound[0])[-37:]),
                 self.sndBg.read(archivo)
@@ -6442,7 +6432,7 @@ class hoa:
                 print lang(310)
             except:
                 print lang(398)
-                print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
+                print st_error(lang(404, "(...)" + archivo[CONSOLE_WRAP:]))
 
     def sonidoFx(self, archivo):
         """
@@ -6450,13 +6440,14 @@ class hoa:
         :param archivo: String de sonido
         :return: void
         """
-        if archivo != "" and CONFIGURATION_DATA[1]:  # Si el archivo existe y los sonidos están activados
+        # Si el archivo existe y los sonidos están activados
+        if archivo != "" and CONFIGURATION_DATA[1] and TKSNACK[0]:
             try:
                 self.sndFx.stop()
                 self.sndFx.read(archivo)
                 self.sndFx.play()
             except:
-                print lang(404, "(...)" + archivo[CONSOLE_WRAP:])
+                print st_error(lang(404, "(...)" + archivo[CONSOLE_WRAP:]))
 
     def stopSound(self, mode="normal"):
         """
@@ -6464,7 +6455,7 @@ class hoa:
         :param mode: Modo de reproducción
         :return: void
         """
-        if CONFIGURATION_DATA[1] or mode == "silent":  # Si los sonidos están activados
+        if (CONFIGURATION_DATA[1] or mode == "silent") and TKSNACK[0]:  # Si los sonidos están activados
             if mode != "silent": print lang(432),
             try:
                 self.snd.stop()

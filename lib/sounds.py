@@ -13,7 +13,8 @@ import os
 
 # Constantes del programa
 ACTUAL_FOLDER = str(
-    os.path.abspath(os.path.dirname(__file__))).replace("\\", "/") + "/"
+    os.path.abspath(os.path.dirname(__file__))).replace("\\", "/").replace("lib","")
+print ACTUAL_FOLDER
 AUDIO_VOLUME = 80
 DATA_FOLDER = ACTUAL_FOLDER + "data/"
 DATA_SOUND = DATA_FOLDER + "sound/"
