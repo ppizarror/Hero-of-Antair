@@ -25,3 +25,6 @@ saves/*.save
 
 # Sonidos de ambiente
 data/sound/ambience/*.wav
+
+# Line counter
+linec

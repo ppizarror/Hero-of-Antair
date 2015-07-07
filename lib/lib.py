@@ -100,9 +100,12 @@ except:
 
 # Configuracion de librerías
 sys.dont_write_bytecode = not getConfigValue("core.compile", True)
-if getConfigValue("core.compile", True):
+if not getConfigValue("core.compile", True):
     try:
-        os.remove("lib.pyc")
+        os.remove(_actualpath + "lib/__init__.pyc")
+        os.remove(_actualpath + "lib/hoa.pyc")
+        os.remove(_actualpath + "lib/lib.pyc")
+        os.remove(_actualpath + "lib/release.pyc")
     except:
         pass
 
@@ -808,25 +811,25 @@ def lookPrimaryArguments(data=None):
                 total = 0
                 listedfiles = []
                 totallines = []
-                for file in os.listdir(_actualpath):
-                    if ".py" in file:
+                for file in os.listdir(_actualpath + "/lib/"):
+                    if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
-                        archv = open(file, "r")
+                        archv = open(_actualpath + "/lib/" + file, "r")
                         for l in archv:
                             total += 1
                         archv.close()
                         totallines.append(total)
                         total = 0
-                for file in os.listdir(_actualpath + "/bin/scripts/"):
-                    if ".py" in file:
+                for file in os.listdir(_actualpath + "/bin/"):
+                    if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
-                        archv = open(_actualpath + "/bin/scripts/" + file, "r")
+                        archv = open(_actualpath + "/bin/" + file, "r")
                         for l in archv:
                             total += 1
                         archv.close()
                         totallines.append(total)
                         total = 0
-                brief = open("linecounter.txt", "w")
+                brief = open(_actualpath + "linec", "w")
                 brief.write("Archivos analizados:\n")
                 for i in range(len(totallines)):
                     brief.write("\t" + str(listedfiles[i]) + " => " + str(totallines[i]) + " lineas\n")
