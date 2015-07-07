@@ -54,4 +54,4 @@ Pablo Pizarro
 [10]:	https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
 [11]:	https://www.gnu.org/licenses/gpl-2.0.html
 
-[image-1]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/hoa/captura1.png "Una ventana cualquiera"
+[image-1]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/7d25a7df4feb37b8c9385e18a3e8e20642920c7f/resources/images/hoa/captura1.png "Una ventana cualquiera"
