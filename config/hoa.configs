@@ -5,3 +5,4 @@ verbose.load.texture
 verbose.load.file
 global.showstate
 core.error.print
+terminal.version.colored

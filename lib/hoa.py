@@ -17,7 +17,14 @@ libstartUp()
 lookPrimaryArguments(PROGRAM_VERSION)  # se buscan los argumentos primarios
 if getConfigValue("terminal.art", True):  # se imprime el arte
     printAsciiArtHOA()
-colorcmd("HOA - version: " + PROGRAM_VERSION, choice(CMD_COLORS.keys()))
+__versionstr__ = "HOA - version: " + PROGRAM_VERSION
+if getConfigValue("terminal.version.colored"):
+    if isWindows():
+        colorcmd(__versionstr__, choice(CMD_COLORS.keys()))
+    else:
+        print __versionstr__
+else:
+    print __versionstr__
 print "\nAutor: " + AUTOR_NAME
 
 # Importación de librerías
@@ -132,7 +139,7 @@ if isWindows():
     DRAW_CANVAS_OFFSET_Y = 0
     POP_XSIZE = 165
     POP_YSIZE = 270
-    PROGRAM_SIZE = 804, 599
+    PROGRAM_SIZE = 804, 600
 else:
     _SECOND_BUTTON = "<Button-2>"
     BAR_POND_COEF = 1.2
@@ -1338,7 +1345,7 @@ class hoa:
         self.nivel_dificultad = 0  # nivel fácil, medio, dificil
         self.enemy = None  # clase mob que indica el enemigo al cual peleara el jugador
         self.enemyId = 0  # id del mob que es cargado como enemigo activo
-        self.fonts = [tkFont.Font(family="Courier", size=7), tkFont.Font(family="Verdana", size=6),
+        self.fonts = [tkFont.Font(family="Courier", size=8), tkFont.Font(family="Verdana", size=6),
                       tkFont.Font(family="Times", size=10), tkFont.Font(family="Times", size=10, weight=tkFont.BOLD),
                       tkFont.Font(family="Verdana", size=6, weight=tkFont.BOLD), tkFont.Font(family="Verdana", size=10)]
         self.inBattle = False  # indica que hay una batalla en proceso
@@ -1378,7 +1385,7 @@ class hoa:
         self.tipoCombate = "NO_FIGHT"  # indica el modo de combate
         print lang(309),
 
-        # Instancio los sonidos
+        # Se cargan los sonidos
         try:
             tkSnack.initializeSnack(self.root)
             tkSnack.audio.play_gain(AUDIO_VOLUME)
@@ -1407,7 +1414,7 @@ class hoa:
             print lang(330)
             exit()
 
-        # Genero la interfaz gráfica
+        # Se genera la UI
         print lang(312),
         self.root.iconbitmap(self.images.image("icon"))  # icono del programa
         self.menubar = Menu(self.root)
@@ -1532,15 +1539,19 @@ class hoa:
         self.infoArmaduraCasco.pack()
         a_2 = Frame(menu5)
         a_2.pack()
+        if isWindows():
+            buttonPad = 0
+        else:
+            buttonPad = 3
         self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_lw"),
                                                 border=buttonBorder)
-        self.infoArmaduraArmaIzquierda.pack(side=LEFT, padx=3)
+        self.infoArmaduraArmaIzquierda.pack(side=LEFT, padx=buttonPad)
         self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_chaleco"),
                                           border=buttonBorder)
         self.infoArmaduraChaleco.pack(side=LEFT)
         self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_rw"),
                                               border=buttonBorder)
-        self.infoArmaduraArmaDerecha.pack(padx=3)
+        self.infoArmaduraArmaDerecha.pack(padx=buttonPad)
         a_3 = Frame(menu5)
         a_3.pack()
         self.infoArmaduraPantalones = Button(a_3, relief=GROOVE, state=DISABLED,
@@ -1552,7 +1563,6 @@ class hoa:
                                         border=buttonBorder)
         self.infoArmaduraBotas.pack()
         if isWindows():
-            for i in range(3): Button(self.menu, text="", state=DISABLED, border=0).pack()
             self.poderFrame = LabelFrame(self.menu, text=" " + lang(314), border=0)
             self.poderFrame.pack(pady=2, padx=1)  # poderes
         else:
@@ -1620,7 +1630,7 @@ class hoa:
         self.world.pack(fill=BOTH, padx=0)  # canvas del mundo
         print lang(310)
 
-        # Establezco los eventos del programa
+        # Se establecen los eventos del programa
         try:
             print lang(691),
             self.root.bind("<Control-A>", _ayuda)
@@ -4782,7 +4792,7 @@ class hoa:
                                 self.canvasCorrecion[0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)))
                     self.root.after(int(TEXDT / 4), makeCallable(
                         partial(arrastrarImagen, "player:right_weapon", self.world,
-                                28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_x, \
+                                28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X, \
                                 self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y)))
                 except:
                     _moveNoAnimation()
