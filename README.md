@@ -52,7 +52,6 @@ Este proyecto está licenciado bajo [GPLv2 (GNU General Public License, version 
 
 ## Autor
 Pablo Pizarro
-2015
 
 [1]:	https://docs.python.org/2/library/tkinter.html
 [2]:	https://pypi.python.org/pypi/pyperclip
