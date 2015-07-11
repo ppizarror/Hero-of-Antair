@@ -2,6 +2,17 @@
 Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando la librería Tkinter.
 ![][image-1]
 
+## Descripción
+Hero of Antair (HOA) 
+
+## Editor de mapas
+Adicional al juego HOA incluye un editor de mapas con múltiples herramientas, manejo de texturas, inclusión de objetos, eventos, mobs, npc’s, sonidos, textos, y muchas otras cosas más.
+Su utilización es muy sencilla, ¡solo basta hacer clic en el elemento añadir y agregarlo a tu mapa!
+
+![][image-2]
+
+![][image-3]
+
 ## Idiomas disponibles
 - Alemán
 - Árabe
@@ -55,3 +66,5 @@ Pablo Pizarro
 [11]:	https://www.gnu.org/licenses/gpl-2.0.html
 
 [image-1]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/7d25a7df4feb37b8c9385e18a3e8e20642920c7f/resources/images/hoa/captura1.png "Una ventana cualquiera"
+[image-2]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/hoa/editor1.png "Editor de mapas"
+[image-3]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/hoa/editor2.png "Muchas opciones!"
