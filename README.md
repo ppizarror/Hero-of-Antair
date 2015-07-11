@@ -5,7 +5,7 @@ Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando
 ## Descripción
 Hero of Antair (HOA) posee múltiples características que hacen de él un interesante RPG, mobs (enemigos) con distintos tipos de ataque, npc’s con los que interactuar, miles de objetos a usar, distintas configuraciones de armaduras y armas, magia!, frutas mágicas! múltiples mapas, quest … y muertes instantáneas.
 
-Si bien mucho de esto esta en una fase muy temprana de desarrollo con el tiempo se podrán lograr divertidos avances para hacer de HOA una interesante propuesta de un juego en python, usando como librería gráfica Tkinter [https://docs.python.org/2/library/tkinter.html][1] creado a partir del lenguaje Tcl.
+Si bien mucho de esto esta en una fase muy temprana de desarrollo con el tiempo se podrán lograr divertidos avances para hacer de HOA una interesante propuesta de un juego en python, usando como librería gráfica Tkinter [Tkinter][1] creado a partir del lenguaje Tcl.
 
 ## Editor de mapas
 Adicional al juego HOA incluye un editor de mapas con múltiples herramientas, manejo de texturas, inclusión de objetos, eventos, mobs, npc’s, sonidos, textos, y muchas otras cosas más.
