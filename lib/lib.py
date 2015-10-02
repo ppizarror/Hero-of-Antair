@@ -24,7 +24,8 @@ sys.setdefaultencoding('UTF8')
 
 # Agrego librerías al path
 _libdir = "lib"
-_actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace(_libdir, "")
+_actualpath = str(os.path.abspath(
+    os.path.dirname(__file__))).replace(_libdir, "")
 sys.path.append(_actualpath + "/bin/")
 sys.path.append(_actualpath + "/bin/mechanize/")
 sys.path.append(_actualpath + "/bin/pil/")
@@ -80,7 +81,13 @@ try:
     if os.name == "nt":
         from pil import Image, ImageTk
     else:
-        from PIL import Image, ImageTk
+        try:
+            from PIL import Image, ImageTk
+        except:
+            try:
+                from pil import Image, ImageTk
+            except:
+                raise Exception("No module named PIL")
     try:
         import tkSnack
     except:
@@ -97,8 +104,8 @@ try:
         import WConio
     except:
         _wconio = False
-except:
-    st_error("Error al cargar librerias externas", True, "lib.py")
+except Exception, e:
+    st_error("Error al cargar librerias externas", True, "lib.py", e)
 
 # Configuracion de librerías
 sys.dont_write_bytecode = not getConfigValue("core.compile", True)
@@ -117,7 +124,7 @@ __ALPH = " @rs3t*uv#w'xEF(9<GH$IJ&5K,L%CVWXjkl_mnop/qD0{PQ+RS[TUAY]1Z^67;8?ab>cd
 __L_ALPH = len(__ALPH)
 CONSOLE_WRAP = -25
 CMD_COLORS = {"red": 0x40, "lred": 0xC0, "gray": 0x80, "lgray": 0x70, "white": 0xF0, "blue": 0x10, "green": 0x20,
-              "purple": 0x50, "yellow": 0x60, "lblue": 0x90, "lgreen": 0xA0, \
+              "purple": 0x50, "yellow": 0x60, "lblue": 0x90, "lgreen": 0xA0,
               "lpurple": 0xD0, "lyellow": 0xE0}
 ENDING_ARGUMENT = ""
 DEV_MODE = True
@@ -133,6 +140,8 @@ WIN32 = 4
 WIN64 = 8
 
 # Clases
+
+
 class Browser:
     """Navegador web"""
 
@@ -154,7 +163,8 @@ class Browser:
         self.br.set_handle_refresh(False)
         self.br.set_handle_robots(False)
         # noinspection PyProtectedMember
-        self.br.set_handle_refresh(mechanize._http.HTTPRefreshProcessor(), max_time=1)
+        self.br.set_handle_refresh(
+            mechanize._http.HTTPRefreshProcessor(), max_time=1)
 
     def playBrowser(self):
         """
@@ -269,7 +279,8 @@ class Browser:
             if len(form) > 0 and len(values) > 0:
                 if len(form) == len(values):
                     try:
-                        for i in range(len(form)): self.br.form[form[i]] = values[i]
+                        for i in range(len(form)):
+                            self.br.form[form[i]] = values[i]
                         self.br.submit()
                     except:
                         return BR_ERRORxERROR_SET_SUBMIT
@@ -297,17 +308,20 @@ def amir(archive):
     """
     texto = loadFromArchive(archive, "", False)
     hast = ""
-    for i in texto: hast += i
+    for i in texto:
+        hast += i
     hast = delAcentos(hast.replace("\n", ""))
     try:
         try:
             text = list(hast.strip())
             k = 0
             for i in text:
-                if not i in __ALPH: text.pop(k)
+                if not i in __ALPH:
+                    text.pop(k)
                 k += 1
             key = ""
-            for i in text: key += i
+            for i in text:
+                key += i
             p = int(len(text))
             key = key[::-1]
             sem = ""
@@ -319,8 +333,10 @@ def amir(archive):
                     first = False
                 else:
                     j = j + p + __ALPH.index(i)
-                    while j > __L_ALPH: j -= __L_ALPH
-                    if j >= __L_ALPH: j -= __L_ALPH
+                    while j > __L_ALPH:
+                        j -= __L_ALPH
+                    if j >= __L_ALPH:
+                        j -= __L_ALPH
                     sem += __ALPH[j]
             j = __ALPH.index(sem[len(sem) - 1])
             sem_2 = ""
@@ -332,8 +348,10 @@ def amir(archive):
                     first = False
                 else:
                     j += p + __ALPH.index(l)
-                    while j > __L_ALPH: j -= __L_ALPH
-                    if j >= __L_ALPH: j -= __L_ALPH
+                    while j > __L_ALPH:
+                        j -= __L_ALPH
+                    if j >= __L_ALPH:
+                        j -= __L_ALPH
                     sem_2 += __ALPH[j]
             return sem_2
         except:
@@ -355,25 +373,33 @@ def benchmark(save=False, prt=False, default=5):
 
     if save:
         archivo = open("log/benchmark.log", "w")
-        archivo.write("Benchmark, Creado el " + obtenerFecha() + " a las " + getHour() + "\n\n")
-        archivo.write("Parametros \t \\t\tNumero de prueba\n\t\t \\avg\tPromedio de la prueba\n\n")
+        archivo.write("Benchmark, Creado el " + obtenerFecha() +
+                      " a las " + getHour() + "\n\n")
+        archivo.write(
+            "Parametros \t \\t\tNumero de prueba\n\t\t \\avg\tPromedio de la prueba\n\n")
         archivo.write("Procesador: " + platform.processor() + "\n")
         archivo.write("Tipo de ordenador: " + platform.machine() + "\n")
         archivo.write("Nombre del host: " + platform.node() + "\n")
-        archivo.write("SO: " + platform.system() + " " + platform.release() + "\n")
+        archivo.write("SO: " + platform.system() +
+                      " " + platform.release() + "\n")
         archivo.write("Version del SO: " + platform.platform() + "\n\n")
     total = 0
     for n in range(default):
         t0 = time.clock()
-        for i in xrange(1000000): i += 1
+        for i in xrange(1000000):
+            i += 1
         test = time.clock() - t0
-        msg = "Benchmark \\t {0} {1}".format(str(n + 1), str(test)).replace(".", ",")
-        if prt: print msg
-        if save: archivo.write(msg + "\n")
+        msg = "Benchmark \\t {0} {1}".format(
+            str(n + 1), str(test)).replace(".", ",")
+        if prt:
+            print msg
+        if save:
+            archivo.write(msg + "\n")
         total += test
         time.sleep(0.1)
     msg = "Benchmark \\avg {0}".format(str(total / 5)).replace(".", ",")
-    if prt: print msg
+    if prt:
+        print msg
     if save:
         archivo.write("\n" + msg + "\n")
         archivo.close()
@@ -457,7 +483,8 @@ def consoled(c):
     :return: Texto
     """
     text = ""
-    for i in c: text = text + i + "\n"
+    for i in c:
+        text = text + i + "\n"
     return text
 
 
@@ -469,7 +496,8 @@ def consultParam(argument, arguments):
     :return: String
     """
     for i in arguments:
-        if i[0] == argument and ("/" in i[1]): return i[1].replace("/", "")
+        if i[0] == argument and ("/" in i[1]):
+            return i[1].replace("/", "")
     return "%NULL%"
 
 
@@ -483,12 +511,14 @@ def colorcmd(cmd, color):
     if color in CMD_COLORS:
         color = CMD_COLORS[color]
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(ctypes.windll.kernel32.GetStdHandle(-11), color)
+            ctypes.windll.kernel32.SetConsoleTextAttribute(
+                ctypes.windll.kernel32.GetStdHandle(-11), color)
         except:
             pass
         print cmd,
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(ctypes.windll.kernel32.GetStdHandle(-11), 0x07)
+            ctypes.windll.kernel32.SetConsoleTextAttribute(
+                ctypes.windll.kernel32.GetStdHandle(-11), 0x07)
         except:
             pass
     else:
@@ -501,7 +531,8 @@ def delAcentos(txt):
     :param txt: String
     :return: String formateado
     """
-    txt = txt.replace("Á", "A").replace("É", "E").replace("Í", "I").replace("Ó", "O").replace("Ú", "U")
+    txt = txt.replace("Á", "A").replace("É", "E").replace(
+        "Í", "I").replace("Ó", "O").replace("Ú", "U")
     return txt.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
 
 
@@ -513,7 +544,8 @@ def delMatrix(matrix):
     """
     a = len(matrix)
     if a > 0:
-        for k in range(a): matrix.pop(0)
+        for k in range(a):
+            matrix.pop(0)
 
 
 def desParseType(a):
@@ -569,7 +601,9 @@ def getBetweenTags(html, tagi, tagf):
             c = 1
             while True:
                 try:
-                    if html[posi + c] == ">": posi += (c + 1); break
+                    if html[posi + c] == ">":
+                        posi += (c + 1)
+                        break
                     c += 1
                 except:
                     return TAG_INIT_NOT_CORRECT_ENDING
@@ -598,7 +632,10 @@ def getTerminalSize():
 
     def ioctl_GWINSZ(fd):
         try:
-            import fcntl, termios, struct, os
+            import fcntl
+            import termios
+            import struct
+            import os
 
             cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
                                                  '1234'))
@@ -614,7 +651,8 @@ def getTerminalSize():
             os.close(fd)
         except:
             pass
-    if not cr: cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
+    if not cr:
+        cr = (env.get('LINES', 25), env.get('COLUMNS', 80))
     return int(cr[1]), int(cr[0])
 
 
@@ -635,7 +673,8 @@ def getVersion(label, headers):
         request_object = Request(LINK_UPDATES, None, http_headers)
         response = urllib2.urlopen(request_object)
         html = response.read()
-    html = getBetweenTags(getBetweenTags(html, "<" + label + ">", "</" + label + ">"), "<version>", "</version>")
+    html = getBetweenTags(getBetweenTags(
+        html, "<" + label + ">", "</" + label + ">"), "<version>", "</version>")
     return html.strip()
 
 
@@ -649,8 +688,10 @@ def google_translate(text, translate_lang, header, web, source_lang=None):
     :param source_lang: Idioma fuente
     :return: String traducido
     """
-    if source_lang is None: source_lang = 'auto'
-    params = urlencode({'client': 't', 'tl': translate_lang, 'q': text.encode('utf-8'), 'sl': source_lang})
+    if source_lang is None:
+        source_lang = 'auto'
+    params = urlencode({'client': 't', 'tl': translate_lang,
+                        'q': text.encode('utf-8'), 'sl': source_lang})
     http_headers = {"User-Agent": header}
     request_object = Request(web + params, None, http_headers)
     response = urlopen(request_object)
@@ -670,7 +711,8 @@ def isIn(termino, matriz):
     """
     if termino is not None:
         for elem in matriz:
-            if elem in termino: return True
+            if elem in termino:
+                return True
     return False
 
 
@@ -691,7 +733,8 @@ def isWindows():
     Función que retorna True/False si el sistema operativo cliente es Windows o no
     :return: Boolean
     """
-    if os.name == "nt": return True
+    if os.name == "nt":
+        return True
     return False
 
 
@@ -721,9 +764,11 @@ def loadFromArchive(archive, lang="Cargando archivo '{0}' ...",
         for i in archive:
             l.append(i.decode('utf-8').strip())
         archive.close()
-        if showState and VERBOSE_FILELOAD: print "ok"
+        if showState and VERBOSE_FILELOAD:
+            print "ok"
     except:
-        if showState and VERBOSE_FILELOAD: print "error"
+        if showState and VERBOSE_FILELOAD:
+            print "error"
         l = []
     return l
 
@@ -738,7 +783,8 @@ def lookPrimaryArguments(data=None):
     (width, height) = getTerminalSize()
     if len(sys.argv) >= 2:
         if sys.argv[1] == "--benchmark":
-            if _wconio: WConio.clrscr()
+            if _wconio:
+                WConio.clrscr()
             print "Benchmark Hero of Antair"
             print "Python " + sys.version + "\n"
             if len(sys.argv) == 3:
@@ -769,47 +815,57 @@ def lookPrimaryArguments(data=None):
                 changelog = open("CHANGELOG", "r")
                 print ""
                 for line in changelog:
-                    if line != "": print delAcentos(str(line)).rstrip()
+                    if line != "":
+                        print delAcentos(str(line)).rstrip()
                 changelog.close()
             except:
-                st_error("Error al ejecutar el comando --changelog, Archivo no encontrado", True)
+                st_error(
+                    "Error al ejecutar el comando --changelog, Archivo no encontrado", True)
             exit()
         elif sys.argv[1] == "--dwi":
             try:
-                if _wconio: WConio.clrscr()
+                if _wconio:
+                    WConio.clrscr()
                 archivo = open("data/doc/other/dwi.txt", "r")
                 print ""
                 for line in archivo:
-                    if line != "": print str(line).rstrip()
+                    if line != "":
+                        print str(line).rstrip()
                 archivo.close()
             except:
                 print ""
             exit()
         elif sys.argv[1] == "--fcfm" or sys.argv[1] == "--850":
             try:
-                if _wconio: WConio.clrscr()
+                if _wconio:
+                    WConio.clrscr()
                 asciiart = open("data/doc/other/850.txt", "r")
                 counter = 0
                 for i in asciiart:
                     print " " * (int((width - 26) / 2) - 3), i.rstrip()
                     counter += 1
-                    if counter > 15 and i.strip() != "": time.sleep(1)
+                    if counter > 15 and i.strip() != "":
+                        time.sleep(1)
                 asciiart.close()
             except:
-                st_error("Error al ejecutar el comando --changelog, Archivo no encontrado")
+                st_error(
+                    "Error al ejecutar el comando --changelog, Archivo no encontrado")
             exit()
         elif sys.argv[1] == "--help" or sys.argv[1] == "-h":
             try:
-                helpfile = open(_actualpath + "data/doc/documentation/arguments.txt", "r")
+                helpfile = open(
+                    _actualpath + "data/doc/documentation/arguments.txt", "r")
                 for h in helpfile:
                     if h != "":
                         print h.replace("</>", color.END).replace("<b>", color.BOLD).rstrip()
                 helpfile.close()
             except:
-                st_error("Error al ejecutar el comando --help, Archivo no encontrado")
+                st_error(
+                    "Error al ejecutar el comando --help, Archivo no encontrado")
             exit()
         elif sys.argv[1] == "--linecounter":
-            if _wconio: WConio.clrscr()
+            if _wconio:
+                WConio.clrscr()
             try:
                 total = 0
                 listedfiles = []
@@ -835,7 +891,8 @@ def lookPrimaryArguments(data=None):
                 brief = open(_actualpath + "linec", "w")
                 brief.write("Archivos analizados:\n")
                 for i in range(len(totallines)):
-                    brief.write("\t" + str(listedfiles[i]) + " => " + str(totallines[i]) + " lineas\n")
+                    brief.write(
+                        "\t" + str(listedfiles[i]) + " => " + str(totallines[i]) + " lineas\n")
                 brief.write("\nTotal: " + str(sum(totallines)) + " lineas\n")
                 brief.close()
                 st_info("Archivo generado correctamente")
@@ -843,13 +900,16 @@ def lookPrimaryArguments(data=None):
                 st_error("Error al ejecutar el comando linecounter")
             exit()
         elif sys.argv[1] == "--sierpinski":
-            if _wconio: WConio.clrscr()
+            if _wconio:
+                WConio.clrscr()
             if len(sys.argv) == 3:
                 if sys.argv[2] == "/help":
-                    helpfile = open(_actualpath + "data/doc/other/sierpinski.txt", "r")
+                    helpfile = open(
+                        _actualpath + "data/doc/other/sierpinski.txt", "r")
                     print ""
                     for h in helpfile:
-                        if h != "": print h.rstrip()
+                        if h != "":
+                            print h.rstrip()
                     helpfile.close()
                 else:
                     st_error("Argumentos incompletos, consulte --help")
@@ -892,7 +952,8 @@ def lookPrimaryArguments(data=None):
                 except:
                     r = 1
             else:
-                st_error("Argumentos desconocidos, consulte /sierpinski /help", True)
+                st_error(
+                    "Argumentos desconocidos, consulte /sierpinski /help", True)
             for x in range(height * r):
                 i = ""
                 for y in range(width):
@@ -992,15 +1053,19 @@ def printAsciiArtHOA():
     Imprime el arte ascii de la introducción
     :return: void
     """
-    if _wconio: WConio.clrscr()
+    if _wconio:
+        WConio.clrscr()
     try:
-        (width, height) = getTerminalSize()  # se obtiene el largo de la consola para dejarlo centrado
+        # se obtiene el largo de la consola para dejarlo centrado
+        (width, height) = getTerminalSize()
         asciiart = open("data/doc/other/asciiart.txt", "r")
         _aligned = False
         if _aligned:
-            for i in asciiart: print " " * (int((width - 26) / 2) - 1), i.rstrip()
+            for i in asciiart:
+                print " " * (int((width - 26) / 2) - 1), i.rstrip()
         else:
-            for i in asciiart: print " " * 20, i.rstrip()
+            for i in asciiart:
+                print " " * 20, i.rstrip()
         asciiart.close()
         print ""
     except:
@@ -1012,11 +1077,14 @@ def printAsciiArtME():
     Imprime el arte ascii del editor de mapas
     :return: void
     """
-    if _wconio: WConio.clrscr()
+    if _wconio:
+        WConio.clrscr()
     try:
-        (width, height) = getTerminalSize()  # se obtiene el largo de la consola para dejarlo centrado
+        # se obtiene el largo de la consola para dejarlo centrado
+        (width, height) = getTerminalSize()
         asciiart = open("data/doc/other/asciiartm.txt", "r")
-        for i in asciiart: print " " * (int((width - 26) / 2) - 1), i.rstrip()
+        for i in asciiart:
+            print " " * (int((width - 26) / 2) - 1), i.rstrip()
         asciiart.close()
     except:
         pass
@@ -1027,11 +1095,14 @@ def printAsciiArtServer():
     Imprime el arte ascii de la introducción del servidor
     :return: void
     """
-    if _wconio: WConio.clrscr()
+    if _wconio:
+        WConio.clrscr()
     try:
-        (width, height) = getTerminalSize()  # se obtiene el largo de la consola para dejarlo centrado
+        # se obtiene el largo de la consola para dejarlo centrado
+        (width, height) = getTerminalSize()
         asciiart = open("data/doc/other/asciiartserver.txt", "r")
-        for i in asciiart: print " " * (int((width - 26) / 2) - 1), i.rstrip()
+        for i in asciiart:
+            print " " * (int((width - 26) / 2) - 1), i.rstrip()
         asciiart.close()
     except:
         pass
@@ -1055,7 +1126,8 @@ def printMatrix(matrix):
     :return: void
     """
     for j in matrix:
-        for k in j: print k,
+        for k in j:
+            print k,
         print "\n"
 
 
@@ -1120,14 +1192,18 @@ def libstartUp():
         exit()
     else:
         if "-launcher" in sys.argv:
-            sys.stdout, sys.stderr, sys.stdin, sys.__stdout__, sys.__stderr__, sys.__stdin__ = noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut()
-    if not (sys.version_info.major == 2 and sys.version_info.minor == 7):  # Se comprueba que Python sea 2.7.x
+            sys.stdout, sys.stderr, sys.stdin, sys.__stdout__, sys.__stderr__, sys.__stdin__ = noStdOut(
+            ), noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut()
+    # Se comprueba que Python sea 2.7.x
+    if not (sys.version_info.major == 2 and sys.version_info.minor == 7):
         version_actual = "(version actual: {0}.{1}.{2})\n".format(sys.version_info.major, sys.version_info.minor,
                                                                   sys.version_info.micro)
-        st_error("HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
+        st_error(
+            "HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
         try:
             url = "https://www.python.org/download/releases/"
-            sys.stderr.write("Redirigiendo a la pagina de descargas de Python <{0}>\n".format(url))
+            sys.stderr.write(
+                "Redirigiendo a la pagina de descargas de Python <{0}>\n".format(url))
             time.sleep(2)
             webbrowser.open(url)
         except:
@@ -1144,7 +1220,8 @@ def sumMatrix(matrix):
     suma = 0
     try:
         for j in matrix:
-            for k in j: suma += k
+            for k in j:
+                suma += k
         return suma
     except:
         return -1

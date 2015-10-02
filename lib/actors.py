@@ -33,14 +33,19 @@ class actors:
         self.defLevels = []  # defensa por niveles
         self.defensa = 0  # defensa instantánea
         self.edad = "%ACTOR_EDAD%"  # edad del jugador
-        self.editor = False  # define si el jugador tiene los derechos para ejecutar comandos privilegiados
+        # define si el jugador tiene los derechos para ejecutar comandos
+        # privilegiados
+        self.editor = False
         self.expLevels = []  # define la experiencia por niveles
         self.experiencia = 0  # experiencia inmediata
-        self.friends = [0, 0, 0]  # define los followers, livianos, medios, pesados
+        # define los followers, livianos, medios, pesados
+        self.friends = [0, 0, 0]
         self.info = ""  # descripción del jugador
         self.images = []  # imágenes por niveles del jugador
-        self.images_friends = ["", "", ""]  # imágenes de los followers, liv, med y pesado
-        self.images_friends_arrow = ["", ""]  # imágenes de las flechas y del armamento
+        # imágenes de los followers, liv, med y pesado
+        self.images_friends = ["", "", ""]
+        # imágenes de las flechas y del armamento
+        self.images_friends_arrow = ["", ""]
         self.items = []  # items del jugador
         self.level = 1  # nivel instantáneo del jugador
         self.linkImage = "%ACTOR_IMAGE_URL"  # imágen instantánea del jugador
@@ -69,7 +74,8 @@ class actors:
         :param name: Nombre
         :return:
         """
-        if len(name) > 0: self.name = name
+        if len(name) > 0:
+            self.name = name
 
     def setPais(self, pais):
         """
@@ -77,7 +83,8 @@ class actors:
         :param pais: Pais
         :return: void
         """
-        if len(pais) > 0: self.pais = pais
+        if len(pais) > 0:
+            self.pais = pais
 
     def setEdad(self, edad):
         """
@@ -86,7 +93,8 @@ class actors:
         :return: void
         """
         edad = str(edad)
-        if edad.isdigit(): self.edad = int(edad)
+        if edad.isdigit():
+            self.edad = int(edad)
 
     def setType(self, tipo):
         """
@@ -96,63 +104,85 @@ class actors:
         """
         # Se definen los tipos de actores, pueden agregarse más
         if tipo == "guerrero":
-            self.atkLevels = [5, 20, 40, 60, 80, 110, 130, 170, 210, 240, 270, 300]
+            self.atkLevels = [5, 20, 40, 60, 80,
+                              110, 130, 170, 210, 240, 270, 300]
             self.defLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
-            self.expLevels = [0, 700, 3000, 7000, 12500, 22500, 45000, 90000, 250000, 450000, 1000000, 4000000]
+            self.expLevels = [0, 700, 3000, 7000, 12500, 22500,
+                              45000, 90000, 250000, 450000, 1000000, 4000000]
             self.images = ["actor127", "actor127", "actor113", "actor113", "actor103", "actor103", "actor8", "actor40",
                            "actor46", "actor7", "actor7", "actor107"]
             self.images_friends = ["actor111", "actor66", "actor8"]
             self.images_friends_arrow = ["flecha_hierro_16", "arco_umbral_16"]
             self.info = "El guerrero es súmamente hábil en combates cuerpo a cuerpo, posee un gran ataque y vida, pero poca defensa, puntería y mana." + \
                         " Es conocido por su gran habilidad en el uso de espadas y mazas."
-            self.maxLifeLevels = [100, 120, 150, 190, 240, 300, 370, 450, 540, 650, 800, 999]
-            self.maxManaLevels = [10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100]
+            self.maxLifeLevels = [100, 120, 150, 190,
+                                  240, 300, 370, 450, 540, 650, 800, 999]
+            self.maxManaLevels = [10, 15, 20, 25,
+                                  30, 40, 50, 60, 70, 80, 90, 100]
             self.targetLevels = [0, 0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
             self.tipo = "Guerrero"
             self.velocidad = 2
         elif tipo == "mago":
-            self.atkLevels = [5, 10, 20, 30, 50, 80, 100, 120, 150, 180, 210, 250]
+            self.atkLevels = [5, 10, 20, 30, 50,
+                              80, 100, 120, 150, 180, 210, 250]
             self.defLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
-            self.expLevels = [0, 1000, 2500, 5000, 10000, 25000, 50000, 100000, 250000, 500000, 1000000, 2500000]
+            self.expLevels = [0, 1000, 2500, 5000, 10000, 25000,
+                              50000, 100000, 250000, 500000, 1000000, 2500000]
             self.images = ["actor127", "actor127", "actor68", "actor68", "actor68", "actor41", "actor41", "actor42",
                            "actor42", "actor13", "actor13", "actor135"]
             self.images_friends = ["actor113", "actor1", "actor8"]
-            self.images_friends_arrow = ["magic_ball_5", "mazo_snake_gods_sceptre_16"]
+            self.images_friends_arrow = [
+                "magic_ball_5", "mazo_snake_gods_sceptre_16"]
             self.info = "Un sabio de las artes oscuras, súmamente hábil en todo tipo de magias, de gran mana y mediana vida, pero poco ataque. " + \
                         "Es conocido por su gran manejo de los arcos y las varas mágicas."
-            self.maxLifeLevels = [150, 160, 170, 180, 190, 200, 220, 250, 270, 320, 390, 500]
-            self.maxManaLevels = [100, 120, 150, 190, 240, 300, 370, 450, 540, 650, 800, 999]
-            self.targetLevels = [10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100]
+            self.maxLifeLevels = [150, 160, 170, 180,
+                                  190, 200, 220, 250, 270, 320, 390, 500]
+            self.maxManaLevels = [100, 120, 150, 190,
+                                  240, 300, 370, 450, 540, 650, 800, 999]
+            self.targetLevels = [10, 15, 20, 25,
+                                 30, 40, 50, 60, 70, 80, 90, 100]
             self.tipo = "Mago"
             self.velocidad = 1
         elif tipo == "skaard":
             self.atkLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
-            self.defLevels = [4, 10, 20, 40, 55, 70, 100, 140, 180, 220, 280, 350]
-            self.expLevels = [0, 1000, 2500, 5000, 15000, 30000, 100000, 175000, 250000, 500000, 1000000, 1500000]
+            self.defLevels = [4, 10, 20, 40, 55,
+                              70, 100, 140, 180, 220, 280, 350]
+            self.expLevels = [0, 1000, 2500, 5000, 15000, 30000,
+                              100000, 175000, 250000, 500000, 1000000, 1500000]
             self.images = ["actor76", "actor76", "actor77", "actor77", "actor78", "actor78", "actor75", "actor75",
                            "actor20", "actor12", "actor12", "actor64"]
             self.images_friends = ["actor111", "actor75", "actor20"]
-            self.images_friends_arrow = ["flecha_hierro_16", "arco_silkweaver_16"]
+            self.images_friends_arrow = [
+                "flecha_hierro_16", "arco_silkweaver_16"]
             self.info = "Originario de las tierras de Okwainth, conocido por su gran habilidad en el uso de flechas y lanzas. Posee una gran puntería," + \
                         " una gran defensa y una mediana vida."
-            self.maxLifeLevels = [10, 20, 40, 70, 100, 180, 220, 250, 300, 340, 360, 400]
-            self.maxManaLevels = [5, 20, 40, 60, 80, 110, 130, 170, 210, 240, 270, 300]
-            self.targetLevels = [5, 20, 40, 60, 80, 110, 130, 170, 210, 240, 270, 300]
+            self.maxLifeLevels = [10, 20, 40, 70, 100,
+                                  180, 220, 250, 300, 340, 360, 400]
+            self.maxManaLevels = [5, 20, 40, 60, 80,
+                                  110, 130, 170, 210, 240, 270, 300]
+            self.targetLevels = [5, 20, 40, 60, 80,
+                                 110, 130, 170, 210, 240, 270, 300]
             self.tipo = "Skaard"
             self.velocidad = 2
         elif tipo == "ugraar":
-            self.atkLevels = [5, 10, 20, 30, 50, 80, 100, 120, 150, 180, 210, 250]
+            self.atkLevels = [5, 10, 20, 30, 50,
+                              80, 100, 120, 150, 180, 210, 250]
             self.defLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
-            self.expLevels = [0, 2000, 4500, 8000, 17000, 35000, 140000, 290000, 550000, 900000, 1500000, 3400000]
+            self.expLevels = [0, 2000, 4500, 8000, 17000, 35000,
+                              140000, 290000, 550000, 900000, 1500000, 3400000]
             self.images = ["actor115", "actor115", "actor119", "actor119", "actor116", "actor116", "actor117",
                            "actor117", "actor121", "actor121", "actor120", "actor120"]
             self.images_friends = ["actor119", "actor117", "actor120"]
-            self.images_friends_arrow = ["lanza_hunting_spear_16", "lanza_hunting_spear_16"]
+            self.images_friends_arrow = [
+                "lanza_hunting_spear_16", "lanza_hunting_spear_16"]
             self.info = "Originario de Myraleem los Ugraar son conocidos por su gran resistencia y su verde piel, además de ser muy hábiles en el manejo" + \
                         "de las armas de filo."
-            self.maxLifeLevels = [20, 40, 70, 100, 140, 190, 250, 310, 380, 460, 580, 690]
-            self.maxManaLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
-            self.targetLevels = [10, 15, 20, 25, 30, 40, 50, 60, 70, 80, 90, 100]
+            self.maxLifeLevels = [20, 40, 70, 100,
+                                  140, 190, 250, 310, 380, 460, 580, 690]
+            self.maxManaLevels = [2, 6, 10, 20,
+                                  25, 40, 60, 80, 100, 120, 150, 200]
+            self.targetLevels = [10, 15, 20, 25,
+                                 30, 40, 50, 60, 70, 80, 90, 100]
             self.tipo = "Ugraar"
             self.velocidad = 1
         self.mana = self.maxManaLevels[self.level - 1]
@@ -245,7 +275,8 @@ class actors:
                     k = -1
                     return
                 k += 1
-            if k != -1: self.items.insert(0, obj)
+            if k != -1:
+                self.items.insert(0, obj)
         else:
             self.items.insert(0, obj)
 
@@ -358,8 +389,10 @@ class actors:
         Quitar armadura completa
         :return: void
         """
-        for i in range(4): self.armor.pop(0)
-        for i in range(4): self.armor.append(None)
+        for i in range(4):
+            self.armor.pop(0)
+        for i in range(4):
+            self.armor.append(None)
 
     def dropItems(self):
         """
@@ -368,7 +401,8 @@ class actors:
         """
         l = len(self.items)
         if l > 0:
-            for i in range(l): self.items.pop(0)
+            for i in range(l):
+                self.items.pop(0)
 
     def dropPowers(self):
         """
@@ -377,7 +411,8 @@ class actors:
         """
         l = len(self.powers)
         if l > 0:
-            for i in range(l): self.powers.pop(0)
+            for i in range(l):
+                self.powers.pop(0)
 
     def dropMagics(self):
         """
@@ -386,7 +421,8 @@ class actors:
         """
         l = len(self.magic)
         if l > 0:
-            for i in range(l): self.magic.pop(0)
+            for i in range(l):
+                self.magic.pop(0)
 
     def kill(self):
         """
@@ -684,7 +720,8 @@ class actors:
         :param level: Integer
         :return: void
         """
-        if level <= 12: self.level = level
+        if level <= 12:
+            self.level = level
 
     def setLinkImage(self, img):
         """
@@ -707,7 +744,8 @@ class actors:
         Definir el máximo de experiencia por nivel
         :return: void
         """
-        if self.level < 12: self.maxExpLevel = self.expLevels[self.level]
+        if self.level < 12:
+            self.maxExpLevel = self.expLevels[self.level]
 
     def setMaxLife(self):
         """
@@ -934,7 +972,8 @@ class actors:
         :param obj: Item
         :return: void
         """
-        if obj == "None": obj = None
+        if obj == "None":
+            obj = None
         self.activebullet = obj
 
     def setFirstPower(self, power):
@@ -943,7 +982,8 @@ class actors:
         :param power: Power
         :return: void
         """
-        if power == "None": power = None
+        if power == "None":
+            power = None
         self.activefirstpower = power
 
     def setSecondPower(self, power):
@@ -952,7 +992,8 @@ class actors:
         :param power: Power
         :return: void
         """
-        if power == "None": power = None
+        if power == "None":
+            power = None
         self.activesecondpower = power
 
     def getActiveBullet(self):
@@ -1003,7 +1044,8 @@ class actors:
         :param quest: Quest
         :return: void
         """
-        if quest not in self.playerquest: self.playerquest.insert(0, quest)
+        if quest not in self.playerquest:
+            self.playerquest.insert(0, quest)
 
     def getQuest(self):
         """
@@ -1019,7 +1061,8 @@ class actors:
         """
         l = len(self.playerquest)
         if l > 0:
-            for i in range(l): self.playerquest.pop()
+            for i in range(l):
+                self.playerquest.pop()
 
     def getTotalQuest(self):
         """
@@ -1097,7 +1140,8 @@ class actors:
         :param liv: Integer
         :return: void
         """
-        self.friends[0] = min(self.friends[0] + liv, MAX_FRIENDS - self.friends[1] - self.friends[2])
+        self.friends[0] = min(self.friends[0] + liv,
+                              MAX_FRIENDS - self.friends[1] - self.friends[2])
 
     def addMediumFriend(self, mdf):
         """
@@ -1105,7 +1149,8 @@ class actors:
         :param mdf: Integer
         :return: void
         """
-        self.friends[1] = min(self.friends[1] + mdf, MAX_FRIENDS - self.friends[0] - self.friends[2])
+        self.friends[1] = min(self.friends[1] + mdf,
+                              MAX_FRIENDS - self.friends[0] - self.friends[2])
 
     def addStrongFriend(self, strf):
         """
@@ -1113,7 +1158,8 @@ class actors:
         :param strf: Integer
         :return: void
         """
-        self.friends[2] = min(self.friends[2] + strf, MAX_FRIENDS - self.friends[0] - self.friends[1])
+        self.friends[2] = min(self.friends[2] + strf,
+                              MAX_FRIENDS - self.friends[0] - self.friends[1])
 
     def getLightImageFriend(self):
         """

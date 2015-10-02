@@ -75,7 +75,8 @@ class TkObject:
         res = ()
         for k, v in cnf.items():
             if v is not None:
-                if k[-1] == '_': k = k[:-1]
+                if k[-1] == '_':
+                    k = k[:-1]
                 # if callable(v):
                 #    v = self._register(v)
                 res = res + ('-' + k, v)
@@ -122,6 +123,7 @@ class TkObject:
 
 # noinspection PyShadowingBuiltins
 class Sound(TkObject):
+
     def __init__(self, name=None, master=None, **kw):
         self.name = None
         if not master:
@@ -231,7 +233,8 @@ class Sound(TkObject):
 
     def insert(self, sound, position, **kw):
         """Inserts sound at position."""
-        self.tk.call((self.name, 'insert', sound.name, position) + self._options(kw))
+        self.tk.call((self.name, 'insert', sound.name,
+                      position) + self._options(kw))
 
     def length(self, n=None, **kw):
         """Gets/sets the length of the sound in number of samples (default)
@@ -407,6 +410,7 @@ class AudioControllerSingleton(TkObject):
 
 
 class Filter(TkObject):
+
     def __init__(self, name, *args, **kw):
         global Tkroot
         self.name = None
@@ -524,7 +528,8 @@ class SoundFrame(Tkinter.Frame):
         Tkinter.Button(bbar, text='Info', command=self.info).pack(side='left')
 
     def load(self):
-        file = Tkroot.tk.call('eval', 'snack::getOpenFile')  # @ReservedAssignment
+        # @ReservedAssignment
+        file = Tkroot.tk.call('eval', 'snack::getOpenFile')
         self.sound.read(file, progress='snack::progressCallback')
 
     def play(self):
@@ -560,6 +565,7 @@ def createWaveform(canvas, *args, **kw):
 
 # noinspection PyDefaultArgument
 class SnackCanvas(Tkinter.Canvas):
+
     def __init__(self, master=None, cnf={}, **kw):
         Tkinter.Widget.__init__(self, master, 'canvas', cnf, kw)
 

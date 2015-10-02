@@ -1,4 +1,4 @@
-##!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Maneja las configuraciones del núcleo de HOA
@@ -34,12 +34,14 @@ ST_WARNING = "[WRN]"
 WRAP_ERROR_MSG = 70
 
 
-def st_error(msg, callExit=False, module=None):
+def st_error(msg, callExit=False, module=None, errname=None):
     """Muestra un mensaje de error en pantalla"""
     if module is None:
         print color.RED + ST_ERROR + color.END + " {0}".format(msg)
     else:
         print color.RED + ST_ERROR + color.END + " {0} ".format(msg) + "[" + color.UNDERLINE + module + color.END + "]"
+    if errname is not None:
+        print "      {0}".format(str(errname))
     if callExit:
         exit()
 

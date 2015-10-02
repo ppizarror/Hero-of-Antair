@@ -2118,4 +2118,4 @@ IMAGES = {
     "repwep": DATA_IMAGES_POWERS + "repwep.gif", \
     "robym": DATA_IMAGES_POWERS + "robym.gif", \
     "upexp": DATA_IMAGES_POWERS + "upexp.gif", \
-    }
+}

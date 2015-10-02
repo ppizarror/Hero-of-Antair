@@ -109,11 +109,11 @@ class pop:
         self.sent = False
         if typeObject == "about":  # Acerca de
             Label(self.w, text=self.lang[
-                                   1] + properties[5], font=DEFAULT_FONT_TITLE, border=5).pack()
+                1] + properties[5], font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=self.lang[
-                                   2] + properties[6], font=DEFAULT_FONT_TITLE, border=5).pack()
+                2] + properties[6], font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=self.lang[
-                                   3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
+                3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
             Button(
                 self.w, text=self.lang[4], command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
@@ -215,7 +215,7 @@ class pop:
                     return self.lang[12]
 
             Label(self.w, text=self.lang[
-                                   1] + " - Hero of Antair", font=DEFAULT_FONT_TITLE, border=10).pack()
+                1] + " - Hero of Antair", font=DEFAULT_FONT_TITLE, border=10).pack()
             self.configon = self.lang[6].upper().strip()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
@@ -228,7 +228,7 @@ class pop:
                     try:
                         if langlist[k] != "":
                             langlist[k] = langlist[k].replace(properties[8], "") + " - " + \
-                                          LANGS[langlist[k].replace(properties[8], "")]
+                                LANGS[langlist[k].replace(properties[8], "")]
                         else:
                             langlist.pop(k)
                     except:
@@ -385,7 +385,7 @@ class pop:
                 f.pack(fill=X)
                 for k in range(len(armamento)):
                     armamento[k] = str(armamento[k][0]).strip().capitalize().ljust(45) + " / " + \
-                                   self.lang[7] + " " + str(armamento[k][1]) + " - " + self.lang[8] + " " + str(
+                        self.lang[7] + " " + str(armamento[k][1]) + " - " + self.lang[8] + " " + str(
                         armamento[k][2]) + " - " + "ID " + str(armamento[k][3])
                 self.escogerArmamento_bullet = StringVar(self.w)
                 self.escogerArmamento_bullet.set(
@@ -425,18 +425,18 @@ class pop:
             # Se agrega la informacion dependiendo del tipo de objeto
             if tipo == "arma" or tipo == "armadura" or tipo == "bullet" or tipo == "pocion":
                 Label(f, text=self.lang[
-                                  1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                    1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
                 Label(
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
             elif tipo == "armawb":
                 # si el arma tiene balas
                 if properties[11] != 0:
                     Label(f, text=self.lang[
-                                      1] + str(properties[8] + properties[11]) + " HP", width=13, anchor=NW).pack(
+                        1] + str(properties[8] + properties[11]) + " HP", width=13, anchor=NW).pack(
                         side=TOP)
                 else:
                     Label(f, text=self.lang[
-                                      1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                        1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
                 Label(
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
                 if properties[10] != 0:
@@ -457,7 +457,7 @@ class pop:
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
             elif tipo == "mana":
                 Label(f, text=self.lang[
-                                  1] + str(properties[8]) + " PTS", width=13, anchor=NW).pack(side=TOP)
+                    1] + str(properties[8]) + " PTS", width=13, anchor=NW).pack(side=TOP)
                 Label(
                     f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
             f2 = Frame(F, border=5)
@@ -468,7 +468,7 @@ class pop:
             bt.pack()
             if typeObject != "itemInfoArmor":
                 Button(bt, text="<-", command=lambda:
-                self.actionitem("super_left"), relief=GROOVE).pack(side=LEFT)
+                       self.actionitem("super_left"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
                 Button(bt, text="<", command=lambda: self.actionitem(
                     "left"), relief=GROOVE).pack(side=LEFT)
@@ -484,7 +484,7 @@ class pop:
                     "right"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
                 Button(bt, text="->", command=lambda:
-                self.actionitem("super_right"), relief=GROOVE).pack(side=LEFT)
+                       self.actionitem("super_right"), relief=GROOVE).pack(side=LEFT)
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_game":  # Nuevo juego
@@ -557,7 +557,7 @@ class pop:
                 f, text=self.lang[1] + str(properties[7]), width=13, anchor=NW).pack(side=TOP)
             if properties[8] != "0:00":
                 Label(f, text=self.lang[
-                                  2] + str(properties[8]) + " " + self.lang[3], width=13, anchor=NW).pack(side=TOP)
+                    2] + str(properties[8]) + " " + self.lang[3], width=13, anchor=NW).pack(side=TOP)
             else:
                 Label(f, text=self.lang[5], width=13, anchor=NW).pack(side=TOP)
             f2 = Frame(F, border=5)

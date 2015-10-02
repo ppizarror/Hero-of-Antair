@@ -8,7 +8,9 @@
 # Fecha: ENERO 2014
 # Licencia: GPLv2
 
+
 class noStdOut:
+
     def __init__(self): pass
 
     def write(self, data): pass

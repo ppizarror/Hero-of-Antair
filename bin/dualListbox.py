@@ -14,6 +14,7 @@ from gi.repository import Gtk
 
 # noinspection PyMethodMayBeStatic
 class DualListBox(Gtk.Box):
+
     def __init__(self, columnNameLeft=None, columnNameRight=None):
         """'columnNameLeft' -> str (showed in the top of the left list)
         'columnNameRight' -> str (showed in the top of the right list)"""
@@ -40,8 +41,10 @@ class DualListBox(Gtk.Box):
         # Add proper columns to the views
         self._rendererTextLeft = Gtk.CellRendererText()
         self._rendererTextRight = Gtk.CellRendererText()
-        self._columnLeft = Gtk.TreeViewColumn(self._columnNameLeft, self._rendererTextLeft, text=0)
-        self._columnRight = Gtk.TreeViewColumn(self._columnNameRight, self._rendererTextRight, text=0)
+        self._columnLeft = Gtk.TreeViewColumn(
+            self._columnNameLeft, self._rendererTextLeft, text=0)
+        self._columnRight = Gtk.TreeViewColumn(
+            self._columnNameRight, self._rendererTextRight, text=0)
         self._viewLeft.append_column(self._columnLeft)
         self._viewRight.append_column(self._columnRight)
 

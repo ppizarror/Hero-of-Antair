@@ -16,7 +16,8 @@ from functools import partial
 # Cargo los cursores disponibles
 cur = []
 archivo = open(".config/cur.txt")
-for i in archivo: cur.append(str(i).strip().replace("\\n", ""))
+for i in archivo:
+    cur.append(str(i).strip().replace("\\n", ""))
 cur.sort()
 
 # Deficion de variables
@@ -24,6 +25,8 @@ pos = [0]
 PROGRAM_SIZE = 300, 300
 
 # Definicion de funciones
+
+
 def loadCur(cursors, pos, app, pag="sig", curlabel=None, e=None):
     """
     Establece los cursores
@@ -44,7 +47,8 @@ def loadCur(cursors, pos, app, pag="sig", curlabel=None, e=None):
     pos[0] = max(0, min(pos[0], len(cursors) - 1))
     app.config(cursor=cursors[pos[0]])
     app.title(cursors[pos[0]])
-    if not curlabel is None: curlabel.config(text="Cursor actual: " + cursors[pos[0]])
+    if not curlabel is None:
+        curlabel.config(text="Cursor actual: " + cursors[pos[0]])
 
 
 def copyToClipboard(cursors, pos, app, e=None):

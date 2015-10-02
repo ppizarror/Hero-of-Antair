@@ -50,7 +50,7 @@ class pop:  # Ventanas emergentes
             Label(self.w, text=lang[2] + properties[6],
                   font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=lang[
-                                   3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
+                3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
             Button(
                 self.w, text=lang[4], command=self.w.destroy, relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
@@ -383,11 +383,11 @@ class pop:  # Ventanas emergentes
 
             if _sound:
                 Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
-                side=LEFT, padx=1, pady=1)
+                    side=LEFT, padx=1, pady=1)
                 Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
-                side=LEFT, padx=1, pady=1)
+                    side=LEFT, padx=1, pady=1)
                 Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
-                side=LEFT, padx=1, pady=1)
+                    side=LEFT, padx=1, pady=1)
             Button(self.w, text="Insertar", relief=GROOVE,
                    command=self.enviarBgSound).pack(pady=10)
             self.w.bind("<Escape>", self.destruir)
@@ -468,7 +468,8 @@ class pop:  # Ventanas emergentes
         elif typeObject == "new_mob" or typeObject == "edit_mob":
             def _setmusic():
                 q = pop(['Escoger sonido de fondo',
-                         str(os.getcwd()).replace("\\", "/") + "/" + "data/" + "icons/" + "sound_add.ico",
+                         str(os.getcwd()).replace("\\", "/") + "/" +
+                         "data/" + "icons/" + "sound_add.ico",
                          'new_sound_mob', 120, 380, "data/sound/mobs/"])
                 q.w.mainloop(2)
                 if q.sent:

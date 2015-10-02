@@ -132,5 +132,5 @@ class Power:
         :return: String
         """
         return str(self.nombre) + POWERSEP + str(self.short) + POWERSEP + str(self.descripcion) + POWERSEP + \
-               str(self.id) + POWERSEP + str(self.imagen) + POWERSEP + str(self.nivel) + POWERSEP + \
-               str(self.tiempo) + POWERSEP + str(self.mana)
+            str(self.id) + POWERSEP + str(self.imagen) + POWERSEP + str(self.nivel) + POWERSEP + \
+            str(self.tiempo) + POWERSEP + str(self.mana)

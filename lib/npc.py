@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# NPC (Not player character) entidades lógicas que proveen de quest e items al jugador
+# NPC (Not player character) entidades lógicas que proveen de quest e
+# items al jugador
 
 # NPC
 # Autor: PABLO PIZARRO @ ppizarro
@@ -308,13 +309,13 @@ class npc:
         :return: String
         """
         return replaceStrict(str(self.nombre)) + NPC_SEPARATOR + replaceStrict(str(self.imagen)) + \
-               NPC_SEPARATOR + replaceStrict(str(self.descripcion)) + NPC_SEPARATOR + replaceStrict(str(self.strings)) + \
-               NPC_SEPARATOR + replaceStrict(str(self.obj)) + NPC_SEPARATOR + replaceStrict(
+            NPC_SEPARATOR + replaceStrict(str(self.descripcion)) + NPC_SEPARATOR + replaceStrict(str(self.strings)) + \
+            NPC_SEPARATOR + replaceStrict(str(self.obj)) + NPC_SEPARATOR + replaceStrict(
             str(self.req)) + NPC_SEPARATOR + \
-               replaceStrict(str(self.oro)) + NPC_SEPARATOR + replaceStrict(
+            replaceStrict(str(self.oro)) + NPC_SEPARATOR + replaceStrict(
             str(self.move)) + NPC_SEPARATOR + replaceStrict(str(self.distance)) + \
-               NPC_SEPARATOR + replaceStrict(str(self.fade)) + NPC_SEPARATOR + str(
+            NPC_SEPARATOR + replaceStrict(str(self.fade)) + NPC_SEPARATOR + str(
             self.posicion[0]) + NPC_SEPARATOR + str(self.posicion[1]) + NPC_SEPARATOR + \
-               str(self.ended) + NPC_SEPARATOR + str(self.stringCount) + NPC_SEPARATOR + str(
+            str(self.ended) + NPC_SEPARATOR + str(self.stringCount) + NPC_SEPARATOR + str(
             self.initPos[0]) + NPC_SEPARATOR + str(self.initPos[1]) + \
-               NPC_SEPARATOR + str(self.needquest) + "\n"
+            NPC_SEPARATOR + str(self.needquest) + "\n"

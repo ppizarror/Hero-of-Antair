@@ -248,12 +248,12 @@ class Statics:
         :return: String
         """
         return str(self.muertes) + _STATIC + str(self.obj) + _STATIC + str(self.mapas) + _STATIC + str(self.trucos) + \
-               _STATIC + str(self.droppedweapon) + _STATIC + str(self.droppeditem) + _STATIC + str(self.orogastado) + \
-               _STATIC + str(self.oroganado) + _STATIC + str(self.escapes) + _STATIC + str(self.librosleidos) + \
-               _STATIC + str(self.movimientos) + _STATIC + str(self.pociones) + _STATIC + str(self.saved) + \
-               _STATIC + str(self.droppedarmor) + _STATIC + str(self.opendoors) + _STATIC + str(self.interactnpc) + \
-               _STATIC + str(self.poderesuados) + _STATIC + str(self.carteles) + _STATIC + str(self.questhechas) + \
-               _STATIC + str(self.followers) + "\n"
+            _STATIC + str(self.droppedweapon) + _STATIC + str(self.droppeditem) + _STATIC + str(self.orogastado) + \
+            _STATIC + str(self.oroganado) + _STATIC + str(self.escapes) + _STATIC + str(self.librosleidos) + \
+            _STATIC + str(self.movimientos) + _STATIC + str(self.pociones) + _STATIC + str(self.saved) + \
+            _STATIC + str(self.droppedarmor) + _STATIC + str(self.opendoors) + _STATIC + str(self.interactnpc) + \
+            _STATIC + str(self.poderesuados) + _STATIC + str(self.carteles) + _STATIC + str(self.questhechas) + \
+            _STATIC + str(self.followers) + "\n"
 
     def get(self):
         """

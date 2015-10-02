@@ -1,4 +1,4 @@
-##!/usr/bin/env python
+# !/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Colores en consola
@@ -12,6 +12,8 @@
 import os
 
 # noinspection PyClassHasNoInit
+
+
 class color:
     """Clase que permite manejar colores en la terminal"""
 

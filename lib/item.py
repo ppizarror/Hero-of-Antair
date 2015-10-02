@@ -18,7 +18,8 @@ _ITEMID = -1
 # Items del juego, matriz global que contiene los objetos que se usaran en partidas, estos son predefinidos.
 # Ver documentacion (objetos.txt)
 ITEMS = {
-    # ID    NOMBRE,DESCRIPCION,TEXTURA,TIPO,_ITEMID,STACKABLE,VIDA/USOS,PROPIEDADES
+    # ID
+    # NOMBRE,DESCRIPCION,TEXTURA,TIPO,_ITEMID,STACKABLE,VIDA/USOS,PROPIEDADES
     1: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
         False, 25, [100, 0]], \
     2: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
@@ -191,9 +192,10 @@ ITEMS = {
          "weapon/right", _ITEMID, False, 50, [75, 0]], \
     79: ["Espada de Madera superior", "Una simple espada, construida en madera de roble", "espada_madera",
          "weapon/right", _ITEMID, False, 50, [100, 0]], \
-    }
+}
 
-for i in ITEMS.keys(): ITEMS[i][4] = i  # se agrega el id a cada item
+for i in ITEMS.keys():
+    ITEMS[i][4] = i  # se agrega el id a cada item
 
 
 def lookType(a):
@@ -222,7 +224,8 @@ class Item:
         :param prop: Propiedades del item
         :return: void
         """
-        (nombre, descripcion, imagen, tipo, id_item, stackable, life, propiedades) = prop
+        (nombre, descripcion, imagen, tipo, id_item,
+         stackable, life, propiedades) = prop
         self.descripcion = descripcion  # descripción del item
         self.id = id_item  # identificador del item
         self.imagen = imagen  # imágen del item
@@ -375,7 +378,7 @@ class Item:
         """
         return replaceStrict(str(self.nombre)) + ITEMSEPARATOR + replaceStrict(
             str(self.descripcion)) + ITEMSEPARATOR + str(self.imagen) + \
-               ITEMSEPARATOR + str(self.tipo) + ITEMSEPARATOR + str(self.id) + ITEMSEPARATOR + str(
+            ITEMSEPARATOR + str(self.tipo) + ITEMSEPARATOR + str(self.id) + ITEMSEPARATOR + str(
             self.stack) + ITEMSEPARATOR + \
-               str(self.usos) + ITEMSEPARATOR + lookType(self.propiedades[0]) + ITEMSEPARATOR + lookType(
+            str(self.usos) + ITEMSEPARATOR + lookType(self.propiedades[0]) + ITEMSEPARATOR + lookType(
             self.propiedades[1]) + "\n"

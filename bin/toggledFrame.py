@@ -14,13 +14,15 @@ import Tkinter as tk
 
 
 class toggledFrame(tk.Frame):
+
     def __init__(self, parent, text='', **options):
         tk.Frame.__init__(self, parent, **options)
         self.show = tk.IntVar()
         self.show.set(0)
         self.titleFrame = ttk.Frame(self)
         self.titleFrame.pack(fill=tk.X, expand=1)
-        ttk.Label(self.titleFrame, text=text).pack(side=tk.LEFT, fill=tk.X, expand=1)
+        ttk.Label(self.titleFrame, text=text).pack(
+            side=tk.LEFT, fill=tk.X, expand=1)
         self.toggleButton = ttk.Checkbutton(self.titleFrame, width=2, text='+', command=self.toggle, variable=self.show,
                                             style='Toolbutton')
         self.toggleButton.pack(side=tk.LEFT)

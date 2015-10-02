@@ -183,9 +183,9 @@ class mob:
                         p_y = self.posicion[1]
                 else:  # Si se mueve al azar
                     p_x = self.posicion[
-                              0] + random.randint(-self.velocidad, self.velocidad)
+                        0] + random.randint(-self.velocidad, self.velocidad)
                     p_y = self.posicion[
-                              1] + random.randint(-self.velocidad, self.velocidad)
+                        1] + random.randint(-self.velocidad, self.velocidad)
             else:  # Si no se mueden mover infinitamente
                 if self.persigue:  # Si el mob persigue al jugador
                     if abs(px - self.initPos[0]) <= self.distance and abs(py - self.initPos[1]) <= self.distance:
@@ -390,15 +390,15 @@ class mob:
         :return: String
         """
         return replaceStrict(str(self.ataque)) + MOB_SEPARATOR + replaceStrict(str(self.vida)) + MOB_SEPARATOR + \
-               replaceStrict(str(self.imagen)) + MOB_SEPARATOR + replaceStrict(str(self.target)) + MOB_SEPARATOR + \
-               replaceStrict(str(self.velocidad)) + MOB_SEPARATOR + replaceStrict(str(self.nombre)) + MOB_SEPARATOR + \
-               replaceStrict(str(self.informacion)) + MOB_SEPARATOR + replaceStrict(
+            replaceStrict(str(self.imagen)) + MOB_SEPARATOR + replaceStrict(str(self.target)) + MOB_SEPARATOR + \
+            replaceStrict(str(self.velocidad)) + MOB_SEPARATOR + replaceStrict(str(self.nombre)) + MOB_SEPARATOR + \
+            replaceStrict(str(self.informacion)) + MOB_SEPARATOR + replaceStrict(
             str(self.posicion[0])) + MOB_SEPARATOR + \
-               replaceStrict(str(self.posicion[1])) + MOB_SEPARATOR + replaceStrict(
+            replaceStrict(str(self.posicion[1])) + MOB_SEPARATOR + replaceStrict(
             str(self.regeneracion)) + MOB_SEPARATOR + \
-               replaceStrict(str(self.movimiento)) + MOB_SEPARATOR + replaceStrict(str(self.defensa)) + MOB_SEPARATOR + \
-               replaceStrict(str(self.expDrown)) + MOB_SEPARATOR + replaceStrict(str(self.objDrown)) + MOB_SEPARATOR + \
-               replaceStrict(str(self.escapa)) + MOB_SEPARATOR + replaceStrict(str(self.persigue)) + MOB_SEPARATOR + \
-               str(self.distance) + MOB_SEPARATOR + str(self.initPos[0]) + MOB_SEPARATOR + str(self.initPos[1]) + \
-               MOB_SEPARATOR + str(self.tipocombate) + MOB_SEPARATOR + \
-               str(self.tipoataque) + MOB_SEPARATOR + str(self.sonido) + "\n"
+            replaceStrict(str(self.movimiento)) + MOB_SEPARATOR + replaceStrict(str(self.defensa)) + MOB_SEPARATOR + \
+            replaceStrict(str(self.expDrown)) + MOB_SEPARATOR + replaceStrict(str(self.objDrown)) + MOB_SEPARATOR + \
+            replaceStrict(str(self.escapa)) + MOB_SEPARATOR + replaceStrict(str(self.persigue)) + MOB_SEPARATOR + \
+            str(self.distance) + MOB_SEPARATOR + str(self.initPos[0]) + MOB_SEPARATOR + str(self.initPos[1]) + \
+            MOB_SEPARATOR + str(self.tipocombate) + MOB_SEPARATOR + \
+            str(self.tipoataque) + MOB_SEPARATOR + str(self.sonido) + "\n"

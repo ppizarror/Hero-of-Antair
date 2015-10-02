@@ -14,7 +14,8 @@ import os
 
 # Constantes
 _bindir = "bin"
-_actualpath = str(os.path.abspath(os.path.dirname(__file__))).replace(_bindir, "")
+_actualpath = str(os.path.abspath(
+    os.path.dirname(__file__))).replace(_bindir, "")
 CONFIG_FOLDER = _actualpath + "config/"
 CONFIG_HOA_FILE = "hoa.configs"
 
@@ -63,7 +64,8 @@ def setConfig(configFile, configValue):
     try:
         f = open(CONFIG_FOLDER + configFile, "w")
     except:
-        st_error("Error al escribir en el archivo {0}".format(configFile), True)
+        st_error("Error al escribir en el archivo {0}".format(
+            configFile), True)
     f.write(configValue)
     f.flush()
     f.close()
