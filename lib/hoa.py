@@ -155,7 +155,7 @@ else:
     DRAW_CANVAS_OFFSET_Y = -2
     POP_XSIZE = 175
     POP_YSIZE = 390
-    PROGRAM_SIZE = 803, 574
+    PROGRAM_SIZE = 817, 574
 
 # Configuración del programa
 try:  # Se cargan las configuraciones
@@ -1695,8 +1695,13 @@ class hoa:
         self.initialBg = Canvas(f, width=PROGRAM_SIZE[0] + 105, height=PROGRAM_SIZE[1] + 100, bd=-2,
                                 highlightthickness=0)
         self.initialBg.pack()
-        self.initialBg.create_image(
+        if isWindows():
+            self.initialBg.create_image(
             403, 295, image=self.images.image("background"))
+        else:
+            self.initialBg.create_rectangle(0,0,1000,1000, fill="black")
+            self.initialBg.create_image(
+            409, 295, image=self.images.image("background"))
         self.initialBg.update()
         self.content = Frame(f, border=0)
         self.menu = Frame(f)
@@ -4849,6 +4854,7 @@ class hoa:
                     self.initialBg.pack()
                 except:
                     totalerrors += 1
+                self.initialBg.create_rectangle(0,0,1000,1000, fill="black")
                 self.initialBg.config(cursor="wait")
                 self.root.title(lang(210))  # modifico el título con cargando
                 # pantalla de cargado 1
