@@ -77,6 +77,7 @@ BUILD_TORCHES = ["antorcha", "antorcha2", "antorcha3", "antorcha4", "antorcha5",
 BUILD_TORCHES_ID = ["407", "408", "411", "412", "413", "414", "415", "416", "417", "418", "419",
                     "420", "421", "422", "423", "424", "425", "426", "427", "428", "429", "430",
                     "431", "432", "961"]
+CONTAINER_EXTENSION = ".data"
 DATA_FOLDER = ACTUAL_FOLDER + "data/"
 DATA_ICONS = DATA_FOLDER + "icons/"
 DATA_ICONS_ITEMS = DATA_ICONS + "items/"

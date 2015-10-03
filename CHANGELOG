@@ -1441,8 +1441,11 @@
 	      El logo se imprime desplazado 20 caracteres en vez de console.width/2.
 
 	[0.5.4]
-		  Reformateo de codigo a estandares PEP-8.
-		  Arreglo de importacion PIL en mac/osx.
+	      Reformateo de codigo a estandares PEP-8.
+	      Arreglo de importacion PIL en OSX.
+	      Correccion en dimensiones de ventana en OSX.
+	      Se agrupan las imagenes en paquetes .data para minimizar numero
+	      de archivos.
 
 
-		  
+

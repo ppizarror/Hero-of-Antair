@@ -41,9 +41,9 @@ try:
     from textures import *
     import statics
     import zipfile
-except:
+except Exception, e:
     print "error"
-    st_error("Error al cargar librerias internas", True, "hoa.py")
+    st_error("Error al cargar librerias internas", True, "hoa.py", e)
     exit()
 print OK
 
@@ -1697,11 +1697,11 @@ class hoa:
         self.initialBg.pack()
         if isWindows():
             self.initialBg.create_image(
-            403, 295, image=self.images.image("background"))
+                403, 295, image=self.images.image("background"))
         else:
-            self.initialBg.create_rectangle(0,0,1000,1000, fill="black")
+            self.initialBg.create_rectangle(0, 0, 1000, 1000, fill="black")
             self.initialBg.create_image(
-            409, 295, image=self.images.image("background"))
+                409, 295, image=self.images.image("background"))
         self.initialBg.update()
         self.content = Frame(f, border=0)
         self.menu = Frame(f)
@@ -4854,7 +4854,7 @@ class hoa:
                     self.initialBg.pack()
                 except:
                     totalerrors += 1
-                self.initialBg.create_rectangle(0,0,1000,1000, fill="black")
+                self.initialBg.create_rectangle(0, 0, 1000, 1000, fill="black")
                 self.initialBg.config(cursor="wait")
                 self.root.title(lang(210))  # modifico el título con cargando
                 # pantalla de cargado 1

@@ -13,6 +13,7 @@ from lib import *
 from texture_analysis import *
 from texture_items import *
 from texture_world import *
+import zipfile
 
 
 class hoaTextures:
@@ -24,6 +25,22 @@ class hoaTextures:
         :param lang: Mensajes
         :return: void
         """
+        self.packages = {
+            "actor": None,
+            "ambiance-big": None,
+            "ambiance": None,
+            "buildings": None,
+            "buildings-big": None,
+            "construction": None,
+            "construction-big": None,
+            "effects": None,
+            "interior": None,
+            "interior-big": None,
+            "items": None,
+            "other": None,
+            "powers": None,
+            "rec": None,
+            "vehicles": None}
         self.lang = lang
         self.images = {
 
@@ -49,12 +66,6 @@ class hoaTextures:
             "icon": DATA_ICONS + "hoa.ico", \
             "iconmuerte": DATA_ICONS + "iconmuerte.ico", \
             "new_user_icon": DATA_ICONS + "new_user.ico", \
-            "no_lw": PhotoImage(file=DATA_IMAGES_ITEMS + "no_lw.gif"), \
-            "no_rw": PhotoImage(file=DATA_IMAGES_ITEMS + "no_rw.gif"), \
-            "no_casco": PhotoImage(file=DATA_IMAGES_ITEMS + "no_casco.gif"), \
-            "no_botas": PhotoImage(file=DATA_IMAGES_ITEMS + "no_botas.gif"), \
-            "no_pantalon": PhotoImage(file=DATA_IMAGES_ITEMS + "no_pantalon.gif"), \
-            "no_chaleco": PhotoImage(file=DATA_IMAGES_ITEMS + "no_chaleco.gif"), \
             "quest_list": DATA_ICONS + "quest_list.ico", \
             "loading0": PhotoImage(file=DATA_IMAGES_GUI + "loading0.gif"), \
             "loading1": PhotoImage(file=DATA_IMAGES_GUI + "loading1.gif"), \
@@ -72,40 +83,7 @@ class hoaTextures:
             "text_icon": DATA_ICONS + "text_icon.ico", \
             "user_icon": DATA_ICONS + "user.ico", \
             "vacio_16": PhotoImage(data="R0lGODlhEAAQAIAAAP///wAAACH5BAEAAAEALAAAAAAQABAAAAIOjI+py+0Po5y02ouzPgUAOw=="), \
-            "vacio_32": PhotoImage(file=DATA_IMAGES_ITEMS + "vacio_32.gif"), \
- \
-            # Efectos
-            "ambient_effect1_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect1_0.gif"), \
-            "ambient_effect1_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect1_1.gif"), \
-            "ambient_effect2_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect2_0.gif"), \
-            "ambient_effect2_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect2_1.gif"), \
-            "ambient_effect3_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect3_0.gif"), \
-            "ambient_effect3_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect3_1.gif"), \
-            "ambient_effect4_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect4_0.gif"), \
-            "ambient_effect4_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect4_1.gif"), \
-            "ambient_effect5_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect5_0.gif"), \
-            "ambient_effect5_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "ambient_effect5_1.gif"), \
-            "life1": PhotoImage(file=DATA_IMAGES_EFFECTS + "life1.gif"), \
-            "life2": PhotoImage(file=DATA_IMAGES_EFFECTS + "life2.gif"), \
-            "life3": PhotoImage(file=DATA_IMAGES_EFFECTS + "life3.gif"), \
-            "life4": PhotoImage(file=DATA_IMAGES_EFFECTS + "life4.gif"), \
-            "life5": PhotoImage(file=DATA_IMAGES_EFFECTS + "life5.gif"), \
-            "life6": PhotoImage(file=DATA_IMAGES_EFFECTS + "life6.gif"), \
-            "life7": PhotoImage(file=DATA_IMAGES_EFFECTS + "life7.gif"), \
-            "life8": PhotoImage(file=DATA_IMAGES_EFFECTS + "life8.gif"), \
-            "life9": PhotoImage(file=DATA_IMAGES_EFFECTS + "life9.gif"), \
-            "life10": PhotoImage(file=DATA_IMAGES_EFFECTS + "life10.gif"), \
-            "sangre1_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre1_0.gif"), \
-            "sangre1_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre1_1.gif"), \
-            "sangre2_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre2_0.gif"), \
-            "sangre2_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre2_1.gif"), \
-            "sangre3_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre3_0.gif"), \
-            "sangre3_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre3_1.gif"), \
-            "sangre4_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre4_0.gif"), \
-            "sangre4_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre4_1.gif"), \
-            "sangre5_0": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre5_0.gif"), \
-            "sangre5_1": PhotoImage(file=DATA_IMAGES_EFFECTS + "sangre5_1.gif"), \
- \
+
             # Terreno
             "black": Image.open(DATA_IMAGES_TERRAIN + "black.gif"), \
             "dirt1_0": Image.open(DATA_IMAGES_TERRAIN + "dirt1_0.gif"), \
@@ -263,6 +241,24 @@ class hoaTextures:
             "water6_1": Image.open(DATA_IMAGES_TERRAIN + "water6_1.gif"), \
             "water7_0": Image.open(DATA_IMAGES_TERRAIN + "water7_0.gif"), \
             "water7_1": Image.open(DATA_IMAGES_TERRAIN + "water7_1.gif")}
+        self.loadZips()
+
+    def loadZips(self):
+        """
+        Función que carga los zip
+        """
+        for pack in self.packages.keys():
+            self.packages[pack] = zipfile.ZipFile(
+                DATA_IMAGES + pack + CONTAINER_EXTENSION)
+
+    def inZip(self, pack):
+        """
+        Comprueba si la imagen a cargar esta en un zip o en un directorio
+        :return: Boolean
+        """
+        if pack in self.packages.keys():
+            return True
+        return False
 
     def image(self, image):
         """
@@ -276,14 +272,21 @@ class hoaTextures:
             if VERBOSE_TEXLOAD:
                 print str(self.lang[0]).replace("%", image),
             try:
-                # Se cargan las imágenes desde el mundo
-                self.images[image] = PhotoImage(file=IMAGES[image])
+                self.loadIMAGE(image)
             except:
-                self.images[image] = PhotoImage(
-                    file=IMAGES_ITEMS[image])  # O desde los items
+                self.loadIMAGE_ITEM(image)
             if VERBOSE_TEXLOAD:
                 print self.lang[1]
             return self.images[image]
+
+    def getPackage(self, image):
+        """
+        Transforma la ubicación de la imagen a un paquete
+        :return: String
+        """
+        image = image.replace(DATA_IMAGES, "").split("/")
+        image.pop()
+        return "-".join(image)
 
     def getLinkImage(self, image):
         """
@@ -296,6 +299,32 @@ class hoaTextures:
         except:
             print self.lang[1]
         return "None"
+
+    def loadIMAGE(self, image):
+        """
+        Función que carga una imagen de un zip si corresponde
+        caso contrario retorna un string
+        :param image: String del imagen a cargar
+        """
+        pack = self.getPackage(IMAGES[image])
+        if self.inZip(pack):
+            if ".gif" in IMAGES[image]:
+                self.images[image] = PhotoImage(
+                    data=self.packages[pack].read(image + ".gif"))
+            else:
+                print "TODO: NO GIF"
+        else:
+            self.images[image] = PhotoImage(file=IMAGES[image])
+
+    def loadIMAGE_ITEM(self, image):
+        """
+        Función que carga una imagen de un item de un zip si corresponde
+        caso contrario retorna un string
+        :param image: String del imagen a cargar
+        """
+        pack = self.getPackage(IMAGES_ITEMS[image])
+        self.images[image] = PhotoImage(
+            data=self.packages[pack].read(image + ".gif"))
 
 
 def arrastrarImagen(image, canvas, c, d):

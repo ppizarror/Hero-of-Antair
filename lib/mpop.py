@@ -847,7 +847,7 @@ class pop:  # Ventanas emergentes
             fe = Frame(self.w)
             fe.pack(fill=X, pady=2)
             # se cargan todas las texturas
-            self.textures = loadFromArchive("data/images/items/_textures.txt")
+            self.textures = loadFromArchive("data/doc/mapeditor/_textures.txt")
             Label(fe, text="Textura", anchor=E, width=12).pack(side=LEFT)
             self.texturaobj = StringVar(fe)
             self.texturaobj.set("< -- >".rjust(26))  # valor por defecto

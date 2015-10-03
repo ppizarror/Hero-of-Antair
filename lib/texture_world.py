@@ -19,7 +19,39 @@ IMAGES = {
     # Vehículos
     "ship_0": DATA_IMAGES_VEHICLES + "ship_0.gif", \
     "ship_1": DATA_IMAGES_VEHICLES + "ship_1.gif", \
- \
+
+    # Efectos del mundo
+    "ambient_effect1_0": DATA_IMAGES_EFFECTS + "ambient_effect1_0.gif", \
+    "ambient_effect1_1": DATA_IMAGES_EFFECTS + "ambient_effect1_1.gif", \
+    "ambient_effect2_0": DATA_IMAGES_EFFECTS + "ambient_effect2_0.gif", \
+    "ambient_effect2_1": DATA_IMAGES_EFFECTS + "ambient_effect2_1.gif", \
+    "ambient_effect3_0": DATA_IMAGES_EFFECTS + "ambient_effect3_0.gif", \
+    "ambient_effect3_1": DATA_IMAGES_EFFECTS + "ambient_effect3_1.gif", \
+    "ambient_effect4_0": DATA_IMAGES_EFFECTS + "ambient_effect4_0.gif", \
+    "ambient_effect4_1": DATA_IMAGES_EFFECTS + "ambient_effect4_1.gif", \
+    "ambient_effect5_0": DATA_IMAGES_EFFECTS + "ambient_effect5_0.gif", \
+    "ambient_effect5_1": DATA_IMAGES_EFFECTS + "ambient_effect5_1.gif", \
+    "life1": DATA_IMAGES_EFFECTS + "life1.gif", \
+    "life2": DATA_IMAGES_EFFECTS + "life2.gif", \
+    "life3": DATA_IMAGES_EFFECTS + "life3.gif", \
+    "life4": DATA_IMAGES_EFFECTS + "life4.gif", \
+    "life5": DATA_IMAGES_EFFECTS + "life5.gif", \
+    "life6": DATA_IMAGES_EFFECTS + "life6.gif", \
+    "life7": DATA_IMAGES_EFFECTS + "life7.gif", \
+    "life8": DATA_IMAGES_EFFECTS + "life8.gif", \
+    "life9": DATA_IMAGES_EFFECTS + "life9.gif", \
+    "life10": DATA_IMAGES_EFFECTS + "life10.gif", \
+    "sangre1_0": DATA_IMAGES_EFFECTS + "sangre1_0.gif", \
+    "sangre1_1": DATA_IMAGES_EFFECTS + "sangre1_1.gif", \
+    "sangre2_0": DATA_IMAGES_EFFECTS + "sangre2_0.gif", \
+    "sangre2_1": DATA_IMAGES_EFFECTS + "sangre2_1.gif", \
+    "sangre3_0": DATA_IMAGES_EFFECTS + "sangre3_0.gif", \
+    "sangre3_1": DATA_IMAGES_EFFECTS + "sangre3_1.gif", \
+    "sangre4_0": DATA_IMAGES_EFFECTS + "sangre4_0.gif", \
+    "sangre4_1": DATA_IMAGES_EFFECTS + "sangre4_1.gif", \
+    "sangre5_0": DATA_IMAGES_EFFECTS + "sangre5_0.gif", \
+    "sangre5_1": DATA_IMAGES_EFFECTS + "sangre5_1.gif", \
+
     # Actores
     "actor_arrow": DATA_IMAGES_ACTORS + "actor_arrow.gif", \
     "actor_groupal_1": DATA_IMAGES_ACTORS + "actor_groupal_1.gif", \
