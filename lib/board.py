@@ -9,8 +9,8 @@
 # Licencia: GPLv2
 
 # Importación de librerías
-from lib import *
-from group import *
+from lib import *  # @UnusedWildImport
+from group import *  # @UnusedWildImport
 
 # Constantes del programa
 BASE_ENEMIES = {"FACIL": 0, "MEDIO": 5, "DIFICIL": 10}
@@ -239,11 +239,11 @@ class board:
                     2 + int(2.00 * int(len(self.players) / 2)) - int(int(len(self.players) / 4) / 4) - int(
                         len(self.players) / 8) -
                     int(len(self.players) / 16))
-        for i in range(alto):  # Creo las matrices del mundo
+        for i in range(alto):  # Creo las matrices del mundo @UnusedVariable
             self.mapitems.append(["None"] * ancho)
             self.maplight.append([0] * ancho)
             self.maplogics.append(["none"] * ancho)
-        for i in range(alto + 2):
+        for i in range(alto + 2):  # @UnusedVariable
             self.mapsound.append([0] * (ancho + 2))
         # se disminuye en 1 dado que ahora se trabaja en matrices
         self.boardSize[0] = alto - 1
@@ -339,7 +339,7 @@ class board:
                        2 * int(len(self.players) / 8) + int(len(self.players) / 16))
         pos_obstacles = []
         # noinspection PyUnboundLocalVariable
-        for i in range(cant):  # Se agregan cant posiciones
+        for i in range(cant):  # Se agregan cant posiciones @UnusedVariable
             pos_obstacles.append([random.randint(2 + int(len(self.mobs) / 16),
                                                  max(2, self.boardSize[1] - (2 + int(len(self.mobs) / 16)))),
                                   random.randint(0, self.boardSize[0])])

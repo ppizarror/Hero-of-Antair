@@ -9,8 +9,8 @@
 # Licencia: GPLv2
 
 # Importación de librerias
-from Tkinter import PhotoImage
-import os
+from Tkinter import PhotoImage  # @UnusedImport
+import os  # @UnusedImport
 
 from textures import *
 

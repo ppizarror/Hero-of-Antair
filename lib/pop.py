@@ -9,7 +9,7 @@
 # Licencia: GPLv2
 
 # Importación de librerias
-from lib import *
+from lib import *  # @UnusedWildImport
 
 # Constantes del programa
 if isWindows():
@@ -379,7 +379,7 @@ class pop:
             armamento = properties[6][0]
             armamento.sort()
             fp = properties[6][1]
-            sp = properties[6][2]
+            sp = properties[6][2]  # @UnusedVariable
             if "bullet" in tipo:
                 f = Frame(self.w, border=3)
                 f.pack(fill=X)
@@ -973,7 +973,7 @@ class pop:
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "ver_quest":  # Ver las quest
-            import ttk
+            import ttk  # @UnusedImport
 
             Label(self.w, text=self.lang[1], border=10).pack()
             data = properties[5]
@@ -1006,9 +1006,9 @@ class pop:
         elif typeObject in ["licence", "changelog", "ayuda", "longtext", "license"]:
             print "Recurso [{0}] ...".format(properties[5].replace("//", "/")),
             try:
-                name = properties[6]
+                name = properties[6]  # @UnusedVariable
             except:
-                name = ""
+                name = ""  # @UnusedVariable
             archivo = open(properties[5], "r")
             Yscroll = Scrollbar(self.w, orient=VERTICAL, highlightthickness=0)
             Yscroll.pack(side=RIGHT, fill=Y)

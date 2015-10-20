@@ -9,7 +9,7 @@
 # Licencia: GPLv2
 
 # Importación de librerías de alto nivel
-from lib import *
+from lib import *  # @UnusedWildImport
 from release import *
 
 # Inicio del sistema
@@ -31,16 +31,16 @@ print "\nAutor: " + AUTOR_NAME
 print "\nCargando librerias ...",
 try:
     from actors import actors
-    from board import *
-    from item import *
+    from board import *  # @UnusedWildImport
+    from item import *  # @UnusedWildImport
     from mob import mob, MOB_SEPARATOR, TIME_MOVE_MOBS_NORMAL
     from npc import npc, NPC_SEPARATOR, NPC_TIME_MOVEMENT
     from pop import pop
     from powers import *
-    from sounds import *
-    from textures import *
+    from sounds import *  # @UnusedWildImport
+    from textures import *  # @UnusedWildImport
     import statics
-    import zipfile
+    import zipfile  # @Reimport
 except Exception, e:
     print "error"
     st_error("Error al cargar librerias internas", True, "hoa.py", e)
@@ -263,7 +263,7 @@ if CONFIGURATION_DATA[7] == "ON" or (
         ST_TRANSLATE = True
     except:
         # noinspection PyShadowingBuiltins
-        CONFIGURATION_DATA[10] = False, CONFIGURATION_DATA[
+        CONFIGURATION_DATA[10] = False, CONFIGURATION_DATA[  # @ReservedAssignment
             9] = False
         print "abortado"  # si ocurre algún error en la conexión en el servicio
     if CONFIGURATION_DATA[8] == "es":
@@ -2419,13 +2419,13 @@ class hoa:
                                                   tags=tag_tile)
                         texture_tile = generateRandom6()
                         if tipo == "PL":
-                            flecha = self.world.create_image(25 + 32 * newposx + self.board.getBoardCorreccionX(),
+                            flecha = self.world.create_image(25 + 32 * newposx + self.board.getBoardCorreccionX(),  # @UnusedVariable
                                                              self.board.getBoardCorreccionY() + 32 * newposy + 25,
                                                              image=self.images.image(
                                                                  self.player.getLeftWeapon().getImage() + "_16"),
                                                              tags=texture_tile)
                         else:
-                            flecha = self.world.create_image(25 + 32 * newposx + self.board.getBoardCorreccionX(),
+                            flecha = self.world.create_image(25 + 32 * newposx + self.board.getBoardCorreccionX(),  # @UnusedVariable
                                                              self.board.getBoardCorreccionY() + 32 * newposy + 25,
                                                              image=self.images.image(
                                                                  self.board.getWeapon()),
@@ -2618,7 +2618,7 @@ class hoa:
             self.world.tag_raise(tag_self, "grupal:background")
             self.world.update()
 
-        def _move(x, y, id, type):
+        def _move(x, y, id, type):  # @ReservedAssignment
             """
             Mueve al grupo
             :param x: Posición x
@@ -2628,7 +2628,7 @@ class hoa:
             :return:
             """
 
-            def _drawRectangle(type, x, y, id, tag, tagnum):
+            def _drawRectangle(type, x, y, id, tag, tagnum):  # @ReservedAssignment
                 """
                 Función que escribe el recuadro
                 :param type: Tipo de jugador
@@ -2704,7 +2704,7 @@ class hoa:
                 _drawRectangle(type, x, y, id, tag[1], tag[2])
             self.sonido(self.board.getSound(x, y))  # sonido del tile
 
-        def _intAlert(x, y, int):
+        def _intAlert(x, y, int):  # @ReservedAssignment
             """
             Dibuja un int en el mundo
             :param x: Posición x
@@ -2825,7 +2825,7 @@ class hoa:
             if MOVEMENT_ANIMATION[0]:  # Si las animaciones estan activas
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
                 if tipo == "PL":  # Si es el jugador se dibuja la flecha cargada
-                    flecha = self.world.create_image(18 + 32 * xo + self.board.getBoardCorreccionX(),
+                    flecha = self.world.create_image(18 + 32 * xo + self.board.getBoardCorreccionX(),  # @UnusedVariable
                                                      self.board.getBoardCorreccionY() + 32 * yo + 18,
                                                      image=self.images.image(
                                                          self.player.getActiveBullet().getImage() + "_16"),
@@ -2834,7 +2834,7 @@ class hoa:
                     self.checkItems()
                     self.dibujarItems()
                 else:
-                    flecha = self.world.create_image(18 + 32 * xo + self.board.getBoardCorreccionX(),
+                    flecha = self.world.create_image(18 + 32 * xo + self.board.getBoardCorreccionX(),  # @UnusedVariable
                                                      self.board.getBoardCorreccionY() + 32 * yo + 18,
                                                      image=self.images.image(self.board.getArrow()), tags=flecha_id)
                 self.root.after(TEXDT, makeCallable(
@@ -3346,7 +3346,7 @@ class hoa:
             if (self.player.getActiveBullet() is not None) and MOVEMENT_ANIMATION[
                     0]:  # Si poseo armamento y las animaciones están activas
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
-                flecha = self.world.create_image(26 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
+                flecha = self.world.create_image(26 + 32 * self.playerPos[0] + self.canvasCorrecion[1],  # @UnusedVariable
                                                  self.canvasCorrecion[
                                                      0] + 32 * self.playerPos[1] + 26,
                                                  image=self.images.image(
@@ -6144,7 +6144,7 @@ class hoa:
                         self.player.addObject(Item(ITEMS[56]))
                     else:
                         self.player.addObject(Item(ITEMS[39]))
-                        for w in range(25):
+                        for w in range(25):  # @UnusedVariable
                             self.player.addObject(Item(ITEMS[24]))
                     self.ingame = True  # indica que el mundo se ha cargado
                     self.setWorld()  # cargo el mundo inicial
@@ -6467,7 +6467,7 @@ class hoa:
         else:
             import signal
 
-            os.kill(os.getpid(), signal.SIGKILL)
+            os.kill(os.getpid(), signal.SIGKILL)  # @UndefinedVariable
 
     def saveGame(self, tipo=None):
         """
@@ -6985,7 +6985,7 @@ class hoa:
                     light = int(fila[j][0])
                     item = fila[j][1]
                     self.maplightning[k][j] = light
-                    (texture, sound, terrainlog) = textureTerrainAnalysis(int(fila[j][2]),
+                    (texture, sound, terrainlog) = textureTerrainAnalysis(int(fila[j][2]),  # @UnusedVariable
                                                                           light)  # cargo la textura y el sonido @UnusedVariable
                     im.paste(self.images.image(texture),
                              (32 * j, 32 * k, 32 * (j + 1), 32 * (k + 1)))  # se agrega imagen al fondo

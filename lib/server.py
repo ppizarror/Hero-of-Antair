@@ -10,7 +10,7 @@
 
 import select
 import uuid
-from lib import *
+from lib import *  # @UnusedWildImport
 
 # Importación de librerías
 # Constantes del programa
@@ -125,7 +125,7 @@ class Server:
         self.input_list.append(self.server)
         while True:
             time.sleep(DELAY)
-            inputr, outputr, exceptr = select.select(self.input_list, [], [])
+            inputr, outputr, exceptr = select.select(self.input_list, [], [])  # @UnusedVariable
             for self.s in inputr:
                 if self.s == self.server:
                     self.on_accept()
@@ -311,10 +311,10 @@ if __name__ == '__main__':
             print "ok"
         else:
             print "error, definiendo ip del servidor: 127.0.0.1"
-            server_ip == "127.0.0.1"
+            server_ip == "127.0.0.1"  # @NoEffect
     except:
         print "error, definiendo ip del servidor: 127.0.0.1"
-        server_ip == "127.0.0.1"
+        server_ip == "127.0.0.1"  # @NoEffect
     try:
         print "Obteniendo ip publica ...",
         public_ip = json.load(urlopen(IP_WEB))['origin']

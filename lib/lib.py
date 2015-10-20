@@ -20,7 +20,7 @@ import sys
 
 # Configuración de las librerías de alto nivel
 reload(sys)
-sys.setdefaultencoding('UTF8')
+sys.setdefaultencoding('UTF8')  # @UndefinedVariable
 
 # Agrego librerías al path
 _libdir = "lib"
@@ -41,59 +41,59 @@ _wconio = True
 _winsound = True
 
 try:
-    from Tkinter import *
-    from VerticalScrolledFrame import *
-    from config import *
+    from Tkinter import *  # @UnusedWildImport
+    from VerticalScrolledFrame import *  # @UnusedWildImport
+    from config import *  # @UnusedWildImport
     from datetime import date
-    from errors import *
-    from functools import partial
-    from math import log
+    from errors import *  # @UnusedWildImport
+    from functools import partial  # @UnusedImport
+    from math import log  # @UnusedImport
     from noStdOut import *
-    from pympler import summary, muppy
+    from pympler import summary, muppy  # @UnusedImport
     from random import choice
-    from tkFileDialog import *
+    from tkFileDialog import *  # @UnusedWildImport
     from urllib import urlencode
     from urllib2 import urlopen, Request
-    import base64
-    import codecs
+    import base64  # @UnusedImport
+    import codecs  # @UnusedImport
     import cookielib
     import ctypes
-    import gc
+    import gc  # @UnusedImport
     import htmlentitydefs
-    import io
+    import io  # @UnusedImport
     import json
     # noinspection PyDeprecation
-    import math
-    import md5
-    import random
-    import re
-    import simplejson
+    import math  # @UnusedImport
+    import md5  # @UnusedImport
+    import random  # @UnusedImport
+    import re  # @Reimport
+    import simplejson  # @UnusedImport
     import socket
     import string
     import time
-    import tkFont
-    import tkMessageBox
-    import types
+    import tkFont  # @UnusedImport
+    import tkMessageBox  # @UnusedImport
+    import types  # @UnusedImport
     import urllib2
     import webbrowser
 
     # Librerias depentientes del SO
     if os.name == "nt":
-        from pil import Image, ImageTk
+        from pil import Image, ImageTk  # @UnusedImport @Reimport
     else:
         try:
-            from PIL import Image, ImageTk
+            from PIL import Image, ImageTk  # @UnusedImport @UnresolvedImport @Reimport
         except:
             try:
-                from pil import Image, ImageTk
+                from pil import Image, ImageTk  # @UnusedImport @Reimport
             except:
                 raise Exception("No module named PIL")
     try:
-        import tkSnack
+        import tkSnack  # @UnusedImport
     except:
         _tksnack = False
     try:
-        import winsound
+        import winsound  # @UnusedImport
     except:
         _winsound = False
     try:
@@ -454,7 +454,6 @@ def compararVersiones(ver1, ver2):
     """
     ver1 = ver1.split(".")
     ver2 = ver2.split(".")
-    ganador = 0
     for i in range(3):
         if int(ver1[i]) > int(ver2[i]):
             return 1
@@ -511,14 +510,14 @@ def colorcmd(cmd, color):
     if color in CMD_COLORS:
         color = CMD_COLORS[color]
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(
-                ctypes.windll.kernel32.GetStdHandle(-11), color)
+            ctypes.windll.kernel32.SetConsoleTextAttribute(  # @UndefinedVariable
+                ctypes.windll.kernel32.GetStdHandle(-11), color)  # @UndefinedVariable
         except:
             pass
         print cmd,
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(
-                ctypes.windll.kernel32.GetStdHandle(-11), 0x07)
+            ctypes.windll.kernel32.SetConsoleTextAttribute(  # @UndefinedVariable
+                ctypes.windll.kernel32.GetStdHandle(-11), 0x07)  # @UndefinedVariable
         except:
             pass
     else:
@@ -544,7 +543,7 @@ def delMatrix(matrix):
     """
     a = len(matrix)
     if a > 0:
-        for k in range(a):
+        for k in range(a):  # @UnusedVariable
             matrix.pop(0)
 
 
@@ -574,7 +573,7 @@ def generateRandom6():
     Genera un string de 6 carácteres aleatorios
     :return: String
     """
-    return ''.join(choice(string.ascii_uppercase) for i in range(6))
+    return ''.join(choice(string.ascii_uppercase) for i in range(6))  # @UnusedVariable
 
 
 def generateRandom12():
@@ -582,7 +581,7 @@ def generateRandom12():
     Genera un string de 12 carácteres aleatorios
     :return: String
     """
-    return ''.join(choice(string.ascii_uppercase) for i in range(12))
+    return ''.join(choice(string.ascii_uppercase) for i in range(12))  # @UnusedVariable
 
 
 def getBetweenTags(html, tagi, tagf):
@@ -606,7 +605,7 @@ def getBetweenTags(html, tagi, tagf):
                         break
                     c += 1
                 except:
-                    return TAG_INIT_NOT_CORRECT_ENDING
+                    return TAG_INIT_NOT_CORRECT_ENDING  # @UndefinedVariable
         else:
             posi += len(tagi)
         posf = html.index(tagf, posi)
@@ -632,10 +631,9 @@ def getTerminalSize():
 
     def ioctl_GWINSZ(fd):
         try:
-            import fcntl
-            import termios
+            import fcntl  # @UnresolvedImport
+            import termios  # @UnresolvedImport
             import struct
-            import os
 
             cr = struct.unpack('hh', fcntl.ioctl(fd, termios.TIOCGWINSZ,
                                                  '1234'))
@@ -697,9 +695,7 @@ def google_translate(text, translate_lang, header, web, source_lang=None):
     response = urlopen(request_object)
     string = re.sub(',,,|,,', ',"0",', response.read())
     n = json.loads(string)
-    translate_text = n[0][0][0]
-    res_source_lang = n[2]
-    return translate_text
+    return n[0][0][0]
 
 
 def isIn(termino, matriz):
@@ -870,20 +866,20 @@ def lookPrimaryArguments(data=None):
                 total = 0
                 listedfiles = []
                 totallines = []
-                for file in os.listdir(_actualpath + "/lib/"):
+                for file in os.listdir(_actualpath + "/lib/"):  # @ReservedAssignment
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/lib/" + file, "r")
-                        for l in archv:
+                        for l in archv:  # @UnusedVariable
                             total += 1
                         archv.close()
                         totallines.append(total)
                         total = 0
-                for file in os.listdir(_actualpath + "/bin/"):
+                for file in os.listdir(_actualpath + "/bin/"):  # @ReservedAssignment
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/bin/" + file, "r")
-                        for l in archv:
+                        for l in archv:  # @UnusedVariable
                             total += 1
                         archv.close()
                         totallines.append(total)
@@ -1057,7 +1053,7 @@ def printAsciiArtHOA():
         WConio.clrscr()
     try:
         # se obtiene el largo de la consola para dejarlo centrado
-        (width, height) = getTerminalSize()
+        (width, height) = getTerminalSize()  # @UnusedVariable
         asciiart = open("data/doc/other/asciiart.txt", "r")
         _aligned = False
         if _aligned:
@@ -1081,7 +1077,7 @@ def printAsciiArtME():
         WConio.clrscr()
     try:
         # se obtiene el largo de la consola para dejarlo centrado
-        (width, height) = getTerminalSize()
+        (width, height) = getTerminalSize()  # @UnusedVariable
         asciiart = open("data/doc/other/asciiartm.txt", "r")
         for i in asciiart:
             print " " * (int((width - 26) / 2) - 1), i.rstrip()
@@ -1099,7 +1095,7 @@ def printAsciiArtServer():
         WConio.clrscr()
     try:
         # se obtiene el largo de la consola para dejarlo centrado
-        (width, height) = getTerminalSize()
+        (width, height) = getTerminalSize()  # @UnusedVariable
         asciiart = open("data/doc/other/asciiartserver.txt", "r")
         for i in asciiart:
             print " " * (int((width - 26) / 2) - 1), i.rstrip()
@@ -1167,7 +1163,7 @@ def replaceStrict(a):
 
 
 # noinspection PyShadowingBuiltins
-def sortAndUniq(input):
+def sortAndUniq(input):  # @ReservedAssignment
     """
     Función que elimina datos repetidos
     :param input: Lista

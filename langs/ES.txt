@@ -762,7 +762,7 @@
 791 // Conetando|al|servidor|...
 792 // HOA|se|ha|conectado|a|%:&|de|forma|exitosa
 793 // Error[0x65]|::|Error|al|conectar|al|servidor,|servidor|desconectado,|el|equipo|no|tiene|conexión|o|el|puerto|especificado|no|está|activo,|intente|usando|otra|combinación|'dirección:puerto',|si|los|problemas|persisten|asegure|que|HOA|tiene|acceso|al|firewall|y|que|el|equipo|tiene|una|conexión|de|red
-794 // Error[0x66]|::|No|se|encuentra|la|carpeta|'snacklib'|dentro|del|directorio|tcl/|de|Python,|snacklib|está|disponible|en|data/
+794 // Error[0x66]|::|No|se|encuentra|la|carpeta|'snacklib'|dentro|del|directorio|tcl/|de|Python,|snacklib|está|disponible|en|bin/snacklib/
 795 // Cerrar|sesión
 796 // Debes|cerrar|sesión|para|poder|cargar|una|partida
 797 // Terminar|la|sesión

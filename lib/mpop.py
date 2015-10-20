@@ -9,7 +9,7 @@
 # Licencia: GPLv2
 
 # Importación de librerias
-from lib import *
+from lib import *  # @UnusedWildImport
 
 # Constantes del programa
 if isWindows():
