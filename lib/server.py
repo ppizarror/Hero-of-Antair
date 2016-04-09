@@ -10,7 +10,9 @@
 
 import select
 import uuid
+
 from lib import *  # @UnusedWildImport
+
 
 # Importación de librerías
 # Constantes del programa
@@ -30,8 +32,6 @@ server_ip = '0.0.0.0'
 local_ip = []
 
 # Funciones principales
-
-
 def getIPAddresses():
     """
     Obtiene la dirección IP

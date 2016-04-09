@@ -27,9 +27,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import traceback, string, os
-
 import Image
+import traceback, string, os
 
 
 MAXBLOCK = 65536

@@ -41,9 +41,8 @@
 
 __version__ = "1.3.5"
 
-import array, string, sys
-
 import Image, ImageFile
+import array, string, sys
 
 import ImagePalette
 

@@ -529,7 +529,7 @@ class SoundFrame(Tkinter.Frame):
 
     def load(self):
         # @ReservedAssignment
-        file = Tkroot.tk.call('eval', 'snack::getOpenFile')
+        file = Tkroot.tk.call('eval', 'snack::getOpenFile')  # @ReservedAssignment
         self.sound.read(file, progress='snack::progressCallback')
 
     def play(self):

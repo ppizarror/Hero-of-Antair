@@ -17,9 +17,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import operator
-
 import Image
+import operator
 
 
 ##

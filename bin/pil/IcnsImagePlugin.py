@@ -14,9 +14,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import string, struct
-
 import Image, ImageFile
+import string, struct
 
 
 HEADERSIZE = 8

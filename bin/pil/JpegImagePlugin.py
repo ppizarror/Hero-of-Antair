@@ -34,10 +34,9 @@
 
 __version__ = "0.6"
 
+import Image, ImageFile
 import array, struct
 import string
-
-import Image, ImageFile
 
 
 def i16(c,o=0):

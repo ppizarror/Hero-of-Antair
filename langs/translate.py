@@ -14,7 +14,6 @@ import time
 from urllib import urlencode
 from urllib2 import urlopen, Request
 
-
 #Elimino el archivo pyc generado
 try: os.remove("translate.pyc")
 except: pass
@@ -52,7 +51,6 @@ def get_google_translate(text, translate_lang, source_lang=None): #Traduce una l
         string = re.sub(',,,|,,',',"0",', response.read())
         n = json.loads(string)
         translate_text = n[0][0][0]
-        res_source_lang = n[2]
         return translate_text
     except Exception, e: print e
 

@@ -11,8 +11,7 @@
 # Importación de librerias
 from Tkinter import PhotoImage  # @UnusedImport
 import os  # @UnusedImport
-
-from textures import *
+from textures import *  # @UnusedWildImport
 
 # Constantes
 # Actores / Mobs
@@ -1662,7 +1661,7 @@ def logicTileCorrection(data, j, k, logic_matrix, texture_matrix):
     :return: void
     """
     data = data.split("-")
-    id = int(data[1])
+    id = int(data[1])  # @ReservedAssignment
     logic = data[0] + "-copy(" + str(id) + "%" + str(j) + "%" + str(k) + ")"
     if len(data) > 2:
         logic += "-" + data[2]

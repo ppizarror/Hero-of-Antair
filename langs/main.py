@@ -4,15 +4,14 @@
 #Pablo Pizarro, 2013
 
 #Importación de librerias
-from Tkinter import *
+from Tkinter import *  # @UnusedWildImport
 import datetime
 import os
-import sys
-from tkFileDialog import *
+import sys  # @UnusedImport @Reimport
+from tkFileDialog import *  # @UnusedWildImport
 import tkFont
 import ttk
 import winsound
-
 
 #Configuración de librerías
 reload(sys)

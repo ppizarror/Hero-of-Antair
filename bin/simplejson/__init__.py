@@ -105,6 +105,7 @@ from .decoder import JSONDecoder
 from .encoder import JSONEncoder, JSONEncoderForHTML
 from .scanner import JSONDecodeError
 
+
 __version__ = '3.6.3'
 __all__ = [
     'dump', 'dumps', 'load', 'loads',

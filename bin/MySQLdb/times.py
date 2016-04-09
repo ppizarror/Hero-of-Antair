@@ -10,6 +10,7 @@ from time import localtime
 
 from _mysql import string_literal
 
+
 Date = date
 Time = time
 TimeDelta = timedelta

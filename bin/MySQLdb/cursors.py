@@ -12,6 +12,7 @@ from _mysql_exceptions import Warning, Error, InterfaceError, DataError, \
     DatabaseError, OperationalError, IntegrityError, InternalError, \
     NotSupportedError, ProgrammingError
 
+
 try:
     from types import ListType, TupleType, UnicodeType
 except ImportError:

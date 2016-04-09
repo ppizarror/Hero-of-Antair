@@ -20,9 +20,8 @@
 
 __version__ = "0.5"
 
-import re, string
-
 import Image, ImageFile
+import re, string
 
 
 #

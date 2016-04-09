@@ -9,8 +9,8 @@
 # Licencia: GPLv2
 
 # Importación de librerías
-from errors import *
-import os
+import os  # @UnusedImport
+from errors import *  # @UnusedWildImport
 
 # Constantes
 _bindir = "bin"

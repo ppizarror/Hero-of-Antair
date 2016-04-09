@@ -9,12 +9,11 @@
 # Licencia: GPLv2
 
 # Importación de librerias
+import zipfile
 from lib import *  # @UnusedWildImport
 from texture_analysis import *  # @UnusedWildImport
 from texture_items import *  # @UnusedWildImport
 from texture_world import *  # @UnusedWildImport
-import zipfile
-
 
 class hoaTextures:
     """Clase principal de las texturas"""

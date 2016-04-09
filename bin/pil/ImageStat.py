@@ -21,9 +21,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import operator, math
-
 import Image
+import operator, math
 
 
 ##

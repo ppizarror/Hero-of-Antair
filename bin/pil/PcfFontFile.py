@@ -16,9 +16,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import string
-
 import Image
+import string
 
 import FontFile
 

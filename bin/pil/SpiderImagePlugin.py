@@ -33,9 +33,8 @@
 # http://www.wadsworth.org/spider_doc/spider/docs/image_doc.html
 #
 
-import os, struct, sys
-
 import Image, ImageFile
+import os, struct, sys
 
 
 def isInt(f):

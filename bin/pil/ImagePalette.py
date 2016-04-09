@@ -16,9 +16,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import array
-
 import Image, ImageColor
+import array
 
 
 ##

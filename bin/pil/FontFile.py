@@ -14,10 +14,9 @@
 # See the README file for information on usage and redistribution.
 #
 
+import Image
 import marshal
 import os
-
-import Image
 
 
 try:

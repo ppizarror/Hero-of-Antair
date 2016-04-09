@@ -46,12 +46,12 @@ Example icon to test with `down.ico`_
 
 import logging
 import struct
-
 import PIL.BmpImagePlugin
 import PIL.Image
-import PIL.ImageChops
+import PIL.ImageChops  # @UnusedImport
 import PIL.ImageFile
 import PIL.PngImagePlugin
+
 
 _MAGIC = '\0\0\1\0'
 log = logging.getLogger(__name__)
@@ -79,7 +79,7 @@ class Win32IcoFile(object):
 
         dir_fields = ('width', 'height', 'nb_color', 'reserved', 'planes', 'bpp',
                       'size', 'offset')
-        for i in xrange(self.nb_items):
+        for i in xrange(self.nb_items):  # @UnusedVariable
             directory = list(struct.unpack('<4B2H2I', buf.read(16)))
             for j in xrange(3):
                 if not directory[j]:
@@ -115,7 +115,7 @@ class Win32IcoFile(object):
           size: tuple of (width, height)
           bpp: color depth
         """
-        idx = 0
+        idx = 0  # @UnusedVariable
         for i in range(self.nb_items):
             h = self.entry[i]
             if size == h['dim'] and (bpp == False or bpp == h['color_depth']):
@@ -151,7 +151,7 @@ class Win32IcoFile(object):
 
             # change tile dimension to only encompass XOR image
             im.size = im.size[0], im.size[1] / 2
-            d, e, o, a = im.tile[0]
+            d, e, o, a = im.tile[0]  # @UnusedVariable
             im.tile[0] = d, (0, 0) + im.size, o, a
 
             # figure out where AND mask image starts

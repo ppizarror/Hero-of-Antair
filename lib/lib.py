@@ -101,7 +101,7 @@ try:
     except:
         _mechanize = False
     try:
-        import WConio
+        import WConio  # @UnresolvedImport
     except:
         _wconio = False
 except Exception, e:
@@ -117,7 +117,6 @@ if not getConfigValue("core.compile", True):
         os.remove(_actualpath + "lib/release.pyc")
     except:
         pass
-
 
 # Constantes del programa
 __ALPH = " @rs3t*uv#w'xEF(9<GH$IJ&5K,L%CVWXjkl_mnop/qD0{PQ+RS[TUAY]1Z^67;8?ab>cd)efMNO.Bg}hi24-yz!"
@@ -140,8 +139,6 @@ WIN32 = 4
 WIN64 = 8
 
 # Clases
-
-
 class Browser:
     """Navegador web"""
 
@@ -530,8 +527,8 @@ def delAcentos(txt):
     :param txt: String
     :return: String formateado
     """
-    txt = txt.replace("Á", "A").replace("É", "E").replace(
-        "Í", "I").replace("Ó", "O").replace("Ú", "U")
+    txt = txt.replace("�?", "A").replace("É", "E").replace(
+        "�?", "I").replace("Ó", "O").replace("Ú", "U")
     return txt.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
 
 

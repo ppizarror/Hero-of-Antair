@@ -9,7 +9,7 @@
 # Licencia: GPLv2
 
 # Constantes del programa
-from texture_conts import *
+from texture_conts import *  # @UnusedWildImport
 
 IMAGES = {
     # A partir de la version 0.4.1 se cargan la mayoría de las imágenes

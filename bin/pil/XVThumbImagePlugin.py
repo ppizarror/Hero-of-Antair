@@ -19,9 +19,8 @@
 
 __version__ = "0.1"
 
-import string
-
 import Image, ImageFile, ImagePalette
+import string
 
 
 # standard color palette for thumbnails (RGB332)

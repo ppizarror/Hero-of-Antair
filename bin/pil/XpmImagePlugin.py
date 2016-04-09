@@ -18,9 +18,8 @@
 __version__ = "0.2"
 
 
-import re, string
-
 import Image, ImageFile, ImagePalette
+import re, string
 
 
 # XPM header

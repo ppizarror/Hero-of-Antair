@@ -17,9 +17,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import re, string
-
 import Image
+import re, string
 
 
 try:

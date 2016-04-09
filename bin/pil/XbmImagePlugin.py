@@ -21,9 +21,8 @@
 
 __version__ = "0.6"
 
-import re, string
-
 import Image, ImageFile
+import re, string
 
 
 # XBM header

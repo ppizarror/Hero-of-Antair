@@ -8,7 +8,6 @@
 # Fecha: 2014-2015
 # Licencia: GPLv2
 
-
 def etextureMobAnalysis(itemTexture, light):
     """
     Retorna la textura de cada mob al ingresar el id

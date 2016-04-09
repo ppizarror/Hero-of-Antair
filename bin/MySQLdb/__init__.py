@@ -21,6 +21,7 @@ from MySQLdb.times import Date, Time, Timestamp, \
 from _mysql import *
 import _mysql
 
+
 if version_info != _mysql.version_info:
     raise ImportError("this is MySQLdb version %s, but _mysql is version %r" %
                       (version_info, _mysql.version_info))

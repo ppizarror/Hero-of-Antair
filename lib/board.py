@@ -9,8 +9,8 @@
 # Licencia: GPLv2
 
 # Importación de librerías
-from lib import *  # @UnusedWildImport
 from group import *  # @UnusedWildImport
+from lib import *  # @UnusedWildImport
 
 # Constantes del programa
 BASE_ENEMIES = {"FACIL": 0, "MEDIO": 5, "DIFICIL": 10}

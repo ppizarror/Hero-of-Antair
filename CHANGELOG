@@ -1447,5 +1447,7 @@
 	      Se agrupan las imagenes en paquetes .data para minimizar numero
 	      de archivos.
 
-
-
+	[0.5.5]
+	  	  Actualizacion de variables, recorganziacion de importaciones.
+		  Se agregan nuevas etiquetas para pydev.
+		  Se elimina import de pygame.

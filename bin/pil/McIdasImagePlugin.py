@@ -18,9 +18,8 @@
 
 __version__ = "0.2"
 
-import struct
-
 import Image, ImageFile
+import struct
 
 
 def _accept(s):

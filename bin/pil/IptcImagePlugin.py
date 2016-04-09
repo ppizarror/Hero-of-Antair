@@ -19,9 +19,8 @@
 __version__ = "0.3"
 
 
-import os, tempfile
-
 import Image, ImageFile
+import os, tempfile
 
 
 COMPRESSION = {

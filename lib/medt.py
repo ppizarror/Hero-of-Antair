@@ -9,7 +9,7 @@
 # Licencia: GPLv2
 
 # Importación de librerías de alto nivel
-from lib import *
+from lib import *  # @UnusedWildImport
 
 # Información del programa
 PROGRAM_TITLE = "Editor de mapas"
@@ -21,8 +21,8 @@ print "\nCargando librerias ...",
 # Importación de librerías
 try:
     from mpop import pop
-    from textures_editor import *
-    import gc
+    from textures_editor import *  # @UnusedWildImport
+    import gc  # @Reimport
 except:
     print "error"
     exit()
@@ -187,7 +187,7 @@ class mapeditor:
 
         def _items(event=None):
             """
-            Ocultar/Mostrar Ítems
+            Ocultar/Mostrar ítems
             :param event: Event
             :return: void
             """
@@ -865,7 +865,7 @@ class mapeditor:
                         pady=3, relief=GROOVE)
         l3.pack(padx=3, pady=5, anchor=NW)
         j = 0
-        for i in range(redondear(len(actores), bpf)):
+        for i in range(redondear(len(actores), bpf)):  # @UnusedVariable
             f = Frame(l3)
             f.pack()
             for k in range(bpf):
@@ -887,7 +887,7 @@ class mapeditor:
                         padx=3, pady=3, relief=GROOVE)
         l4.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(terrain), bpf)):
+        for i in range(redondear(len(terrain), bpf)):  # @UnusedVariable
             f = Frame(l4)
             f.pack()
             for k in range(bpf):
@@ -910,7 +910,7 @@ class mapeditor:
                         padx=3, pady=3, relief=GROOVE)
         l6.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(environment), bpf)):
+        for i in range(redondear(len(environment), bpf)):  # @UnusedVariable
             f = Frame(l6)
             f.pack()
             for k in range(bpf):
@@ -933,7 +933,7 @@ class mapeditor:
                          foreground=text_color_title, padx=6, pady=3, relief=GROOVE)
         l10.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(benvironment), bpfg)):
+        for i in range(redondear(len(benvironment), bpfg)):  # @UnusedVariable
             f = Frame(l10)
             f.pack()
             for k in range(bpfg):
@@ -956,7 +956,7 @@ class mapeditor:
                         foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l7.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(interior), bpf)):
+        for i in range(redondear(len(interior), bpf)):  # @UnusedVariable
             f = Frame(l7)
             f.pack()
             for k in range(bpf):
@@ -979,7 +979,7 @@ class mapeditor:
                          foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l12.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(binterior), bpfg)):
+        for i in range(redondear(len(binterior), bpfg)):  # @UnusedVariable
             f = Frame(l12)
             f.pack()
             for k in range(bpfg):
@@ -1002,7 +1002,7 @@ class mapeditor:
                         foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l9.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(construccion), bpf)):
+        for i in range(redondear(len(construccion), bpf)):  # @UnusedVariable
             f = Frame(l9)
             f.pack()
             for k in range(bpf):
@@ -1025,7 +1025,7 @@ class mapeditor:
                          foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
         l11.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(bconstruccion), bpfg)):
+        for i in range(redondear(len(bconstruccion), bpfg)):  # @UnusedVariable
             f = Frame(l11)
             f.pack()
             for k in range(bpfg):
@@ -1048,7 +1048,7 @@ class mapeditor:
                          padx=3, pady=5, relief=GROOVE)
         l13.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(bbuilding), bbpfg)):
+        for i in range(redondear(len(bbuilding), bbpfg)):  # @UnusedVariable
             f = Frame(l13)
             f.pack()
             for k in range(bbpfg):
@@ -1071,7 +1071,7 @@ class mapeditor:
                         padx=3, pady=5, relief=GROOVE)
         l8.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(building), bpf)):
+        for i in range(redondear(len(building), bpf)):  # @UnusedVariable
             f = Frame(l8)
             f.pack()
             for k in range(bpf):
@@ -2050,11 +2050,11 @@ class mapeditor:
             delMatrix(self.worldGraph)
             delMatrix(self.worldLightVectors)
             delMatrix(self.worldItems)
-            for i in range(self.mapSize[1]):
+            for i in range(self.mapSize[1]):  # @UnusedVariable
                 self.worldTextures.append([tex] * self.mapSize[0])
                 self.worldLight.append([light] * self.mapSize[0])
                 self.worldItems.append(["None"] * self.mapSize[0])
-                (texture, sound, log) = textureTerrainAnalysis(
+                (texture, sound, log) = textureTerrainAnalysis(  # @UnusedVariable
                     tex, light, True)  # Cargo la información
                 self.worldGraph.append([texture] * self.mapSize[0])
                 self.worldLogic.append([log] * self.mapSize[0])
@@ -2111,7 +2111,7 @@ class mapeditor:
                             item = fila[j][1]
                             self.worldLight[k][j] = light  # Luz del tile
                             # Cargo el terreno
-                            (tex, sound, terrainlog) = textureTerrainAnalysis(
+                            (tex, sound, terrainlog) = textureTerrainAnalysis(  # @UnusedVariable
                                 int(fila[j][2]), light, True)
                             self.worldGraph[k][j] = tex
                             self.worldTextures[k][j] = int(fila[j][2])

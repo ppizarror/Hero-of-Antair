@@ -11,7 +11,6 @@
 # Constantes del programa
 _STATIC = ";"
 
-
 class Statics:
     """
     Estadisticas

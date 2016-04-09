@@ -25,9 +25,8 @@
 # See the README file for information on usage and redistribution.
 #
 
-import os, string, sys
-
 import Image
+import os, string, sys
 
 
 class _imagingft_not_installed:

@@ -48,7 +48,7 @@ class mob:
         :param posx: Posición X
         :param posy: Posición Y
         :param regeneracion: Regeneración
-        :param movimiento: Índice de movimiento
+        :param movimiento: �?ndice de movimiento
         :param defensa: Defensa del mob
         :param exp: Experiencia-drop
         :param obj: Objeto-drop

@@ -389,9 +389,9 @@ class actors:
         Quitar armadura completa
         :return: void
         """
-        for i in range(4):
+        for i in range(4):  # @UnusedVariable
             self.armor.pop(0)
-        for i in range(4):
+        for i in range(4):  # @UnusedVariable
             self.armor.append(None)
 
     def dropItems(self):
@@ -401,7 +401,7 @@ class actors:
         """
         l = len(self.items)
         if l > 0:
-            for i in range(l):
+            for i in range(l):  # @UnusedVariable
                 self.items.pop(0)
 
     def dropPowers(self):
@@ -411,7 +411,7 @@ class actors:
         """
         l = len(self.powers)
         if l > 0:
-            for i in range(l):
+            for i in range(l):  # @UnusedVariable
                 self.powers.pop(0)
 
     def dropMagics(self):
@@ -421,7 +421,7 @@ class actors:
         """
         l = len(self.magic)
         if l > 0:
-            for i in range(l):
+            for i in range(l):  # @UnusedVariable
                 self.magic.pop(0)
 
     def kill(self):

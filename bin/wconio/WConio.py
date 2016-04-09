@@ -22,6 +22,7 @@ __version__ = "1.5"
 
 from _WConio import *
 
+
 BLACK = 0
 BLUE = 1
 GREEN = 2

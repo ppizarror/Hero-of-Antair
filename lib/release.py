@@ -11,7 +11,7 @@
 # Constantes
 AUTOR_NAME = "Pablo Pizarro"
 AUTOR_NAME_EMAIL = "pablo@ppizarror.com"
-PROGRAM_VERSION = "0.5.4"
+PROGRAM_VERSION = "0.5.5"
 PROGRAM_TITLE = "Hero of Antair"
 
 # Propiedades del proyecto

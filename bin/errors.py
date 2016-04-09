@@ -9,8 +9,8 @@
 # Licencia: GPLv2
 
 # Importación de librerías
-from color import color
-from config import *
+from color import color  # @UnusedImport
+from config import *  # @UnusedWildImport
 
 # Constantes
 BR_ERRORxERROR_SET_FORM = 8
@@ -82,8 +82,6 @@ def parseLangError(msg):
     code = code.replace("]", "")
     msg = data[1].strip()
     msg = insertEach(msg, "-\n\t    ", WRAP_ERROR_MSG)
-    ct = 0
-    ci = 0
 
     msg = color.RED + ST_WARNING_ID.format(code) + color.END + " " + msg
     return msg

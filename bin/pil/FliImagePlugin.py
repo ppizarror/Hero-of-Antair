@@ -18,9 +18,8 @@
 
 __version__ = "0.2"
 
-import string
-
 import Image, ImageFile, ImagePalette
+import string
 
 
 def i16(c):

@@ -17,7 +17,6 @@
 
 # Importación de librerías
 import random
-import pygame  # @UnusedImport
 
 # Constantes del programa
 TARGET = False

@@ -9,9 +9,8 @@
 # Licencia: GPLv2
 
 # Importacion de librerias
-from Tkinter import *
+from Tkinter import *  # @UnusedWildImport
 from functools import partial
-
 
 # Cargo los cursores disponibles
 cur = []

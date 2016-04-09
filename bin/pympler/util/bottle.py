@@ -2376,7 +2376,7 @@ class WSGIRefServer(ServerAdapter):
         from wsgiref.simple_server import make_server, WSGIRequestHandler
         if self.quiet:
             class QuietHandler(WSGIRequestHandler):
-                def log_request(*args, **kw): pass
+                def log_request(*args, **kw): pass  # @NoSelf
             self.options['handler_class'] = QuietHandler
         srv = make_server(self.host, self.port, handler, **self.options)
         srv.serve_forever()
@@ -2914,7 +2914,7 @@ class SimpleTALTemplate(BaseTemplate):
     def prepare(self, **options):
         depr('The SimpleTAL template handler is deprecated'\
              ' and will be removed in 0.12')
-        from simpletal import simpleTAL
+        from simpletal import simpleTAL  # @UnresolvedImport
         if self.source:
             self.tpl = simpleTAL.compileHTMLTemplate(self.source)
         else:
@@ -2922,7 +2922,7 @@ class SimpleTALTemplate(BaseTemplate):
                 self.tpl = simpleTAL.compileHTMLTemplate(tonat(fp.read()))
 
     def render(self, *args, **kwargs):
-        from simpletal import simpleTALES
+        from simpletal import simpleTALES  # @UnresolvedImport
         for dictarg in args: kwargs.update(dictarg)
         context = simpleTALES.Context()
         for k,v in self.defaults.items():
@@ -2940,7 +2940,7 @@ class SimpleTemplate(BaseTemplate):
     dedent_blocks = ('elif', 'else', 'except', 'finally')
 
     @lazy_attribute
-    def re_pytokens(cls):
+    def re_pytokens(cls):  # @NoSelf
         ''' This matches comments and all kinds of quoted strings but does
             NOT match comments (#...) within quoted strings. (trust me) '''
         return re.compile(r'''
