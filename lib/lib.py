@@ -15,7 +15,7 @@
 # Licencia: GPLv2
 
 # Importación de liberías de alto nivel
-import os
+import os  # @UnusedImport @Reimport @NoMove
 import sys
 
 # Configuración de las librerías de alto nivel
@@ -28,7 +28,6 @@ _actualpath = str(os.path.abspath(
     os.path.dirname(__file__))).replace(_libdir, "")
 sys.path.append(_actualpath + "/bin/")
 sys.path.append(_actualpath + "/bin/mechanize/")
-sys.path.append(_actualpath + "/bin/pil/")
 sys.path.append(_actualpath + "/bin/pympler/")
 sys.path.append(_actualpath + "/bin/snacklib/")
 sys.path.append(_actualpath + "/bin/simplejson/")
@@ -40,72 +39,81 @@ _tksnack = True
 _wconio = True
 _winsound = True
 
+from errors import *  # @UnusedWildImport
 try:
     from Tkinter import *  # @UnusedWildImport
     from VerticalScrolledFrame import *  # @UnusedWildImport
-    from config import *  # @UnusedWildImport
-    from datetime import date
-    from errors import *  # @UnusedWildImport
-    from functools import partial  # @UnusedImport
-    from math import log  # @UnusedImport
-    from noStdOut import *
-    from pympler import summary, muppy  # @UnusedImport
-    from random import choice
     from tkFileDialog import *  # @UnusedWildImport
-    from urllib import urlencode
-    from urllib2 import urlopen, Request
-    import base64  # @UnusedImport
-    import codecs  # @UnusedImport
-    import cookielib
-    import ctypes
-    import gc  # @UnusedImport
-    import htmlentitydefs
-    import io  # @UnusedImport
-    import json
-    # noinspection PyDeprecation
-    import math  # @UnusedImport
-    import md5  # @UnusedImport
-    import random  # @UnusedImport
-    import re  # @Reimport
-    import simplejson  # @UnusedImport
-    import socket
-    import string
-    import time
     import tkFont  # @UnusedImport
     import tkMessageBox  # @UnusedImport
-    import types  # @UnusedImport
-    import urllib2
-    import webbrowser
-
-    # Librerias depentientes del SO
-    if os.name == "nt":
-        from pil import Image, ImageTk  # @UnusedImport @Reimport
-    else:
-        try:
-            from PIL import Image, ImageTk  # @UnusedImport @UnresolvedImport @Reimport
-        except:
-            try:
-                from pil import Image, ImageTk  # @UnusedImport @Reimport
-            except:
-                raise Exception("No module named PIL")
-    try:
-        import tkSnack  # @UnusedImport
-    except:
-        _tksnack = False
-    try:
-        import winsound  # @UnusedImport
-    except:
-        _winsound = False
-    try:
-        import mechanize
-    except:
-        _mechanize = False
-    try:
-        import WConio  # @UnresolvedImport
-    except:
-        _wconio = False
 except Exception, e:
-    st_error("Error al cargar librerias externas", True, "lib.py", e)
+    st_error("La libreria Tkinter no se encuentra disponible en su ordenador", True, "lib.py", e)
+from config import *  # @UnusedWildImport
+from datetime import date
+from functools import partial  # @UnusedImport
+from math import log  # @UnusedImport
+from noStdOut import *
+from pympler import summary, muppy  # @UnusedImport
+from random import choice
+from urllib import urlencode
+from urllib2 import urlopen, Request
+import base64  # @UnusedImport
+import codecs  # @UnusedImport
+import cookielib
+import ctypes
+import gc  # @UnusedImport
+import htmlentitydefs
+import io  # @UnusedImport
+import json
+# noinspection PyDeprecation
+import math  # @UnusedImport
+import md5  # @UnusedImport
+import random  # @UnusedImport
+import re  # @Reimport
+import simplejson  # @UnusedImport
+import socket
+import string
+import time
+import types  # @UnusedImport
+import urllib2
+import webbrowser
+
+# Librerias depentientes del SO
+if os.name == "nt":
+    sys.path.append(_actualpath + "data/images/")
+    from pil import Image, ImageTk  # @UnusedImport @Reimport @UnresolvedImport
+else:
+    try:
+        from PIL import Image  # @UnusedImport @UnresolvedImport @Reimport
+    except:
+        try:
+            sys.path.append(_actualpath + "data/images/")
+            from pil import Image  # @UnusedImport @Reimport @UnresolvedImport
+        except Exception, e:
+            st_error("La libreria PIL no se encuentra disponible en su ordenador, pruebe instalando Pillow", True, "lib.py", e)
+    try:
+        from PIL import ImageTk  # @UnusedImport @UnresolvedImport @Reimport
+    except:
+        try:
+            from pil import ImageTk  # @UnusedImport @Reimport @UnresolvedImport
+        except Exception, e:
+            st_error("La libreria python-imaging-tk no se encuentra disponible en su ordenador", True, "lib.py", e)
+try:
+    import tkSnack  # @UnusedImport
+except:
+    _tksnack = False
+try:
+    import winsound  # @UnusedImport
+except:
+    _winsound = False
+try:
+    import mechanize
+except:
+    _mechanize = False
+try:
+    import WConio  # @UnresolvedImport
+except:
+    _wconio = False
 
 # Configuracion de librerías
 sys.dont_write_bytecode = not getConfigValue("core.compile", True)
@@ -706,6 +714,26 @@ def isIn(termino, matriz):
         for elem in matriz:
             if elem in termino:
                 return True
+    return False
+
+
+def isLinux():
+    """
+    Función que retorna True/False si el sistema operativo cliente es Linux o no
+    :return: Boolean
+    """
+    if os.name == "posix":
+        return True
+    return False
+
+
+def isOSX():
+    """
+    Función que retorna True/False si el sistema operativo cliente es OSX
+    :return: Boolean
+    """
+    if os.name == "darwin":
+        return True
     return False
 
 

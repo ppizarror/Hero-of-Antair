@@ -15,7 +15,7 @@ from release import *
 # Inicio del sistema
 libstartUp()
 lookPrimaryArguments(PROGRAM_VERSION)  # se buscan los argumentos primarios
-if getConfigValue("terminal.art", True):  # se imprime el arte
+if getConfigValue("terminal.art", True):  # se imprime el arte @UndefinedVariable
     printAsciiArtHOA()
 __versionstr__ = "HOA - version: " + PROGRAM_VERSION
 if getConfigValue("terminal.version.colored"):
@@ -149,13 +149,31 @@ if isWindows():
     POP_YSIZE = 270
     PROGRAM_SIZE = 804, 600
 else:
-    _SECOND_BUTTON = "<Button-2>"
-    BAR_POND_COEF = 1.2
-    DRAW_CANVAS_OFFSET_X = -2
-    DRAW_CANVAS_OFFSET_Y = -2
-    POP_XSIZE = 175
-    POP_YSIZE = 390
-    PROGRAM_SIZE = 817, 574
+    if isOSX():
+        _SECOND_BUTTON = "<Button-2>"
+        BAR_POND_COEF = 1.2
+        DRAW_CANVAS_OFFSET_X = -2
+        DRAW_CANVAS_OFFSET_Y = -2
+        POP_XSIZE = 175
+        POP_YSIZE = 390
+        PROGRAM_SIZE = 817, 574
+    elif isLinux():
+        _SECOND_BUTTON = "<Button-3>"
+        BAR_POND_COEF = 1.2
+        DRAW_CANVAS_OFFSET_X = -1
+        DRAW_CANVAS_OFFSET_Y = -2
+        POP_XSIZE = 175
+        POP_YSIZE = 390
+        PROGRAM_SIZE = 834, 574
+    else:
+        _SECOND_BUTTON = "<Button-3>"
+        BAR_POND_COEF = 1.0
+        DRAW_CANVAS_OFFSET_X = 0
+        DRAW_CANVAS_OFFSET_Y = 0
+        POP_XSIZE = 165
+        POP_YSIZE = 270
+        PROGRAM_SIZE = 804, 600
+
 
 # Configuración del programa
 try:  # Se cargan las configuraciones
@@ -330,13 +348,14 @@ def loadLang(first=True):
 
 
 # noinspection PyShadowingNames
-def lang(i, a="", b="", c=""):
+def lang(i, a="", b="", c="", e=None):
     """
     Función que recibe un id y retorna el string correspondiente a dicho id (sin traducir)
     :param i: Index
     :param a: String
     :param b: String
     :param c: String
+    :param e: Objeto del tipo Exception
     :return: String formateado asociado al indice i
     """
     try:  # Si existe el lang en la matriz de datos
@@ -345,12 +364,23 @@ def lang(i, a="", b="", c=""):
         else:
             data = LANG[i]
         if "Error[" in data:  # Formateo de error
-            data = parseLangError(data)
+            data = parseLangError(data, e)
         return data
     except:
         st_error("ID<{0}> no existe en el archivo de idiomas '".format(
-            i) + CONFIGURATION_DATA[0] + "'")
+        i) + CONFIGURATION_DATA[0] + "'")
         return "%LANG ID[{0}]".format(i)
+
+
+# noinspection PyShadowingNames
+def langError(i, e):
+    """
+    Imprime un error con su modulo en err
+    :param i: Index
+    :param e: Objeto del tipo Exception
+    :return: String formateado asociado al indice i
+    """
+    return lang(i, "", "", "", e)
 
 
 # noinspection
@@ -1005,8 +1035,8 @@ class hoa:
                                      LEVELS_RES + item.getBookLink()])
                                 k.w.mainloop(0)
                                 del k
-                            except:
-                                print lang(355)
+                            except Exception, e:
+                                print langError(355, e)
                             self.sfx(27)
                         # Armas segundarias (arcos, flechas)
                         elif typeItem == "weapon/left":
@@ -1172,8 +1202,8 @@ class hoa:
                                             self.player.setItem(
                                                 self.player.getItemAmount() - 1, item)
                                 del k  # borro la ventana
-                            except:
-                                print lang(354)
+                            except Exception, e:
+                                print langError(354, e)
                     self.dibujarItems()  # se actualizan los items gráficos
 
         def _itemPower(i, typeClick, x=None):
@@ -1195,8 +1225,8 @@ class hoa:
                 if name == self.activePowers[0]:
                     try:
                         self.activePowers[1][i] = 1
-                    except:
-                        print lang(390)
+                    except Exception, e:
+                        print langError(390, e)
                 else:
                     print lang(392)
 
@@ -1210,8 +1240,8 @@ class hoa:
                 if name == self.activePowers[0]:
                     try:
                         self.activePowers[1][i] = 0
-                    except:
-                        print lang(390)
+                    except Exception, e:
+                        print langError(390, e)
                 else:
                     print lang(391)
 
@@ -1274,9 +1304,15 @@ class hoa:
                             move = -1
                         else:
                             move = 2
-                    else:
+                    elif isOSX():
                         if -1 * event.delta < 0:
                             move = -2
+                        else:
+                            move = 2
+                    else:
+                        print event.delta
+                        if -1 * (event.delta / 100) < 0:
+                            move = -1
                         else:
                             move = 2
                     self.infoSlider.canv.yview_scroll(move, "units")
@@ -1491,7 +1527,11 @@ class hoa:
             del arguments
 
         # Se crea la ventana
-        self.root = Tk()
+        try:
+            self.root = Tk()
+        except Exception, e:
+            print langError(827, e)
+            exit()
         self.root.title(PROGRAM_TITLE)  # título
         self.root.minsize(width=PROGRAM_SIZE[0], height=PROGRAM_SIZE[
                           1])  # tamaño mínimo y máximo
@@ -1526,10 +1566,13 @@ class hoa:
         self.nivel_dificultad = 0  # nivel fácil, medio, dificil
         self.enemy = None  # clase mob que indica el enemigo al cual peleara el jugador
         self.enemyId = 0  # id del mob que es cargado como enemigo activo
-        self.fonts = [tkFont.Font(family="Courier", size=8), tkFont.Font(family="Verdana", size=6),
-                      tkFont.Font(family="Times", size=10), tkFont.Font(
-                          family="Times", size=10, weight=tkFont.BOLD),
-                      tkFont.Font(family="Verdana", size=6, weight=tkFont.BOLD), tkFont.Font(family="Verdana", size=10)]
+        self.fonts = [tkFont.Font(family="Courier", size=8),
+                      tkFont.Font(family="Verdana", size=6),
+                      tkFont.Font(family="Times", size=10),
+                      tkFont.Font(family="Times", size=10, weight=tkFont.BOLD),
+                      tkFont.Font(family="Verdana", size=6, weight=tkFont.BOLD),
+                      tkFont.Font(family="Verdana", size=10),
+                      tkFont.Font(family="Verdana", size=7)]
         self.inBattle = False  # indica que hay una batalla en proceso
         self.inNpc = False  # indica que existe una interaccion con un npc
         self.ingame = False  # indica que se esta jugando
@@ -1585,9 +1628,9 @@ class hoa:
             self.sfx(0)
             print lang(310)  # cargo el sonido de introducción
             TKSNACK[0] = True
-        except:  # Ocurrió un error al cargar la libreria de datos de tcl, se menciona y se deshabilitan los sonidos
+        except Exception, e:  # Ocurrió un error al cargar la libreria de datos de tcl, se menciona y se deshabilitan los sonidos
             print lang(756)
-            print lang(794)
+            print langError(794, e)
             TKSNACK[0] = False
             self.snd = None
             self.sndBg = None
@@ -1599,14 +1642,20 @@ class hoa:
         try:
             self.images = hoaTextures([lang(394), lang(310)])
             print lang(310)  # Cargo las texturas
-        except:
+        except Exception,e:
             print lang(398)
             print lang(330)
+            print langError(830, e)
             exit()
 
         # Se genera la UI
         print lang(312),
-        self.root.iconbitmap(self.images.image("icon"))  # icono del programa
+        try:
+            self.root.iconbitmap(self.images.image("icon"))  # icono del programa
+        except Exception, e:
+            print ""
+            print langError(828, e)
+            totalerrors+=1
         self.menubar = Menu(self.root)
         self.root.config(menu=self.menubar)
         self.archivomenu = Menu(self.menubar, tearoff=0)
@@ -1698,10 +1747,14 @@ class hoa:
         if isWindows():
             self.initialBg.create_image(
                 403, 295, image=self.images.image("background"))
-        else:
+        elif isOSX():
             self.initialBg.create_rectangle(0, 0, 1000, 1000, fill="black")
             self.initialBg.create_image(
                 409, 295, image=self.images.image("background"))
+        elif isLinux():
+            self.initialBg.create_rectangle(0, 0, 1000, 1000, fill="black")
+            self.initialBg.create_image(
+                417, 295, image=self.images.image("background"))
         self.initialBg.update()
         self.content = Frame(f, border=0)
         self.menu = Frame(f)
@@ -1840,10 +1893,14 @@ class hoa:
             self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=175, anchor=NW,
                               bg=CONFIGURATION_DATA[3],
                               fg=CONFIGURATION_DATA[4], font=self.fonts[0], relief=FLAT, border=2, cursor="xterm")
-        else:
+        elif isOSX():
             self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=220, anchor=NW,
                               bg=CONFIGURATION_DATA[3],
                               fg=CONFIGURATION_DATA[4], font=self.fonts[5], relief=FLAT, border=2, cursor="xterm")
+        else:
+            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=250, anchor=NW,
+                              bg=CONFIGURATION_DATA[3],
+                              fg=CONFIGURATION_DATA[4], font=self.fonts[6], relief=FLAT, border=2, cursor="xterm")
         self.info.pack(anchor=NW, fill=BOTH)
         self.infoSlider.scroller.pack_forget()
         menu7 = Frame(self.menu)
@@ -1980,8 +2037,8 @@ class hoa:
             self.infoArmaduraBotas.bind('<Button-1>', cmd1)
             self.infoArmaduraBotas.bind(_SECOND_BUTTON, cmd2)
             print lang(310)
-        except:
-            print lang(758)
+        except Exception, extp:
+            print lang(758, extp)
             totalerrors += 1
 
         # Se ejecutan los argumentos <consultar arguments.txt en /doc>
@@ -2112,11 +2169,11 @@ class hoa:
             self.root.after(100, makeCallable(
                 partial(arrastrarImagen, "test:canvasapi", self.world, 8, 8)))
             print lang(310)
-        except:
+        except Exception, exerr:
             MOVEMENT_ANIMATION[0] = False
             totalerrors += 1
             print lang(54).lower()
-            print lang(826)
+            print langError(826, exerr)
         if not isWindows():
             MOVEMENT_ANIMATION[0] = False
 
@@ -2694,8 +2751,8 @@ class hoa:
                                 32 * y + 9 + self.board.getBoardCorreccionY())))
                     self.root.after(TEXDT, partial(
                         _drawRectangle, type, x, y, id, tag[1], tag[2]))
-                except:
-                    print lang(389)
+                except Exception, exerr:
+                    print langError(389, exerr)
             else:  # Movimiento sin animación
                 self.world.coords(tag[0], 18 + 32 * x + self.board.getBoardCorreccionX(),
                                   32 * y + 18 + self.board.getBoardCorreccionY())
@@ -2948,7 +3005,7 @@ class hoa:
                 return True
             else:  # Si mató a todos se elimina
                 if self.board.getLight(x, y) == 0:
-                    self.board.addBlood(choice(EFFECT_BLOOD_DAY), x, y)
+                    self.board.addBlood(choice(EFFECT_BLOOD_DAY), x, y)  # @UndefinedVariable
                 else:
                     self.board.addBlood(choice(EFFECT_BLOOD_NIGHT), x, y)
                 if group.getType() == "FL" and mode == "f":
@@ -3396,8 +3453,8 @@ class hoa:
                             try:
                                 ataque = self.player.increaseDamage(
                                     int(self.enemy.atacar() * (self.dificultad[0] + 1) * (self.dificultad[3] + 1)))
-                            except:
-                                print lang(365)
+                            except Exception, exerr:
+                                print langError(365, exerr)
                             if (ataque[0] - ataque[1]) > 0:
                                 self.playerText("-" + str(
                                     ataque[0] - ataque[1]))  # En función del ataque se imprime el daño sobre el jugador
@@ -3467,8 +3524,8 @@ class hoa:
                                 try:
                                     self.root.after_cancel(
                                         self.lastmovementId)  # se intnta eliminar la ultima ejecucion de la funcion
-                                except:
-                                    print lang(363)
+                                except Exception, exerr:
+                                    print langError(363, exerr)
                                 self.root.after(
                                     self.dificultad[5], self.moveMobs)
                                 self.movement = True
@@ -3573,14 +3630,14 @@ class hoa:
                 if comando == "GIVE" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except:
-                        print lang(375)
+                    except Exception, exerr:
+                        print langError(375, exerr)
                         self.error(lang(377))
                         return
                     try:
                         data = get[2]
-                    except:
-                        print lang(376)
+                    except Exception, exerr:
+                        print langError(376, exerr)
                         self.error(lang(377))
                         return
                     if self.ingame:  # Si se encuentra jugando
@@ -3600,19 +3657,19 @@ class hoa:
                                                 return  # si el id no es numerico
                                         else:
                                             cant = 1
-                                    except:
-                                        print lang(360)
+                                    except Exception, exerr:
+                                        print langError(360, exerr)
                                         cant = 1
                                     try:
                                         it = Item(item)  # se genera el objeto
-                                    except:
-                                        print lang(374)
+                                    except Exception, exerr:
+                                        print langError(374, exerr)
                                         return
                                     try:
                                         self.images.image(
                                             it.getImage() + "_16")
-                                    except:
-                                        print lang(378, it.getImage() + "_16")
+                                    except Exception, exerr:
+                                        print langError(378, it.getImage() + "_16", exerr)
                                         return
                                     for i in range(cant):
                                         self.player.addObject(Item(item))
@@ -3621,8 +3678,8 @@ class hoa:
                                         lang(111, str(data), str(cant)))
                                     self.static.addTrucos()
                                     del it
-                                except:
-                                    print lang(359)
+                                except Exception, exerr:
+                                    print langError(359, exerr)
                                     self.error(lang(110))
                             else:
                                 # si el id no es numerico
@@ -3637,8 +3694,8 @@ class hoa:
                                 self.dibujarItems()
                                 self.setInfo(lang(114))
                                 self.static.addTrucos()
-                            except:
-                                print lang(358)
+                            except Exception, exerr:
+                                print langError(358, exerr)
                                 self.error(lang(113))
                         elif action == "POWER":  # Dar poder por string
                             if not data.isdigit():  # Si string no es un número
@@ -3706,14 +3763,14 @@ class hoa:
                 elif comando == "MOVE" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except:
-                        print lang(375)
+                    except Exception, exerr:
+                        print langError(375, exerr)
                         self.error(lang(377))
                         return
                     try:
                         data = get[2]
-                    except:
-                        print lang(376)
+                    except Exception, exerr:
+                        print langError(376, exerr)
                         self.error(lang(377))
                         return
                     if self.ingame:  # Si se encuentra jugando
@@ -3766,14 +3823,14 @@ class hoa:
                 elif comando == "SET" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except:
-                        print lang(375)
+                    except Exception, exerr:
+                        print langError(375, exerr)
                         self.error(lang(377))
                         return
                     try:
                         data = get[2]
-                    except:
-                        print lang(376)
+                    except Exception, exerr:
+                        print langError(376, exerr)
                         self.error(lang(377))
                         return
                     if self.ingame:  # Si se encuentra jugando
@@ -3949,8 +4006,8 @@ class hoa:
                 elif comando == "DROP" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except:
-                        print lang(375)
+                    except Exception, exerr:
+                        print langError(375, exerr)
                         self.error(lang(377))
                         return
                     if self.ingame:  # Si se encuentra jugando
@@ -4054,8 +4111,8 @@ class hoa:
                     if self.ingame:
                         try:
                             action = get[1].upper()
-                        except:
-                            print lang(375)
+                        except Exception, exerr:
+                            print langError(375, exerr)
                             self.error(lang(377))
                             return
                         if action.isdigit():
@@ -4081,8 +4138,8 @@ class hoa:
                 elif comando == "INFO" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except:
-                        print lang(375)
+                    except Exception, exerr:
+                        print langError(375, exerr)
                         self.error(lang(377))
                         return
                     if self.ingame:  # Si se encuentra jugando
@@ -4204,8 +4261,8 @@ class hoa:
                     if self.ingame:
                         try:
                             action = get[1].upper()
-                        except:
-                            print lang(375)
+                        except Exception, exerr:
+                            print langError(375, exerr)
                             self.error(lang(377))
                             return
                         self.setInfo(translate(action))
@@ -4215,8 +4272,8 @@ class hoa:
                     if self.ingame:
                         try:
                             action = get[1].upper()
-                        except:
-                            print lang(375)
+                        except Exception, exerr:
+                            print langError(375, exerr)
                             self.error(lang(377))
                             return
                         if action == "ITEMS":
@@ -4310,8 +4367,8 @@ class hoa:
                     self.error(lang(133), 70)  # el comando no existe
             try:
                 del consola
-            except:
-                print lang(351)
+            except Exception, exerr:
+                print langError(351, exerr)
 
     def dibujarArmor(self):
         """
@@ -4855,7 +4912,10 @@ class hoa:
                 except:
                     totalerrors += 1
                 self.initialBg.create_rectangle(0, 0, 1000, 1000, fill="black")
-                self.initialBg.config(cursor="wait")
+                try:
+                    self.initialBg.config(cursor="wait")
+                except Exception, e:
+                    print langError(829, e)
                 self.root.title(lang(210))  # modifico el título con cargando
                 # pantalla de cargado 1
                 self.root.after(0, _loadingScreen(

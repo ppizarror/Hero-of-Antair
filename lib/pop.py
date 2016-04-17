@@ -14,8 +14,12 @@ from lib import *  # @UnusedWildImport
 # Constantes del programa
 if isWindows():
     DEFAULT_FONT_TITLE = "Arial", 10
-else:
+elif isOSX():
     DEFAULT_FONT_TITLE = "Arial", 15
+elif isLinux():
+    DEFAULT_FONT_TITLE = "Arial", 9
+else:
+    DEFAULT_FONT_TITLE = "Arial", 10
 COMMENT_COLOR = "#666666"
 LANGS = {"AR": "العربي",
          "DE": "Deutsch",
@@ -105,7 +109,10 @@ class pop:
         try:
             self.w.iconbitmap(icon)
         except:
-            self.w.iconbitmap("data/icons/hoa.ico")
+            try:
+                self.w.iconbitmap("data/icons/hoa.ico")
+            except:
+                pass
         self.sent = False
         if typeObject == "about":  # Acerca de
             Label(self.w, text=self.lang[

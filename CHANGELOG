@@ -1448,6 +1448,20 @@
 	      de archivos.
 
 	[0.5.5]
-	  	  Actualizacion de variables, recorganziacion de importaciones.
+	  	  Actualizacion de variables, reorganizacion de importaciones.
 		  Se agregan nuevas etiquetas para pydev.
 		  Se elimina import de pygame.
+
+    [0.5.6]
+  	      Se agrega soporte para Linux y cygwin.
+		  Se arregla la importacion de python imaging library.
+		  Se corrige dimension de ventanas para los sistemas posix.
+		  Se corrige slider de windows.
+		  Nuevo sistema de mensajeria de erorres.
+		  Se corrigen entradas del diccionario.
+		  Se recorrigen librerias e importaciones.
+		  Se corrige entrada de directorios en _actualpath.
+		  Se agrega nueva entrada en gitignore para evitar .stackdumps
+		  Se corrige error al cargar iconos de ventana en sistemas posix.
+		  Se eliminan variable sin usar en lib y hoa.
+		  Se eliminan mensajes sin uso.

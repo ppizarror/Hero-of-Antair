@@ -795,3 +795,7 @@
 824 // El|tamaño|de|la|pantalla|no|cumple|el|minimo|requerido
 825 // Comprobando|canvas|...
 826 // Error[0x68]|::|Error|al|probar|api|de|canvas,|posible|error|de|configuracion|de|Tkinter|y/o|instalacion|incorrecta|de|Python.|Animaciones|desactivadas
+827 // Error[0x69]|::|El|driver|de|video|no|se|encuentra|disponible,|verifique|el|display|de|su|sistema|operativo|u|compruebe|que|el|hardware|funcione|adecuadamente
+828 // Error[0x70]|::|No|se|pudo|definir|el|icono|de|la|ventana
+829 // Error[0x71]|::|No|se|pudo|cambiar|el|icono|del|raton|de|la|ventana
+830 // Error[0x72]|::|Es|posible|que|necesite|de|python-imaging|y|python-imaging-tk|para|hacer|uso|del|programa

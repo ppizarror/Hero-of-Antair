@@ -31,7 +31,7 @@ ST_ERROR = "[ERR]"
 ST_INFO = "[INF]"
 ST_WARNING_ID = "[ERR][{0}]"
 ST_WARNING = "[WRN]"
-WRAP_ERROR_MSG = 70
+WRAP_ERROR_MSG = 71
 
 
 def st_error(msg, callExit=False, module=None, errname=None):
@@ -60,7 +60,7 @@ def st_warning(msg, callExit=False):
         exit()
 
 
-def parseLangError(msg):
+def parseLangError(msg, errname = None):
     """
     Formatea un código de error
     :param msg:
@@ -82,6 +82,8 @@ def parseLangError(msg):
     code = code.replace("]", "")
     msg = data[1].strip()
     msg = insertEach(msg, "-\n\t    ", WRAP_ERROR_MSG)
-
     msg = color.RED + ST_WARNING_ID.format(code) + color.END + " " + msg
+
+    if errname is not None:
+        msg += "\n            {0}".format(str(errname))
     return msg
