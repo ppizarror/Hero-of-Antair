@@ -1,5 +1,5 @@
 # Hero of Antair
-Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando la librería Tkinter.
+Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando la librería gráfica Tkinter.
 ![][image-1]
 
 ## Descripción
@@ -27,7 +27,7 @@ Su utilización es muy sencilla, ¡solo basta hacer clic en el elemento añadir 
 - Ruso
 - Tailandés
 
-Las traducciones fuera del Español fueron realizadas con el traductor de google, por lo tanto pueden contener errores 
+Las traducciones fuera del Español fueron realizadas con el traductor de google, por lo tanto pueden contener errores
 
 ## Requisitos
 Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la plataforma de Python 2.7, adicionalmente se utilizan las siguientes librerías, las cuales se incluyen dentro del proyecto:
@@ -42,7 +42,7 @@ Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la p
 - [WConio][10]
 - [Win32IconImagePlugin][11]
 
-Hero of Antair funciona en Windows, Mac OS y Linux.
+Hero of Antair funciona en Windows, Mac OS, Linux e incluso en Cygwin!
 
 ## Ejecutar
 Para correr el juego ingrese en la terminal: _python main.py_
@@ -51,7 +51,7 @@ Para correr el juego ingrese en la terminal: _python main.py_
 Este proyecto está licenciado bajo [GPLv2 (GNU General Public License, version 2)][12].
 
 ## Autor
-Pablo Pizarro
+Pablo Pizarro, 2013-2016
 
 [1]:	https://docs.python.org/2/library/tkinter.html
 [2]:	https://pypi.python.org/pypi/pyperclip
