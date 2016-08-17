@@ -11,11 +11,8 @@
 # Importacion de librerías
 import os
 import sys
-
 from PIL import Image  # @UnusedImport
 import PIL
-
-
 reload(sys)
 sys.setdefaultencoding('UTF8')  # @UndefinedVariable
 

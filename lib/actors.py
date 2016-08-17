@@ -1061,7 +1061,7 @@ class actors:
         """
         l = len(self.playerquest)
         if l > 0:
-            for i in range(l):
+            for i in range(l):  # @UnusedVariable
                 self.playerquest.pop()
 
     def getTotalQuest(self):

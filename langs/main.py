@@ -13,6 +13,7 @@ import tkFont
 import ttk
 import winsound
 
+
 #Configuración de librerías
 reload(sys)
 sys.setdefaultencoding('UTF8') #@UndefinedVariable

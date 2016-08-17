@@ -3,7 +3,6 @@
 # @UnusedWildImport
 from Tkinter import Frame, Scrollbar, Canvas, NW, BOTH, TRUE, LEFT, RIGHT, VERTICAL, FALSE, Y
 
-
 class VerticalScrolledFrame(Frame):
 
     def __init__(self, parent, *args, **kw):

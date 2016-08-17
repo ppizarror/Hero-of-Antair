@@ -6,7 +6,6 @@ http://www.speech.kth.se/snack/index.html
 by Kevin Russell and Kare Sjolander
 last modified: Mar 28, 2003
 """
-
 import Tkinter
 import string
 import types

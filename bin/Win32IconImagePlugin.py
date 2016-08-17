@@ -46,6 +46,7 @@ Example icon to test with `down.ico`_
 
 import logging
 import struct
+
 import PIL.BmpImagePlugin
 import PIL.Image
 import PIL.ImageChops  # @UnusedImport

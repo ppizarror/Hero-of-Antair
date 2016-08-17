@@ -10,9 +10,7 @@
 
 # Importación de librerías
 import ttk
-
 import Tkinter as tk
-
 
 class toggledFrame(tk.Frame):
 

@@ -8,9 +8,7 @@ Dual listbox widget implementation (Gtk+3).
 # TODO
 # Implement exceptions
 # Use Gtk.SelectionMode.MULTIPLE
-
-from gi.repository import Gtk
-
+from gi.repository import Gtk  # @UnresolvedImport
 
 # noinspection PyMethodMayBeStatic
 class DualListBox(Gtk.Box):

@@ -20,7 +20,7 @@ except: pass
 
 #Manejo y configuración de librerías
 reload(sys)
-sys.setdefaultencoding('UTF8')
+sys.setdefaultencoding('UTF8')  # @UndefinedVariable
 
 #Definición de constantes
 ARCHIVE_LANGS = "config/translates.ini" #archivo de idiomas disponibles para la traducción

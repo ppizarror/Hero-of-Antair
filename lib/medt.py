@@ -1169,7 +1169,7 @@ class mapeditor:
         else:
             import signal
 
-            os.kill(os.getpid(), signal.SIGKILL)
+            os.kill(os.getpid(), signal.SIGKILL)  # @UndefinedVariable
 
     def drawTiles(self):
         """

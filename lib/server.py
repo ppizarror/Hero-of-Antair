@@ -10,9 +10,7 @@
 
 import select
 import uuid
-
 from lib import *  # @UnusedWildImport
-
 
 # Importación de librerías
 # Constantes del programa

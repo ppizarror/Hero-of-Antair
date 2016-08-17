@@ -16,7 +16,36 @@
 
 # Importación de liberías de alto nivel
 import os  # @UnusedImport @Reimport @NoMove
+import base64  # @UnusedImport
+import codecs  # @UnusedImport
+import cookielib
+import ctypes
+from datetime import date
+from functools import partial  # @UnusedImport
+import gc  # @UnusedImport
+import htmlentitydefs
+import io  # @UnusedImport
+import json
+from math import log  # @UnusedImport
+import math  # @UnusedImport
+import md5  # @UnusedImport
+from random import choice
+import random  # @UnusedImport
+import re  # @Reimport @UnusedImport
+import socket
+import string
 import sys
+import time
+import types  # @UnusedImport
+from urllib import urlencode
+from urllib2 import urlopen, Request
+import urllib2
+import webbrowser
+from config import *  # @UnusedWildImport
+from errors import *  # @UnusedWildImport
+from noStdOut import *
+from pympler import summary, muppy  # @UnusedImport
+import simplejson  # @UnusedImport
 
 # Configuración de las librerías de alto nivel
 reload(sys)
@@ -39,7 +68,6 @@ _tksnack = True
 _wconio = True
 _winsound = True
 
-from errors import *  # @UnusedWildImport
 try:
     from Tkinter import *  # @UnusedWildImport
     from VerticalScrolledFrame import *  # @UnusedWildImport
@@ -48,35 +76,7 @@ try:
     import tkMessageBox  # @UnusedImport
 except Exception, e:
     st_error("La libreria Tkinter no se encuentra disponible en su ordenador", True, "lib.py", e)
-from config import *  # @UnusedWildImport
-from datetime import date
-from functools import partial  # @UnusedImport
-from math import log  # @UnusedImport
-from noStdOut import *
-from pympler import summary, muppy  # @UnusedImport
-from random import choice
-from urllib import urlencode
-from urllib2 import urlopen, Request
-import base64  # @UnusedImport
-import codecs  # @UnusedImport
-import cookielib
-import ctypes
-import gc  # @UnusedImport
-import htmlentitydefs
-import io  # @UnusedImport
-import json
 # noinspection PyDeprecation
-import math  # @UnusedImport
-import md5  # @UnusedImport
-import random  # @UnusedImport
-import re  # @Reimport
-import simplejson  # @UnusedImport
-import socket
-import string
-import time
-import types  # @UnusedImport
-import urllib2
-import webbrowser
 
 # Librerias depentientes del SO
 if os.name == "nt":
