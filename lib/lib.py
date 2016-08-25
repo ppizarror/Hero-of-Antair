@@ -140,7 +140,7 @@ DEV_MODE = True
 OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
 LINK_PROJECT = "https://github.com/ppizarror/Hero-of-Antair/"
-LINK_UPDATES = "http://projects.ppizarror.com/version?product=HOA"
+LINK_UPDATES = "https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/version/HOA"
 SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5", ".quest", ".powers", ".hoacmd", ".maplogic",
                   ".mapmob", ".mapnpc", ".statics", ".mapitemtexture"]
 VERBOSE_FILELOAD = getConfigValue("verbose.load.file")

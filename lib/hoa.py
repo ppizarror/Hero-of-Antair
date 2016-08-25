@@ -2128,7 +2128,7 @@ class hoa:
                     if len(arg) >= 1:
                         print ENDING_ARGUMENT
                     print lang(747),
-                    version = getVersion("hoa", CONFIGURATION_DATA[5])
+                    version = getVersion("HOA", CONFIGURATION_DATA[5])
                     comparacion = compararVersiones(version, PROGRAM_VERSION)
                     if comparacion == 2:
                         print lang(763, version)
