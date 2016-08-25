@@ -16,6 +16,7 @@
 
 # Importación de liberías de alto nivel
 import os  # @UnusedImport @Reimport @NoMove
+import sys
 import base64  # @UnusedImport
 import codecs  # @UnusedImport
 import cookielib
@@ -34,18 +35,12 @@ import random  # @UnusedImport
 import re  # @Reimport @UnusedImport
 import socket
 import string
-import sys
 import time
 import types  # @UnusedImport
 from urllib import urlencode
 from urllib2 import urlopen, Request
 import urllib2
 import webbrowser
-from config import *  # @UnusedWildImport
-from errors import *  # @UnusedWildImport
-from noStdOut import *
-from pympler import summary, muppy  # @UnusedImport
-import simplejson  # @UnusedImport
 
 # Configuración de las librerías de alto nivel
 reload(sys)
@@ -61,6 +56,13 @@ sys.path.append(_actualpath + "/bin/pympler/")
 sys.path.append(_actualpath + "/bin/snacklib/")
 sys.path.append(_actualpath + "/bin/simplejson/")
 sys.path.append(_actualpath + "/bin/wconio/")
+
+# Importación de librerías del sistema
+from config import *  # @UnusedWildImport
+from errors import *  # @UnusedWildImport
+from noStdOut import *
+from pympler import summary, muppy  # @UnusedImport
+import simplejson  # @UnusedImport
 
 # Importación de librerías de bajo nivel
 _mechanize = True
@@ -515,13 +517,13 @@ def colorcmd(cmd, color):
     if color in CMD_COLORS:
         color = CMD_COLORS[color]
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(  # @UndefinedVariable
+            ctypes.windll.kernel32.SetConsoleTextAttribute(# @UndefinedVariable
                 ctypes.windll.kernel32.GetStdHandle(-11), color)  # @UndefinedVariable
         except:
             pass
         print cmd,
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(  # @UndefinedVariable
+            ctypes.windll.kernel32.SetConsoleTextAttribute(# @UndefinedVariable
                 ctypes.windll.kernel32.GetStdHandle(-11), 0x07)  # @UndefinedVariable
         except:
             pass

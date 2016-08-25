@@ -9,7 +9,7 @@
 # Licencia: GPLv2
 
 # Importación de librerías
-from lib.hoa import *  # @UnusedWildImport
+from lib.hoa import *  # @UnusedWildImport @UnresolvedImport
 
 # Inicio del programa
 if __name__ == '__main__':
