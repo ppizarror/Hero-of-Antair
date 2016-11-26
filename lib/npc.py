@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 #
 # NPC (Not player character) entidades lógicas que proveen de quest e
 # items al jugador

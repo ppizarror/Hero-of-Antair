@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 #
 # Se define la agrupación de actores para el modo de combate grupal donde
 # se explicitan métodos y cantidades

@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 #
 # Provee constantes y funciones para los sonidos del juego
 

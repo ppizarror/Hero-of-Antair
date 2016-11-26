@@ -1,12 +1,12 @@
-# !/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-# Editor de mapas
+# coding=utf-8
+"""
+Editor de mapas
 
-# MAP EDITOR
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: JULIO 2015
-# Licencia: GPLv2
+MAP EDITOR
+Autor: PABLO PIZARRO @ ppizarro
+Fecha: JULIO 2015
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 from lib.medt import mapeditor

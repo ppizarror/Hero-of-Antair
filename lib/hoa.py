@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 #
 # Hero of Antair, motor gráfico para juego RPG
 
@@ -30,7 +29,7 @@ print "\nAutor: " + AUTOR_NAME
 # Importación de librerías
 print "\nCargando librerias ...",
 try:
-    from actors import actors
+    from actors import Actors
     from board import *  # @UnusedWildImport
     from item import *  # @UnusedWildImport
     from mob import mob, MOB_SEPARATOR, TIME_MOVE_MOBS_NORMAL
@@ -1611,7 +1610,7 @@ class hoa:
         self.npc = list()  # lista de npc, elementos de clase npc()
         self.npcId = -1  # id del npc que actuará como npc activo
         self.npcMovement = False  # indica el el movimiento de los mobs
-        self.player = actors()  # objeto jugador
+        self.player = Actors()  # objeto jugador
         self.playerPos = [0, 0]  # posición del jugador
         self.programTitle = PROGRAM_TITLE  # titulo del programa
         self.static = statics.Statics()  # estadíssticas
@@ -2285,7 +2284,7 @@ class hoa:
             self.npc = list()
             self.npcId = -1
             self.npcMovement = False
-            self.player = actors()
+            self.player = Actors()
             self.playerPos = [0, 0]
             self.static = statics.Statics()
             self.tipoCombate = "NO_FIGHT"
@@ -3960,7 +3959,7 @@ class hoa:
                                 self.error(lang(108))
                         else:  # Si el data no es numérico
                             if action == "NAME" or action == "PLAYER.NAME":
-                                self.player.setName(data)
+                                self.player.set_name(data)
                                 self.setInfo(lang(159, str(data)))
                                 self.static.addTrucos()
                             elif action == "TEXTURE" or action == "PLAYER.TEXTURE":
@@ -5014,7 +5013,7 @@ class hoa:
                         [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
                     self.itemnumberlist = 0  # pagina en 0
                     self.player = None  # borro al jugador
-                    self.player = actors()  # nueva clase actor
+                    self.player = Actors()  # nueva clase actor
                     delMatrix(self.dificultad)  # borro la dificultad
                     self.dibujarItems()  # redibujo los items
                     self.dibujarArmor()  # redibujo la armadura
@@ -5038,7 +5037,7 @@ class hoa:
                         self.player.setLevel(int(load[8]))
                         # se define el tipo de jugador
                         self.player.setType(load[12].lower())
-                        self.player.setName(load[1])  # nombre del jugador
+                        self.player.set_name(load[1])  # nombre del jugador
                         self.player.setEdad(int(load[2]))  # edad del jugador
                         self.player.setPais(load[3])  # país del jugador
                         self.player.setDamage(int(load[5]))  # daño del jugador
@@ -5702,7 +5701,7 @@ class hoa:
                         if npc.getPosicionX() == x and npc.getPosicionY() == y and not npc.isEnded() and npc.canShowByQuest(
                                 self.player.getQuest()):
                             self.currentNpc = npc  # objeto currentNpc
-                            self.currentNpc.setName(
+                            self.currentNpc.set_name(
                                 translate(self.currentNpc.getName()))
                             self.currentNpc.setDescripcion(
                                 translate(self.currentNpc.getDescripcion()))
@@ -6182,7 +6181,7 @@ class hoa:
                     info = ventana.values  # cargo la información
                     self.player.setType(info[4])  # tipo de jugador
                     self.player.setEdad(info[2])  # edad
-                    self.player.setName(info[0])  # nombre
+                    self.player.set_name(info[0])  # nombre
                     self.player.setPais(info[1])  # país
                     self.player.setLevel(1)  # nivel
                     self.player.setMaxMana()  # se define el nivel de mana máximo para el nivel 1
@@ -6904,7 +6903,7 @@ class hoa:
         :return: void
         """
         self.enemy = mob  # objeto mob
-        self.enemy.setName(translate(self.enemy.getName()))
+        self.enemy.set_name(translate(self.enemy.getName()))
         self.enemy.setInfo(translate(self.enemy.getInformacion()))
         self.enemy.setDefensa(int(self.enemy.getDefensa() * (
             self.dificultad[1] + 1)))  # se define la defensa basal mob en funcion de la dificultad

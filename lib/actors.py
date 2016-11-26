@@ -1,12 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
-# Actor, entidad lógica manejada por el usuario
+# coding=utf-8
+"""
+Actor, entidad lógica manejada por el usuario
 
-# ACTORS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+ACTORS
+Autor: PABLO PIZARRO @ ppizarro
+Fecha: 2013-2016
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 import random
@@ -15,7 +15,7 @@ import random
 MAX_FRIENDS = 1152  # número máximo de seguidores
 
 
-class actors:
+class Actors(object):
     """Actores"""
 
     def __init__(self):
@@ -68,7 +68,7 @@ class actors:
         self.velocidad = 0  # velocidad del jugador
         self.weapons = [None, None]  # armas del jugador
 
-    def setName(self, name):
+    def set_name(self, name):
         """
         Asignar un nombre al actor
         :param name: Nombre
@@ -109,7 +109,8 @@ class actors:
             self.defLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
             self.expLevels = [0, 700, 3000, 7000, 12500, 22500,
                               45000, 90000, 250000, 450000, 1000000, 4000000]
-            self.images = ["actor127", "actor127", "actor113", "actor113", "actor103", "actor103", "actor8", "actor40",
+            self.images = ["actor127", "actor127", "actor113", "actor113",
+                           "actor103", "actor103", "actor8", "actor40",
                            "actor46", "actor7", "actor7", "actor107"]
             self.images_friends = ["actor111", "actor66", "actor8"]
             self.images_friends_arrow = ["flecha_hierro_16", "arco_umbral_16"]
@@ -128,7 +129,8 @@ class actors:
             self.defLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
             self.expLevels = [0, 1000, 2500, 5000, 10000, 25000,
                               50000, 100000, 250000, 500000, 1000000, 2500000]
-            self.images = ["actor127", "actor127", "actor68", "actor68", "actor68", "actor41", "actor41", "actor42",
+            self.images = ["actor127", "actor127", "actor68", "actor68",
+                           "actor68", "actor41", "actor41", "actor42",
                            "actor42", "actor13", "actor13", "actor135"]
             self.images_friends = ["actor113", "actor1", "actor8"]
             self.images_friends_arrow = [
@@ -149,7 +151,8 @@ class actors:
                               70, 100, 140, 180, 220, 280, 350]
             self.expLevels = [0, 1000, 2500, 5000, 15000, 30000,
                               100000, 175000, 250000, 500000, 1000000, 1500000]
-            self.images = ["actor76", "actor76", "actor77", "actor77", "actor78", "actor78", "actor75", "actor75",
+            self.images = ["actor76", "actor76", "actor77", "actor77",
+                           "actor78", "actor78", "actor75", "actor75",
                            "actor20", "actor12", "actor12", "actor64"]
             self.images_friends = ["actor111", "actor75", "actor20"]
             self.images_friends_arrow = [
@@ -170,8 +173,10 @@ class actors:
             self.defLevels = [2, 6, 10, 20, 25, 40, 60, 80, 100, 120, 150, 200]
             self.expLevels = [0, 2000, 4500, 8000, 17000, 35000,
                               140000, 290000, 550000, 900000, 1500000, 3400000]
-            self.images = ["actor115", "actor115", "actor119", "actor119", "actor116", "actor116", "actor117",
-                           "actor117", "actor121", "actor121", "actor120", "actor120"]
+            self.images = ["actor115", "actor115", "actor119", "actor119",
+                           "actor116", "actor116", "actor117",
+                           "actor117", "actor121", "actor121", "actor120",
+                           "actor120"]
             self.images_friends = ["actor119", "actor117", "actor120"]
             self.images_friends_arrow = [
                 "lanza_hunting_spear_16", "lanza_hunting_spear_16"]
@@ -785,17 +790,20 @@ class actors:
         if mano == "izquierda":  # atacar con la mano izquierda
             if self.weapons[0] is not None:  # Si posee un arma
                 self.weapons[0].usar()
-                return max(0, self.ataque + random.randint(0, self.target) + self.weapons[
-                    0].getDamage() + self.getActiveBullet().getDamage())
+                return max(0, self.ataque + random.randint(0, self.target) +
+                           self.weapons[
+                               0].getDamage() + self.getActiveBullet().getDamage())
             else:
                 return max(0, self.ataque + random.randint(0, self.target))
         elif mano == "derecha":  # atacar con la mano derecha
             if self.weapons[1] is not None:
                 self.weapons[1].usar()
-                return max(0, self.ataque + self.weapons[1].getDamage() + random.randint(-self.target / 2,
-                                                                                         self.target / 2))
+                return max(0, self.ataque + self.weapons[
+                    1].getDamage() + random.randint(-self.target / 2,
+                                                    self.target / 2))
             else:
-                return max(0, self.ataque + random.randint(-self.target / 2, self.target / 2))
+                return max(0, self.ataque + random.randint(-self.target / 2,
+                                                           self.target / 2))
         elif mano == "fp":  # atacar con el primer poder
             print "ataque con primer poder"
             return -1
