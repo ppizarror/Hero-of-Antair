@@ -49,26 +49,38 @@ DATA_DOCUMENTS = DATA_FOLDER + "doc/"  # directorio de la documentación
 DATA_LEVELS = DATA_FOLDER + "levels/"  # directorio de los niveles
 DATA_SOUND = DATA_FOLDER + "sound/"  # directorio de sonidos
 DATA_SOUNDS_AMBIENCE = DATA_SOUND + "ambience/"  # sonidos de ambiente
-EVENTS_LOGIC = ["1", "8", "11", "13", "15", "16", "17", "18", "20", "21", "22", "23", "24", "28", "29", "30", "31",
+EVENTS_LOGIC = ["1", "8", "11", "13", "15", "16", "17", "18", "20", "21", "22",
+                "23", "24", "28", "29", "30", "31",
                 "32", "33", "43"]  # logicos
 EVENT_MOVE = ["19", "25"]  # eventos de movimiento
 LEVEL_PROP = DATA_LEVELS + "prop/"  # propiedades de los niveles
 LEVEL_RES = DATA_LEVELS + "res/"  # recursos de los niveles
 LEVEL_SOUND = DATA_LEVELS + "sound/"  # sonidos de los niveles
-LOGICS = {"0": "vacío", "1": "jugador", "2": "árbol", "3": "cofre", "4": "líquido", "5": "roca",
-          "6": "puerta", "7": "edificio", "8": "enemigo", "9": "ciudadano", "10": "vacio",
-          "11": "item", "12": "decorado", "13": "text", "14": "antorcha", "15": "object",
-          "16": "librería", "17": "minushp", "18": "minusmana", "19": "move(to)",
-          "20": "nopass", "21": "pass", "22": "plushp", "23": "plusmana", "24": "teleport",
-          "25": "move(from)", "26": "bed", "27": "vehicle", "28": "sound", "29": "mute",
-          "30": "longtext", "31": "autosave", "32": "death", "33": "nopass(al)",
-          "34": "nature", "35": "cactus", "36": "hongo", "37": "estatua", "38": "sign",
-          "39": "effect", "40": "grass", "41": "wall", "42": "ladder", "43": "npc",
+LOGICS = {"0": "vacío", "1": "jugador", "2": "árbol", "3": "cofre",
+          "4": "líquido", "5": "roca",
+          "6": "puerta", "7": "edificio", "8": "enemigo", "9": "ciudadano",
+          "10": "vacio",
+          "11": "item", "12": "decorado", "13": "text", "14": "antorcha",
+          "15": "object",
+          "16": "librería", "17": "minushp", "18": "minusmana",
+          "19": "move(to)",
+          "20": "nopass", "21": "pass", "22": "plushp", "23": "plusmana",
+          "24": "teleport",
+          "25": "move(from)", "26": "bed", "27": "vehicle", "28": "sound",
+          "29": "mute",
+          "30": "longtext", "31": "autosave", "32": "death",
+          "33": "nopass(al)",
+          "34": "nature", "35": "cactus", "36": "hongo", "37": "estatua",
+          "38": "sign",
+          "39": "effect", "40": "grass", "41": "wall", "42": "ladder",
+          "43": "npc",
           "44": "alfombra"}
 TILE_BUILDING = ["7", "14", "39"]  # lógicos de la edificación
-TILE_EDIT = ["3", "6", "7", "8", "11", "13", "15", "16", "17", "18", "19", "22", "23", "24", "25", "27", "28", "30",
+TILE_EDIT = ["3", "6", "7", "8", "11", "13", "15", "16", "17", "18", "19",
+             "22", "23", "24", "25", "27", "28", "30",
              "38", "42", "43"]  # tiles disponibles para la edición
-TILE_EVENT = ["1", "8", "11", "13", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24",
+TILE_EVENT = ["1", "8", "11", "13", "15", "16", "17", "18", "19", "20", "21",
+              "22", "23", "24",
               "25", "28", "29", "30", "31", "32", "33"]
 
 if isWindows():
@@ -77,7 +89,7 @@ else:
     PROGRAM_SIZE = 931, 581  # tamaño de la ventana
 
 
-class mapeditor:
+class mapeditor(object):
     """Editor de mapas"""
 
     def __init__(self):
@@ -102,7 +114,8 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                q = pop(['Escoger sonido de fondo', self.images["sound_icon"], 'new_sound_background', 120, 380,
+                q = pop(['Escoger sonido de fondo', self.images["sound_icon"],
+                         'new_sound_background', 120, 380,
                          DATA_SOUNDS_AMBIENCE])
                 q.w.mainloop(1)
                 if q.sent:
@@ -236,12 +249,14 @@ class mapeditor:
                         ysize = 169
                     else:
                         ysize = 175
-                    e = pop(['Información', self.images['mapinfo'], 'infoTile_info', ysize, 330, self.workTile,
+                    e = pop(['Información', self.images['mapinfo'],
+                             'infoTile_info', ysize, 330, self.workTile,
                              self.worldLogic[self.workTile[0]][
                                  self.workTile[1]],
                              self.worldTextures[self.workTile[0]][
                                  self.workTile[1]],
-                             self.worldLight[self.workTile[0]][self.workTile[1]]])
+                             self.worldLight[self.workTile[0]][
+                                 self.workTile[1]]])
                     e.w.mainloop(1)
                     del e
 
@@ -253,12 +268,13 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:
-                self.clipboard = [self.worldLogic[self.workTile[0]][self.workTile[1]],
-                                  self.worldTextures[self.workTile[0]][
-                                      self.workTile[1]],
-                                  self.worldGraph[self.workTile[0]][
-                                      self.workTile[1]],
-                                  self.worldItems[self.workTile[0]][self.workTile[1]]]
+                self.clipboard = [
+                    self.worldLogic[self.workTile[0]][self.workTile[1]],
+                    self.worldTextures[self.workTile[0]][
+                        self.workTile[1]],
+                    self.worldGraph[self.workTile[0]][
+                        self.workTile[1]],
+                    self.worldItems[self.workTile[0]][self.workTile[1]]]
 
         def _pasteTile(event=None):
             """
@@ -268,15 +284,18 @@ class mapeditor:
             """
             if self.isEvent:  # Pego la información
                 light = "_" + \
-                    str(self.worldLight[self.workTile[0]][self.workTile[1]])
+                        str(self.worldLight[self.workTile[0]][
+                                self.workTile[1]])
                 self.worldLogic[self.workTile[0]][
                     self.workTile[1]] = self.clipboard[0]
                 self.worldTextures[self.workTile[0]][
                     self.workTile[1]] = self.clipboard[1]
-                self.worldGraph[self.workTile[0]][self.workTile[1]] = self.clipboard[2].replace("_0", light).replace(
-                    "_1", light)
-                self.worldItems[self.workTile[0]][self.workTile[1]] = self.clipboard[3].replace("_0", light).replace(
-                    "_1", light)
+                self.worldGraph[self.workTile[0]][self.workTile[1]] = \
+                    self.clipboard[2].replace("_0", light).replace(
+                        "_1", light)
+                self.worldItems[self.workTile[0]][self.workTile[1]] = \
+                    self.clipboard[3].replace("_0", light).replace(
+                        "_1", light)
                 self.drawTiles()
                 self.core.title(PROGRAM_TITLE + " - " +
                                 self.mapName + " (" + self.mapFile + ") *")
@@ -289,10 +308,13 @@ class mapeditor:
             :return: void
             """
             if self.isEvent:  # Borro el vecindario
-                delTileLogicNeighbor(self.worldLogic[self.workTile[0]][self.workTile[1]],
-                                     self.workTile[0], self.workTile[1], self.worldLogic, self.worldItems)
+                delTileLogicNeighbor(
+                    self.worldLogic[self.workTile[0]][self.workTile[1]],
+                    self.workTile[0], self.workTile[1], self.worldLogic,
+                    self.worldItems)
                 # borro los vectores luminicos
-                if "14" or "7-407" or "39-961" in self.worldLogic[self.workTile[0]][self.workTile[1]]:
+                if "14" or "7-407" or "39-961" in \
+                        self.worldLogic[self.workTile[0]][self.workTile[1]]:
                     self.removeLightVector(self.workTile[1], self.workTile[0])
                 logic = self.worldLogic[self.workTile[0]][
                     self.workTile[1]].split("-")
@@ -328,7 +350,9 @@ class mapeditor:
                     p.w.mainloop(1)
                     if p.sent:
                         self.worldLogic[self.workTile[0]][
-                            self.workTile[1]] = main_logic + "-" + sec_logic + "-" + p.values[0] + ',' + replaceStrict(
+                            self.workTile[
+                                1]] = main_logic + "-" + sec_logic + "-" + \
+                                      p.values[0] + ',' + replaceStrict(
                             p.values[1])
                     del p
                 elif main_logic == "7":  # Edificio
@@ -346,7 +370,8 @@ class mapeditor:
                     tex = prop[2]
                     if isWindows():
                         p = pop(
-                            ['Editar mob', self.images['group'], 'edit_mob', 398, 290, putStrict(prop[5]), prop[1],
+                            ['Editar mob', self.images['group'], 'edit_mob',
+                             398, 290, putStrict(prop[5]), prop[1],
                              prop[7],
                              prop[0], prop[9],
                              prop[3], prop[4], prop[8], prop[9], prop[
@@ -354,7 +379,8 @@ class mapeditor:
                              prop[12], prop[13], prop[15], prop[16], prop[17]])
                     else:
                         p = pop(
-                            ['Editar mob', self.images['group'], 'edit_mob', 460, 350, putStrict(prop[5]), prop[1],
+                            ['Editar mob', self.images['group'], 'edit_mob',
+                             460, 350, putStrict(prop[5]), prop[1],
                              prop[7],
                              prop[0], prop[9],
                              prop[3], prop[4], prop[8], prop[9], prop[
@@ -363,8 +389,12 @@ class mapeditor:
                     p.w.mainloop(1)
                     if p.sent:
                         data = p.values
-                        properties = '8-0-' + data[0] + ',' + data[1] + ',' + tex + ',' + data[3] + ',' + data[4] + ',' \
-                                     + replaceStrict(data[5]) + ',' + replaceStrict(data[6]) + ',' + data[7] + ',' + \
+                        properties = '8-0-' + data[0] + ',' + data[
+                            1] + ',' + tex + ',' + data[3] + ',' + data[
+                                         4] + ',' \
+                                     + replaceStrict(
+                            data[5]) + ',' + replaceStrict(data[6]) + ',' + \
+                                     data[7] + ',' + \
                                      data[8] + ',' + data[9] + ',' + \
                                      data[10] + ','
                         if data[11] != '':
@@ -372,8 +402,9 @@ class mapeditor:
                             properties += replaceStrict(data[11]) + ','
                         else:
                             properties += '%NULL%,'
-                        properties += data[12] + ',' + data[13] + ',' + data[14] + ',' + data[15] + ',' + data[
-                            16]  # se agregan propiedades de perseguir y escapar
+                        properties += data[12] + ',' + data[13] + ',' + data[
+                            14] + ',' + data[15] + ',' + data[
+                                          16]  # se agregan propiedades de perseguir y escapar
                         properties += ',' + data[17]  # se agrega sonido
                         self.worldLogic[self.workTile[0]][
                             self.workTile[1]] = properties
@@ -386,7 +417,8 @@ class mapeditor:
                              'edit_text', 77, 280, putStrict(prop[0])])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "13-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "13-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "15":  # Object
@@ -398,7 +430,8 @@ class mapeditor:
                              'edit_absdigit', 77, 280, "Hp:", prop[0]])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "17-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "17-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "18":  # Minusmana
@@ -406,7 +439,8 @@ class mapeditor:
                              'edit_absdigit', 77, 280, "Mana:", prop[0]])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "18-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "18-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "19" or main_logic == "25":  # Move
@@ -416,7 +450,8 @@ class mapeditor:
                              'edit_absdigit', 77, 280, "Hp:", prop[0]])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "22-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "22-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "23":  # Plusmana
@@ -424,7 +459,8 @@ class mapeditor:
                              'edit_absdigit', 77, 280, "Mana:", prop[0]])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "23-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "23-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "24":  # Teleport
@@ -432,7 +468,8 @@ class mapeditor:
                              'edit_maplink', 77, 280, prop[0]])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "24-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "24-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "27":  # Vehicle
@@ -442,7 +479,8 @@ class mapeditor:
                              'edit_sound', 77, 280, prop[0]])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "28-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "28-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "30":  # Longtext
@@ -450,7 +488,8 @@ class mapeditor:
                              'edit_longtext', 77, 280, putStrict(prop[0])])
                     q.w.mainloop(1)
                     if q.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = "30-0-" + replaceStrict(
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = "30-0-" + replaceStrict(
                             q.values[0])
                     del q
                 elif main_logic == "38":  # Sign
@@ -459,37 +498,51 @@ class mapeditor:
                     q.w.mainloop(1)
                     if q.sent:
                         self.worldLogic[self.workTile[0]][
-                            self.workTile[1]] = "38-" + sec_logic + "-" + replaceStrict(q.values[0])
+                            self.workTile[
+                                1]] = "38-" + sec_logic + "-" + replaceStrict(
+                            q.values[0])
                     del q
                 elif main_logic == "42":  # Ladder
                     p = pop(['Nueva escalera', self.images['stair_icon'],
                              'edit_stair', 96, 290, putStrict(prop[0])])
                     p.w.mainloop(1)
                     if p.sent:
-                        self.worldLogic[self.workTile[0]][self.workTile[1]] = '42-' + sec_logic + '-' + p.values[
-                            0] + ',' + replaceStrict(p.values[1])
+                        self.worldLogic[self.workTile[0]][
+                            self.workTile[1]] = '42-' + sec_logic + '-' + \
+                                                p.values[
+                                                    0] + ',' + replaceStrict(
+                            p.values[1])
                     del p
                 elif main_logic == "43":  # Npc
                     prop += ["None"]  # se agrega vector para evitar errores
                     tex = prop[1]
                     if isWindows():
-                        k = pop(['Editar npc', self.images['group'], 'edit_npc', 307, 290, putStrict(prop[0]),
-                                 putStrict(prop[2]), putStrict(
-                                     prop[3]), prop[6], prop[8],
-                                 putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
+                        k = pop(
+                            ['Editar npc', self.images['group'], 'edit_npc',
+                             307, 290, putStrict(prop[0]),
+                             putStrict(prop[2]), putStrict(
+                                prop[3]), prop[6], prop[8],
+                             putStrict(prop[4]), putStrict(prop[5]), prop[7],
+                             prop[9], prop[10]])
                     else:
-                        k = pop(['Editar npc', self.images['group'], 'edit_npc', 350, 350, putStrict(prop[0]),
-                                 putStrict(prop[2]), putStrict(
-                                     prop[3]), prop[6], prop[8],
-                                 putStrict(prop[4]), putStrict(prop[5]), prop[7], prop[9], prop[10]])
+                        k = pop(
+                            ['Editar npc', self.images['group'], 'edit_npc',
+                             350, 350, putStrict(prop[0]),
+                             putStrict(prop[2]), putStrict(
+                                prop[3]), prop[6], prop[8],
+                             putStrict(prop[4]), putStrict(prop[5]), prop[7],
+                             prop[9], prop[10]])
                     k.w.mainloop(1)
                     if k.sent:
                         npc = k.values
-                        properties = "43-0-" + replaceStrict(npc[0]) + ',' + tex + ',' + replaceStrict(
+                        properties = "43-0-" + replaceStrict(
+                            npc[0]) + ',' + tex + ',' + replaceStrict(
                             npc[2]) + ',' + replaceStrict(npc[3]) + \
-                            ',' + replaceStrict(npc[4]) + ',' + replaceStrict(npc[5]) + ',' + npc[6] + ',' + \
-                            npc[7] + ',' + npc[8] + ',' + \
-                            npc[9] + ',' + npc[10]
+                                     ',' + replaceStrict(
+                            npc[4]) + ',' + replaceStrict(npc[5]) + ',' + npc[
+                                         6] + ',' + \
+                                     npc[7] + ',' + npc[8] + ',' + \
+                                     npc[9] + ',' + npc[10]
                         self.worldLogic[self.workTile[0]][
                             self.workTile[1]] = properties
                     del k
@@ -579,7 +632,8 @@ class mapeditor:
             :param e: Event
             :return: void
             """
-            pop([["Help Actors"], self.images["text_icon"], "license", 400, 600,
+            pop([["Help Actors"], self.images["text_icon"], "license", 400,
+                 600,
                  DATA_DOCUMENTS + "/documentation/actors.txt"])
 
         def _help_buildings(e=None):
@@ -588,7 +642,8 @@ class mapeditor:
             :param e: Event
             :return: void
             """
-            pop([["Help Buildings"], self.images["text_icon"], "license", 400, 600,
+            pop([["Help Buildings"], self.images["text_icon"], "license", 400,
+                 600,
                  DATA_DOCUMENTS + "/documentation/buildings.txt"])
 
         def _help_items(e=None):
@@ -606,7 +661,8 @@ class mapeditor:
             :param e: Event
             :return: void
             """
-            pop([["Help LevelFormat"], self.images["text_icon"], "license", 400, 600,
+            pop([["Help LevelFormat"], self.images["text_icon"], "license",
+                 400, 600,
                  DATA_DOCUMENTS + "/documentation/levelformat.txt"])
 
         def _help_logic(e=None):
@@ -624,7 +680,8 @@ class mapeditor:
             :param e: Event
             :return: void
             """
-            pop([["Help Objetos"], self.images["text_icon"], "license", 400, 600,
+            pop([["Help Objetos"], self.images["text_icon"], "license", 400,
+                 600,
                  DATA_DOCUMENTS + "/documentation/objetos.txt"])
 
         def _help_sfx(e=None):
@@ -642,7 +699,8 @@ class mapeditor:
             :param e: Event
             :return: void
             """
-            pop([["Help Textures"], self.images["text_icon"], "license", 400, 600,
+            pop([["Help Textures"], self.images["text_icon"], "license", 400,
+                 600,
                  DATA_DOCUMENTS + "/documentation/textures.txt"])
 
         def _acercaDe(e=None):
@@ -651,7 +709,8 @@ class mapeditor:
             :param e: Event
             :return: void
             """
-            pop([["Acerca de", "Creador: ", "Mail: ", "Versión: ", "Cerrar"], self.images["mapeditoricon"], "about",
+            pop([["Acerca de", "Creador: ", "Mail: ", "Versión: ", "Cerrar"],
+                 self.images["mapeditoricon"], "about",
                  115, 220, AUTOR, AUTOR_EMAIL, PROGRAM_VERSION])
 
         def _ayuda(e=None):
@@ -687,8 +746,10 @@ class mapeditor:
         self.core.minsize(width=PROGRAM_SIZE[0], height=PROGRAM_SIZE[1])
         self.core.resizable(width=False, height=False)
         self.core.geometry(
-            '%dx%d+%d+%d' % (PROGRAM_SIZE[0], PROGRAM_SIZE[1], (self.core.winfo_screenwidth() - PROGRAM_SIZE[0]) / 2,
-                             (self.core.winfo_screenheight() - PROGRAM_SIZE[1] - 50) / 2))
+            '%dx%d+%d+%d' % (PROGRAM_SIZE[0], PROGRAM_SIZE[1], (
+                self.core.winfo_screenwidth() - PROGRAM_SIZE[0]) / 2,
+                             (self.core.winfo_screenheight() - PROGRAM_SIZE[
+                                 1] - 50) / 2))
         self.core.focus_force()
 
         # Variables del programa
@@ -757,13 +818,16 @@ class mapeditor:
         self.herrammenu.add_command(
             label='Borrar actor', accelerator="Ctrl+J", command=_delactor)
         self.herrammenu.add_command(
-            label='Borrar decoración', accelerator="Ctrl+U", command=_deldecoration)
+            label='Borrar decoración', accelerator="Ctrl+U",
+            command=_deldecoration)
         self.herrammenu.add_command(
             label='Borrar terreno', accelerator="Ctrl+K", command=_delterrain)
         self.herrammenu.add_command(
-            label='Borrar seleción actual', accelerator="Esc", command=self.delActive)
+            label='Borrar seleción actual', accelerator="Esc",
+            command=self.delActive)
         self.herrammenu.add_command(
-            label='Establecer sonido de fondo', accelerator="Ctrl+M", command=_changeSound)
+            label='Establecer sonido de fondo', accelerator="Ctrl+M",
+            command=_changeSound)
         for k in range(5):
             self.herrammenu.entryconfig(k, state=DISABLED)
         menu.add_cascade(label='Herramientas', menu=self.herrammenu)
@@ -777,11 +841,14 @@ class mapeditor:
         self.visualmenu.add_command(
             label='Mostrar/Ocultar lógicos', accelerator="F3", command=_logics)
         self.visualmenu.add_command(
-            label='Mostrar/Ocultar movimientos', accelerator="F4", command=_movements)
+            label='Mostrar/Ocultar movimientos', accelerator="F4",
+            command=_movements)
         self.visualmenu.add_command(
-            label='Mostrar/Ocultar posiciones', accelerator="F2", command=_numbers)
+            label='Mostrar/Ocultar posiciones', accelerator="F2",
+            command=_numbers)
         self.visualmenu.add_command(
-            label='Mostrar/Ocultar terreno', accelerator="F8", command=_terrain)
+            label='Mostrar/Ocultar terreno', accelerator="F8",
+            command=_terrain)
         self.visualmenu.add_command(
             label='Redibujar mapa', accelerator="F5", command=_redib)
         for k in range(8):
@@ -826,7 +893,8 @@ class mapeditor:
         self.infoEditMenu.add_command(label="Editar", command=_infoTile_edit)
         self.infoEditMenu.add_command(label="Pegar", command=_pasteTile)
         self.blackBackground = Canvas(
-            self.core, width=1500, height=1000, bg="black", bd=-2, highlightthickness=0)
+            self.core, width=1500, height=1000, bg="black", bd=-2,
+            highlightthickness=0)
         self.blackBackground.pack(padx=0, pady=0)
         text_color_title = "#1F1F1F"
         self.menu1 = VerticalScrolledFrame(self.core)
@@ -860,7 +928,9 @@ class mapeditor:
         bpf = 8
         bpfg = bpf / 2
         bbpfg = bpfg / 2
-        l3 = LabelFrame(self.menu1.interior, text="Actores - Eventos de usuario", foreground=text_color_title, padx=3,
+        l3 = LabelFrame(self.menu1.interior,
+                        text="Actores - Eventos de usuario",
+                        foreground=text_color_title, padx=3,
                         pady=3, relief=GROOVE)
         l3.pack(padx=3, pady=5, anchor=NW)
         j = 0
@@ -870,7 +940,7 @@ class mapeditor:
             for k in range(bpf):
                 cmd = partial(self.setActive, 1, actores[j][0], actores[j][1])
                 bt = Button(f, image=self.images[actores[j][
-                            0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
+                    0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
                 else:
@@ -882,7 +952,8 @@ class mapeditor:
             labeltitle = "Terreno\t\t\t\t             [32x32]"
         else:
             labeltitle = "Terreno\t\t\t                 [32x32]"
-        l4 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
+        l4 = LabelFrame(self.menu1.interior, text=labeltitle,
+                        foreground=text_color_title,
                         padx=3, pady=3, relief=GROOVE)
         l4.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -891,9 +962,9 @@ class mapeditor:
             f.pack()
             for k in range(bpf):
                 cmd = partial(self.setActive, 2, terrain[j][
-                              0], terrain[j][1])  # Boton del objeto
+                    0], terrain[j][1])  # Boton del objeto
                 bt = Button(f, image=self.images[terrain[j][
-                            0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
+                    0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
                 else:
@@ -905,7 +976,8 @@ class mapeditor:
             labeltitle = "Ambientación\t\t\t             [32x32]"
         else:
             labeltitle = "Ambientación\t\t                 [32x32]"
-        l6 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
+        l6 = LabelFrame(self.menu1.interior, text=labeltitle,
+                        foreground=text_color_title,
                         padx=3, pady=3, relief=GROOVE)
         l6.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -914,8 +986,9 @@ class mapeditor:
             f.pack()
             for k in range(bpf):
                 cmd = partial(self.setActive, 3, environment[j][
-                              0], environment[j][1], environment[j][2])
-                bt = Button(f, image=self.images[environment[j][0]], command=cmd, relief=GROOVE, border=0,
+                    0], environment[j][1], environment[j][2])
+                bt = Button(f, image=self.images[environment[j][0]],
+                            command=cmd, relief=GROOVE, border=0,
                             cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
@@ -929,7 +1002,8 @@ class mapeditor:
         else:
             labeltitle = "Ambientación\t\t                    [64x64]"
         l10 = LabelFrame(self.menu1.interior, text=labeltitle,
-                         foreground=text_color_title, padx=6, pady=3, relief=GROOVE)
+                         foreground=text_color_title, padx=6, pady=3,
+                         relief=GROOVE)
         l10.pack(padx=3, pady=6, anchor=NW)
         j = 0
         for i in range(redondear(len(benvironment), bpfg)):  # @UnusedVariable
@@ -937,8 +1011,9 @@ class mapeditor:
             f.pack()
             for k in range(bpfg):
                 cmd = partial(self.setActive, 3, benvironment[j][
-                              0], benvironment[j][1], benvironment[j][2])
-                bt = Button(f, image=self.images[benvironment[j][0]], command=cmd, relief=GROOVE, border=0,
+                    0], benvironment[j][1], benvironment[j][2])
+                bt = Button(f, image=self.images[benvironment[j][0]],
+                            command=cmd, relief=GROOVE, border=0,
                             cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
@@ -952,7 +1027,8 @@ class mapeditor:
         else:
             labeltitle = "Decoración - Interior \t                 [32x32]"
         l7 = LabelFrame(self.menu1.interior, text=labeltitle,
-                        foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
+                        foreground=text_color_title, padx=3, pady=5,
+                        relief=GROOVE)
         l7.pack(padx=3, pady=6, anchor=NW)
         j = 0
         for i in range(redondear(len(interior), bpf)):  # @UnusedVariable
@@ -960,9 +1036,9 @@ class mapeditor:
             f.pack()
             for k in range(bpf):
                 cmd = partial(self.setActive, 3, interior[j][
-                              0], interior[j][1], interior[j][2])
+                    0], interior[j][1], interior[j][2])
                 bt = Button(f, image=self.images[interior[j][
-                            0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
+                    0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
                 else:
@@ -975,7 +1051,8 @@ class mapeditor:
         else:
             labeltitle = "Decoración - Interior \t                    [64x64]"
         l12 = LabelFrame(self.menu1.interior, text=labeltitle,
-                         foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
+                         foreground=text_color_title, padx=3, pady=5,
+                         relief=GROOVE)
         l12.pack(padx=3, pady=6, anchor=NW)
         j = 0
         for i in range(redondear(len(binterior), bpfg)):  # @UnusedVariable
@@ -983,9 +1060,9 @@ class mapeditor:
             f.pack()
             for k in range(bpfg):
                 cmd = partial(self.setActive, 3, binterior[j][
-                              0], binterior[j][1], binterior[j][2])
+                    0], binterior[j][1], binterior[j][2])
                 bt = Button(f, image=self.images[binterior[j][
-                            0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
+                    0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
                 else:
@@ -998,16 +1075,19 @@ class mapeditor:
         else:
             labeltitle = "Construcción \t\t                 [32x32]"
         l9 = LabelFrame(self.menu1.interior, text=labeltitle,
-                        foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
+                        foreground=text_color_title, padx=3, pady=5,
+                        relief=GROOVE)
         l9.pack(padx=3, pady=6, anchor=NW)
         j = 0
         for i in range(redondear(len(construccion), bpf)):  # @UnusedVariable
             f = Frame(l9)
             f.pack()
             for k in range(bpf):
-                cmd = partial(self.setActive, 3, construccion[j][0], construccion[j][1],
+                cmd = partial(self.setActive, 3, construccion[j][0],
+                              construccion[j][1],
                               construccion[j][2])  # Boton del objeto
-                bt = Button(f, image=self.images[construccion[j][0]], command=cmd, relief=GROOVE, border=0,
+                bt = Button(f, image=self.images[construccion[j][0]],
+                            command=cmd, relief=GROOVE, border=0,
                             cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT, anchor=W)
@@ -1021,7 +1101,8 @@ class mapeditor:
         else:
             labeltitle = "Construcción \t\t                    [64x64]"
         l11 = LabelFrame(self.menu1.interior, text=labeltitle,
-                         foreground=text_color_title, padx=3, pady=5, relief=GROOVE)
+                         foreground=text_color_title, padx=3, pady=5,
+                         relief=GROOVE)
         l11.pack(padx=3, pady=6, anchor=NW)
         j = 0
         for i in range(redondear(len(bconstruccion), bpfg)):  # @UnusedVariable
@@ -1029,8 +1110,9 @@ class mapeditor:
             f.pack()
             for k in range(bpfg):
                 cmd = partial(self.setActive, 3, bconstruccion[j][
-                              0], bconstruccion[j][1], bconstruccion[j][2])
-                bt = Button(f, image=self.images[bconstruccion[j][0]], command=cmd, relief=GROOVE, border=0,
+                    0], bconstruccion[j][1], bconstruccion[j][2])
+                bt = Button(f, image=self.images[bconstruccion[j][0]],
+                            command=cmd, relief=GROOVE, border=0,
                             cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT, anchor=W)
@@ -1043,7 +1125,8 @@ class mapeditor:
             labeltitle = "Edificios\t\t\t\t         [128x128]"
         else:
             labeltitle = "Edificios\t\t\t                [128x128]"
-        l13 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
+        l13 = LabelFrame(self.menu1.interior, text=labeltitle,
+                         foreground=text_color_title,
                          padx=3, pady=5, relief=GROOVE)
         l13.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -1052,9 +1135,9 @@ class mapeditor:
             f.pack()
             for k in range(bbpfg):
                 cmd = partial(self.setActive, 3, bbuilding[j][
-                              0], bbuilding[j][1], bbuilding[j][2])
+                    0], bbuilding[j][1], bbuilding[j][2])
                 bt = Button(f, image=self.images[bbuilding[j][
-                            0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
+                    0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT)
                 else:
@@ -1066,7 +1149,8 @@ class mapeditor:
             labeltitle = "Edificios\t\t\t\t             [32x32]"
         else:
             labeltitle = "Edificios\t\t\t               [32x32]"
-        l8 = LabelFrame(self.menu1.interior, text=labeltitle, foreground=text_color_title,
+        l8 = LabelFrame(self.menu1.interior, text=labeltitle,
+                        foreground=text_color_title,
                         padx=3, pady=5, relief=GROOVE)
         l8.pack(padx=3, pady=6, anchor=NW)
         j = 0
@@ -1075,9 +1159,9 @@ class mapeditor:
             f.pack()
             for k in range(bpf):
                 cmd = partial(self.setActive, 3, building[j][
-                              0], building[j][1], building[j][2])
+                    0], building[j][1], building[j][2])
                 bt = Button(f, image=self.images[building[j][
-                            0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
+                    0]], command=cmd, relief=GROOVE, border=0, cursor="hand2")
                 if k != bpf - 1:
                     bt.pack(side=LEFT, anchor=W)
                 else:
@@ -1180,7 +1264,8 @@ class mapeditor:
             for j in range(self.mapSize[1]):  # Items
                 for i in range(self.mapSize[0]):
                     # Si existe una imagen la agrego al mundo
-                    if self.worldItems[j][i] != "None" and not isIn(self.worldItems[j][i], EVENT_IMAGE_EDITOR):
+                    if self.worldItems[j][i] != "None" and not isIn(
+                            self.worldItems[j][i], EVENT_IMAGE_EDITOR):
                         imagen = self.mapTile.create_image(
                             18 + 32 * i +
                             textureMover(
@@ -1196,28 +1281,39 @@ class mapeditor:
             for j in range(self.mapSize[1]):  # Eventos
                 for i in range(self.mapSize[0]):
                     if isIn(self.worldItems[j][i], EVENT_IMAGE_EDITOR):
-                        self.mapTile.create_image(18 + 32 * i + textureMover(self.images[self.worldItems[j][i]], EJE_X),
+                        self.mapTile.create_image(18 + 32 * i + textureMover(
+                            self.images[self.worldItems[j][i]], EJE_X),
                                                   18 + 32 * j +
                                                   textureMover(
-                                                      self.images[self.worldItems[j][i]], EJE_Y),
-                                                  image=self.images[self.worldItems[j][i]])
+                                                      self.images[
+                                                          self.worldItems[j][
+                                                              i]], EJE_Y),
+                                                  image=self.images[
+                                                      self.worldItems[j][i]])
         if self.showTerrain:  # Si se pueden dibujar las texturas de terreno
             for j in range(self.mapSize[1]):  # Texturas de terreno
                 for i in range(self.mapSize[0]):
-                    self.mapTile.lower(self.mapTile.create_image(18 + 32 * i, 18 + 32 * j, image=self.images[
-                        self.worldGraph[j][i]]))  # @UndefinedVariable
+                    self.mapTile.lower(
+                        self.mapTile.create_image(18 + 32 * i, 18 + 32 * j,
+                                                  image=self.images[
+                                                      self.worldGraph[j][
+                                                          i]]))  # @UndefinedVariable
         # Dibujo la información de los tiles
         if self.showLines != False or self.showNumbers != False or self.showLogics != False:
             for i in range(0, self.mapSize[1]):
                 if self.showLines:
-                    self.mapTile.create_line(32 * (i + 1) + 1, 0, 32 * (i + 1) + 1,
-                                             self.mapSize[1] * 32 + 2, fill=COLOR_LINE)
+                    self.mapTile.create_line(32 * (i + 1) + 1, 0,
+                                             32 * (i + 1) + 1,
+                                             self.mapSize[1] * 32 + 2,
+                                             fill=COLOR_LINE)
                 k = -32
                 for j in range(0, self.mapSize[0]):
                     k += 32
                     if self.showLines:
-                        self.mapTile.create_line(0, 32 * (i + 1) + 1, self.mapSize[0] * 32 + 2,
-                                                 32 * (i + 1) + 1, fill=COLOR_LINE)
+                        self.mapTile.create_line(0, 32 * (i + 1) + 1,
+                                                 self.mapSize[0] * 32 + 2,
+                                                 32 * (i + 1) + 1,
+                                                 fill=COLOR_LINE)
                     if self.showNumbers:
                         if i < 10 <= j or i >= 10 > j:
                             add = "  "
@@ -1225,15 +1321,19 @@ class mapeditor:
                             add = "    "
                         else:
                             add = ""
-                        self.mapTile.create_text(k + 14, 32 * (i + 1) - 27, text=add + str(j) + "," + str(i), anchor=W,
-                                                 font=self.font, fill=COLOR_INFO)
+                        self.mapTile.create_text(k + 14, 32 * (i + 1) - 27,
+                                                 text=add + str(j) + "," + str(
+                                                     i), anchor=W,
+                                                 font=self.font,
+                                                 fill=COLOR_INFO)
                     if self.showLogics:
                         try:
                             logic = LOGICS[self.worldLogic[i][j].split("-")[0]]
                         except:
                             logic = ""
                         self.mapTile.create_text(
-                            k + 17, 32 * (i + 1) - 3, text=logic, font=self.font, fill=COLOR_INFO)
+                            k + 17, 32 * (i + 1) - 3, text=logic,
+                            font=self.font, fill=COLOR_INFO)
         if self.showMovement:  # Dibujo el movimiento de los npc y mob
             for j in range(self.mapSize[1]):
                 for i in range(self.mapSize[0]):
@@ -1323,7 +1423,8 @@ class mapeditor:
         if not self.isNewMapCreating:  # Si no hay una ventana abierta
             self.isNewMapCreating = True  # Se establece que hay una ventana abierta
             vpop = pop(
-                ["Nuevo Mapa", self.images["mapeditoricon"], "new_map", 280, 300])  # Ventana consultora de información
+                ["Nuevo Mapa", self.images["mapeditoricon"], "new_map", 280,
+                 300])  # Ventana consultora de información
             vpop.w.mainloop(1)
             if vpop.sent:  # Si los datos fueron enviados
                 datos = vpop.values
@@ -1360,9 +1461,13 @@ class mapeditor:
         try:
             if self.isMapEditing or e == "save_as":  # Si se han realizado cambios para guardar
                 if e == "save_as" or self.mapFile == "":
-                    nameFile = asksaveasfilename(title="Guardar mapa", initialdir=DATA_LEVELS,
-                                                 initialfile=self.mapFile, defaultextension=".lvl",
-                                                 filetypes=[("Archivo de mapa de HOA", ".lvl")])
+                    nameFile = asksaveasfilename(title="Guardar mapa",
+                                                 initialdir=DATA_LEVELS,
+                                                 initialfile=self.mapFile,
+                                                 defaultextension=".lvl",
+                                                 filetypes=[(
+                                                     "Archivo de mapa de HOA",
+                                                     ".lvl")])
                 else:
                     nameFile = DATA_LEVELS + self.mapFile
                 if len(nameFile) > 0:  # Si el nombre del archivo es valido
@@ -1370,7 +1475,8 @@ class mapeditor:
                     archivo.write(self.mapName + "\n")
                     archivo.write(self.mapAutor + "\n")
                     archivo.write(
-                        str(self.mapSize[0]) + "," + str(self.mapSize[1]) + "\n")
+                        str(self.mapSize[0]) + "," + str(
+                            self.mapSize[1]) + "\n")
                     archivo.write(self.mapDescription + "\n")
                     archivo.write(self.mapSound + "\n\n")
                     for k in range(self.mapSize[1]):  # Contenido
@@ -1378,10 +1484,12 @@ class mapeditor:
                         for j in range(self.mapSize[0]):
                             # Agrego la información de cada matriz
                             if j != self.mapSize[0] - 1:
-                                l += str(self.worldLight[k][j]) + ":" + str(self.worldLogic[k][j]) + ":" + str(
+                                l += str(self.worldLight[k][j]) + ":" + str(
+                                    self.worldLogic[k][j]) + ":" + str(
                                     self.worldTextures[k][j]) + ";"
                             else:
-                                l += str(self.worldLight[k][j]) + ":" + str(self.worldLogic[k][j]) + ":" + str(
+                                l += str(self.worldLight[k][j]) + ":" + str(
+                                    self.worldLogic[k][j]) + ":" + str(
                                     self.worldTextures[k][j])
                         archivo.write(l + "\n")
                     archivo.flush()
@@ -1410,11 +1518,11 @@ class mapeditor:
         :return: void
         """
         if self.isMapEditing == False and (
-                self.actualActor != -1 or self.actualEnvironment != -1 or self.actualTexture != -1):
+                            self.actualActor != -1 or self.actualEnvironment != -1 or self.actualTexture != -1):
             self.isMapEditing = True
         tile = whatTile(e.x, e.y)
         if 0 <= tile[0] < self.mapSize[1] and 0 <= tile[1] < self.mapSize[
-                0]:  # Compruebo el tile si esta dentro del mapa
+            0]:  # Compruebo el tile si esta dentro del mapa
             if self.isMapEditing:
                 self.core.title(PROGRAM_TITLE + " - " +
                                 self.mapName + " (" + self.mapFile + ") *")
@@ -1423,18 +1531,20 @@ class mapeditor:
                 obj = self.worldLogic[tile[0]][
                     tile[1]].split("-")  # objeto en el tile
                 if t in TEXTURE_WATER or t in TEXTURE_LAVA and obj[
-                        0] != "12":  # Si la textura es agua o lava y el tile no tiene un objeto
+                    0] != "12":  # Si la textura es agua o lava y el tile no tiene un objeto
                     obj[0] = "4"  # si agrega la información lógica
                     if t in TEXTURE_LAVA:
                         self.addLightVector(tile[1], tile[0], 1)  # Si era lava
                 else:
-                    if obj[0] == "4":  # Si el objeto previo era un tile de agua o liquido
+                    if obj[
+                        0] == "4":  # Si el objeto previo era un tile de agua o liquido
                         obj[0] = "0"  # no tiene lógica
                         prevTex = self.worldTextures[tile[0]][
                             tile[1]]  # se almacena la textura previa
                         if prevTex in TEXTURE_LAVA:
                             self.removeLightVector(tile[1],
-                                                   tile[0])  # si la textura contenia lava
+                                                   tile[
+                                                       0])  # si la textura contenia lava
                 # actualización de la matriz lógica
                 self.worldLogic[tile[0]][tile[1]] = "-".join(obj)
                 self.worldTextures[tile[0]][tile[1]] = self.actualTexture[
@@ -1446,8 +1556,10 @@ class mapeditor:
                         1].replace("_0", "_1")
             elif self.actualEnvironment != -1:  # Si lo seleccionado es una decoracion o edificio
                 item = self.worldLogic[tile[0]][tile[1]].split("-")
-                if item[0] not in TILE_EVENT:  # Si el tile seleccionado no tiene un mob o evento
-                    delTileLogicNeighbor(self.worldLogic[tile[0]][tile[1]], tile[0], tile[1], self.worldLogic,
+                if item[
+                    0] not in TILE_EVENT:  # Si el tile seleccionado no tiene un mob o evento
+                    delTileLogicNeighbor(self.worldLogic[tile[0]][tile[1]],
+                                         tile[0], tile[1], self.worldLogic,
                                          self.worldItems)
                     if item[1] in BUILD_TORCHES_ID:
                         self.removeLightVector(tile[1], tile[0])
@@ -1461,11 +1573,14 @@ class mapeditor:
                                 self.worldItems[tile[0]][
                                     tile[1]] = self.actualEnvironment[1]
                             else:
-                                self.worldItems[tile[0]][tile[1]] = self.actualEnvironment[
-                                    1].replace("_0", "_1")
+                                self.worldItems[tile[0]][tile[1]] = \
+                                    self.actualEnvironment[
+                                        1].replace("_0", "_1")
                         elif tipo == "volcan":
-                            if "14" or "7-407" or "39-961" in self.worldLogic[tile[0]][
-                                    tile[1]]:  # Si había una antorcha antes se elimina
+                            if "14" or "7-407" or "39-961" in \
+                                    self.worldLogic[tile[0]][
+                                        tile[
+                                            1]]:  # Si había una antorcha antes se elimina
                                 self.removeLightVector(tile[1], tile[0])
                             self.worldLogic[tile[0]][
                                 tile[1]] = self.actualEnvironment[2]
@@ -1473,8 +1588,10 @@ class mapeditor:
                                 tile[1]] = self.actualEnvironment[1]
                             self.addLightVector(tile[1], tile[0], 1)
                         elif tipo == "antorcha":
-                            if "14" or "7-407" or "39-961" in self.worldLogic[tile[0]][
-                                    tile[1]]:  # Si había una antorcha antes se elimina
+                            if "14" or "7-407" or "39-961" in \
+                                    self.worldLogic[tile[0]][
+                                        tile[
+                                            1]]:  # Si había una antorcha antes se elimina
                                 self.removeLightVector(tile[1], tile[0])
                             self.worldLogic[tile[0]][
                                 tile[1]] = self.actualEnvironment[2]
@@ -1483,14 +1600,16 @@ class mapeditor:
                             self.addLightVector(
                                 tile[1], tile[0], self.actualEnvironment[4])
                         elif tipo == "sign":
-                            self.worldLogic[tile[0]][tile[1]] = self.actualEnvironment[2] + "-" + \
+                            self.worldLogic[tile[0]][tile[1]] = \
+                                self.actualEnvironment[2] + "-" + \
                                 self.actualEnvironment[4]
                             if self.worldLight[tile[0]][tile[1]] == 0:
                                 self.worldItems[tile[0]][
                                     tile[1]] = self.actualEnvironment[1]
                             else:
-                                self.worldItems[tile[0]][tile[1]] = self.actualEnvironment[
-                                    1].replace("_0", "_1")
+                                self.worldItems[tile[0]][tile[1]] = \
+                                    self.actualEnvironment[
+                                        1].replace("_0", "_1")
                     # Si el item es "trash" para borrar el item
                     elif self.actualEnvironment[0] == "delete":
                         if item[0] == "4":
@@ -1505,9 +1624,11 @@ class mapeditor:
                             self.worldItems[tile[0]][
                                 tile[1]] = self.actualEnvironment[1]
                         else:
-                            self.worldItems[tile[0]][tile[1]] = self.actualEnvironment[
-                                1].replace("_0", "_1")
-                    logicTileCorrection(self.worldLogic[tile[0]][tile[1]], tile[0], tile[1], self.worldLogic,
+                            self.worldItems[tile[0]][tile[1]] = \
+                                self.actualEnvironment[
+                                    1].replace("_0", "_1")
+                    logicTileCorrection(self.worldLogic[tile[0]][tile[1]],
+                                        tile[0], tile[1], self.worldLogic,
                                         self.worldItems)
             elif self.actualActor != -1:  # Si es un mob o evento de jugador
                 tipo = self.actualActor[2]
@@ -1590,17 +1711,22 @@ class mapeditor:
                     self.worldItems[tile[0]][tile[1]] = "nopassalert"
                 elif tipo == "delete":
                     item = self.worldLogic[tile[0]][tile[1]].split("-")
-                    if item[0] in EVENTS_LOGIC:  # Si es un mob, un playerpos o un texto
+                    if item[
+                        0] in EVENTS_LOGIC:  # Si es un mob, un playerpos o un texto
                         self.worldLogic[tile[0]][tile[1]] = "0-0"
                         self.worldItems[tile[0]][tile[1]] = "None"
-                    elif item[0] in EVENT_MOVE:  # Si es un movimiento busco el companero y lo borro
+                    elif item[
+                        0] in EVENT_MOVE:  # Si es un movimiento busco el companero y lo borro
                         self.worldLogic[tile[0]][tile[1]] = "0-0"
                         self.worldItems[tile[0]][tile[1]] = "None"
                         # Busco al companero y lo borro
                         for j in range(self.mapSize[1]):
                             for i in range(self.mapSize[0]):
-                                if self.worldLogic[j][i] == "25-0-" + str(tile[1]) + "," + str(tile[0]) or \
-                                        self.worldLogic[j][i] == "19-0-" + str(tile[1]) + "," + str(tile[0]):
+                                if self.worldLogic[j][i] == "25-0-" + str(
+                                        tile[1]) + "," + str(tile[0]) or \
+                                                self.worldLogic[j][
+                                                    i] == "19-0-" + str(
+                                            tile[1]) + "," + str(tile[0]):
                                     self.worldLogic[j][i] = "0-0"
                                     self.worldItems[j][i] = "None"
         self.drawTiles()
@@ -1641,17 +1767,18 @@ class mapeditor:
             elif idItem == "events":  # Si es un evento del tipo texto a usuario
                 if isWindows():
                     p = pop(['Insertar Evento', self.images[
-                            'event_ico'], 'new_event', 315, 270, 0])
+                        'event_ico'], 'new_event', 315, 270, 0])
                 else:
                     p = pop(['Insertar Evento', self.images[
-                            'event_ico'], 'new_event', 330, 270, 0])
+                        'event_ico'], 'new_event', 330, 270, 0])
                 p.w.mainloop(1)
                 if p.sent:
                     evento = p.values[0]
                     # Insertar texto (mostrar un texto al jugador)
                     if evento == "text":
                         q = pop(
-                            ['Text', self.images['text_ico'], 'new_text', 77, 280])
+                            ['Text', self.images['text_ico'], 'new_text', 77,
+                             280])
                         q.w.mainloop(1)
                         if q.sent:
                             self.actualActor = replaceStrict(
@@ -1664,11 +1791,19 @@ class mapeditor:
                         if q.sent:
                             coords = q.values[0].split(",")
                             # Si las coordenadas ingresadas son válidas
-                            if (0 <= int(coords[1]) <= self.mapSize[0] and 0 <= int(coords[3]) <= self.mapSize[0]) and \
-                                    (0 <= int(coords[0]) <= self.mapSize[1] and 0 <= int(coords[2]) <= self.mapSize[1]):
-                                self.worldLogic[int(coords[1])][int(coords[0])] = "19-0-" + str(coords[2]) + "," + str(
+                            if (0 <= int(coords[1]) <= self.mapSize[
+                                0] and 0 <= int(coords[3]) <= self.mapSize[
+                                0]) and \
+                                    (0 <= int(coords[0]) <= self.mapSize[
+                                        1] and 0 <= int(coords[2]) <=
+                                        self.mapSize[1]):
+                                self.worldLogic[int(coords[1])][
+                                    int(coords[0])] = "19-0-" + str(
+                                    coords[2]) + "," + str(
                                     coords[3])
-                                self.worldLogic[int(coords[3])][int(coords[2])] = "25-0-" + str(coords[0]) + "," + str(
+                                self.worldLogic[int(coords[3])][
+                                    int(coords[2])] = "25-0-" + str(
+                                    coords[0]) + "," + str(
                                     coords[1])
                                 self.worldItems[int(coords[1])][
                                     int(coords[0])] = "amove"
@@ -1691,7 +1826,8 @@ class mapeditor:
                         del q
                     elif evento == "minusmana":  # Disminuir mana
                         q = pop(['Minus mana', self.images[
-                                'minusmana_ico'], 'new_absdigit', 77, 280, "Mana:"])
+                            'minusmana_ico'], 'new_absdigit', 77, 280,
+                                 "Mana:"])
                         q.w.mainloop(1)
                         if q.sent:
                             self.actualActor = replaceStrict(
@@ -1726,7 +1862,7 @@ class mapeditor:
                         del q
                     elif evento == "teleport":  # Teleport
                         q = pop(['Teleport', self.images[
-                                'teleport_ico'], 'new_maplink', 77, 280])
+                            'teleport_ico'], 'new_maplink', 77, 280])
                         q.w.mainloop(1)
                         if q.sent:
                             self.actualActor = replaceStrict(
@@ -1744,7 +1880,7 @@ class mapeditor:
                         self.actualActor = "", "", "mute"
                     elif evento == "longtext":  # Long text
                         q = pop(['Longtext', self.images[
-                                'longtext_ico'], 'new_longtext', 77, 280])
+                            'longtext_ico'], 'new_longtext', 77, 280])
                         q.w.mainloop(1)
                         if q.sent:
                             self.actualActor = replaceStrict(
@@ -1762,42 +1898,53 @@ class mapeditor:
             else:  # Si es un mob normal
                 if isWindows():
                     p = pop(['Nuevo mob', self.images[
-                            'group'], 'new_mob', 442, 295])
+                        'group'], 'new_mob', 442, 295])
                 else:
                     p = pop(['Nuevo mob', self.images[
-                            'group'], 'new_mob', 500, 350])
+                        'group'], 'new_mob', 500, 350])
                 p.w.mainloop(1)
                 if p.sent:
                     data = p.values
-                    if data[0] == "create-new-npc":  # Si se crea un npc en vez de un mob
+                    if data[
+                        0] == "create-new-npc":  # Si se crea un npc en vez de un mob
                         if isWindows():
                             k = pop(['Nuevo npc', self.images[
-                                    'group'], 'new_npc', 307, 290])
+                                'group'], 'new_npc', 307, 290])
                         else:
                             k = pop(['Nuevo npc', self.images[
-                                    'group'], 'new_npc', 360, 360])
+                                'group'], 'new_npc', 360, 360])
                         k.w.mainloop(1)
                         if k.sent:
                             npc = k.values
-                            properties = "43-0-" + replaceStrict(npc[0]) + ',' + str(idItem) + ',' + replaceStrict(
+                            properties = "43-0-" + replaceStrict(
+                                npc[0]) + ',' + str(
+                                idItem) + ',' + replaceStrict(
                                 npc[2]) + ',' + replaceStrict(npc[3]) + \
-                                ',' + replaceStrict(npc[4]) + ',' + replaceStrict(npc[5]) + ',' + npc[
-                                6] + ',' + npc[7] + ',' + npc[8] + ',' + npc[9] + ',' + npc[10]
+                                         ',' + replaceStrict(
+                                npc[4]) + ',' + replaceStrict(npc[5]) + ',' + \
+                                         npc[
+                                             6] + ',' + npc[7] + ',' + npc[
+                                             8] + ',' + npc[9] + ',' + npc[10]
                             self.actualActor = tex, properties, "npc"
                         del k
                     else:
-                        properties = '8-0-' + data[0] + ',' + data[1] + ',' + str(idItem) + ',' + data[3] + ',' + data[
-                            4] + ',' \
-                            + replaceStrict(data[5]) + ',' + replaceStrict(data[6]) + ',' + data[7] + ',' + \
-                            data[8] + ',' + data[9] + ',' + \
-                            data[10] + ','
+                        properties = '8-0-' + data[0] + ',' + data[
+                            1] + ',' + str(idItem) + ',' + data[3] + ',' + \
+                                     data[
+                                         4] + ',' \
+                                     + replaceStrict(
+                            data[5]) + ',' + replaceStrict(data[6]) + ',' + \
+                                     data[7] + ',' + \
+                                     data[8] + ',' + data[9] + ',' + \
+                                     data[10] + ','
                         if data[11] != '':
                             # Si el mob porta un objeto se agrega
                             properties += replaceStrict(data[11]) + ','
                         else:
                             properties += '%NULL%,'
-                        properties += data[12] + ',' + data[13] + ',' + data[14] + ',' + data[15] + ',' + data[
-                            16]  # se agregan propiedades de perseguir y escapar
+                        properties += data[12] + ',' + data[13] + ',' + data[
+                            14] + ',' + data[15] + ',' + data[
+                                          16]  # se agregan propiedades de perseguir y escapar
                         # se agrega sonido del mob
                         properties += ',' + data[17]
                         self.actualActor = tex, properties, "mob"
@@ -1814,42 +1961,48 @@ class mapeditor:
             if prop == 1:  # Si el objeto es una puerta
                 if isWindows():
                     p = pop(['Nueva puerta', self.images[
-                            'door'], 'new_door', 145, 290])
+                        'door'], 'new_door', 145, 290])
                 else:
                     p = pop(['Nueva puerta', self.images[
-                            'door'], 'new_door', 160, 320])
+                        'door'], 'new_door', 160, 320])
                 p.w.mainloop(1)
                 if p.sent:
-                    self.actualEnvironment = "special", tex, '6-' + str(idItem) + '-' + p.values[
-                        0] + ',' + replaceStrict(p.values[1]), "door"
+                    self.actualEnvironment = "special", tex, '6-' + str(
+                        idItem) + '-' + p.values[
+                                                 0] + ',' + replaceStrict(
+                        p.values[1]), "door"
                 del p
             elif prop == 2:  # Si el objeto es un edificio
                 if tex in BUILD_LINKS_KEY:  # Link - door - key
                     p = pop(['Nuevo edificio', self.images[
-                            'building_add'], 'new_key_building', 190, 290])
+                        'building_add'], 'new_key_building', 190, 290])
                     p.w.mainloop(1)
                     if p.sent:
-                        self.actualEnvironment = "special", tex, idItem + "-" + p.values[
-                            0] + "," + replaceStrict(p.values[1]), "building"
+                        self.actualEnvironment = "special", tex, idItem + "-" + \
+                                                 p.values[
+                                                     0] + "," + replaceStrict(
+                            p.values[1]), "building"
                     del p
                 elif tex in BUILD_LINKS_NOKEY:  # Link - door - no key
                     p = pop(['Nuevo edificio', self.images[
-                            'building_add'], 'new_nokey_building', 150, 290])
+                        'building_add'], 'new_nokey_building', 150, 290])
                     p.w.mainloop(1)
                     if p.sent:
-                        self.actualEnvironment = "special", tex, idItem + "-" + p.values[
-                            0] + "," + "%NULL%", "volcan"
+                        self.actualEnvironment = "special", tex, idItem + "-" + \
+                                                 p.values[
+                                                     0] + "," + "%NULL%", "volcan"
                     del p
                 elif tex in BUILD_TORCHES:  # Antorcha
                     if tex == "ambient_effect2_0":
                         self.actualEnvironment = "special", tex, idItem, "antorcha", 1
                     else:
                         p = pop(['Insertar antorcha', self.images[
-                                'lightbulb_add'], 'new_torch', 120, 260])
+                            'lightbulb_add'], 'new_torch', 120, 260])
                         p.w.mainloop(1)
                         if p.sent:
-                            self.actualEnvironment = "special", tex, idItem, "antorcha", p.values[
-                                0]
+                            self.actualEnvironment = "special", tex, idItem, "antorcha", \
+                                                     p.values[
+                                                         0]
                         del p
             # TODO: Objeto usable
             elif prop == 3:  # Si es un objeto usable
@@ -1865,18 +2018,21 @@ class mapeditor:
                 pass
             elif prop == 7:  # Si es una escalera
                 p = pop(['Nueva escalera', self.images[
-                        'stair_icon'], 'new_stair', 96, 290])
+                    'stair_icon'], 'new_stair', 96, 290])
                 p.w.mainloop(1)
                 if p.sent:
-                    self.actualEnvironment = "special", tex, '42-' + str(idItem) + '-' + p.values[
-                        0] + ',' + replaceStrict(p.values[1]), "door"
+                    self.actualEnvironment = "special", tex, '42-' + str(
+                        idItem) + '-' + p.values[
+                                                 0] + ',' + replaceStrict(
+                        p.values[1]), "door"
                 del p
             elif prop == 38:  # Si es un mensaje de signo
                 q = pop(['Sign', self.images['sign_ico'], 'new_text', 75, 280])
                 q.w.mainloop(1)
                 if q.sent:
-                    self.actualEnvironment = "special", tex, idItem, "sign", replaceStrict(q.values[
-                                                                                           0])
+                    self.actualEnvironment = "special", tex, idItem, "sign", replaceStrict(
+                        q.values[
+                            0])
                 del q
             else:
                 self.actualEnvironment = idItem, tex  # Objeto no valido
@@ -1977,17 +2133,23 @@ class mapeditor:
         """
         for j in range(self.mapSize[1]):  # Texturas
             for i in range(self.mapSize[0]):
-                if "_1" in self.worldGraph[j][i] and self.worldLight[j][i] == 0:
+                if "_1" in self.worldGraph[j][i] and self.worldLight[j][
+                    i] == 0:
                     self.worldGraph[j][i] = str(self.worldGraph[j][i]).replace(
                         "_1", "_0")  # matrices gráficas
-                elif "_0" in self.worldGraph[j][i] and self.worldLight[j][i] == 1:
+                elif "_0" in self.worldGraph[j][i] and self.worldLight[j][
+                    i] == 1:
                     self.worldGraph[j][i] = str(
                         self.worldGraph[j][i]).replace("_0", "_1")
-                if self.worldItems[j][i] is not None and ("_1" in self.worldItems[j][i] and self.worldLight[j][i] == 0):
+                if self.worldItems[j][i] is not None and (
+                                "_1" in self.worldItems[j][i] and
+                                self.worldLight[j][
+                                    i] == 0):
                     self.worldItems[j][i] = str(self.worldItems[j][i]).replace(
                         "_1", "_0")  # matrices de items
                 elif self.worldItems[j][i] is not None and (
-                        "_0" in self.worldItems[j][i] and self.worldLight[j][i] == 1):
+                                "_0" in self.worldItems[j][i] and
+                                self.worldLight[j][i] == 1):
                     self.worldItems[j][i] = str(
                         self.worldItems[j][i]).replace("_0", "_1")
 
@@ -2053,7 +2215,8 @@ class mapeditor:
                 self.worldTextures.append([tex] * self.mapSize[0])
                 self.worldLight.append([light] * self.mapSize[0])
                 self.worldItems.append(["None"] * self.mapSize[0])
-                (texture, sound, log) = textureTerrainAnalysis(  # @UnusedVariable
+                (texture, sound, log) = textureTerrainAnalysis(
+                    # @UnusedVariable
                     tex, light, True)  # Cargo la información
                 self.worldGraph.append([texture] * self.mapSize[0])
                 self.worldLogic.append([log] * self.mapSize[0])
@@ -2071,8 +2234,11 @@ class mapeditor:
         """
         try:
             if not self.isNewMapCreating:  # Si no hay una creacion de nuevo mapa en curso
-                lvl = askopenfilename(title="Cargar mapa", initialdir=DATA_LEVELS, defaultextension=".lvl",
-                                      filetypes=[("Archivo de mapa de HOA", ".lvl")])
+                lvl = askopenfilename(title="Cargar mapa",
+                                      initialdir=DATA_LEVELS,
+                                      defaultextension=".lvl",
+                                      filetypes=[
+                                          ("Archivo de mapa de HOA", ".lvl")])
                 proplvl = str(lvl).replace(
                     DATA_LEVELS, LEVEL_PROP).replace(".lvl", ".prop")
                 if len(lvl) > 0:
@@ -2110,7 +2276,8 @@ class mapeditor:
                             item = fila[j][1]
                             self.worldLight[k][j] = light  # Luz del tile
                             # Cargo el terreno
-                            (tex, sound, terrainlog) = textureTerrainAnalysis(  # @UnusedVariable
+                            (tex, sound, terrainlog) = textureTerrainAnalysis(
+                                # @UnusedVariable
                                 int(fila[j][2]), light, True)
                             self.worldGraph[k][j] = tex
                             self.worldTextures[k][j] = int(fila[j][2])

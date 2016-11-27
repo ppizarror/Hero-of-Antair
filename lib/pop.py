@@ -65,7 +65,8 @@ def sortby(tree, col, descending):
     :return: void
     """
     data = [(tree.set(child, col), child)
-            for child in tree.get_children('')]  # obtiene los datos para ordenar
+            for child in
+            tree.get_children('')]  # obtiene los datos para ordenar
     data.sort(reverse=descending)  # se reonrdenan y modifican
     for indx, item in enumerate(data):
         tree.move(item[1], '', indx)
@@ -73,7 +74,7 @@ def sortby(tree, col, descending):
         tree, col, int(not descending)))
 
 
-class pop:
+class pop(object):
     """
     Ventanas emergentes
     """
@@ -100,8 +101,9 @@ class pop:
         self.values = []
         if size[0] != 0 and size[1] != 0:
             self.w.minsize(width=size[0], height=size[1])
-            self.w.geometry('%dx%d+%d+%d' % (size[0], size[1], (self.w.winfo_screenwidth(
-            ) - size[0]) / 2, (self.w.winfo_screenheight() - size[1]) / 2))
+            self.w.geometry(
+                '%dx%d+%d+%d' % (size[0], size[1], (self.w.winfo_screenwidth(
+                ) - size[0]) / 2, (self.w.winfo_screenheight() - size[1]) / 2))
         self.w.resizable(width=False, height=False)
         self.w.focus_force()
         self.w.title(title)
@@ -115,13 +117,17 @@ class pop:
         self.sent = False
         if typeObject == "about":  # Acerca de
             Label(self.w, text=self.lang[
-                1] + properties[5], font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   1] + properties[5], font=DEFAULT_FONT_TITLE,
+                  border=5).pack()
             Label(self.w, text=self.lang[
-                2] + properties[6], font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   2] + properties[6], font=DEFAULT_FONT_TITLE,
+                  border=5).pack()
             Label(self.w, text=self.lang[
-                3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   3] + str(properties[7]),
+                  font=DEFAULT_FONT_TITLE, border=5).pack()
             Button(
-                self.w, text=self.lang[4], command=self.w.destroy, relief=GROOVE).pack()
+                self.w, text=self.lang[4], command=self.w.destroy,
+                relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "actualizacion":  # Actualización del programa
@@ -191,10 +197,12 @@ class pop:
             self.eventTextSv = StringVar(f)
             if isWindows():
                 self.eventText = Entry(
-                    f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv)
+                    f, relief=GROOVE, width=35, bg="#F0F0F0",
+                    textvariable=self.eventTextSv)
             else:
                 self.eventText = Entry(
-                    f, relief=GROOVE, width=35, bg="#F0F0F0", textvariable=self.eventTextSv, highlightthickness=0)
+                    f, relief=GROOVE, width=35, bg="#F0F0F0",
+                    textvariable=self.eventTextSv, highlightthickness=0)
             self.eventText.pack()
             self.eventText.focus_force()
             # self.eventText.bind("<KeyRelease>", _caps)
@@ -221,7 +229,8 @@ class pop:
                     return self.lang[12]
 
             Label(self.w, text=self.lang[
-                1] + " - Hero of Antair", font=DEFAULT_FONT_TITLE, border=10).pack()
+                                   1] + " - Hero of Antair",
+                  font=DEFAULT_FONT_TITLE, border=10).pack()
             self.configon = self.lang[6].upper().strip()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
@@ -233,8 +242,10 @@ class pop:
                 for k in range(len(langlist)):
                     try:
                         if langlist[k] != "":
-                            langlist[k] = langlist[k].replace(properties[8], "") + " - " + \
-                                LANGS[langlist[k].replace(properties[8], "")]
+                            langlist[k] = langlist[k].replace(properties[8],
+                                                              "") + " - " + \
+                                          LANGS[langlist[k].replace(
+                                              properties[8], "")]
                         else:
                             langlist.pop(k)
                     except:
@@ -268,7 +279,8 @@ class pop:
             Label(f, text=self.lang[3], anchor=E, width=18).pack(side=LEFT)
             # menu de opciones para sonido
             w = apply(
-                OptionMenu, (f, self.confsound) + tuple([self.lang[6], self.lang[7]]))
+                OptionMenu,
+                (f, self.confsound) + tuple([self.lang[6], self.lang[7]]))
             w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
@@ -286,7 +298,8 @@ class pop:
             Label(f, text=self.lang[5], anchor=E, width=18).pack(side=LEFT)
             # menu de opciones para sonido
             w = apply(
-                OptionMenu, (f, self.confsaveonexit) + tuple([self.lang[6], self.lang[7]]))
+                OptionMenu,
+                (f, self.confsaveonexit) + tuple([self.lang[6], self.lang[7]]))
             w["width"] = _sizelabel
             w["relief"] = GROOVE
             w["anchor"] = W
@@ -318,7 +331,8 @@ class pop:
                 _buscarNombreColor(properties[10].strip().upper(), "bg"))
             Label(f, text=self.lang[8], anchor=E, width=18).pack(side=LEFT)
             w = apply(OptionMenu, (f, self.colorfondo) + tuple(
-                [self.lang[10], self.lang[11], self.lang[12], self.lang[13], self.lang[14], self.lang[15],
+                [self.lang[10], self.lang[11], self.lang[12], self.lang[13],
+                 self.lang[14], self.lang[15],
                  self.lang[16], self.lang[17], self.lang[
                      18], self.lang[19], self.lang[20], self.lang[21],
                  self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
@@ -335,7 +349,8 @@ class pop:
                 _buscarNombreColor(properties[11].strip().upper(), "fg"))
             Label(f, text=self.lang[9], anchor=E, width=18).pack(side=LEFT)
             w = apply(OptionMenu, (f, self.colortexto) + tuple(
-                [self.lang[10], self.lang[11], self.lang[12], self.lang[13], self.lang[14], self.lang[15],
+                [self.lang[10], self.lang[11], self.lang[12], self.lang[13],
+                 self.lang[14], self.lang[15],
                  self.lang[16], self.lang[17], self.lang[
                      18], self.lang[19], self.lang[20], self.lang[21],
                  self.lang[22], self.lang[23], self.lang[24], self.lang[25]]))
@@ -345,7 +360,8 @@ class pop:
             w.pack(side=LEFT)
             self.w.bind("<Escape>", self.destruir)
             Button(self.w, text=self.lang[
-                4], command=self.sendconfig, relief=GROOVE, width=7).pack(pady=5)
+                4], command=self.sendconfig, relief=GROOVE, width=7).pack(
+                pady=5)
         elif typeObject == "deseaDesconectarse":  # Desea guardar
             if properties[5] and isWindows():
                 winsound.MessageBeep(-1)
@@ -390,8 +406,11 @@ class pop:
                 f = Frame(self.w, border=3)
                 f.pack(fill=X)
                 for k in range(len(armamento)):
-                    armamento[k] = str(armamento[k][0]).strip().capitalize().ljust(45) + " / " + \
-                        self.lang[7] + " " + str(armamento[k][1]) + " - " + self.lang[8] + " " + str(
+                    armamento[k] = str(
+                        armamento[k][0]).strip().capitalize().ljust(
+                        45) + " / " + \
+                                   self.lang[7] + " " + str(
+                        armamento[k][1]) + " - " + self.lang[8] + " " + str(
                         armamento[k][2]) + " - " + "ID " + str(armamento[k][3])
                 self.escogerArmamento_bullet = StringVar(self.w)
                 self.escogerArmamento_bullet.set(
@@ -399,14 +418,17 @@ class pop:
                 Label(f, text=self.lang[2], anchor=E, width=12).pack(side=LEFT)
                 # menu de opciones para el idioma
                 w = apply(
-                    OptionMenu, (f, self.escogerArmamento_bullet) + tuple(armamento))
+                    OptionMenu,
+                    (f, self.escogerArmamento_bullet) + tuple(armamento))
                 w["width"] = 25
                 w["relief"] = GROOVE
                 w["anchor"] = W
                 w.pack(side=LEFT, fill=X)
             Label(self.w, text=" ").pack(fill=X)
-            Button(self.w, text=self.lang[6], command=lambda: self.sendArmamento(
-                self.lang[5]), relief=GROOVE).pack()  # boton de continuar
+            Button(self.w, text=self.lang[6],
+                   command=lambda: self.sendArmamento(
+                       self.lang[5]),
+                   relief=GROOVE).pack()  # boton de continuar
             self.w.bind("<Return>", lambda: self.sendArmamento(self.lang[5]))
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "error" or typeObject == "aviso":  # Alerta
@@ -415,7 +437,8 @@ class pop:
             Label(self.w, text=properties[
                 5], wraplength=250, anchor=N, border=10).pack()
             Button(
-                self.w, text=self.lang[1], command=self.w.destroy, relief=GROOVE).pack()
+                self.w, text=self.lang[1], command=self.w.destroy,
+                relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         # Informacion de un objeto
@@ -431,41 +454,53 @@ class pop:
             # Se agrega la informacion dependiendo del tipo de objeto
             if tipo == "arma" or tipo == "armadura" or tipo == "bullet" or tipo == "pocion":
                 Label(f, text=self.lang[
-                    1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                                  1] + str(properties[8]) + " HP", width=13,
+                      anchor=NW).pack(side=TOP)
                 Label(
-                    f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
+                    f, text=self.lang[2] + str(properties[9]), width=13,
+                    anchor=NW).pack(side=TOP)
             elif tipo == "armawb":
                 # si el arma tiene balas
                 if properties[11] != 0:
                     Label(f, text=self.lang[
-                        1] + str(properties[8] + properties[11]) + " HP", width=13, anchor=NW).pack(
+                                      1] + str(
+                        properties[8] + properties[11]) + " HP", width=13,
+                          anchor=NW).pack(
                         side=TOP)
                 else:
                     Label(f, text=self.lang[
-                        1] + str(properties[8]) + " HP", width=13, anchor=NW).pack(side=TOP)
+                                      1] + str(properties[8]) + " HP",
+                          width=13, anchor=NW).pack(side=TOP)
                 Label(
-                    f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
+                    f, text=self.lang[2] + str(properties[9]), width=13,
+                    anchor=NW).pack(side=TOP)
                 if properties[10] != 0:
                     Label(
-                        f, text=self.lang[5] + str(properties[10]), width=13, anchor=NW).pack(side=TOP)
+                        f, text=self.lang[5] + str(properties[10]), width=13,
+                        anchor=NW).pack(side=TOP)
                 else:
                     Label(f, text=self.lang[6], width=13, anchor=NW).pack(
                         side=TOP)  # si el arma tiene balas
             elif tipo == "coin":
                 Label(
-                    f, text=self.lang[1] + str(properties[8]), width=13, anchor=NW).pack(side=TOP)
+                    f, text=self.lang[1] + str(properties[8]), width=13,
+                    anchor=NW).pack(side=TOP)
             elif tipo == "libro":
                 pass
             elif tipo == "objeto":
                 Label(
-                    f, text=self.lang[1] + str(properties[8]), width=13, anchor=NW).pack(side=TOP)
+                    f, text=self.lang[1] + str(properties[8]), width=13,
+                    anchor=NW).pack(side=TOP)
                 Label(
-                    f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
+                    f, text=self.lang[2] + str(properties[9]), width=13,
+                    anchor=NW).pack(side=TOP)
             elif tipo == "mana":
                 Label(f, text=self.lang[
-                    1] + str(properties[8]) + " PTS", width=13, anchor=NW).pack(side=TOP)
+                                  1] + str(properties[8]) + " PTS", width=13,
+                      anchor=NW).pack(side=TOP)
                 Label(
-                    f, text=self.lang[2] + str(properties[9]), width=13, anchor=NW).pack(side=TOP)
+                    f, text=self.lang[2] + str(properties[9]), width=13,
+                    anchor=NW).pack(side=TOP)
             f2 = Frame(F, border=5)
             f2.pack()
             Label(f2, text=info, width=27, height=5, anchor=CENTER,
@@ -474,12 +509,13 @@ class pop:
             bt.pack()
             if typeObject != "itemInfoArmor":
                 Button(bt, text="<-", command=lambda:
-                       self.actionitem("super_left"), relief=GROOVE).pack(side=LEFT)
+                self.actionitem("super_left"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
                 Button(bt, text="<", command=lambda: self.actionitem(
                     "left"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
-            Button(bt, text=self.lang[3], command=self.w.destroy, relief=GROOVE).pack(
+            Button(bt, text=self.lang[3], command=self.w.destroy,
+                   relief=GROOVE).pack(
                 side=LEFT)
             Label(bt, text=" ").pack(side=LEFT)
             Button(bt, text=self.lang[4], command=lambda: self.actionitem(
@@ -490,7 +526,7 @@ class pop:
                     "right"), relief=GROOVE).pack(side=LEFT)
                 Label(bt, text=" ").pack(side=LEFT)
                 Button(bt, text="->", command=lambda:
-                       self.actionitem("super_right"), relief=GROOVE).pack(side=LEFT)
+                self.actionitem("super_right"), relief=GROOVE).pack(side=LEFT)
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_game":  # Nuevo juego
@@ -527,7 +563,8 @@ class pop:
             # dificultad
             Label(f, text=self.lang[6] + " ",
                   anchor=E, width=9).pack(side=LEFT)
-            dif_opc = self.lang[7].strip().replace("[", "").replace("]", "").split(
+            dif_opc = self.lang[7].strip().replace("[", "").replace("]",
+                                                                    "").split(
                 "/")  # opciones facil/medio/dificil
             self.dificultad = StringVar(f)
             self.dificultad.set(dif_opc[1])  # valor por defecto
@@ -550,7 +587,8 @@ class pop:
             w.pack(side=LEFT)
             Label(self.w, text="", height=1).pack()
             Button(
-                self.w, text=self.lang[10], relief=GROOVE, command=self.new_game).pack()
+                self.w, text=self.lang[10], relief=GROOVE,
+                command=self.new_game).pack()
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "powerInfo":  # Información de un poder
             Label(self.w, text=properties[
@@ -560,19 +598,23 @@ class pop:
             f = Frame(F, border=3, height=5)
             f.pack(side=LEFT)
             Label(
-                f, text=self.lang[1] + str(properties[7]), width=13, anchor=NW).pack(side=TOP)
+                f, text=self.lang[1] + str(properties[7]), width=13,
+                anchor=NW).pack(side=TOP)
             if properties[8] != "0:00":
                 Label(f, text=self.lang[
-                    2] + str(properties[8]) + " " + self.lang[3], width=13, anchor=NW).pack(side=TOP)
+                                  2] + str(properties[8]) + " " + self.lang[3],
+                      width=13, anchor=NW).pack(side=TOP)
             else:
                 Label(f, text=self.lang[5], width=13, anchor=NW).pack(side=TOP)
             f2 = Frame(F, border=5)
             f2.pack()
             Label(f2, text=properties[
-                6], width=27, height=5, anchor=CENTER, relief=GROOVE, wraplength=150).pack()
+                6], width=27, height=5, anchor=CENTER, relief=GROOVE,
+                  wraplength=150).pack()
             bt = Frame(self.w, border=5)
             bt.pack()
-            Button(bt, text=self.lang[4], command=self.w.destroy, relief=GROOVE).pack(
+            Button(bt, text=self.lang[4], command=self.w.destroy,
+                   relief=GROOVE).pack(
                 side=LEFT)
         elif typeObject == "save_game_name":  # Guardar una partida
             Label(self.w, text=self.lang[1], border=10).pack()
@@ -584,7 +626,8 @@ class pop:
             self.namePartida.focus_force()
             Label(self.w, text="", height=1).pack()
             Button(
-                self.w, text=self.lang[3], relief=GROOVE, command=self.savegame).pack()
+                self.w, text=self.lang[3], relief=GROOVE,
+                command=self.savegame).pack()
         elif typeObject == "server_connect":  # Conectarse a un servidor
             self.serverfile = properties[5] + "prevservers.log"
             self.servers = loadFromArchive(
@@ -637,7 +680,8 @@ class pop:
             self.serverPort.pack(side=LEFT, padx=5)
             bt = Frame(self.w, border=5)
             bt.pack()
-            Button(bt, text=self.lang[3], command=self.serverConnect, relief=GROOVE).pack(
+            Button(bt, text=self.lang[3], command=self.serverConnect,
+                   relief=GROOVE).pack(
                 side=LEFT)
             self.w.bind("<Return>", self.serverConnect)
             self.w.bind("<Escape>", self.destruir)
@@ -680,8 +724,11 @@ class pop:
             for i in self.serverdata.keys():
                 lobb = self.serverdata[i]
                 if lobb[0].strip() != "null":
-                    lobbys.append("'" + lobb[0].strip() + "'    " + self.lang[7] + " " + lobb[1].strip() + " / " +
-                                  self.lang[8] + " " + lobb[2].replace(".lvl", "").strip() + " | " + i)
+                    lobbys.append(
+                        "'" + lobb[0].strip() + "'    " + self.lang[7] + " " +
+                        lobb[1].strip() + " / " +
+                        self.lang[8] + " " + lobb[2].replace(".lvl",
+                                                             "").strip() + " | " + i)
             if len(lobbys) > 0:
                 avaiable = True
             else:
@@ -703,21 +750,27 @@ class pop:
                 w.pack(side=LEFT, fill=X)
             else:
                 Label(
-                    f, text=" " + self.lang[11], anchor=W, width=25).pack(side=LEFT)
+                    f, text=" " + self.lang[11], anchor=W, width=25).pack(
+                    side=LEFT)
             f2 = Frame(self.w, border=3)
             f2.pack()
             if avaiable:
-                Button(f2, text=self.lang[2], relief=GROOVE, command=lambda: self.serverLobby(
-                    "connect")).pack(side=LEFT, padx=2)
-                Button(f2, text=self.lang[3], relief=GROOVE, command=lambda: self.serverLobby(
-                    "create")).pack(side=LEFT, padx=2)
-                Button(f2, text=self.lang[4], relief=GROOVE, command=lambda: self.serverLobby(
-                    "disconnect")).pack(padx=2)
+                Button(f2, text=self.lang[2], relief=GROOVE,
+                       command=lambda: self.serverLobby(
+                           "connect")).pack(side=LEFT, padx=2)
+                Button(f2, text=self.lang[3], relief=GROOVE,
+                       command=lambda: self.serverLobby(
+                           "create")).pack(side=LEFT, padx=2)
+                Button(f2, text=self.lang[4], relief=GROOVE,
+                       command=lambda: self.serverLobby(
+                           "disconnect")).pack(padx=2)
             else:
-                Button(f2, text=self.lang[3], relief=GROOVE, command=lambda: self.serverLobby(
-                    "create")).pack(side=LEFT, padx=2, pady=7)
-                Button(f2, text=self.lang[4], relief=GROOVE, command=lambda: self.serverLobby(
-                    "disconnect")).pack(padx=2, pady=7)
+                Button(f2, text=self.lang[3], relief=GROOVE,
+                       command=lambda: self.serverLobby(
+                           "create")).pack(side=LEFT, padx=2, pady=7)
+                Button(f2, text=self.lang[4], relief=GROOVE,
+                       command=lambda: self.serverLobby(
+                           "disconnect")).pack(padx=2, pady=7)
             self.w.bind("<Escape>", _dsc)
             self.w.protocol("WM_DELETE_WINDOW", _dsc)
         # Mostrar la información del jugador
@@ -737,7 +790,8 @@ class pop:
             else:
                 _sizelabel = 6
             Label(menu2, text=self.lang[
-                4], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(side=LEFT)  # vida
+                4], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(
+                side=LEFT)  # vida
             infoVidaCanv = Canvas(
                 menu2, width=100, height=16, bg="#B30000")  # barra de vida
             infoVidaCanv.pack(side=LEFT)
@@ -746,7 +800,8 @@ class pop:
             menu3 = Frame(menu1)
             menu3.pack(fill=X)
             Label(menu3, text=self.lang[
-                5], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(side=LEFT)  # mana
+                5], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(
+                side=LEFT)  # mana
             infoManaCanv = Canvas(
                 menu3, width=100, height=16, bg="#97991E")  # barra de mana
             infoManaCanv.pack(side=LEFT)
@@ -754,7 +809,8 @@ class pop:
             infoMana.pack()
             menu4 = Frame(menu1)
             menu4.pack(fill=X)
-            Label(menu4, text=self.lang[6], width=_sizelabel, anchor=E, fg=COMMENT_COLOR).pack(
+            Label(menu4, text=self.lang[6], width=_sizelabel, anchor=E,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT)  # experiencia
             # barra de experiencia
             infoExpCanv = Canvas(menu4, width=100, height=16)
@@ -777,7 +833,9 @@ class pop:
                 0, 0, barras + 2, 18, fill="#6F7116", outline="#6F7116")
             infoMana.config(text=str(mana).zfill(3) + "/" + str(maxm).zfill(3))
             barras = min(100, int(
-                (properties[13] - properties[14]) * 100 / max(1, properties[15] - properties[14])))
+                (properties[13] - properties[14]) * 100 / max(1,
+                                                              properties[15] -
+                                                              properties[14])))
             infoExpCanv.delete(ALL)
             infoExpCanv.create_rectangle(
                 0, 0, barras + 2, 18, fill="#000080", outline="#000080")
@@ -792,32 +850,41 @@ class pop:
             infoExp.config(text=msg)
             menu8 = Frame(f)  # Nivel
             menu8.pack(fill=X)
-            Label(menu8, text=self.lang[9], width=5, anchor=E, fg=COMMENT_COLOR).pack(
+            Label(menu8, text=self.lang[9], width=5, anchor=E,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT)
             if str(properties[18]).strip() != "12":
                 Label(menu8, text=str(properties[18]).strip(
-                ) + self.lang[10].format(str(properties[15] - properties[13])), width=20, anchor=W).pack()
+                ) + self.lang[10].format(str(properties[15] - properties[13])),
+                      width=20, anchor=W).pack()
             else:
                 Label(
-                    menu8, text=str(properties[18]).strip(), width=20, anchor=W).pack()
+                    menu8, text=str(properties[18]).strip(), width=20,
+                    anchor=W).pack()
             menu5 = Frame(f)  # Tipo
             menu5.pack(fill=X)
-            Label(menu5, text=self.lang[1], width=5, anchor=E, fg=COMMENT_COLOR).pack(
+            Label(menu5, text=self.lang[1], width=5, anchor=E,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT)
             Label(
-                menu5, text=str(properties[6]).strip(), width=20, anchor=W).pack()
+                menu5, text=str(properties[6]).strip(), width=20,
+                anchor=W).pack()
             menu7 = Frame(f)  # País
             menu7.pack(fill=X)
-            Label(menu7, text=self.lang[8], width=5, anchor=E, fg=COMMENT_COLOR).pack(
+            Label(menu7, text=self.lang[8], width=5, anchor=E,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT)
             Label(
-                menu7, text=str(properties[17]).strip(), width=20, anchor=W).pack()
+                menu7, text=str(properties[17]).strip(), width=20,
+                anchor=W).pack()
             menu6 = Frame(f)  # Edad
             menu6.pack(fill=X)
-            Label(menu6, text=self.lang[2], width=5, anchor=E, fg=COMMENT_COLOR).pack(
+            Label(menu6, text=self.lang[2], width=5, anchor=E,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT)
             Label(
-                menu6, text=str(properties[7]).strip(), width=20, anchor=W).pack()
+                menu6, text=str(properties[7]).strip(), width=20,
+                anchor=W).pack()
             f2 = Frame(F, border=3)
             f2.pack()
             imageplayer = Canvas(f2, width=32, height=32)  # barra de mana
@@ -829,11 +896,13 @@ class pop:
                 imageplayer.pack_forget()
             f2 = LabelFrame(f2, relief=GROOVE, text=self.lang[7])
             f2.pack(padx=5)
-            Label(f2, text=properties[8], width=26, wraplength=150, border=0).pack(
+            Label(f2, text=properties[8], width=26, wraplength=150,
+                  border=0).pack(
                 anchor=NW, pady=5)
             bt = Frame(self.w, border=5)
             bt.pack()
-            Button(bt, text=self.lang[3], command=self.w.destroy, relief=GROOVE).pack(
+            Button(bt, text=self.lang[3], command=self.w.destroy,
+                   relief=GROOVE).pack(
                 side=LEFT)
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
@@ -897,7 +966,8 @@ class pop:
             f.pack()
             Label(self.w, text="")
             Button(
-                self.w, text=self.lang[1], command=self.w.destroy, relief=GROOVE).pack()
+                self.w, text=self.lang[1], command=self.w.destroy,
+                relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "ver_followers":  # Ver a los seguidores
@@ -913,69 +983,86 @@ class pop:
                 f1 = Frame(self.w, border=3)  # tipo liviano
                 f1.pack(fill=X, padx=5)
                 if c_l > 0:  # Si tiene seguidores livianos
-                    Label(f1, text=self.lang[2], anchor=E, fg=COMMENT_COLOR, width=10).pack(
+                    Label(f1, text=self.lang[2], anchor=E, fg=COMMENT_COLOR,
+                          width=10).pack(
                         side=LEFT)  # tipo de follower
                     Label(f1, text=c_l, anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f1, text=self.lang[3], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f1, text=self.lang[3], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # vida media
                     Label(f1, text=int(0.1 * dif * mhp),
                           anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f1, text=self.lang[4], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f1, text=self.lang[4], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # ataque medio
                     Label(f1, text=int(0.5 * dif * atk),
                           anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f1, text=self.lang[5], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f1, text=self.lang[5], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # defensa media
                     Label(
-                        f1, text=int(0.1 * dif * dff), anchor=CENTER, width=3).pack()
+                        f1, text=int(0.1 * dif * dff), anchor=CENTER,
+                        width=3).pack()
                 else:
                     # si no tiene seguidores livianos
                     Label(f1, text=self.lang[6], fg=COMMENT_COLOR).pack()
                 f2 = Frame(self.w, border=3)  # tipo medio
                 f2.pack(fill=X, padx=5)
                 if c_m > 0:  # Si tiene seguidores medios
-                    Label(f2, text=self.lang[8], anchor=E, fg=COMMENT_COLOR, width=10).pack(
+                    Label(f2, text=self.lang[8], anchor=E, fg=COMMENT_COLOR,
+                          width=10).pack(
                         side=LEFT)  # tipo de follower
                     Label(f2, text=c_m, anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f2, text=self.lang[3], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f2, text=self.lang[3], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # vida media
                     Label(f2, text=int(0.13 * dif * mhp),
                           anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f2, text=self.lang[4], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f2, text=self.lang[4], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # ataque medio
                     Label(f2, text=int(0.4 * dif * atk),
                           anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f2, text=self.lang[5], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f2, text=self.lang[5], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # defensa media
                     Label(
-                        f2, text=int(0.3 * dif * dff), anchor=CENTER, width=3).pack()
+                        f2, text=int(0.3 * dif * dff), anchor=CENTER,
+                        width=3).pack()
                 else:
                     # si no tiene seguidores medios
                     Label(f2, text=self.lang[9], fg=COMMENT_COLOR).pack()
                 f3 = Frame(self.w, border=3)  # tipo pesado
                 f3.pack(fill=X, padx=5)
                 if c_p > 0:  # Si tiene seguidores pesados
-                    Label(f3, text=self.lang[10], anchor=E, fg=COMMENT_COLOR, width=10).pack(
+                    Label(f3, text=self.lang[10], anchor=E, fg=COMMENT_COLOR,
+                          width=10).pack(
                         side=LEFT)  # tipo de follower
                     Label(f3, text=c_p, anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f3, text=self.lang[3], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f3, text=self.lang[3], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # vida media
                     Label(f3, text=int(0.15 * dif * mhp),
                           anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f3, text=self.lang[4], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f3, text=self.lang[4], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # ataque medio
                     Label(f3, text=int(0.3 * dif * atk),
                           anchor=CENTER, width=3).pack(side=LEFT)
-                    Label(f3, text=self.lang[5], anchor=E, fg=COMMENT_COLOR).pack(
+                    Label(f3, text=self.lang[5], anchor=E,
+                          fg=COMMENT_COLOR).pack(
                         side=LEFT)  # defensa media
                     Label(
-                        f3, text=int(0.5 * dif * dff), anchor=CENTER, width=3).pack()
+                        f3, text=int(0.5 * dif * dff), anchor=CENTER,
+                        width=3).pack()
                 else:
                     # si no tiene seguidores medios
                     Label(f3, text=self.lang[11], fg=COMMENT_COLOR).pack()
             else:
-                Label(self.w, text=self.lang[7], border=10, fg=COMMENT_COLOR).pack(
-                    fill=BOTH, anchor=CENTER)  # mensaje de que no tiene seguidores
+                Label(self.w, text=self.lang[7], border=10,
+                      fg=COMMENT_COLOR).pack(
+                    fill=BOTH,
+                    anchor=CENTER)  # mensaje de que no tiene seguidores
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "ver_quest":  # Ver las quest
@@ -1005,11 +1092,13 @@ class pop:
             else:
                 # Mensaje que avisa que no tiene quest
                 Label(
-                    self.w, text=self.lang[4], border=10, fg=COMMENT_COLOR).pack()
+                    self.w, text=self.lang[4], border=10,
+                    fg=COMMENT_COLOR).pack()
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         # Licencia o gnu
-        elif typeObject in ["licence", "changelog", "ayuda", "longtext", "license"]:
+        elif typeObject in ["licence", "changelog", "ayuda", "longtext",
+                            "license"]:
             print "Recurso [{0}] ...".format(properties[5].replace("//", "/")),
             try:
                 name = properties[6]  # @UnusedVariable
@@ -1023,13 +1112,16 @@ class pop:
                     Xscroll = Scrollbar(self.w, orient=HORIZONTAL)
                     Xscroll.pack(side=BOTTOM, fill=X)
                     texto = Text(
-                        self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=Xscroll.set, highlightthickness=0)
+                        self.w, wrap=NONE, yscrollcommand=Yscroll.set,
+                        xscrollcommand=Xscroll.set, highlightthickness=0)
                 else:
                     texto = Text(
-                        self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=None, highlightthickness=0)
+                        self.w, wrap=NONE, yscrollcommand=Yscroll.set,
+                        xscrollcommand=None, highlightthickness=0)
             else:
                 texto = Text(
-                    self.w, wrap=NONE, yscrollcommand=Yscroll.set, xscrollcommand=None, highlightthickness=0)
+                    self.w, wrap=NONE, yscrollcommand=Yscroll.set,
+                    xscrollcommand=None, highlightthickness=0)
             texto.focus_force()
             for i in archivo:
                 texto.insert(INSERT, i)

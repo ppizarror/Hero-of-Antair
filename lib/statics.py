@@ -10,14 +10,18 @@
 # Constantes del programa
 _STATIC = ";"
 
-class Statics:
+
+class Statics(object):
     """
     Estadisticas
     """
 
-    def __init__(self, muertes=0, obj=0, mapas=0, trucos=0, droppedweapon=0, droppeditem=0,
-                 orogastado=0, oroganado=0, escapes=0, librosleidos=0, movimientos=0, pociones=0,
-                 saved=0, droppedarmor=0, doors=0, npc=0, usedpowers=0, cartelesleidos=0, questhechas=0, followers=0):
+    def __init__(self, muertes=0, obj=0, mapas=0, trucos=0, droppedweapon=0,
+                 droppeditem=0,
+                 orogastado=0, oroganado=0, escapes=0, librosleidos=0,
+                 movimientos=0, pociones=0,
+                 saved=0, droppedarmor=0, doors=0, npc=0, usedpowers=0,
+                 cartelesleidos=0, questhechas=0, followers=0):
         """
         unción constructora
         :param muertes: Total de muertes
@@ -245,20 +249,30 @@ class Statics:
         Exporta los datos
         :return: String
         """
-        return str(self.muertes) + _STATIC + str(self.obj) + _STATIC + str(self.mapas) + _STATIC + str(self.trucos) + \
-            _STATIC + str(self.droppedweapon) + _STATIC + str(self.droppeditem) + _STATIC + str(self.orogastado) + \
-            _STATIC + str(self.oroganado) + _STATIC + str(self.escapes) + _STATIC + str(self.librosleidos) + \
-            _STATIC + str(self.movimientos) + _STATIC + str(self.pociones) + _STATIC + str(self.saved) + \
-            _STATIC + str(self.droppedarmor) + _STATIC + str(self.opendoors) + _STATIC + str(self.interactnpc) + \
-            _STATIC + str(self.poderesuados) + _STATIC + str(self.carteles) + _STATIC + str(self.questhechas) + \
-            _STATIC + str(self.followers) + "\n"
+        return str(self.muertes) + _STATIC + str(self.obj) + _STATIC + str(
+            self.mapas) + _STATIC + str(self.trucos) + \
+               _STATIC + str(self.droppedweapon) + _STATIC + str(
+            self.droppeditem) + _STATIC + str(self.orogastado) + \
+               _STATIC + str(self.oroganado) + _STATIC + str(
+            self.escapes) + _STATIC + str(self.librosleidos) + \
+               _STATIC + str(self.movimientos) + _STATIC + str(
+            self.pociones) + _STATIC + str(self.saved) + \
+               _STATIC + str(self.droppedarmor) + _STATIC + str(
+            self.opendoors) + _STATIC + str(self.interactnpc) + \
+               _STATIC + str(self.poderesuados) + _STATIC + str(
+            self.carteles) + _STATIC + str(self.questhechas) + \
+               _STATIC + str(self.followers) + "\n"
 
     def get(self):
         """
         Envía los datos por una matriz
         :return: List
         """
-        return [self.muertes, self.obj, self.mapas, self.trucos, self.droppedweapon, self.droppeditem,
-                self.orogastado, self.oroganado, self.escapes, self.librosleidos, self.movimientos,
-                self.pociones, self.saved, self.droppedarmor, self.opendoors, self.interactnpc,
-                self.poderesuados, self.carteles, self.questhechas, self.followers]
+        return [self.muertes, self.obj, self.mapas, self.trucos,
+                self.droppedweapon, self.droppeditem,
+                self.orogastado, self.oroganado, self.escapes,
+                self.librosleidos, self.movimientos,
+                self.pociones, self.saved, self.droppedarmor, self.opendoors,
+                self.interactnpc,
+                self.poderesuados, self.carteles, self.questhechas,
+                self.followers]

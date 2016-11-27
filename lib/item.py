@@ -19,178 +19,255 @@ _ITEMID = -1
 ITEMS = {
     # ID
     # NOMBRE,DESCRIPCION,TEXTURA,TIPO,_ITEMID,STACKABLE,VIDA/USOS,PROPIEDADES
-    1: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 25, [100, 0]], \
-    2: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 50, [100, 0]], \
-    3: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 75, [100, 0]], \
-    4: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 100, [100, 0]], \
-    5: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 150, [100, 0]], \
-    6: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 200, [100, 0]], \
-    7: ["Espada de diamantes", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right", _ITEMID,
-        False, 250, [100, 0]], \
-    10: ["Espada de diamantes superior", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 25, [200, 0]], \
-    11: ["Espada de diamantes superior", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 50, [200, 0]], \
-    12: ["Espada de diamantes superior", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 75, [200, 0]], \
-    13: ["Espada de diamantes superior", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 100, [200, 0]], \
-    14: ["Espada de diamantes superior", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 150, [200, 0]], \
-    15: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 25, [50, 0]], \
-    16: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 50, [50, 0]], \
-    17: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 75, [50, 0]], \
-    18: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 100, [50, 0]], \
-    19: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 150, [50, 0]], \
-    20: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 200, [50, 0]], \
-    21: ["Espada de diamantes debil", "Potente espada forjada en finos diamantes", "espada_diamante", "weapon/right",
-         _ITEMID, False, 250, [50, 0]], \
-    23: ["Flecha de Hierro debil", "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
-         "flecha_hierro", "bullet", _ITEMID, True, 1, [10, 0]], \
-    24: ["Flecha de Hierro", "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
-         "flecha_hierro", "bullet", _ITEMID, True, 1, [20, 0]], \
-    25: ["Flecha de Hierro", "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
-         "flecha_hierro", "bullet", _ITEMID, True, 1, [30, 0]], \
-    26: ["Flecha de Hierro superior", "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
-         "flecha_hierro", "bullet", _ITEMID, True, 1, [40, 0]], \
-    27: ["Flecha de Hierro superior", "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
-         "flecha_hierro", "bullet", _ITEMID, True, 1, [50, 0]], \
-    28: ["Flecha de Diamante debil", "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
-         "flecha_diamante", "bullet", _ITEMID, True, 1, [40, 0]], \
-    29: ["Flecha de Diamante", "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
-         "flecha_diamante", "bullet", _ITEMID, True, 1, [50, 0]], \
-    30: ["Flecha de Diamante", "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
-         "flecha_diamante", "bullet", _ITEMID, True, 1, [60, 0]], \
-    31: ["Flecha de Diamante", "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
-         "flecha_diamante", "bullet", _ITEMID, True, 1, [70, 0]], \
-    32: ["Flecha de Diamante superior", "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
-         "flecha_diamante", "bullet", _ITEMID, True, 1, [80, 0]], \
-    33: ["Manzana podrida", "Sabrosas manzanas de Antair", "manzana_simple", "potion/apple", _ITEMID, True, 1, [10, 0]], \
-    34: ["Manzana comun", "Sabrosas manzanas de Antair", "manzana_simple", "potion/apple", _ITEMID, True, 1, [25, 0]], \
-    35: ["Manzana exquisita", "Sabrosas manzanas de Antair", "manzana_simple", "potion/apple", _ITEMID, True, 1,
-         [50, 0]], \
-    36: ["Manzana superior", "Sabrosas manzanas de Antair", "manzana_simple", "potion/apple", _ITEMID, True, 1,
-         [100, 0]], \
-    37: ["Arco", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera", "weapon/left",
-         _ITEMID, False, 50, [40, 0]], \
-    38: ["Arco", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera", "weapon/left",
-         _ITEMID, False, 100, [40, 0]], \
-    39: ["Arco", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera", "weapon/left",
-         _ITEMID, False, 25, [40, 0]], \
-    40: ["Arco", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera", "weapon/left",
-         _ITEMID, False, 75, [40, 0]], \
-    41: ["Arco superior", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera",
-         "weapon/left", _ITEMID, False, 50, [80, 0]], \
-    42: ["Arco superior", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera",
-         "weapon/left", _ITEMID, False, 100, [80, 0]], \
-    43: ["Arco superior", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera",
-         "weapon/left", _ITEMID, False, 25, [80, 0]], \
-    44: ["Arco superior", "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño", "arco_madera",
-         "weapon/left", _ITEMID, False, 75, [80, 0]], \
+    1: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 25, [100, 0]],
+    2: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 50, [100, 0]],
+    3: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 75, [100, 0]],
+    4: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 100, [100, 0]],
+    5: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 150, [100, 0]],
+    6: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 200, [100, 0]],
+    7: ["Espada de diamantes", "Potente espada forjada en finos diamantes",
+        "espada_diamante", "weapon/right", _ITEMID,
+        False, 250, [100, 0]],
+    10: ["Espada de diamantes superior",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 25, [200, 0]],
+    11: ["Espada de diamantes superior",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 50, [200, 0]],
+    12: ["Espada de diamantes superior",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 75, [200, 0]],
+    13: ["Espada de diamantes superior",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 100, [200, 0]],
+    14: ["Espada de diamantes superior",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 150, [200, 0]],
+    15: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 25, [50, 0]],
+    16: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 50, [50, 0]],
+    17: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 75, [50, 0]],
+    18: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 100, [50, 0]],
+    19: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 150, [50, 0]],
+    20: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 200, [50, 0]],
+    21: ["Espada de diamantes debil",
+         "Potente espada forjada en finos diamantes", "espada_diamante",
+         "weapon/right",
+         _ITEMID, False, 250, [50, 0]],
+    23: ["Flecha de Hierro debil",
+         "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
+         "flecha_hierro", "bullet", _ITEMID, True, 1, [10, 0]],
+    24: ["Flecha de Hierro",
+         "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
+         "flecha_hierro", "bullet", _ITEMID, True, 1, [20, 0]],
+    25: ["Flecha de Hierro",
+         "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
+         "flecha_hierro", "bullet", _ITEMID, True, 1, [30, 0]],
+    26: ["Flecha de Hierro superior",
+         "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
+         "flecha_hierro", "bullet", _ITEMID, True, 1, [40, 0]],
+    27: ["Flecha de Hierro superior",
+         "Flecha compuesta por una gruesa punta de hierro forjado, muy util a distancia",
+         "flecha_hierro", "bullet", _ITEMID, True, 1, [50, 0]],
+    28: ["Flecha de Diamante debil",
+         "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
+         "flecha_diamante", "bullet", _ITEMID, True, 1, [40, 0]],
+    29: ["Flecha de Diamante",
+         "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
+         "flecha_diamante", "bullet", _ITEMID, True, 1, [50, 0]],
+    30: ["Flecha de Diamante",
+         "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
+         "flecha_diamante", "bullet", _ITEMID, True, 1, [60, 0]],
+    31: ["Flecha de Diamante",
+         "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
+         "flecha_diamante", "bullet", _ITEMID, True, 1, [70, 0]],
+    32: ["Flecha de Diamante superior",
+         "Flecha compuesta por extraños y muy filudos diamantes, mortifero a distancia",
+         "flecha_diamante", "bullet", _ITEMID, True, 1, [80, 0]],
+    33: ["Manzana podrida", "Sabrosas manzanas de Antair", "manzana_simple",
+         "potion/apple", _ITEMID, True, 1, [10, 0]],
+    34: ["Manzana comun", "Sabrosas manzanas de Antair", "manzana_simple",
+         "potion/apple", _ITEMID, True, 1, [25, 0]],
+    35: ["Manzana exquisita", "Sabrosas manzanas de Antair", "manzana_simple",
+         "potion/apple", _ITEMID, True, 1,
+         [50, 0]],
+    36: ["Manzana superior", "Sabrosas manzanas de Antair", "manzana_simple",
+         "potion/apple", _ITEMID, True, 1,
+         [100, 0]],
+    37: ["Arco",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera", "weapon/left",
+         _ITEMID, False, 50, [40, 0]],
+    38: ["Arco",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera", "weapon/left",
+         _ITEMID, False, 100, [40, 0]],
+    39: ["Arco",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera", "weapon/left",
+         _ITEMID, False, 25, [40, 0]],
+    40: ["Arco",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera", "weapon/left",
+         _ITEMID, False, 75, [40, 0]],
+    41: ["Arco superior",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera",
+         "weapon/left", _ITEMID, False, 50, [80, 0]],
+    42: ["Arco superior",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera",
+         "weapon/left", _ITEMID, False, 100, [80, 0]],
+    43: ["Arco superior",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera",
+         "weapon/left", _ITEMID, False, 25, [80, 0]],
+    44: ["Arco superior",
+         "Principal arma del pueblo de Hag, gran alcance pero realiza poco daño",
+         "arco_madera",
+         "weapon/left", _ITEMID, False, 75, [80, 0]],
     45: ["Ballesta",
          "La ballesta, originaria de Fieregarr, muy poderosa y efectiva, aunque generalmente de poca duración",
-         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [50, 0]], \
+         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [50, 0]],
     46: ["Ballesta",
          "La ballesta, originaria de Fieregarr, muy poderosa y efectiva, aunque generalmente de poca duración",
-         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [60, 0]], \
+         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [60, 0]],
     47: ["Ballesta",
          "La ballesta, originaria de Fieregarr, muy poderosa y efectiva, aunque generalmente de poca duración",
-         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [70, 0]], \
+         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [70, 0]],
     48: ["Ballesta superior",
          "La ballesta, originaria de Fieregarr, muy poderosa y efectiva, aunque generalmente de poca duración",
-         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [80, 0]], \
+         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [80, 0]],
     49: ["Ballesta superior",
          "La ballesta, originaria de Fieregarr, muy poderosa y efectiva, aunque generalmente de poca duración",
-         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [90, 0]], \
+         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [90, 0]],
     50: ["Ballesta superior",
          "La ballesta, originaria de Fieregarr, muy poderosa y efectiva, aunque generalmente de poca duración",
-         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [100, 0]], \
-    51: ["Biblia", "Texto sagrado", "biblia_1", "object/holy", _ITEMID, False, 1, ["Libro", "Mana"]], \
-    52: ["Biblia eterna", "Texto sagrado", "biblia_1", "object/holy", _ITEMID, False, 1, ["Libro", "Mana"]], \
-    53: ["Biblia destruida", "Texto sagrado, posiblemente ha sufrido daños por la guerra", "biblia_1", "object/holy",
-         _ITEMID, False, 1, ["Libro", "Mana"]], \
+         "ballesta_oro", "weapon/left", _ITEMID, False, 25, [100, 0]],
+    51: ["Biblia", "Texto sagrado", "biblia_1", "object/holy", _ITEMID, False,
+         1, ["Libro", "Mana"]],
+    52: ["Biblia eterna", "Texto sagrado", "biblia_1", "object/holy", _ITEMID,
+         False, 1, ["Libro", "Mana"]],
+    53: ["Biblia destruida",
+         "Texto sagrado, posiblemente ha sufrido daños por la guerra",
+         "biblia_1", "object/holy",
+         _ITEMID, False, 1, ["Libro", "Mana"]],
     54: ["Botas de cuero dañadas",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_cuero", "armor/botas", _ITEMID, False, 25, [0, 10]], \
+         "botas_cuero", "armor/botas", _ITEMID, False, 25, [0, 10]],
     55: ["Botas de cuero dañadas",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_cuero", "armor/botas", _ITEMID, False, 25, [0, 20]], \
+         "botas_cuero", "armor/botas", _ITEMID, False, 25, [0, 20]],
     56: ["Botas de cuero",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_cuero", "armor/botas", _ITEMID, False, 50, [0, 30]], \
+         "botas_cuero", "armor/botas", _ITEMID, False, 50, [0, 30]],
     57: ["Botas de cuero",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_cuero", "armor/botas", _ITEMID, False, 50, [0, 50]], \
+         "botas_cuero", "armor/botas", _ITEMID, False, 50, [0, 50]],
     58: ["Botas de cuero superiores",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_cuero", "armor/botas", _ITEMID, False, 100, [0, 60]], \
+         "botas_cuero", "armor/botas", _ITEMID, False, 100, [0, 60]],
     59: ["Botas de cuero superiores",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_cuero", "armor/botas", _ITEMID, False, 100, [0, 90]], \
+         "botas_cuero", "armor/botas", _ITEMID, False, 100, [0, 90]],
     60: ["Botas de diamante dañadas",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_diamante", "armor/botas", _ITEMID, False, 25, [0, 40]], \
+         "botas_diamante", "armor/botas", _ITEMID, False, 25, [0, 40]],
     61: ["Botas de diamante dañadas",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_diamante", "armor/botas", _ITEMID, False, 25, [0, 50]], \
+         "botas_diamante", "armor/botas", _ITEMID, False, 25, [0, 50]],
     62: ["Botas de diamante",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_diamante", "armor/botas", _ITEMID, False, 50, [0, 90]], \
+         "botas_diamante", "armor/botas", _ITEMID, False, 50, [0, 90]],
     63: ["Botas de diamante",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_diamante", "armor/botas", _ITEMID, False, 50, [0, 100]], \
+         "botas_diamante", "armor/botas", _ITEMID, False, 50, [0, 100]],
     64: ["Botas de diamante superiores",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_diamante", "armor/botas", _ITEMID, False, 100, [0, 150]], \
+         "botas_diamante", "armor/botas", _ITEMID, False, 100, [0, 150]],
     65: ["Botas de diamante superiores",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_diamante", "armor/botas", _ITEMID, False, 100, [0, 175]], \
+         "botas_diamante", "armor/botas", _ITEMID, False, 100, [0, 175]],
     66: ["Botas de hierro dañadas",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_hierro", "armor/botas", _ITEMID, False, 25, [0, 20]], \
+         "botas_hierro", "armor/botas", _ITEMID, False, 25, [0, 20]],
     67: ["Botas de hierro dañadas",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_hierro", "armor/botas", _ITEMID, False, 25, [0, 40]], \
+         "botas_hierro", "armor/botas", _ITEMID, False, 25, [0, 40]],
     68: ["Botas de hierro",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_hierro", "armor/botas", _ITEMID, False, 50, [0, 60]], \
+         "botas_hierro", "armor/botas", _ITEMID, False, 50, [0, 60]],
     69: ["Botas de hierro",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_hierro", "armor/botas", _ITEMID, False, 90, [0, 70]], \
+         "botas_hierro", "armor/botas", _ITEMID, False, 90, [0, 70]],
     70: ["Botas de hierro superiores",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_hierro", "armor/botas", _ITEMID, False, 100, [0, 100]], \
+         "botas_hierro", "armor/botas", _ITEMID, False, 100, [0, 100]],
     71: ["Botas de hierro superiores",
          "Las botas permiten caminar más comodo, protegerse de los enemigos terrestres y evitar daños por flechas",
-         "botas_hierro", "armor/botas", _ITEMID, False, 100, [0, 110]], \
-    72: ["Espada de Madera", "Una simple espada, construida en madera de roble", "espada_madera", "weapon/right",
-         _ITEMID, False, 25, [25, 0]], \
-    73: ["Espada de Madera", "Una simple espada, construida en madera de roble", "espada_madera", "weapon/right",
-         _ITEMID, False, 25, [50, 0]], \
-    74: ["Espada de Madera", "Una simple espada, construida en madera de roble", "espada_madera", "weapon/right",
-         _ITEMID, False, 25, [75, 0]], \
-    75: ["Espada de Madera", "Una simple espada, construida en madera de roble", "espada_madera", "weapon/right",
-         _ITEMID, False, 25, [100, 0]], \
-    76: ["Espada de Madera superior", "Una simple espada, construida en madera de roble", "espada_madera",
-         "weapon/right", _ITEMID, False, 50, [25, 0]], \
-    77: ["Espada de Madera superior", "Una simple espada, construida en madera de roble", "espada_madera",
-         "weapon/right", _ITEMID, False, 50, [50, 0]], \
-    78: ["Espada de Madera superior", "Una simple espada, construida en madera de roble", "espada_madera",
-         "weapon/right", _ITEMID, False, 50, [75, 0]], \
-    79: ["Espada de Madera superior", "Una simple espada, construida en madera de roble", "espada_madera",
-         "weapon/right", _ITEMID, False, 50, [100, 0]], \
+         "botas_hierro", "armor/botas", _ITEMID, False, 100, [0, 110]],
+    72: ["Espada de Madera",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right",
+         _ITEMID, False, 25, [25, 0]],
+    73: ["Espada de Madera",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right",
+         _ITEMID, False, 25, [50, 0]],
+    74: ["Espada de Madera",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right",
+         _ITEMID, False, 25, [75, 0]],
+    75: ["Espada de Madera",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right",
+         _ITEMID, False, 25, [100, 0]],
+    76: ["Espada de Madera superior",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right", _ITEMID, False, 50, [25, 0]],
+    77: ["Espada de Madera superior",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right", _ITEMID, False, 50, [50, 0]],
+    78: ["Espada de Madera superior",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right", _ITEMID, False, 50, [75, 0]],
+    79: ["Espada de Madera superior",
+         "Una simple espada, construida en madera de roble", "espada_madera",
+         "weapon/right", _ITEMID, False, 50, [100, 0]],
 }
 
 for i in ITEMS.keys():
@@ -214,7 +291,7 @@ def lookType(a):
         return "str_" + replaceStrict(a)  # si no es solo texto
 
 
-class Item:
+class Item(object):
     """Items"""
 
     def __init__(self, prop):
@@ -377,7 +454,9 @@ class Item:
         """
         return replaceStrict(str(self.nombre)) + ITEMSEPARATOR + replaceStrict(
             str(self.descripcion)) + ITEMSEPARATOR + str(self.imagen) + \
-            ITEMSEPARATOR + str(self.tipo) + ITEMSEPARATOR + str(self.id) + ITEMSEPARATOR + str(
+               ITEMSEPARATOR + str(self.tipo) + ITEMSEPARATOR + str(
+            self.id) + ITEMSEPARATOR + str(
             self.stack) + ITEMSEPARATOR + \
-            str(self.usos) + ITEMSEPARATOR + lookType(self.propiedades[0]) + ITEMSEPARATOR + lookType(
+               str(self.usos) + ITEMSEPARATOR + lookType(
+            self.propiedades[0]) + ITEMSEPARATOR + lookType(
             self.propiedades[1]) + "\n"

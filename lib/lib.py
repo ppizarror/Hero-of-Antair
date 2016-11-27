@@ -77,7 +77,8 @@ try:
     import tkFont  # @UnusedImport
     import tkMessageBox  # @UnusedImport
 except Exception, e:
-    st_error("La libreria Tkinter no se encuentra disponible en su ordenador", True, "lib.py", e)
+    st_error("La libreria Tkinter no se encuentra disponible en su ordenador",
+             True, "lib.py", e)
 # noinspection PyDeprecation
 
 # Librerias depentientes del SO
@@ -92,14 +93,19 @@ else:
             sys.path.append(_actualpath + "data/images/")
             from pil import Image  # @UnusedImport @Reimport @UnresolvedImport
         except Exception, e:
-            st_error("La libreria PIL no se encuentra disponible en su ordenador, pruebe instalando Pillow", True, "lib.py", e)
+            st_error(
+                "La libreria PIL no se encuentra disponible en su ordenador, pruebe instalando Pillow",
+                True, "lib.py", e)
     try:
         from PIL import ImageTk  # @UnusedImport @UnresolvedImport @Reimport
     except:
         try:
-            from pil import ImageTk  # @UnusedImport @Reimport @UnresolvedImport
+            from pil import \
+                ImageTk  # @UnusedImport @Reimport @UnresolvedImport
         except Exception, e:
-            st_error("La libreria python-imaging-tk no se encuentra disponible en su ordenador", True, "lib.py", e)
+            st_error(
+                "La libreria python-imaging-tk no se encuentra disponible en su ordenador",
+                True, "lib.py", e)
 try:
     import tkSnack  # @UnusedImport
 except:
@@ -132,7 +138,8 @@ if not getConfigValue("core.compile", True):
 __ALPH = " @rs3t*uv#w'xEF(9<GH$IJ&5K,L%CVWXjkl_mnop/qD0{PQ+RS[TUAY]1Z^67;8?ab>cd)efMNO.Bg}hi24-yz!"
 __L_ALPH = len(__ALPH)
 CONSOLE_WRAP = -25
-CMD_COLORS = {"red": 0x40, "lred": 0xC0, "gray": 0x80, "lgray": 0x70, "white": 0xF0, "blue": 0x10, "green": 0x20,
+CMD_COLORS = {"red": 0x40, "lred": 0xC0, "gray": 0x80, "lgray": 0x70,
+              "white": 0xF0, "blue": 0x10, "green": 0x20,
               "purple": 0x50, "yellow": 0x60, "lblue": 0x90, "lgreen": 0xA0,
               "lpurple": 0xD0, "lyellow": 0xE0}
 ENDING_ARGUMENT = ""
@@ -141,15 +148,17 @@ OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
 LINK_PROJECT = "https://github.com/ppizarror/Hero-of-Antair/"
 LINK_UPDATES = "https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/version/HOA"
-SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5", ".quest", ".powers", ".hoacmd", ".maplogic",
+SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5",
+                  ".quest", ".powers", ".hoacmd", ".maplogic",
                   ".mapmob", ".mapnpc", ".statics", ".mapitemtexture"]
 VERBOSE_FILELOAD = getConfigValue("verbose.load.file")
 VERBOSE_TEXLOAD = getConfigValue("verbose.load.texture")
 WIN32 = 4
 WIN64 = 8
 
+
 # Clases
-class Browser:
+class Browser(object):
     """Navegador web"""
 
     def __init__(self):
@@ -448,7 +457,8 @@ def checkScreen(window, config, msg):
     :return: void
     """
     # Se comprueba el tamaño de la pantalla
-    if (window.winfo_screenwidth() < config[0]) or (window.winfo_screenheight() < config[1]):
+    if (window.winfo_screenwidth() < config[0]) or (
+        window.winfo_screenheight() < config[1]):
         st_error(msg, True)
 
 
@@ -517,14 +527,17 @@ def colorcmd(cmd, color):
     if color in CMD_COLORS:
         color = CMD_COLORS[color]
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(# @UndefinedVariable
-                ctypes.windll.kernel32.GetStdHandle(-11), color)  # @UndefinedVariable
+            ctypes.windll.kernel32.SetConsoleTextAttribute(
+                ctypes.windll.kernel32.GetStdHandle(-11),
+                color)  # @UndefinedVariable
         except:
             pass
         print cmd,
         try:
-            ctypes.windll.kernel32.SetConsoleTextAttribute(# @UndefinedVariable
-                ctypes.windll.kernel32.GetStdHandle(-11), 0x07)  # @UndefinedVariable
+            ctypes.windll.kernel32.SetConsoleTextAttribute(
+                # @UndefinedVariable
+                ctypes.windll.kernel32.GetStdHandle(-11),
+                0x07)  # @UndefinedVariable
         except:
             pass
     else:
@@ -539,7 +552,8 @@ def delAcentos(txt):
     """
     txt = txt.replace("�?", "A").replace("É", "E").replace(
         "�?", "I").replace("Ó", "O").replace("Ú", "U")
-    return txt.replace("á", "a").replace("é", "e").replace("í", "i").replace("ó", "o").replace("ú", "u")
+    return txt.replace("á", "a").replace("é", "e").replace("í", "i").replace(
+        "ó", "o").replace("ú", "u")
 
 
 def delMatrix(matrix):
@@ -580,7 +594,8 @@ def generateRandom6():
     Genera un string de 6 carácteres aleatorios
     :return: String
     """
-    return ''.join(choice(string.ascii_uppercase) for i in range(6))  # @UnusedVariable
+    return ''.join(
+        choice(string.ascii_uppercase) for i in range(6))  # @UnusedVariable
 
 
 def generateRandom12():
@@ -588,7 +603,8 @@ def generateRandom12():
     Genera un string de 12 carácteres aleatorios
     :return: String
     """
-    return ''.join(choice(string.ascii_uppercase) for i in range(12))  # @UnusedVariable
+    return ''.join(
+        choice(string.ascii_uppercase) for i in range(12))  # @UnusedVariable
 
 
 def getBetweenTags(html, tagi, tagf):
@@ -679,7 +695,8 @@ def getVersion(label, headers):
         response = urllib2.urlopen(request_object)
         html = response.read()
     html = getBetweenTags(getBetweenTags(
-        html, "<" + label + ">", "</" + label + ">"), "<version>", "</version>")
+        html, "<" + label + ">", "</" + label + ">"), "<version>",
+        "</version>")
     return html.strip()
 
 
@@ -780,7 +797,9 @@ def loadFromArchive(archive, lang="Cargando archivo '{0}' ...",
     :return: List
     """
     if showState and VERBOSE_FILELOAD:
-        print lang.format("(...)" + archive[CONSOLE_WRAP:].replace("//", "/")).replace("\"", ""),
+        print lang.format(
+            "(...)" + archive[CONSOLE_WRAP:].replace("//", "/")).replace("\"",
+                                                                         ""),
     try:
         l = list()
         archive = open(archive, "r")
@@ -814,14 +833,18 @@ def lookPrimaryArguments(data=None):
                 if str(sys.argv[2]).isdigit():
                     repeticiones = int(sys.argv[2])
                     if repeticiones > 1:
-                        print "Realizando prueba benchmark a {0} repeticiones ...".format(str(repeticiones))
+                        print "Realizando prueba benchmark a {0} repeticiones ...".format(
+                            str(repeticiones))
                         ms = benchmark(True, True, repeticiones)
-                        print "\nTiempo promedio de ejecucion: " + str(ms) + "ms"
+                        print "\nTiempo promedio de ejecucion: " + str(
+                            ms) + "ms"
                         print "Benchmark guardado en log/benchmark"
                     elif repeticiones == 1:
-                        print "Realizando prueba unica benchmark ...".format(str(repeticiones))
+                        print "Realizando prueba unica benchmark ...".format(
+                            str(repeticiones))
                         ms = benchmark(True, True, repeticiones)
-                        print "\nTiempo promedio de ejecucion: " + str(ms) + "ms"
+                        print "\nTiempo promedio de ejecucion: " + str(
+                            ms) + "ms"
                         print "Benchmark guardado en log/benchmark"
                     else:
                         st_error(
@@ -843,7 +866,8 @@ def lookPrimaryArguments(data=None):
                 changelog.close()
             except:
                 st_error(
-                    "Error al ejecutar el comando --changelog, Archivo no encontrado", True)
+                    "Error al ejecutar el comando --changelog, Archivo no encontrado",
+                    True)
             exit()
         elif sys.argv[1] == "--dwi":
             try:
@@ -880,7 +904,8 @@ def lookPrimaryArguments(data=None):
                     _actualpath + "data/doc/documentation/arguments.txt", "r")
                 for h in helpfile:
                     if h != "":
-                        print h.replace("</>", color.END).replace("<b>", color.BOLD).rstrip()
+                        print h.replace("</>", color.END).replace("<b>",
+                                                                  color.BOLD).rstrip()
                 helpfile.close()
             except:
                 st_error(
@@ -893,7 +918,8 @@ def lookPrimaryArguments(data=None):
                 total = 0
                 listedfiles = []
                 totallines = []
-                for file in os.listdir(_actualpath + "/lib/"):  # @ReservedAssignment
+                for file in os.listdir(
+                                _actualpath + "/lib/"):  # @ReservedAssignment
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/lib/" + file, "r")
@@ -902,7 +928,8 @@ def lookPrimaryArguments(data=None):
                         archv.close()
                         totallines.append(total)
                         total = 0
-                for file in os.listdir(_actualpath + "/bin/"):  # @ReservedAssignment
+                for file in os.listdir(
+                                _actualpath + "/bin/"):  # @ReservedAssignment
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/bin/" + file, "r")
@@ -915,7 +942,8 @@ def lookPrimaryArguments(data=None):
                 brief.write("Archivos analizados:\n")
                 for i in range(len(totallines)):
                     brief.write(
-                        "\t" + str(listedfiles[i]) + " => " + str(totallines[i]) + " lineas\n")
+                        "\t" + str(listedfiles[i]) + " => " + str(
+                            totallines[i]) + " lineas\n")
                 brief.write("\nTotal: " + str(sum(totallines)) + " lineas\n")
                 brief.close()
                 st_info("Archivo generado correctamente")
@@ -976,7 +1004,8 @@ def lookPrimaryArguments(data=None):
                     r = 1
             else:
                 st_error(
-                    "Argumentos desconocidos, consulte /sierpinski /help", True)
+                    "Argumentos desconocidos, consulte /sierpinski /help",
+                    True)
             for x in range(height * r):
                 i = ""
                 for y in range(width):
@@ -1021,7 +1050,8 @@ def lookPrimaryArguments(data=None):
                         maxsep += 5
                         for conf_file in files:
                             if conf_file in avconf:
-                                print conf_file.ljust(maxsep), getConfigValue(conf_file, True, True)
+                                print conf_file.ljust(maxsep), getConfigValue(
+                                    conf_file, True, True)
                     else:
                         st_error("config: opcion desconocida", True)
                 else:
@@ -1051,7 +1081,8 @@ def parseObject(a):
     :return: List
     """
     a = a.split("/_/")
-    return a[0], putStrict(a[1]), a[2], a[3], int(a[4]), isTrue(a[5]), int(a[6]), [parseType(a[7]), parseType(a[8])]
+    return a[0], putStrict(a[1]), a[2], a[3], int(a[4]), isTrue(a[5]), int(
+        a[6]), [parseType(a[7]), parseType(a[8])]
 
 
 def parseType(a):
@@ -1160,8 +1191,10 @@ def putStrict(a):
     :param a: String
     :return: String formateado
     """
-    return a.replace("%XCOM%", ",").replace("%XPYC%", ";").replace("%XDP%", ":").replace("%XGUI%", "-").replace("%XII%",
-                                                                                                                "'").replace(
+    return a.replace("%XCOM%", ",").replace("%XPYC%", ";").replace("%XDP%",
+                                                                   ":").replace(
+        "%XGUI%", "-").replace("%XII%",
+                               "'").replace(
         "%XLASH%", "/")
 
 
@@ -1184,8 +1217,10 @@ def replaceStrict(a):
     :param a: String
     :return: String formateado
     """
-    return a.replace(",", "%XCOM%").replace(";", "%XPYC%").replace(":", "%XDP%").replace("-", "%XGUI%").replace("\\",
-                                                                                                                "").replace(
+    return a.replace(",", "%XCOM%").replace(";", "%XPYC%").replace(":",
+                                                                   "%XDP%").replace(
+        "-", "%XGUI%").replace("\\",
+                               "").replace(
         "'", "%XII%").replace("/", "%XLASH%")
 
 
@@ -1209,7 +1244,8 @@ def libstartUp():
     Función destinada a la primera ejecución del programa
     :return: void
     """
-    if not (("-launcher" in sys.argv or "-eclipse" in sys.argv or "-cmd" in sys.argv) or len(
+    if not ((
+                        "-launcher" in sys.argv or "-eclipse" in sys.argv or "-cmd" in sys.argv) or len(
             sys.argv) == 1) and not DEV_MODE:  # Se comprueba el lanzador
         sys.stderr.write("Error :: Lanzador no valido\n")
         exit()
@@ -1219,14 +1255,16 @@ def libstartUp():
             ), noStdOut(), noStdOut(), noStdOut(), noStdOut(), noStdOut()
     # Se comprueba que Python sea 2.7.x
     if not (sys.version_info.major == 2 and sys.version_info.minor == 7):
-        version_actual = "(version actual: {0}.{1}.{2})\n".format(sys.version_info.major, sys.version_info.minor,
-                                                                  sys.version_info.micro)
+        version_actual = "(version actual: {0}.{1}.{2})\n".format(
+            sys.version_info.major, sys.version_info.minor,
+            sys.version_info.micro)
         st_error(
             "HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
         try:
             url = "https://www.python.org/download/releases/"
             sys.stderr.write(
-                "Redirigiendo a la pagina de descargas de Python <{0}>\n".format(url))
+                "Redirigiendo a la pagina de descargas de Python <{0}>\n".format(
+                    url))
             time.sleep(2)
             webbrowser.open(url)
         except:

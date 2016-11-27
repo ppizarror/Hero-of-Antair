@@ -16,2137 +16,2132 @@ IMAGES = {
     # Se cargarán exclusivamente cuando se consulten
 
     # Vehículos
-    "ship_0": DATA_IMAGES_VEHICLES + "ship_0.gif", \
-    "ship_1": DATA_IMAGES_VEHICLES + "ship_1.gif", \
+    "ship_0": DATA_IMAGES_VEHICLES + "ship_0.gif",
+    "ship_1": DATA_IMAGES_VEHICLES + "ship_1.gif",
 
     # Efectos del mundo
-    "ambient_effect1_0": DATA_IMAGES_EFFECTS + "ambient_effect1_0.gif", \
-    "ambient_effect1_1": DATA_IMAGES_EFFECTS + "ambient_effect1_1.gif", \
-    "ambient_effect2_0": DATA_IMAGES_EFFECTS + "ambient_effect2_0.gif", \
-    "ambient_effect2_1": DATA_IMAGES_EFFECTS + "ambient_effect2_1.gif", \
-    "ambient_effect3_0": DATA_IMAGES_EFFECTS + "ambient_effect3_0.gif", \
-    "ambient_effect3_1": DATA_IMAGES_EFFECTS + "ambient_effect3_1.gif", \
-    "ambient_effect4_0": DATA_IMAGES_EFFECTS + "ambient_effect4_0.gif", \
-    "ambient_effect4_1": DATA_IMAGES_EFFECTS + "ambient_effect4_1.gif", \
-    "ambient_effect5_0": DATA_IMAGES_EFFECTS + "ambient_effect5_0.gif", \
-    "ambient_effect5_1": DATA_IMAGES_EFFECTS + "ambient_effect5_1.gif", \
-    "life1": DATA_IMAGES_EFFECTS + "life1.gif", \
-    "life2": DATA_IMAGES_EFFECTS + "life2.gif", \
-    "life3": DATA_IMAGES_EFFECTS + "life3.gif", \
-    "life4": DATA_IMAGES_EFFECTS + "life4.gif", \
-    "life5": DATA_IMAGES_EFFECTS + "life5.gif", \
-    "life6": DATA_IMAGES_EFFECTS + "life6.gif", \
-    "life7": DATA_IMAGES_EFFECTS + "life7.gif", \
-    "life8": DATA_IMAGES_EFFECTS + "life8.gif", \
-    "life9": DATA_IMAGES_EFFECTS + "life9.gif", \
-    "life10": DATA_IMAGES_EFFECTS + "life10.gif", \
-    "sangre1_0": DATA_IMAGES_EFFECTS + "sangre1_0.gif", \
-    "sangre1_1": DATA_IMAGES_EFFECTS + "sangre1_1.gif", \
-    "sangre2_0": DATA_IMAGES_EFFECTS + "sangre2_0.gif", \
-    "sangre2_1": DATA_IMAGES_EFFECTS + "sangre2_1.gif", \
-    "sangre3_0": DATA_IMAGES_EFFECTS + "sangre3_0.gif", \
-    "sangre3_1": DATA_IMAGES_EFFECTS + "sangre3_1.gif", \
-    "sangre4_0": DATA_IMAGES_EFFECTS + "sangre4_0.gif", \
-    "sangre4_1": DATA_IMAGES_EFFECTS + "sangre4_1.gif", \
-    "sangre5_0": DATA_IMAGES_EFFECTS + "sangre5_0.gif", \
-    "sangre5_1": DATA_IMAGES_EFFECTS + "sangre5_1.gif", \
+    "ambient_effect1_0": DATA_IMAGES_EFFECTS + "ambient_effect1_0.gif",
+    "ambient_effect1_1": DATA_IMAGES_EFFECTS + "ambient_effect1_1.gif",
+    "ambient_effect2_0": DATA_IMAGES_EFFECTS + "ambient_effect2_0.gif",
+    "ambient_effect2_1": DATA_IMAGES_EFFECTS + "ambient_effect2_1.gif",
+    "ambient_effect3_0": DATA_IMAGES_EFFECTS + "ambient_effect3_0.gif",
+    "ambient_effect3_1": DATA_IMAGES_EFFECTS + "ambient_effect3_1.gif",
+    "ambient_effect4_0": DATA_IMAGES_EFFECTS + "ambient_effect4_0.gif",
+    "ambient_effect4_1": DATA_IMAGES_EFFECTS + "ambient_effect4_1.gif",
+    "ambient_effect5_0": DATA_IMAGES_EFFECTS + "ambient_effect5_0.gif",
+    "ambient_effect5_1": DATA_IMAGES_EFFECTS + "ambient_effect5_1.gif",
+    "life1": DATA_IMAGES_EFFECTS + "life1.gif",
+    "life2": DATA_IMAGES_EFFECTS + "life2.gif",
+    "life3": DATA_IMAGES_EFFECTS + "life3.gif",
+    "life4": DATA_IMAGES_EFFECTS + "life4.gif",
+    "life5": DATA_IMAGES_EFFECTS + "life5.gif",
+    "life6": DATA_IMAGES_EFFECTS + "life6.gif",
+    "life7": DATA_IMAGES_EFFECTS + "life7.gif",
+    "life8": DATA_IMAGES_EFFECTS + "life8.gif",
+    "life9": DATA_IMAGES_EFFECTS + "life9.gif",
+    "life10": DATA_IMAGES_EFFECTS + "life10.gif",
+    "sangre1_0": DATA_IMAGES_EFFECTS + "sangre1_0.gif",
+    "sangre1_1": DATA_IMAGES_EFFECTS + "sangre1_1.gif",
+    "sangre2_0": DATA_IMAGES_EFFECTS + "sangre2_0.gif",
+    "sangre2_1": DATA_IMAGES_EFFECTS + "sangre2_1.gif",
+    "sangre3_0": DATA_IMAGES_EFFECTS + "sangre3_0.gif",
+    "sangre3_1": DATA_IMAGES_EFFECTS + "sangre3_1.gif",
+    "sangre4_0": DATA_IMAGES_EFFECTS + "sangre4_0.gif",
+    "sangre4_1": DATA_IMAGES_EFFECTS + "sangre4_1.gif",
+    "sangre5_0": DATA_IMAGES_EFFECTS + "sangre5_0.gif",
+    "sangre5_1": DATA_IMAGES_EFFECTS + "sangre5_1.gif",
 
     # Actores
-    "actor_arrow": DATA_IMAGES_ACTORS + "actor_arrow.gif", \
-    "actor_groupal_1": DATA_IMAGES_ACTORS + "actor_groupal_1.gif", \
-    "actor_groupal_2": DATA_IMAGES_ACTORS + "actor_groupal_2.gif", \
-    "actor_groupal_3": DATA_IMAGES_ACTORS + "actor_groupal_3.gif", \
-    "actor_plus_1": DATA_IMAGES_ACTORS + "actor_plus_1.gif", \
-    "actor_plus_2": DATA_IMAGES_ACTORS + "actor_plus_2.gif", \
-    "actor1_0": DATA_IMAGES_ACTORS + "actor1_0.gif", \
-    "actor1_1": DATA_IMAGES_ACTORS + "actor1_1.gif", \
-    "actor2_0": DATA_IMAGES_ACTORS + "actor2_0.gif", \
-    "actor2_1": DATA_IMAGES_ACTORS + "actor2_1.gif", \
-    "actor3_0": DATA_IMAGES_ACTORS + "actor3_0.gif", \
-    "actor3_1": DATA_IMAGES_ACTORS + "actor3_1.gif", \
-    "actor4_0": DATA_IMAGES_ACTORS + "actor4_0.gif", \
-    "actor4_1": DATA_IMAGES_ACTORS + "actor4_1.gif", \
-    "actor7_0": DATA_IMAGES_ACTORS + "actor7_0.gif", \
-    "actor7_1": DATA_IMAGES_ACTORS + "actor7_1.gif", \
-    "actor8_0": DATA_IMAGES_ACTORS + "actor8_0.gif", \
-    "actor8_1": DATA_IMAGES_ACTORS + "actor8_1.gif", \
-    "actor9_0": DATA_IMAGES_ACTORS + "actor9_0.gif", \
-    "actor9_1": DATA_IMAGES_ACTORS + "actor9_1.gif", \
-    "actor10_0": DATA_IMAGES_ACTORS + "actor10_0.gif", \
-    "actor10_1": DATA_IMAGES_ACTORS + "actor10_1.gif", \
-    "actor11_0": DATA_IMAGES_ACTORS + "actor11_0.gif", \
-    "actor11_1": DATA_IMAGES_ACTORS + "actor11_1.gif", \
-    "actor12_0": DATA_IMAGES_ACTORS + "actor12_0.gif", \
-    "actor12_1": DATA_IMAGES_ACTORS + "actor12_1.gif", \
-    "actor13_0": DATA_IMAGES_ACTORS + "actor13_0.gif", \
-    "actor13_1": DATA_IMAGES_ACTORS + "actor13_1.gif", \
-    "actor14_0": DATA_IMAGES_ACTORS + "actor14_0.gif", \
-    "actor14_1": DATA_IMAGES_ACTORS + "actor14_1.gif", \
-    "actor15_0": DATA_IMAGES_ACTORS + "actor15_0.gif", \
-    "actor15_1": DATA_IMAGES_ACTORS + "actor15_1.gif", \
-    "actor16_0": DATA_IMAGES_ACTORS + "actor16_0.gif", \
-    "actor16_1": DATA_IMAGES_ACTORS + "actor16_1.gif", \
-    "actor17_0": DATA_IMAGES_ACTORS + "actor17_0.gif", \
-    "actor17_1": DATA_IMAGES_ACTORS + "actor17_1.gif", \
-    "actor18_0": DATA_IMAGES_ACTORS + "actor18_0.gif", \
-    "actor18_1": DATA_IMAGES_ACTORS + "actor18_1.gif", \
-    "actor19_0": DATA_IMAGES_ACTORS + "actor19_0.gif", \
-    "actor19_1": DATA_IMAGES_ACTORS + "actor19_1.gif", \
-    "actor20_0": DATA_IMAGES_ACTORS + "actor20_0.gif", \
-    "actor20_1": DATA_IMAGES_ACTORS + "actor20_1.gif", \
-    "actor21_0": DATA_IMAGES_ACTORS + "actor21_0.gif", \
-    "actor21_1": DATA_IMAGES_ACTORS + "actor21_1.gif", \
-    "actor22_0": DATA_IMAGES_ACTORS + "actor22_0.gif", \
-    "actor22_1": DATA_IMAGES_ACTORS + "actor22_1.gif", \
-    "actor23_0": DATA_IMAGES_ACTORS + "actor23_0.gif", \
-    "actor23_1": DATA_IMAGES_ACTORS + "actor23_1.gif", \
-    "actor24_0": DATA_IMAGES_ACTORS + "actor24_0.gif", \
-    "actor24_1": DATA_IMAGES_ACTORS + "actor24_1.gif", \
-    "actor25_0": DATA_IMAGES_ACTORS + "actor25_0.gif", \
-    "actor25_1": DATA_IMAGES_ACTORS + "actor25_1.gif", \
-    "actor26_0": DATA_IMAGES_ACTORS + "actor26_0.gif", \
-    "actor26_1": DATA_IMAGES_ACTORS + "actor26_1.gif", \
-    "actor27_0": DATA_IMAGES_ACTORS + "actor27_0.gif", \
-    "actor27_1": DATA_IMAGES_ACTORS + "actor27_1.gif", \
-    "actor28_0": DATA_IMAGES_ACTORS + "actor28_0.gif", \
-    "actor28_1": DATA_IMAGES_ACTORS + "actor28_1.gif", \
-    "actor29_0": DATA_IMAGES_ACTORS + "actor29_0.gif", \
-    "actor29_1": DATA_IMAGES_ACTORS + "actor29_1.gif", \
-    "actor30_0": DATA_IMAGES_ACTORS + "actor30_0.gif", \
-    "actor30_1": DATA_IMAGES_ACTORS + "actor30_1.gif", \
-    "actor31_0": DATA_IMAGES_ACTORS + "actor31_0.gif", \
-    "actor31_1": DATA_IMAGES_ACTORS + "actor31_1.gif", \
-    "actor32_0": DATA_IMAGES_ACTORS + "actor32_0.gif", \
-    "actor32_1": DATA_IMAGES_ACTORS + "actor32_1.gif", \
-    "actor33_0": DATA_IMAGES_ACTORS + "actor33_0.gif", \
-    "actor33_1": DATA_IMAGES_ACTORS + "actor33_1.gif", \
-    "actor34_0": DATA_IMAGES_ACTORS + "actor34_0.gif", \
-    "actor34_1": DATA_IMAGES_ACTORS + "actor34_1.gif", \
-    "actor35_0": DATA_IMAGES_ACTORS + "actor35_0.gif", \
-    "actor35_1": DATA_IMAGES_ACTORS + "actor35_1.gif", \
-    "actor36_0": DATA_IMAGES_ACTORS + "actor36_0.gif", \
-    "actor36_1": DATA_IMAGES_ACTORS + "actor36_1.gif", \
-    "actor37_0": DATA_IMAGES_ACTORS + "actor37_0.gif", \
-    "actor37_1": DATA_IMAGES_ACTORS + "actor37_1.gif", \
-    "actor38_0": DATA_IMAGES_ACTORS + "actor38_0.gif", \
-    "actor38_1": DATA_IMAGES_ACTORS + "actor38_1.gif", \
-    "actor39_0": DATA_IMAGES_ACTORS + "actor39_0.gif", \
-    "actor39_1": DATA_IMAGES_ACTORS + "actor39_1.gif", \
-    "actor40_0": DATA_IMAGES_ACTORS + "actor40_0.gif", \
-    "actor40_1": DATA_IMAGES_ACTORS + "actor40_1.gif", \
-    "actor41_0": DATA_IMAGES_ACTORS + "actor41_0.gif", \
-    "actor41_1": DATA_IMAGES_ACTORS + "actor41_1.gif", \
-    "actor42_0": DATA_IMAGES_ACTORS + "actor42_0.gif", \
-    "actor42_1": DATA_IMAGES_ACTORS + "actor42_1.gif", \
-    "actor43_0": DATA_IMAGES_ACTORS + "actor43_0.gif", \
-    "actor43_1": DATA_IMAGES_ACTORS + "actor43_1.gif", \
-    "actor44_0": DATA_IMAGES_ACTORS + "actor44_0.gif", \
-    "actor44_1": DATA_IMAGES_ACTORS + "actor44_1.gif", \
-    "actor45_0": DATA_IMAGES_ACTORS + "actor45_0.gif", \
-    "actor45_1": DATA_IMAGES_ACTORS + "actor45_1.gif", \
-    "actor46_0": DATA_IMAGES_ACTORS + "actor46_0.gif", \
-    "actor46_1": DATA_IMAGES_ACTORS + "actor46_1.gif", \
-    "actor47_0": DATA_IMAGES_ACTORS + "actor47_0.gif", \
-    "actor47_1": DATA_IMAGES_ACTORS + "actor47_1.gif", \
-    "actor48_0": DATA_IMAGES_ACTORS + "actor48_0.gif", \
-    "actor48_1": DATA_IMAGES_ACTORS + "actor48_1.gif", \
-    "actor49_0": DATA_IMAGES_ACTORS + "actor49_0.gif", \
-    "actor49_1": DATA_IMAGES_ACTORS + "actor49_1.gif", \
-    "actor50_0": DATA_IMAGES_ACTORS + "actor50_0.gif", \
-    "actor50_1": DATA_IMAGES_ACTORS + "actor50_1.gif", \
-    "actor51_0": DATA_IMAGES_ACTORS + "actor51_0.gif", \
-    "actor51_1": DATA_IMAGES_ACTORS + "actor51_1.gif", \
-    "actor52_0": DATA_IMAGES_ACTORS + "actor52_0.gif", \
-    "actor52_1": DATA_IMAGES_ACTORS + "actor52_1.gif", \
-    "actor53_0": DATA_IMAGES_ACTORS + "actor53_0.gif", \
-    "actor53_1": DATA_IMAGES_ACTORS + "actor53_1.gif", \
-    "actor54_0": DATA_IMAGES_ACTORS + "actor54_0.gif", \
-    "actor54_1": DATA_IMAGES_ACTORS + "actor54_1.gif", \
-    "actor55_0": DATA_IMAGES_ACTORS + "actor55_0.gif", \
-    "actor55_1": DATA_IMAGES_ACTORS + "actor55_1.gif", \
-    "actor56_0": DATA_IMAGES_ACTORS + "actor56_0.gif", \
-    "actor56_1": DATA_IMAGES_ACTORS + "actor56_1.gif", \
-    "actor57_0": DATA_IMAGES_ACTORS + "actor57_0.gif", \
-    "actor57_1": DATA_IMAGES_ACTORS + "actor57_1.gif", \
-    "actor58_0": DATA_IMAGES_ACTORS + "actor58_0.gif", \
-    "actor58_1": DATA_IMAGES_ACTORS + "actor58_1.gif", \
-    "actor59_0": DATA_IMAGES_ACTORS + "actor59_0.gif", \
-    "actor59_1": DATA_IMAGES_ACTORS + "actor59_1.gif", \
-    "actor60_0": DATA_IMAGES_ACTORS + "actor60_0.gif", \
-    "actor60_1": DATA_IMAGES_ACTORS + "actor60_1.gif", \
-    "actor61_0": DATA_IMAGES_ACTORS + "actor61_0.gif", \
-    "actor61_1": DATA_IMAGES_ACTORS + "actor61_1.gif", \
-    "actor62_0": DATA_IMAGES_ACTORS + "actor62_0.gif", \
-    "actor62_1": DATA_IMAGES_ACTORS + "actor62_1.gif", \
-    "actor63_0": DATA_IMAGES_ACTORS + "actor63_0.gif", \
-    "actor63_1": DATA_IMAGES_ACTORS + "actor63_1.gif", \
-    "actor64_0": DATA_IMAGES_ACTORS + "actor64_0.gif", \
-    "actor64_1": DATA_IMAGES_ACTORS + "actor64_1.gif", \
-    "actor65_0": DATA_IMAGES_ACTORS + "actor65_0.gif", \
-    "actor65_1": DATA_IMAGES_ACTORS + "actor65_1.gif", \
-    "actor66_0": DATA_IMAGES_ACTORS + "actor66_0.gif", \
-    "actor66_1": DATA_IMAGES_ACTORS + "actor66_1.gif", \
-    "actor67_0": DATA_IMAGES_ACTORS + "actor67_0.gif", \
-    "actor67_1": DATA_IMAGES_ACTORS + "actor67_1.gif", \
-    "actor68_0": DATA_IMAGES_ACTORS + "actor68_0.gif", \
-    "actor68_1": DATA_IMAGES_ACTORS + "actor68_1.gif", \
-    "actor69_0": DATA_IMAGES_ACTORS + "actor69_0.gif", \
-    "actor69_1": DATA_IMAGES_ACTORS + "actor69_1.gif", \
-    "actor70_0": DATA_IMAGES_ACTORS + "actor70_0.gif", \
-    "actor70_1": DATA_IMAGES_ACTORS + "actor70_1.gif", \
-    "actor71_0": DATA_IMAGES_ACTORS + "actor71_0.gif", \
-    "actor71_1": DATA_IMAGES_ACTORS + "actor71_1.gif", \
-    "actor72_0": DATA_IMAGES_ACTORS + "actor72_0.gif", \
-    "actor72_1": DATA_IMAGES_ACTORS + "actor72_1.gif", \
-    "actor73_0": DATA_IMAGES_ACTORS + "actor73_0.gif", \
-    "actor73_1": DATA_IMAGES_ACTORS + "actor73_1.gif", \
-    "actor74_0": DATA_IMAGES_ACTORS + "actor74_0.gif", \
-    "actor74_1": DATA_IMAGES_ACTORS + "actor74_1.gif", \
-    "actor75_0": DATA_IMAGES_ACTORS + "actor75_0.gif", \
-    "actor75_1": DATA_IMAGES_ACTORS + "actor75_1.gif", \
-    "actor76_0": DATA_IMAGES_ACTORS + "actor76_0.gif", \
-    "actor76_1": DATA_IMAGES_ACTORS + "actor76_1.gif", \
-    "actor77_0": DATA_IMAGES_ACTORS + "actor77_0.gif", \
-    "actor77_1": DATA_IMAGES_ACTORS + "actor77_1.gif", \
-    "actor78_0": DATA_IMAGES_ACTORS + "actor78_0.gif", \
-    "actor78_1": DATA_IMAGES_ACTORS + "actor78_1.gif", \
-    "actor79_0": DATA_IMAGES_ACTORS + "actor79_0.gif", \
-    "actor79_1": DATA_IMAGES_ACTORS + "actor79_1.gif", \
-    "actor80_0": DATA_IMAGES_ACTORS + "actor80_0.gif", \
-    "actor80_1": DATA_IMAGES_ACTORS + "actor80_1.gif", \
-    "actor81_0": DATA_IMAGES_ACTORS + "actor81_0.gif", \
-    "actor81_1": DATA_IMAGES_ACTORS + "actor81_1.gif", \
-    "actor82_0": DATA_IMAGES_ACTORS + "actor82_0.gif", \
-    "actor82_1": DATA_IMAGES_ACTORS + "actor82_1.gif", \
-    "actor83_0": DATA_IMAGES_ACTORS + "actor83_0.gif", \
-    "actor83_1": DATA_IMAGES_ACTORS + "actor83_1.gif", \
-    "actor84_0": DATA_IMAGES_ACTORS + "actor84_0.gif", \
-    "actor84_1": DATA_IMAGES_ACTORS + "actor84_1.gif", \
-    "actor85_0": DATA_IMAGES_ACTORS + "actor85_0.gif", \
-    "actor85_1": DATA_IMAGES_ACTORS + "actor85_1.gif", \
-    "actor86_0": DATA_IMAGES_ACTORS + "actor86_0.gif", \
-    "actor86_1": DATA_IMAGES_ACTORS + "actor86_1.gif", \
-    "actor87_0": DATA_IMAGES_ACTORS + "actor87_0.gif", \
-    "actor87_1": DATA_IMAGES_ACTORS + "actor87_1.gif", \
-    "actor88_0": DATA_IMAGES_ACTORS + "actor88_0.gif", \
-    "actor88_1": DATA_IMAGES_ACTORS + "actor88_1.gif", \
-    "actor89_0": DATA_IMAGES_ACTORS + "actor89_0.gif", \
-    "actor89_1": DATA_IMAGES_ACTORS + "actor89_1.gif", \
-    "actor90_0": DATA_IMAGES_ACTORS + "actor90_0.gif", \
-    "actor90_1": DATA_IMAGES_ACTORS + "actor90_1.gif", \
-    "actor91_0": DATA_IMAGES_ACTORS + "actor91_0.gif", \
-    "actor91_1": DATA_IMAGES_ACTORS + "actor91_1.gif", \
-    "actor92_0": DATA_IMAGES_ACTORS + "actor92_0.gif", \
-    "actor92_1": DATA_IMAGES_ACTORS + "actor92_1.gif", \
-    "actor93_0": DATA_IMAGES_ACTORS + "actor93_0.gif", \
-    "actor93_1": DATA_IMAGES_ACTORS + "actor93_1.gif", \
-    "actor94_0": DATA_IMAGES_ACTORS + "actor94_0.gif", \
-    "actor94_1": DATA_IMAGES_ACTORS + "actor94_1.gif", \
-    "actor95_0": DATA_IMAGES_ACTORS + "actor95_0.gif", \
-    "actor95_1": DATA_IMAGES_ACTORS + "actor95_1.gif", \
-    "actor96_0": DATA_IMAGES_ACTORS + "actor96_0.gif", \
-    "actor96_1": DATA_IMAGES_ACTORS + "actor96_1.gif", \
-    "actor97_0": DATA_IMAGES_ACTORS + "actor97_0.gif", \
-    "actor97_1": DATA_IMAGES_ACTORS + "actor97_1.gif", \
-    "actor98_0": DATA_IMAGES_ACTORS + "actor98_0.gif", \
-    "actor98_1": DATA_IMAGES_ACTORS + "actor98_1.gif", \
-    "actor99_0": DATA_IMAGES_ACTORS + "actor99_0.gif", \
-    "actor99_1": DATA_IMAGES_ACTORS + "actor99_1.gif", \
-    "actor100_0": DATA_IMAGES_ACTORS + "actor100_0.gif", \
-    "actor100_1": DATA_IMAGES_ACTORS + "actor100_1.gif", \
-    "actor101_0": DATA_IMAGES_ACTORS + "actor101_0.gif", \
-    "actor101_1": DATA_IMAGES_ACTORS + "actor101_1.gif", \
-    "actor102_0": DATA_IMAGES_ACTORS + "actor102_0.gif", \
-    "actor102_1": DATA_IMAGES_ACTORS + "actor102_1.gif", \
-    "actor103_0": DATA_IMAGES_ACTORS + "actor103_0.gif", \
-    "actor103_1": DATA_IMAGES_ACTORS + "actor103_1.gif", \
-    "actor104_0": DATA_IMAGES_ACTORS + "actor104_0.gif", \
-    "actor104_1": DATA_IMAGES_ACTORS + "actor104_1.gif", \
-    "actor105_0": DATA_IMAGES_ACTORS + "actor105_0.gif", \
-    "actor105_1": DATA_IMAGES_ACTORS + "actor105_1.gif", \
-    "actor106_0": DATA_IMAGES_ACTORS + "actor106_0.gif", \
-    "actor106_1": DATA_IMAGES_ACTORS + "actor106_1.gif", \
-    "actor107_0": DATA_IMAGES_ACTORS + "actor107_0.gif", \
-    "actor107_1": DATA_IMAGES_ACTORS + "actor107_1.gif", \
-    "actor108_0": DATA_IMAGES_ACTORS + "actor108_0.gif", \
-    "actor108_1": DATA_IMAGES_ACTORS + "actor108_1.gif", \
-    "actor109_0": DATA_IMAGES_ACTORS + "actor109_0.gif", \
-    "actor109_1": DATA_IMAGES_ACTORS + "actor109_1.gif", \
-    "actor110_0": DATA_IMAGES_ACTORS + "actor110_0.gif", \
-    "actor110_1": DATA_IMAGES_ACTORS + "actor110_1.gif", \
-    "actor111_0": DATA_IMAGES_ACTORS + "actor111_0.gif", \
-    "actor111_1": DATA_IMAGES_ACTORS + "actor111_1.gif", \
-    "actor112_0": DATA_IMAGES_ACTORS + "actor112_0.gif", \
-    "actor112_1": DATA_IMAGES_ACTORS + "actor112_1.gif", \
-    "actor113_0": DATA_IMAGES_ACTORS + "actor113_0.gif", \
-    "actor113_1": DATA_IMAGES_ACTORS + "actor113_1.gif", \
-    "actor114_0": DATA_IMAGES_ACTORS + "actor114_0.gif", \
-    "actor114_1": DATA_IMAGES_ACTORS + "actor114_1.gif", \
-    "actor115_0": DATA_IMAGES_ACTORS + "actor115_0.gif", \
-    "actor115_1": DATA_IMAGES_ACTORS + "actor115_1.gif", \
-    "actor116_0": DATA_IMAGES_ACTORS + "actor116_0.gif", \
-    "actor116_1": DATA_IMAGES_ACTORS + "actor116_1.gif", \
-    "actor117_0": DATA_IMAGES_ACTORS + "actor117_0.gif", \
-    "actor117_1": DATA_IMAGES_ACTORS + "actor117_1.gif", \
-    "actor118_0": DATA_IMAGES_ACTORS + "actor118_0.gif", \
-    "actor118_1": DATA_IMAGES_ACTORS + "actor118_1.gif", \
-    "actor119_0": DATA_IMAGES_ACTORS + "actor119_0.gif", \
-    "actor119_1": DATA_IMAGES_ACTORS + "actor119_1.gif", \
-    "actor120_0": DATA_IMAGES_ACTORS + "actor120_0.gif", \
-    "actor120_1": DATA_IMAGES_ACTORS + "actor120_1.gif", \
-    "actor121_0": DATA_IMAGES_ACTORS + "actor121_0.gif", \
-    "actor121_1": DATA_IMAGES_ACTORS + "actor121_1.gif", \
-    "actor122_0": DATA_IMAGES_ACTORS + "actor122_0.gif", \
-    "actor122_1": DATA_IMAGES_ACTORS + "actor122_1.gif", \
-    "actor123_0": DATA_IMAGES_ACTORS + "actor123_0.gif", \
-    "actor123_1": DATA_IMAGES_ACTORS + "actor123_1.gif", \
-    "actor124_0": DATA_IMAGES_ACTORS + "actor124_0.gif", \
-    "actor124_1": DATA_IMAGES_ACTORS + "actor124_1.gif", \
-    "actor125_0": DATA_IMAGES_ACTORS + "actor125_0.gif", \
-    "actor125_1": DATA_IMAGES_ACTORS + "actor125_1.gif", \
-    "actor126_0": DATA_IMAGES_ACTORS + "actor126_0.gif", \
-    "actor126_1": DATA_IMAGES_ACTORS + "actor126_1.gif", \
-    "actor127_0": DATA_IMAGES_ACTORS + "actor127_0.gif", \
-    "actor127_1": DATA_IMAGES_ACTORS + "actor127_1.gif", \
-    "actor128_0": DATA_IMAGES_ACTORS + "actor128_0.gif", \
-    "actor128_1": DATA_IMAGES_ACTORS + "actor128_1.gif", \
-    "actor129_0": DATA_IMAGES_ACTORS + "actor129_0.gif", \
-    "actor129_1": DATA_IMAGES_ACTORS + "actor129_1.gif", \
-    "actor130_0": DATA_IMAGES_ACTORS + "actor130_0.gif", \
-    "actor130_1": DATA_IMAGES_ACTORS + "actor130_1.gif", \
-    "actor131_0": DATA_IMAGES_ACTORS + "actor131_0.gif", \
-    "actor131_1": DATA_IMAGES_ACTORS + "actor131_1.gif", \
-    "actor132_0": DATA_IMAGES_ACTORS + "actor132_0.gif", \
-    "actor132_1": DATA_IMAGES_ACTORS + "actor132_1.gif", \
-    "actor133_0": DATA_IMAGES_ACTORS + "actor133_0.gif", \
-    "actor133_1": DATA_IMAGES_ACTORS + "actor133_1.gif", \
-    "actor134_0": DATA_IMAGES_ACTORS + "actor134_0.gif", \
-    "actor134_1": DATA_IMAGES_ACTORS + "actor134_1.gif", \
-    "actor135_0": DATA_IMAGES_ACTORS + "actor135_0.gif", \
-    "actor135_1": DATA_IMAGES_ACTORS + "actor135_1.gif", \
-    "actor136_0": DATA_IMAGES_ACTORS + "actor136_0.gif", \
-    "actor136_1": DATA_IMAGES_ACTORS + "actor136_1.gif", \
- \
+    "actor_arrow": DATA_IMAGES_ACTORS + "actor_arrow.gif",
+    "actor_groupal_1": DATA_IMAGES_ACTORS + "actor_groupal_1.gif",
+    "actor_groupal_2": DATA_IMAGES_ACTORS + "actor_groupal_2.gif",
+    "actor_groupal_3": DATA_IMAGES_ACTORS + "actor_groupal_3.gif",
+    "actor_plus_1": DATA_IMAGES_ACTORS + "actor_plus_1.gif",
+    "actor_plus_2": DATA_IMAGES_ACTORS + "actor_plus_2.gif",
+    "actor1_0": DATA_IMAGES_ACTORS + "actor1_0.gif",
+    "actor1_1": DATA_IMAGES_ACTORS + "actor1_1.gif",
+    "actor2_0": DATA_IMAGES_ACTORS + "actor2_0.gif",
+    "actor2_1": DATA_IMAGES_ACTORS + "actor2_1.gif",
+    "actor3_0": DATA_IMAGES_ACTORS + "actor3_0.gif",
+    "actor3_1": DATA_IMAGES_ACTORS + "actor3_1.gif",
+    "actor4_0": DATA_IMAGES_ACTORS + "actor4_0.gif",
+    "actor4_1": DATA_IMAGES_ACTORS + "actor4_1.gif",
+    "actor7_0": DATA_IMAGES_ACTORS + "actor7_0.gif",
+    "actor7_1": DATA_IMAGES_ACTORS + "actor7_1.gif",
+    "actor8_0": DATA_IMAGES_ACTORS + "actor8_0.gif",
+    "actor8_1": DATA_IMAGES_ACTORS + "actor8_1.gif",
+    "actor9_0": DATA_IMAGES_ACTORS + "actor9_0.gif",
+    "actor9_1": DATA_IMAGES_ACTORS + "actor9_1.gif",
+    "actor10_0": DATA_IMAGES_ACTORS + "actor10_0.gif",
+    "actor10_1": DATA_IMAGES_ACTORS + "actor10_1.gif",
+    "actor11_0": DATA_IMAGES_ACTORS + "actor11_0.gif",
+    "actor11_1": DATA_IMAGES_ACTORS + "actor11_1.gif",
+    "actor12_0": DATA_IMAGES_ACTORS + "actor12_0.gif",
+    "actor12_1": DATA_IMAGES_ACTORS + "actor12_1.gif",
+    "actor13_0": DATA_IMAGES_ACTORS + "actor13_0.gif",
+    "actor13_1": DATA_IMAGES_ACTORS + "actor13_1.gif",
+    "actor14_0": DATA_IMAGES_ACTORS + "actor14_0.gif",
+    "actor14_1": DATA_IMAGES_ACTORS + "actor14_1.gif",
+    "actor15_0": DATA_IMAGES_ACTORS + "actor15_0.gif",
+    "actor15_1": DATA_IMAGES_ACTORS + "actor15_1.gif",
+    "actor16_0": DATA_IMAGES_ACTORS + "actor16_0.gif",
+    "actor16_1": DATA_IMAGES_ACTORS + "actor16_1.gif",
+    "actor17_0": DATA_IMAGES_ACTORS + "actor17_0.gif",
+    "actor17_1": DATA_IMAGES_ACTORS + "actor17_1.gif",
+    "actor18_0": DATA_IMAGES_ACTORS + "actor18_0.gif",
+    "actor18_1": DATA_IMAGES_ACTORS + "actor18_1.gif",
+    "actor19_0": DATA_IMAGES_ACTORS + "actor19_0.gif",
+    "actor19_1": DATA_IMAGES_ACTORS + "actor19_1.gif",
+    "actor20_0": DATA_IMAGES_ACTORS + "actor20_0.gif",
+    "actor20_1": DATA_IMAGES_ACTORS + "actor20_1.gif",
+    "actor21_0": DATA_IMAGES_ACTORS + "actor21_0.gif",
+    "actor21_1": DATA_IMAGES_ACTORS + "actor21_1.gif",
+    "actor22_0": DATA_IMAGES_ACTORS + "actor22_0.gif",
+    "actor22_1": DATA_IMAGES_ACTORS + "actor22_1.gif",
+    "actor23_0": DATA_IMAGES_ACTORS + "actor23_0.gif",
+    "actor23_1": DATA_IMAGES_ACTORS + "actor23_1.gif",
+    "actor24_0": DATA_IMAGES_ACTORS + "actor24_0.gif",
+    "actor24_1": DATA_IMAGES_ACTORS + "actor24_1.gif",
+    "actor25_0": DATA_IMAGES_ACTORS + "actor25_0.gif",
+    "actor25_1": DATA_IMAGES_ACTORS + "actor25_1.gif",
+    "actor26_0": DATA_IMAGES_ACTORS + "actor26_0.gif",
+    "actor26_1": DATA_IMAGES_ACTORS + "actor26_1.gif",
+    "actor27_0": DATA_IMAGES_ACTORS + "actor27_0.gif",
+    "actor27_1": DATA_IMAGES_ACTORS + "actor27_1.gif",
+    "actor28_0": DATA_IMAGES_ACTORS + "actor28_0.gif",
+    "actor28_1": DATA_IMAGES_ACTORS + "actor28_1.gif",
+    "actor29_0": DATA_IMAGES_ACTORS + "actor29_0.gif",
+    "actor29_1": DATA_IMAGES_ACTORS + "actor29_1.gif",
+    "actor30_0": DATA_IMAGES_ACTORS + "actor30_0.gif",
+    "actor30_1": DATA_IMAGES_ACTORS + "actor30_1.gif",
+    "actor31_0": DATA_IMAGES_ACTORS + "actor31_0.gif",
+    "actor31_1": DATA_IMAGES_ACTORS + "actor31_1.gif",
+    "actor32_0": DATA_IMAGES_ACTORS + "actor32_0.gif",
+    "actor32_1": DATA_IMAGES_ACTORS + "actor32_1.gif",
+    "actor33_0": DATA_IMAGES_ACTORS + "actor33_0.gif",
+    "actor33_1": DATA_IMAGES_ACTORS + "actor33_1.gif",
+    "actor34_0": DATA_IMAGES_ACTORS + "actor34_0.gif",
+    "actor34_1": DATA_IMAGES_ACTORS + "actor34_1.gif",
+    "actor35_0": DATA_IMAGES_ACTORS + "actor35_0.gif",
+    "actor35_1": DATA_IMAGES_ACTORS + "actor35_1.gif",
+    "actor36_0": DATA_IMAGES_ACTORS + "actor36_0.gif",
+    "actor36_1": DATA_IMAGES_ACTORS + "actor36_1.gif",
+    "actor37_0": DATA_IMAGES_ACTORS + "actor37_0.gif",
+    "actor37_1": DATA_IMAGES_ACTORS + "actor37_1.gif",
+    "actor38_0": DATA_IMAGES_ACTORS + "actor38_0.gif",
+    "actor38_1": DATA_IMAGES_ACTORS + "actor38_1.gif",
+    "actor39_0": DATA_IMAGES_ACTORS + "actor39_0.gif",
+    "actor39_1": DATA_IMAGES_ACTORS + "actor39_1.gif",
+    "actor40_0": DATA_IMAGES_ACTORS + "actor40_0.gif",
+    "actor40_1": DATA_IMAGES_ACTORS + "actor40_1.gif",
+    "actor41_0": DATA_IMAGES_ACTORS + "actor41_0.gif",
+    "actor41_1": DATA_IMAGES_ACTORS + "actor41_1.gif",
+    "actor42_0": DATA_IMAGES_ACTORS + "actor42_0.gif",
+    "actor42_1": DATA_IMAGES_ACTORS + "actor42_1.gif",
+    "actor43_0": DATA_IMAGES_ACTORS + "actor43_0.gif",
+    "actor43_1": DATA_IMAGES_ACTORS + "actor43_1.gif",
+    "actor44_0": DATA_IMAGES_ACTORS + "actor44_0.gif",
+    "actor44_1": DATA_IMAGES_ACTORS + "actor44_1.gif",
+    "actor45_0": DATA_IMAGES_ACTORS + "actor45_0.gif",
+    "actor45_1": DATA_IMAGES_ACTORS + "actor45_1.gif",
+    "actor46_0": DATA_IMAGES_ACTORS + "actor46_0.gif",
+    "actor46_1": DATA_IMAGES_ACTORS + "actor46_1.gif",
+    "actor47_0": DATA_IMAGES_ACTORS + "actor47_0.gif",
+    "actor47_1": DATA_IMAGES_ACTORS + "actor47_1.gif",
+    "actor48_0": DATA_IMAGES_ACTORS + "actor48_0.gif",
+    "actor48_1": DATA_IMAGES_ACTORS + "actor48_1.gif",
+    "actor49_0": DATA_IMAGES_ACTORS + "actor49_0.gif",
+    "actor49_1": DATA_IMAGES_ACTORS + "actor49_1.gif",
+    "actor50_0": DATA_IMAGES_ACTORS + "actor50_0.gif",
+    "actor50_1": DATA_IMAGES_ACTORS + "actor50_1.gif",
+    "actor51_0": DATA_IMAGES_ACTORS + "actor51_0.gif",
+    "actor51_1": DATA_IMAGES_ACTORS + "actor51_1.gif",
+    "actor52_0": DATA_IMAGES_ACTORS + "actor52_0.gif",
+    "actor52_1": DATA_IMAGES_ACTORS + "actor52_1.gif",
+    "actor53_0": DATA_IMAGES_ACTORS + "actor53_0.gif",
+    "actor53_1": DATA_IMAGES_ACTORS + "actor53_1.gif",
+    "actor54_0": DATA_IMAGES_ACTORS + "actor54_0.gif",
+    "actor54_1": DATA_IMAGES_ACTORS + "actor54_1.gif",
+    "actor55_0": DATA_IMAGES_ACTORS + "actor55_0.gif",
+    "actor55_1": DATA_IMAGES_ACTORS + "actor55_1.gif",
+    "actor56_0": DATA_IMAGES_ACTORS + "actor56_0.gif",
+    "actor56_1": DATA_IMAGES_ACTORS + "actor56_1.gif",
+    "actor57_0": DATA_IMAGES_ACTORS + "actor57_0.gif",
+    "actor57_1": DATA_IMAGES_ACTORS + "actor57_1.gif",
+    "actor58_0": DATA_IMAGES_ACTORS + "actor58_0.gif",
+    "actor58_1": DATA_IMAGES_ACTORS + "actor58_1.gif",
+    "actor59_0": DATA_IMAGES_ACTORS + "actor59_0.gif",
+    "actor59_1": DATA_IMAGES_ACTORS + "actor59_1.gif",
+    "actor60_0": DATA_IMAGES_ACTORS + "actor60_0.gif",
+    "actor60_1": DATA_IMAGES_ACTORS + "actor60_1.gif",
+    "actor61_0": DATA_IMAGES_ACTORS + "actor61_0.gif",
+    "actor61_1": DATA_IMAGES_ACTORS + "actor61_1.gif",
+    "actor62_0": DATA_IMAGES_ACTORS + "actor62_0.gif",
+    "actor62_1": DATA_IMAGES_ACTORS + "actor62_1.gif",
+    "actor63_0": DATA_IMAGES_ACTORS + "actor63_0.gif",
+    "actor63_1": DATA_IMAGES_ACTORS + "actor63_1.gif",
+    "actor64_0": DATA_IMAGES_ACTORS + "actor64_0.gif",
+    "actor64_1": DATA_IMAGES_ACTORS + "actor64_1.gif",
+    "actor65_0": DATA_IMAGES_ACTORS + "actor65_0.gif",
+    "actor65_1": DATA_IMAGES_ACTORS + "actor65_1.gif",
+    "actor66_0": DATA_IMAGES_ACTORS + "actor66_0.gif",
+    "actor66_1": DATA_IMAGES_ACTORS + "actor66_1.gif",
+    "actor67_0": DATA_IMAGES_ACTORS + "actor67_0.gif",
+    "actor67_1": DATA_IMAGES_ACTORS + "actor67_1.gif",
+    "actor68_0": DATA_IMAGES_ACTORS + "actor68_0.gif",
+    "actor68_1": DATA_IMAGES_ACTORS + "actor68_1.gif",
+    "actor69_0": DATA_IMAGES_ACTORS + "actor69_0.gif",
+    "actor69_1": DATA_IMAGES_ACTORS + "actor69_1.gif",
+    "actor70_0": DATA_IMAGES_ACTORS + "actor70_0.gif",
+    "actor70_1": DATA_IMAGES_ACTORS + "actor70_1.gif",
+    "actor71_0": DATA_IMAGES_ACTORS + "actor71_0.gif",
+    "actor71_1": DATA_IMAGES_ACTORS + "actor71_1.gif",
+    "actor72_0": DATA_IMAGES_ACTORS + "actor72_0.gif",
+    "actor72_1": DATA_IMAGES_ACTORS + "actor72_1.gif",
+    "actor73_0": DATA_IMAGES_ACTORS + "actor73_0.gif",
+    "actor73_1": DATA_IMAGES_ACTORS + "actor73_1.gif",
+    "actor74_0": DATA_IMAGES_ACTORS + "actor74_0.gif",
+    "actor74_1": DATA_IMAGES_ACTORS + "actor74_1.gif",
+    "actor75_0": DATA_IMAGES_ACTORS + "actor75_0.gif",
+    "actor75_1": DATA_IMAGES_ACTORS + "actor75_1.gif",
+    "actor76_0": DATA_IMAGES_ACTORS + "actor76_0.gif",
+    "actor76_1": DATA_IMAGES_ACTORS + "actor76_1.gif",
+    "actor77_0": DATA_IMAGES_ACTORS + "actor77_0.gif",
+    "actor77_1": DATA_IMAGES_ACTORS + "actor77_1.gif",
+    "actor78_0": DATA_IMAGES_ACTORS + "actor78_0.gif",
+    "actor78_1": DATA_IMAGES_ACTORS + "actor78_1.gif",
+    "actor79_0": DATA_IMAGES_ACTORS + "actor79_0.gif",
+    "actor79_1": DATA_IMAGES_ACTORS + "actor79_1.gif",
+    "actor80_0": DATA_IMAGES_ACTORS + "actor80_0.gif",
+    "actor80_1": DATA_IMAGES_ACTORS + "actor80_1.gif",
+    "actor81_0": DATA_IMAGES_ACTORS + "actor81_0.gif",
+    "actor81_1": DATA_IMAGES_ACTORS + "actor81_1.gif",
+    "actor82_0": DATA_IMAGES_ACTORS + "actor82_0.gif",
+    "actor82_1": DATA_IMAGES_ACTORS + "actor82_1.gif",
+    "actor83_0": DATA_IMAGES_ACTORS + "actor83_0.gif",
+    "actor83_1": DATA_IMAGES_ACTORS + "actor83_1.gif",
+    "actor84_0": DATA_IMAGES_ACTORS + "actor84_0.gif",
+    "actor84_1": DATA_IMAGES_ACTORS + "actor84_1.gif",
+    "actor85_0": DATA_IMAGES_ACTORS + "actor85_0.gif",
+    "actor85_1": DATA_IMAGES_ACTORS + "actor85_1.gif",
+    "actor86_0": DATA_IMAGES_ACTORS + "actor86_0.gif",
+    "actor86_1": DATA_IMAGES_ACTORS + "actor86_1.gif",
+    "actor87_0": DATA_IMAGES_ACTORS + "actor87_0.gif",
+    "actor87_1": DATA_IMAGES_ACTORS + "actor87_1.gif",
+    "actor88_0": DATA_IMAGES_ACTORS + "actor88_0.gif",
+    "actor88_1": DATA_IMAGES_ACTORS + "actor88_1.gif",
+    "actor89_0": DATA_IMAGES_ACTORS + "actor89_0.gif",
+    "actor89_1": DATA_IMAGES_ACTORS + "actor89_1.gif",
+    "actor90_0": DATA_IMAGES_ACTORS + "actor90_0.gif",
+    "actor90_1": DATA_IMAGES_ACTORS + "actor90_1.gif",
+    "actor91_0": DATA_IMAGES_ACTORS + "actor91_0.gif",
+    "actor91_1": DATA_IMAGES_ACTORS + "actor91_1.gif",
+    "actor92_0": DATA_IMAGES_ACTORS + "actor92_0.gif",
+    "actor92_1": DATA_IMAGES_ACTORS + "actor92_1.gif",
+    "actor93_0": DATA_IMAGES_ACTORS + "actor93_0.gif",
+    "actor93_1": DATA_IMAGES_ACTORS + "actor93_1.gif",
+    "actor94_0": DATA_IMAGES_ACTORS + "actor94_0.gif",
+    "actor94_1": DATA_IMAGES_ACTORS + "actor94_1.gif",
+    "actor95_0": DATA_IMAGES_ACTORS + "actor95_0.gif",
+    "actor95_1": DATA_IMAGES_ACTORS + "actor95_1.gif",
+    "actor96_0": DATA_IMAGES_ACTORS + "actor96_0.gif",
+    "actor96_1": DATA_IMAGES_ACTORS + "actor96_1.gif",
+    "actor97_0": DATA_IMAGES_ACTORS + "actor97_0.gif",
+    "actor97_1": DATA_IMAGES_ACTORS + "actor97_1.gif",
+    "actor98_0": DATA_IMAGES_ACTORS + "actor98_0.gif",
+    "actor98_1": DATA_IMAGES_ACTORS + "actor98_1.gif",
+    "actor99_0": DATA_IMAGES_ACTORS + "actor99_0.gif",
+    "actor99_1": DATA_IMAGES_ACTORS + "actor99_1.gif",
+    "actor100_0": DATA_IMAGES_ACTORS + "actor100_0.gif",
+    "actor100_1": DATA_IMAGES_ACTORS + "actor100_1.gif",
+    "actor101_0": DATA_IMAGES_ACTORS + "actor101_0.gif",
+    "actor101_1": DATA_IMAGES_ACTORS + "actor101_1.gif",
+    "actor102_0": DATA_IMAGES_ACTORS + "actor102_0.gif",
+    "actor102_1": DATA_IMAGES_ACTORS + "actor102_1.gif",
+    "actor103_0": DATA_IMAGES_ACTORS + "actor103_0.gif",
+    "actor103_1": DATA_IMAGES_ACTORS + "actor103_1.gif",
+    "actor104_0": DATA_IMAGES_ACTORS + "actor104_0.gif",
+    "actor104_1": DATA_IMAGES_ACTORS + "actor104_1.gif",
+    "actor105_0": DATA_IMAGES_ACTORS + "actor105_0.gif",
+    "actor105_1": DATA_IMAGES_ACTORS + "actor105_1.gif",
+    "actor106_0": DATA_IMAGES_ACTORS + "actor106_0.gif",
+    "actor106_1": DATA_IMAGES_ACTORS + "actor106_1.gif",
+    "actor107_0": DATA_IMAGES_ACTORS + "actor107_0.gif",
+    "actor107_1": DATA_IMAGES_ACTORS + "actor107_1.gif",
+    "actor108_0": DATA_IMAGES_ACTORS + "actor108_0.gif",
+    "actor108_1": DATA_IMAGES_ACTORS + "actor108_1.gif",
+    "actor109_0": DATA_IMAGES_ACTORS + "actor109_0.gif",
+    "actor109_1": DATA_IMAGES_ACTORS + "actor109_1.gif",
+    "actor110_0": DATA_IMAGES_ACTORS + "actor110_0.gif",
+    "actor110_1": DATA_IMAGES_ACTORS + "actor110_1.gif",
+    "actor111_0": DATA_IMAGES_ACTORS + "actor111_0.gif",
+    "actor111_1": DATA_IMAGES_ACTORS + "actor111_1.gif",
+    "actor112_0": DATA_IMAGES_ACTORS + "actor112_0.gif",
+    "actor112_1": DATA_IMAGES_ACTORS + "actor112_1.gif",
+    "actor113_0": DATA_IMAGES_ACTORS + "actor113_0.gif",
+    "actor113_1": DATA_IMAGES_ACTORS + "actor113_1.gif",
+    "actor114_0": DATA_IMAGES_ACTORS + "actor114_0.gif",
+    "actor114_1": DATA_IMAGES_ACTORS + "actor114_1.gif",
+    "actor115_0": DATA_IMAGES_ACTORS + "actor115_0.gif",
+    "actor115_1": DATA_IMAGES_ACTORS + "actor115_1.gif",
+    "actor116_0": DATA_IMAGES_ACTORS + "actor116_0.gif",
+    "actor116_1": DATA_IMAGES_ACTORS + "actor116_1.gif",
+    "actor117_0": DATA_IMAGES_ACTORS + "actor117_0.gif",
+    "actor117_1": DATA_IMAGES_ACTORS + "actor117_1.gif",
+    "actor118_0": DATA_IMAGES_ACTORS + "actor118_0.gif",
+    "actor118_1": DATA_IMAGES_ACTORS + "actor118_1.gif",
+    "actor119_0": DATA_IMAGES_ACTORS + "actor119_0.gif",
+    "actor119_1": DATA_IMAGES_ACTORS + "actor119_1.gif",
+    "actor120_0": DATA_IMAGES_ACTORS + "actor120_0.gif",
+    "actor120_1": DATA_IMAGES_ACTORS + "actor120_1.gif",
+    "actor121_0": DATA_IMAGES_ACTORS + "actor121_0.gif",
+    "actor121_1": DATA_IMAGES_ACTORS + "actor121_1.gif",
+    "actor122_0": DATA_IMAGES_ACTORS + "actor122_0.gif",
+    "actor122_1": DATA_IMAGES_ACTORS + "actor122_1.gif",
+    "actor123_0": DATA_IMAGES_ACTORS + "actor123_0.gif",
+    "actor123_1": DATA_IMAGES_ACTORS + "actor123_1.gif",
+    "actor124_0": DATA_IMAGES_ACTORS + "actor124_0.gif",
+    "actor124_1": DATA_IMAGES_ACTORS + "actor124_1.gif",
+    "actor125_0": DATA_IMAGES_ACTORS + "actor125_0.gif",
+    "actor125_1": DATA_IMAGES_ACTORS + "actor125_1.gif",
+    "actor126_0": DATA_IMAGES_ACTORS + "actor126_0.gif",
+    "actor126_1": DATA_IMAGES_ACTORS + "actor126_1.gif",
+    "actor127_0": DATA_IMAGES_ACTORS + "actor127_0.gif",
+    "actor127_1": DATA_IMAGES_ACTORS + "actor127_1.gif",
+    "actor128_0": DATA_IMAGES_ACTORS + "actor128_0.gif",
+    "actor128_1": DATA_IMAGES_ACTORS + "actor128_1.gif",
+    "actor129_0": DATA_IMAGES_ACTORS + "actor129_0.gif",
+    "actor129_1": DATA_IMAGES_ACTORS + "actor129_1.gif",
+    "actor130_0": DATA_IMAGES_ACTORS + "actor130_0.gif",
+    "actor130_1": DATA_IMAGES_ACTORS + "actor130_1.gif",
+    "actor131_0": DATA_IMAGES_ACTORS + "actor131_0.gif",
+    "actor131_1": DATA_IMAGES_ACTORS + "actor131_1.gif",
+    "actor132_0": DATA_IMAGES_ACTORS + "actor132_0.gif",
+    "actor132_1": DATA_IMAGES_ACTORS + "actor132_1.gif",
+    "actor133_0": DATA_IMAGES_ACTORS + "actor133_0.gif",
+    "actor133_1": DATA_IMAGES_ACTORS + "actor133_1.gif",
+    "actor134_0": DATA_IMAGES_ACTORS + "actor134_0.gif",
+    "actor134_1": DATA_IMAGES_ACTORS + "actor134_1.gif",
+    "actor135_0": DATA_IMAGES_ACTORS + "actor135_0.gif",
+    "actor135_1": DATA_IMAGES_ACTORS + "actor135_1.gif",
+    "actor136_0": DATA_IMAGES_ACTORS + "actor136_0.gif",
+    "actor136_1": DATA_IMAGES_ACTORS + "actor136_1.gif",
     # Construcción
-    "big_construction_wall1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall1_0.gif", \
-    "big_construction_wall1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall1_1.gif", \
-    "big_construction_wall2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall2_0.gif", \
-    "big_construction_wall2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall2_1.gif", \
-    "big_construction_wall3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall3_0.gif", \
-    "big_construction_wall3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall3_1.gif", \
-    "big_construction_wall4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall4_0.gif", \
-    "big_construction_wall4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall4_1.gif", \
-    "big_construction_wall5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall5_0.gif", \
-    "big_construction_wall5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall5_1.gif", \
-    "big_construction_wall6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall6_0.gif", \
-    "big_construction_wall6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall6_1.gif", \
-    "big_construction_wall7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall7_0.gif", \
-    "big_construction_wall7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall7_1.gif", \
-    "big_construction_wall8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall8_0.gif", \
-    "big_construction_wall8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall8_1.gif", \
-    "big_construction_wall9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall9_0.gif", \
-    "big_construction_wall9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall9_1.gif", \
-    "big_construction_wall10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall10_0.gif", \
-    "big_construction_wall10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall10_1.gif", \
-    "big_construction_wall11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall11_0.gif", \
-    "big_construction_wall11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall11_1.gif", \
-    "big_construction_wall12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall12_0.gif", \
-    "big_construction_wall12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall12_1.gif", \
-    "big_construction_wall13_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall13_0.gif", \
-    "big_construction_wall13_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall13_1.gif", \
-    "big_construction_wall14_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall14_0.gif", \
-    "big_construction_wall14_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall14_1.gif", \
-    "big_construction_wall15_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall15_0.gif", \
-    "big_construction_wall15_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall15_1.gif", \
-    "big_construction_wall16_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall16_0.gif", \
-    "big_construction_wall16_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall16_1.gif", \
-    "big_construction_wall17_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall17_0.gif", \
-    "big_construction_wall17_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall17_1.gif", \
-    "big_construction_wall18_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall18_0.gif", \
-    "big_construction_wall18_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall18_1.gif", \
-    "big_construction_wall19_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall19_0.gif", \
-    "big_construction_wall19_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall19_1.gif", \
-    "big_construction_wall20_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall20_0.gif", \
-    "big_construction_wall20_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall20_1.gif", \
-    "big_construction_wall21_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall21_0.gif", \
-    "big_construction_wall21_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall21_1.gif", \
-    "big_construction_wall22_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall22_0.gif", \
-    "big_construction_wall22_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall22_1.gif", \
-    "big_construction_wall23_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall23_0.gif", \
-    "big_construction_wall23_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall23_1.gif", \
-    "big_construction_wall24_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall24_0.gif", \
-    "big_construction_wall24_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall24_1.gif", \
-    "big_construction_wall25_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall25_0.gif", \
-    "big_construction_wall25_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall25_1.gif", \
-    "big_construction_wall26_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall26_0.gif", \
-    "big_construction_wall26_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall26_1.gif", \
-    "big_construction_wall27_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall27_0.gif", \
-    "big_construction_wall27_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall27_1.gif", \
-    "big_construction_wall28_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall28_0.gif", \
-    "big_construction_wall28_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall28_1.gif", \
-    "big_construction_wall29_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall29_0.gif", \
-    "big_construction_wall29_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall29_1.gif", \
-    "big_construction_wall30_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall30_0.gif", \
-    "big_construction_wall30_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall30_1.gif", \
-    "big_construction_wall31_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall31_0.gif", \
-    "big_construction_wall31_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall31_1.gif", \
-    "big_construction_wall32_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall32_0.gif", \
-    "big_construction_wall32_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall32_1.gif", \
-    "big_construction_wall33_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall33_0.gif", \
-    "big_construction_wall33_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall33_1.gif", \
-    "big_construction_wall34_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall34_0.gif", \
-    "big_construction_wall34_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall34_1.gif", \
-    "big_construction_wall35_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall35_0.gif", \
-    "big_construction_wall35_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall35_1.gif", \
-    "big_construction_wall36_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall36_0.gif", \
-    "big_construction_wall36_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall36_1.gif", \
-    "big_construction_wall37_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall37_0.gif", \
-    "big_construction_wall37_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall37_1.gif", \
-    "big_construction_wall38_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall38_0.gif", \
-    "big_construction_wall38_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall38_1.gif", \
-    "big_construction_wall39_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall39_0.gif", \
-    "big_construction_wall39_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall39_1.gif", \
-    "big_construction_wall40_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall40_0.gif", \
-    "big_construction_wall40_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall40_1.gif", \
-    "big_construction_wall41_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall41_0.gif", \
-    "big_construction_wall41_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall41_1.gif", \
-    "big_construction_wall42_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall42_0.gif", \
-    "big_construction_wall42_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall42_1.gif", \
-    "big_construction_wall43_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall43_0.gif", \
-    "big_construction_wall43_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall43_1.gif", \
-    "big_construction_wall44_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall44_0.gif", \
-    "big_construction_wall44_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall44_1.gif", \
-    "big_construction_wall45_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall45_0.gif", \
-    "big_construction_wall45_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall45_1.gif", \
-    "big_construction_wall46_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall46_0.gif", \
-    "big_construction_wall46_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall46_1.gif", \
-    "big_construction_wall47_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall47_0.gif", \
-    "big_construction_wall47_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall47_1.gif", \
-    "big_construction_wall49_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall49_0.gif", \
-    "big_construction_wall49_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall49_1.gif", \
-    "big_construction_wall50_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall50_0.gif", \
-    "big_construction_wall50_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall50_1.gif", \
-    "big_construction_wall51_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall51_0.gif", \
-    "big_construction_wall51_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall51_1.gif", \
-    "big_construction_wall52_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall52_0.gif", \
-    "big_construction_wall52_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall52_1.gif", \
-    "big_construction_wall53_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall53_0.gif", \
-    "big_construction_wall53_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall53_1.gif", \
-    "big_construction_wall54_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall54_0.gif", \
-    "big_construction_wall54_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall54_1.gif", \
-    "big_construction_wall55_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall55_0.gif", \
-    "big_construction_wall55_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall55_1.gif", \
-    "big_construction_wall56_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall56_0.gif", \
-    "big_construction_wall56_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall56_1.gif", \
-    "big_construction_wall57_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall57_0.gif", \
-    "big_construction_wall57_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall57_1.gif", \
-    "big_construction_wall58_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall58_0.gif", \
-    "big_construction_wall58_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall58_1.gif", \
-    "big_construction_wall59_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall59_0.gif", \
-    "big_construction_wall59_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall59_1.gif", \
-    "big_construction_wall60_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall60_0.gif", \
-    "big_construction_wall60_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall60_1.gif", \
-    "big_construction_wall61_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall61_0.gif", \
-    "big_construction_wall61_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall61_1.gif", \
-    "big_construction_wall62_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall62_0.gif", \
-    "big_construction_wall62_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall62_1.gif", \
-    "big_construction_wall63_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall63_0.gif", \
-    "big_construction_wall63_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall63_1.gif", \
-    "big_escalera1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera1_0.gif", \
-    "big_escalera1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera1_1.gif", \
-    "big_escalera2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera2_0.gif", \
-    "big_escalera2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera2_1.gif", \
-    "big_escalera3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera3_0.gif", \
-    "big_escalera3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera3_1.gif", \
-    "big_escalera4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera4_0.gif", \
-    "big_escalera4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera4_1.gif", \
-    "big_escalera5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera5_0.gif", \
-    "big_escalera5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera5_1.gif", \
-    "big_escalera6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera6_0.gif", \
-    "big_escalera6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera6_1.gif", \
-    "big_escalera7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera7_0.gif", \
-    "big_escalera7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera7_1.gif", \
-    "big_escalera8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera8_0.gif", \
-    "big_escalera8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera8_1.gif", \
-    "big_escalera9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera9_0.gif", \
-    "big_escalera9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera9_1.gif", \
-    "big_escalera10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera10_0.gif", \
-    "big_escalera10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera10_1.gif", \
-    "big_escalera11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera11_0.gif", \
-    "big_escalera11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera11_1.gif", \
-    "big_escalera12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera12_0.gif", \
-    "big_escalera12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera12_1.gif", \
-    "big_escalera13_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera13_0.gif", \
-    "big_escalera13_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera13_1.gif", \
-    "big_escalera14_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera14_0.gif", \
-    "big_escalera14_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera14_1.gif", \
-    "big_pilar1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar1_0.gif", \
-    "big_pilar1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar1_1.gif", \
-    "big_pilar2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar2_0.gif", \
-    "big_pilar2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar2_1.gif", \
-    "big_pilar3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar3_0.gif", \
-    "big_pilar3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar3_1.gif", \
-    "big_pilar4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar4_0.gif", \
-    "big_pilar4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar4_1.gif", \
-    "big_pilar5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar5_0.gif", \
-    "big_pilar5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar5_1.gif", \
-    "big_pilar6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar6_0.gif", \
-    "big_pilar6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar6_1.gif", \
-    "big_pilar7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar7_0.gif", \
-    "big_pilar7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar7_1.gif", \
-    "big_pilar8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar8_0.gif", \
-    "big_pilar8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar8_1.gif", \
-    "big_pilar9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar9_0.gif", \
-    "big_pilar9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar9_1.gif", \
-    "big_pilar10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar10_0.gif", \
-    "big_pilar10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar10_1.gif", \
-    "big_pilar11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar11_0.gif", \
-    "big_pilar11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar11_1.gif", \
-    "big_pilar12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar12_0.gif", \
-    "big_pilar12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar12_1.gif", \
-    "big_pilar13_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar13_0.gif", \
-    "big_pilar13_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar13_1.gif", \
-    "big_pilar14_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar14_0.gif", \
-    "big_pilar14_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar14_1.gif", \
-    "big_pilar15_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar15_0.gif", \
-    "big_pilar15_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar15_1.gif", \
-    "big_puerta1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta1_0.gif", \
-    "big_puerta1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta1_1.gif", \
-    "big_puerta2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta2_0.gif", \
-    "big_puerta2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta2_1.gif", \
-    "big_puerta3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta3_0.gif", \
-    "big_puerta3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta3_1.gif", \
-    "big_puerta4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta4_0.gif", \
-    "big_puerta4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta4_1.gif", \
-    "big_puerta5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta5_0.gif", \
-    "big_puerta5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta5_1.gif", \
-    "big_puerta6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta6_0.gif", \
-    "big_puerta6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta6_1.gif", \
-    "big_puerta7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta7_0.gif", \
-    "big_puerta7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta7_1.gif", \
-    "big_puerta8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta8_0.gif", \
-    "big_puerta8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta8_1.gif", \
-    "big_puerta9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta9_0.gif", \
-    "big_puerta9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta9_1.gif", \
-    "big_puerta10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta10_0.gif", \
-    "big_puerta10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta10_1.gif", \
-    "big_puerta11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta11_0.gif", \
-    "big_puerta11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta11_1.gif", \
-    "big_puerta12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta12_0.gif", \
-    "big_puerta12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta12_1.gif", \
-    "construction_wall1_0": DATA_IMAGES_CONSTRUCTION + "construction_wall1_0.gif", \
-    "construction_wall1_1": DATA_IMAGES_CONSTRUCTION + "construction_wall1_1.gif", \
-    "construction_wall2_0": DATA_IMAGES_CONSTRUCTION + "construction_wall2_0.gif", \
-    "construction_wall2_1": DATA_IMAGES_CONSTRUCTION + "construction_wall2_1.gif", \
-    "construction_wall3_0": DATA_IMAGES_CONSTRUCTION + "construction_wall3_0.gif", \
-    "construction_wall3_1": DATA_IMAGES_CONSTRUCTION + "construction_wall3_1.gif", \
-    "construction_wall4_0": DATA_IMAGES_CONSTRUCTION + "construction_wall4_0.gif", \
-    "construction_wall4_1": DATA_IMAGES_CONSTRUCTION + "construction_wall4_1.gif", \
-    "construction_wall5_0": DATA_IMAGES_CONSTRUCTION + "construction_wall5_0.gif", \
-    "construction_wall5_1": DATA_IMAGES_CONSTRUCTION + "construction_wall5_1.gif", \
-    "construction_wall6_0": DATA_IMAGES_CONSTRUCTION + "construction_wall6_0.gif", \
-    "construction_wall6_1": DATA_IMAGES_CONSTRUCTION + "construction_wall6_1.gif", \
-    "construction_wall7_0": DATA_IMAGES_CONSTRUCTION + "construction_wall7_0.gif", \
-    "construction_wall7_1": DATA_IMAGES_CONSTRUCTION + "construction_wall7_1.gif", \
-    "construction_wall8_0": DATA_IMAGES_CONSTRUCTION + "construction_wall8_0.gif", \
-    "construction_wall8_1": DATA_IMAGES_CONSTRUCTION + "construction_wall8_1.gif", \
-    "construction_wall9_0": DATA_IMAGES_CONSTRUCTION + "construction_wall9_0.gif", \
-    "construction_wall9_1": DATA_IMAGES_CONSTRUCTION + "construction_wall9_1.gif", \
-    "construction_wall10_0": DATA_IMAGES_CONSTRUCTION + "construction_wall10_0.gif", \
-    "construction_wall10_1": DATA_IMAGES_CONSTRUCTION + "construction_wall10_1.gif", \
-    "construction_wall11_0": DATA_IMAGES_CONSTRUCTION + "construction_wall11_0.gif", \
-    "construction_wall11_1": DATA_IMAGES_CONSTRUCTION + "construction_wall11_1.gif", \
-    "construction_wall12_0": DATA_IMAGES_CONSTRUCTION + "construction_wall12_0.gif", \
-    "construction_wall12_1": DATA_IMAGES_CONSTRUCTION + "construction_wall12_1.gif", \
-    "construction_wall13_0": DATA_IMAGES_CONSTRUCTION + "construction_wall13_0.gif", \
-    "construction_wall13_1": DATA_IMAGES_CONSTRUCTION + "construction_wall13_1.gif", \
-    "construction_wall14_0": DATA_IMAGES_CONSTRUCTION + "construction_wall14_0.gif", \
-    "construction_wall14_1": DATA_IMAGES_CONSTRUCTION + "construction_wall14_1.gif", \
-    "construction_wall15_0": DATA_IMAGES_CONSTRUCTION + "construction_wall15_0.gif", \
-    "construction_wall15_1": DATA_IMAGES_CONSTRUCTION + "construction_wall15_1.gif", \
-    "construction_wall16_0": DATA_IMAGES_CONSTRUCTION + "construction_wall16_0.gif", \
-    "construction_wall16_1": DATA_IMAGES_CONSTRUCTION + "construction_wall16_1.gif", \
-    "construction_wall17_0": DATA_IMAGES_CONSTRUCTION + "construction_wall17_0.gif", \
-    "construction_wall17_1": DATA_IMAGES_CONSTRUCTION + "construction_wall17_1.gif", \
-    "construction_wall18_0": DATA_IMAGES_CONSTRUCTION + "construction_wall18_0.gif", \
-    "construction_wall18_1": DATA_IMAGES_CONSTRUCTION + "construction_wall18_1.gif", \
-    "construction_wall19_0": DATA_IMAGES_CONSTRUCTION + "construction_wall19_0.gif", \
-    "construction_wall19_1": DATA_IMAGES_CONSTRUCTION + "construction_wall19_1.gif", \
-    "construction_wall20_0": DATA_IMAGES_CONSTRUCTION + "construction_wall20_0.gif", \
-    "construction_wall20_1": DATA_IMAGES_CONSTRUCTION + "construction_wall20_1.gif", \
-    "construction_wall21_0": DATA_IMAGES_CONSTRUCTION + "construction_wall21_0.gif", \
-    "construction_wall21_1": DATA_IMAGES_CONSTRUCTION + "construction_wall21_1.gif", \
-    "construction_wall22_0": DATA_IMAGES_CONSTRUCTION + "construction_wall22_0.gif", \
-    "construction_wall22_1": DATA_IMAGES_CONSTRUCTION + "construction_wall22_1.gif", \
-    "construction_wall23_0": DATA_IMAGES_CONSTRUCTION + "construction_wall23_0.gif", \
-    "construction_wall23_1": DATA_IMAGES_CONSTRUCTION + "construction_wall23_1.gif", \
-    "construction_wall24_0": DATA_IMAGES_CONSTRUCTION + "construction_wall24_0.gif", \
-    "construction_wall24_1": DATA_IMAGES_CONSTRUCTION + "construction_wall24_1.gif", \
-    "construction_wall25_0": DATA_IMAGES_CONSTRUCTION + "construction_wall25_0.gif", \
-    "construction_wall25_1": DATA_IMAGES_CONSTRUCTION + "construction_wall25_1.gif", \
-    "construction_wall26_0": DATA_IMAGES_CONSTRUCTION + "construction_wall26_0.gif", \
-    "construction_wall26_1": DATA_IMAGES_CONSTRUCTION + "construction_wall26_1.gif", \
-    "construction_wall27_0": DATA_IMAGES_CONSTRUCTION + "construction_wall27_0.gif", \
-    "construction_wall27_1": DATA_IMAGES_CONSTRUCTION + "construction_wall27_1.gif", \
-    "construction_wall28_0": DATA_IMAGES_CONSTRUCTION + "construction_wall28_0.gif", \
-    "construction_wall28_1": DATA_IMAGES_CONSTRUCTION + "construction_wall28_1.gif", \
-    "construction_wall29_0": DATA_IMAGES_CONSTRUCTION + "construction_wall29_0.gif", \
-    "construction_wall29_1": DATA_IMAGES_CONSTRUCTION + "construction_wall29_1.gif", \
-    "construction_wall30_0": DATA_IMAGES_CONSTRUCTION + "construction_wall30_0.gif", \
-    "construction_wall30_1": DATA_IMAGES_CONSTRUCTION + "construction_wall30_1.gif", \
-    "construction_wall31_0": DATA_IMAGES_CONSTRUCTION + "construction_wall31_0.gif", \
-    "construction_wall31_1": DATA_IMAGES_CONSTRUCTION + "construction_wall31_1.gif", \
-    "construction_wall32_0": DATA_IMAGES_CONSTRUCTION + "construction_wall32_0.gif", \
-    "construction_wall32_1": DATA_IMAGES_CONSTRUCTION + "construction_wall32_1.gif", \
-    "construction_wall33_0": DATA_IMAGES_CONSTRUCTION + "construction_wall33_0.gif", \
-    "construction_wall33_1": DATA_IMAGES_CONSTRUCTION + "construction_wall33_1.gif", \
-    "construction_wall34_0": DATA_IMAGES_CONSTRUCTION + "construction_wall34_0.gif", \
-    "construction_wall34_1": DATA_IMAGES_CONSTRUCTION + "construction_wall34_1.gif", \
-    "construction_wall35_0": DATA_IMAGES_CONSTRUCTION + "construction_wall35_0.gif", \
-    "construction_wall35_1": DATA_IMAGES_CONSTRUCTION + "construction_wall35_1.gif", \
-    "construction_wall36_0": DATA_IMAGES_CONSTRUCTION + "construction_wall36_0.gif", \
-    "construction_wall36_1": DATA_IMAGES_CONSTRUCTION + "construction_wall36_1.gif", \
-    "construction_wall37_0": DATA_IMAGES_CONSTRUCTION + "construction_wall37_0.gif", \
-    "construction_wall37_1": DATA_IMAGES_CONSTRUCTION + "construction_wall37_1.gif", \
-    "construction_wall38_0": DATA_IMAGES_CONSTRUCTION + "construction_wall38_0.gif", \
-    "construction_wall38_1": DATA_IMAGES_CONSTRUCTION + "construction_wall38_1.gif", \
-    "construction_wall39_0": DATA_IMAGES_CONSTRUCTION + "construction_wall39_0.gif", \
-    "construction_wall39_1": DATA_IMAGES_CONSTRUCTION + "construction_wall39_1.gif", \
-    "construction_wall40_0": DATA_IMAGES_CONSTRUCTION + "construction_wall40_0.gif", \
-    "construction_wall40_1": DATA_IMAGES_CONSTRUCTION + "construction_wall40_1.gif", \
-    "construction_wall41_0": DATA_IMAGES_CONSTRUCTION + "construction_wall41_0.gif", \
-    "construction_wall41_1": DATA_IMAGES_CONSTRUCTION + "construction_wall41_1.gif", \
-    "construction_wall42_0": DATA_IMAGES_CONSTRUCTION + "construction_wall42_0.gif", \
-    "construction_wall42_1": DATA_IMAGES_CONSTRUCTION + "construction_wall42_1.gif", \
-    "construction_wall43_0": DATA_IMAGES_CONSTRUCTION + "construction_wall43_0.gif", \
-    "construction_wall43_1": DATA_IMAGES_CONSTRUCTION + "construction_wall43_1.gif", \
-    "construction_wall44_0": DATA_IMAGES_CONSTRUCTION + "construction_wall44_0.gif", \
-    "construction_wall44_1": DATA_IMAGES_CONSTRUCTION + "construction_wall44_1.gif", \
-    "construction_wall45_0": DATA_IMAGES_CONSTRUCTION + "construction_wall45_0.gif", \
-    "construction_wall45_1": DATA_IMAGES_CONSTRUCTION + "construction_wall45_1.gif", \
-    "construction_wall46_0": DATA_IMAGES_CONSTRUCTION + "construction_wall46_0.gif", \
-    "construction_wall46_1": DATA_IMAGES_CONSTRUCTION + "construction_wall46_1.gif", \
-    "construction_wall47_0": DATA_IMAGES_CONSTRUCTION + "construction_wall47_0.gif", \
-    "construction_wall47_1": DATA_IMAGES_CONSTRUCTION + "construction_wall47_1.gif", \
-    "door1_0": DATA_IMAGES_CONSTRUCTION + "door1_0.gif", \
-    "door1_1": DATA_IMAGES_CONSTRUCTION + "door1_1.gif", \
-    "door2_0": DATA_IMAGES_CONSTRUCTION + "door2_0.gif", \
-    "door2_1": DATA_IMAGES_CONSTRUCTION + "door2_1.gif", \
-    "escalera1_0": DATA_IMAGES_CONSTRUCTION + "escalera1_0.gif", \
-    "escalera1_1": DATA_IMAGES_CONSTRUCTION + "escalera1_1.gif", \
-    "escalera2_0": DATA_IMAGES_CONSTRUCTION + "escalera2_0.gif", \
-    "escalera2_1": DATA_IMAGES_CONSTRUCTION + "escalera2_1.gif", \
-    "escalera3_0": DATA_IMAGES_CONSTRUCTION + "escalera3_0.gif", \
-    "escalera3_1": DATA_IMAGES_CONSTRUCTION + "escalera3_1.gif", \
-    "escalera4_0": DATA_IMAGES_CONSTRUCTION + "escalera4_0.gif", \
-    "escalera4_1": DATA_IMAGES_CONSTRUCTION + "escalera4_1.gif", \
-    "escalera5_0": DATA_IMAGES_CONSTRUCTION + "escalera5_0.gif", \
-    "escalera5_1": DATA_IMAGES_CONSTRUCTION + "escalera5_1.gif", \
-    "escalera6_0": DATA_IMAGES_CONSTRUCTION + "escalera6_0.gif", \
-    "escalera6_1": DATA_IMAGES_CONSTRUCTION + "escalera6_1.gif", \
-    "escalera7_0": DATA_IMAGES_CONSTRUCTION + "escalera7_0.gif", \
-    "escalera7_1": DATA_IMAGES_CONSTRUCTION + "escalera7_1.gif", \
-    "escalera8_0": DATA_IMAGES_CONSTRUCTION + "escalera8_0.gif", \
-    "escalera8_1": DATA_IMAGES_CONSTRUCTION + "escalera8_1.gif", \
-    "escalera9_0": DATA_IMAGES_CONSTRUCTION + "escalera9_0.gif", \
-    "escalera9_1": DATA_IMAGES_CONSTRUCTION + "escalera9_1.gif", \
-    "escalera10_0": DATA_IMAGES_CONSTRUCTION + "escalera10_0.gif", \
-    "escalera10_1": DATA_IMAGES_CONSTRUCTION + "escalera10_1.gif", \
-    "escalera11_0": DATA_IMAGES_CONSTRUCTION + "escalera11_0.gif", \
-    "escalera11_1": DATA_IMAGES_CONSTRUCTION + "escalera11_1.gif", \
-    "escalera12_0": DATA_IMAGES_CONSTRUCTION + "escalera12_0.gif", \
-    "escalera12_1": DATA_IMAGES_CONSTRUCTION + "escalera12_1.gif", \
-    "escalera13_0": DATA_IMAGES_CONSTRUCTION + "escalera13_0.gif", \
-    "escalera13_1": DATA_IMAGES_CONSTRUCTION + "escalera13_1.gif", \
-    "escalera14_0": DATA_IMAGES_CONSTRUCTION + "escalera14_0.gif", \
-    "escalera14_1": DATA_IMAGES_CONSTRUCTION + "escalera14_1.gif", \
-    "pilar1_0": DATA_IMAGES_CONSTRUCTION + "pilar1_0.gif", \
-    "pilar1_1": DATA_IMAGES_CONSTRUCTION + "pilar1_1.gif", \
-    "pilar2_0": DATA_IMAGES_CONSTRUCTION + "pilar2_0.gif", \
-    "pilar2_1": DATA_IMAGES_CONSTRUCTION + "pilar2_1.gif", \
-    "pilar3_0": DATA_IMAGES_CONSTRUCTION + "pilar3_0.gif", \
-    "pilar3_1": DATA_IMAGES_CONSTRUCTION + "pilar3_1.gif", \
-    "pilar4_0": DATA_IMAGES_CONSTRUCTION + "pilar4_0.gif", \
-    "pilar4_1": DATA_IMAGES_CONSTRUCTION + "pilar4_1.gif", \
-    "pilar5_0": DATA_IMAGES_CONSTRUCTION + "pilar5_0.gif", \
-    "pilar5_1": DATA_IMAGES_CONSTRUCTION + "pilar5_1.gif", \
-    "pilar6_0": DATA_IMAGES_CONSTRUCTION + "pilar6_0.gif", \
-    "pilar6_1": DATA_IMAGES_CONSTRUCTION + "pilar6_1.gif", \
-    "pilar7_0": DATA_IMAGES_CONSTRUCTION + "pilar7_0.gif", \
-    "pilar7_1": DATA_IMAGES_CONSTRUCTION + "pilar7_1.gif", \
-    "pilar8_0": DATA_IMAGES_CONSTRUCTION + "pilar8_0.gif", \
-    "pilar8_1": DATA_IMAGES_CONSTRUCTION + "pilar8_1.gif", \
-    "pilar9_0": DATA_IMAGES_CONSTRUCTION + "pilar9_0.gif", \
-    "pilar9_1": DATA_IMAGES_CONSTRUCTION + "pilar9_1.gif", \
-    "pilar10_0": DATA_IMAGES_CONSTRUCTION + "pilar10_0.gif", \
-    "pilar10_1": DATA_IMAGES_CONSTRUCTION + "pilar10_1.gif", \
-    "pilar11_0": DATA_IMAGES_CONSTRUCTION + "pilar11_0.gif", \
-    "pilar11_1": DATA_IMAGES_CONSTRUCTION + "pilar11_1.gif", \
-    "pilar12_0": DATA_IMAGES_CONSTRUCTION + "pilar12_0.gif", \
-    "pilar12_1": DATA_IMAGES_CONSTRUCTION + "pilar12_1.gif", \
-    "pilar13_0": DATA_IMAGES_CONSTRUCTION + "pilar13_0.gif", \
-    "pilar13_1": DATA_IMAGES_CONSTRUCTION + "pilar13_1.gif", \
-    "pilar14_0": DATA_IMAGES_CONSTRUCTION + "pilar14_0.gif", \
-    "pilar14_1": DATA_IMAGES_CONSTRUCTION + "pilar14_1.gif", \
-    "pilar15_0": DATA_IMAGES_CONSTRUCTION + "pilar15_0.gif", \
-    "pilar15_1": DATA_IMAGES_CONSTRUCTION + "pilar15_1.gif", \
-    "puerta1_0": DATA_IMAGES_CONSTRUCTION + "puerta1_0.gif", \
-    "puerta1_1": DATA_IMAGES_CONSTRUCTION + "puerta1_1.gif", \
-    "puerta2_0": DATA_IMAGES_CONSTRUCTION + "puerta2_0.gif", \
-    "puerta2_1": DATA_IMAGES_CONSTRUCTION + "puerta2_1.gif", \
-    "puerta3_0": DATA_IMAGES_CONSTRUCTION + "puerta3_0.gif", \
-    "puerta3_1": DATA_IMAGES_CONSTRUCTION + "puerta3_1.gif", \
-    "puerta4_0": DATA_IMAGES_CONSTRUCTION + "puerta4_0.gif", \
-    "puerta4_1": DATA_IMAGES_CONSTRUCTION + "puerta4_1.gif", \
-    "puerta5_0": DATA_IMAGES_CONSTRUCTION + "puerta5_0.gif", \
-    "puerta5_1": DATA_IMAGES_CONSTRUCTION + "puerta5_1.gif", \
-    "puerta6_0": DATA_IMAGES_CONSTRUCTION + "puerta6_0.gif", \
-    "puerta6_1": DATA_IMAGES_CONSTRUCTION + "puerta6_1.gif", \
-    "puerta7_0": DATA_IMAGES_CONSTRUCTION + "puerta7_0.gif", \
-    "puerta7_1": DATA_IMAGES_CONSTRUCTION + "puerta7_1.gif", \
-    "puerta8_0": DATA_IMAGES_CONSTRUCTION + "puerta8_0.gif", \
-    "puerta8_1": DATA_IMAGES_CONSTRUCTION + "puerta8_1.gif", \
-    "puerta9_0": DATA_IMAGES_CONSTRUCTION + "puerta9_0.gif", \
-    "puerta9_1": DATA_IMAGES_CONSTRUCTION + "puerta9_1.gif", \
-    "puerta10_0": DATA_IMAGES_CONSTRUCTION + "puerta10_0.gif", \
-    "puerta10_1": DATA_IMAGES_CONSTRUCTION + "puerta10_1.gif", \
-    "puerta11_0": DATA_IMAGES_CONSTRUCTION + "puerta11_0.gif", \
-    "puerta11_1": DATA_IMAGES_CONSTRUCTION + "puerta11_1.gif", \
-    "puerta12_0": DATA_IMAGES_CONSTRUCTION + "puerta12_0.gif", \
-    "puerta12_1": DATA_IMAGES_CONSTRUCTION + "puerta12_1.gif", \
- \
+    "big_construction_wall1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall1_0.gif",
+    "big_construction_wall1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall1_1.gif",
+    "big_construction_wall2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall2_0.gif",
+    "big_construction_wall2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall2_1.gif",
+    "big_construction_wall3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall3_0.gif",
+    "big_construction_wall3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall3_1.gif",
+    "big_construction_wall4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall4_0.gif",
+    "big_construction_wall4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall4_1.gif",
+    "big_construction_wall5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall5_0.gif",
+    "big_construction_wall5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall5_1.gif",
+    "big_construction_wall6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall6_0.gif",
+    "big_construction_wall6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall6_1.gif",
+    "big_construction_wall7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall7_0.gif",
+    "big_construction_wall7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall7_1.gif",
+    "big_construction_wall8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall8_0.gif",
+    "big_construction_wall8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall8_1.gif",
+    "big_construction_wall9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall9_0.gif",
+    "big_construction_wall9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall9_1.gif",
+    "big_construction_wall10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall10_0.gif",
+    "big_construction_wall10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall10_1.gif",
+    "big_construction_wall11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall11_0.gif",
+    "big_construction_wall11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall11_1.gif",
+    "big_construction_wall12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall12_0.gif",
+    "big_construction_wall12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall12_1.gif",
+    "big_construction_wall13_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall13_0.gif",
+    "big_construction_wall13_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall13_1.gif",
+    "big_construction_wall14_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall14_0.gif",
+    "big_construction_wall14_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall14_1.gif",
+    "big_construction_wall15_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall15_0.gif",
+    "big_construction_wall15_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall15_1.gif",
+    "big_construction_wall16_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall16_0.gif",
+    "big_construction_wall16_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall16_1.gif",
+    "big_construction_wall17_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall17_0.gif",
+    "big_construction_wall17_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall17_1.gif",
+    "big_construction_wall18_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall18_0.gif",
+    "big_construction_wall18_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall18_1.gif",
+    "big_construction_wall19_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall19_0.gif",
+    "big_construction_wall19_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall19_1.gif",
+    "big_construction_wall20_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall20_0.gif",
+    "big_construction_wall20_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall20_1.gif",
+    "big_construction_wall21_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall21_0.gif",
+    "big_construction_wall21_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall21_1.gif",
+    "big_construction_wall22_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall22_0.gif",
+    "big_construction_wall22_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall22_1.gif",
+    "big_construction_wall23_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall23_0.gif",
+    "big_construction_wall23_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall23_1.gif",
+    "big_construction_wall24_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall24_0.gif",
+    "big_construction_wall24_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall24_1.gif",
+    "big_construction_wall25_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall25_0.gif",
+    "big_construction_wall25_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall25_1.gif",
+    "big_construction_wall26_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall26_0.gif",
+    "big_construction_wall26_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall26_1.gif",
+    "big_construction_wall27_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall27_0.gif",
+    "big_construction_wall27_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall27_1.gif",
+    "big_construction_wall28_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall28_0.gif",
+    "big_construction_wall28_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall28_1.gif",
+    "big_construction_wall29_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall29_0.gif",
+    "big_construction_wall29_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall29_1.gif",
+    "big_construction_wall30_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall30_0.gif",
+    "big_construction_wall30_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall30_1.gif",
+    "big_construction_wall31_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall31_0.gif",
+    "big_construction_wall31_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall31_1.gif",
+    "big_construction_wall32_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall32_0.gif",
+    "big_construction_wall32_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall32_1.gif",
+    "big_construction_wall33_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall33_0.gif",
+    "big_construction_wall33_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall33_1.gif",
+    "big_construction_wall34_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall34_0.gif",
+    "big_construction_wall34_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall34_1.gif",
+    "big_construction_wall35_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall35_0.gif",
+    "big_construction_wall35_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall35_1.gif",
+    "big_construction_wall36_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall36_0.gif",
+    "big_construction_wall36_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall36_1.gif",
+    "big_construction_wall37_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall37_0.gif",
+    "big_construction_wall37_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall37_1.gif",
+    "big_construction_wall38_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall38_0.gif",
+    "big_construction_wall38_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall38_1.gif",
+    "big_construction_wall39_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall39_0.gif",
+    "big_construction_wall39_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall39_1.gif",
+    "big_construction_wall40_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall40_0.gif",
+    "big_construction_wall40_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall40_1.gif",
+    "big_construction_wall41_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall41_0.gif",
+    "big_construction_wall41_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall41_1.gif",
+    "big_construction_wall42_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall42_0.gif",
+    "big_construction_wall42_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall42_1.gif",
+    "big_construction_wall43_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall43_0.gif",
+    "big_construction_wall43_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall43_1.gif",
+    "big_construction_wall44_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall44_0.gif",
+    "big_construction_wall44_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall44_1.gif",
+    "big_construction_wall45_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall45_0.gif",
+    "big_construction_wall45_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall45_1.gif",
+    "big_construction_wall46_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall46_0.gif",
+    "big_construction_wall46_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall46_1.gif",
+    "big_construction_wall47_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall47_0.gif",
+    "big_construction_wall47_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall47_1.gif",
+    "big_construction_wall49_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall49_0.gif",
+    "big_construction_wall49_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall49_1.gif",
+    "big_construction_wall50_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall50_0.gif",
+    "big_construction_wall50_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall50_1.gif",
+    "big_construction_wall51_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall51_0.gif",
+    "big_construction_wall51_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall51_1.gif",
+    "big_construction_wall52_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall52_0.gif",
+    "big_construction_wall52_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall52_1.gif",
+    "big_construction_wall53_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall53_0.gif",
+    "big_construction_wall53_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall53_1.gif",
+    "big_construction_wall54_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall54_0.gif",
+    "big_construction_wall54_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall54_1.gif",
+    "big_construction_wall55_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall55_0.gif",
+    "big_construction_wall55_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall55_1.gif",
+    "big_construction_wall56_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall56_0.gif",
+    "big_construction_wall56_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall56_1.gif",
+    "big_construction_wall57_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall57_0.gif",
+    "big_construction_wall57_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall57_1.gif",
+    "big_construction_wall58_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall58_0.gif",
+    "big_construction_wall58_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall58_1.gif",
+    "big_construction_wall59_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall59_0.gif",
+    "big_construction_wall59_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall59_1.gif",
+    "big_construction_wall60_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall60_0.gif",
+    "big_construction_wall60_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall60_1.gif",
+    "big_construction_wall61_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall61_0.gif",
+    "big_construction_wall61_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall61_1.gif",
+    "big_construction_wall62_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall62_0.gif",
+    "big_construction_wall62_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall62_1.gif",
+    "big_construction_wall63_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall63_0.gif",
+    "big_construction_wall63_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_construction_wall63_1.gif",
+    "big_escalera1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera1_0.gif",
+    "big_escalera1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera1_1.gif",
+    "big_escalera2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera2_0.gif",
+    "big_escalera2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera2_1.gif",
+    "big_escalera3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera3_0.gif",
+    "big_escalera3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera3_1.gif",
+    "big_escalera4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera4_0.gif",
+    "big_escalera4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera4_1.gif",
+    "big_escalera5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera5_0.gif",
+    "big_escalera5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera5_1.gif",
+    "big_escalera6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera6_0.gif",
+    "big_escalera6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera6_1.gif",
+    "big_escalera7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera7_0.gif",
+    "big_escalera7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera7_1.gif",
+    "big_escalera8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera8_0.gif",
+    "big_escalera8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera8_1.gif",
+    "big_escalera9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera9_0.gif",
+    "big_escalera9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera9_1.gif",
+    "big_escalera10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera10_0.gif",
+    "big_escalera10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera10_1.gif",
+    "big_escalera11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera11_0.gif",
+    "big_escalera11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera11_1.gif",
+    "big_escalera12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera12_0.gif",
+    "big_escalera12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera12_1.gif",
+    "big_escalera13_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera13_0.gif",
+    "big_escalera13_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera13_1.gif",
+    "big_escalera14_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera14_0.gif",
+    "big_escalera14_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_escalera14_1.gif",
+    "big_pilar1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar1_0.gif",
+    "big_pilar1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar1_1.gif",
+    "big_pilar2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar2_0.gif",
+    "big_pilar2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar2_1.gif",
+    "big_pilar3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar3_0.gif",
+    "big_pilar3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar3_1.gif",
+    "big_pilar4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar4_0.gif",
+    "big_pilar4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar4_1.gif",
+    "big_pilar5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar5_0.gif",
+    "big_pilar5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar5_1.gif",
+    "big_pilar6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar6_0.gif",
+    "big_pilar6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar6_1.gif",
+    "big_pilar7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar7_0.gif",
+    "big_pilar7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar7_1.gif",
+    "big_pilar8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar8_0.gif",
+    "big_pilar8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar8_1.gif",
+    "big_pilar9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar9_0.gif",
+    "big_pilar9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar9_1.gif",
+    "big_pilar10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar10_0.gif",
+    "big_pilar10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar10_1.gif",
+    "big_pilar11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar11_0.gif",
+    "big_pilar11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar11_1.gif",
+    "big_pilar12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar12_0.gif",
+    "big_pilar12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar12_1.gif",
+    "big_pilar13_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar13_0.gif",
+    "big_pilar13_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar13_1.gif",
+    "big_pilar14_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar14_0.gif",
+    "big_pilar14_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar14_1.gif",
+    "big_pilar15_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar15_0.gif",
+    "big_pilar15_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_pilar15_1.gif",
+    "big_puerta1_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta1_0.gif",
+    "big_puerta1_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta1_1.gif",
+    "big_puerta2_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta2_0.gif",
+    "big_puerta2_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta2_1.gif",
+    "big_puerta3_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta3_0.gif",
+    "big_puerta3_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta3_1.gif",
+    "big_puerta4_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta4_0.gif",
+    "big_puerta4_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta4_1.gif",
+    "big_puerta5_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta5_0.gif",
+    "big_puerta5_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta5_1.gif",
+    "big_puerta6_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta6_0.gif",
+    "big_puerta6_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta6_1.gif",
+    "big_puerta7_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta7_0.gif",
+    "big_puerta7_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta7_1.gif",
+    "big_puerta8_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta8_0.gif",
+    "big_puerta8_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta8_1.gif",
+    "big_puerta9_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta9_0.gif",
+    "big_puerta9_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta9_1.gif",
+    "big_puerta10_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta10_0.gif",
+    "big_puerta10_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta10_1.gif",
+    "big_puerta11_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta11_0.gif",
+    "big_puerta11_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta11_1.gif",
+    "big_puerta12_0": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta12_0.gif",
+    "big_puerta12_1": DATA_IMAGES_CONSTRUCTION_BIG + "big_puerta12_1.gif",
+    "construction_wall1_0": DATA_IMAGES_CONSTRUCTION + "construction_wall1_0.gif",
+    "construction_wall1_1": DATA_IMAGES_CONSTRUCTION + "construction_wall1_1.gif",
+    "construction_wall2_0": DATA_IMAGES_CONSTRUCTION + "construction_wall2_0.gif",
+    "construction_wall2_1": DATA_IMAGES_CONSTRUCTION + "construction_wall2_1.gif",
+    "construction_wall3_0": DATA_IMAGES_CONSTRUCTION + "construction_wall3_0.gif",
+    "construction_wall3_1": DATA_IMAGES_CONSTRUCTION + "construction_wall3_1.gif",
+    "construction_wall4_0": DATA_IMAGES_CONSTRUCTION + "construction_wall4_0.gif",
+    "construction_wall4_1": DATA_IMAGES_CONSTRUCTION + "construction_wall4_1.gif",
+    "construction_wall5_0": DATA_IMAGES_CONSTRUCTION + "construction_wall5_0.gif",
+    "construction_wall5_1": DATA_IMAGES_CONSTRUCTION + "construction_wall5_1.gif",
+    "construction_wall6_0": DATA_IMAGES_CONSTRUCTION + "construction_wall6_0.gif",
+    "construction_wall6_1": DATA_IMAGES_CONSTRUCTION + "construction_wall6_1.gif",
+    "construction_wall7_0": DATA_IMAGES_CONSTRUCTION + "construction_wall7_0.gif",
+    "construction_wall7_1": DATA_IMAGES_CONSTRUCTION + "construction_wall7_1.gif",
+    "construction_wall8_0": DATA_IMAGES_CONSTRUCTION + "construction_wall8_0.gif",
+    "construction_wall8_1": DATA_IMAGES_CONSTRUCTION + "construction_wall8_1.gif",
+    "construction_wall9_0": DATA_IMAGES_CONSTRUCTION + "construction_wall9_0.gif",
+    "construction_wall9_1": DATA_IMAGES_CONSTRUCTION + "construction_wall9_1.gif",
+    "construction_wall10_0": DATA_IMAGES_CONSTRUCTION + "construction_wall10_0.gif",
+    "construction_wall10_1": DATA_IMAGES_CONSTRUCTION + "construction_wall10_1.gif",
+    "construction_wall11_0": DATA_IMAGES_CONSTRUCTION + "construction_wall11_0.gif",
+    "construction_wall11_1": DATA_IMAGES_CONSTRUCTION + "construction_wall11_1.gif",
+    "construction_wall12_0": DATA_IMAGES_CONSTRUCTION + "construction_wall12_0.gif",
+    "construction_wall12_1": DATA_IMAGES_CONSTRUCTION + "construction_wall12_1.gif",
+    "construction_wall13_0": DATA_IMAGES_CONSTRUCTION + "construction_wall13_0.gif",
+    "construction_wall13_1": DATA_IMAGES_CONSTRUCTION + "construction_wall13_1.gif",
+    "construction_wall14_0": DATA_IMAGES_CONSTRUCTION + "construction_wall14_0.gif",
+    "construction_wall14_1": DATA_IMAGES_CONSTRUCTION + "construction_wall14_1.gif",
+    "construction_wall15_0": DATA_IMAGES_CONSTRUCTION + "construction_wall15_0.gif",
+    "construction_wall15_1": DATA_IMAGES_CONSTRUCTION + "construction_wall15_1.gif",
+    "construction_wall16_0": DATA_IMAGES_CONSTRUCTION + "construction_wall16_0.gif",
+    "construction_wall16_1": DATA_IMAGES_CONSTRUCTION + "construction_wall16_1.gif",
+    "construction_wall17_0": DATA_IMAGES_CONSTRUCTION + "construction_wall17_0.gif",
+    "construction_wall17_1": DATA_IMAGES_CONSTRUCTION + "construction_wall17_1.gif",
+    "construction_wall18_0": DATA_IMAGES_CONSTRUCTION + "construction_wall18_0.gif",
+    "construction_wall18_1": DATA_IMAGES_CONSTRUCTION + "construction_wall18_1.gif",
+    "construction_wall19_0": DATA_IMAGES_CONSTRUCTION + "construction_wall19_0.gif",
+    "construction_wall19_1": DATA_IMAGES_CONSTRUCTION + "construction_wall19_1.gif",
+    "construction_wall20_0": DATA_IMAGES_CONSTRUCTION + "construction_wall20_0.gif",
+    "construction_wall20_1": DATA_IMAGES_CONSTRUCTION + "construction_wall20_1.gif",
+    "construction_wall21_0": DATA_IMAGES_CONSTRUCTION + "construction_wall21_0.gif",
+    "construction_wall21_1": DATA_IMAGES_CONSTRUCTION + "construction_wall21_1.gif",
+    "construction_wall22_0": DATA_IMAGES_CONSTRUCTION + "construction_wall22_0.gif",
+    "construction_wall22_1": DATA_IMAGES_CONSTRUCTION + "construction_wall22_1.gif",
+    "construction_wall23_0": DATA_IMAGES_CONSTRUCTION + "construction_wall23_0.gif",
+    "construction_wall23_1": DATA_IMAGES_CONSTRUCTION + "construction_wall23_1.gif",
+    "construction_wall24_0": DATA_IMAGES_CONSTRUCTION + "construction_wall24_0.gif",
+    "construction_wall24_1": DATA_IMAGES_CONSTRUCTION + "construction_wall24_1.gif",
+    "construction_wall25_0": DATA_IMAGES_CONSTRUCTION + "construction_wall25_0.gif",
+    "construction_wall25_1": DATA_IMAGES_CONSTRUCTION + "construction_wall25_1.gif",
+    "construction_wall26_0": DATA_IMAGES_CONSTRUCTION + "construction_wall26_0.gif",
+    "construction_wall26_1": DATA_IMAGES_CONSTRUCTION + "construction_wall26_1.gif",
+    "construction_wall27_0": DATA_IMAGES_CONSTRUCTION + "construction_wall27_0.gif",
+    "construction_wall27_1": DATA_IMAGES_CONSTRUCTION + "construction_wall27_1.gif",
+    "construction_wall28_0": DATA_IMAGES_CONSTRUCTION + "construction_wall28_0.gif",
+    "construction_wall28_1": DATA_IMAGES_CONSTRUCTION + "construction_wall28_1.gif",
+    "construction_wall29_0": DATA_IMAGES_CONSTRUCTION + "construction_wall29_0.gif",
+    "construction_wall29_1": DATA_IMAGES_CONSTRUCTION + "construction_wall29_1.gif",
+    "construction_wall30_0": DATA_IMAGES_CONSTRUCTION + "construction_wall30_0.gif",
+    "construction_wall30_1": DATA_IMAGES_CONSTRUCTION + "construction_wall30_1.gif",
+    "construction_wall31_0": DATA_IMAGES_CONSTRUCTION + "construction_wall31_0.gif",
+    "construction_wall31_1": DATA_IMAGES_CONSTRUCTION + "construction_wall31_1.gif",
+    "construction_wall32_0": DATA_IMAGES_CONSTRUCTION + "construction_wall32_0.gif",
+    "construction_wall32_1": DATA_IMAGES_CONSTRUCTION + "construction_wall32_1.gif",
+    "construction_wall33_0": DATA_IMAGES_CONSTRUCTION + "construction_wall33_0.gif",
+    "construction_wall33_1": DATA_IMAGES_CONSTRUCTION + "construction_wall33_1.gif",
+    "construction_wall34_0": DATA_IMAGES_CONSTRUCTION + "construction_wall34_0.gif",
+    "construction_wall34_1": DATA_IMAGES_CONSTRUCTION + "construction_wall34_1.gif",
+    "construction_wall35_0": DATA_IMAGES_CONSTRUCTION + "construction_wall35_0.gif",
+    "construction_wall35_1": DATA_IMAGES_CONSTRUCTION + "construction_wall35_1.gif",
+    "construction_wall36_0": DATA_IMAGES_CONSTRUCTION + "construction_wall36_0.gif",
+    "construction_wall36_1": DATA_IMAGES_CONSTRUCTION + "construction_wall36_1.gif",
+    "construction_wall37_0": DATA_IMAGES_CONSTRUCTION + "construction_wall37_0.gif",
+    "construction_wall37_1": DATA_IMAGES_CONSTRUCTION + "construction_wall37_1.gif",
+    "construction_wall38_0": DATA_IMAGES_CONSTRUCTION + "construction_wall38_0.gif",
+    "construction_wall38_1": DATA_IMAGES_CONSTRUCTION + "construction_wall38_1.gif",
+    "construction_wall39_0": DATA_IMAGES_CONSTRUCTION + "construction_wall39_0.gif",
+    "construction_wall39_1": DATA_IMAGES_CONSTRUCTION + "construction_wall39_1.gif",
+    "construction_wall40_0": DATA_IMAGES_CONSTRUCTION + "construction_wall40_0.gif",
+    "construction_wall40_1": DATA_IMAGES_CONSTRUCTION + "construction_wall40_1.gif",
+    "construction_wall41_0": DATA_IMAGES_CONSTRUCTION + "construction_wall41_0.gif",
+    "construction_wall41_1": DATA_IMAGES_CONSTRUCTION + "construction_wall41_1.gif",
+    "construction_wall42_0": DATA_IMAGES_CONSTRUCTION + "construction_wall42_0.gif",
+    "construction_wall42_1": DATA_IMAGES_CONSTRUCTION + "construction_wall42_1.gif",
+    "construction_wall43_0": DATA_IMAGES_CONSTRUCTION + "construction_wall43_0.gif",
+    "construction_wall43_1": DATA_IMAGES_CONSTRUCTION + "construction_wall43_1.gif",
+    "construction_wall44_0": DATA_IMAGES_CONSTRUCTION + "construction_wall44_0.gif",
+    "construction_wall44_1": DATA_IMAGES_CONSTRUCTION + "construction_wall44_1.gif",
+    "construction_wall45_0": DATA_IMAGES_CONSTRUCTION + "construction_wall45_0.gif",
+    "construction_wall45_1": DATA_IMAGES_CONSTRUCTION + "construction_wall45_1.gif",
+    "construction_wall46_0": DATA_IMAGES_CONSTRUCTION + "construction_wall46_0.gif",
+    "construction_wall46_1": DATA_IMAGES_CONSTRUCTION + "construction_wall46_1.gif",
+    "construction_wall47_0": DATA_IMAGES_CONSTRUCTION + "construction_wall47_0.gif",
+    "construction_wall47_1": DATA_IMAGES_CONSTRUCTION + "construction_wall47_1.gif",
+    "door1_0": DATA_IMAGES_CONSTRUCTION + "door1_0.gif",
+    "door1_1": DATA_IMAGES_CONSTRUCTION + "door1_1.gif",
+    "door2_0": DATA_IMAGES_CONSTRUCTION + "door2_0.gif",
+    "door2_1": DATA_IMAGES_CONSTRUCTION + "door2_1.gif",
+    "escalera1_0": DATA_IMAGES_CONSTRUCTION + "escalera1_0.gif",
+    "escalera1_1": DATA_IMAGES_CONSTRUCTION + "escalera1_1.gif",
+    "escalera2_0": DATA_IMAGES_CONSTRUCTION + "escalera2_0.gif",
+    "escalera2_1": DATA_IMAGES_CONSTRUCTION + "escalera2_1.gif",
+    "escalera3_0": DATA_IMAGES_CONSTRUCTION + "escalera3_0.gif",
+    "escalera3_1": DATA_IMAGES_CONSTRUCTION + "escalera3_1.gif",
+    "escalera4_0": DATA_IMAGES_CONSTRUCTION + "escalera4_0.gif",
+    "escalera4_1": DATA_IMAGES_CONSTRUCTION + "escalera4_1.gif",
+    "escalera5_0": DATA_IMAGES_CONSTRUCTION + "escalera5_0.gif",
+    "escalera5_1": DATA_IMAGES_CONSTRUCTION + "escalera5_1.gif",
+    "escalera6_0": DATA_IMAGES_CONSTRUCTION + "escalera6_0.gif",
+    "escalera6_1": DATA_IMAGES_CONSTRUCTION + "escalera6_1.gif",
+    "escalera7_0": DATA_IMAGES_CONSTRUCTION + "escalera7_0.gif",
+    "escalera7_1": DATA_IMAGES_CONSTRUCTION + "escalera7_1.gif",
+    "escalera8_0": DATA_IMAGES_CONSTRUCTION + "escalera8_0.gif",
+    "escalera8_1": DATA_IMAGES_CONSTRUCTION + "escalera8_1.gif",
+    "escalera9_0": DATA_IMAGES_CONSTRUCTION + "escalera9_0.gif",
+    "escalera9_1": DATA_IMAGES_CONSTRUCTION + "escalera9_1.gif",
+    "escalera10_0": DATA_IMAGES_CONSTRUCTION + "escalera10_0.gif",
+    "escalera10_1": DATA_IMAGES_CONSTRUCTION + "escalera10_1.gif",
+    "escalera11_0": DATA_IMAGES_CONSTRUCTION + "escalera11_0.gif",
+    "escalera11_1": DATA_IMAGES_CONSTRUCTION + "escalera11_1.gif",
+    "escalera12_0": DATA_IMAGES_CONSTRUCTION + "escalera12_0.gif",
+    "escalera12_1": DATA_IMAGES_CONSTRUCTION + "escalera12_1.gif",
+    "escalera13_0": DATA_IMAGES_CONSTRUCTION + "escalera13_0.gif",
+    "escalera13_1": DATA_IMAGES_CONSTRUCTION + "escalera13_1.gif",
+    "escalera14_0": DATA_IMAGES_CONSTRUCTION + "escalera14_0.gif",
+    "escalera14_1": DATA_IMAGES_CONSTRUCTION + "escalera14_1.gif",
+    "pilar1_0": DATA_IMAGES_CONSTRUCTION + "pilar1_0.gif",
+    "pilar1_1": DATA_IMAGES_CONSTRUCTION + "pilar1_1.gif",
+    "pilar2_0": DATA_IMAGES_CONSTRUCTION + "pilar2_0.gif",
+    "pilar2_1": DATA_IMAGES_CONSTRUCTION + "pilar2_1.gif",
+    "pilar3_0": DATA_IMAGES_CONSTRUCTION + "pilar3_0.gif",
+    "pilar3_1": DATA_IMAGES_CONSTRUCTION + "pilar3_1.gif",
+    "pilar4_0": DATA_IMAGES_CONSTRUCTION + "pilar4_0.gif",
+    "pilar4_1": DATA_IMAGES_CONSTRUCTION + "pilar4_1.gif",
+    "pilar5_0": DATA_IMAGES_CONSTRUCTION + "pilar5_0.gif",
+    "pilar5_1": DATA_IMAGES_CONSTRUCTION + "pilar5_1.gif",
+    "pilar6_0": DATA_IMAGES_CONSTRUCTION + "pilar6_0.gif",
+    "pilar6_1": DATA_IMAGES_CONSTRUCTION + "pilar6_1.gif",
+    "pilar7_0": DATA_IMAGES_CONSTRUCTION + "pilar7_0.gif",
+    "pilar7_1": DATA_IMAGES_CONSTRUCTION + "pilar7_1.gif",
+    "pilar8_0": DATA_IMAGES_CONSTRUCTION + "pilar8_0.gif",
+    "pilar8_1": DATA_IMAGES_CONSTRUCTION + "pilar8_1.gif",
+    "pilar9_0": DATA_IMAGES_CONSTRUCTION + "pilar9_0.gif",
+    "pilar9_1": DATA_IMAGES_CONSTRUCTION + "pilar9_1.gif",
+    "pilar10_0": DATA_IMAGES_CONSTRUCTION + "pilar10_0.gif",
+    "pilar10_1": DATA_IMAGES_CONSTRUCTION + "pilar10_1.gif",
+    "pilar11_0": DATA_IMAGES_CONSTRUCTION + "pilar11_0.gif",
+    "pilar11_1": DATA_IMAGES_CONSTRUCTION + "pilar11_1.gif",
+    "pilar12_0": DATA_IMAGES_CONSTRUCTION + "pilar12_0.gif",
+    "pilar12_1": DATA_IMAGES_CONSTRUCTION + "pilar12_1.gif",
+    "pilar13_0": DATA_IMAGES_CONSTRUCTION + "pilar13_0.gif",
+    "pilar13_1": DATA_IMAGES_CONSTRUCTION + "pilar13_1.gif",
+    "pilar14_0": DATA_IMAGES_CONSTRUCTION + "pilar14_0.gif",
+    "pilar14_1": DATA_IMAGES_CONSTRUCTION + "pilar14_1.gif",
+    "pilar15_0": DATA_IMAGES_CONSTRUCTION + "pilar15_0.gif",
+    "pilar15_1": DATA_IMAGES_CONSTRUCTION + "pilar15_1.gif",
+    "puerta1_0": DATA_IMAGES_CONSTRUCTION + "puerta1_0.gif",
+    "puerta1_1": DATA_IMAGES_CONSTRUCTION + "puerta1_1.gif",
+    "puerta2_0": DATA_IMAGES_CONSTRUCTION + "puerta2_0.gif",
+    "puerta2_1": DATA_IMAGES_CONSTRUCTION + "puerta2_1.gif",
+    "puerta3_0": DATA_IMAGES_CONSTRUCTION + "puerta3_0.gif",
+    "puerta3_1": DATA_IMAGES_CONSTRUCTION + "puerta3_1.gif",
+    "puerta4_0": DATA_IMAGES_CONSTRUCTION + "puerta4_0.gif",
+    "puerta4_1": DATA_IMAGES_CONSTRUCTION + "puerta4_1.gif",
+    "puerta5_0": DATA_IMAGES_CONSTRUCTION + "puerta5_0.gif",
+    "puerta5_1": DATA_IMAGES_CONSTRUCTION + "puerta5_1.gif",
+    "puerta6_0": DATA_IMAGES_CONSTRUCTION + "puerta6_0.gif",
+    "puerta6_1": DATA_IMAGES_CONSTRUCTION + "puerta6_1.gif",
+    "puerta7_0": DATA_IMAGES_CONSTRUCTION + "puerta7_0.gif",
+    "puerta7_1": DATA_IMAGES_CONSTRUCTION + "puerta7_1.gif",
+    "puerta8_0": DATA_IMAGES_CONSTRUCTION + "puerta8_0.gif",
+    "puerta8_1": DATA_IMAGES_CONSTRUCTION + "puerta8_1.gif",
+    "puerta9_0": DATA_IMAGES_CONSTRUCTION + "puerta9_0.gif",
+    "puerta9_1": DATA_IMAGES_CONSTRUCTION + "puerta9_1.gif",
+    "puerta10_0": DATA_IMAGES_CONSTRUCTION + "puerta10_0.gif",
+    "puerta10_1": DATA_IMAGES_CONSTRUCTION + "puerta10_1.gif",
+    "puerta11_0": DATA_IMAGES_CONSTRUCTION + "puerta11_0.gif",
+    "puerta11_1": DATA_IMAGES_CONSTRUCTION + "puerta11_1.gif",
+    "puerta12_0": DATA_IMAGES_CONSTRUCTION + "puerta12_0.gif",
+    "puerta12_1": DATA_IMAGES_CONSTRUCTION + "puerta12_1.gif",
     # Decoración #interiores
-    "barril1_0": DATA_IMAGES_INTERIOR + "barril1_0.gif", \
-    "barril1_1": DATA_IMAGES_INTERIOR + "barril1_1.gif", \
-    "barril2_0": DATA_IMAGES_INTERIOR + "barril2_0.gif", \
-    "barril2_1": DATA_IMAGES_INTERIOR + "barril2_1.gif", \
-    "barril3_0": DATA_IMAGES_INTERIOR + "barril3_0.gif", \
-    "barril3_1": DATA_IMAGES_INTERIOR + "barril3_1.gif", \
-    "bed_0": DATA_IMAGES_INTERIOR + "bed_0.gif", \
-    "bed_1": DATA_IMAGES_INTERIOR + "bed_1.gif", \
-    "big_barril1_0": DATA_IMAGES_INTERIOR_BIG + "big_barril1_0.gif", \
-    "big_barril1_1": DATA_IMAGES_INTERIOR_BIG + "big_barril1_1.gif", \
-    "big_carpet1_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet1_0.gif", \
-    "big_carpet1_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet1_1.gif", \
-    "big_carpet2_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet2_0.gif", \
-    "big_carpet2_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet2_1.gif", \
-    "big_carpet3_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet3_0.gif", \
-    "big_carpet3_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet3_1.gif", \
-    "big_carpet4_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet4_0.gif", \
-    "big_carpet4_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet4_1.gif", \
-    "big_carpet5_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet5_0.gif", \
-    "big_carpet5_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet5_1.gif", \
-    "big_carpet6_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet6_0.gif", \
-    "big_carpet6_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet6_1.gif", \
-    "big_carpet7_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet7_0.gif", \
-    "big_carpet7_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet7_1.gif", \
-    "big_carpet8_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet8_0.gif", \
-    "big_carpet8_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet8_1.gif", \
-    "big_carpet9_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet9_0.gif", \
-    "big_carpet9_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet9_1.gif", \
-    "big_carpet10_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet10_0.gif", \
-    "big_carpet10_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet10_1.gif", \
-    "big_carpet11_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet11_0.gif", \
-    "big_carpet11_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet11_1.gif", \
-    "big_furniture1_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture1_0.gif", \
-    "big_furniture1_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture1_1.gif", \
-    "big_furniture2_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture2_0.gif", \
-    "big_furniture2_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture2_1.gif", \
-    "big_furniture3_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture3_0.gif", \
-    "big_furniture3_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture3_1.gif", \
-    "big_furniture4_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture4_0.gif", \
-    "big_furniture4_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture4_1.gif", \
-    "big_furniture5_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture5_0.gif", \
-    "big_furniture5_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture5_1.gif", \
-    "big_furniture6_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture6_0.gif", \
-    "big_furniture6_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture6_1.gif", \
-    "big_interior1_0": DATA_IMAGES_INTERIOR_BIG + "big_interior1_0.gif", \
-    "big_interior1_1": DATA_IMAGES_INTERIOR_BIG + "big_interior1_1.gif", \
-    "big_interior2_0": DATA_IMAGES_INTERIOR_BIG + "big_interior2_0.gif", \
-    "big_interior2_1": DATA_IMAGES_INTERIOR_BIG + "big_interior2_1.gif", \
-    "big_interior3_0": DATA_IMAGES_INTERIOR_BIG + "big_interior3_0.gif", \
-    "big_interior3_1": DATA_IMAGES_INTERIOR_BIG + "big_interior3_1.gif", \
-    "big_interior4_0": DATA_IMAGES_INTERIOR_BIG + "big_interior4_0.gif", \
-    "big_interior4_1": DATA_IMAGES_INTERIOR_BIG + "big_interior4_1.gif", \
-    "big_interior5_0": DATA_IMAGES_INTERIOR_BIG + "big_interior5_0.gif", \
-    "big_interior5_1": DATA_IMAGES_INTERIOR_BIG + "big_interior5_1.gif", \
-    "big_interior6_0": DATA_IMAGES_INTERIOR_BIG + "big_interior6_0.gif", \
-    "big_interior6_1": DATA_IMAGES_INTERIOR_BIG + "big_interior6_1.gif", \
-    "big_interior7_0": DATA_IMAGES_INTERIOR_BIG + "big_interior7_0.gif", \
-    "big_interior7_1": DATA_IMAGES_INTERIOR_BIG + "big_interior7_1.gif", \
-    "carpet1_0": DATA_IMAGES_INTERIOR + "carpet1_0.gif", \
-    "carpet1_1": DATA_IMAGES_INTERIOR + "carpet1_1.gif", \
-    "carpet2_0": DATA_IMAGES_INTERIOR + "carpet2_0.gif", \
-    "carpet2_1": DATA_IMAGES_INTERIOR + "carpet2_1.gif", \
-    "chair1_0": DATA_IMAGES_INTERIOR + "chair1_0.gif", \
-    "chair1_1": DATA_IMAGES_INTERIOR + "chair1_1.gif", \
-    "cofre_0": DATA_IMAGES_INTERIOR + "cofre_0.gif", \
-    "cofre_1": DATA_IMAGES_INTERIOR + "cofre_1.gif", \
-    "furniture1_0": DATA_IMAGES_INTERIOR + "furniture1_0.gif", \
-    "furniture1_1": DATA_IMAGES_INTERIOR + "furniture1_1.gif", \
-    "furniture2_0": DATA_IMAGES_INTERIOR + "furniture2_0.gif", \
-    "furniture2_1": DATA_IMAGES_INTERIOR + "furniture2_1.gif", \
-    "furniture3_0": DATA_IMAGES_INTERIOR + "furniture3_0.gif", \
-    "furniture3_1": DATA_IMAGES_INTERIOR + "furniture3_1.gif", \
-    "furniture4_0": DATA_IMAGES_INTERIOR + "furniture4_0.gif", \
-    "furniture4_1": DATA_IMAGES_INTERIOR + "furniture4_1.gif", \
-    "furniture5_0": DATA_IMAGES_INTERIOR + "furniture5_0.gif", \
-    "furniture5_1": DATA_IMAGES_INTERIOR + "furniture5_1.gif", \
-    "furniture6_0": DATA_IMAGES_INTERIOR + "furniture6_0.gif", \
-    "furniture6_1": DATA_IMAGES_INTERIOR + "furniture6_1.gif", \
-    "furniture7_0": DATA_IMAGES_INTERIOR + "furniture7_0.gif", \
-    "furniture7_1": DATA_IMAGES_INTERIOR + "furniture7_1.gif", \
-    "furniture8_0": DATA_IMAGES_INTERIOR + "furniture8_0.gif", \
-    "furniture8_1": DATA_IMAGES_INTERIOR + "furniture8_1.gif", \
-    "furniture9_0": DATA_IMAGES_INTERIOR + "furniture9_0.gif", \
-    "furniture9_1": DATA_IMAGES_INTERIOR + "furniture9_1.gif", \
-    "furniture10_0": DATA_IMAGES_INTERIOR + "furniture10_0.gif", \
-    "furniture10_1": DATA_IMAGES_INTERIOR + "furniture10_1.gif", \
-    "furniture11_0": DATA_IMAGES_INTERIOR + "furniture11_0.gif", \
-    "furniture11_1": DATA_IMAGES_INTERIOR + "furniture11_1.gif", \
-    "furniture12_0": DATA_IMAGES_INTERIOR + "furniture12_0.gif", \
-    "furniture12_1": DATA_IMAGES_INTERIOR + "furniture12_1.gif", \
-    "furniture13_0": DATA_IMAGES_INTERIOR + "furniture13_0.gif", \
-    "furniture13_1": DATA_IMAGES_INTERIOR + "furniture13_1.gif", \
-    "furniture14_0": DATA_IMAGES_INTERIOR + "furniture14_0.gif", \
-    "furniture14_1": DATA_IMAGES_INTERIOR + "furniture14_1.gif", \
-    "furniture15_0": DATA_IMAGES_INTERIOR + "furniture15_0.gif", \
-    "furniture15_1": DATA_IMAGES_INTERIOR + "furniture15_1.gif", \
-    "furniture16_0": DATA_IMAGES_INTERIOR + "furniture16_0.gif", \
-    "furniture16_1": DATA_IMAGES_INTERIOR + "furniture16_1.gif", \
-    "furniture17_0": DATA_IMAGES_INTERIOR + "furniture17_0.gif", \
-    "furniture17_1": DATA_IMAGES_INTERIOR + "furniture17_1.gif", \
-    "furniture18_0": DATA_IMAGES_INTERIOR + "furniture18_0.gif", \
-    "furniture18_1": DATA_IMAGES_INTERIOR + "furniture18_1.gif", \
-    "furniture19_0": DATA_IMAGES_INTERIOR + "furniture19_0.gif", \
-    "furniture19_1": DATA_IMAGES_INTERIOR + "furniture19_1.gif", \
-    "furniture20_0": DATA_IMAGES_INTERIOR + "furniture20_0.gif", \
-    "furniture20_1": DATA_IMAGES_INTERIOR + "furniture20_1.gif", \
-    "furniture21_0": DATA_IMAGES_INTERIOR + "furniture21_0.gif", \
-    "furniture21_1": DATA_IMAGES_INTERIOR + "furniture21_1.gif", \
-    "furniture22_0": DATA_IMAGES_INTERIOR + "furniture22_0.gif", \
-    "furniture22_1": DATA_IMAGES_INTERIOR + "furniture22_1.gif", \
-    "furniture23_0": DATA_IMAGES_INTERIOR + "furniture23_0.gif", \
-    "furniture23_1": DATA_IMAGES_INTERIOR + "furniture23_1.gif", \
-    "furniture24_0": DATA_IMAGES_INTERIOR + "furniture24_0.gif", \
-    "furniture24_1": DATA_IMAGES_INTERIOR + "furniture24_1.gif", \
-    "furniture25_0": DATA_IMAGES_INTERIOR + "furniture25_0.gif", \
-    "furniture25_1": DATA_IMAGES_INTERIOR + "furniture25_1.gif", \
-    "furniture26_0": DATA_IMAGES_INTERIOR + "furniture26_0.gif", \
-    "furniture26_1": DATA_IMAGES_INTERIOR + "furniture26_1.gif", \
-    "furniture27_0": DATA_IMAGES_INTERIOR + "furniture27_0.gif", \
-    "furniture27_1": DATA_IMAGES_INTERIOR + "furniture27_1.gif", \
-    "furniture28_0": DATA_IMAGES_INTERIOR + "furniture28_0.gif", \
-    "furniture28_1": DATA_IMAGES_INTERIOR + "furniture28_1.gif", \
-    "furniture29_0": DATA_IMAGES_INTERIOR + "furniture29_0.gif", \
-    "furniture29_1": DATA_IMAGES_INTERIOR + "furniture29_1.gif", \
-    "furniture30_0": DATA_IMAGES_INTERIOR + "furniture30_0.gif", \
-    "furniture30_1": DATA_IMAGES_INTERIOR + "furniture30_1.gif", \
-    "furniture31_0": DATA_IMAGES_INTERIOR + "furniture31_0.gif", \
-    "furniture31_1": DATA_IMAGES_INTERIOR + "furniture31_1.gif", \
-    "furniture32_0": DATA_IMAGES_INTERIOR + "furniture32_0.gif", \
-    "furniture32_1": DATA_IMAGES_INTERIOR + "furniture32_1.gif", \
-    "furniture33_0": DATA_IMAGES_INTERIOR + "furniture33_0.gif", \
-    "furniture33_1": DATA_IMAGES_INTERIOR + "furniture33_1.gif", \
-    "furniture34_0": DATA_IMAGES_INTERIOR + "furniture34_0.gif", \
-    "furniture34_1": DATA_IMAGES_INTERIOR + "furniture34_1.gif", \
-    "furniture35_0": DATA_IMAGES_INTERIOR + "furniture35_0.gif", \
-    "furniture35_1": DATA_IMAGES_INTERIOR + "furniture35_1.gif", \
-    "furniture36_0": DATA_IMAGES_INTERIOR + "furniture36_0.gif", \
-    "furniture36_1": DATA_IMAGES_INTERIOR + "furniture36_1.gif", \
-    "furniture37_0": DATA_IMAGES_INTERIOR + "furniture37_0.gif", \
-    "furniture37_1": DATA_IMAGES_INTERIOR + "furniture37_1.gif", \
-    "interior1_0": DATA_IMAGES_INTERIOR + "interior1_0.gif", \
-    "interior1_1": DATA_IMAGES_INTERIOR + "interior1_1.gif", \
-    "interior2_0": DATA_IMAGES_INTERIOR + "interior2_0.gif", \
-    "interior2_1": DATA_IMAGES_INTERIOR + "interior2_1.gif", \
-    "interior3_0": DATA_IMAGES_INTERIOR + "interior3_0.gif", \
-    "interior3_1": DATA_IMAGES_INTERIOR + "interior3_1.gif", \
-    "interior4_0": DATA_IMAGES_INTERIOR + "interior4_0.gif", \
-    "interior4_1": DATA_IMAGES_INTERIOR + "interior4_1.gif", \
-    "interior5_0": DATA_IMAGES_INTERIOR + "interior5_0.gif", \
-    "interior5_1": DATA_IMAGES_INTERIOR + "interior5_1.gif", \
-    "interior6_0": DATA_IMAGES_INTERIOR + "interior6_0.gif", \
-    "interior6_1": DATA_IMAGES_INTERIOR + "interior6_1.gif", \
-    "interior7_0": DATA_IMAGES_INTERIOR + "interior7_0.gif", \
-    "interior7_1": DATA_IMAGES_INTERIOR + "interior7_1.gif", \
-    "interior8_0": DATA_IMAGES_INTERIOR + "interior8_0.gif", \
-    "interior8_1": DATA_IMAGES_INTERIOR + "interior8_1.gif", \
-    "interior9_0": DATA_IMAGES_INTERIOR + "interior9_0.gif", \
-    "interior9_1": DATA_IMAGES_INTERIOR + "interior9_1.gif", \
-    "interior10_0": DATA_IMAGES_INTERIOR + "interior10_0.gif", \
-    "interior10_1": DATA_IMAGES_INTERIOR + "interior10_1.gif", \
-    "interior11_0": DATA_IMAGES_INTERIOR + "interior11_0.gif", \
-    "interior11_1": DATA_IMAGES_INTERIOR + "interior11_1.gif", \
-    "interior12_0": DATA_IMAGES_INTERIOR + "interior12_0.gif", \
-    "interior12_1": DATA_IMAGES_INTERIOR + "interior12_1.gif", \
-    "interior13_0": DATA_IMAGES_INTERIOR + "interior13_0.gif", \
-    "interior13_1": DATA_IMAGES_INTERIOR + "interior13_1.gif", \
-    "interior14_0": DATA_IMAGES_INTERIOR + "interior14_0.gif", \
-    "interior14_1": DATA_IMAGES_INTERIOR + "interior14_1.gif", \
-    "interior15_0": DATA_IMAGES_INTERIOR + "interior15_0.gif", \
-    "interior15_1": DATA_IMAGES_INTERIOR + "interior15_1.gif", \
-    "interior16_0": DATA_IMAGES_INTERIOR + "interior16_0.gif", \
-    "interior16_1": DATA_IMAGES_INTERIOR + "interior16_1.gif", \
-    "interior17_0": DATA_IMAGES_INTERIOR + "interior17_0.gif", \
-    "interior17_1": DATA_IMAGES_INTERIOR + "interior17_1.gif", \
-    "interior18_0": DATA_IMAGES_INTERIOR + "interior18_0.gif", \
-    "interior18_1": DATA_IMAGES_INTERIOR + "interior18_1.gif", \
-    "interior19_0": DATA_IMAGES_INTERIOR + "interior19_0.gif", \
-    "interior19_1": DATA_IMAGES_INTERIOR + "interior19_1.gif", \
-    "interior20_0": DATA_IMAGES_INTERIOR + "interior20_0.gif", \
-    "interior20_1": DATA_IMAGES_INTERIOR + "interior20_1.gif", \
-    "interior21_0": DATA_IMAGES_INTERIOR + "interior21_0.gif", \
-    "interior21_1": DATA_IMAGES_INTERIOR + "interior21_1.gif", \
-    "interior22_0": DATA_IMAGES_INTERIOR + "interior22_0.gif", \
-    "interior22_1": DATA_IMAGES_INTERIOR + "interior22_1.gif", \
-    "interior23_0": DATA_IMAGES_INTERIOR + "interior23_0.gif", \
-    "interior23_1": DATA_IMAGES_INTERIOR + "interior23_1.gif", \
-    "interior24_0": DATA_IMAGES_INTERIOR + "interior24_0.gif", \
-    "interior24_1": DATA_IMAGES_INTERIOR + "interior24_1.gif", \
-    "interior25_0": DATA_IMAGES_INTERIOR + "interior25_0.gif", \
-    "interior25_1": DATA_IMAGES_INTERIOR + "interior25_1.gif", \
-    "interior26_0": DATA_IMAGES_INTERIOR + "interior26_0.gif", \
-    "interior26_1": DATA_IMAGES_INTERIOR + "interior26_1.gif", \
-    "interior27_0": DATA_IMAGES_INTERIOR + "interior27_0.gif", \
-    "interior27_1": DATA_IMAGES_INTERIOR + "interior27_1.gif", \
-    "interior28_0": DATA_IMAGES_INTERIOR + "interior28_0.gif", \
-    "interior28_1": DATA_IMAGES_INTERIOR + "interior28_1.gif", \
-    "interior29_0": DATA_IMAGES_INTERIOR + "interior29_0.gif", \
-    "interior29_1": DATA_IMAGES_INTERIOR + "interior29_1.gif", \
-    "interior30_0": DATA_IMAGES_INTERIOR + "interior30_0.gif", \
-    "interior30_1": DATA_IMAGES_INTERIOR + "interior30_1.gif", \
-    "interior31_0": DATA_IMAGES_INTERIOR + "interior31_0.gif", \
-    "interior31_1": DATA_IMAGES_INTERIOR + "interior31_1.gif", \
-    "interior32_0": DATA_IMAGES_INTERIOR + "interior32_0.gif", \
-    "interior32_1": DATA_IMAGES_INTERIOR + "interior32_1.gif", \
-    "interior33_0": DATA_IMAGES_INTERIOR + "interior33_0.gif", \
-    "interior33_1": DATA_IMAGES_INTERIOR + "interior33_1.gif", \
-    "interior34_0": DATA_IMAGES_INTERIOR + "interior34_0.gif", \
-    "interior34_1": DATA_IMAGES_INTERIOR + "interior34_1.gif", \
-    "interior35_0": DATA_IMAGES_INTERIOR + "interior35_0.gif", \
-    "interior35_1": DATA_IMAGES_INTERIOR + "interior35_1.gif", \
-    "interior36_0": DATA_IMAGES_INTERIOR + "interior36_0.gif", \
-    "interior36_1": DATA_IMAGES_INTERIOR + "interior36_1.gif", \
-    "interior37_0": DATA_IMAGES_INTERIOR + "interior37_0.gif", \
-    "interior37_1": DATA_IMAGES_INTERIOR + "interior37_1.gif", \
-    "interior38_0": DATA_IMAGES_INTERIOR + "interior38_0.gif", \
-    "interior38_1": DATA_IMAGES_INTERIOR + "interior38_1.gif", \
-    "interior39_0": DATA_IMAGES_INTERIOR + "interior39_0.gif", \
-    "interior39_1": DATA_IMAGES_INTERIOR + "interior39_1.gif", \
-    "interior40_0": DATA_IMAGES_INTERIOR + "interior40_0.gif", \
-    "interior40_1": DATA_IMAGES_INTERIOR + "interior40_1.gif", \
-    "interior41_0": DATA_IMAGES_INTERIOR + "interior41_0.gif", \
-    "interior41_1": DATA_IMAGES_INTERIOR + "interior41_1.gif", \
-    "interior42_0": DATA_IMAGES_INTERIOR + "interior42_0.gif", \
-    "interior42_1": DATA_IMAGES_INTERIOR + "interior42_1.gif", \
-    "interior43_0": DATA_IMAGES_INTERIOR + "interior43_0.gif", \
-    "interior43_1": DATA_IMAGES_INTERIOR + "interior43_1.gif", \
-    "interior44_0": DATA_IMAGES_INTERIOR + "interior44_0.gif", \
-    "interior44_1": DATA_IMAGES_INTERIOR + "interior44_1.gif", \
-    "interior45_0": DATA_IMAGES_INTERIOR + "interior45_0.gif", \
-    "interior45_1": DATA_IMAGES_INTERIOR + "interior45_1.gif", \
-    "interior46_0": DATA_IMAGES_INTERIOR + "interior46_0.gif", \
-    "interior46_1": DATA_IMAGES_INTERIOR + "interior46_1.gif", \
-    "interior47_0": DATA_IMAGES_INTERIOR + "interior47_0.gif", \
-    "interior47_1": DATA_IMAGES_INTERIOR + "interior47_1.gif", \
-    "interior48_0": DATA_IMAGES_INTERIOR + "interior48_0.gif", \
-    "interior48_1": DATA_IMAGES_INTERIOR + "interior48_1.gif", \
-    "interior49_0": DATA_IMAGES_INTERIOR + "interior49_0.gif", \
-    "interior49_1": DATA_IMAGES_INTERIOR + "interior49_1.gif", \
-    "interior50_0": DATA_IMAGES_INTERIOR + "interior50_0.gif", \
-    "interior50_1": DATA_IMAGES_INTERIOR + "interior50_1.gif", \
-    "interior51_0": DATA_IMAGES_INTERIOR + "interior51_0.gif", \
-    "interior51_1": DATA_IMAGES_INTERIOR + "interior51_1.gif", \
-    "interior52_0": DATA_IMAGES_INTERIOR + "interior52_0.gif", \
-    "interior52_1": DATA_IMAGES_INTERIOR + "interior52_1.gif", \
-    "interior53_0": DATA_IMAGES_INTERIOR + "interior53_0.gif", \
-    "interior53_1": DATA_IMAGES_INTERIOR + "interior53_1.gif", \
-    "interior54_0": DATA_IMAGES_INTERIOR + "interior54_0.gif", \
-    "interior54_1": DATA_IMAGES_INTERIOR + "interior54_1.gif", \
-    "interior55_0": DATA_IMAGES_INTERIOR + "interior55_0.gif", \
-    "interior55_1": DATA_IMAGES_INTERIOR + "interior55_1.gif", \
-    "interior56_0": DATA_IMAGES_INTERIOR + "interior56_0.gif", \
-    "interior56_1": DATA_IMAGES_INTERIOR + "interior56_1.gif", \
-    "interior57_0": DATA_IMAGES_INTERIOR + "interior57_0.gif", \
-    "interior57_1": DATA_IMAGES_INTERIOR + "interior57_1.gif", \
-    "interior58_0": DATA_IMAGES_INTERIOR + "interior58_0.gif", \
-    "interior58_1": DATA_IMAGES_INTERIOR + "interior58_1.gif", \
-    "interior59_0": DATA_IMAGES_INTERIOR + "interior59_0.gif", \
-    "interior59_1": DATA_IMAGES_INTERIOR + "interior59_1.gif", \
-    "interior60_0": DATA_IMAGES_INTERIOR + "interior60_0.gif", \
-    "interior60_1": DATA_IMAGES_INTERIOR + "interior60_1.gif", \
-    "interior61_0": DATA_IMAGES_INTERIOR + "interior61_0.gif", \
-    "interior61_1": DATA_IMAGES_INTERIOR + "interior61_1.gif", \
-    "interior62_0": DATA_IMAGES_INTERIOR + "interior62_0.gif", \
-    "interior62_1": DATA_IMAGES_INTERIOR + "interior62_1.gif", \
-    "interior63_0": DATA_IMAGES_INTERIOR + "interior63_0.gif", \
-    "interior63_1": DATA_IMAGES_INTERIOR + "interior63_1.gif", \
-    "interior64_0": DATA_IMAGES_INTERIOR + "interior64_0.gif", \
-    "interior64_1": DATA_IMAGES_INTERIOR + "interior64_1.gif", \
-    "interior65_0": DATA_IMAGES_INTERIOR + "interior65_0.gif", \
-    "interior65_1": DATA_IMAGES_INTERIOR + "interior65_1.gif", \
-    "interior66_0": DATA_IMAGES_INTERIOR + "interior66_0.gif", \
-    "interior66_1": DATA_IMAGES_INTERIOR + "interior66_1.gif", \
-    "interior67_0": DATA_IMAGES_INTERIOR + "interior67_0.gif", \
-    "interior67_1": DATA_IMAGES_INTERIOR + "interior67_1.gif", \
-    "interior68_0": DATA_IMAGES_INTERIOR + "interior68_0.gif", \
-    "interior68_1": DATA_IMAGES_INTERIOR + "interior68_1.gif", \
-    "interior69_0": DATA_IMAGES_INTERIOR + "interior69_0.gif", \
-    "interior69_1": DATA_IMAGES_INTERIOR + "interior69_1.gif", \
-    "interior70_0": DATA_IMAGES_INTERIOR + "interior70_0.gif", \
-    "interior70_1": DATA_IMAGES_INTERIOR + "interior70_1.gif", \
-    "interior71_0": DATA_IMAGES_INTERIOR + "interior71_0.gif", \
-    "interior71_1": DATA_IMAGES_INTERIOR + "interior71_1.gif", \
-    "interior72_0": DATA_IMAGES_INTERIOR + "interior72_0.gif", \
-    "interior72_1": DATA_IMAGES_INTERIOR + "interior72_1.gif", \
-    "interior73_0": DATA_IMAGES_INTERIOR + "interior73_0.gif", \
-    "interior73_1": DATA_IMAGES_INTERIOR + "interior73_1.gif", \
-    "interior74_0": DATA_IMAGES_INTERIOR + "interior74_0.gif", \
-    "interior74_1": DATA_IMAGES_INTERIOR + "interior74_1.gif", \
-    "interior75_0": DATA_IMAGES_INTERIOR + "interior75_0.gif", \
-    "interior75_1": DATA_IMAGES_INTERIOR + "interior75_1.gif", \
-    "interior76_0": DATA_IMAGES_INTERIOR + "interior76_0.gif", \
-    "interior76_1": DATA_IMAGES_INTERIOR + "interior76_1.gif", \
-    "interior77_0": DATA_IMAGES_INTERIOR + "interior77_0.gif", \
-    "interior77_1": DATA_IMAGES_INTERIOR + "interior77_1.gif", \
-    "interior78_0": DATA_IMAGES_INTERIOR + "interior78_0.gif", \
-    "interior78_1": DATA_IMAGES_INTERIOR + "interior78_1.gif", \
-    "interior79_0": DATA_IMAGES_INTERIOR + "interior79_0.gif", \
-    "interior79_1": DATA_IMAGES_INTERIOR + "interior79_1.gif", \
-    "interior80_0": DATA_IMAGES_INTERIOR + "interior80_0.gif", \
-    "interior80_1": DATA_IMAGES_INTERIOR + "interior80_1.gif", \
-    "interior81_0": DATA_IMAGES_INTERIOR + "interior81_0.gif", \
-    "interior81_1": DATA_IMAGES_INTERIOR + "interior81_1.gif", \
-    "interior82_0": DATA_IMAGES_INTERIOR + "interior82_0.gif", \
-    "interior82_1": DATA_IMAGES_INTERIOR + "interior82_1.gif", \
-    "interior83_0": DATA_IMAGES_INTERIOR + "interior83_0.gif", \
-    "interior83_1": DATA_IMAGES_INTERIOR + "interior83_1.gif", \
-    "interior84_0": DATA_IMAGES_INTERIOR + "interior84_0.gif", \
-    "interior84_1": DATA_IMAGES_INTERIOR + "interior84_1.gif", \
-    "interior85_0": DATA_IMAGES_INTERIOR + "interior85_0.gif", \
-    "interior85_1": DATA_IMAGES_INTERIOR + "interior85_1.gif", \
-    "interior86_0": DATA_IMAGES_INTERIOR + "interior86_0.gif", \
-    "interior86_1": DATA_IMAGES_INTERIOR + "interior86_1.gif", \
-    "interior87_0": DATA_IMAGES_INTERIOR + "interior87_0.gif", \
-    "interior87_1": DATA_IMAGES_INTERIOR + "interior87_1.gif", \
-    "interior88_0": DATA_IMAGES_INTERIOR + "interior88_0.gif", \
-    "interior88_1": DATA_IMAGES_INTERIOR + "interior88_1.gif", \
-    "interior89_0": DATA_IMAGES_INTERIOR + "interior89_0.gif", \
-    "interior89_1": DATA_IMAGES_INTERIOR + "interior89_1.gif", \
-    "interior90_0": DATA_IMAGES_INTERIOR + "interior90_0.gif", \
-    "interior90_1": DATA_IMAGES_INTERIOR + "interior90_1.gif", \
-    "interior91_0": DATA_IMAGES_INTERIOR + "interior91_0.gif", \
-    "interior91_1": DATA_IMAGES_INTERIOR + "interior91_1.gif", \
-    "interior92_0": DATA_IMAGES_INTERIOR + "interior92_0.gif", \
-    "interior92_1": DATA_IMAGES_INTERIOR + "interior92_1.gif", \
-    "interior93_0": DATA_IMAGES_INTERIOR + "interior93_0.gif", \
-    "interior93_1": DATA_IMAGES_INTERIOR + "interior93_1.gif", \
-    "interior94_0": DATA_IMAGES_INTERIOR + "interior94_0.gif", \
-    "interior94_1": DATA_IMAGES_INTERIOR + "interior94_1.gif", \
-    "interior95_0": DATA_IMAGES_INTERIOR + "interior95_0.gif", \
-    "interior95_1": DATA_IMAGES_INTERIOR + "interior95_1.gif", \
-    "mesa_0": DATA_IMAGES_INTERIOR + "mesa_0.gif", \
-    "mesa_1": DATA_IMAGES_INTERIOR + "mesa_1.gif", \
-    "librero1_0": DATA_IMAGES_INTERIOR + "librero1_0.gif", \
-    "librero1_1": DATA_IMAGES_INTERIOR + "librero1_1.gif", \
-    "trophy1_0": DATA_IMAGES_INTERIOR + "trophy1_0.gif", \
-    "trophy1_1": DATA_IMAGES_INTERIOR + "trophy1_1.gif", \
-    "trophy2_0": DATA_IMAGES_INTERIOR + "trophy2_0.gif", \
-    "trophy2_1": DATA_IMAGES_INTERIOR + "trophy2_1.gif", \
-    "trophy3_0": DATA_IMAGES_INTERIOR + "trophy3_0.gif", \
-    "trophy3_1": DATA_IMAGES_INTERIOR + "trophy3_1.gif", \
-    "trophy4_0": DATA_IMAGES_INTERIOR + "trophy4_0.gif", \
-    "trophy4_1": DATA_IMAGES_INTERIOR + "trophy4_1.gif", \
-    "trophy5_0": DATA_IMAGES_INTERIOR + "trophy5_0.gif", \
-    "trophy5_1": DATA_IMAGES_INTERIOR + "trophy5_1.gif", \
-    "trophy6_0": DATA_IMAGES_INTERIOR + "trophy6_0.gif", \
-    "trophy6_1": DATA_IMAGES_INTERIOR + "trophy6_1.gif", \
-    "trophy7_0": DATA_IMAGES_INTERIOR + "trophy7_0.gif", \
-    "trophy7_1": DATA_IMAGES_INTERIOR + "trophy7_1.gif", \
-    "trophy8_0": DATA_IMAGES_INTERIOR + "trophy8_0.gif", \
-    "trophy8_1": DATA_IMAGES_INTERIOR + "trophy8_1.gif", \
-    "trophy9_0": DATA_IMAGES_INTERIOR + "trophy9_0.gif", \
-    "trophy9_1": DATA_IMAGES_INTERIOR + "trophy9_1.gif", \
-    "trophy10_0": DATA_IMAGES_INTERIOR + "trophy10_0.gif", \
-    "trophy10_1": DATA_IMAGES_INTERIOR + "trophy10_1.gif", \
-    "trophy11_0": DATA_IMAGES_INTERIOR + "trophy11_0.gif", \
-    "trophy11_1": DATA_IMAGES_INTERIOR + "trophy11_1.gif", \
-    "trophy12_0": DATA_IMAGES_INTERIOR + "trophy12_0.gif", \
-    "trophy12_1": DATA_IMAGES_INTERIOR + "trophy12_1.gif", \
-    "trophy13_0": DATA_IMAGES_INTERIOR + "trophy13_0.gif", \
-    "trophy13_1": DATA_IMAGES_INTERIOR + "trophy13_1.gif", \
-    "trophy14_0": DATA_IMAGES_INTERIOR + "trophy14_0.gif", \
-    "trophy14_1": DATA_IMAGES_INTERIOR + "trophy14_1.gif", \
-    "trophy15_0": DATA_IMAGES_INTERIOR + "trophy15_0.gif", \
-    "trophy15_1": DATA_IMAGES_INTERIOR + "trophy15_1.gif", \
-    "trophy16_0": DATA_IMAGES_INTERIOR + "trophy16_0.gif", \
-    "trophy16_1": DATA_IMAGES_INTERIOR + "trophy16_1.gif", \
-    "trophy17_0": DATA_IMAGES_INTERIOR + "trophy17_0.gif", \
-    "trophy17_1": DATA_IMAGES_INTERIOR + "trophy17_1.gif", \
-    "trophy18_0": DATA_IMAGES_INTERIOR + "trophy18_0.gif", \
-    "trophy18_1": DATA_IMAGES_INTERIOR + "trophy18_1.gif", \
-    "trophy19_0": DATA_IMAGES_INTERIOR + "trophy19_0.gif", \
-    "trophy19_1": DATA_IMAGES_INTERIOR + "trophy19_1.gif", \
-    "trophy20_0": DATA_IMAGES_INTERIOR + "trophy20_0.gif", \
-    "trophy20_1": DATA_IMAGES_INTERIOR + "trophy20_1.gif", \
- \
+    "barril1_0": DATA_IMAGES_INTERIOR + "barril1_0.gif",
+    "barril1_1": DATA_IMAGES_INTERIOR + "barril1_1.gif",
+    "barril2_0": DATA_IMAGES_INTERIOR + "barril2_0.gif",
+    "barril2_1": DATA_IMAGES_INTERIOR + "barril2_1.gif",
+    "barril3_0": DATA_IMAGES_INTERIOR + "barril3_0.gif",
+    "barril3_1": DATA_IMAGES_INTERIOR + "barril3_1.gif",
+    "bed_0": DATA_IMAGES_INTERIOR + "bed_0.gif",
+    "bed_1": DATA_IMAGES_INTERIOR + "bed_1.gif",
+    "big_barril1_0": DATA_IMAGES_INTERIOR_BIG + "big_barril1_0.gif",
+    "big_barril1_1": DATA_IMAGES_INTERIOR_BIG + "big_barril1_1.gif",
+    "big_carpet1_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet1_0.gif",
+    "big_carpet1_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet1_1.gif",
+    "big_carpet2_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet2_0.gif",
+    "big_carpet2_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet2_1.gif",
+    "big_carpet3_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet3_0.gif",
+    "big_carpet3_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet3_1.gif",
+    "big_carpet4_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet4_0.gif",
+    "big_carpet4_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet4_1.gif",
+    "big_carpet5_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet5_0.gif",
+    "big_carpet5_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet5_1.gif",
+    "big_carpet6_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet6_0.gif",
+    "big_carpet6_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet6_1.gif",
+    "big_carpet7_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet7_0.gif",
+    "big_carpet7_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet7_1.gif",
+    "big_carpet8_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet8_0.gif",
+    "big_carpet8_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet8_1.gif",
+    "big_carpet9_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet9_0.gif",
+    "big_carpet9_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet9_1.gif",
+    "big_carpet10_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet10_0.gif",
+    "big_carpet10_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet10_1.gif",
+    "big_carpet11_0": DATA_IMAGES_INTERIOR_BIG + "big_carpet11_0.gif",
+    "big_carpet11_1": DATA_IMAGES_INTERIOR_BIG + "big_carpet11_1.gif",
+    "big_furniture1_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture1_0.gif",
+    "big_furniture1_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture1_1.gif",
+    "big_furniture2_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture2_0.gif",
+    "big_furniture2_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture2_1.gif",
+    "big_furniture3_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture3_0.gif",
+    "big_furniture3_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture3_1.gif",
+    "big_furniture4_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture4_0.gif",
+    "big_furniture4_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture4_1.gif",
+    "big_furniture5_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture5_0.gif",
+    "big_furniture5_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture5_1.gif",
+    "big_furniture6_0": DATA_IMAGES_INTERIOR_BIG + "big_furniture6_0.gif",
+    "big_furniture6_1": DATA_IMAGES_INTERIOR_BIG + "big_furniture6_1.gif",
+    "big_interior1_0": DATA_IMAGES_INTERIOR_BIG + "big_interior1_0.gif",
+    "big_interior1_1": DATA_IMAGES_INTERIOR_BIG + "big_interior1_1.gif",
+    "big_interior2_0": DATA_IMAGES_INTERIOR_BIG + "big_interior2_0.gif",
+    "big_interior2_1": DATA_IMAGES_INTERIOR_BIG + "big_interior2_1.gif",
+    "big_interior3_0": DATA_IMAGES_INTERIOR_BIG + "big_interior3_0.gif",
+    "big_interior3_1": DATA_IMAGES_INTERIOR_BIG + "big_interior3_1.gif",
+    "big_interior4_0": DATA_IMAGES_INTERIOR_BIG + "big_interior4_0.gif",
+    "big_interior4_1": DATA_IMAGES_INTERIOR_BIG + "big_interior4_1.gif",
+    "big_interior5_0": DATA_IMAGES_INTERIOR_BIG + "big_interior5_0.gif",
+    "big_interior5_1": DATA_IMAGES_INTERIOR_BIG + "big_interior5_1.gif",
+    "big_interior6_0": DATA_IMAGES_INTERIOR_BIG + "big_interior6_0.gif",
+    "big_interior6_1": DATA_IMAGES_INTERIOR_BIG + "big_interior6_1.gif",
+    "big_interior7_0": DATA_IMAGES_INTERIOR_BIG + "big_interior7_0.gif",
+    "big_interior7_1": DATA_IMAGES_INTERIOR_BIG + "big_interior7_1.gif",
+    "carpet1_0": DATA_IMAGES_INTERIOR + "carpet1_0.gif",
+    "carpet1_1": DATA_IMAGES_INTERIOR + "carpet1_1.gif",
+    "carpet2_0": DATA_IMAGES_INTERIOR + "carpet2_0.gif",
+    "carpet2_1": DATA_IMAGES_INTERIOR + "carpet2_1.gif",
+    "chair1_0": DATA_IMAGES_INTERIOR + "chair1_0.gif",
+    "chair1_1": DATA_IMAGES_INTERIOR + "chair1_1.gif",
+    "cofre_0": DATA_IMAGES_INTERIOR + "cofre_0.gif",
+    "cofre_1": DATA_IMAGES_INTERIOR + "cofre_1.gif",
+    "furniture1_0": DATA_IMAGES_INTERIOR + "furniture1_0.gif",
+    "furniture1_1": DATA_IMAGES_INTERIOR + "furniture1_1.gif",
+    "furniture2_0": DATA_IMAGES_INTERIOR + "furniture2_0.gif",
+    "furniture2_1": DATA_IMAGES_INTERIOR + "furniture2_1.gif",
+    "furniture3_0": DATA_IMAGES_INTERIOR + "furniture3_0.gif",
+    "furniture3_1": DATA_IMAGES_INTERIOR + "furniture3_1.gif",
+    "furniture4_0": DATA_IMAGES_INTERIOR + "furniture4_0.gif",
+    "furniture4_1": DATA_IMAGES_INTERIOR + "furniture4_1.gif",
+    "furniture5_0": DATA_IMAGES_INTERIOR + "furniture5_0.gif",
+    "furniture5_1": DATA_IMAGES_INTERIOR + "furniture5_1.gif",
+    "furniture6_0": DATA_IMAGES_INTERIOR + "furniture6_0.gif",
+    "furniture6_1": DATA_IMAGES_INTERIOR + "furniture6_1.gif",
+    "furniture7_0": DATA_IMAGES_INTERIOR + "furniture7_0.gif",
+    "furniture7_1": DATA_IMAGES_INTERIOR + "furniture7_1.gif",
+    "furniture8_0": DATA_IMAGES_INTERIOR + "furniture8_0.gif",
+    "furniture8_1": DATA_IMAGES_INTERIOR + "furniture8_1.gif",
+    "furniture9_0": DATA_IMAGES_INTERIOR + "furniture9_0.gif",
+    "furniture9_1": DATA_IMAGES_INTERIOR + "furniture9_1.gif",
+    "furniture10_0": DATA_IMAGES_INTERIOR + "furniture10_0.gif",
+    "furniture10_1": DATA_IMAGES_INTERIOR + "furniture10_1.gif",
+    "furniture11_0": DATA_IMAGES_INTERIOR + "furniture11_0.gif",
+    "furniture11_1": DATA_IMAGES_INTERIOR + "furniture11_1.gif",
+    "furniture12_0": DATA_IMAGES_INTERIOR + "furniture12_0.gif",
+    "furniture12_1": DATA_IMAGES_INTERIOR + "furniture12_1.gif",
+    "furniture13_0": DATA_IMAGES_INTERIOR + "furniture13_0.gif",
+    "furniture13_1": DATA_IMAGES_INTERIOR + "furniture13_1.gif",
+    "furniture14_0": DATA_IMAGES_INTERIOR + "furniture14_0.gif",
+    "furniture14_1": DATA_IMAGES_INTERIOR + "furniture14_1.gif",
+    "furniture15_0": DATA_IMAGES_INTERIOR + "furniture15_0.gif",
+    "furniture15_1": DATA_IMAGES_INTERIOR + "furniture15_1.gif",
+    "furniture16_0": DATA_IMAGES_INTERIOR + "furniture16_0.gif",
+    "furniture16_1": DATA_IMAGES_INTERIOR + "furniture16_1.gif",
+    "furniture17_0": DATA_IMAGES_INTERIOR + "furniture17_0.gif",
+    "furniture17_1": DATA_IMAGES_INTERIOR + "furniture17_1.gif",
+    "furniture18_0": DATA_IMAGES_INTERIOR + "furniture18_0.gif",
+    "furniture18_1": DATA_IMAGES_INTERIOR + "furniture18_1.gif",
+    "furniture19_0": DATA_IMAGES_INTERIOR + "furniture19_0.gif",
+    "furniture19_1": DATA_IMAGES_INTERIOR + "furniture19_1.gif",
+    "furniture20_0": DATA_IMAGES_INTERIOR + "furniture20_0.gif",
+    "furniture20_1": DATA_IMAGES_INTERIOR + "furniture20_1.gif",
+    "furniture21_0": DATA_IMAGES_INTERIOR + "furniture21_0.gif",
+    "furniture21_1": DATA_IMAGES_INTERIOR + "furniture21_1.gif",
+    "furniture22_0": DATA_IMAGES_INTERIOR + "furniture22_0.gif",
+    "furniture22_1": DATA_IMAGES_INTERIOR + "furniture22_1.gif",
+    "furniture23_0": DATA_IMAGES_INTERIOR + "furniture23_0.gif",
+    "furniture23_1": DATA_IMAGES_INTERIOR + "furniture23_1.gif",
+    "furniture24_0": DATA_IMAGES_INTERIOR + "furniture24_0.gif",
+    "furniture24_1": DATA_IMAGES_INTERIOR + "furniture24_1.gif",
+    "furniture25_0": DATA_IMAGES_INTERIOR + "furniture25_0.gif",
+    "furniture25_1": DATA_IMAGES_INTERIOR + "furniture25_1.gif",
+    "furniture26_0": DATA_IMAGES_INTERIOR + "furniture26_0.gif",
+    "furniture26_1": DATA_IMAGES_INTERIOR + "furniture26_1.gif",
+    "furniture27_0": DATA_IMAGES_INTERIOR + "furniture27_0.gif",
+    "furniture27_1": DATA_IMAGES_INTERIOR + "furniture27_1.gif",
+    "furniture28_0": DATA_IMAGES_INTERIOR + "furniture28_0.gif",
+    "furniture28_1": DATA_IMAGES_INTERIOR + "furniture28_1.gif",
+    "furniture29_0": DATA_IMAGES_INTERIOR + "furniture29_0.gif",
+    "furniture29_1": DATA_IMAGES_INTERIOR + "furniture29_1.gif",
+    "furniture30_0": DATA_IMAGES_INTERIOR + "furniture30_0.gif",
+    "furniture30_1": DATA_IMAGES_INTERIOR + "furniture30_1.gif",
+    "furniture31_0": DATA_IMAGES_INTERIOR + "furniture31_0.gif",
+    "furniture31_1": DATA_IMAGES_INTERIOR + "furniture31_1.gif",
+    "furniture32_0": DATA_IMAGES_INTERIOR + "furniture32_0.gif",
+    "furniture32_1": DATA_IMAGES_INTERIOR + "furniture32_1.gif",
+    "furniture33_0": DATA_IMAGES_INTERIOR + "furniture33_0.gif",
+    "furniture33_1": DATA_IMAGES_INTERIOR + "furniture33_1.gif",
+    "furniture34_0": DATA_IMAGES_INTERIOR + "furniture34_0.gif",
+    "furniture34_1": DATA_IMAGES_INTERIOR + "furniture34_1.gif",
+    "furniture35_0": DATA_IMAGES_INTERIOR + "furniture35_0.gif",
+    "furniture35_1": DATA_IMAGES_INTERIOR + "furniture35_1.gif",
+    "furniture36_0": DATA_IMAGES_INTERIOR + "furniture36_0.gif",
+    "furniture36_1": DATA_IMAGES_INTERIOR + "furniture36_1.gif",
+    "furniture37_0": DATA_IMAGES_INTERIOR + "furniture37_0.gif",
+    "furniture37_1": DATA_IMAGES_INTERIOR + "furniture37_1.gif",
+    "interior1_0": DATA_IMAGES_INTERIOR + "interior1_0.gif",
+    "interior1_1": DATA_IMAGES_INTERIOR + "interior1_1.gif",
+    "interior2_0": DATA_IMAGES_INTERIOR + "interior2_0.gif",
+    "interior2_1": DATA_IMAGES_INTERIOR + "interior2_1.gif",
+    "interior3_0": DATA_IMAGES_INTERIOR + "interior3_0.gif",
+    "interior3_1": DATA_IMAGES_INTERIOR + "interior3_1.gif",
+    "interior4_0": DATA_IMAGES_INTERIOR + "interior4_0.gif",
+    "interior4_1": DATA_IMAGES_INTERIOR + "interior4_1.gif",
+    "interior5_0": DATA_IMAGES_INTERIOR + "interior5_0.gif",
+    "interior5_1": DATA_IMAGES_INTERIOR + "interior5_1.gif",
+    "interior6_0": DATA_IMAGES_INTERIOR + "interior6_0.gif",
+    "interior6_1": DATA_IMAGES_INTERIOR + "interior6_1.gif",
+    "interior7_0": DATA_IMAGES_INTERIOR + "interior7_0.gif",
+    "interior7_1": DATA_IMAGES_INTERIOR + "interior7_1.gif",
+    "interior8_0": DATA_IMAGES_INTERIOR + "interior8_0.gif",
+    "interior8_1": DATA_IMAGES_INTERIOR + "interior8_1.gif",
+    "interior9_0": DATA_IMAGES_INTERIOR + "interior9_0.gif",
+    "interior9_1": DATA_IMAGES_INTERIOR + "interior9_1.gif",
+    "interior10_0": DATA_IMAGES_INTERIOR + "interior10_0.gif",
+    "interior10_1": DATA_IMAGES_INTERIOR + "interior10_1.gif",
+    "interior11_0": DATA_IMAGES_INTERIOR + "interior11_0.gif",
+    "interior11_1": DATA_IMAGES_INTERIOR + "interior11_1.gif",
+    "interior12_0": DATA_IMAGES_INTERIOR + "interior12_0.gif",
+    "interior12_1": DATA_IMAGES_INTERIOR + "interior12_1.gif",
+    "interior13_0": DATA_IMAGES_INTERIOR + "interior13_0.gif",
+    "interior13_1": DATA_IMAGES_INTERIOR + "interior13_1.gif",
+    "interior14_0": DATA_IMAGES_INTERIOR + "interior14_0.gif",
+    "interior14_1": DATA_IMAGES_INTERIOR + "interior14_1.gif",
+    "interior15_0": DATA_IMAGES_INTERIOR + "interior15_0.gif",
+    "interior15_1": DATA_IMAGES_INTERIOR + "interior15_1.gif",
+    "interior16_0": DATA_IMAGES_INTERIOR + "interior16_0.gif",
+    "interior16_1": DATA_IMAGES_INTERIOR + "interior16_1.gif",
+    "interior17_0": DATA_IMAGES_INTERIOR + "interior17_0.gif",
+    "interior17_1": DATA_IMAGES_INTERIOR + "interior17_1.gif",
+    "interior18_0": DATA_IMAGES_INTERIOR + "interior18_0.gif",
+    "interior18_1": DATA_IMAGES_INTERIOR + "interior18_1.gif",
+    "interior19_0": DATA_IMAGES_INTERIOR + "interior19_0.gif",
+    "interior19_1": DATA_IMAGES_INTERIOR + "interior19_1.gif",
+    "interior20_0": DATA_IMAGES_INTERIOR + "interior20_0.gif",
+    "interior20_1": DATA_IMAGES_INTERIOR + "interior20_1.gif",
+    "interior21_0": DATA_IMAGES_INTERIOR + "interior21_0.gif",
+    "interior21_1": DATA_IMAGES_INTERIOR + "interior21_1.gif",
+    "interior22_0": DATA_IMAGES_INTERIOR + "interior22_0.gif",
+    "interior22_1": DATA_IMAGES_INTERIOR + "interior22_1.gif",
+    "interior23_0": DATA_IMAGES_INTERIOR + "interior23_0.gif",
+    "interior23_1": DATA_IMAGES_INTERIOR + "interior23_1.gif",
+    "interior24_0": DATA_IMAGES_INTERIOR + "interior24_0.gif",
+    "interior24_1": DATA_IMAGES_INTERIOR + "interior24_1.gif",
+    "interior25_0": DATA_IMAGES_INTERIOR + "interior25_0.gif",
+    "interior25_1": DATA_IMAGES_INTERIOR + "interior25_1.gif",
+    "interior26_0": DATA_IMAGES_INTERIOR + "interior26_0.gif",
+    "interior26_1": DATA_IMAGES_INTERIOR + "interior26_1.gif",
+    "interior27_0": DATA_IMAGES_INTERIOR + "interior27_0.gif",
+    "interior27_1": DATA_IMAGES_INTERIOR + "interior27_1.gif",
+    "interior28_0": DATA_IMAGES_INTERIOR + "interior28_0.gif",
+    "interior28_1": DATA_IMAGES_INTERIOR + "interior28_1.gif",
+    "interior29_0": DATA_IMAGES_INTERIOR + "interior29_0.gif",
+    "interior29_1": DATA_IMAGES_INTERIOR + "interior29_1.gif",
+    "interior30_0": DATA_IMAGES_INTERIOR + "interior30_0.gif",
+    "interior30_1": DATA_IMAGES_INTERIOR + "interior30_1.gif",
+    "interior31_0": DATA_IMAGES_INTERIOR + "interior31_0.gif",
+    "interior31_1": DATA_IMAGES_INTERIOR + "interior31_1.gif",
+    "interior32_0": DATA_IMAGES_INTERIOR + "interior32_0.gif",
+    "interior32_1": DATA_IMAGES_INTERIOR + "interior32_1.gif",
+    "interior33_0": DATA_IMAGES_INTERIOR + "interior33_0.gif",
+    "interior33_1": DATA_IMAGES_INTERIOR + "interior33_1.gif",
+    "interior34_0": DATA_IMAGES_INTERIOR + "interior34_0.gif",
+    "interior34_1": DATA_IMAGES_INTERIOR + "interior34_1.gif",
+    "interior35_0": DATA_IMAGES_INTERIOR + "interior35_0.gif",
+    "interior35_1": DATA_IMAGES_INTERIOR + "interior35_1.gif",
+    "interior36_0": DATA_IMAGES_INTERIOR + "interior36_0.gif",
+    "interior36_1": DATA_IMAGES_INTERIOR + "interior36_1.gif",
+    "interior37_0": DATA_IMAGES_INTERIOR + "interior37_0.gif",
+    "interior37_1": DATA_IMAGES_INTERIOR + "interior37_1.gif",
+    "interior38_0": DATA_IMAGES_INTERIOR + "interior38_0.gif",
+    "interior38_1": DATA_IMAGES_INTERIOR + "interior38_1.gif",
+    "interior39_0": DATA_IMAGES_INTERIOR + "interior39_0.gif",
+    "interior39_1": DATA_IMAGES_INTERIOR + "interior39_1.gif",
+    "interior40_0": DATA_IMAGES_INTERIOR + "interior40_0.gif",
+    "interior40_1": DATA_IMAGES_INTERIOR + "interior40_1.gif",
+    "interior41_0": DATA_IMAGES_INTERIOR + "interior41_0.gif",
+    "interior41_1": DATA_IMAGES_INTERIOR + "interior41_1.gif",
+    "interior42_0": DATA_IMAGES_INTERIOR + "interior42_0.gif",
+    "interior42_1": DATA_IMAGES_INTERIOR + "interior42_1.gif",
+    "interior43_0": DATA_IMAGES_INTERIOR + "interior43_0.gif",
+    "interior43_1": DATA_IMAGES_INTERIOR + "interior43_1.gif",
+    "interior44_0": DATA_IMAGES_INTERIOR + "interior44_0.gif",
+    "interior44_1": DATA_IMAGES_INTERIOR + "interior44_1.gif",
+    "interior45_0": DATA_IMAGES_INTERIOR + "interior45_0.gif",
+    "interior45_1": DATA_IMAGES_INTERIOR + "interior45_1.gif",
+    "interior46_0": DATA_IMAGES_INTERIOR + "interior46_0.gif",
+    "interior46_1": DATA_IMAGES_INTERIOR + "interior46_1.gif",
+    "interior47_0": DATA_IMAGES_INTERIOR + "interior47_0.gif",
+    "interior47_1": DATA_IMAGES_INTERIOR + "interior47_1.gif",
+    "interior48_0": DATA_IMAGES_INTERIOR + "interior48_0.gif",
+    "interior48_1": DATA_IMAGES_INTERIOR + "interior48_1.gif",
+    "interior49_0": DATA_IMAGES_INTERIOR + "interior49_0.gif",
+    "interior49_1": DATA_IMAGES_INTERIOR + "interior49_1.gif",
+    "interior50_0": DATA_IMAGES_INTERIOR + "interior50_0.gif",
+    "interior50_1": DATA_IMAGES_INTERIOR + "interior50_1.gif",
+    "interior51_0": DATA_IMAGES_INTERIOR + "interior51_0.gif",
+    "interior51_1": DATA_IMAGES_INTERIOR + "interior51_1.gif",
+    "interior52_0": DATA_IMAGES_INTERIOR + "interior52_0.gif",
+    "interior52_1": DATA_IMAGES_INTERIOR + "interior52_1.gif",
+    "interior53_0": DATA_IMAGES_INTERIOR + "interior53_0.gif",
+    "interior53_1": DATA_IMAGES_INTERIOR + "interior53_1.gif",
+    "interior54_0": DATA_IMAGES_INTERIOR + "interior54_0.gif",
+    "interior54_1": DATA_IMAGES_INTERIOR + "interior54_1.gif",
+    "interior55_0": DATA_IMAGES_INTERIOR + "interior55_0.gif",
+    "interior55_1": DATA_IMAGES_INTERIOR + "interior55_1.gif",
+    "interior56_0": DATA_IMAGES_INTERIOR + "interior56_0.gif",
+    "interior56_1": DATA_IMAGES_INTERIOR + "interior56_1.gif",
+    "interior57_0": DATA_IMAGES_INTERIOR + "interior57_0.gif",
+    "interior57_1": DATA_IMAGES_INTERIOR + "interior57_1.gif",
+    "interior58_0": DATA_IMAGES_INTERIOR + "interior58_0.gif",
+    "interior58_1": DATA_IMAGES_INTERIOR + "interior58_1.gif",
+    "interior59_0": DATA_IMAGES_INTERIOR + "interior59_0.gif",
+    "interior59_1": DATA_IMAGES_INTERIOR + "interior59_1.gif",
+    "interior60_0": DATA_IMAGES_INTERIOR + "interior60_0.gif",
+    "interior60_1": DATA_IMAGES_INTERIOR + "interior60_1.gif",
+    "interior61_0": DATA_IMAGES_INTERIOR + "interior61_0.gif",
+    "interior61_1": DATA_IMAGES_INTERIOR + "interior61_1.gif",
+    "interior62_0": DATA_IMAGES_INTERIOR + "interior62_0.gif",
+    "interior62_1": DATA_IMAGES_INTERIOR + "interior62_1.gif",
+    "interior63_0": DATA_IMAGES_INTERIOR + "interior63_0.gif",
+    "interior63_1": DATA_IMAGES_INTERIOR + "interior63_1.gif",
+    "interior64_0": DATA_IMAGES_INTERIOR + "interior64_0.gif",
+    "interior64_1": DATA_IMAGES_INTERIOR + "interior64_1.gif",
+    "interior65_0": DATA_IMAGES_INTERIOR + "interior65_0.gif",
+    "interior65_1": DATA_IMAGES_INTERIOR + "interior65_1.gif",
+    "interior66_0": DATA_IMAGES_INTERIOR + "interior66_0.gif",
+    "interior66_1": DATA_IMAGES_INTERIOR + "interior66_1.gif",
+    "interior67_0": DATA_IMAGES_INTERIOR + "interior67_0.gif",
+    "interior67_1": DATA_IMAGES_INTERIOR + "interior67_1.gif",
+    "interior68_0": DATA_IMAGES_INTERIOR + "interior68_0.gif",
+    "interior68_1": DATA_IMAGES_INTERIOR + "interior68_1.gif",
+    "interior69_0": DATA_IMAGES_INTERIOR + "interior69_0.gif",
+    "interior69_1": DATA_IMAGES_INTERIOR + "interior69_1.gif",
+    "interior70_0": DATA_IMAGES_INTERIOR + "interior70_0.gif",
+    "interior70_1": DATA_IMAGES_INTERIOR + "interior70_1.gif",
+    "interior71_0": DATA_IMAGES_INTERIOR + "interior71_0.gif",
+    "interior71_1": DATA_IMAGES_INTERIOR + "interior71_1.gif",
+    "interior72_0": DATA_IMAGES_INTERIOR + "interior72_0.gif",
+    "interior72_1": DATA_IMAGES_INTERIOR + "interior72_1.gif",
+    "interior73_0": DATA_IMAGES_INTERIOR + "interior73_0.gif",
+    "interior73_1": DATA_IMAGES_INTERIOR + "interior73_1.gif",
+    "interior74_0": DATA_IMAGES_INTERIOR + "interior74_0.gif",
+    "interior74_1": DATA_IMAGES_INTERIOR + "interior74_1.gif",
+    "interior75_0": DATA_IMAGES_INTERIOR + "interior75_0.gif",
+    "interior75_1": DATA_IMAGES_INTERIOR + "interior75_1.gif",
+    "interior76_0": DATA_IMAGES_INTERIOR + "interior76_0.gif",
+    "interior76_1": DATA_IMAGES_INTERIOR + "interior76_1.gif",
+    "interior77_0": DATA_IMAGES_INTERIOR + "interior77_0.gif",
+    "interior77_1": DATA_IMAGES_INTERIOR + "interior77_1.gif",
+    "interior78_0": DATA_IMAGES_INTERIOR + "interior78_0.gif",
+    "interior78_1": DATA_IMAGES_INTERIOR + "interior78_1.gif",
+    "interior79_0": DATA_IMAGES_INTERIOR + "interior79_0.gif",
+    "interior79_1": DATA_IMAGES_INTERIOR + "interior79_1.gif",
+    "interior80_0": DATA_IMAGES_INTERIOR + "interior80_0.gif",
+    "interior80_1": DATA_IMAGES_INTERIOR + "interior80_1.gif",
+    "interior81_0": DATA_IMAGES_INTERIOR + "interior81_0.gif",
+    "interior81_1": DATA_IMAGES_INTERIOR + "interior81_1.gif",
+    "interior82_0": DATA_IMAGES_INTERIOR + "interior82_0.gif",
+    "interior82_1": DATA_IMAGES_INTERIOR + "interior82_1.gif",
+    "interior83_0": DATA_IMAGES_INTERIOR + "interior83_0.gif",
+    "interior83_1": DATA_IMAGES_INTERIOR + "interior83_1.gif",
+    "interior84_0": DATA_IMAGES_INTERIOR + "interior84_0.gif",
+    "interior84_1": DATA_IMAGES_INTERIOR + "interior84_1.gif",
+    "interior85_0": DATA_IMAGES_INTERIOR + "interior85_0.gif",
+    "interior85_1": DATA_IMAGES_INTERIOR + "interior85_1.gif",
+    "interior86_0": DATA_IMAGES_INTERIOR + "interior86_0.gif",
+    "interior86_1": DATA_IMAGES_INTERIOR + "interior86_1.gif",
+    "interior87_0": DATA_IMAGES_INTERIOR + "interior87_0.gif",
+    "interior87_1": DATA_IMAGES_INTERIOR + "interior87_1.gif",
+    "interior88_0": DATA_IMAGES_INTERIOR + "interior88_0.gif",
+    "interior88_1": DATA_IMAGES_INTERIOR + "interior88_1.gif",
+    "interior89_0": DATA_IMAGES_INTERIOR + "interior89_0.gif",
+    "interior89_1": DATA_IMAGES_INTERIOR + "interior89_1.gif",
+    "interior90_0": DATA_IMAGES_INTERIOR + "interior90_0.gif",
+    "interior90_1": DATA_IMAGES_INTERIOR + "interior90_1.gif",
+    "interior91_0": DATA_IMAGES_INTERIOR + "interior91_0.gif",
+    "interior91_1": DATA_IMAGES_INTERIOR + "interior91_1.gif",
+    "interior92_0": DATA_IMAGES_INTERIOR + "interior92_0.gif",
+    "interior92_1": DATA_IMAGES_INTERIOR + "interior92_1.gif",
+    "interior93_0": DATA_IMAGES_INTERIOR + "interior93_0.gif",
+    "interior93_1": DATA_IMAGES_INTERIOR + "interior93_1.gif",
+    "interior94_0": DATA_IMAGES_INTERIOR + "interior94_0.gif",
+    "interior94_1": DATA_IMAGES_INTERIOR + "interior94_1.gif",
+    "interior95_0": DATA_IMAGES_INTERIOR + "interior95_0.gif",
+    "interior95_1": DATA_IMAGES_INTERIOR + "interior95_1.gif",
+    "mesa_0": DATA_IMAGES_INTERIOR + "mesa_0.gif",
+    "mesa_1": DATA_IMAGES_INTERIOR + "mesa_1.gif",
+    "librero1_0": DATA_IMAGES_INTERIOR + "librero1_0.gif",
+    "librero1_1": DATA_IMAGES_INTERIOR + "librero1_1.gif",
+    "trophy1_0": DATA_IMAGES_INTERIOR + "trophy1_0.gif",
+    "trophy1_1": DATA_IMAGES_INTERIOR + "trophy1_1.gif",
+    "trophy2_0": DATA_IMAGES_INTERIOR + "trophy2_0.gif",
+    "trophy2_1": DATA_IMAGES_INTERIOR + "trophy2_1.gif",
+    "trophy3_0": DATA_IMAGES_INTERIOR + "trophy3_0.gif",
+    "trophy3_1": DATA_IMAGES_INTERIOR + "trophy3_1.gif",
+    "trophy4_0": DATA_IMAGES_INTERIOR + "trophy4_0.gif",
+    "trophy4_1": DATA_IMAGES_INTERIOR + "trophy4_1.gif",
+    "trophy5_0": DATA_IMAGES_INTERIOR + "trophy5_0.gif",
+    "trophy5_1": DATA_IMAGES_INTERIOR + "trophy5_1.gif",
+    "trophy6_0": DATA_IMAGES_INTERIOR + "trophy6_0.gif",
+    "trophy6_1": DATA_IMAGES_INTERIOR + "trophy6_1.gif",
+    "trophy7_0": DATA_IMAGES_INTERIOR + "trophy7_0.gif",
+    "trophy7_1": DATA_IMAGES_INTERIOR + "trophy7_1.gif",
+    "trophy8_0": DATA_IMAGES_INTERIOR + "trophy8_0.gif",
+    "trophy8_1": DATA_IMAGES_INTERIOR + "trophy8_1.gif",
+    "trophy9_0": DATA_IMAGES_INTERIOR + "trophy9_0.gif",
+    "trophy9_1": DATA_IMAGES_INTERIOR + "trophy9_1.gif",
+    "trophy10_0": DATA_IMAGES_INTERIOR + "trophy10_0.gif",
+    "trophy10_1": DATA_IMAGES_INTERIOR + "trophy10_1.gif",
+    "trophy11_0": DATA_IMAGES_INTERIOR + "trophy11_0.gif",
+    "trophy11_1": DATA_IMAGES_INTERIOR + "trophy11_1.gif",
+    "trophy12_0": DATA_IMAGES_INTERIOR + "trophy12_0.gif",
+    "trophy12_1": DATA_IMAGES_INTERIOR + "trophy12_1.gif",
+    "trophy13_0": DATA_IMAGES_INTERIOR + "trophy13_0.gif",
+    "trophy13_1": DATA_IMAGES_INTERIOR + "trophy13_1.gif",
+    "trophy14_0": DATA_IMAGES_INTERIOR + "trophy14_0.gif",
+    "trophy14_1": DATA_IMAGES_INTERIOR + "trophy14_1.gif",
+    "trophy15_0": DATA_IMAGES_INTERIOR + "trophy15_0.gif",
+    "trophy15_1": DATA_IMAGES_INTERIOR + "trophy15_1.gif",
+    "trophy16_0": DATA_IMAGES_INTERIOR + "trophy16_0.gif",
+    "trophy16_1": DATA_IMAGES_INTERIOR + "trophy16_1.gif",
+    "trophy17_0": DATA_IMAGES_INTERIOR + "trophy17_0.gif",
+    "trophy17_1": DATA_IMAGES_INTERIOR + "trophy17_1.gif",
+    "trophy18_0": DATA_IMAGES_INTERIOR + "trophy18_0.gif",
+    "trophy18_1": DATA_IMAGES_INTERIOR + "trophy18_1.gif",
+    "trophy19_0": DATA_IMAGES_INTERIOR + "trophy19_0.gif",
+    "trophy19_1": DATA_IMAGES_INTERIOR + "trophy19_1.gif",
+    "trophy20_0": DATA_IMAGES_INTERIOR + "trophy20_0.gif",
+    "trophy20_1": DATA_IMAGES_INTERIOR + "trophy20_1.gif",
     # Ambiente
-    "ambiance_grass1_0": DATA_IMAGES_AMBIANCE + "ambiance_grass1_0.gif", \
-    "ambiance_grass1_1": DATA_IMAGES_AMBIANCE + "ambiance_grass1_1.gif", \
-    "ambiance_grass2_0": DATA_IMAGES_AMBIANCE + "ambiance_grass2_0.gif", \
-    "ambiance_grass2_1": DATA_IMAGES_AMBIANCE + "ambiance_grass2_1.gif", \
-    "ambiance_grass3_0": DATA_IMAGES_AMBIANCE + "ambiance_grass3_0.gif", \
-    "ambiance_grass3_1": DATA_IMAGES_AMBIANCE + "ambiance_grass3_1.gif", \
-    "ambiance_grass4_0": DATA_IMAGES_AMBIANCE + "ambiance_grass4_0.gif", \
-    "ambiance_grass4_1": DATA_IMAGES_AMBIANCE + "ambiance_grass4_1.gif", \
-    "ambiance_grass5_0": DATA_IMAGES_AMBIANCE + "ambiance_grass5_0.gif", \
-    "ambiance_grass5_1": DATA_IMAGES_AMBIANCE + "ambiance_grass5_1.gif", \
-    "ambiance_grass6_0": DATA_IMAGES_AMBIANCE + "ambiance_grass6_0.gif", \
-    "ambiance_grass6_1": DATA_IMAGES_AMBIANCE + "ambiance_grass6_1.gif", \
-    "ambiance_grass7_0": DATA_IMAGES_AMBIANCE + "ambiance_grass7_0.gif", \
-    "ambiance_grass7_1": DATA_IMAGES_AMBIANCE + "ambiance_grass7_1.gif", \
-    "ambiance_grass8_0": DATA_IMAGES_AMBIANCE + "ambiance_grass8_0.gif", \
-    "ambiance_grass8_1": DATA_IMAGES_AMBIANCE + "ambiance_grass8_1.gif", \
-    "ambiance_grass9_0": DATA_IMAGES_AMBIANCE + "ambiance_grass9_0.gif", \
-    "ambiance_grass9_1": DATA_IMAGES_AMBIANCE + "ambiance_grass9_1.gif", \
-    "ambiance_other1_0": DATA_IMAGES_AMBIANCE + "ambiance_other1_0.gif", \
-    "ambiance_other1_1": DATA_IMAGES_AMBIANCE + "ambiance_other1_1.gif", \
-    "ambiance_other2_0": DATA_IMAGES_AMBIANCE + "ambiance_other2_0.gif", \
-    "ambiance_other2_1": DATA_IMAGES_AMBIANCE + "ambiance_other2_1.gif", \
-    "ambiance_other3_0": DATA_IMAGES_AMBIANCE + "ambiance_other3_0.gif", \
-    "ambiance_other3_1": DATA_IMAGES_AMBIANCE + "ambiance_other3_1.gif", \
-    "ambiance_other4_0": DATA_IMAGES_AMBIANCE + "ambiance_other4_0.gif", \
-    "ambiance_other4_1": DATA_IMAGES_AMBIANCE + "ambiance_other4_1.gif", \
-    "ambiance_other5_0": DATA_IMAGES_AMBIANCE + "ambiance_other5_0.gif", \
-    "ambiance_other5_1": DATA_IMAGES_AMBIANCE + "ambiance_other5_1.gif", \
-    "ambiance_other6_0": DATA_IMAGES_AMBIANCE + "ambiance_other6_0.gif", \
-    "ambiance_other6_1": DATA_IMAGES_AMBIANCE + "ambiance_other6_1.gif", \
-    "ambiance_other7_0": DATA_IMAGES_AMBIANCE + "ambiance_other7_0.gif", \
-    "ambiance_other7_1": DATA_IMAGES_AMBIANCE + "ambiance_other7_1.gif", \
-    "ambiance_other8_0": DATA_IMAGES_AMBIANCE + "ambiance_other8_0.gif", \
-    "ambiance_other8_1": DATA_IMAGES_AMBIANCE + "ambiance_other8_1.gif", \
-    "ambiance_other9_0": DATA_IMAGES_AMBIANCE + "ambiance_other9_0.gif", \
-    "ambiance_other9_1": DATA_IMAGES_AMBIANCE + "ambiance_other9_1.gif", \
-    "ambiance_other10_0": DATA_IMAGES_AMBIANCE + "ambiance_other10_0.gif", \
-    "ambiance_other10_1": DATA_IMAGES_AMBIANCE + "ambiance_other10_1.gif", \
-    "ambiance_other11_0": DATA_IMAGES_AMBIANCE + "ambiance_other11_0.gif", \
-    "ambiance_other11_1": DATA_IMAGES_AMBIANCE + "ambiance_other11_1.gif", \
-    "ambiance_other12_0": DATA_IMAGES_AMBIANCE + "ambiance_other12_0.gif", \
-    "ambiance_other12_1": DATA_IMAGES_AMBIANCE + "ambiance_other12_1.gif", \
-    "ambiance_other13_0": DATA_IMAGES_AMBIANCE + "ambiance_other13_0.gif", \
-    "ambiance_other13_1": DATA_IMAGES_AMBIANCE + "ambiance_other13_1.gif", \
-    "ambiance_other14_0": DATA_IMAGES_AMBIANCE + "ambiance_other14_0.gif", \
-    "ambiance_other14_1": DATA_IMAGES_AMBIANCE + "ambiance_other14_1.gif", \
-    "ambiance_other15_0": DATA_IMAGES_AMBIANCE + "ambiance_other15_0.gif", \
-    "ambiance_other15_1": DATA_IMAGES_AMBIANCE + "ambiance_other15_1.gif", \
-    "ambiance_other16_0": DATA_IMAGES_AMBIANCE + "ambiance_other16_0.gif", \
-    "ambiance_other16_1": DATA_IMAGES_AMBIANCE + "ambiance_other16_1.gif", \
-    "ambiance_other17_0": DATA_IMAGES_AMBIANCE + "ambiance_other17_0.gif", \
-    "ambiance_other17_1": DATA_IMAGES_AMBIANCE + "ambiance_other17_1.gif", \
-    "ambiance_other18_0": DATA_IMAGES_AMBIANCE + "ambiance_other18_0.gif", \
-    "ambiance_other18_1": DATA_IMAGES_AMBIANCE + "ambiance_other18_1.gif", \
-    "ambiance_other19_0": DATA_IMAGES_AMBIANCE + "ambiance_other19_0.gif", \
-    "ambiance_other19_1": DATA_IMAGES_AMBIANCE + "ambiance_other19_1.gif", \
-    "ambiance_other20_0": DATA_IMAGES_AMBIANCE + "ambiance_other20_0.gif", \
-    "ambiance_other20_1": DATA_IMAGES_AMBIANCE + "ambiance_other20_1.gif", \
-    "ambiance_other21_0": DATA_IMAGES_AMBIANCE + "ambiance_other21_0.gif", \
-    "ambiance_other21_1": DATA_IMAGES_AMBIANCE + "ambiance_other21_1.gif", \
-    "ambiance_other22_0": DATA_IMAGES_AMBIANCE + "ambiance_other22_0.gif", \
-    "ambiance_other22_1": DATA_IMAGES_AMBIANCE + "ambiance_other22_1.gif", \
-    "ambiance_other23_0": DATA_IMAGES_AMBIANCE + "ambiance_other23_0.gif", \
-    "ambiance_other23_1": DATA_IMAGES_AMBIANCE + "ambiance_other23_1.gif", \
-    "ambiance_other24_0": DATA_IMAGES_AMBIANCE + "ambiance_other24_0.gif", \
-    "ambiance_other24_1": DATA_IMAGES_AMBIANCE + "ambiance_other24_1.gif", \
-    "ambiance_other25_0": DATA_IMAGES_AMBIANCE + "ambiance_other25_0.gif", \
-    "ambiance_other25_1": DATA_IMAGES_AMBIANCE + "ambiance_other25_1.gif", \
-    "ambiance_other26_0": DATA_IMAGES_AMBIANCE + "ambiance_other26_0.gif", \
-    "ambiance_other26_1": DATA_IMAGES_AMBIANCE + "ambiance_other26_1.gif", \
-    "ambiance_other27_0": DATA_IMAGES_AMBIANCE + "ambiance_other27_0.gif", \
-    "ambiance_other27_1": DATA_IMAGES_AMBIANCE + "ambiance_other27_1.gif", \
-    "ambiance_other28_0": DATA_IMAGES_AMBIANCE + "ambiance_other28_0.gif", \
-    "ambiance_other28_1": DATA_IMAGES_AMBIANCE + "ambiance_other28_1.gif", \
-    "ambiance_other29_0": DATA_IMAGES_AMBIANCE + "ambiance_other29_0.gif", \
-    "ambiance_other29_1": DATA_IMAGES_AMBIANCE + "ambiance_other29_1.gif", \
-    "ambiance_other30_0": DATA_IMAGES_AMBIANCE + "ambiance_other30_0.gif", \
-    "ambiance_other30_1": DATA_IMAGES_AMBIANCE + "ambiance_other30_1.gif", \
-    "ambiance_other31_0": DATA_IMAGES_AMBIANCE + "ambiance_other31_0.gif", \
-    "ambiance_other31_1": DATA_IMAGES_AMBIANCE + "ambiance_other31_1.gif", \
-    "ambiance_other32_0": DATA_IMAGES_AMBIANCE + "ambiance_other32_0.gif", \
-    "ambiance_other32_1": DATA_IMAGES_AMBIANCE + "ambiance_other32_1.gif", \
-    "ambiance_other33_0": DATA_IMAGES_AMBIANCE + "ambiance_other33_0.gif", \
-    "ambiance_other33_1": DATA_IMAGES_AMBIANCE + "ambiance_other33_1.gif", \
-    "ambiance_other34_0": DATA_IMAGES_AMBIANCE + "ambiance_other34_0.gif", \
-    "ambiance_other34_1": DATA_IMAGES_AMBIANCE + "ambiance_other34_1.gif", \
-    "ambiance_other35_0": DATA_IMAGES_AMBIANCE + "ambiance_other35_0.gif", \
-    "ambiance_other35_1": DATA_IMAGES_AMBIANCE + "ambiance_other35_1.gif", \
-    "ambiance_other36_0": DATA_IMAGES_AMBIANCE + "ambiance_other36_0.gif", \
-    "ambiance_other36_1": DATA_IMAGES_AMBIANCE + "ambiance_other36_1.gif", \
-    "ambiance_other37_0": DATA_IMAGES_AMBIANCE + "ambiance_other37_0.gif", \
-    "ambiance_other37_1": DATA_IMAGES_AMBIANCE + "ambiance_other37_1.gif", \
-    "ambiance_other38_0": DATA_IMAGES_AMBIANCE + "ambiance_other38_0.gif", \
-    "ambiance_other38_1": DATA_IMAGES_AMBIANCE + "ambiance_other38_1.gif", \
-    "ambiance_other39_0": DATA_IMAGES_AMBIANCE + "ambiance_other39_0.gif", \
-    "ambiance_other39_1": DATA_IMAGES_AMBIANCE + "ambiance_other39_1.gif", \
-    "ambiance_other40_0": DATA_IMAGES_AMBIANCE + "ambiance_other40_0.gif", \
-    "ambiance_other40_1": DATA_IMAGES_AMBIANCE + "ambiance_other40_1.gif", \
-    "ambiance_other41_0": DATA_IMAGES_AMBIANCE + "ambiance_other41_0.gif", \
-    "ambiance_other41_1": DATA_IMAGES_AMBIANCE + "ambiance_other41_1.gif", \
-    "ambiance_other42_0": DATA_IMAGES_AMBIANCE + "ambiance_other42_0.gif", \
-    "ambiance_other42_1": DATA_IMAGES_AMBIANCE + "ambiance_other42_1.gif", \
-    "ambiance_other43_0": DATA_IMAGES_AMBIANCE + "ambiance_other43_0.gif", \
-    "ambiance_other43_1": DATA_IMAGES_AMBIANCE + "ambiance_other43_1.gif", \
-    "ambiance_other44_0": DATA_IMAGES_AMBIANCE + "ambiance_other44_0.gif", \
-    "ambiance_other44_1": DATA_IMAGES_AMBIANCE + "ambiance_other44_1.gif", \
-    "ambiance_other45_0": DATA_IMAGES_AMBIANCE + "ambiance_other45_0.gif", \
-    "ambiance_other45_1": DATA_IMAGES_AMBIANCE + "ambiance_other45_1.gif", \
-    "ambiance_other46_0": DATA_IMAGES_AMBIANCE + "ambiance_other46_0.gif", \
-    "ambiance_other46_1": DATA_IMAGES_AMBIANCE + "ambiance_other46_1.gif", \
-    "ambiance_other47_0": DATA_IMAGES_AMBIANCE + "ambiance_other47_0.gif", \
-    "ambiance_other47_1": DATA_IMAGES_AMBIANCE + "ambiance_other47_1.gif", \
-    "ambiance_other48_0": DATA_IMAGES_AMBIANCE + "ambiance_other48_0.gif", \
-    "ambiance_other48_1": DATA_IMAGES_AMBIANCE + "ambiance_other48_1.gif", \
-    "ambiance_other49_0": DATA_IMAGES_AMBIANCE + "ambiance_other49_0.gif", \
-    "ambiance_other49_1": DATA_IMAGES_AMBIANCE + "ambiance_other49_1.gif", \
-    "ambiance_other50_0": DATA_IMAGES_AMBIANCE + "ambiance_other50_0.gif", \
-    "ambiance_other50_1": DATA_IMAGES_AMBIANCE + "ambiance_other50_1.gif", \
-    "ambiance_other51_0": DATA_IMAGES_AMBIANCE + "ambiance_other51_0.gif", \
-    "ambiance_other51_1": DATA_IMAGES_AMBIANCE + "ambiance_other51_1.gif", \
-    "ambiance_other52_0": DATA_IMAGES_AMBIANCE + "ambiance_other52_0.gif", \
-    "ambiance_other52_1": DATA_IMAGES_AMBIANCE + "ambiance_other52_1.gif", \
-    "ambiance_other53_0": DATA_IMAGES_AMBIANCE + "ambiance_other53_0.gif", \
-    "ambiance_other53_1": DATA_IMAGES_AMBIANCE + "ambiance_other53_1.gif", \
-    "ambiance_other54_0": DATA_IMAGES_AMBIANCE + "ambiance_other54_0.gif", \
-    "ambiance_other54_1": DATA_IMAGES_AMBIANCE + "ambiance_other54_1.gif", \
-    "ambiance_other55_0": DATA_IMAGES_AMBIANCE + "ambiance_other55_0.gif", \
-    "ambiance_other55_1": DATA_IMAGES_AMBIANCE + "ambiance_other55_1.gif", \
-    "ambiance_other56_0": DATA_IMAGES_AMBIANCE + "ambiance_other56_0.gif", \
-    "ambiance_other56_1": DATA_IMAGES_AMBIANCE + "ambiance_other56_1.gif", \
-    "ambiance_other57_0": DATA_IMAGES_AMBIANCE + "ambiance_other57_0.gif", \
-    "ambiance_other57_1": DATA_IMAGES_AMBIANCE + "ambiance_other57_1.gif", \
-    "ambiance_other58_0": DATA_IMAGES_AMBIANCE + "ambiance_other58_0.gif", \
-    "ambiance_other58_1": DATA_IMAGES_AMBIANCE + "ambiance_other58_1.gif", \
-    "ambiance_other59_0": DATA_IMAGES_AMBIANCE + "ambiance_other59_0.gif", \
-    "ambiance_other59_1": DATA_IMAGES_AMBIANCE + "ambiance_other59_1.gif", \
-    "ambiance_other60_0": DATA_IMAGES_AMBIANCE + "ambiance_other60_0.gif", \
-    "ambiance_other60_1": DATA_IMAGES_AMBIANCE + "ambiance_other60_1.gif", \
-    "antorcha": DATA_IMAGES_AMBIANCE + "antorcha.gif", \
-    "antorcha2": DATA_IMAGES_AMBIANCE + "antorcha2.gif", \
-    "antorcha3": DATA_IMAGES_AMBIANCE + "antorcha3.gif", \
-    "antorcha4": DATA_IMAGES_AMBIANCE + "antorcha4.gif", \
-    "antorcha5": DATA_IMAGES_AMBIANCE + "antorcha5.gif", \
-    "antorcha6": DATA_IMAGES_AMBIANCE + "antorcha6.gif", \
-    "antorcha7": DATA_IMAGES_AMBIANCE + "antorcha7.gif", \
-    "antorcha8": DATA_IMAGES_AMBIANCE + "antorcha8.gif", \
-    "antorcha9": DATA_IMAGES_AMBIANCE + "antorcha9.gif", \
-    "antorcha10": DATA_IMAGES_AMBIANCE + "antorcha10.gif", \
-    "antorcha11": DATA_IMAGES_AMBIANCE + "antorcha11.gif", \
-    "antorcha12": DATA_IMAGES_AMBIANCE + "antorcha12.gif", \
-    "antorcha13": DATA_IMAGES_AMBIANCE + "antorcha13.gif", \
-    "antorcha14": DATA_IMAGES_AMBIANCE + "antorcha14.gif", \
-    "antorcha15": DATA_IMAGES_AMBIANCE + "antorcha15.gif", \
-    "antorcha16": DATA_IMAGES_AMBIANCE + "antorcha16.gif", \
-    "antorcha17": DATA_IMAGES_AMBIANCE + "antorcha17.gif", \
-    "antorcha18": DATA_IMAGES_AMBIANCE + "antorcha18.gif", \
-    "antorcha19": DATA_IMAGES_AMBIANCE + "antorcha19.gif", \
-    "antorcha20": DATA_IMAGES_AMBIANCE + "antorcha20.gif", \
-    "antorcha21": DATA_IMAGES_AMBIANCE + "antorcha21.gif", \
-    "antorcha22": DATA_IMAGES_AMBIANCE + "antorcha22.gif", \
-    "antorcha23": DATA_IMAGES_AMBIANCE + "antorcha23.gif", \
-    "big_ambiance_other1_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other1_0.gif", \
-    "big_ambiance_other1_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other1_1.gif", \
-    "big_ambiance_other2_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other2_0.gif", \
-    "big_ambiance_other2_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other2_1.gif", \
-    "big_ambiance_other3_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other3_0.gif", \
-    "big_ambiance_other3_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other3_1.gif", \
-    "big_ambiance_other4_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other4_0.gif", \
-    "big_ambiance_other4_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other4_1.gif", \
-    "big_ambiance_other5_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other5_0.gif", \
-    "big_ambiance_other5_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other5_1.gif", \
-    "big_ambiance_other6_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other6_0.gif", \
-    "big_ambiance_other6_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other6_1.gif", \
-    "big_ambiance_other7_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other7_0.gif", \
-    "big_ambiance_other7_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other7_1.gif", \
-    "big_ambiance_other8_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other8_0.gif", \
-    "big_ambiance_other8_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other8_1.gif", \
-    "big_ambiance_other9_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other9_0.gif", \
-    "big_ambiance_other9_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other9_1.gif", \
-    "big_ambiance_other10_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other10_0.gif", \
-    "big_ambiance_other10_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other10_1.gif", \
-    "big_ambiance_other11_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other11_0.gif", \
-    "big_ambiance_other11_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other11_1.gif", \
-    "big_ambiance_other12_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other12_0.gif", \
-    "big_ambiance_other12_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other12_1.gif", \
-    "big_ambiance_other13_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other13_0.gif", \
-    "big_ambiance_other13_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other13_1.gif", \
-    "big_ambiance_other14_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other14_0.gif", \
-    "big_ambiance_other14_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other14_1.gif", \
-    "big_ambiance_other15_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other15_0.gif", \
-    "big_ambiance_other15_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other15_1.gif", \
-    "big_ambiance_other16_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other16_0.gif", \
-    "big_ambiance_other16_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other16_1.gif", \
-    "big_ambiance_other17_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other17_0.gif", \
-    "big_ambiance_other17_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other17_1.gif", \
-    "big_ambiance_other18_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other18_0.gif", \
-    "big_ambiance_other18_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other18_1.gif", \
-    "big_ambiance_other19_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other19_0.gif", \
-    "big_ambiance_other19_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other19_1.gif", \
-    "big_hongo1_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo1_0.gif", \
-    "big_hongo1_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo1_1.gif", \
-    "big_hongo2_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo2_0.gif", \
-    "big_hongo2_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo2_1.gif", \
-    "big_hongo3_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo3_0.gif", \
-    "big_hongo3_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo3_1.gif", \
-    "big_hongo4_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo4_0.gif", \
-    "big_hongo4_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo4_1.gif", \
-    "big_hongo5_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo5_0.gif", \
-    "big_hongo5_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo5_1.gif", \
-    "big_hongo6_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo6_0.gif", \
-    "big_hongo6_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo6_1.gif", \
-    "big_hongo7_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo7_0.gif", \
-    "big_hongo7_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo7_1.gif", \
-    "big_hongo8_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo8_0.gif", \
-    "big_hongo8_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo8_1.gif", \
-    "big_hongo9_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo9_0.gif", \
-    "big_hongo9_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo9_1.gif", \
-    "big_statue1_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue1_0.gif", \
-    "big_statue1_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue1_1.gif", \
-    "big_statue2_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue2_0.gif", \
-    "big_statue2_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue2_1.gif", \
-    "big_statue3_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue3_0.gif", \
-    "big_statue3_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue3_1.gif", \
-    "big_statue4_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue4_0.gif", \
-    "big_statue4_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue4_1.gif", \
-    "big_statue5_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue5_0.gif", \
-    "big_statue5_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue5_1.gif", \
-    "big_statue6_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue6_0.gif", \
-    "big_statue6_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue6_1.gif", \
-    "big_statue7_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue7_0.gif", \
-    "big_statue7_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue7_1.gif", \
-    "big_statue8_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue8_0.gif", \
-    "big_statue8_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue8_1.gif", \
-    "big_statue9_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue9_0.gif", \
-    "big_statue9_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue9_1.gif", \
-    "big_statue10_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue10_0.gif", \
-    "big_statue10_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue10_1.gif", \
-    "big_statue11_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue11_0.gif", \
-    "big_statue11_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue11_1.gif", \
-    "big_statue12_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue12_0.gif", \
-    "big_statue12_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue12_1.gif", \
-    "big_statue13_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue13_0.gif", \
-    "big_statue13_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue13_1.gif", \
-    "big_statue14_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue14_0.gif", \
-    "big_statue14_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue14_1.gif", \
-    "big_statue15_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue15_0.gif", \
-    "big_statue15_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue15_1.gif", \
-    "big_statue16_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue16_0.gif", \
-    "big_statue16_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue16_1.gif", \
-    "big_statue17_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue17_0.gif", \
-    "big_statue17_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue17_1.gif", \
-    "big_statue18_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue18_0.gif", \
-    "big_statue18_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue18_1.gif", \
-    "big_statue19_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue19_0.gif", \
-    "big_statue19_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue19_1.gif", \
-    "big_statue20_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue20_0.gif", \
-    "big_statue20_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue20_1.gif", \
-    "big_statue21_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue21_0.gif", \
-    "big_statue21_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue21_1.gif", \
-    "big_statue22_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue22_0.gif", \
-    "big_statue22_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue22_1.gif", \
-    "big_statue23_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue23_0.gif", \
-    "big_statue23_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue23_1.gif", \
-    "big_statue24_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue24_0.gif", \
-    "big_statue24_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue24_1.gif", \
-    "big_statue25_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue25_0.gif", \
-    "big_statue25_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue25_1.gif", \
-    "big_statue26_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue26_0.gif", \
-    "big_statue26_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue26_1.gif", \
-    "big_statue27_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue27_0.gif", \
-    "big_statue27_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue27_1.gif", \
-    "big_statue28_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue28_0.gif", \
-    "big_statue28_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue28_1.gif", \
-    "big_statue29_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue29_0.gif", \
-    "big_statue29_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue29_1.gif", \
-    "big_statue30_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue30_0.gif", \
-    "big_statue30_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue30_1.gif", \
-    "big_statue31_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue31_0.gif", \
-    "big_statue31_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue31_1.gif", \
-    "big_statue32_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue32_0.gif", \
-    "big_statue32_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue32_1.gif", \
-    "big_stone1_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone1_0.gif", \
-    "big_stone1_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone1_1.gif", \
-    "big_stone2_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone2_0.gif", \
-    "big_stone2_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone2_1.gif", \
-    "big_stone3_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone3_0.gif", \
-    "big_stone3_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone3_1.gif", \
-    "big_stone4_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone4_0.gif", \
-    "big_stone4_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone4_1.gif", \
-    "big_stone5_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone5_0.gif", \
-    "big_stone5_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone5_1.gif", \
-    "big_stone6_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone6_0.gif", \
-    "big_stone6_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone6_1.gif", \
-    "big_stone7_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone7_0.gif", \
-    "big_stone7_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone7_1.gif", \
-    "big_stone8_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone8_0.gif", \
-    "big_stone8_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone8_1.gif", \
-    "big_stone9_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone9_0.gif", \
-    "big_stone9_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone9_1.gif", \
-    "big_stone10_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone10_0.gif", \
-    "big_stone10_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone10_1.gif", \
-    "big_stone11_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone11_0.gif", \
-    "big_stone11_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone11_1.gif", \
-    "big_tree1_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree1_0.gif", \
-    "big_tree1_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree1_1.gif", \
-    "big_tree2_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree2_0.gif", \
-    "big_tree2_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree2_1.gif", \
-    "big_tree3_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree3_0.gif", \
-    "big_tree3_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree3_1.gif", \
-    "big_tree4_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree4_0.gif", \
-    "big_tree4_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree4_1.gif", \
-    "big_tree5_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree5_0.gif", \
-    "big_tree5_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree5_1.gif", \
-    "big_tree6_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree6_0.gif", \
-    "big_tree6_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree6_1.gif", \
-    "big_tree7_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree7_0.gif", \
-    "big_tree7_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree7_1.gif", \
-    "big_tree8_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree8_0.gif", \
-    "big_tree8_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree8_1.gif", \
-    "big_tree9_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree9_0.gif", \
-    "big_tree9_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree9_1.gif", \
-    "big_tree10_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree10_0.gif", \
-    "big_tree10_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree10_1.gif", \
-    "big_tree11_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree11_0.gif", \
-    "big_tree11_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree11_1.gif", \
-    "big_tree12_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree12_0.gif", \
-    "big_tree12_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree12_1.gif", \
-    "big_tree13_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree13_0.gif", \
-    "big_tree13_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree13_1.gif", \
-    "big_tree14_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree14_0.gif", \
-    "big_tree14_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree14_1.gif", \
-    "big_tree15_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree15_0.gif", \
-    "big_tree15_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree15_1.gif", \
-    "big_tree16_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree16_0.gif", \
-    "big_tree16_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree16_1.gif", \
-    "big_tree17_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree17_0.gif", \
-    "big_tree17_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree17_1.gif", \
-    "big_tree18_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree18_0.gif", \
-    "big_tree18_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree18_1.gif", \
-    "big_tree19_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree19_0.gif", \
-    "big_tree19_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree19_1.gif", \
-    "big_tree20_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree20_0.gif", \
-    "big_tree20_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree20_1.gif", \
-    "big_tree21_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree21_0.gif", \
-    "big_tree21_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree21_1.gif", \
-    "big_tree22_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree22_0.gif", \
-    "big_tree22_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree22_1.gif", \
-    "big_tree23_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree23_0.gif", \
-    "big_tree23_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree23_1.gif", \
-    "big_tree24_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree24_0.gif", \
-    "big_tree24_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree24_1.gif", \
-    "big_tree25_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree25_0.gif", \
-    "big_tree25_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree25_1.gif", \
-    "big_tree26_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree26_0.gif", \
-    "big_tree26_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree26_1.gif", \
-    "big_tree27_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree27_0.gif", \
-    "big_tree27_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree27_1.gif", \
-    "big_tree28_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree28_0.gif", \
-    "big_tree28_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree28_1.gif", \
-    "big_tree29_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree29_0.gif", \
-    "big_tree29_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree29_1.gif", \
-    "big_tree30_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree30_0.gif", \
-    "big_tree30_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree30_1.gif", \
-    "big_tree31_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree31_0.gif", \
-    "big_tree31_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree31_1.gif", \
-    "big_tree32_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree32_0.gif", \
-    "big_tree32_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree32_1.gif", \
-    "big_tree33_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree33_0.gif", \
-    "big_tree33_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree33_1.gif", \
-    "big_tree34_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree34_0.gif", \
-    "big_tree34_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree34_1.gif", \
-    "big_tree35_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree35_0.gif", \
-    "big_tree35_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree35_1.gif", \
-    "big_tree36_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree36_0.gif", \
-    "big_tree36_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree36_1.gif", \
-    "big_tree37_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree37_0.gif", \
-    "big_tree37_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree37_1.gif", \
-    "big_tree38_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree38_0.gif", \
-    "big_tree38_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree38_1.gif", \
-    "big_tree39_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree39_0.gif", \
-    "big_tree39_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree39_1.gif", \
-    "big_tree40_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree40_0.gif", \
-    "big_tree40_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree40_1.gif", \
-    "big_tree41_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree41_0.gif", \
-    "big_tree41_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree41_1.gif", \
-    "big_tree42_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree42_0.gif", \
-    "big_tree42_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree42_1.gif", \
-    "big_tree43_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree43_0.gif", \
-    "big_tree43_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree43_1.gif", \
-    "big_tree44_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree44_0.gif", \
-    "big_tree44_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree44_1.gif", \
-    "bushes1_0": DATA_IMAGES_AMBIANCE + "bushes1_0.gif", \
-    "bushes1_1": DATA_IMAGES_AMBIANCE + "bushes1_1.gif", \
-    "bushes2_0": DATA_IMAGES_AMBIANCE + "bushes2_0.gif", \
-    "bushes2_1": DATA_IMAGES_AMBIANCE + "bushes2_1.gif", \
-    "bushes3_0": DATA_IMAGES_AMBIANCE + "bushes3_0.gif", \
-    "bushes3_1": DATA_IMAGES_AMBIANCE + "bushes3_1.gif", \
-    "bushes4_0": DATA_IMAGES_AMBIANCE + "bushes4_0.gif", \
-    "bushes4_1": DATA_IMAGES_AMBIANCE + "bushes4_1.gif", \
-    "bushes5_0": DATA_IMAGES_AMBIANCE + "bushes5_0.gif", \
-    "bushes5_1": DATA_IMAGES_AMBIANCE + "bushes5_1.gif", \
-    "bushes6_0": DATA_IMAGES_AMBIANCE + "bushes6_0.gif", \
-    "bushes6_1": DATA_IMAGES_AMBIANCE + "bushes6_1.gif", \
-    "bushes7_0": DATA_IMAGES_AMBIANCE + "bushes7_0.gif", \
-    "bushes7_1": DATA_IMAGES_AMBIANCE + "bushes7_1.gif", \
-    "bushes8_0": DATA_IMAGES_AMBIANCE + "bushes8_0.gif", \
-    "bushes8_1": DATA_IMAGES_AMBIANCE + "bushes8_1.gif", \
-    "bushes9_0": DATA_IMAGES_AMBIANCE + "bushes9_0.gif", \
-    "bushes9_1": DATA_IMAGES_AMBIANCE + "bushes9_1.gif", \
-    "bushes10_0": DATA_IMAGES_AMBIANCE + "bushes10_0.gif", \
-    "bushes10_1": DATA_IMAGES_AMBIANCE + "bushes10_1.gif", \
-    "cactus1_0": DATA_IMAGES_AMBIANCE + "cactus1_0.gif", \
-    "cactus1_1": DATA_IMAGES_AMBIANCE + "cactus1_1.gif", \
-    "cactus2_0": DATA_IMAGES_AMBIANCE + "cactus2_0.gif", \
-    "cactus2_1": DATA_IMAGES_AMBIANCE + "cactus2_1.gif", \
-    "cactus3_0": DATA_IMAGES_AMBIANCE + "cactus3_0.gif", \
-    "cactus3_1": DATA_IMAGES_AMBIANCE + "cactus3_1.gif", \
-    "cactus4_0": DATA_IMAGES_AMBIANCE + "cactus4_0.gif", \
-    "cactus4_1": DATA_IMAGES_AMBIANCE + "cactus4_1.gif", \
-    "cactus5_0": DATA_IMAGES_AMBIANCE + "cactus5_0.gif", \
-    "cactus5_1": DATA_IMAGES_AMBIANCE + "cactus5_1.gif", \
-    "cactus6_0": DATA_IMAGES_AMBIANCE + "cactus6_0.gif", \
-    "cactus6_1": DATA_IMAGES_AMBIANCE + "cactus6_1.gif", \
-    "cactus7_0": DATA_IMAGES_AMBIANCE + "cactus7_0.gif", \
-    "cactus7_1": DATA_IMAGES_AMBIANCE + "cactus7_1.gif", \
-    "flag1_0": DATA_IMAGES_AMBIANCE + "flag1_0.gif", \
-    "flag1_1": DATA_IMAGES_AMBIANCE + "flag1_1.gif", \
-    "flag2_0": DATA_IMAGES_AMBIANCE + "flag2_0.gif", \
-    "flag2_1": DATA_IMAGES_AMBIANCE + "flag2_1.gif", \
-    "flag3_0": DATA_IMAGES_AMBIANCE + "flag3_0.gif", \
-    "flag3_1": DATA_IMAGES_AMBIANCE + "flag3_1.gif", \
-    "flag4_0": DATA_IMAGES_AMBIANCE + "flag4_0.gif", \
-    "flag4_1": DATA_IMAGES_AMBIANCE + "flag4_1.gif", \
-    "flag5_0": DATA_IMAGES_AMBIANCE + "flag5_0.gif", \
-    "flag5_1": DATA_IMAGES_AMBIANCE + "flag5_1.gif", \
-    "flag6_0": DATA_IMAGES_AMBIANCE + "flag6_0.gif", \
-    "flag6_1": DATA_IMAGES_AMBIANCE + "flag6_1.gif", \
-    "flag7_0": DATA_IMAGES_AMBIANCE + "flag7_0.gif", \
-    "flag7_1": DATA_IMAGES_AMBIANCE + "flag7_1.gif", \
-    "flag8_0": DATA_IMAGES_AMBIANCE + "flag8_0.gif", \
-    "flag8_1": DATA_IMAGES_AMBIANCE + "flag8_1.gif", \
-    "flag9_0": DATA_IMAGES_AMBIANCE + "flag9_0.gif", \
-    "flag9_1": DATA_IMAGES_AMBIANCE + "flag9_1.gif", \
-    "flower1_0": DATA_IMAGES_AMBIANCE + "flower1_0.gif", \
-    "flower1_1": DATA_IMAGES_AMBIANCE + "flower1_1.gif", \
-    "flower2_0": DATA_IMAGES_AMBIANCE + "flower2_0.gif", \
-    "flower2_1": DATA_IMAGES_AMBIANCE + "flower2_1.gif", \
-    "flower3_0": DATA_IMAGES_AMBIANCE + "flower3_0.gif", \
-    "flower3_1": DATA_IMAGES_AMBIANCE + "flower3_1.gif", \
-    "flower4_0": DATA_IMAGES_AMBIANCE + "flower4_0.gif", \
-    "flower4_1": DATA_IMAGES_AMBIANCE + "flower4_1.gif", \
-    "flower5_0": DATA_IMAGES_AMBIANCE + "flower5_0.gif", \
-    "flower5_1": DATA_IMAGES_AMBIANCE + "flower5_1.gif", \
-    "flower6_0": DATA_IMAGES_AMBIANCE + "flower6_0.gif", \
-    "flower6_1": DATA_IMAGES_AMBIANCE + "flower6_1.gif", \
-    "flower7_0": DATA_IMAGES_AMBIANCE + "flower7_0.gif", \
-    "flower7_1": DATA_IMAGES_AMBIANCE + "flower7_1.gif", \
-    "flower8_0": DATA_IMAGES_AMBIANCE + "flower8_0.gif", \
-    "flower8_1": DATA_IMAGES_AMBIANCE + "flower8_1.gif", \
-    "flower9_0": DATA_IMAGES_AMBIANCE + "flower9_0.gif", \
-    "flower9_1": DATA_IMAGES_AMBIANCE + "flower9_1.gif", \
-    "flower10_0": DATA_IMAGES_AMBIANCE + "flower10_0.gif", \
-    "flower10_1": DATA_IMAGES_AMBIANCE + "flower10_1.gif", \
-    "flower11_0": DATA_IMAGES_AMBIANCE + "flower11_0.gif", \
-    "flower11_1": DATA_IMAGES_AMBIANCE + "flower11_1.gif", \
-    "flower12_0": DATA_IMAGES_AMBIANCE + "flower12_0.gif", \
-    "flower12_1": DATA_IMAGES_AMBIANCE + "flower12_1.gif", \
-    "flower13_0": DATA_IMAGES_AMBIANCE + "flower13_0.gif", \
-    "flower13_1": DATA_IMAGES_AMBIANCE + "flower13_1.gif", \
-    "flower14_0": DATA_IMAGES_AMBIANCE + "flower14_0.gif", \
-    "flower14_1": DATA_IMAGES_AMBIANCE + "flower14_1.gif", \
-    "flower15_0": DATA_IMAGES_AMBIANCE + "flower15_0.gif", \
-    "flower15_1": DATA_IMAGES_AMBIANCE + "flower15_1.gif", \
-    "flower16_0": DATA_IMAGES_AMBIANCE + "flower16_0.gif", \
-    "flower16_1": DATA_IMAGES_AMBIANCE + "flower16_1.gif", \
-    "flower17_0": DATA_IMAGES_AMBIANCE + "flower17_0.gif", \
-    "flower17_1": DATA_IMAGES_AMBIANCE + "flower17_1.gif", \
-    "flower18_0": DATA_IMAGES_AMBIANCE + "flower18_0.gif", \
-    "flower18_1": DATA_IMAGES_AMBIANCE + "flower18_1.gif", \
-    "flower19_0": DATA_IMAGES_AMBIANCE + "flower19_0.gif", \
-    "flower19_1": DATA_IMAGES_AMBIANCE + "flower19_1.gif", \
-    "flower20_0": DATA_IMAGES_AMBIANCE + "flower20_0.gif", \
-    "flower20_1": DATA_IMAGES_AMBIANCE + "flower20_1.gif", \
-    "flower21_0": DATA_IMAGES_AMBIANCE + "flower21_0.gif", \
-    "flower21_1": DATA_IMAGES_AMBIANCE + "flower21_1.gif", \
-    "flower22_0": DATA_IMAGES_AMBIANCE + "flower22_0.gif", \
-    "flower22_1": DATA_IMAGES_AMBIANCE + "flower22_1.gif", \
-    "flower23_0": DATA_IMAGES_AMBIANCE + "flower23_0.gif", \
-    "flower23_1": DATA_IMAGES_AMBIANCE + "flower23_1.gif", \
-    "flower24_0": DATA_IMAGES_AMBIANCE + "flower24_0.gif", \
-    "flower24_1": DATA_IMAGES_AMBIANCE + "flower24_1.gif", \
-    "flower25_0": DATA_IMAGES_AMBIANCE + "flower25_0.gif", \
-    "flower25_1": DATA_IMAGES_AMBIANCE + "flower25_1.gif", \
-    "flower26_0": DATA_IMAGES_AMBIANCE + "flower26_0.gif", \
-    "flower26_1": DATA_IMAGES_AMBIANCE + "flower26_1.gif", \
-    "flower27_0": DATA_IMAGES_AMBIANCE + "flower27_0.gif", \
-    "flower27_1": DATA_IMAGES_AMBIANCE + "flower27_1.gif", \
-    "flower28_0": DATA_IMAGES_AMBIANCE + "flower28_0.gif", \
-    "flower28_1": DATA_IMAGES_AMBIANCE + "flower28_1.gif", \
-    "flower29_0": DATA_IMAGES_AMBIANCE + "flower29_0.gif", \
-    "flower29_1": DATA_IMAGES_AMBIANCE + "flower29_1.gif", \
-    "flower30_0": DATA_IMAGES_AMBIANCE + "flower30_0.gif", \
-    "flower30_1": DATA_IMAGES_AMBIANCE + "flower30_1.gif", \
-    "flower31_0": DATA_IMAGES_AMBIANCE + "flower31_0.gif", \
-    "flower31_1": DATA_IMAGES_AMBIANCE + "flower31_1.gif", \
-    "flower32_0": DATA_IMAGES_AMBIANCE + "flower32_0.gif", \
-    "flower32_1": DATA_IMAGES_AMBIANCE + "flower32_1.gif", \
-    "flower33_0": DATA_IMAGES_AMBIANCE + "flower33_0.gif", \
-    "flower33_1": DATA_IMAGES_AMBIANCE + "flower33_1.gif", \
-    "flower34_0": DATA_IMAGES_AMBIANCE + "flower34_0.gif", \
-    "flower34_1": DATA_IMAGES_AMBIANCE + "flower34_1.gif", \
-    "flower35_0": DATA_IMAGES_AMBIANCE + "flower35_0.gif", \
-    "flower35_1": DATA_IMAGES_AMBIANCE + "flower35_1.gif", \
-    "flower36_0": DATA_IMAGES_AMBIANCE + "flower36_0.gif", \
-    "flower36_1": DATA_IMAGES_AMBIANCE + "flower36_1.gif", \
-    "flower37_0": DATA_IMAGES_AMBIANCE + "flower37_0.gif", \
-    "flower37_1": DATA_IMAGES_AMBIANCE + "flower37_1.gif", \
-    "hongo1_0": DATA_IMAGES_AMBIANCE + "hongo1_0.gif", \
-    "hongo1_1": DATA_IMAGES_AMBIANCE + "hongo1_1.gif", \
-    "hongo2_0": DATA_IMAGES_AMBIANCE + "hongo2_0.gif", \
-    "hongo2_1": DATA_IMAGES_AMBIANCE + "hongo2_1.gif", \
-    "hongo3_0": DATA_IMAGES_AMBIANCE + "hongo3_0.gif", \
-    "hongo3_1": DATA_IMAGES_AMBIANCE + "hongo3_1.gif", \
-    "hongo4_0": DATA_IMAGES_AMBIANCE + "hongo4_0.gif", \
-    "hongo4_1": DATA_IMAGES_AMBIANCE + "hongo4_1.gif", \
-    "hongo5_0": DATA_IMAGES_AMBIANCE + "hongo5_0.gif", \
-    "hongo5_1": DATA_IMAGES_AMBIANCE + "hongo5_1.gif", \
-    "hongo6_0": DATA_IMAGES_AMBIANCE + "hongo6_0.gif", \
-    "hongo6_1": DATA_IMAGES_AMBIANCE + "hongo6_1.gif", \
-    "hongo7_0": DATA_IMAGES_AMBIANCE + "hongo7_0.gif", \
-    "hongo7_1": DATA_IMAGES_AMBIANCE + "hongo7_1.gif", \
-    "hongo8_0": DATA_IMAGES_AMBIANCE + "hongo8_0.gif", \
-    "hongo8_1": DATA_IMAGES_AMBIANCE + "hongo8_1.gif", \
-    "hongo9_0": DATA_IMAGES_AMBIANCE + "hongo9_0.gif", \
-    "hongo9_1": DATA_IMAGES_AMBIANCE + "hongo9_1.gif", \
-    "hongo10_0": DATA_IMAGES_AMBIANCE + "hongo10_0.gif", \
-    "hongo10_1": DATA_IMAGES_AMBIANCE + "hongo10_1.gif", \
-    "hongo11_0": DATA_IMAGES_AMBIANCE + "hongo11_0.gif", \
-    "hongo11_1": DATA_IMAGES_AMBIANCE + "hongo11_1.gif", \
-    "hongo12_0": DATA_IMAGES_AMBIANCE + "hongo12_0.gif", \
-    "hongo12_1": DATA_IMAGES_AMBIANCE + "hongo12_1.gif", \
-    "hongo13_0": DATA_IMAGES_AMBIANCE + "hongo13_0.gif", \
-    "hongo13_1": DATA_IMAGES_AMBIANCE + "hongo13_1.gif", \
-    "hongo14_0": DATA_IMAGES_AMBIANCE + "hongo14_0.gif", \
-    "hongo14_1": DATA_IMAGES_AMBIANCE + "hongo14_1.gif", \
-    "hongo15_0": DATA_IMAGES_AMBIANCE + "hongo15_0.gif", \
-    "hongo15_1": DATA_IMAGES_AMBIANCE + "hongo15_1.gif", \
-    "hongo16_0": DATA_IMAGES_AMBIANCE + "hongo16_0.gif", \
-    "hongo16_1": DATA_IMAGES_AMBIANCE + "hongo16_1.gif", \
-    "hongo17_0": DATA_IMAGES_AMBIANCE + "hongo17_0.gif", \
-    "hongo17_1": DATA_IMAGES_AMBIANCE + "hongo17_1.gif", \
-    "hongo18_0": DATA_IMAGES_AMBIANCE + "hongo18_0.gif", \
-    "hongo18_1": DATA_IMAGES_AMBIANCE + "hongo18_1.gif", \
-    "hongo19_0": DATA_IMAGES_AMBIANCE + "hongo19_0.gif", \
-    "hongo19_1": DATA_IMAGES_AMBIANCE + "hongo19_1.gif", \
-    "hongo20_0": DATA_IMAGES_AMBIANCE + "hongo20_0.gif", \
-    "hongo20_1": DATA_IMAGES_AMBIANCE + "hongo20_1.gif", \
-    "hongo21_0": DATA_IMAGES_AMBIANCE + "hongo21_0.gif", \
-    "hongo21_1": DATA_IMAGES_AMBIANCE + "hongo21_1.gif", \
-    "lapida_0": DATA_IMAGES_AMBIANCE + "lapida_0.gif", \
-    "lapida_1": DATA_IMAGES_AMBIANCE + "lapida_1.gif", \
-    "plant1_0": DATA_IMAGES_AMBIANCE + "plant1_0.gif", \
-    "plant1_1": DATA_IMAGES_AMBIANCE + "plant1_1.gif", \
-    "plant2_0": DATA_IMAGES_AMBIANCE + "plant2_0.gif", \
-    "plant2_1": DATA_IMAGES_AMBIANCE + "plant2_1.gif", \
-    "plant3_0": DATA_IMAGES_AMBIANCE + "plant3_0.gif", \
-    "plant3_1": DATA_IMAGES_AMBIANCE + "plant3_1.gif", \
-    "plant4_0": DATA_IMAGES_AMBIANCE + "plant4_0.gif", \
-    "plant4_1": DATA_IMAGES_AMBIANCE + "plant4_1.gif", \
-    "plant5_0": DATA_IMAGES_AMBIANCE + "plant5_0.gif", \
-    "plant5_1": DATA_IMAGES_AMBIANCE + "plant5_1.gif", \
-    "plant6_0": DATA_IMAGES_AMBIANCE + "plant6_0.gif", \
-    "plant6_1": DATA_IMAGES_AMBIANCE + "plant6_1.gif", \
-    "plant7_0": DATA_IMAGES_AMBIANCE + "plant7_0.gif", \
-    "plant7_1": DATA_IMAGES_AMBIANCE + "plant7_1.gif", \
-    "plant8_0": DATA_IMAGES_AMBIANCE + "plant8_0.gif", \
-    "plant8_1": DATA_IMAGES_AMBIANCE + "plant8_1.gif", \
-    "plant9_0": DATA_IMAGES_AMBIANCE + "plant9_0.gif", \
-    "plant9_1": DATA_IMAGES_AMBIANCE + "plant9_1.gif", \
-    "plant10_0": DATA_IMAGES_AMBIANCE + "plant10_0.gif", \
-    "plant10_1": DATA_IMAGES_AMBIANCE + "plant10_1.gif", \
-    "plant11_0": DATA_IMAGES_AMBIANCE + "plant11_0.gif", \
-    "plant11_1": DATA_IMAGES_AMBIANCE + "plant11_1.gif", \
-    "plant12_0": DATA_IMAGES_AMBIANCE + "plant12_0.gif", \
-    "plant12_1": DATA_IMAGES_AMBIANCE + "plant12_1.gif", \
-    "plant13_0": DATA_IMAGES_AMBIANCE + "plant13_0.gif", \
-    "plant13_1": DATA_IMAGES_AMBIANCE + "plant13_1.gif", \
-    "plant14_0": DATA_IMAGES_AMBIANCE + "plant14_0.gif", \
-    "plant14_1": DATA_IMAGES_AMBIANCE + "plant14_1.gif", \
-    "plant15_0": DATA_IMAGES_AMBIANCE + "plant15_0.gif", \
-    "plant15_1": DATA_IMAGES_AMBIANCE + "plant15_1.gif", \
-    "plant16_0": DATA_IMAGES_AMBIANCE + "plant16_0.gif", \
-    "plant16_1": DATA_IMAGES_AMBIANCE + "plant16_1.gif", \
-    "plant17_0": DATA_IMAGES_AMBIANCE + "plant17_0.gif", \
-    "plant17_1": DATA_IMAGES_AMBIANCE + "plant17_1.gif", \
-    "plant18_0": DATA_IMAGES_AMBIANCE + "plant18_0.gif", \
-    "plant18_1": DATA_IMAGES_AMBIANCE + "plant18_1.gif", \
-    "plant19_0": DATA_IMAGES_AMBIANCE + "plant19_0.gif", \
-    "plant19_1": DATA_IMAGES_AMBIANCE + "plant19_1.gif", \
-    "plant20_0": DATA_IMAGES_AMBIANCE + "plant20_0.gif", \
-    "plant20_1": DATA_IMAGES_AMBIANCE + "plant20_1.gif", \
-    "plant21_0": DATA_IMAGES_AMBIANCE + "plant21_0.gif", \
-    "plant21_1": DATA_IMAGES_AMBIANCE + "plant21_1.gif", \
-    "plant22_0": DATA_IMAGES_AMBIANCE + "plant22_0.gif", \
-    "plant22_1": DATA_IMAGES_AMBIANCE + "plant22_1.gif", \
-    "plant23_0": DATA_IMAGES_AMBIANCE + "plant23_0.gif", \
-    "plant23_1": DATA_IMAGES_AMBIANCE + "plant23_1.gif", \
-    "rock1_0": DATA_IMAGES_AMBIANCE + "rock1_0.gif", \
-    "rock1_1": DATA_IMAGES_AMBIANCE + "rock1_1.gif", \
-    "rock2_0": DATA_IMAGES_AMBIANCE + "rock2_0.gif", \
-    "rock2_1": DATA_IMAGES_AMBIANCE + "rock2_1.gif", \
-    "shell1_0": DATA_IMAGES_AMBIANCE + "shell1_0.gif", \
-    "shell1_1": DATA_IMAGES_AMBIANCE + "shell1_1.gif", \
-    "shell2_0": DATA_IMAGES_AMBIANCE + "shell2_0.gif", \
-    "shell2_1": DATA_IMAGES_AMBIANCE + "shell2_1.gif", \
-    "shell3_0": DATA_IMAGES_AMBIANCE + "shell3_0.gif", \
-    "shell3_1": DATA_IMAGES_AMBIANCE + "shell3_1.gif", \
-    "shell4_0": DATA_IMAGES_AMBIANCE + "shell4_0.gif", \
-    "shell4_1": DATA_IMAGES_AMBIANCE + "shell4_1.gif", \
-    "sign1_0": DATA_IMAGES_AMBIANCE + "sign1_0.gif", \
-    "sign1_1": DATA_IMAGES_AMBIANCE + "sign1_1.gif", \
-    "sign2_0": DATA_IMAGES_AMBIANCE + "sign2_0.gif", \
-    "sign2_1": DATA_IMAGES_AMBIANCE + "sign2_1.gif", \
-    "sign3_0": DATA_IMAGES_AMBIANCE + "sign3_0.gif", \
-    "sign3_1": DATA_IMAGES_AMBIANCE + "sign3_1.gif", \
-    "sign4_0": DATA_IMAGES_AMBIANCE + "sign4_0.gif", \
-    "sign4_1": DATA_IMAGES_AMBIANCE + "sign4_1.gif", \
-    "sign5_0": DATA_IMAGES_AMBIANCE + "sign5_0.gif", \
-    "sign5_1": DATA_IMAGES_AMBIANCE + "sign5_1.gif", \
-    "sign6_0": DATA_IMAGES_AMBIANCE + "sign6_0.gif", \
-    "sign6_1": DATA_IMAGES_AMBIANCE + "sign6_1.gif", \
-    "sign7_0": DATA_IMAGES_AMBIANCE + "sign7_0.gif", \
-    "sign7_1": DATA_IMAGES_AMBIANCE + "sign7_1.gif", \
-    "sign8_0": DATA_IMAGES_AMBIANCE + "sign8_0.gif", \
-    "sign8_1": DATA_IMAGES_AMBIANCE + "sign8_1.gif", \
-    "sign9_0": DATA_IMAGES_AMBIANCE + "sign9_0.gif", \
-    "sign9_1": DATA_IMAGES_AMBIANCE + "sign9_1.gif", \
-    "sign10_0": DATA_IMAGES_AMBIANCE + "sign10_0.gif", \
-    "sign10_1": DATA_IMAGES_AMBIANCE + "sign10_1.gif", \
-    "sign11_0": DATA_IMAGES_AMBIANCE + "sign11_0.gif", \
-    "sign11_1": DATA_IMAGES_AMBIANCE + "sign11_1.gif", \
-    "sign12_0": DATA_IMAGES_AMBIANCE + "sign12_0.gif", \
-    "sign12_1": DATA_IMAGES_AMBIANCE + "sign12_1.gif", \
-    "sign13_0": DATA_IMAGES_AMBIANCE + "sign13_0.gif", \
-    "sign13_1": DATA_IMAGES_AMBIANCE + "sign13_1.gif", \
-    "sign14_0": DATA_IMAGES_AMBIANCE + "sign14_0.gif", \
-    "sign14_1": DATA_IMAGES_AMBIANCE + "sign14_1.gif", \
-    "sign15_0": DATA_IMAGES_AMBIANCE + "sign15_0.gif", \
-    "sign15_1": DATA_IMAGES_AMBIANCE + "sign15_1.gif", \
-    "sign16_0": DATA_IMAGES_AMBIANCE + "sign16_0.gif", \
-    "sign16_1": DATA_IMAGES_AMBIANCE + "sign16_1.gif", \
-    "sign17_0": DATA_IMAGES_AMBIANCE + "sign17_0.gif", \
-    "sign17_1": DATA_IMAGES_AMBIANCE + "sign17_1.gif", \
-    "sign18_0": DATA_IMAGES_AMBIANCE + "sign18_0.gif", \
-    "sign18_1": DATA_IMAGES_AMBIANCE + "sign18_1.gif", \
-    "sign19_0": DATA_IMAGES_AMBIANCE + "sign19_0.gif", \
-    "sign19_1": DATA_IMAGES_AMBIANCE + "sign19_1.gif", \
-    "statue1_0": DATA_IMAGES_AMBIANCE + "statue1_0.gif", \
-    "statue1_1": DATA_IMAGES_AMBIANCE + "statue1_1.gif", \
-    "statue2_0": DATA_IMAGES_AMBIANCE + "statue2_0.gif", \
-    "statue2_1": DATA_IMAGES_AMBIANCE + "statue2_1.gif", \
-    "statue3_0": DATA_IMAGES_AMBIANCE + "statue3_0.gif", \
-    "statue3_1": DATA_IMAGES_AMBIANCE + "statue3_1.gif", \
-    "statue4_0": DATA_IMAGES_AMBIANCE + "statue4_0.gif", \
-    "statue4_1": DATA_IMAGES_AMBIANCE + "statue4_1.gif", \
-    "stone1_0": DATA_IMAGES_AMBIANCE + "stone1_0.gif", \
-    "stone1_1": DATA_IMAGES_AMBIANCE + "stone1_1.gif", \
-    "stone2_0": DATA_IMAGES_AMBIANCE + "stone2_0.gif", \
-    "stone2_1": DATA_IMAGES_AMBIANCE + "stone2_1.gif", \
-    "stone3_0": DATA_IMAGES_AMBIANCE + "stone3_0.gif", \
-    "stone3_1": DATA_IMAGES_AMBIANCE + "stone3_1.gif", \
-    "stone4_0": DATA_IMAGES_AMBIANCE + "stone4_0.gif", \
-    "stone4_1": DATA_IMAGES_AMBIANCE + "stone4_1.gif", \
-    "stone5_0": DATA_IMAGES_AMBIANCE + "stone5_0.gif", \
-    "stone5_1": DATA_IMAGES_AMBIANCE + "stone5_1.gif", \
-    "stone6_0": DATA_IMAGES_AMBIANCE + "stone6_0.gif", \
-    "stone6_1": DATA_IMAGES_AMBIANCE + "stone6_1.gif", \
-    "stone7_0": DATA_IMAGES_AMBIANCE + "stone7_0.gif", \
-    "stone7_1": DATA_IMAGES_AMBIANCE + "stone7_1.gif", \
-    "stone8_0": DATA_IMAGES_AMBIANCE + "stone8_0.gif", \
-    "stone8_1": DATA_IMAGES_AMBIANCE + "stone8_1.gif", \
-    "stone9_0": DATA_IMAGES_AMBIANCE + "stone9_0.gif", \
-    "stone9_1": DATA_IMAGES_AMBIANCE + "stone9_1.gif", \
-    "stone10_0": DATA_IMAGES_AMBIANCE + "stone10_0.gif", \
-    "stone10_1": DATA_IMAGES_AMBIANCE + "stone10_1.gif", \
-    "stone11_0": DATA_IMAGES_AMBIANCE + "stone11_0.gif", \
-    "stone11_1": DATA_IMAGES_AMBIANCE + "stone11_1.gif", \
-    "stone12_0": DATA_IMAGES_AMBIANCE + "stone12_0.gif", \
-    "stone12_1": DATA_IMAGES_AMBIANCE + "stone12_1.gif", \
-    "stone13_0": DATA_IMAGES_AMBIANCE + "stone13_0.gif", \
-    "stone13_1": DATA_IMAGES_AMBIANCE + "stone13_1.gif", \
-    "stone14_0": DATA_IMAGES_AMBIANCE + "stone14_0.gif", \
-    "stone14_1": DATA_IMAGES_AMBIANCE + "stone14_1.gif", \
-    "stone15_0": DATA_IMAGES_AMBIANCE + "stone15_0.gif", \
-    "stone15_1": DATA_IMAGES_AMBIANCE + "stone15_1.gif", \
-    "stone16_0": DATA_IMAGES_AMBIANCE + "stone16_0.gif", \
-    "stone16_1": DATA_IMAGES_AMBIANCE + "stone16_1.gif", \
-    "stone17_0": DATA_IMAGES_AMBIANCE + "stone17_0.gif", \
-    "stone17_1": DATA_IMAGES_AMBIANCE + "stone17_1.gif", \
-    "stone18_0": DATA_IMAGES_AMBIANCE + "stone18_0.gif", \
-    "stone18_1": DATA_IMAGES_AMBIANCE + "stone18_1.gif", \
-    "stone19_0": DATA_IMAGES_AMBIANCE + "stone19_0.gif", \
-    "stone19_1": DATA_IMAGES_AMBIANCE + "stone19_1.gif", \
-    "stone20_0": DATA_IMAGES_AMBIANCE + "stone20_0.gif", \
-    "stone20_1": DATA_IMAGES_AMBIANCE + "stone20_1.gif", \
-    "stone21_0": DATA_IMAGES_AMBIANCE + "stone21_0.gif", \
-    "stone21_1": DATA_IMAGES_AMBIANCE + "stone21_1.gif", \
-    "stone22_0": DATA_IMAGES_AMBIANCE + "stone22_0.gif", \
-    "stone22_1": DATA_IMAGES_AMBIANCE + "stone22_1.gif", \
-    "stone23_0": DATA_IMAGES_AMBIANCE + "stone23_0.gif", \
-    "stone23_1": DATA_IMAGES_AMBIANCE + "stone23_1.gif", \
-    "stone24_0": DATA_IMAGES_AMBIANCE + "stone24_0.gif", \
-    "stone24_1": DATA_IMAGES_AMBIANCE + "stone24_1.gif", \
-    "stone25_0": DATA_IMAGES_AMBIANCE + "stone25_0.gif", \
-    "stone25_1": DATA_IMAGES_AMBIANCE + "stone25_1.gif", \
-    "stone26_0": DATA_IMAGES_AMBIANCE + "stone26_0.gif", \
-    "stone26_1": DATA_IMAGES_AMBIANCE + "stone26_1.gif", \
-    "stone27_0": DATA_IMAGES_AMBIANCE + "stone27_0.gif", \
-    "stone27_1": DATA_IMAGES_AMBIANCE + "stone27_1.gif", \
-    "stone28_0": DATA_IMAGES_AMBIANCE + "stone28_0.gif", \
-    "stone28_1": DATA_IMAGES_AMBIANCE + "stone28_1.gif", \
-    "stone29_0": DATA_IMAGES_AMBIANCE + "stone29_0.gif", \
-    "stone29_1": DATA_IMAGES_AMBIANCE + "stone29_1.gif", \
-    "stone30_0": DATA_IMAGES_AMBIANCE + "stone30_0.gif", \
-    "stone30_1": DATA_IMAGES_AMBIANCE + "stone30_1.gif", \
-    "stone31_0": DATA_IMAGES_AMBIANCE + "stone31_0.gif", \
-    "stone31_1": DATA_IMAGES_AMBIANCE + "stone31_1.gif", \
-    "stone32_0": DATA_IMAGES_AMBIANCE + "stone32_0.gif", \
-    "stone32_1": DATA_IMAGES_AMBIANCE + "stone32_1.gif", \
-    "stone33_0": DATA_IMAGES_AMBIANCE + "stone33_0.gif", \
-    "stone33_1": DATA_IMAGES_AMBIANCE + "stone33_1.gif", \
-    "totem_0": DATA_IMAGES_AMBIANCE + "totem_0.gif", \
-    "totem_1": DATA_IMAGES_AMBIANCE + "totem_1.gif", \
-    "tree1_0": DATA_IMAGES_AMBIANCE + "tree1_0.gif", \
-    "tree1_1": DATA_IMAGES_AMBIANCE + "tree1_1.gif", \
-    "tree2_0": DATA_IMAGES_AMBIANCE + "tree2_0.gif", \
-    "tree2_1": DATA_IMAGES_AMBIANCE + "tree2_1.gif", \
-    "tree3_0": DATA_IMAGES_AMBIANCE + "tree3_0.gif", \
-    "tree3_1": DATA_IMAGES_AMBIANCE + "tree3_1.gif", \
-    "tree4_0": DATA_IMAGES_AMBIANCE + "tree4_0.gif", \
-    "tree4_1": DATA_IMAGES_AMBIANCE + "tree4_1.gif", \
-    "tree5_0": DATA_IMAGES_AMBIANCE + "tree5_0.gif", \
-    "tree5_1": DATA_IMAGES_AMBIANCE + "tree5_1.gif", \
-    "tree6_0": DATA_IMAGES_AMBIANCE + "tree6_0.gif", \
-    "tree6_1": DATA_IMAGES_AMBIANCE + "tree6_1.gif", \
-    "tree7_0": DATA_IMAGES_AMBIANCE + "tree7_0.gif", \
-    "tree7_1": DATA_IMAGES_AMBIANCE + "tree7_1.gif", \
-    "tree8_0": DATA_IMAGES_AMBIANCE + "tree8_0.gif", \
-    "tree8_1": DATA_IMAGES_AMBIANCE + "tree8_1.gif", \
-    "tree9_0": DATA_IMAGES_AMBIANCE + "tree9_0.gif", \
-    "tree9_1": DATA_IMAGES_AMBIANCE + "tree9_1.gif", \
-    "tree10_0": DATA_IMAGES_AMBIANCE + "tree10_0.gif", \
-    "tree10_1": DATA_IMAGES_AMBIANCE + "tree10_1.gif", \
-    "tree11_0": DATA_IMAGES_AMBIANCE + "tree11_0.gif", \
-    "tree11_1": DATA_IMAGES_AMBIANCE + "tree11_1.gif", \
-    "tree12_0": DATA_IMAGES_AMBIANCE + "tree12_0.gif", \
-    "tree12_1": DATA_IMAGES_AMBIANCE + "tree12_1.gif", \
-    "tree13_0": DATA_IMAGES_AMBIANCE + "tree13_0.gif", \
-    "tree13_1": DATA_IMAGES_AMBIANCE + "tree13_1.gif", \
-    "tree14_0": DATA_IMAGES_AMBIANCE + "tree14_0.gif", \
-    "tree14_1": DATA_IMAGES_AMBIANCE + "tree14_1.gif", \
-    "tree15_0": DATA_IMAGES_AMBIANCE + "tree15_0.gif", \
-    "tree15_1": DATA_IMAGES_AMBIANCE + "tree15_1.gif", \
-    "tree16_0": DATA_IMAGES_AMBIANCE + "tree16_0.gif", \
-    "tree16_1": DATA_IMAGES_AMBIANCE + "tree16_1.gif", \
-    "tree17_0": DATA_IMAGES_AMBIANCE + "tree17_0.gif", \
-    "tree17_1": DATA_IMAGES_AMBIANCE + "tree17_1.gif", \
-    "tree18_0": DATA_IMAGES_AMBIANCE + "tree18_0.gif", \
-    "tree18_1": DATA_IMAGES_AMBIANCE + "tree18_1.gif", \
-    "tree19_0": DATA_IMAGES_AMBIANCE + "tree19_0.gif", \
-    "tree19_1": DATA_IMAGES_AMBIANCE + "tree19_1.gif", \
-    "tree20_0": DATA_IMAGES_AMBIANCE + "tree20_0.gif", \
-    "tree20_1": DATA_IMAGES_AMBIANCE + "tree20_1.gif", \
-    "tree21_0": DATA_IMAGES_AMBIANCE + "tree21_0.gif", \
-    "tree21_1": DATA_IMAGES_AMBIANCE + "tree21_1.gif", \
-    "tree22_0": DATA_IMAGES_AMBIANCE + "tree22_0.gif", \
-    "tree22_1": DATA_IMAGES_AMBIANCE + "tree22_1.gif", \
-    "tree23_0": DATA_IMAGES_AMBIANCE + "tree23_0.gif", \
-    "tree23_1": DATA_IMAGES_AMBIANCE + "tree23_1.gif", \
-    "tree24_0": DATA_IMAGES_AMBIANCE + "tree24_0.gif", \
-    "tree24_1": DATA_IMAGES_AMBIANCE + "tree24_1.gif", \
-    "tree25_0": DATA_IMAGES_AMBIANCE + "tree25_0.gif", \
-    "tree25_1": DATA_IMAGES_AMBIANCE + "tree25_1.gif", \
-    "tree26_0": DATA_IMAGES_AMBIANCE + "tree26_0.gif", \
-    "tree26_1": DATA_IMAGES_AMBIANCE + "tree26_1.gif", \
-    "tree27_0": DATA_IMAGES_AMBIANCE + "tree27_0.gif", \
-    "tree27_1": DATA_IMAGES_AMBIANCE + "tree27_1.gif", \
-    "tree28_0": DATA_IMAGES_AMBIANCE + "tree28_0.gif", \
-    "tree28_1": DATA_IMAGES_AMBIANCE + "tree28_1.gif", \
-    "tree29_0": DATA_IMAGES_AMBIANCE + "tree29_0.gif", \
-    "tree29_1": DATA_IMAGES_AMBIANCE + "tree29_1.gif", \
-    "tree30_0": DATA_IMAGES_AMBIANCE + "tree30_0.gif", \
-    "tree30_1": DATA_IMAGES_AMBIANCE + "tree30_1.gif", \
-    "tree31_0": DATA_IMAGES_AMBIANCE + "tree31_0.gif", \
-    "tree31_1": DATA_IMAGES_AMBIANCE + "tree31_1.gif", \
-    "tree32_0": DATA_IMAGES_AMBIANCE + "tree32_0.gif", \
-    "tree32_1": DATA_IMAGES_AMBIANCE + "tree32_1.gif", \
-    "tree33_0": DATA_IMAGES_AMBIANCE + "tree33_0.gif", \
-    "tree33_1": DATA_IMAGES_AMBIANCE + "tree33_1.gif", \
-    "tree34_0": DATA_IMAGES_AMBIANCE + "tree34_0.gif", \
-    "tree34_1": DATA_IMAGES_AMBIANCE + "tree34_1.gif", \
-    "tree35_0": DATA_IMAGES_AMBIANCE + "tree35_0.gif", \
-    "tree35_1": DATA_IMAGES_AMBIANCE + "tree35_1.gif", \
-    "tree36_0": DATA_IMAGES_AMBIANCE + "tree36_0.gif", \
-    "tree36_1": DATA_IMAGES_AMBIANCE + "tree36_1.gif", \
-    "tree37_0": DATA_IMAGES_AMBIANCE + "tree37_0.gif", \
-    "tree37_1": DATA_IMAGES_AMBIANCE + "tree37_1.gif", \
-    "tree38_0": DATA_IMAGES_AMBIANCE + "tree38_0.gif", \
-    "tree38_1": DATA_IMAGES_AMBIANCE + "tree38_1.gif", \
-    "tree39_0": DATA_IMAGES_AMBIANCE + "tree39_0.gif", \
-    "tree39_1": DATA_IMAGES_AMBIANCE + "tree39_1.gif", \
-    "tree40_0": DATA_IMAGES_AMBIANCE + "tree40_0.gif", \
-    "tree40_1": DATA_IMAGES_AMBIANCE + "tree40_1.gif", \
-    "tree41_0": DATA_IMAGES_AMBIANCE + "tree41_0.gif", \
-    "tree41_1": DATA_IMAGES_AMBIANCE + "tree41_1.gif", \
-    "tree42_0": DATA_IMAGES_AMBIANCE + "tree42_0.gif", \
-    "tree42_1": DATA_IMAGES_AMBIANCE + "tree42_1.gif", \
-    "tree43_0": DATA_IMAGES_AMBIANCE + "tree43_0.gif", \
-    "tree43_1": DATA_IMAGES_AMBIANCE + "tree43_1.gif", \
-    "tree44_0": DATA_IMAGES_AMBIANCE + "tree44_0.gif", \
-    "tree44_1": DATA_IMAGES_AMBIANCE + "tree44_1.gif", \
-    "tree45_0": DATA_IMAGES_AMBIANCE + "tree45_0.gif", \
-    "tree45_1": DATA_IMAGES_AMBIANCE + "tree45_1.gif", \
-    "tree46_0": DATA_IMAGES_AMBIANCE + "tree46_0.gif", \
-    "tree46_1": DATA_IMAGES_AMBIANCE + "tree46_1.gif", \
-    "tree47_0": DATA_IMAGES_AMBIANCE + "tree47_0.gif", \
-    "tree47_1": DATA_IMAGES_AMBIANCE + "tree47_1.gif", \
-    "tree48_0": DATA_IMAGES_AMBIANCE + "tree48_0.gif", \
-    "tree48_1": DATA_IMAGES_AMBIANCE + "tree48_1.gif", \
-    "tree49_0": DATA_IMAGES_AMBIANCE + "tree49_0.gif", \
-    "tree49_1": DATA_IMAGES_AMBIANCE + "tree49_1.gif", \
-    "tree50_0": DATA_IMAGES_AMBIANCE + "tree50_0.gif", \
-    "tree50_1": DATA_IMAGES_AMBIANCE + "tree50_1.gif", \
-    "tronco1_0": DATA_IMAGES_AMBIANCE + "tronco1_0.gif", \
-    "tronco1_1": DATA_IMAGES_AMBIANCE + "tronco1_1.gif", \
-    "tronco2_0": DATA_IMAGES_AMBIANCE + "tronco2_0.gif", \
-    "tronco2_1": DATA_IMAGES_AMBIANCE + "tronco2_1.gif", \
- \
+    "ambiance_grass1_0": DATA_IMAGES_AMBIANCE + "ambiance_grass1_0.gif",
+    "ambiance_grass1_1": DATA_IMAGES_AMBIANCE + "ambiance_grass1_1.gif",
+    "ambiance_grass2_0": DATA_IMAGES_AMBIANCE + "ambiance_grass2_0.gif",
+    "ambiance_grass2_1": DATA_IMAGES_AMBIANCE + "ambiance_grass2_1.gif",
+    "ambiance_grass3_0": DATA_IMAGES_AMBIANCE + "ambiance_grass3_0.gif",
+    "ambiance_grass3_1": DATA_IMAGES_AMBIANCE + "ambiance_grass3_1.gif",
+    "ambiance_grass4_0": DATA_IMAGES_AMBIANCE + "ambiance_grass4_0.gif",
+    "ambiance_grass4_1": DATA_IMAGES_AMBIANCE + "ambiance_grass4_1.gif",
+    "ambiance_grass5_0": DATA_IMAGES_AMBIANCE + "ambiance_grass5_0.gif",
+    "ambiance_grass5_1": DATA_IMAGES_AMBIANCE + "ambiance_grass5_1.gif",
+    "ambiance_grass6_0": DATA_IMAGES_AMBIANCE + "ambiance_grass6_0.gif",
+    "ambiance_grass6_1": DATA_IMAGES_AMBIANCE + "ambiance_grass6_1.gif",
+    "ambiance_grass7_0": DATA_IMAGES_AMBIANCE + "ambiance_grass7_0.gif",
+    "ambiance_grass7_1": DATA_IMAGES_AMBIANCE + "ambiance_grass7_1.gif",
+    "ambiance_grass8_0": DATA_IMAGES_AMBIANCE + "ambiance_grass8_0.gif",
+    "ambiance_grass8_1": DATA_IMAGES_AMBIANCE + "ambiance_grass8_1.gif",
+    "ambiance_grass9_0": DATA_IMAGES_AMBIANCE + "ambiance_grass9_0.gif",
+    "ambiance_grass9_1": DATA_IMAGES_AMBIANCE + "ambiance_grass9_1.gif",
+    "ambiance_other1_0": DATA_IMAGES_AMBIANCE + "ambiance_other1_0.gif",
+    "ambiance_other1_1": DATA_IMAGES_AMBIANCE + "ambiance_other1_1.gif",
+    "ambiance_other2_0": DATA_IMAGES_AMBIANCE + "ambiance_other2_0.gif",
+    "ambiance_other2_1": DATA_IMAGES_AMBIANCE + "ambiance_other2_1.gif",
+    "ambiance_other3_0": DATA_IMAGES_AMBIANCE + "ambiance_other3_0.gif",
+    "ambiance_other3_1": DATA_IMAGES_AMBIANCE + "ambiance_other3_1.gif",
+    "ambiance_other4_0": DATA_IMAGES_AMBIANCE + "ambiance_other4_0.gif",
+    "ambiance_other4_1": DATA_IMAGES_AMBIANCE + "ambiance_other4_1.gif",
+    "ambiance_other5_0": DATA_IMAGES_AMBIANCE + "ambiance_other5_0.gif",
+    "ambiance_other5_1": DATA_IMAGES_AMBIANCE + "ambiance_other5_1.gif",
+    "ambiance_other6_0": DATA_IMAGES_AMBIANCE + "ambiance_other6_0.gif",
+    "ambiance_other6_1": DATA_IMAGES_AMBIANCE + "ambiance_other6_1.gif",
+    "ambiance_other7_0": DATA_IMAGES_AMBIANCE + "ambiance_other7_0.gif",
+    "ambiance_other7_1": DATA_IMAGES_AMBIANCE + "ambiance_other7_1.gif",
+    "ambiance_other8_0": DATA_IMAGES_AMBIANCE + "ambiance_other8_0.gif",
+    "ambiance_other8_1": DATA_IMAGES_AMBIANCE + "ambiance_other8_1.gif",
+    "ambiance_other9_0": DATA_IMAGES_AMBIANCE + "ambiance_other9_0.gif",
+    "ambiance_other9_1": DATA_IMAGES_AMBIANCE + "ambiance_other9_1.gif",
+    "ambiance_other10_0": DATA_IMAGES_AMBIANCE + "ambiance_other10_0.gif",
+    "ambiance_other10_1": DATA_IMAGES_AMBIANCE + "ambiance_other10_1.gif",
+    "ambiance_other11_0": DATA_IMAGES_AMBIANCE + "ambiance_other11_0.gif",
+    "ambiance_other11_1": DATA_IMAGES_AMBIANCE + "ambiance_other11_1.gif",
+    "ambiance_other12_0": DATA_IMAGES_AMBIANCE + "ambiance_other12_0.gif",
+    "ambiance_other12_1": DATA_IMAGES_AMBIANCE + "ambiance_other12_1.gif",
+    "ambiance_other13_0": DATA_IMAGES_AMBIANCE + "ambiance_other13_0.gif",
+    "ambiance_other13_1": DATA_IMAGES_AMBIANCE + "ambiance_other13_1.gif",
+    "ambiance_other14_0": DATA_IMAGES_AMBIANCE + "ambiance_other14_0.gif",
+    "ambiance_other14_1": DATA_IMAGES_AMBIANCE + "ambiance_other14_1.gif",
+    "ambiance_other15_0": DATA_IMAGES_AMBIANCE + "ambiance_other15_0.gif",
+    "ambiance_other15_1": DATA_IMAGES_AMBIANCE + "ambiance_other15_1.gif",
+    "ambiance_other16_0": DATA_IMAGES_AMBIANCE + "ambiance_other16_0.gif",
+    "ambiance_other16_1": DATA_IMAGES_AMBIANCE + "ambiance_other16_1.gif",
+    "ambiance_other17_0": DATA_IMAGES_AMBIANCE + "ambiance_other17_0.gif",
+    "ambiance_other17_1": DATA_IMAGES_AMBIANCE + "ambiance_other17_1.gif",
+    "ambiance_other18_0": DATA_IMAGES_AMBIANCE + "ambiance_other18_0.gif",
+    "ambiance_other18_1": DATA_IMAGES_AMBIANCE + "ambiance_other18_1.gif",
+    "ambiance_other19_0": DATA_IMAGES_AMBIANCE + "ambiance_other19_0.gif",
+    "ambiance_other19_1": DATA_IMAGES_AMBIANCE + "ambiance_other19_1.gif",
+    "ambiance_other20_0": DATA_IMAGES_AMBIANCE + "ambiance_other20_0.gif",
+    "ambiance_other20_1": DATA_IMAGES_AMBIANCE + "ambiance_other20_1.gif",
+    "ambiance_other21_0": DATA_IMAGES_AMBIANCE + "ambiance_other21_0.gif",
+    "ambiance_other21_1": DATA_IMAGES_AMBIANCE + "ambiance_other21_1.gif",
+    "ambiance_other22_0": DATA_IMAGES_AMBIANCE + "ambiance_other22_0.gif",
+    "ambiance_other22_1": DATA_IMAGES_AMBIANCE + "ambiance_other22_1.gif",
+    "ambiance_other23_0": DATA_IMAGES_AMBIANCE + "ambiance_other23_0.gif",
+    "ambiance_other23_1": DATA_IMAGES_AMBIANCE + "ambiance_other23_1.gif",
+    "ambiance_other24_0": DATA_IMAGES_AMBIANCE + "ambiance_other24_0.gif",
+    "ambiance_other24_1": DATA_IMAGES_AMBIANCE + "ambiance_other24_1.gif",
+    "ambiance_other25_0": DATA_IMAGES_AMBIANCE + "ambiance_other25_0.gif",
+    "ambiance_other25_1": DATA_IMAGES_AMBIANCE + "ambiance_other25_1.gif",
+    "ambiance_other26_0": DATA_IMAGES_AMBIANCE + "ambiance_other26_0.gif",
+    "ambiance_other26_1": DATA_IMAGES_AMBIANCE + "ambiance_other26_1.gif",
+    "ambiance_other27_0": DATA_IMAGES_AMBIANCE + "ambiance_other27_0.gif",
+    "ambiance_other27_1": DATA_IMAGES_AMBIANCE + "ambiance_other27_1.gif",
+    "ambiance_other28_0": DATA_IMAGES_AMBIANCE + "ambiance_other28_0.gif",
+    "ambiance_other28_1": DATA_IMAGES_AMBIANCE + "ambiance_other28_1.gif",
+    "ambiance_other29_0": DATA_IMAGES_AMBIANCE + "ambiance_other29_0.gif",
+    "ambiance_other29_1": DATA_IMAGES_AMBIANCE + "ambiance_other29_1.gif",
+    "ambiance_other30_0": DATA_IMAGES_AMBIANCE + "ambiance_other30_0.gif",
+    "ambiance_other30_1": DATA_IMAGES_AMBIANCE + "ambiance_other30_1.gif",
+    "ambiance_other31_0": DATA_IMAGES_AMBIANCE + "ambiance_other31_0.gif",
+    "ambiance_other31_1": DATA_IMAGES_AMBIANCE + "ambiance_other31_1.gif",
+    "ambiance_other32_0": DATA_IMAGES_AMBIANCE + "ambiance_other32_0.gif",
+    "ambiance_other32_1": DATA_IMAGES_AMBIANCE + "ambiance_other32_1.gif",
+    "ambiance_other33_0": DATA_IMAGES_AMBIANCE + "ambiance_other33_0.gif",
+    "ambiance_other33_1": DATA_IMAGES_AMBIANCE + "ambiance_other33_1.gif",
+    "ambiance_other34_0": DATA_IMAGES_AMBIANCE + "ambiance_other34_0.gif",
+    "ambiance_other34_1": DATA_IMAGES_AMBIANCE + "ambiance_other34_1.gif",
+    "ambiance_other35_0": DATA_IMAGES_AMBIANCE + "ambiance_other35_0.gif",
+    "ambiance_other35_1": DATA_IMAGES_AMBIANCE + "ambiance_other35_1.gif",
+    "ambiance_other36_0": DATA_IMAGES_AMBIANCE + "ambiance_other36_0.gif",
+    "ambiance_other36_1": DATA_IMAGES_AMBIANCE + "ambiance_other36_1.gif",
+    "ambiance_other37_0": DATA_IMAGES_AMBIANCE + "ambiance_other37_0.gif",
+    "ambiance_other37_1": DATA_IMAGES_AMBIANCE + "ambiance_other37_1.gif",
+    "ambiance_other38_0": DATA_IMAGES_AMBIANCE + "ambiance_other38_0.gif",
+    "ambiance_other38_1": DATA_IMAGES_AMBIANCE + "ambiance_other38_1.gif",
+    "ambiance_other39_0": DATA_IMAGES_AMBIANCE + "ambiance_other39_0.gif",
+    "ambiance_other39_1": DATA_IMAGES_AMBIANCE + "ambiance_other39_1.gif",
+    "ambiance_other40_0": DATA_IMAGES_AMBIANCE + "ambiance_other40_0.gif",
+    "ambiance_other40_1": DATA_IMAGES_AMBIANCE + "ambiance_other40_1.gif",
+    "ambiance_other41_0": DATA_IMAGES_AMBIANCE + "ambiance_other41_0.gif",
+    "ambiance_other41_1": DATA_IMAGES_AMBIANCE + "ambiance_other41_1.gif",
+    "ambiance_other42_0": DATA_IMAGES_AMBIANCE + "ambiance_other42_0.gif",
+    "ambiance_other42_1": DATA_IMAGES_AMBIANCE + "ambiance_other42_1.gif",
+    "ambiance_other43_0": DATA_IMAGES_AMBIANCE + "ambiance_other43_0.gif",
+    "ambiance_other43_1": DATA_IMAGES_AMBIANCE + "ambiance_other43_1.gif",
+    "ambiance_other44_0": DATA_IMAGES_AMBIANCE + "ambiance_other44_0.gif",
+    "ambiance_other44_1": DATA_IMAGES_AMBIANCE + "ambiance_other44_1.gif",
+    "ambiance_other45_0": DATA_IMAGES_AMBIANCE + "ambiance_other45_0.gif",
+    "ambiance_other45_1": DATA_IMAGES_AMBIANCE + "ambiance_other45_1.gif",
+    "ambiance_other46_0": DATA_IMAGES_AMBIANCE + "ambiance_other46_0.gif",
+    "ambiance_other46_1": DATA_IMAGES_AMBIANCE + "ambiance_other46_1.gif",
+    "ambiance_other47_0": DATA_IMAGES_AMBIANCE + "ambiance_other47_0.gif",
+    "ambiance_other47_1": DATA_IMAGES_AMBIANCE + "ambiance_other47_1.gif",
+    "ambiance_other48_0": DATA_IMAGES_AMBIANCE + "ambiance_other48_0.gif",
+    "ambiance_other48_1": DATA_IMAGES_AMBIANCE + "ambiance_other48_1.gif",
+    "ambiance_other49_0": DATA_IMAGES_AMBIANCE + "ambiance_other49_0.gif",
+    "ambiance_other49_1": DATA_IMAGES_AMBIANCE + "ambiance_other49_1.gif",
+    "ambiance_other50_0": DATA_IMAGES_AMBIANCE + "ambiance_other50_0.gif",
+    "ambiance_other50_1": DATA_IMAGES_AMBIANCE + "ambiance_other50_1.gif",
+    "ambiance_other51_0": DATA_IMAGES_AMBIANCE + "ambiance_other51_0.gif",
+    "ambiance_other51_1": DATA_IMAGES_AMBIANCE + "ambiance_other51_1.gif",
+    "ambiance_other52_0": DATA_IMAGES_AMBIANCE + "ambiance_other52_0.gif",
+    "ambiance_other52_1": DATA_IMAGES_AMBIANCE + "ambiance_other52_1.gif",
+    "ambiance_other53_0": DATA_IMAGES_AMBIANCE + "ambiance_other53_0.gif",
+    "ambiance_other53_1": DATA_IMAGES_AMBIANCE + "ambiance_other53_1.gif",
+    "ambiance_other54_0": DATA_IMAGES_AMBIANCE + "ambiance_other54_0.gif",
+    "ambiance_other54_1": DATA_IMAGES_AMBIANCE + "ambiance_other54_1.gif",
+    "ambiance_other55_0": DATA_IMAGES_AMBIANCE + "ambiance_other55_0.gif",
+    "ambiance_other55_1": DATA_IMAGES_AMBIANCE + "ambiance_other55_1.gif",
+    "ambiance_other56_0": DATA_IMAGES_AMBIANCE + "ambiance_other56_0.gif",
+    "ambiance_other56_1": DATA_IMAGES_AMBIANCE + "ambiance_other56_1.gif",
+    "ambiance_other57_0": DATA_IMAGES_AMBIANCE + "ambiance_other57_0.gif",
+    "ambiance_other57_1": DATA_IMAGES_AMBIANCE + "ambiance_other57_1.gif",
+    "ambiance_other58_0": DATA_IMAGES_AMBIANCE + "ambiance_other58_0.gif",
+    "ambiance_other58_1": DATA_IMAGES_AMBIANCE + "ambiance_other58_1.gif",
+    "ambiance_other59_0": DATA_IMAGES_AMBIANCE + "ambiance_other59_0.gif",
+    "ambiance_other59_1": DATA_IMAGES_AMBIANCE + "ambiance_other59_1.gif",
+    "ambiance_other60_0": DATA_IMAGES_AMBIANCE + "ambiance_other60_0.gif",
+    "ambiance_other60_1": DATA_IMAGES_AMBIANCE + "ambiance_other60_1.gif",
+    "antorcha": DATA_IMAGES_AMBIANCE + "antorcha.gif",
+    "antorcha2": DATA_IMAGES_AMBIANCE + "antorcha2.gif",
+    "antorcha3": DATA_IMAGES_AMBIANCE + "antorcha3.gif",
+    "antorcha4": DATA_IMAGES_AMBIANCE + "antorcha4.gif",
+    "antorcha5": DATA_IMAGES_AMBIANCE + "antorcha5.gif",
+    "antorcha6": DATA_IMAGES_AMBIANCE + "antorcha6.gif",
+    "antorcha7": DATA_IMAGES_AMBIANCE + "antorcha7.gif",
+    "antorcha8": DATA_IMAGES_AMBIANCE + "antorcha8.gif",
+    "antorcha9": DATA_IMAGES_AMBIANCE + "antorcha9.gif",
+    "antorcha10": DATA_IMAGES_AMBIANCE + "antorcha10.gif",
+    "antorcha11": DATA_IMAGES_AMBIANCE + "antorcha11.gif",
+    "antorcha12": DATA_IMAGES_AMBIANCE + "antorcha12.gif",
+    "antorcha13": DATA_IMAGES_AMBIANCE + "antorcha13.gif",
+    "antorcha14": DATA_IMAGES_AMBIANCE + "antorcha14.gif",
+    "antorcha15": DATA_IMAGES_AMBIANCE + "antorcha15.gif",
+    "antorcha16": DATA_IMAGES_AMBIANCE + "antorcha16.gif",
+    "antorcha17": DATA_IMAGES_AMBIANCE + "antorcha17.gif",
+    "antorcha18": DATA_IMAGES_AMBIANCE + "antorcha18.gif",
+    "antorcha19": DATA_IMAGES_AMBIANCE + "antorcha19.gif",
+    "antorcha20": DATA_IMAGES_AMBIANCE + "antorcha20.gif",
+    "antorcha21": DATA_IMAGES_AMBIANCE + "antorcha21.gif",
+    "antorcha22": DATA_IMAGES_AMBIANCE + "antorcha22.gif",
+    "antorcha23": DATA_IMAGES_AMBIANCE + "antorcha23.gif",
+    "big_ambiance_other1_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other1_0.gif",
+    "big_ambiance_other1_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other1_1.gif",
+    "big_ambiance_other2_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other2_0.gif",
+    "big_ambiance_other2_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other2_1.gif",
+    "big_ambiance_other3_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other3_0.gif",
+    "big_ambiance_other3_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other3_1.gif",
+    "big_ambiance_other4_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other4_0.gif",
+    "big_ambiance_other4_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other4_1.gif",
+    "big_ambiance_other5_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other5_0.gif",
+    "big_ambiance_other5_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other5_1.gif",
+    "big_ambiance_other6_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other6_0.gif",
+    "big_ambiance_other6_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other6_1.gif",
+    "big_ambiance_other7_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other7_0.gif",
+    "big_ambiance_other7_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other7_1.gif",
+    "big_ambiance_other8_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other8_0.gif",
+    "big_ambiance_other8_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other8_1.gif",
+    "big_ambiance_other9_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other9_0.gif",
+    "big_ambiance_other9_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other9_1.gif",
+    "big_ambiance_other10_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other10_0.gif",
+    "big_ambiance_other10_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other10_1.gif",
+    "big_ambiance_other11_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other11_0.gif",
+    "big_ambiance_other11_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other11_1.gif",
+    "big_ambiance_other12_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other12_0.gif",
+    "big_ambiance_other12_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other12_1.gif",
+    "big_ambiance_other13_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other13_0.gif",
+    "big_ambiance_other13_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other13_1.gif",
+    "big_ambiance_other14_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other14_0.gif",
+    "big_ambiance_other14_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other14_1.gif",
+    "big_ambiance_other15_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other15_0.gif",
+    "big_ambiance_other15_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other15_1.gif",
+    "big_ambiance_other16_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other16_0.gif",
+    "big_ambiance_other16_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other16_1.gif",
+    "big_ambiance_other17_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other17_0.gif",
+    "big_ambiance_other17_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other17_1.gif",
+    "big_ambiance_other18_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other18_0.gif",
+    "big_ambiance_other18_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other18_1.gif",
+    "big_ambiance_other19_0": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other19_0.gif",
+    "big_ambiance_other19_1": DATA_IMAGES_AMBIANCE_BIG + "big_ambiance_other19_1.gif",
+    "big_hongo1_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo1_0.gif",
+    "big_hongo1_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo1_1.gif",
+    "big_hongo2_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo2_0.gif",
+    "big_hongo2_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo2_1.gif",
+    "big_hongo3_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo3_0.gif",
+    "big_hongo3_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo3_1.gif",
+    "big_hongo4_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo4_0.gif",
+    "big_hongo4_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo4_1.gif",
+    "big_hongo5_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo5_0.gif",
+    "big_hongo5_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo5_1.gif",
+    "big_hongo6_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo6_0.gif",
+    "big_hongo6_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo6_1.gif",
+    "big_hongo7_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo7_0.gif",
+    "big_hongo7_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo7_1.gif",
+    "big_hongo8_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo8_0.gif",
+    "big_hongo8_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo8_1.gif",
+    "big_hongo9_0": DATA_IMAGES_AMBIANCE_BIG + "big_hongo9_0.gif",
+    "big_hongo9_1": DATA_IMAGES_AMBIANCE_BIG + "big_hongo9_1.gif",
+    "big_statue1_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue1_0.gif",
+    "big_statue1_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue1_1.gif",
+    "big_statue2_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue2_0.gif",
+    "big_statue2_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue2_1.gif",
+    "big_statue3_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue3_0.gif",
+    "big_statue3_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue3_1.gif",
+    "big_statue4_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue4_0.gif",
+    "big_statue4_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue4_1.gif",
+    "big_statue5_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue5_0.gif",
+    "big_statue5_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue5_1.gif",
+    "big_statue6_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue6_0.gif",
+    "big_statue6_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue6_1.gif",
+    "big_statue7_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue7_0.gif",
+    "big_statue7_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue7_1.gif",
+    "big_statue8_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue8_0.gif",
+    "big_statue8_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue8_1.gif",
+    "big_statue9_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue9_0.gif",
+    "big_statue9_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue9_1.gif",
+    "big_statue10_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue10_0.gif",
+    "big_statue10_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue10_1.gif",
+    "big_statue11_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue11_0.gif",
+    "big_statue11_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue11_1.gif",
+    "big_statue12_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue12_0.gif",
+    "big_statue12_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue12_1.gif",
+    "big_statue13_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue13_0.gif",
+    "big_statue13_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue13_1.gif",
+    "big_statue14_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue14_0.gif",
+    "big_statue14_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue14_1.gif",
+    "big_statue15_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue15_0.gif",
+    "big_statue15_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue15_1.gif",
+    "big_statue16_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue16_0.gif",
+    "big_statue16_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue16_1.gif",
+    "big_statue17_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue17_0.gif",
+    "big_statue17_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue17_1.gif",
+    "big_statue18_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue18_0.gif",
+    "big_statue18_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue18_1.gif",
+    "big_statue19_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue19_0.gif",
+    "big_statue19_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue19_1.gif",
+    "big_statue20_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue20_0.gif",
+    "big_statue20_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue20_1.gif",
+    "big_statue21_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue21_0.gif",
+    "big_statue21_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue21_1.gif",
+    "big_statue22_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue22_0.gif",
+    "big_statue22_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue22_1.gif",
+    "big_statue23_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue23_0.gif",
+    "big_statue23_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue23_1.gif",
+    "big_statue24_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue24_0.gif",
+    "big_statue24_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue24_1.gif",
+    "big_statue25_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue25_0.gif",
+    "big_statue25_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue25_1.gif",
+    "big_statue26_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue26_0.gif",
+    "big_statue26_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue26_1.gif",
+    "big_statue27_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue27_0.gif",
+    "big_statue27_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue27_1.gif",
+    "big_statue28_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue28_0.gif",
+    "big_statue28_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue28_1.gif",
+    "big_statue29_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue29_0.gif",
+    "big_statue29_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue29_1.gif",
+    "big_statue30_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue30_0.gif",
+    "big_statue30_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue30_1.gif",
+    "big_statue31_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue31_0.gif",
+    "big_statue31_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue31_1.gif",
+    "big_statue32_0": DATA_IMAGES_AMBIANCE_BIG + "big_statue32_0.gif",
+    "big_statue32_1": DATA_IMAGES_AMBIANCE_BIG + "big_statue32_1.gif",
+    "big_stone1_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone1_0.gif",
+    "big_stone1_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone1_1.gif",
+    "big_stone2_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone2_0.gif",
+    "big_stone2_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone2_1.gif",
+    "big_stone3_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone3_0.gif",
+    "big_stone3_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone3_1.gif",
+    "big_stone4_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone4_0.gif",
+    "big_stone4_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone4_1.gif",
+    "big_stone5_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone5_0.gif",
+    "big_stone5_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone5_1.gif",
+    "big_stone6_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone6_0.gif",
+    "big_stone6_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone6_1.gif",
+    "big_stone7_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone7_0.gif",
+    "big_stone7_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone7_1.gif",
+    "big_stone8_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone8_0.gif",
+    "big_stone8_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone8_1.gif",
+    "big_stone9_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone9_0.gif",
+    "big_stone9_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone9_1.gif",
+    "big_stone10_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone10_0.gif",
+    "big_stone10_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone10_1.gif",
+    "big_stone11_0": DATA_IMAGES_AMBIANCE_BIG + "big_stone11_0.gif",
+    "big_stone11_1": DATA_IMAGES_AMBIANCE_BIG + "big_stone11_1.gif",
+    "big_tree1_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree1_0.gif",
+    "big_tree1_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree1_1.gif",
+    "big_tree2_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree2_0.gif",
+    "big_tree2_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree2_1.gif",
+    "big_tree3_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree3_0.gif",
+    "big_tree3_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree3_1.gif",
+    "big_tree4_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree4_0.gif",
+    "big_tree4_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree4_1.gif",
+    "big_tree5_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree5_0.gif",
+    "big_tree5_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree5_1.gif",
+    "big_tree6_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree6_0.gif",
+    "big_tree6_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree6_1.gif",
+    "big_tree7_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree7_0.gif",
+    "big_tree7_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree7_1.gif",
+    "big_tree8_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree8_0.gif",
+    "big_tree8_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree8_1.gif",
+    "big_tree9_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree9_0.gif",
+    "big_tree9_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree9_1.gif",
+    "big_tree10_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree10_0.gif",
+    "big_tree10_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree10_1.gif",
+    "big_tree11_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree11_0.gif",
+    "big_tree11_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree11_1.gif",
+    "big_tree12_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree12_0.gif",
+    "big_tree12_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree12_1.gif",
+    "big_tree13_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree13_0.gif",
+    "big_tree13_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree13_1.gif",
+    "big_tree14_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree14_0.gif",
+    "big_tree14_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree14_1.gif",
+    "big_tree15_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree15_0.gif",
+    "big_tree15_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree15_1.gif",
+    "big_tree16_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree16_0.gif",
+    "big_tree16_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree16_1.gif",
+    "big_tree17_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree17_0.gif",
+    "big_tree17_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree17_1.gif",
+    "big_tree18_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree18_0.gif",
+    "big_tree18_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree18_1.gif",
+    "big_tree19_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree19_0.gif",
+    "big_tree19_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree19_1.gif",
+    "big_tree20_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree20_0.gif",
+    "big_tree20_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree20_1.gif",
+    "big_tree21_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree21_0.gif",
+    "big_tree21_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree21_1.gif",
+    "big_tree22_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree22_0.gif",
+    "big_tree22_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree22_1.gif",
+    "big_tree23_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree23_0.gif",
+    "big_tree23_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree23_1.gif",
+    "big_tree24_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree24_0.gif",
+    "big_tree24_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree24_1.gif",
+    "big_tree25_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree25_0.gif",
+    "big_tree25_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree25_1.gif",
+    "big_tree26_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree26_0.gif",
+    "big_tree26_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree26_1.gif",
+    "big_tree27_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree27_0.gif",
+    "big_tree27_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree27_1.gif",
+    "big_tree28_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree28_0.gif",
+    "big_tree28_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree28_1.gif",
+    "big_tree29_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree29_0.gif",
+    "big_tree29_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree29_1.gif",
+    "big_tree30_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree30_0.gif",
+    "big_tree30_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree30_1.gif",
+    "big_tree31_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree31_0.gif",
+    "big_tree31_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree31_1.gif",
+    "big_tree32_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree32_0.gif",
+    "big_tree32_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree32_1.gif",
+    "big_tree33_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree33_0.gif",
+    "big_tree33_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree33_1.gif",
+    "big_tree34_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree34_0.gif",
+    "big_tree34_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree34_1.gif",
+    "big_tree35_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree35_0.gif",
+    "big_tree35_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree35_1.gif",
+    "big_tree36_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree36_0.gif",
+    "big_tree36_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree36_1.gif",
+    "big_tree37_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree37_0.gif",
+    "big_tree37_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree37_1.gif",
+    "big_tree38_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree38_0.gif",
+    "big_tree38_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree38_1.gif",
+    "big_tree39_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree39_0.gif",
+    "big_tree39_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree39_1.gif",
+    "big_tree40_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree40_0.gif",
+    "big_tree40_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree40_1.gif",
+    "big_tree41_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree41_0.gif",
+    "big_tree41_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree41_1.gif",
+    "big_tree42_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree42_0.gif",
+    "big_tree42_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree42_1.gif",
+    "big_tree43_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree43_0.gif",
+    "big_tree43_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree43_1.gif",
+    "big_tree44_0": DATA_IMAGES_AMBIANCE_BIG + "big_tree44_0.gif",
+    "big_tree44_1": DATA_IMAGES_AMBIANCE_BIG + "big_tree44_1.gif",
+    "bushes1_0": DATA_IMAGES_AMBIANCE + "bushes1_0.gif",
+    "bushes1_1": DATA_IMAGES_AMBIANCE + "bushes1_1.gif",
+    "bushes2_0": DATA_IMAGES_AMBIANCE + "bushes2_0.gif",
+    "bushes2_1": DATA_IMAGES_AMBIANCE + "bushes2_1.gif",
+    "bushes3_0": DATA_IMAGES_AMBIANCE + "bushes3_0.gif",
+    "bushes3_1": DATA_IMAGES_AMBIANCE + "bushes3_1.gif",
+    "bushes4_0": DATA_IMAGES_AMBIANCE + "bushes4_0.gif",
+    "bushes4_1": DATA_IMAGES_AMBIANCE + "bushes4_1.gif",
+    "bushes5_0": DATA_IMAGES_AMBIANCE + "bushes5_0.gif",
+    "bushes5_1": DATA_IMAGES_AMBIANCE + "bushes5_1.gif",
+    "bushes6_0": DATA_IMAGES_AMBIANCE + "bushes6_0.gif",
+    "bushes6_1": DATA_IMAGES_AMBIANCE + "bushes6_1.gif",
+    "bushes7_0": DATA_IMAGES_AMBIANCE + "bushes7_0.gif",
+    "bushes7_1": DATA_IMAGES_AMBIANCE + "bushes7_1.gif",
+    "bushes8_0": DATA_IMAGES_AMBIANCE + "bushes8_0.gif",
+    "bushes8_1": DATA_IMAGES_AMBIANCE + "bushes8_1.gif",
+    "bushes9_0": DATA_IMAGES_AMBIANCE + "bushes9_0.gif",
+    "bushes9_1": DATA_IMAGES_AMBIANCE + "bushes9_1.gif",
+    "bushes10_0": DATA_IMAGES_AMBIANCE + "bushes10_0.gif",
+    "bushes10_1": DATA_IMAGES_AMBIANCE + "bushes10_1.gif",
+    "cactus1_0": DATA_IMAGES_AMBIANCE + "cactus1_0.gif",
+    "cactus1_1": DATA_IMAGES_AMBIANCE + "cactus1_1.gif",
+    "cactus2_0": DATA_IMAGES_AMBIANCE + "cactus2_0.gif",
+    "cactus2_1": DATA_IMAGES_AMBIANCE + "cactus2_1.gif",
+    "cactus3_0": DATA_IMAGES_AMBIANCE + "cactus3_0.gif",
+    "cactus3_1": DATA_IMAGES_AMBIANCE + "cactus3_1.gif",
+    "cactus4_0": DATA_IMAGES_AMBIANCE + "cactus4_0.gif",
+    "cactus4_1": DATA_IMAGES_AMBIANCE + "cactus4_1.gif",
+    "cactus5_0": DATA_IMAGES_AMBIANCE + "cactus5_0.gif",
+    "cactus5_1": DATA_IMAGES_AMBIANCE + "cactus5_1.gif",
+    "cactus6_0": DATA_IMAGES_AMBIANCE + "cactus6_0.gif",
+    "cactus6_1": DATA_IMAGES_AMBIANCE + "cactus6_1.gif",
+    "cactus7_0": DATA_IMAGES_AMBIANCE + "cactus7_0.gif",
+    "cactus7_1": DATA_IMAGES_AMBIANCE + "cactus7_1.gif",
+    "flag1_0": DATA_IMAGES_AMBIANCE + "flag1_0.gif",
+    "flag1_1": DATA_IMAGES_AMBIANCE + "flag1_1.gif",
+    "flag2_0": DATA_IMAGES_AMBIANCE + "flag2_0.gif",
+    "flag2_1": DATA_IMAGES_AMBIANCE + "flag2_1.gif",
+    "flag3_0": DATA_IMAGES_AMBIANCE + "flag3_0.gif",
+    "flag3_1": DATA_IMAGES_AMBIANCE + "flag3_1.gif",
+    "flag4_0": DATA_IMAGES_AMBIANCE + "flag4_0.gif",
+    "flag4_1": DATA_IMAGES_AMBIANCE + "flag4_1.gif",
+    "flag5_0": DATA_IMAGES_AMBIANCE + "flag5_0.gif",
+    "flag5_1": DATA_IMAGES_AMBIANCE + "flag5_1.gif",
+    "flag6_0": DATA_IMAGES_AMBIANCE + "flag6_0.gif",
+    "flag6_1": DATA_IMAGES_AMBIANCE + "flag6_1.gif",
+    "flag7_0": DATA_IMAGES_AMBIANCE + "flag7_0.gif",
+    "flag7_1": DATA_IMAGES_AMBIANCE + "flag7_1.gif",
+    "flag8_0": DATA_IMAGES_AMBIANCE + "flag8_0.gif",
+    "flag8_1": DATA_IMAGES_AMBIANCE + "flag8_1.gif",
+    "flag9_0": DATA_IMAGES_AMBIANCE + "flag9_0.gif",
+    "flag9_1": DATA_IMAGES_AMBIANCE + "flag9_1.gif",
+    "flower1_0": DATA_IMAGES_AMBIANCE + "flower1_0.gif",
+    "flower1_1": DATA_IMAGES_AMBIANCE + "flower1_1.gif",
+    "flower2_0": DATA_IMAGES_AMBIANCE + "flower2_0.gif",
+    "flower2_1": DATA_IMAGES_AMBIANCE + "flower2_1.gif",
+    "flower3_0": DATA_IMAGES_AMBIANCE + "flower3_0.gif",
+    "flower3_1": DATA_IMAGES_AMBIANCE + "flower3_1.gif",
+    "flower4_0": DATA_IMAGES_AMBIANCE + "flower4_0.gif",
+    "flower4_1": DATA_IMAGES_AMBIANCE + "flower4_1.gif",
+    "flower5_0": DATA_IMAGES_AMBIANCE + "flower5_0.gif",
+    "flower5_1": DATA_IMAGES_AMBIANCE + "flower5_1.gif",
+    "flower6_0": DATA_IMAGES_AMBIANCE + "flower6_0.gif",
+    "flower6_1": DATA_IMAGES_AMBIANCE + "flower6_1.gif",
+    "flower7_0": DATA_IMAGES_AMBIANCE + "flower7_0.gif",
+    "flower7_1": DATA_IMAGES_AMBIANCE + "flower7_1.gif",
+    "flower8_0": DATA_IMAGES_AMBIANCE + "flower8_0.gif",
+    "flower8_1": DATA_IMAGES_AMBIANCE + "flower8_1.gif",
+    "flower9_0": DATA_IMAGES_AMBIANCE + "flower9_0.gif",
+    "flower9_1": DATA_IMAGES_AMBIANCE + "flower9_1.gif",
+    "flower10_0": DATA_IMAGES_AMBIANCE + "flower10_0.gif",
+    "flower10_1": DATA_IMAGES_AMBIANCE + "flower10_1.gif",
+    "flower11_0": DATA_IMAGES_AMBIANCE + "flower11_0.gif",
+    "flower11_1": DATA_IMAGES_AMBIANCE + "flower11_1.gif",
+    "flower12_0": DATA_IMAGES_AMBIANCE + "flower12_0.gif",
+    "flower12_1": DATA_IMAGES_AMBIANCE + "flower12_1.gif",
+    "flower13_0": DATA_IMAGES_AMBIANCE + "flower13_0.gif",
+    "flower13_1": DATA_IMAGES_AMBIANCE + "flower13_1.gif",
+    "flower14_0": DATA_IMAGES_AMBIANCE + "flower14_0.gif",
+    "flower14_1": DATA_IMAGES_AMBIANCE + "flower14_1.gif",
+    "flower15_0": DATA_IMAGES_AMBIANCE + "flower15_0.gif",
+    "flower15_1": DATA_IMAGES_AMBIANCE + "flower15_1.gif",
+    "flower16_0": DATA_IMAGES_AMBIANCE + "flower16_0.gif",
+    "flower16_1": DATA_IMAGES_AMBIANCE + "flower16_1.gif",
+    "flower17_0": DATA_IMAGES_AMBIANCE + "flower17_0.gif",
+    "flower17_1": DATA_IMAGES_AMBIANCE + "flower17_1.gif",
+    "flower18_0": DATA_IMAGES_AMBIANCE + "flower18_0.gif",
+    "flower18_1": DATA_IMAGES_AMBIANCE + "flower18_1.gif",
+    "flower19_0": DATA_IMAGES_AMBIANCE + "flower19_0.gif",
+    "flower19_1": DATA_IMAGES_AMBIANCE + "flower19_1.gif",
+    "flower20_0": DATA_IMAGES_AMBIANCE + "flower20_0.gif",
+    "flower20_1": DATA_IMAGES_AMBIANCE + "flower20_1.gif",
+    "flower21_0": DATA_IMAGES_AMBIANCE + "flower21_0.gif",
+    "flower21_1": DATA_IMAGES_AMBIANCE + "flower21_1.gif",
+    "flower22_0": DATA_IMAGES_AMBIANCE + "flower22_0.gif",
+    "flower22_1": DATA_IMAGES_AMBIANCE + "flower22_1.gif",
+    "flower23_0": DATA_IMAGES_AMBIANCE + "flower23_0.gif",
+    "flower23_1": DATA_IMAGES_AMBIANCE + "flower23_1.gif",
+    "flower24_0": DATA_IMAGES_AMBIANCE + "flower24_0.gif",
+    "flower24_1": DATA_IMAGES_AMBIANCE + "flower24_1.gif",
+    "flower25_0": DATA_IMAGES_AMBIANCE + "flower25_0.gif",
+    "flower25_1": DATA_IMAGES_AMBIANCE + "flower25_1.gif",
+    "flower26_0": DATA_IMAGES_AMBIANCE + "flower26_0.gif",
+    "flower26_1": DATA_IMAGES_AMBIANCE + "flower26_1.gif",
+    "flower27_0": DATA_IMAGES_AMBIANCE + "flower27_0.gif",
+    "flower27_1": DATA_IMAGES_AMBIANCE + "flower27_1.gif",
+    "flower28_0": DATA_IMAGES_AMBIANCE + "flower28_0.gif",
+    "flower28_1": DATA_IMAGES_AMBIANCE + "flower28_1.gif",
+    "flower29_0": DATA_IMAGES_AMBIANCE + "flower29_0.gif",
+    "flower29_1": DATA_IMAGES_AMBIANCE + "flower29_1.gif",
+    "flower30_0": DATA_IMAGES_AMBIANCE + "flower30_0.gif",
+    "flower30_1": DATA_IMAGES_AMBIANCE + "flower30_1.gif",
+    "flower31_0": DATA_IMAGES_AMBIANCE + "flower31_0.gif",
+    "flower31_1": DATA_IMAGES_AMBIANCE + "flower31_1.gif",
+    "flower32_0": DATA_IMAGES_AMBIANCE + "flower32_0.gif",
+    "flower32_1": DATA_IMAGES_AMBIANCE + "flower32_1.gif",
+    "flower33_0": DATA_IMAGES_AMBIANCE + "flower33_0.gif",
+    "flower33_1": DATA_IMAGES_AMBIANCE + "flower33_1.gif",
+    "flower34_0": DATA_IMAGES_AMBIANCE + "flower34_0.gif",
+    "flower34_1": DATA_IMAGES_AMBIANCE + "flower34_1.gif",
+    "flower35_0": DATA_IMAGES_AMBIANCE + "flower35_0.gif",
+    "flower35_1": DATA_IMAGES_AMBIANCE + "flower35_1.gif",
+    "flower36_0": DATA_IMAGES_AMBIANCE + "flower36_0.gif",
+    "flower36_1": DATA_IMAGES_AMBIANCE + "flower36_1.gif",
+    "flower37_0": DATA_IMAGES_AMBIANCE + "flower37_0.gif",
+    "flower37_1": DATA_IMAGES_AMBIANCE + "flower37_1.gif",
+    "hongo1_0": DATA_IMAGES_AMBIANCE + "hongo1_0.gif",
+    "hongo1_1": DATA_IMAGES_AMBIANCE + "hongo1_1.gif",
+    "hongo2_0": DATA_IMAGES_AMBIANCE + "hongo2_0.gif",
+    "hongo2_1": DATA_IMAGES_AMBIANCE + "hongo2_1.gif",
+    "hongo3_0": DATA_IMAGES_AMBIANCE + "hongo3_0.gif",
+    "hongo3_1": DATA_IMAGES_AMBIANCE + "hongo3_1.gif",
+    "hongo4_0": DATA_IMAGES_AMBIANCE + "hongo4_0.gif",
+    "hongo4_1": DATA_IMAGES_AMBIANCE + "hongo4_1.gif",
+    "hongo5_0": DATA_IMAGES_AMBIANCE + "hongo5_0.gif",
+    "hongo5_1": DATA_IMAGES_AMBIANCE + "hongo5_1.gif",
+    "hongo6_0": DATA_IMAGES_AMBIANCE + "hongo6_0.gif",
+    "hongo6_1": DATA_IMAGES_AMBIANCE + "hongo6_1.gif",
+    "hongo7_0": DATA_IMAGES_AMBIANCE + "hongo7_0.gif",
+    "hongo7_1": DATA_IMAGES_AMBIANCE + "hongo7_1.gif",
+    "hongo8_0": DATA_IMAGES_AMBIANCE + "hongo8_0.gif",
+    "hongo8_1": DATA_IMAGES_AMBIANCE + "hongo8_1.gif",
+    "hongo9_0": DATA_IMAGES_AMBIANCE + "hongo9_0.gif",
+    "hongo9_1": DATA_IMAGES_AMBIANCE + "hongo9_1.gif",
+    "hongo10_0": DATA_IMAGES_AMBIANCE + "hongo10_0.gif",
+    "hongo10_1": DATA_IMAGES_AMBIANCE + "hongo10_1.gif",
+    "hongo11_0": DATA_IMAGES_AMBIANCE + "hongo11_0.gif",
+    "hongo11_1": DATA_IMAGES_AMBIANCE + "hongo11_1.gif",
+    "hongo12_0": DATA_IMAGES_AMBIANCE + "hongo12_0.gif",
+    "hongo12_1": DATA_IMAGES_AMBIANCE + "hongo12_1.gif",
+    "hongo13_0": DATA_IMAGES_AMBIANCE + "hongo13_0.gif",
+    "hongo13_1": DATA_IMAGES_AMBIANCE + "hongo13_1.gif",
+    "hongo14_0": DATA_IMAGES_AMBIANCE + "hongo14_0.gif",
+    "hongo14_1": DATA_IMAGES_AMBIANCE + "hongo14_1.gif",
+    "hongo15_0": DATA_IMAGES_AMBIANCE + "hongo15_0.gif",
+    "hongo15_1": DATA_IMAGES_AMBIANCE + "hongo15_1.gif",
+    "hongo16_0": DATA_IMAGES_AMBIANCE + "hongo16_0.gif",
+    "hongo16_1": DATA_IMAGES_AMBIANCE + "hongo16_1.gif",
+    "hongo17_0": DATA_IMAGES_AMBIANCE + "hongo17_0.gif",
+    "hongo17_1": DATA_IMAGES_AMBIANCE + "hongo17_1.gif",
+    "hongo18_0": DATA_IMAGES_AMBIANCE + "hongo18_0.gif",
+    "hongo18_1": DATA_IMAGES_AMBIANCE + "hongo18_1.gif",
+    "hongo19_0": DATA_IMAGES_AMBIANCE + "hongo19_0.gif",
+    "hongo19_1": DATA_IMAGES_AMBIANCE + "hongo19_1.gif",
+    "hongo20_0": DATA_IMAGES_AMBIANCE + "hongo20_0.gif",
+    "hongo20_1": DATA_IMAGES_AMBIANCE + "hongo20_1.gif",
+    "hongo21_0": DATA_IMAGES_AMBIANCE + "hongo21_0.gif",
+    "hongo21_1": DATA_IMAGES_AMBIANCE + "hongo21_1.gif",
+    "lapida_0": DATA_IMAGES_AMBIANCE + "lapida_0.gif",
+    "lapida_1": DATA_IMAGES_AMBIANCE + "lapida_1.gif",
+    "plant1_0": DATA_IMAGES_AMBIANCE + "plant1_0.gif",
+    "plant1_1": DATA_IMAGES_AMBIANCE + "plant1_1.gif",
+    "plant2_0": DATA_IMAGES_AMBIANCE + "plant2_0.gif",
+    "plant2_1": DATA_IMAGES_AMBIANCE + "plant2_1.gif",
+    "plant3_0": DATA_IMAGES_AMBIANCE + "plant3_0.gif",
+    "plant3_1": DATA_IMAGES_AMBIANCE + "plant3_1.gif",
+    "plant4_0": DATA_IMAGES_AMBIANCE + "plant4_0.gif",
+    "plant4_1": DATA_IMAGES_AMBIANCE + "plant4_1.gif",
+    "plant5_0": DATA_IMAGES_AMBIANCE + "plant5_0.gif",
+    "plant5_1": DATA_IMAGES_AMBIANCE + "plant5_1.gif",
+    "plant6_0": DATA_IMAGES_AMBIANCE + "plant6_0.gif",
+    "plant6_1": DATA_IMAGES_AMBIANCE + "plant6_1.gif",
+    "plant7_0": DATA_IMAGES_AMBIANCE + "plant7_0.gif",
+    "plant7_1": DATA_IMAGES_AMBIANCE + "plant7_1.gif",
+    "plant8_0": DATA_IMAGES_AMBIANCE + "plant8_0.gif",
+    "plant8_1": DATA_IMAGES_AMBIANCE + "plant8_1.gif",
+    "plant9_0": DATA_IMAGES_AMBIANCE + "plant9_0.gif",
+    "plant9_1": DATA_IMAGES_AMBIANCE + "plant9_1.gif",
+    "plant10_0": DATA_IMAGES_AMBIANCE + "plant10_0.gif",
+    "plant10_1": DATA_IMAGES_AMBIANCE + "plant10_1.gif",
+    "plant11_0": DATA_IMAGES_AMBIANCE + "plant11_0.gif",
+    "plant11_1": DATA_IMAGES_AMBIANCE + "plant11_1.gif",
+    "plant12_0": DATA_IMAGES_AMBIANCE + "plant12_0.gif",
+    "plant12_1": DATA_IMAGES_AMBIANCE + "plant12_1.gif",
+    "plant13_0": DATA_IMAGES_AMBIANCE + "plant13_0.gif",
+    "plant13_1": DATA_IMAGES_AMBIANCE + "plant13_1.gif",
+    "plant14_0": DATA_IMAGES_AMBIANCE + "plant14_0.gif",
+    "plant14_1": DATA_IMAGES_AMBIANCE + "plant14_1.gif",
+    "plant15_0": DATA_IMAGES_AMBIANCE + "plant15_0.gif",
+    "plant15_1": DATA_IMAGES_AMBIANCE + "plant15_1.gif",
+    "plant16_0": DATA_IMAGES_AMBIANCE + "plant16_0.gif",
+    "plant16_1": DATA_IMAGES_AMBIANCE + "plant16_1.gif",
+    "plant17_0": DATA_IMAGES_AMBIANCE + "plant17_0.gif",
+    "plant17_1": DATA_IMAGES_AMBIANCE + "plant17_1.gif",
+    "plant18_0": DATA_IMAGES_AMBIANCE + "plant18_0.gif",
+    "plant18_1": DATA_IMAGES_AMBIANCE + "plant18_1.gif",
+    "plant19_0": DATA_IMAGES_AMBIANCE + "plant19_0.gif",
+    "plant19_1": DATA_IMAGES_AMBIANCE + "plant19_1.gif",
+    "plant20_0": DATA_IMAGES_AMBIANCE + "plant20_0.gif",
+    "plant20_1": DATA_IMAGES_AMBIANCE + "plant20_1.gif",
+    "plant21_0": DATA_IMAGES_AMBIANCE + "plant21_0.gif",
+    "plant21_1": DATA_IMAGES_AMBIANCE + "plant21_1.gif",
+    "plant22_0": DATA_IMAGES_AMBIANCE + "plant22_0.gif",
+    "plant22_1": DATA_IMAGES_AMBIANCE + "plant22_1.gif",
+    "plant23_0": DATA_IMAGES_AMBIANCE + "plant23_0.gif",
+    "plant23_1": DATA_IMAGES_AMBIANCE + "plant23_1.gif",
+    "rock1_0": DATA_IMAGES_AMBIANCE + "rock1_0.gif",
+    "rock1_1": DATA_IMAGES_AMBIANCE + "rock1_1.gif",
+    "rock2_0": DATA_IMAGES_AMBIANCE + "rock2_0.gif",
+    "rock2_1": DATA_IMAGES_AMBIANCE + "rock2_1.gif",
+    "shell1_0": DATA_IMAGES_AMBIANCE + "shell1_0.gif",
+    "shell1_1": DATA_IMAGES_AMBIANCE + "shell1_1.gif",
+    "shell2_0": DATA_IMAGES_AMBIANCE + "shell2_0.gif",
+    "shell2_1": DATA_IMAGES_AMBIANCE + "shell2_1.gif",
+    "shell3_0": DATA_IMAGES_AMBIANCE + "shell3_0.gif",
+    "shell3_1": DATA_IMAGES_AMBIANCE + "shell3_1.gif",
+    "shell4_0": DATA_IMAGES_AMBIANCE + "shell4_0.gif",
+    "shell4_1": DATA_IMAGES_AMBIANCE + "shell4_1.gif",
+    "sign1_0": DATA_IMAGES_AMBIANCE + "sign1_0.gif",
+    "sign1_1": DATA_IMAGES_AMBIANCE + "sign1_1.gif",
+    "sign2_0": DATA_IMAGES_AMBIANCE + "sign2_0.gif",
+    "sign2_1": DATA_IMAGES_AMBIANCE + "sign2_1.gif",
+    "sign3_0": DATA_IMAGES_AMBIANCE + "sign3_0.gif",
+    "sign3_1": DATA_IMAGES_AMBIANCE + "sign3_1.gif",
+    "sign4_0": DATA_IMAGES_AMBIANCE + "sign4_0.gif",
+    "sign4_1": DATA_IMAGES_AMBIANCE + "sign4_1.gif",
+    "sign5_0": DATA_IMAGES_AMBIANCE + "sign5_0.gif",
+    "sign5_1": DATA_IMAGES_AMBIANCE + "sign5_1.gif",
+    "sign6_0": DATA_IMAGES_AMBIANCE + "sign6_0.gif",
+    "sign6_1": DATA_IMAGES_AMBIANCE + "sign6_1.gif",
+    "sign7_0": DATA_IMAGES_AMBIANCE + "sign7_0.gif",
+    "sign7_1": DATA_IMAGES_AMBIANCE + "sign7_1.gif",
+    "sign8_0": DATA_IMAGES_AMBIANCE + "sign8_0.gif",
+    "sign8_1": DATA_IMAGES_AMBIANCE + "sign8_1.gif",
+    "sign9_0": DATA_IMAGES_AMBIANCE + "sign9_0.gif",
+    "sign9_1": DATA_IMAGES_AMBIANCE + "sign9_1.gif",
+    "sign10_0": DATA_IMAGES_AMBIANCE + "sign10_0.gif",
+    "sign10_1": DATA_IMAGES_AMBIANCE + "sign10_1.gif",
+    "sign11_0": DATA_IMAGES_AMBIANCE + "sign11_0.gif",
+    "sign11_1": DATA_IMAGES_AMBIANCE + "sign11_1.gif",
+    "sign12_0": DATA_IMAGES_AMBIANCE + "sign12_0.gif",
+    "sign12_1": DATA_IMAGES_AMBIANCE + "sign12_1.gif",
+    "sign13_0": DATA_IMAGES_AMBIANCE + "sign13_0.gif",
+    "sign13_1": DATA_IMAGES_AMBIANCE + "sign13_1.gif",
+    "sign14_0": DATA_IMAGES_AMBIANCE + "sign14_0.gif",
+    "sign14_1": DATA_IMAGES_AMBIANCE + "sign14_1.gif",
+    "sign15_0": DATA_IMAGES_AMBIANCE + "sign15_0.gif",
+    "sign15_1": DATA_IMAGES_AMBIANCE + "sign15_1.gif",
+    "sign16_0": DATA_IMAGES_AMBIANCE + "sign16_0.gif",
+    "sign16_1": DATA_IMAGES_AMBIANCE + "sign16_1.gif",
+    "sign17_0": DATA_IMAGES_AMBIANCE + "sign17_0.gif",
+    "sign17_1": DATA_IMAGES_AMBIANCE + "sign17_1.gif",
+    "sign18_0": DATA_IMAGES_AMBIANCE + "sign18_0.gif",
+    "sign18_1": DATA_IMAGES_AMBIANCE + "sign18_1.gif",
+    "sign19_0": DATA_IMAGES_AMBIANCE + "sign19_0.gif",
+    "sign19_1": DATA_IMAGES_AMBIANCE + "sign19_1.gif",
+    "statue1_0": DATA_IMAGES_AMBIANCE + "statue1_0.gif",
+    "statue1_1": DATA_IMAGES_AMBIANCE + "statue1_1.gif",
+    "statue2_0": DATA_IMAGES_AMBIANCE + "statue2_0.gif",
+    "statue2_1": DATA_IMAGES_AMBIANCE + "statue2_1.gif",
+    "statue3_0": DATA_IMAGES_AMBIANCE + "statue3_0.gif",
+    "statue3_1": DATA_IMAGES_AMBIANCE + "statue3_1.gif",
+    "statue4_0": DATA_IMAGES_AMBIANCE + "statue4_0.gif",
+    "statue4_1": DATA_IMAGES_AMBIANCE + "statue4_1.gif",
+    "stone1_0": DATA_IMAGES_AMBIANCE + "stone1_0.gif",
+    "stone1_1": DATA_IMAGES_AMBIANCE + "stone1_1.gif",
+    "stone2_0": DATA_IMAGES_AMBIANCE + "stone2_0.gif",
+    "stone2_1": DATA_IMAGES_AMBIANCE + "stone2_1.gif",
+    "stone3_0": DATA_IMAGES_AMBIANCE + "stone3_0.gif",
+    "stone3_1": DATA_IMAGES_AMBIANCE + "stone3_1.gif",
+    "stone4_0": DATA_IMAGES_AMBIANCE + "stone4_0.gif",
+    "stone4_1": DATA_IMAGES_AMBIANCE + "stone4_1.gif",
+    "stone5_0": DATA_IMAGES_AMBIANCE + "stone5_0.gif",
+    "stone5_1": DATA_IMAGES_AMBIANCE + "stone5_1.gif",
+    "stone6_0": DATA_IMAGES_AMBIANCE + "stone6_0.gif",
+    "stone6_1": DATA_IMAGES_AMBIANCE + "stone6_1.gif",
+    "stone7_0": DATA_IMAGES_AMBIANCE + "stone7_0.gif",
+    "stone7_1": DATA_IMAGES_AMBIANCE + "stone7_1.gif",
+    "stone8_0": DATA_IMAGES_AMBIANCE + "stone8_0.gif",
+    "stone8_1": DATA_IMAGES_AMBIANCE + "stone8_1.gif",
+    "stone9_0": DATA_IMAGES_AMBIANCE + "stone9_0.gif",
+    "stone9_1": DATA_IMAGES_AMBIANCE + "stone9_1.gif",
+    "stone10_0": DATA_IMAGES_AMBIANCE + "stone10_0.gif",
+    "stone10_1": DATA_IMAGES_AMBIANCE + "stone10_1.gif",
+    "stone11_0": DATA_IMAGES_AMBIANCE + "stone11_0.gif",
+    "stone11_1": DATA_IMAGES_AMBIANCE + "stone11_1.gif",
+    "stone12_0": DATA_IMAGES_AMBIANCE + "stone12_0.gif",
+    "stone12_1": DATA_IMAGES_AMBIANCE + "stone12_1.gif",
+    "stone13_0": DATA_IMAGES_AMBIANCE + "stone13_0.gif",
+    "stone13_1": DATA_IMAGES_AMBIANCE + "stone13_1.gif",
+    "stone14_0": DATA_IMAGES_AMBIANCE + "stone14_0.gif",
+    "stone14_1": DATA_IMAGES_AMBIANCE + "stone14_1.gif",
+    "stone15_0": DATA_IMAGES_AMBIANCE + "stone15_0.gif",
+    "stone15_1": DATA_IMAGES_AMBIANCE + "stone15_1.gif",
+    "stone16_0": DATA_IMAGES_AMBIANCE + "stone16_0.gif",
+    "stone16_1": DATA_IMAGES_AMBIANCE + "stone16_1.gif",
+    "stone17_0": DATA_IMAGES_AMBIANCE + "stone17_0.gif",
+    "stone17_1": DATA_IMAGES_AMBIANCE + "stone17_1.gif",
+    "stone18_0": DATA_IMAGES_AMBIANCE + "stone18_0.gif",
+    "stone18_1": DATA_IMAGES_AMBIANCE + "stone18_1.gif",
+    "stone19_0": DATA_IMAGES_AMBIANCE + "stone19_0.gif",
+    "stone19_1": DATA_IMAGES_AMBIANCE + "stone19_1.gif",
+    "stone20_0": DATA_IMAGES_AMBIANCE + "stone20_0.gif",
+    "stone20_1": DATA_IMAGES_AMBIANCE + "stone20_1.gif",
+    "stone21_0": DATA_IMAGES_AMBIANCE + "stone21_0.gif",
+    "stone21_1": DATA_IMAGES_AMBIANCE + "stone21_1.gif",
+    "stone22_0": DATA_IMAGES_AMBIANCE + "stone22_0.gif",
+    "stone22_1": DATA_IMAGES_AMBIANCE + "stone22_1.gif",
+    "stone23_0": DATA_IMAGES_AMBIANCE + "stone23_0.gif",
+    "stone23_1": DATA_IMAGES_AMBIANCE + "stone23_1.gif",
+    "stone24_0": DATA_IMAGES_AMBIANCE + "stone24_0.gif",
+    "stone24_1": DATA_IMAGES_AMBIANCE + "stone24_1.gif",
+    "stone25_0": DATA_IMAGES_AMBIANCE + "stone25_0.gif",
+    "stone25_1": DATA_IMAGES_AMBIANCE + "stone25_1.gif",
+    "stone26_0": DATA_IMAGES_AMBIANCE + "stone26_0.gif",
+    "stone26_1": DATA_IMAGES_AMBIANCE + "stone26_1.gif",
+    "stone27_0": DATA_IMAGES_AMBIANCE + "stone27_0.gif",
+    "stone27_1": DATA_IMAGES_AMBIANCE + "stone27_1.gif",
+    "stone28_0": DATA_IMAGES_AMBIANCE + "stone28_0.gif",
+    "stone28_1": DATA_IMAGES_AMBIANCE + "stone28_1.gif",
+    "stone29_0": DATA_IMAGES_AMBIANCE + "stone29_0.gif",
+    "stone29_1": DATA_IMAGES_AMBIANCE + "stone29_1.gif",
+    "stone30_0": DATA_IMAGES_AMBIANCE + "stone30_0.gif",
+    "stone30_1": DATA_IMAGES_AMBIANCE + "stone30_1.gif",
+    "stone31_0": DATA_IMAGES_AMBIANCE + "stone31_0.gif",
+    "stone31_1": DATA_IMAGES_AMBIANCE + "stone31_1.gif",
+    "stone32_0": DATA_IMAGES_AMBIANCE + "stone32_0.gif",
+    "stone32_1": DATA_IMAGES_AMBIANCE + "stone32_1.gif",
+    "stone33_0": DATA_IMAGES_AMBIANCE + "stone33_0.gif",
+    "stone33_1": DATA_IMAGES_AMBIANCE + "stone33_1.gif",
+    "totem_0": DATA_IMAGES_AMBIANCE + "totem_0.gif",
+    "totem_1": DATA_IMAGES_AMBIANCE + "totem_1.gif",
+    "tree1_0": DATA_IMAGES_AMBIANCE + "tree1_0.gif",
+    "tree1_1": DATA_IMAGES_AMBIANCE + "tree1_1.gif",
+    "tree2_0": DATA_IMAGES_AMBIANCE + "tree2_0.gif",
+    "tree2_1": DATA_IMAGES_AMBIANCE + "tree2_1.gif",
+    "tree3_0": DATA_IMAGES_AMBIANCE + "tree3_0.gif",
+    "tree3_1": DATA_IMAGES_AMBIANCE + "tree3_1.gif",
+    "tree4_0": DATA_IMAGES_AMBIANCE + "tree4_0.gif",
+    "tree4_1": DATA_IMAGES_AMBIANCE + "tree4_1.gif",
+    "tree5_0": DATA_IMAGES_AMBIANCE + "tree5_0.gif",
+    "tree5_1": DATA_IMAGES_AMBIANCE + "tree5_1.gif",
+    "tree6_0": DATA_IMAGES_AMBIANCE + "tree6_0.gif",
+    "tree6_1": DATA_IMAGES_AMBIANCE + "tree6_1.gif",
+    "tree7_0": DATA_IMAGES_AMBIANCE + "tree7_0.gif",
+    "tree7_1": DATA_IMAGES_AMBIANCE + "tree7_1.gif",
+    "tree8_0": DATA_IMAGES_AMBIANCE + "tree8_0.gif",
+    "tree8_1": DATA_IMAGES_AMBIANCE + "tree8_1.gif",
+    "tree9_0": DATA_IMAGES_AMBIANCE + "tree9_0.gif",
+    "tree9_1": DATA_IMAGES_AMBIANCE + "tree9_1.gif",
+    "tree10_0": DATA_IMAGES_AMBIANCE + "tree10_0.gif",
+    "tree10_1": DATA_IMAGES_AMBIANCE + "tree10_1.gif",
+    "tree11_0": DATA_IMAGES_AMBIANCE + "tree11_0.gif",
+    "tree11_1": DATA_IMAGES_AMBIANCE + "tree11_1.gif",
+    "tree12_0": DATA_IMAGES_AMBIANCE + "tree12_0.gif",
+    "tree12_1": DATA_IMAGES_AMBIANCE + "tree12_1.gif",
+    "tree13_0": DATA_IMAGES_AMBIANCE + "tree13_0.gif",
+    "tree13_1": DATA_IMAGES_AMBIANCE + "tree13_1.gif",
+    "tree14_0": DATA_IMAGES_AMBIANCE + "tree14_0.gif",
+    "tree14_1": DATA_IMAGES_AMBIANCE + "tree14_1.gif",
+    "tree15_0": DATA_IMAGES_AMBIANCE + "tree15_0.gif",
+    "tree15_1": DATA_IMAGES_AMBIANCE + "tree15_1.gif",
+    "tree16_0": DATA_IMAGES_AMBIANCE + "tree16_0.gif",
+    "tree16_1": DATA_IMAGES_AMBIANCE + "tree16_1.gif",
+    "tree17_0": DATA_IMAGES_AMBIANCE + "tree17_0.gif",
+    "tree17_1": DATA_IMAGES_AMBIANCE + "tree17_1.gif",
+    "tree18_0": DATA_IMAGES_AMBIANCE + "tree18_0.gif",
+    "tree18_1": DATA_IMAGES_AMBIANCE + "tree18_1.gif",
+    "tree19_0": DATA_IMAGES_AMBIANCE + "tree19_0.gif",
+    "tree19_1": DATA_IMAGES_AMBIANCE + "tree19_1.gif",
+    "tree20_0": DATA_IMAGES_AMBIANCE + "tree20_0.gif",
+    "tree20_1": DATA_IMAGES_AMBIANCE + "tree20_1.gif",
+    "tree21_0": DATA_IMAGES_AMBIANCE + "tree21_0.gif",
+    "tree21_1": DATA_IMAGES_AMBIANCE + "tree21_1.gif",
+    "tree22_0": DATA_IMAGES_AMBIANCE + "tree22_0.gif",
+    "tree22_1": DATA_IMAGES_AMBIANCE + "tree22_1.gif",
+    "tree23_0": DATA_IMAGES_AMBIANCE + "tree23_0.gif",
+    "tree23_1": DATA_IMAGES_AMBIANCE + "tree23_1.gif",
+    "tree24_0": DATA_IMAGES_AMBIANCE + "tree24_0.gif",
+    "tree24_1": DATA_IMAGES_AMBIANCE + "tree24_1.gif",
+    "tree25_0": DATA_IMAGES_AMBIANCE + "tree25_0.gif",
+    "tree25_1": DATA_IMAGES_AMBIANCE + "tree25_1.gif",
+    "tree26_0": DATA_IMAGES_AMBIANCE + "tree26_0.gif",
+    "tree26_1": DATA_IMAGES_AMBIANCE + "tree26_1.gif",
+    "tree27_0": DATA_IMAGES_AMBIANCE + "tree27_0.gif",
+    "tree27_1": DATA_IMAGES_AMBIANCE + "tree27_1.gif",
+    "tree28_0": DATA_IMAGES_AMBIANCE + "tree28_0.gif",
+    "tree28_1": DATA_IMAGES_AMBIANCE + "tree28_1.gif",
+    "tree29_0": DATA_IMAGES_AMBIANCE + "tree29_0.gif",
+    "tree29_1": DATA_IMAGES_AMBIANCE + "tree29_1.gif",
+    "tree30_0": DATA_IMAGES_AMBIANCE + "tree30_0.gif",
+    "tree30_1": DATA_IMAGES_AMBIANCE + "tree30_1.gif",
+    "tree31_0": DATA_IMAGES_AMBIANCE + "tree31_0.gif",
+    "tree31_1": DATA_IMAGES_AMBIANCE + "tree31_1.gif",
+    "tree32_0": DATA_IMAGES_AMBIANCE + "tree32_0.gif",
+    "tree32_1": DATA_IMAGES_AMBIANCE + "tree32_1.gif",
+    "tree33_0": DATA_IMAGES_AMBIANCE + "tree33_0.gif",
+    "tree33_1": DATA_IMAGES_AMBIANCE + "tree33_1.gif",
+    "tree34_0": DATA_IMAGES_AMBIANCE + "tree34_0.gif",
+    "tree34_1": DATA_IMAGES_AMBIANCE + "tree34_1.gif",
+    "tree35_0": DATA_IMAGES_AMBIANCE + "tree35_0.gif",
+    "tree35_1": DATA_IMAGES_AMBIANCE + "tree35_1.gif",
+    "tree36_0": DATA_IMAGES_AMBIANCE + "tree36_0.gif",
+    "tree36_1": DATA_IMAGES_AMBIANCE + "tree36_1.gif",
+    "tree37_0": DATA_IMAGES_AMBIANCE + "tree37_0.gif",
+    "tree37_1": DATA_IMAGES_AMBIANCE + "tree37_1.gif",
+    "tree38_0": DATA_IMAGES_AMBIANCE + "tree38_0.gif",
+    "tree38_1": DATA_IMAGES_AMBIANCE + "tree38_1.gif",
+    "tree39_0": DATA_IMAGES_AMBIANCE + "tree39_0.gif",
+    "tree39_1": DATA_IMAGES_AMBIANCE + "tree39_1.gif",
+    "tree40_0": DATA_IMAGES_AMBIANCE + "tree40_0.gif",
+    "tree40_1": DATA_IMAGES_AMBIANCE + "tree40_1.gif",
+    "tree41_0": DATA_IMAGES_AMBIANCE + "tree41_0.gif",
+    "tree41_1": DATA_IMAGES_AMBIANCE + "tree41_1.gif",
+    "tree42_0": DATA_IMAGES_AMBIANCE + "tree42_0.gif",
+    "tree42_1": DATA_IMAGES_AMBIANCE + "tree42_1.gif",
+    "tree43_0": DATA_IMAGES_AMBIANCE + "tree43_0.gif",
+    "tree43_1": DATA_IMAGES_AMBIANCE + "tree43_1.gif",
+    "tree44_0": DATA_IMAGES_AMBIANCE + "tree44_0.gif",
+    "tree44_1": DATA_IMAGES_AMBIANCE + "tree44_1.gif",
+    "tree45_0": DATA_IMAGES_AMBIANCE + "tree45_0.gif",
+    "tree45_1": DATA_IMAGES_AMBIANCE + "tree45_1.gif",
+    "tree46_0": DATA_IMAGES_AMBIANCE + "tree46_0.gif",
+    "tree46_1": DATA_IMAGES_AMBIANCE + "tree46_1.gif",
+    "tree47_0": DATA_IMAGES_AMBIANCE + "tree47_0.gif",
+    "tree47_1": DATA_IMAGES_AMBIANCE + "tree47_1.gif",
+    "tree48_0": DATA_IMAGES_AMBIANCE + "tree48_0.gif",
+    "tree48_1": DATA_IMAGES_AMBIANCE + "tree48_1.gif",
+    "tree49_0": DATA_IMAGES_AMBIANCE + "tree49_0.gif",
+    "tree49_1": DATA_IMAGES_AMBIANCE + "tree49_1.gif",
+    "tree50_0": DATA_IMAGES_AMBIANCE + "tree50_0.gif",
+    "tree50_1": DATA_IMAGES_AMBIANCE + "tree50_1.gif",
+    "tronco1_0": DATA_IMAGES_AMBIANCE + "tronco1_0.gif",
+    "tronco1_1": DATA_IMAGES_AMBIANCE + "tronco1_1.gif",
+    "tronco2_0": DATA_IMAGES_AMBIANCE + "tronco2_0.gif",
+    "tronco2_1": DATA_IMAGES_AMBIANCE + "tronco2_1.gif",
     # Edificios
-    "building1_0": DATA_IMAGES_BUILDING_BIG + "building1_0.gif", \
-    "building1_1": DATA_IMAGES_BUILDING_BIG + "building1_1.gif", \
-    "building2_0": DATA_IMAGES_BUILDING_BIG + "building2_0.gif", \
-    "building2_1": DATA_IMAGES_BUILDING_BIG + "building2_1.gif", \
-    "building3_0": DATA_IMAGES_BUILDING_BIG + "building3_0.gif", \
-    "building3_1": DATA_IMAGES_BUILDING_BIG + "building3_1.gif", \
-    "building4_0": DATA_IMAGES_BUILDING_BIG + "building4_0.gif", \
-    "building4_1": DATA_IMAGES_BUILDING_BIG + "building4_1.gif", \
-    "building5_0": DATA_IMAGES_BUILDING_BIG + "building5_0.gif", \
-    "building5_1": DATA_IMAGES_BUILDING_BIG + "building5_1.gif", \
-    "building6_0": DATA_IMAGES_BUILDING_BIG + "building6_0.gif", \
-    "building6_1": DATA_IMAGES_BUILDING_BIG + "building6_1.gif", \
-    "building7_0": DATA_IMAGES_BUILDING_BIG + "building7_0.gif", \
-    "building7_1": DATA_IMAGES_BUILDING_BIG + "building7_1.gif", \
-    "building8_0": DATA_IMAGES_BUILDING_BIG + "building8_0.gif", \
-    "building8_1": DATA_IMAGES_BUILDING_BIG + "building8_1.gif", \
-    "building9_0": DATA_IMAGES_BUILDING_BIG + "building9_0.gif", \
-    "building9_1": DATA_IMAGES_BUILDING_BIG + "building9_1.gif", \
-    "building10_0": DATA_IMAGES_BUILDING_BIG + "building10_0.gif", \
-    "building10_1": DATA_IMAGES_BUILDING_BIG + "building10_1.gif", \
-    "building11_0": DATA_IMAGES_BUILDING_BIG + "building11_0.gif", \
-    "building11_1": DATA_IMAGES_BUILDING_BIG + "building11_1.gif", \
-    "building12_0": DATA_IMAGES_BUILDING_BIG + "building12_0.gif", \
-    "building12_1": DATA_IMAGES_BUILDING_BIG + "building12_1.gif", \
-    "building13_0": DATA_IMAGES_BUILDING_BIG + "building13_0.gif", \
-    "building13_1": DATA_IMAGES_BUILDING_BIG + "building13_1.gif", \
-    "building14_0": DATA_IMAGES_BUILDING_BIG + "building14_0.gif", \
-    "building14_1": DATA_IMAGES_BUILDING_BIG + "building14_1.gif", \
-    "building15_0": DATA_IMAGES_BUILDING_BIG + "building15_0.gif", \
-    "building15_1": DATA_IMAGES_BUILDING_BIG + "building15_1.gif", \
-    "building16_0": DATA_IMAGES_BUILDING_BIG + "building16_0.gif", \
-    "building16_1": DATA_IMAGES_BUILDING_BIG + "building16_1.gif", \
-    "building17_0": DATA_IMAGES_BUILDING_BIG + "building17_0.gif", \
-    "building17_1": DATA_IMAGES_BUILDING_BIG + "building17_1.gif", \
-    "building18_0": DATA_IMAGES_BUILDING_BIG + "building18_0.gif", \
-    "building18_1": DATA_IMAGES_BUILDING_BIG + "building18_1.gif", \
-    "building19_0": DATA_IMAGES_BUILDING_BIG + "building19_0.gif", \
-    "building19_1": DATA_IMAGES_BUILDING_BIG + "building19_1.gif", \
-    "building20_0": DATA_IMAGES_BUILDING_BIG + "building20_0.gif", \
-    "building20_1": DATA_IMAGES_BUILDING_BIG + "building20_1.gif", \
-    "building21_0": DATA_IMAGES_BUILDING_BIG + "building21_0.gif", \
-    "building21_1": DATA_IMAGES_BUILDING_BIG + "building21_1.gif", \
-    "building22_0": DATA_IMAGES_BUILDING_BIG + "building22_0.gif", \
-    "building22_1": DATA_IMAGES_BUILDING_BIG + "building22_1.gif", \
-    "building23_0": DATA_IMAGES_BUILDING_BIG + "building23_0.gif", \
-    "building23_1": DATA_IMAGES_BUILDING_BIG + "building23_1.gif", \
-    "building24_0": DATA_IMAGES_BUILDING_BIG + "building24_0.gif", \
-    "building24_1": DATA_IMAGES_BUILDING_BIG + "building24_1.gif", \
-    "building25_0": DATA_IMAGES_BUILDING_BIG + "building25_0.gif", \
-    "building25_1": DATA_IMAGES_BUILDING_BIG + "building25_1.gif", \
-    "building26_0": DATA_IMAGES_BUILDING_BIG + "building26_0.gif", \
-    "building26_1": DATA_IMAGES_BUILDING_BIG + "building26_1.gif", \
-    "building27_0": DATA_IMAGES_BUILDING_BIG + "building27_0.gif", \
-    "building27_1": DATA_IMAGES_BUILDING_BIG + "building27_1.gif", \
-    "building28_0": DATA_IMAGES_BUILDING_BIG + "building28_0.gif", \
-    "building28_1": DATA_IMAGES_BUILDING_BIG + "building28_1.gif", \
-    "building29_0": DATA_IMAGES_BUILDING_BIG + "building29_0.gif", \
-    "building29_1": DATA_IMAGES_BUILDING_BIG + "building29_1.gif", \
-    "building30_0": DATA_IMAGES_BUILDING_BIG + "building30_0.gif", \
-    "building30_1": DATA_IMAGES_BUILDING_BIG + "building30_1.gif", \
-    "building31_0": DATA_IMAGES_BUILDING_BIG + "building31_0.gif", \
-    "building31_1": DATA_IMAGES_BUILDING_BIG + "building31_1.gif", \
-    "building32_0": DATA_IMAGES_BUILDING_BIG + "building32_0.gif", \
-    "building32_1": DATA_IMAGES_BUILDING_BIG + "building32_1.gif", \
-    "building33_0": DATA_IMAGES_BUILDING_BIG + "building33_0.gif", \
-    "building33_1": DATA_IMAGES_BUILDING_BIG + "building33_1.gif", \
-    "building34_0": DATA_IMAGES_BUILDING_BIG + "building34_0.gif", \
-    "building34_1": DATA_IMAGES_BUILDING_BIG + "building34_1.gif", \
-    "building35_0": DATA_IMAGES_BUILDING_BIG + "building35_0.gif", \
-    "building35_1": DATA_IMAGES_BUILDING_BIG + "building35_1.gif", \
-    "building36_0": DATA_IMAGES_BUILDING_BIG + "building36_0.gif", \
-    "building36_1": DATA_IMAGES_BUILDING_BIG + "building36_1.gif", \
-    "building37_0": DATA_IMAGES_BUILDING_BIG + "building37_0.gif", \
-    "building37_1": DATA_IMAGES_BUILDING_BIG + "building37_1.gif", \
-    "building38_0": DATA_IMAGES_BUILDING_BIG + "building38_0.gif", \
-    "building38_1": DATA_IMAGES_BUILDING_BIG + "building38_1.gif", \
-    "building39_0": DATA_IMAGES_BUILDING_BIG + "building39_0.gif", \
-    "building39_1": DATA_IMAGES_BUILDING_BIG + "building39_1.gif", \
-    "building40_0": DATA_IMAGES_BUILDING_BIG + "building40_0.gif", \
-    "building40_1": DATA_IMAGES_BUILDING_BIG + "building40_1.gif", \
-    "building41_0": DATA_IMAGES_BUILDING_BIG + "building41_0.gif", \
-    "building41_1": DATA_IMAGES_BUILDING_BIG + "building41_1.gif", \
-    "building42_0": DATA_IMAGES_BUILDING_BIG + "building42_0.gif", \
-    "building42_1": DATA_IMAGES_BUILDING_BIG + "building42_1.gif", \
-    "building43_0": DATA_IMAGES_BUILDING_BIG + "building43_0.gif", \
-    "building43_1": DATA_IMAGES_BUILDING_BIG + "building43_1.gif", \
-    "building44_0": DATA_IMAGES_BUILDING_BIG + "building44_0.gif", \
-    "building44_1": DATA_IMAGES_BUILDING_BIG + "building44_1.gif", \
-    "building45_0": DATA_IMAGES_BUILDING_BIG + "building45_0.gif", \
-    "building45_1": DATA_IMAGES_BUILDING_BIG + "building45_1.gif", \
-    "building46_0": DATA_IMAGES_BUILDING_BIG + "building46_0.gif", \
-    "building46_1": DATA_IMAGES_BUILDING_BIG + "building46_1.gif", \
-    "building47_0": DATA_IMAGES_BUILDING_BIG + "building47_0.gif", \
-    "building47_1": DATA_IMAGES_BUILDING_BIG + "building47_1.gif", \
-    "building48_0": DATA_IMAGES_BUILDING_BIG + "building48_0.gif", \
-    "building48_1": DATA_IMAGES_BUILDING_BIG + "building48_1.gif", \
-    "building49_0": DATA_IMAGES_BUILDING_BIG + "building49_0.gif", \
-    "building49_1": DATA_IMAGES_BUILDING_BIG + "building49_1.gif", \
-    "building50_0": DATA_IMAGES_BUILDING_BIG + "building50_0.gif", \
-    "building50_1": DATA_IMAGES_BUILDING_BIG + "building50_1.gif", \
-    "building51_0": DATA_IMAGES_BUILDING_BIG + "building51_0.gif", \
-    "building51_1": DATA_IMAGES_BUILDING_BIG + "building51_1.gif", \
-    "building52_0": DATA_IMAGES_BUILDING_BIG + "building52_0.gif", \
-    "building52_1": DATA_IMAGES_BUILDING_BIG + "building52_1.gif", \
-    "building53_0": DATA_IMAGES_BUILDING_BIG + "building53_0.gif", \
-    "building53_1": DATA_IMAGES_BUILDING_BIG + "building53_1.gif", \
-    "building55_0": DATA_IMAGES_BUILDING_BIG + "building55_0.gif", \
-    "building55_1": DATA_IMAGES_BUILDING_BIG + "building55_1.gif", \
-    "building59_0": DATA_IMAGES_BUILDING_BIG + "building59_0.gif", \
-    "building59_1": DATA_IMAGES_BUILDING_BIG + "building59_1.gif", \
-    "building60_0": DATA_IMAGES_BUILDING_BIG + "building60_0.gif", \
-    "building60_1": DATA_IMAGES_BUILDING_BIG + "building60_1.gif", \
-    "building63_0": DATA_IMAGES_BUILDING_BIG + "building63_0.gif", \
-    "building63_1": DATA_IMAGES_BUILDING_BIG + "building63_1.gif", \
-    "building64_0": DATA_IMAGES_BUILDING_BIG + "building64_0.gif", \
-    "building64_1": DATA_IMAGES_BUILDING_BIG + "building64_1.gif", \
-    "building65_0": DATA_IMAGES_BUILDING_BIG + "building65_0.gif", \
-    "building65_1": DATA_IMAGES_BUILDING_BIG + "building65_1.gif", \
-    "building67_0": DATA_IMAGES_BUILDING_BIG + "building67_0.gif", \
-    "building67_1": DATA_IMAGES_BUILDING_BIG + "building67_1.gif", \
-    "building68_0": DATA_IMAGES_BUILDING_BIG + "building68_0.gif", \
-    "building68_1": DATA_IMAGES_BUILDING_BIG + "building68_1.gif", \
-    "building69_0": DATA_IMAGES_BUILDING_BIG + "building69_0.gif", \
-    "building69_1": DATA_IMAGES_BUILDING_BIG + "building69_1.gif", \
-    "building70_0": DATA_IMAGES_BUILDING_BIG + "building70_0.gif", \
-    "building70_1": DATA_IMAGES_BUILDING_BIG + "building70_1.gif", \
-    "building71_0": DATA_IMAGES_BUILDING_BIG + "building71_0.gif", \
-    "building71_1": DATA_IMAGES_BUILDING_BIG + "building71_1.gif", \
-    "building73_0": DATA_IMAGES_BUILDING_BIG + "building73_0.gif", \
-    "building73_1": DATA_IMAGES_BUILDING_BIG + "building73_1.gif", \
-    "building74_0": DATA_IMAGES_BUILDING_BIG + "building74_0.gif", \
-    "building74_1": DATA_IMAGES_BUILDING_BIG + "building74_1.gif", \
-    "building75_0": DATA_IMAGES_BUILDING_BIG + "building75_0.gif", \
-    "building75_1": DATA_IMAGES_BUILDING_BIG + "building75_1.gif", \
-    "building76_0": DATA_IMAGES_BUILDING_BIG + "building76_0.gif", \
-    "building76_1": DATA_IMAGES_BUILDING_BIG + "building76_1.gif", \
-    "building77_0": DATA_IMAGES_BUILDING_BIG + "building77_0.gif", \
-    "building77_1": DATA_IMAGES_BUILDING_BIG + "building77_1.gif", \
-    "building78_0": DATA_IMAGES_BUILDING_BIG + "building78_0.gif", \
-    "building78_1": DATA_IMAGES_BUILDING_BIG + "building78_1.gif", \
-    "building79_0": DATA_IMAGES_BUILDING_BIG + "building79_0.gif", \
-    "building79_1": DATA_IMAGES_BUILDING_BIG + "building79_1.gif", \
-    "building80_0": DATA_IMAGES_BUILDING_BIG + "building80_0.gif", \
-    "building80_1": DATA_IMAGES_BUILDING_BIG + "building80_1.gif", \
-    "building81_0": DATA_IMAGES_BUILDING_BIG + "building81_0.gif", \
-    "building81_1": DATA_IMAGES_BUILDING_BIG + "building81_1.gif", \
-    "building82_0": DATA_IMAGES_BUILDING_BIG + "building82_0.gif", \
-    "building82_1": DATA_IMAGES_BUILDING_BIG + "building82_1.gif", \
-    "building83_0": DATA_IMAGES_BUILDING_BIG + "building83_0.gif", \
-    "building83_1": DATA_IMAGES_BUILDING_BIG + "building83_1.gif", \
-    "building84_0": DATA_IMAGES_BUILDING_BIG + "building84_0.gif", \
-    "building84_1": DATA_IMAGES_BUILDING_BIG + "building84_1.gif", \
-    "building85_0": DATA_IMAGES_BUILDING_BIG + "building85_0.gif", \
-    "building85_1": DATA_IMAGES_BUILDING_BIG + "building85_1.gif", \
-    "building87_0": DATA_IMAGES_BUILDING_BIG + "building87_0.gif", \
-    "building87_1": DATA_IMAGES_BUILDING_BIG + "building87_1.gif", \
-    "building88_0": DATA_IMAGES_BUILDING_BIG + "building88_0.gif", \
-    "building88_1": DATA_IMAGES_BUILDING_BIG + "building88_1.gif", \
-    "building89_0": DATA_IMAGES_BUILDING_BIG + "building89_0.gif", \
-    "building89_1": DATA_IMAGES_BUILDING_BIG + "building89_1.gif", \
-    "building90_0": DATA_IMAGES_BUILDING_BIG + "building90_0.gif", \
-    "building90_1": DATA_IMAGES_BUILDING_BIG + "building90_1.gif", \
-    "building91_0": DATA_IMAGES_BUILDING_BIG + "building91_0.gif", \
-    "building91_1": DATA_IMAGES_BUILDING_BIG + "building91_1.gif", \
-    "building92_0": DATA_IMAGES_BUILDING_BIG + "building92_0.gif", \
-    "building92_1": DATA_IMAGES_BUILDING_BIG + "building92_1.gif", \
-    "building93_0": DATA_IMAGES_BUILDING_BIG + "building93_0.gif", \
-    "building93_1": DATA_IMAGES_BUILDING_BIG + "building93_1.gif", \
-    "building94_0": DATA_IMAGES_BUILDING_BIG + "building94_0.gif", \
-    "building94_1": DATA_IMAGES_BUILDING_BIG + "building94_1.gif", \
-    "building95_0": DATA_IMAGES_BUILDING_BIG + "building95_0.gif", \
-    "building95_1": DATA_IMAGES_BUILDING_BIG + "building95_1.gif", \
-    "building96_0": DATA_IMAGES_BUILDING_BIG + "building96_0.gif", \
-    "building96_1": DATA_IMAGES_BUILDING_BIG + "building96_1.gif", \
-    "building97_0": DATA_IMAGES_BUILDING_BIG + "building97_0.gif", \
-    "building97_1": DATA_IMAGES_BUILDING_BIG + "building97_1.gif", \
-    "building98_0": DATA_IMAGES_BUILDING_BIG + "building98_0.gif", \
-    "building98_1": DATA_IMAGES_BUILDING_BIG + "building98_1.gif", \
-    "building99_0": DATA_IMAGES_BUILDING_BIG + "building99_0.gif", \
-    "building99_1": DATA_IMAGES_BUILDING_BIG + "building99_1.gif", \
-    "building100_0": DATA_IMAGES_BUILDING_BIG + "building100_0.gif", \
-    "building100_1": DATA_IMAGES_BUILDING_BIG + "building100_1.gif", \
-    "cabana_0": DATA_IMAGES_BUILDING + "cabana_0.gif", \
-    "cabana_1": DATA_IMAGES_BUILDING + "cabana_1.gif", \
-    "castle_0": DATA_IMAGES_BUILDING + "castle_0.gif", \
-    "castle_1": DATA_IMAGES_BUILDING + "castle_1.gif", \
-    "castle2_0": DATA_IMAGES_BUILDING + "castle2_0.gif", \
-    "castle2_1": DATA_IMAGES_BUILDING + "castle2_1.gif", \
-    "castle3_0": DATA_IMAGES_BUILDING + "castle3_0.gif", \
-    "castle3_1": DATA_IMAGES_BUILDING + "castle3_1.gif", \
-    "church_0": DATA_IMAGES_BUILDING + "church_0.gif", \
-    "church_1": DATA_IMAGES_BUILDING + "church_1.gif", \
-    "feudo_0": DATA_IMAGES_BUILDING + "feudo_0.gif", \
-    "feudo_1": DATA_IMAGES_BUILDING + "feudo_1.gif", \
-    "house_0": DATA_IMAGES_BUILDING + "house_0.gif", \
-    "house_1": DATA_IMAGES_BUILDING + "house_1.gif", \
-    "volcan": DATA_IMAGES_BUILDING + "volcan.gif", \
- \
+    "building1_0": DATA_IMAGES_BUILDING_BIG + "building1_0.gif",
+    "building1_1": DATA_IMAGES_BUILDING_BIG + "building1_1.gif",
+    "building2_0": DATA_IMAGES_BUILDING_BIG + "building2_0.gif",
+    "building2_1": DATA_IMAGES_BUILDING_BIG + "building2_1.gif",
+    "building3_0": DATA_IMAGES_BUILDING_BIG + "building3_0.gif",
+    "building3_1": DATA_IMAGES_BUILDING_BIG + "building3_1.gif",
+    "building4_0": DATA_IMAGES_BUILDING_BIG + "building4_0.gif",
+    "building4_1": DATA_IMAGES_BUILDING_BIG + "building4_1.gif",
+    "building5_0": DATA_IMAGES_BUILDING_BIG + "building5_0.gif",
+    "building5_1": DATA_IMAGES_BUILDING_BIG + "building5_1.gif",
+    "building6_0": DATA_IMAGES_BUILDING_BIG + "building6_0.gif",
+    "building6_1": DATA_IMAGES_BUILDING_BIG + "building6_1.gif",
+    "building7_0": DATA_IMAGES_BUILDING_BIG + "building7_0.gif",
+    "building7_1": DATA_IMAGES_BUILDING_BIG + "building7_1.gif",
+    "building8_0": DATA_IMAGES_BUILDING_BIG + "building8_0.gif",
+    "building8_1": DATA_IMAGES_BUILDING_BIG + "building8_1.gif",
+    "building9_0": DATA_IMAGES_BUILDING_BIG + "building9_0.gif",
+    "building9_1": DATA_IMAGES_BUILDING_BIG + "building9_1.gif",
+    "building10_0": DATA_IMAGES_BUILDING_BIG + "building10_0.gif",
+    "building10_1": DATA_IMAGES_BUILDING_BIG + "building10_1.gif",
+    "building11_0": DATA_IMAGES_BUILDING_BIG + "building11_0.gif",
+    "building11_1": DATA_IMAGES_BUILDING_BIG + "building11_1.gif",
+    "building12_0": DATA_IMAGES_BUILDING_BIG + "building12_0.gif",
+    "building12_1": DATA_IMAGES_BUILDING_BIG + "building12_1.gif",
+    "building13_0": DATA_IMAGES_BUILDING_BIG + "building13_0.gif",
+    "building13_1": DATA_IMAGES_BUILDING_BIG + "building13_1.gif",
+    "building14_0": DATA_IMAGES_BUILDING_BIG + "building14_0.gif",
+    "building14_1": DATA_IMAGES_BUILDING_BIG + "building14_1.gif",
+    "building15_0": DATA_IMAGES_BUILDING_BIG + "building15_0.gif",
+    "building15_1": DATA_IMAGES_BUILDING_BIG + "building15_1.gif",
+    "building16_0": DATA_IMAGES_BUILDING_BIG + "building16_0.gif",
+    "building16_1": DATA_IMAGES_BUILDING_BIG + "building16_1.gif",
+    "building17_0": DATA_IMAGES_BUILDING_BIG + "building17_0.gif",
+    "building17_1": DATA_IMAGES_BUILDING_BIG + "building17_1.gif",
+    "building18_0": DATA_IMAGES_BUILDING_BIG + "building18_0.gif",
+    "building18_1": DATA_IMAGES_BUILDING_BIG + "building18_1.gif",
+    "building19_0": DATA_IMAGES_BUILDING_BIG + "building19_0.gif",
+    "building19_1": DATA_IMAGES_BUILDING_BIG + "building19_1.gif",
+    "building20_0": DATA_IMAGES_BUILDING_BIG + "building20_0.gif",
+    "building20_1": DATA_IMAGES_BUILDING_BIG + "building20_1.gif",
+    "building21_0": DATA_IMAGES_BUILDING_BIG + "building21_0.gif",
+    "building21_1": DATA_IMAGES_BUILDING_BIG + "building21_1.gif",
+    "building22_0": DATA_IMAGES_BUILDING_BIG + "building22_0.gif",
+    "building22_1": DATA_IMAGES_BUILDING_BIG + "building22_1.gif",
+    "building23_0": DATA_IMAGES_BUILDING_BIG + "building23_0.gif",
+    "building23_1": DATA_IMAGES_BUILDING_BIG + "building23_1.gif",
+    "building24_0": DATA_IMAGES_BUILDING_BIG + "building24_0.gif",
+    "building24_1": DATA_IMAGES_BUILDING_BIG + "building24_1.gif",
+    "building25_0": DATA_IMAGES_BUILDING_BIG + "building25_0.gif",
+    "building25_1": DATA_IMAGES_BUILDING_BIG + "building25_1.gif",
+    "building26_0": DATA_IMAGES_BUILDING_BIG + "building26_0.gif",
+    "building26_1": DATA_IMAGES_BUILDING_BIG + "building26_1.gif",
+    "building27_0": DATA_IMAGES_BUILDING_BIG + "building27_0.gif",
+    "building27_1": DATA_IMAGES_BUILDING_BIG + "building27_1.gif",
+    "building28_0": DATA_IMAGES_BUILDING_BIG + "building28_0.gif",
+    "building28_1": DATA_IMAGES_BUILDING_BIG + "building28_1.gif",
+    "building29_0": DATA_IMAGES_BUILDING_BIG + "building29_0.gif",
+    "building29_1": DATA_IMAGES_BUILDING_BIG + "building29_1.gif",
+    "building30_0": DATA_IMAGES_BUILDING_BIG + "building30_0.gif",
+    "building30_1": DATA_IMAGES_BUILDING_BIG + "building30_1.gif",
+    "building31_0": DATA_IMAGES_BUILDING_BIG + "building31_0.gif",
+    "building31_1": DATA_IMAGES_BUILDING_BIG + "building31_1.gif",
+    "building32_0": DATA_IMAGES_BUILDING_BIG + "building32_0.gif",
+    "building32_1": DATA_IMAGES_BUILDING_BIG + "building32_1.gif",
+    "building33_0": DATA_IMAGES_BUILDING_BIG + "building33_0.gif",
+    "building33_1": DATA_IMAGES_BUILDING_BIG + "building33_1.gif",
+    "building34_0": DATA_IMAGES_BUILDING_BIG + "building34_0.gif",
+    "building34_1": DATA_IMAGES_BUILDING_BIG + "building34_1.gif",
+    "building35_0": DATA_IMAGES_BUILDING_BIG + "building35_0.gif",
+    "building35_1": DATA_IMAGES_BUILDING_BIG + "building35_1.gif",
+    "building36_0": DATA_IMAGES_BUILDING_BIG + "building36_0.gif",
+    "building36_1": DATA_IMAGES_BUILDING_BIG + "building36_1.gif",
+    "building37_0": DATA_IMAGES_BUILDING_BIG + "building37_0.gif",
+    "building37_1": DATA_IMAGES_BUILDING_BIG + "building37_1.gif",
+    "building38_0": DATA_IMAGES_BUILDING_BIG + "building38_0.gif",
+    "building38_1": DATA_IMAGES_BUILDING_BIG + "building38_1.gif",
+    "building39_0": DATA_IMAGES_BUILDING_BIG + "building39_0.gif",
+    "building39_1": DATA_IMAGES_BUILDING_BIG + "building39_1.gif",
+    "building40_0": DATA_IMAGES_BUILDING_BIG + "building40_0.gif",
+    "building40_1": DATA_IMAGES_BUILDING_BIG + "building40_1.gif",
+    "building41_0": DATA_IMAGES_BUILDING_BIG + "building41_0.gif",
+    "building41_1": DATA_IMAGES_BUILDING_BIG + "building41_1.gif",
+    "building42_0": DATA_IMAGES_BUILDING_BIG + "building42_0.gif",
+    "building42_1": DATA_IMAGES_BUILDING_BIG + "building42_1.gif",
+    "building43_0": DATA_IMAGES_BUILDING_BIG + "building43_0.gif",
+    "building43_1": DATA_IMAGES_BUILDING_BIG + "building43_1.gif",
+    "building44_0": DATA_IMAGES_BUILDING_BIG + "building44_0.gif",
+    "building44_1": DATA_IMAGES_BUILDING_BIG + "building44_1.gif",
+    "building45_0": DATA_IMAGES_BUILDING_BIG + "building45_0.gif",
+    "building45_1": DATA_IMAGES_BUILDING_BIG + "building45_1.gif",
+    "building46_0": DATA_IMAGES_BUILDING_BIG + "building46_0.gif",
+    "building46_1": DATA_IMAGES_BUILDING_BIG + "building46_1.gif",
+    "building47_0": DATA_IMAGES_BUILDING_BIG + "building47_0.gif",
+    "building47_1": DATA_IMAGES_BUILDING_BIG + "building47_1.gif",
+    "building48_0": DATA_IMAGES_BUILDING_BIG + "building48_0.gif",
+    "building48_1": DATA_IMAGES_BUILDING_BIG + "building48_1.gif",
+    "building49_0": DATA_IMAGES_BUILDING_BIG + "building49_0.gif",
+    "building49_1": DATA_IMAGES_BUILDING_BIG + "building49_1.gif",
+    "building50_0": DATA_IMAGES_BUILDING_BIG + "building50_0.gif",
+    "building50_1": DATA_IMAGES_BUILDING_BIG + "building50_1.gif",
+    "building51_0": DATA_IMAGES_BUILDING_BIG + "building51_0.gif",
+    "building51_1": DATA_IMAGES_BUILDING_BIG + "building51_1.gif",
+    "building52_0": DATA_IMAGES_BUILDING_BIG + "building52_0.gif",
+    "building52_1": DATA_IMAGES_BUILDING_BIG + "building52_1.gif",
+    "building53_0": DATA_IMAGES_BUILDING_BIG + "building53_0.gif",
+    "building53_1": DATA_IMAGES_BUILDING_BIG + "building53_1.gif",
+    "building55_0": DATA_IMAGES_BUILDING_BIG + "building55_0.gif",
+    "building55_1": DATA_IMAGES_BUILDING_BIG + "building55_1.gif",
+    "building59_0": DATA_IMAGES_BUILDING_BIG + "building59_0.gif",
+    "building59_1": DATA_IMAGES_BUILDING_BIG + "building59_1.gif",
+    "building60_0": DATA_IMAGES_BUILDING_BIG + "building60_0.gif",
+    "building60_1": DATA_IMAGES_BUILDING_BIG + "building60_1.gif",
+    "building63_0": DATA_IMAGES_BUILDING_BIG + "building63_0.gif",
+    "building63_1": DATA_IMAGES_BUILDING_BIG + "building63_1.gif",
+    "building64_0": DATA_IMAGES_BUILDING_BIG + "building64_0.gif",
+    "building64_1": DATA_IMAGES_BUILDING_BIG + "building64_1.gif",
+    "building65_0": DATA_IMAGES_BUILDING_BIG + "building65_0.gif",
+    "building65_1": DATA_IMAGES_BUILDING_BIG + "building65_1.gif",
+    "building67_0": DATA_IMAGES_BUILDING_BIG + "building67_0.gif",
+    "building67_1": DATA_IMAGES_BUILDING_BIG + "building67_1.gif",
+    "building68_0": DATA_IMAGES_BUILDING_BIG + "building68_0.gif",
+    "building68_1": DATA_IMAGES_BUILDING_BIG + "building68_1.gif",
+    "building69_0": DATA_IMAGES_BUILDING_BIG + "building69_0.gif",
+    "building69_1": DATA_IMAGES_BUILDING_BIG + "building69_1.gif",
+    "building70_0": DATA_IMAGES_BUILDING_BIG + "building70_0.gif",
+    "building70_1": DATA_IMAGES_BUILDING_BIG + "building70_1.gif",
+    "building71_0": DATA_IMAGES_BUILDING_BIG + "building71_0.gif",
+    "building71_1": DATA_IMAGES_BUILDING_BIG + "building71_1.gif",
+    "building73_0": DATA_IMAGES_BUILDING_BIG + "building73_0.gif",
+    "building73_1": DATA_IMAGES_BUILDING_BIG + "building73_1.gif",
+    "building74_0": DATA_IMAGES_BUILDING_BIG + "building74_0.gif",
+    "building74_1": DATA_IMAGES_BUILDING_BIG + "building74_1.gif",
+    "building75_0": DATA_IMAGES_BUILDING_BIG + "building75_0.gif",
+    "building75_1": DATA_IMAGES_BUILDING_BIG + "building75_1.gif",
+    "building76_0": DATA_IMAGES_BUILDING_BIG + "building76_0.gif",
+    "building76_1": DATA_IMAGES_BUILDING_BIG + "building76_1.gif",
+    "building77_0": DATA_IMAGES_BUILDING_BIG + "building77_0.gif",
+    "building77_1": DATA_IMAGES_BUILDING_BIG + "building77_1.gif",
+    "building78_0": DATA_IMAGES_BUILDING_BIG + "building78_0.gif",
+    "building78_1": DATA_IMAGES_BUILDING_BIG + "building78_1.gif",
+    "building79_0": DATA_IMAGES_BUILDING_BIG + "building79_0.gif",
+    "building79_1": DATA_IMAGES_BUILDING_BIG + "building79_1.gif",
+    "building80_0": DATA_IMAGES_BUILDING_BIG + "building80_0.gif",
+    "building80_1": DATA_IMAGES_BUILDING_BIG + "building80_1.gif",
+    "building81_0": DATA_IMAGES_BUILDING_BIG + "building81_0.gif",
+    "building81_1": DATA_IMAGES_BUILDING_BIG + "building81_1.gif",
+    "building82_0": DATA_IMAGES_BUILDING_BIG + "building82_0.gif",
+    "building82_1": DATA_IMAGES_BUILDING_BIG + "building82_1.gif",
+    "building83_0": DATA_IMAGES_BUILDING_BIG + "building83_0.gif",
+    "building83_1": DATA_IMAGES_BUILDING_BIG + "building83_1.gif",
+    "building84_0": DATA_IMAGES_BUILDING_BIG + "building84_0.gif",
+    "building84_1": DATA_IMAGES_BUILDING_BIG + "building84_1.gif",
+    "building85_0": DATA_IMAGES_BUILDING_BIG + "building85_0.gif",
+    "building85_1": DATA_IMAGES_BUILDING_BIG + "building85_1.gif",
+    "building87_0": DATA_IMAGES_BUILDING_BIG + "building87_0.gif",
+    "building87_1": DATA_IMAGES_BUILDING_BIG + "building87_1.gif",
+    "building88_0": DATA_IMAGES_BUILDING_BIG + "building88_0.gif",
+    "building88_1": DATA_IMAGES_BUILDING_BIG + "building88_1.gif",
+    "building89_0": DATA_IMAGES_BUILDING_BIG + "building89_0.gif",
+    "building89_1": DATA_IMAGES_BUILDING_BIG + "building89_1.gif",
+    "building90_0": DATA_IMAGES_BUILDING_BIG + "building90_0.gif",
+    "building90_1": DATA_IMAGES_BUILDING_BIG + "building90_1.gif",
+    "building91_0": DATA_IMAGES_BUILDING_BIG + "building91_0.gif",
+    "building91_1": DATA_IMAGES_BUILDING_BIG + "building91_1.gif",
+    "building92_0": DATA_IMAGES_BUILDING_BIG + "building92_0.gif",
+    "building92_1": DATA_IMAGES_BUILDING_BIG + "building92_1.gif",
+    "building93_0": DATA_IMAGES_BUILDING_BIG + "building93_0.gif",
+    "building93_1": DATA_IMAGES_BUILDING_BIG + "building93_1.gif",
+    "building94_0": DATA_IMAGES_BUILDING_BIG + "building94_0.gif",
+    "building94_1": DATA_IMAGES_BUILDING_BIG + "building94_1.gif",
+    "building95_0": DATA_IMAGES_BUILDING_BIG + "building95_0.gif",
+    "building95_1": DATA_IMAGES_BUILDING_BIG + "building95_1.gif",
+    "building96_0": DATA_IMAGES_BUILDING_BIG + "building96_0.gif",
+    "building96_1": DATA_IMAGES_BUILDING_BIG + "building96_1.gif",
+    "building97_0": DATA_IMAGES_BUILDING_BIG + "building97_0.gif",
+    "building97_1": DATA_IMAGES_BUILDING_BIG + "building97_1.gif",
+    "building98_0": DATA_IMAGES_BUILDING_BIG + "building98_0.gif",
+    "building98_1": DATA_IMAGES_BUILDING_BIG + "building98_1.gif",
+    "building99_0": DATA_IMAGES_BUILDING_BIG + "building99_0.gif",
+    "building99_1": DATA_IMAGES_BUILDING_BIG + "building99_1.gif",
+    "building100_0": DATA_IMAGES_BUILDING_BIG + "building100_0.gif",
+    "building100_1": DATA_IMAGES_BUILDING_BIG + "building100_1.gif",
+    "cabana_0": DATA_IMAGES_BUILDING + "cabana_0.gif",
+    "cabana_1": DATA_IMAGES_BUILDING + "cabana_1.gif",
+    "castle_0": DATA_IMAGES_BUILDING + "castle_0.gif",
+    "castle_1": DATA_IMAGES_BUILDING + "castle_1.gif",
+    "castle2_0": DATA_IMAGES_BUILDING + "castle2_0.gif",
+    "castle2_1": DATA_IMAGES_BUILDING + "castle2_1.gif",
+    "castle3_0": DATA_IMAGES_BUILDING + "castle3_0.gif",
+    "castle3_1": DATA_IMAGES_BUILDING + "castle3_1.gif",
+    "church_0": DATA_IMAGES_BUILDING + "church_0.gif",
+    "church_1": DATA_IMAGES_BUILDING + "church_1.gif",
+    "feudo_0": DATA_IMAGES_BUILDING + "feudo_0.gif",
+    "feudo_1": DATA_IMAGES_BUILDING + "feudo_1.gif",
+    "house_0": DATA_IMAGES_BUILDING + "house_0.gif",
+    "house_1": DATA_IMAGES_BUILDING + "house_1.gif",
+    "volcan": DATA_IMAGES_BUILDING + "volcan.gif",
     # Powers
-    "dobdam": DATA_IMAGES_POWERS + "dobdam.gif", \
-    "dobdef": DATA_IMAGES_POWERS + "dobdef.gif", \
-    "doblxp": DATA_IMAGES_POWERS + "doblxp.gif", \
-    "fastescape": DATA_IMAGES_POWERS + "fastescape.gif", \
-    "freeze": DATA_IMAGES_POWERS + "freeze.gif", \
-    "fullmana": DATA_IMAGES_POWERS + "fullmana.gif", \
-    "fullreg": DATA_IMAGES_POWERS + "fullreg.gif", \
-    "god": DATA_IMAGES_POWERS + "god.gif", \
-    "halfdesc": DATA_IMAGES_POWERS + "halfdesc.gif", \
-    "infweapon": DATA_IMAGES_POWERS + "infweapon.gif", \
-    "inskill": DATA_IMAGES_POWERS + "inskill.gif", \
-    "newform": DATA_IMAGES_POWERS + "newform.gif", \
-    "regmana": DATA_IMAGES_POWERS + "regmana.gif", \
-    "regvida": DATA_IMAGES_POWERS + "regvida.gif", \
-    "repall": DATA_IMAGES_POWERS + "repall.gif", \
-    "reparm": DATA_IMAGES_POWERS + "reparm.gif", \
-    "repwep": DATA_IMAGES_POWERS + "repwep.gif", \
-    "robym": DATA_IMAGES_POWERS + "robym.gif", \
-    "upexp": DATA_IMAGES_POWERS + "upexp.gif", \
+    "dobdam": DATA_IMAGES_POWERS + "dobdam.gif",
+    "dobdef": DATA_IMAGES_POWERS + "dobdef.gif",
+    "doblxp": DATA_IMAGES_POWERS + "doblxp.gif",
+    "fastescape": DATA_IMAGES_POWERS + "fastescape.gif",
+    "freeze": DATA_IMAGES_POWERS + "freeze.gif",
+    "fullmana": DATA_IMAGES_POWERS + "fullmana.gif",
+    "fullreg": DATA_IMAGES_POWERS + "fullreg.gif",
+    "god": DATA_IMAGES_POWERS + "god.gif",
+    "halfdesc": DATA_IMAGES_POWERS + "halfdesc.gif",
+    "infweapon": DATA_IMAGES_POWERS + "infweapon.gif",
+    "inskill": DATA_IMAGES_POWERS + "inskill.gif",
+    "newform": DATA_IMAGES_POWERS + "newform.gif",
+    "regmana": DATA_IMAGES_POWERS + "regmana.gif",
+    "regvida": DATA_IMAGES_POWERS + "regvida.gif",
+    "repall": DATA_IMAGES_POWERS + "repall.gif",
+    "reparm": DATA_IMAGES_POWERS + "reparm.gif",
+    "repwep": DATA_IMAGES_POWERS + "repwep.gif",
+    "robym": DATA_IMAGES_POWERS + "robym.gif",
+    "upexp": DATA_IMAGES_POWERS + "upexp.gif",
 }

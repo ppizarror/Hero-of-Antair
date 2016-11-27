@@ -18,7 +18,8 @@ BUFFER_SIZE = 2000
 DELAY = 0
 IP_WEB = 'http://httpbin.org/ip'
 RESTRICTED_LOBBYNAMES = ['create', 'connect', 'disconnect',
-                         'null', '', 'name', 'server', 'ip', 'protocol', 'ping', 'lobby']
+                         'null', '', 'name', 'server', 'ip', 'protocol',
+                         'ping', 'lobby']
 SERVER_VERSION = '1.0'
 
 # Variables del programa
@@ -27,6 +28,7 @@ players = {}
 public_ip = '0.0.0.0'
 server_ip = '0.0.0.0'
 local_ip = []
+
 
 # Funciones principales
 def getIPAddresses():
@@ -94,7 +96,7 @@ def getIPAddresses():
                     break
 
 
-class Server:
+class Server(object):
     """
     Clase server
     """
@@ -122,7 +124,8 @@ class Server:
         self.input_list.append(self.server)
         while True:
             time.sleep(DELAY)
-            inputr, outputr, exceptr = select.select(self.input_list, [], [])  # @UnusedVariable
+            inputr, outputr, exceptr = select.select(self.input_list, [],
+                                                     [])  # @UnusedVariable
             for self.s in inputr:
                 if self.s == self.server:
                     self.on_accept()
@@ -175,12 +178,13 @@ class Server:
             self.input_list.remove(self.s)
 
 
-class Lobby:
+class Lobby(object):
     """
     Clase lobby
     """
 
-    def __init__(self, lobbyname, lobbyhost, lobbyid, lobbymap, lobbymobs, lobbynpc, lobbytextures, lobbyplayers):
+    def __init__(self, lobbyname, lobbyhost, lobbyid, lobbymap, lobbymobs,
+                 lobbynpc, lobbytextures, lobbyplayers):
         """
         Función constructora
         :param lobbyname: Nombre

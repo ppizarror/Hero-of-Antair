@@ -14,7 +14,9 @@ from texture_analysis import *  # @UnusedWildImport
 from texture_items import *  # @UnusedWildImport
 from texture_world import *  # @UnusedWildImport
 
-class hoaTextures:
+
+# noinspection PyMethodMayBeStatic
+class hoaTextures(object):
     """Clase principal de las texturas"""
 
     def __init__(self, lang=["Cargando textura '%.gif' ...", "ok"]):
@@ -43,201 +45,235 @@ class hoaTextures:
         self.images = {
 
             # links de escape--
-            None: None, \
-            "None": None, \
-            "_0": None, \
-            "_1": None, \
-            "_16": None, \
-            "_32": None, \
- \
+            None: None,
+            "None": None,
+            "_0": None,
+            "_1": None,
+            "_16": None,
+            "_32": None,
             # Gui #interfaz de usuario
-            "actualizacion": DATA_ICONS + "actualizacion.ico", \
-            "alert_icon": DATA_ICONS + "alert.ico", \
-            "arrow_left": PhotoImage(file=DATA_IMAGES_GUI + "arrow_left.gif"), \
-            "arrow_right": PhotoImage(file=DATA_IMAGES_GUI + "arrow_right.gif"), \
-            "background": PhotoImage(file=DATA_IMAGES_GUI + "background.gif"), \
-            "configuration_icon": DATA_ICONS + "configuration.ico", \
-            "console_icon": DATA_ICONS + "console.ico", \
-            "door_in": DATA_ICONS + "door_in.ico", \
-            "error_icon": DATA_ICONS + "error_icon.ico", \
-            "group": DATA_ICONS + "group.ico", \
-            "icon": DATA_ICONS + "hoa.ico", \
-            "iconmuerte": DATA_ICONS + "iconmuerte.ico", \
-            "new_user_icon": DATA_ICONS + "new_user.ico", \
-            "quest_list": DATA_ICONS + "quest_list.ico", \
-            "loading0": PhotoImage(file=DATA_IMAGES_GUI + "loading0.gif"), \
-            "loading1": PhotoImage(file=DATA_IMAGES_GUI + "loading1.gif"), \
-            "loading2": PhotoImage(file=DATA_IMAGES_GUI + "loading2.gif"), \
-            "loading3": PhotoImage(file=DATA_IMAGES_GUI + "loading3.gif"), \
-            "loading4": PhotoImage(file=DATA_IMAGES_GUI + "loading4.gif"), \
-            "loading5": PhotoImage(file=DATA_IMAGES_GUI + "loading5.gif"), \
-            "save_icon": DATA_ICONS + "save.ico", \
-            "server_disconnect": DATA_ICONS + "server_disconnect.ico", \
-            "server_add": DATA_ICONS + "server_add.ico", \
-            "server_error": DATA_ICONS + "server_error.ico", \
-            "server_icon": DATA_ICONS + "server_connect.ico", \
-            "sound_icon": DATA_ICONS + "sound_add.ico", \
-            "statics": DATA_ICONS + "statics.ico", \
-            "text_icon": DATA_ICONS + "text_icon.ico", \
-            "user_icon": DATA_ICONS + "user.ico", \
-            "vacio_16": PhotoImage(data="R0lGODlhEAAQAIAAAP///wAAACH5BAEAAAEALAAAAAAQABAAAAIOjI+py+0Po5y02ouzPgUAOw=="), \
-
+            "actualizacion": DATA_ICONS + "actualizacion.ico",
+            "alert_icon": DATA_ICONS + "alert.ico",
+            "arrow_left": PhotoImage(file=DATA_IMAGES_GUI + "arrow_left.gif"),
+            "arrow_right": PhotoImage(
+                file=DATA_IMAGES_GUI + "arrow_right.gif"),
+            "background": PhotoImage(file=DATA_IMAGES_GUI + "background.gif"),
+            "configuration_icon": DATA_ICONS + "configuration.ico",
+            "console_icon": DATA_ICONS + "console.ico",
+            "door_in": DATA_ICONS + "door_in.ico",
+            "error_icon": DATA_ICONS + "error_icon.ico",
+            "group": DATA_ICONS + "group.ico",
+            "icon": DATA_ICONS + "hoa.ico",
+            "iconmuerte": DATA_ICONS + "iconmuerte.ico",
+            "new_user_icon": DATA_ICONS + "new_user.ico",
+            "quest_list": DATA_ICONS + "quest_list.ico",
+            "loading0": PhotoImage(file=DATA_IMAGES_GUI + "loading0.gif"),
+            "loading1": PhotoImage(file=DATA_IMAGES_GUI + "loading1.gif"),
+            "loading2": PhotoImage(file=DATA_IMAGES_GUI + "loading2.gif"),
+            "loading3": PhotoImage(file=DATA_IMAGES_GUI + "loading3.gif"),
+            "loading4": PhotoImage(file=DATA_IMAGES_GUI + "loading4.gif"),
+            "loading5": PhotoImage(file=DATA_IMAGES_GUI + "loading5.gif"),
+            "save_icon": DATA_ICONS + "save.ico",
+            "server_disconnect": DATA_ICONS + "server_disconnect.ico",
+            "server_add": DATA_ICONS + "server_add.ico",
+            "server_error": DATA_ICONS + "server_error.ico",
+            "server_icon": DATA_ICONS + "server_connect.ico",
+            "sound_icon": DATA_ICONS + "sound_add.ico",
+            "statics": DATA_ICONS + "statics.ico",
+            "text_icon": DATA_ICONS + "text_icon.ico",
+            "user_icon": DATA_ICONS + "user.ico",
+            "vacio_16": PhotoImage(
+                data="R0lGODlhEAAQAIAAAP///wAAACH5BAEAAAEALAAAAAAQABAAAAIOjI+py+0Po5y02ouzPgUAOw=="),
             # Terreno
-            "black": Image.open(DATA_IMAGES_TERRAIN + "black.gif"), \
-            "dirt1_0": Image.open(DATA_IMAGES_TERRAIN + "dirt1_0.gif"), \
-            "dirt1_1": Image.open(DATA_IMAGES_TERRAIN + "dirt1_1.gif"), \
-            "dirt2_0": Image.open(DATA_IMAGES_TERRAIN + "dirt2_0.gif"), \
-            "dirt2_1": Image.open(DATA_IMAGES_TERRAIN + "dirt2_1.gif"), \
-            "dirt3_0": Image.open(DATA_IMAGES_TERRAIN + "dirt3_0.gif"), \
-            "dirt3_1": Image.open(DATA_IMAGES_TERRAIN + "dirt3_1.gif"), \
-            "dirt4_0": Image.open(DATA_IMAGES_TERRAIN + "dirt4_0.gif"), \
-            "dirt4_1": Image.open(DATA_IMAGES_TERRAIN + "dirt4_1.gif"), \
-            "dirt5_0": Image.open(DATA_IMAGES_TERRAIN + "dirt5_0.gif"), \
-            "dirt5_1": Image.open(DATA_IMAGES_TERRAIN + "dirt5_1.gif"), \
-            "dirt6_0": Image.open(DATA_IMAGES_TERRAIN + "dirt6_0.gif"), \
-            "dirt6_1": Image.open(DATA_IMAGES_TERRAIN + "dirt6_1.gif"), \
-            "dirt7_0": Image.open(DATA_IMAGES_TERRAIN + "dirt7_0.gif"), \
-            "dirt7_1": Image.open(DATA_IMAGES_TERRAIN + "dirt7_1.gif"), \
-            "dirt8_0": Image.open(DATA_IMAGES_TERRAIN + "dirt8_0.gif"), \
-            "dirt8_1": Image.open(DATA_IMAGES_TERRAIN + "dirt8_1.gif"), \
-            "dirt9_0": Image.open(DATA_IMAGES_TERRAIN + "dirt9_0.gif"), \
-            "dirt9_1": Image.open(DATA_IMAGES_TERRAIN + "dirt9_1.gif"), \
-            "dirt10_0": Image.open(DATA_IMAGES_TERRAIN + "dirt10_0.gif"), \
-            "dirt10_1": Image.open(DATA_IMAGES_TERRAIN + "dirt10_1.gif"), \
-            "floor1_0": Image.open(DATA_IMAGES_TERRAIN + "floor1_0.gif"), \
-            "floor1_1": Image.open(DATA_IMAGES_TERRAIN + "floor1_1.gif"), \
-            "floor2_0": Image.open(DATA_IMAGES_TERRAIN + "floor2_0.gif"), \
-            "floor2_1": Image.open(DATA_IMAGES_TERRAIN + "floor2_1.gif"), \
-            "floor3_0": Image.open(DATA_IMAGES_TERRAIN + "floor3_0.gif"), \
-            "floor3_1": Image.open(DATA_IMAGES_TERRAIN + "floor3_1.gif"), \
-            "floor4_0": Image.open(DATA_IMAGES_TERRAIN + "floor4_0.gif"), \
-            "floor4_1": Image.open(DATA_IMAGES_TERRAIN + "floor4_1.gif"), \
-            "floor5_0": Image.open(DATA_IMAGES_TERRAIN + "floor5_0.gif"), \
-            "floor5_1": Image.open(DATA_IMAGES_TERRAIN + "floor5_1.gif"), \
-            "floor6_0": Image.open(DATA_IMAGES_TERRAIN + "floor6_0.gif"), \
-            "floor6_1": Image.open(DATA_IMAGES_TERRAIN + "floor6_1.gif"), \
-            "floor7_0": Image.open(DATA_IMAGES_TERRAIN + "floor7_0.gif"), \
-            "floor7_1": Image.open(DATA_IMAGES_TERRAIN + "floor7_1.gif"), \
-            "floor8_0": Image.open(DATA_IMAGES_TERRAIN + "floor8_0.gif"), \
-            "floor8_1": Image.open(DATA_IMAGES_TERRAIN + "floor8_1.gif"), \
-            "floor9_0": Image.open(DATA_IMAGES_TERRAIN + "floor9_0.gif"), \
-            "floor9_1": Image.open(DATA_IMAGES_TERRAIN + "floor9_1.gif"), \
-            "floor10_0": Image.open(DATA_IMAGES_TERRAIN + "floor10_0.gif"), \
-            "floor10_1": Image.open(DATA_IMAGES_TERRAIN + "floor10_1.gif"), \
-            "floor11_0": Image.open(DATA_IMAGES_TERRAIN + "floor11_0.gif"), \
-            "floor11_1": Image.open(DATA_IMAGES_TERRAIN + "floor11_1.gif"), \
-            "grava1_0": Image.open(DATA_IMAGES_TERRAIN + "grava1_0.gif"), \
-            "grava1_1": Image.open(DATA_IMAGES_TERRAIN + "grava1_1.gif"), \
-            "grava2_0": Image.open(DATA_IMAGES_TERRAIN + "grava2_0.gif"), \
-            "grava2_1": Image.open(DATA_IMAGES_TERRAIN + "grava2_1.gif"), \
-            "grava3_0": Image.open(DATA_IMAGES_TERRAIN + "grava3_0.gif"), \
-            "grava3_1": Image.open(DATA_IMAGES_TERRAIN + "grava3_1.gif"), \
-            "grass1_0": Image.open(DATA_IMAGES_TERRAIN + "grass1_0.gif"), \
-            "grass1_1": Image.open(DATA_IMAGES_TERRAIN + "grass1_1.gif"), \
-            "grass2_0": Image.open(DATA_IMAGES_TERRAIN + "grass2_0.gif"), \
-            "grass2_1": Image.open(DATA_IMAGES_TERRAIN + "grass2_1.gif"), \
-            "grass3_0": Image.open(DATA_IMAGES_TERRAIN + "grass3_0.gif"), \
-            "grass3_1": Image.open(DATA_IMAGES_TERRAIN + "grass3_1.gif"), \
-            "grass4_0": Image.open(DATA_IMAGES_TERRAIN + "grass4_0.gif"), \
-            "grass4_1": Image.open(DATA_IMAGES_TERRAIN + "grass4_1.gif"), \
-            "grass5_0": Image.open(DATA_IMAGES_TERRAIN + "grass5_0.gif"), \
-            "grass5_1": Image.open(DATA_IMAGES_TERRAIN + "grass5_1.gif"), \
-            "grass6_0": Image.open(DATA_IMAGES_TERRAIN + "grass6_0.gif"), \
-            "grass6_1": Image.open(DATA_IMAGES_TERRAIN + "grass6_1.gif"), \
-            "grass7_0": Image.open(DATA_IMAGES_TERRAIN + "grass7_0.gif"), \
-            "grass7_1": Image.open(DATA_IMAGES_TERRAIN + "grass7_1.gif"), \
-            "grass8_0": Image.open(DATA_IMAGES_TERRAIN + "grass8_0.gif"), \
-            "grass8_1": Image.open(DATA_IMAGES_TERRAIN + "grass8_1.gif"), \
-            "grass9_0": Image.open(DATA_IMAGES_TERRAIN + "grass9_0.gif"), \
-            "grass9_1": Image.open(DATA_IMAGES_TERRAIN + "grass9_1.gif"), \
-            "ice1_0": Image.open(DATA_IMAGES_TERRAIN + "ice1_0.gif"), \
-            "ice1_1": Image.open(DATA_IMAGES_TERRAIN + "ice1_1.gif"), \
-            "ice2_0": Image.open(DATA_IMAGES_TERRAIN + "ice2_0.gif"), \
-            "ice2_1": Image.open(DATA_IMAGES_TERRAIN + "ice2_1.gif"), \
-            "ice3_0": Image.open(DATA_IMAGES_TERRAIN + "ice3_0.gif"), \
-            "ice3_1": Image.open(DATA_IMAGES_TERRAIN + "ice3_1.gif"), \
-            "nether1_0": Image.open(DATA_IMAGES_TERRAIN + "nether1_0.gif"), \
-            "nether1_1": Image.open(DATA_IMAGES_TERRAIN + "nether1_1.gif"), \
-            "nether2_0": Image.open(DATA_IMAGES_TERRAIN + "nether2_0.gif"), \
-            "nether2_1": Image.open(DATA_IMAGES_TERRAIN + "nether2_1.gif"), \
-            "nether3_0": Image.open(DATA_IMAGES_TERRAIN + "nether3_0.gif"), \
-            "nether3_1": Image.open(DATA_IMAGES_TERRAIN + "nether3_1.gif"), \
-            "nether4_0": Image.open(DATA_IMAGES_TERRAIN + "nether4_0.gif"), \
-            "nether4_1": Image.open(DATA_IMAGES_TERRAIN + "nether4_1.gif"), \
-            "nether5_0": Image.open(DATA_IMAGES_TERRAIN + "nether5_0.gif"), \
-            "nether5_1": Image.open(DATA_IMAGES_TERRAIN + "nether5_1.gif"), \
-            "ladrillo1_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo1_0.gif"), \
-            "ladrillo1_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo1_1.gif"), \
-            "ladrillo2_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo2_0.gif"), \
-            "ladrillo2_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo2_1.gif"), \
-            "ladrillo3_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo3_0.gif"), \
-            "ladrillo3_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo3_1.gif"), \
-            "ladrillo4_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo4_0.gif"), \
-            "ladrillo4_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo4_1.gif"), \
-            "lava1": Image.open(DATA_IMAGES_TERRAIN + "lava1.gif"), \
-            "lava2": Image.open(DATA_IMAGES_TERRAIN + "lava2.gif"), \
-            "lava3": Image.open(DATA_IMAGES_TERRAIN + "lava3.gif"), \
-            "pantano1_0": Image.open(DATA_IMAGES_TERRAIN + "pantano1_0.gif"), \
-            "pantano1_1": Image.open(DATA_IMAGES_TERRAIN + "pantano1_1.gif"), \
-            "pantano2_0": Image.open(DATA_IMAGES_TERRAIN + "pantano2_0.gif"), \
-            "pantano2_1": Image.open(DATA_IMAGES_TERRAIN + "pantano2_1.gif"), \
-            "pavimento1_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento1_0.gif"), \
-            "pavimento1_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento1_1.gif"), \
-            "pavimento2_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento2_0.gif"), \
-            "pavimento2_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento2_1.gif"), \
-            "pavimento3_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento3_0.gif"), \
-            "pavimento3_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento3_1.gif"), \
-            "pavimento4_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento4_0.gif"), \
-            "pavimento4_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento4_1.gif"), \
-            "pavimento5_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento5_0.gif"), \
-            "pavimento5_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento5_1.gif"), \
-            "pavimento6_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento6_0.gif"), \
-            "pavimento6_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento6_1.gif"), \
-            "pavimento7_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento7_0.gif"), \
-            "pavimento7_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento7_1.gif"), \
-            "pavimento8_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento8_0.gif"), \
-            "pavimento8_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento8_1.gif"), \
-            "pavimento9_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento9_0.gif"), \
-            "pavimento9_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento9_1.gif"), \
-            "pavimento10_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento10_0.gif"), \
-            "pavimento10_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento10_1.gif"), \
-            "pavimento11_0": Image.open(DATA_IMAGES_TERRAIN + "pavimento11_0.gif"), \
-            "pavimento11_1": Image.open(DATA_IMAGES_TERRAIN + "pavimento11_1.gif"), \
-            "pisomadera1_0": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera1_0.gif"), \
-            "pisomadera1_1": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera1_1.gif"), \
-            "pisomadera2_0": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera2_0.gif"), \
-            "pisomadera2_1": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera2_1.gif"), \
-            "pisomadera3_0": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera3_0.gif"), \
-            "pisomadera3_1": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera3_1.gif"), \
-            "pisomadera4_0": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera4_0.gif"), \
-            "pisomadera4_1": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera4_1.gif"), \
-            "pisomadera5_0": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera5_0.gif"), \
-            "pisomadera5_1": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera5_1.gif"), \
-            "pisomadera6_0": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera6_0.gif"), \
-            "pisomadera6_1": Image.open(DATA_IMAGES_TERRAIN + "pisoMadera6_1.gif"), \
-            "sand1_0": Image.open(DATA_IMAGES_TERRAIN + "sand1_0.gif"), \
-            "sand1_1": Image.open(DATA_IMAGES_TERRAIN + "sand1_1.gif"), \
-            "sand2_0": Image.open(DATA_IMAGES_TERRAIN + "sand2_0.gif"), \
-            "sand2_1": Image.open(DATA_IMAGES_TERRAIN + "sand2_1.gif"), \
-            "sand3_0": Image.open(DATA_IMAGES_TERRAIN + "sand3_0.gif"), \
-            "sand3_1": Image.open(DATA_IMAGES_TERRAIN + "sand3_1.gif"), \
-            "sand4_0": Image.open(DATA_IMAGES_TERRAIN + "sand4_0.gif"), \
-            "sand4_1": Image.open(DATA_IMAGES_TERRAIN + "sand4_1.gif"), \
-            "sand5_0": Image.open(DATA_IMAGES_TERRAIN + "sand5_0.gif"), \
-            "sand5_1": Image.open(DATA_IMAGES_TERRAIN + "sand5_1.gif"), \
-            "water1_0": Image.open(DATA_IMAGES_TERRAIN + "water1_0.gif"), \
-            "water1_1": Image.open(DATA_IMAGES_TERRAIN + "water1_1.gif"), \
-            "water2_0": Image.open(DATA_IMAGES_TERRAIN + "water2_0.gif"), \
-            "water2_1": Image.open(DATA_IMAGES_TERRAIN + "water2_1.gif"), \
-            "water3_0": Image.open(DATA_IMAGES_TERRAIN + "water3_0.gif"), \
-            "water3_1": Image.open(DATA_IMAGES_TERRAIN + "water3_1.gif"), \
-            "water4_0": Image.open(DATA_IMAGES_TERRAIN + "water4_0.gif"), \
-            "water4_1": Image.open(DATA_IMAGES_TERRAIN + "water4_1.gif"), \
-            "water5_0": Image.open(DATA_IMAGES_TERRAIN + "water5_0.gif"), \
-            "water5_1": Image.open(DATA_IMAGES_TERRAIN + "water5_1.gif"), \
-            "water6_0": Image.open(DATA_IMAGES_TERRAIN + "water6_0.gif"), \
-            "water6_1": Image.open(DATA_IMAGES_TERRAIN + "water6_1.gif"), \
-            "water7_0": Image.open(DATA_IMAGES_TERRAIN + "water7_0.gif"), \
+            "black": Image.open(DATA_IMAGES_TERRAIN + "black.gif"),
+            "dirt1_0": Image.open(DATA_IMAGES_TERRAIN + "dirt1_0.gif"),
+            "dirt1_1": Image.open(DATA_IMAGES_TERRAIN + "dirt1_1.gif"),
+            "dirt2_0": Image.open(DATA_IMAGES_TERRAIN + "dirt2_0.gif"),
+            "dirt2_1": Image.open(DATA_IMAGES_TERRAIN + "dirt2_1.gif"),
+            "dirt3_0": Image.open(DATA_IMAGES_TERRAIN + "dirt3_0.gif"),
+            "dirt3_1": Image.open(DATA_IMAGES_TERRAIN + "dirt3_1.gif"),
+            "dirt4_0": Image.open(DATA_IMAGES_TERRAIN + "dirt4_0.gif"),
+            "dirt4_1": Image.open(DATA_IMAGES_TERRAIN + "dirt4_1.gif"),
+            "dirt5_0": Image.open(DATA_IMAGES_TERRAIN + "dirt5_0.gif"),
+            "dirt5_1": Image.open(DATA_IMAGES_TERRAIN + "dirt5_1.gif"),
+            "dirt6_0": Image.open(DATA_IMAGES_TERRAIN + "dirt6_0.gif"),
+            "dirt6_1": Image.open(DATA_IMAGES_TERRAIN + "dirt6_1.gif"),
+            "dirt7_0": Image.open(DATA_IMAGES_TERRAIN + "dirt7_0.gif"),
+            "dirt7_1": Image.open(DATA_IMAGES_TERRAIN + "dirt7_1.gif"),
+            "dirt8_0": Image.open(DATA_IMAGES_TERRAIN + "dirt8_0.gif"),
+            "dirt8_1": Image.open(DATA_IMAGES_TERRAIN + "dirt8_1.gif"),
+            "dirt9_0": Image.open(DATA_IMAGES_TERRAIN + "dirt9_0.gif"),
+            "dirt9_1": Image.open(DATA_IMAGES_TERRAIN + "dirt9_1.gif"),
+            "dirt10_0": Image.open(DATA_IMAGES_TERRAIN + "dirt10_0.gif"),
+            "dirt10_1": Image.open(DATA_IMAGES_TERRAIN + "dirt10_1.gif"),
+            "floor1_0": Image.open(DATA_IMAGES_TERRAIN + "floor1_0.gif"),
+            "floor1_1": Image.open(DATA_IMAGES_TERRAIN + "floor1_1.gif"),
+            "floor2_0": Image.open(DATA_IMAGES_TERRAIN + "floor2_0.gif"),
+            "floor2_1": Image.open(DATA_IMAGES_TERRAIN + "floor2_1.gif"),
+            "floor3_0": Image.open(DATA_IMAGES_TERRAIN + "floor3_0.gif"),
+            "floor3_1": Image.open(DATA_IMAGES_TERRAIN + "floor3_1.gif"),
+            "floor4_0": Image.open(DATA_IMAGES_TERRAIN + "floor4_0.gif"),
+            "floor4_1": Image.open(DATA_IMAGES_TERRAIN + "floor4_1.gif"),
+            "floor5_0": Image.open(DATA_IMAGES_TERRAIN + "floor5_0.gif"),
+            "floor5_1": Image.open(DATA_IMAGES_TERRAIN + "floor5_1.gif"),
+            "floor6_0": Image.open(DATA_IMAGES_TERRAIN + "floor6_0.gif"),
+            "floor6_1": Image.open(DATA_IMAGES_TERRAIN + "floor6_1.gif"),
+            "floor7_0": Image.open(DATA_IMAGES_TERRAIN + "floor7_0.gif"),
+            "floor7_1": Image.open(DATA_IMAGES_TERRAIN + "floor7_1.gif"),
+            "floor8_0": Image.open(DATA_IMAGES_TERRAIN + "floor8_0.gif"),
+            "floor8_1": Image.open(DATA_IMAGES_TERRAIN + "floor8_1.gif"),
+            "floor9_0": Image.open(DATA_IMAGES_TERRAIN + "floor9_0.gif"),
+            "floor9_1": Image.open(DATA_IMAGES_TERRAIN + "floor9_1.gif"),
+            "floor10_0": Image.open(DATA_IMAGES_TERRAIN + "floor10_0.gif"),
+            "floor10_1": Image.open(DATA_IMAGES_TERRAIN + "floor10_1.gif"),
+            "floor11_0": Image.open(DATA_IMAGES_TERRAIN + "floor11_0.gif"),
+            "floor11_1": Image.open(DATA_IMAGES_TERRAIN + "floor11_1.gif"),
+            "grava1_0": Image.open(DATA_IMAGES_TERRAIN + "grava1_0.gif"),
+            "grava1_1": Image.open(DATA_IMAGES_TERRAIN + "grava1_1.gif"),
+            "grava2_0": Image.open(DATA_IMAGES_TERRAIN + "grava2_0.gif"),
+            "grava2_1": Image.open(DATA_IMAGES_TERRAIN + "grava2_1.gif"),
+            "grava3_0": Image.open(DATA_IMAGES_TERRAIN + "grava3_0.gif"),
+            "grava3_1": Image.open(DATA_IMAGES_TERRAIN + "grava3_1.gif"),
+            "grass1_0": Image.open(DATA_IMAGES_TERRAIN + "grass1_0.gif"),
+            "grass1_1": Image.open(DATA_IMAGES_TERRAIN + "grass1_1.gif"),
+            "grass2_0": Image.open(DATA_IMAGES_TERRAIN + "grass2_0.gif"),
+            "grass2_1": Image.open(DATA_IMAGES_TERRAIN + "grass2_1.gif"),
+            "grass3_0": Image.open(DATA_IMAGES_TERRAIN + "grass3_0.gif"),
+            "grass3_1": Image.open(DATA_IMAGES_TERRAIN + "grass3_1.gif"),
+            "grass4_0": Image.open(DATA_IMAGES_TERRAIN + "grass4_0.gif"),
+            "grass4_1": Image.open(DATA_IMAGES_TERRAIN + "grass4_1.gif"),
+            "grass5_0": Image.open(DATA_IMAGES_TERRAIN + "grass5_0.gif"),
+            "grass5_1": Image.open(DATA_IMAGES_TERRAIN + "grass5_1.gif"),
+            "grass6_0": Image.open(DATA_IMAGES_TERRAIN + "grass6_0.gif"),
+            "grass6_1": Image.open(DATA_IMAGES_TERRAIN + "grass6_1.gif"),
+            "grass7_0": Image.open(DATA_IMAGES_TERRAIN + "grass7_0.gif"),
+            "grass7_1": Image.open(DATA_IMAGES_TERRAIN + "grass7_1.gif"),
+            "grass8_0": Image.open(DATA_IMAGES_TERRAIN + "grass8_0.gif"),
+            "grass8_1": Image.open(DATA_IMAGES_TERRAIN + "grass8_1.gif"),
+            "grass9_0": Image.open(DATA_IMAGES_TERRAIN + "grass9_0.gif"),
+            "grass9_1": Image.open(DATA_IMAGES_TERRAIN + "grass9_1.gif"),
+            "ice1_0": Image.open(DATA_IMAGES_TERRAIN + "ice1_0.gif"),
+            "ice1_1": Image.open(DATA_IMAGES_TERRAIN + "ice1_1.gif"),
+            "ice2_0": Image.open(DATA_IMAGES_TERRAIN + "ice2_0.gif"),
+            "ice2_1": Image.open(DATA_IMAGES_TERRAIN + "ice2_1.gif"),
+            "ice3_0": Image.open(DATA_IMAGES_TERRAIN + "ice3_0.gif"),
+            "ice3_1": Image.open(DATA_IMAGES_TERRAIN + "ice3_1.gif"),
+            "nether1_0": Image.open(DATA_IMAGES_TERRAIN + "nether1_0.gif"),
+            "nether1_1": Image.open(DATA_IMAGES_TERRAIN + "nether1_1.gif"),
+            "nether2_0": Image.open(DATA_IMAGES_TERRAIN + "nether2_0.gif"),
+            "nether2_1": Image.open(DATA_IMAGES_TERRAIN + "nether2_1.gif"),
+            "nether3_0": Image.open(DATA_IMAGES_TERRAIN + "nether3_0.gif"),
+            "nether3_1": Image.open(DATA_IMAGES_TERRAIN + "nether3_1.gif"),
+            "nether4_0": Image.open(DATA_IMAGES_TERRAIN + "nether4_0.gif"),
+            "nether4_1": Image.open(DATA_IMAGES_TERRAIN + "nether4_1.gif"),
+            "nether5_0": Image.open(DATA_IMAGES_TERRAIN + "nether5_0.gif"),
+            "nether5_1": Image.open(DATA_IMAGES_TERRAIN + "nether5_1.gif"),
+            "ladrillo1_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo1_0.gif"),
+            "ladrillo1_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo1_1.gif"),
+            "ladrillo2_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo2_0.gif"),
+            "ladrillo2_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo2_1.gif"),
+            "ladrillo3_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo3_0.gif"),
+            "ladrillo3_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo3_1.gif"),
+            "ladrillo4_0": Image.open(DATA_IMAGES_TERRAIN + "ladrillo4_0.gif"),
+            "ladrillo4_1": Image.open(DATA_IMAGES_TERRAIN + "ladrillo4_1.gif"),
+            "lava1": Image.open(DATA_IMAGES_TERRAIN + "lava1.gif"),
+            "lava2": Image.open(DATA_IMAGES_TERRAIN + "lava2.gif"),
+            "lava3": Image.open(DATA_IMAGES_TERRAIN + "lava3.gif"),
+            "pantano1_0": Image.open(DATA_IMAGES_TERRAIN + "pantano1_0.gif"),
+            "pantano1_1": Image.open(DATA_IMAGES_TERRAIN + "pantano1_1.gif"),
+            "pantano2_0": Image.open(DATA_IMAGES_TERRAIN + "pantano2_0.gif"),
+            "pantano2_1": Image.open(DATA_IMAGES_TERRAIN + "pantano2_1.gif"),
+            "pavimento1_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento1_0.gif"),
+            "pavimento1_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento1_1.gif"),
+            "pavimento2_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento2_0.gif"),
+            "pavimento2_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento2_1.gif"),
+            "pavimento3_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento3_0.gif"),
+            "pavimento3_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento3_1.gif"),
+            "pavimento4_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento4_0.gif"),
+            "pavimento4_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento4_1.gif"),
+            "pavimento5_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento5_0.gif"),
+            "pavimento5_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento5_1.gif"),
+            "pavimento6_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento6_0.gif"),
+            "pavimento6_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento6_1.gif"),
+            "pavimento7_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento7_0.gif"),
+            "pavimento7_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento7_1.gif"),
+            "pavimento8_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento8_0.gif"),
+            "pavimento8_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento8_1.gif"),
+            "pavimento9_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento9_0.gif"),
+            "pavimento9_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento9_1.gif"),
+            "pavimento10_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento10_0.gif"),
+            "pavimento10_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento10_1.gif"),
+            "pavimento11_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento11_0.gif"),
+            "pavimento11_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pavimento11_1.gif"),
+            "pisomadera1_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera1_0.gif"),
+            "pisomadera1_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera1_1.gif"),
+            "pisomadera2_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera2_0.gif"),
+            "pisomadera2_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera2_1.gif"),
+            "pisomadera3_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera3_0.gif"),
+            "pisomadera3_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera3_1.gif"),
+            "pisomadera4_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera4_0.gif"),
+            "pisomadera4_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera4_1.gif"),
+            "pisomadera5_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera5_0.gif"),
+            "pisomadera5_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera5_1.gif"),
+            "pisomadera6_0": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera6_0.gif"),
+            "pisomadera6_1": Image.open(
+                DATA_IMAGES_TERRAIN + "pisoMadera6_1.gif"),
+            "sand1_0": Image.open(DATA_IMAGES_TERRAIN + "sand1_0.gif"),
+            "sand1_1": Image.open(DATA_IMAGES_TERRAIN + "sand1_1.gif"),
+            "sand2_0": Image.open(DATA_IMAGES_TERRAIN + "sand2_0.gif"),
+            "sand2_1": Image.open(DATA_IMAGES_TERRAIN + "sand2_1.gif"),
+            "sand3_0": Image.open(DATA_IMAGES_TERRAIN + "sand3_0.gif"),
+            "sand3_1": Image.open(DATA_IMAGES_TERRAIN + "sand3_1.gif"),
+            "sand4_0": Image.open(DATA_IMAGES_TERRAIN + "sand4_0.gif"),
+            "sand4_1": Image.open(DATA_IMAGES_TERRAIN + "sand4_1.gif"),
+            "sand5_0": Image.open(DATA_IMAGES_TERRAIN + "sand5_0.gif"),
+            "sand5_1": Image.open(DATA_IMAGES_TERRAIN + "sand5_1.gif"),
+            "water1_0": Image.open(DATA_IMAGES_TERRAIN + "water1_0.gif"),
+            "water1_1": Image.open(DATA_IMAGES_TERRAIN + "water1_1.gif"),
+            "water2_0": Image.open(DATA_IMAGES_TERRAIN + "water2_0.gif"),
+            "water2_1": Image.open(DATA_IMAGES_TERRAIN + "water2_1.gif"),
+            "water3_0": Image.open(DATA_IMAGES_TERRAIN + "water3_0.gif"),
+            "water3_1": Image.open(DATA_IMAGES_TERRAIN + "water3_1.gif"),
+            "water4_0": Image.open(DATA_IMAGES_TERRAIN + "water4_0.gif"),
+            "water4_1": Image.open(DATA_IMAGES_TERRAIN + "water4_1.gif"),
+            "water5_0": Image.open(DATA_IMAGES_TERRAIN + "water5_0.gif"),
+            "water5_1": Image.open(DATA_IMAGES_TERRAIN + "water5_1.gif"),
+            "water6_0": Image.open(DATA_IMAGES_TERRAIN + "water6_0.gif"),
+            "water6_1": Image.open(DATA_IMAGES_TERRAIN + "water6_1.gif"),
+            "water7_0": Image.open(DATA_IMAGES_TERRAIN + "water7_0.gif"),
             "water7_1": Image.open(DATA_IMAGES_TERRAIN + "water7_1.gif")}
         self.loadZips()
 

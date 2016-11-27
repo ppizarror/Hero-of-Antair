@@ -21,10 +21,11 @@ import random
 TARGET = False
 
 
-class group:
+class group(object):
     """Grupo"""
 
-    def __init__(self, tipo, cantidad, vida, ataque, defensa, textura, largadistancia, target, maxmovement,
+    def __init__(self, tipo, cantidad, vida, ataque, defensa, textura,
+                 largadistancia, target, maxmovement,
                  tattack):
         """
         Función constructora
@@ -130,7 +131,8 @@ class group:
         :return: Integer del ataque final
         """
         if TARGET:
-            return (self.ataque + random.randint(-int(self.target / 2), int(self.target / 2))) * self.cantidad
+            return (self.ataque + random.randint(-int(self.target / 2), int(
+                self.target / 2))) * self.cantidad
         else:
             return self.ataque * self.cantidad
 

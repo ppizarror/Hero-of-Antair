@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
 # Hero of Antair, motor gráfico para juego RPG
@@ -15,7 +14,8 @@ from release import *
 # Inicio del sistema
 libstartUp()
 lookPrimaryArguments(PROGRAM_VERSION)  # se buscan los argumentos primarios
-if getConfigValue("terminal.art", True):  # se imprime el arte @UndefinedVariable
+if getConfigValue("terminal.art",
+                  True):  # se imprime el arte @UndefinedVariable
     printAsciiArtHOA()
 __versionstr__ = "HOA - version: " + PROGRAM_VERSION
 if getConfigValue("terminal.version.colored"):
@@ -87,7 +87,8 @@ CANVAS_SIZE = 608, 576  # tamaño de la ventana de dibujo
 CANVAS_MAX_SIZE = [18, 19]  # tamaño máximo del canvas
 CONFIGURATION_DATA = ["ES", True, False, "#000000", "#FFFFFF",
                       "Mozilla/4.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/5.0)",
-                      "http://translate.google.com/translate_a/t?", "OFF", "es", False, False, True, True, True, True,
+                      "http://translate.google.com/translate_a/t?", "OFF",
+                      "es", False, False, True, True, True, True,
                       True, True,
                       False]  # configuraciones por defecto en caso de omisión
 COLORED_ARGUMENT = False  # si los argumentos poseen color
@@ -174,7 +175,6 @@ else:
         POP_YSIZE = 270
         PROGRAM_SIZE = 804, 600
 
-
 # Configuración del programa
 try:  # Se cargan las configuraciones
     print "Consultando configuraciones ...",
@@ -185,10 +185,12 @@ try:  # Se cargan las configuraciones
         # noinspection PyShadowingNames
         i = i.strip()
         c_command = i.split("=")
-        if c_command[0].strip() == "CONSOLE_BACKGROUND":  # Color de fondo de la consola
+        if c_command[
+            0].strip() == "CONSOLE_BACKGROUND":  # Color de fondo de la consola
             c_after_command = str(c_command[1]).split(",")
             CONFIGURATION_DATA[3] = c_after_command[0].strip().upper()
-        if c_command[0].strip() == "CONSOLE_FOREGROUND":  # Color del texto de la consola
+        if c_command[
+            0].strip() == "CONSOLE_FOREGROUND":  # Color del texto de la consola
             c_after_command = str(c_command[1]).split(",")
             CONFIGURATION_DATA[4] = c_after_command[0].strip().upper()
         if c_command[0].strip() == "SAVE_ON_EXIT":  # Guardar al salir
@@ -201,7 +203,8 @@ try:  # Se cargan las configuraciones
             c_after_command = str(c_command[1]).split(",")
             # noinspection PyUnboundLocalVariable
             if len(c_after_command[0].strip()) != 0 and (
-                    c_after_command[0].strip().upper() + LANG_END in LANG_LIST):
+                            c_after_command[
+                                0].strip().upper() + LANG_END in LANG_LIST):
                 CONFIGURATION_DATA[0] = c_after_command[0].strip().upper()
         if c_command[0].strip() == "SOUND":  # sonido
             c_after_command = str(c_command[1]).split(",")
@@ -262,12 +265,13 @@ if CONFIGURATION_DATA[8] == "zh-cn":
     CONFIGURATION_DATA[8] = "zh-CN"  # si es chino se modifica
 if CONFIGURATION_DATA[8] == "pt-pt":
     CONFIGURATION_DATA[8] = "pt-PT"  # si es portugués se modifica
-if CONFIGURATION_DATA[7] == "ON" and CONFIGURATION_DATA[8] != DEFAULT_LANG_CONTENT:
+if CONFIGURATION_DATA[7] == "ON" and CONFIGURATION_DATA[
+    8] != DEFAULT_LANG_CONTENT:
     CONFIGURATION_DATA[9] = True  # si el idioma es el de origen no se traduce
 else:
     CONFIGURATION_DATA[9] = False  # si no se cumple se desactiva
 if CONFIGURATION_DATA[7] == "ON" or (
-        "-enabletranslation" in sys.argv):  # Si el servicio está disponible (o se envio por parámetro)
+            "-enabletranslation" in sys.argv):  # Si el servicio está disponible (o se envio por parámetro)
     if "-enabletranslation" in sys.argv:
         CONFIGURATION_DATA[17] = True
         CONFIGURATION_DATA[10] = True
@@ -281,7 +285,8 @@ if CONFIGURATION_DATA[7] == "ON" or (
         ST_TRANSLATE = True
     except:
         # noinspection PyShadowingBuiltins
-        CONFIGURATION_DATA[10] = False, CONFIGURATION_DATA[  # @ReservedAssignment
+        CONFIGURATION_DATA[10] = False, CONFIGURATION_DATA[
+            # @ReservedAssignment
             9] = False
         print "abortado"  # si ocurre algún error en la conexión en el servicio
     if CONFIGURATION_DATA[8] == "es":
@@ -297,9 +302,11 @@ def translate(text):
     :return: String
     """
     if (ST_TRANSLATE and CONFIGURATION_DATA[9]) or (
-            CONFIGURATION_DATA[10] and CONFIGURATION_DATA[9]):  # Si el servicio está activo
+                CONFIGURATION_DATA[10] and CONFIGURATION_DATA[
+                9]):  # Si el servicio está activo
         try:  # Se consulta por la traducción al servicio de google
-            return google_translate(text, CONFIGURATION_DATA[8], ST_HEADER, ST_HREF)
+            return google_translate(text, CONFIGURATION_DATA[8], ST_HEADER,
+                                    ST_HREF)
         except:  # Si ocurre algún error en la traducción
             return text
     else:
@@ -341,9 +348,12 @@ def loadLang(first=True):
         print OK
     except:  # Error al cargar idioma, muestra mensaje y termina el programa
         st_error("Error fatal")
-        pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88, 300,
+        pop([["Error fatal", "Cerrar"], DATA_ICONS + "cross.ico", "error", 88,
+             300,
              "Error al cargar el archivo de idioma '" +
-             CONFIGURATION_DATA[0] + "', " + PROGRAM_TITLE + " no puede iniciarse"]).w.mainloop(0)
+             CONFIGURATION_DATA[
+                 0] + "', " + PROGRAM_TITLE + " no puede iniciarse"]).w.mainloop(
+            0)
         exit()
 
 
@@ -368,7 +378,7 @@ def lang(i, a="", b="", c="", e=None):
         return data
     except:
         st_error("ID<{0}> no existe en el archivo de idiomas '".format(
-        i) + CONFIGURATION_DATA[0] + "'")
+            i) + CONFIGURATION_DATA[0] + "'")
         return "%LANG ID[{0}]".format(i)
 
 
@@ -385,7 +395,8 @@ def langError(i, e):
 
 # noinspection
 # PyShadowingNames,PyShadowingBuiltins,PyUnboundLocalVariable,PyDeprecation,PyUnreachableCode
-class hoa:
+# noinspection PyUnresolvedReferences,PyShadowingNames,PyUnresolvedReferences,PyShadowingNames,PyUnboundLocalVariable,PyDeprecation,PyUnreachableCode,PyArgumentList,PyShadowingBuiltins,PyGlobalUndefined
+class hoa(object):
     """Main"""
 
     # noinspection PyDefaultArgument
@@ -405,7 +416,8 @@ class hoa:
             :return: void
             """
             e = pop(
-                [[lang(18), lang(170), lang(171), lang(172), lang(173)], self.images.image("icon"), "about", 115, 220,
+                [[lang(18), lang(170), lang(171), lang(172), lang(173)],
+                 self.images.image("icon"), "about", 115, 220,
                  AUTOR_NAME, AUTOR_NAME_EMAIL, PROGRAM_VERSION])
             e.w.mainloop(1)
             del e
@@ -438,17 +450,21 @@ class hoa:
             :param e: Evento
             :return: void
             """
-            if CONFIGURATION_DATA[13]:  # Si las configuraciones no están desactivadas
+            if CONFIGURATION_DATA[
+                13]:  # Si las configuraciones no están desactivadas
                 conf = pop(
-                    [[lang(17), lang(217), lang(218), lang(219), lang(64), lang(273), lang(274), lang(275), lang(671),
+                    [[lang(17), lang(217), lang(218), lang(219), lang(64),
+                      lang(273), lang(274), lang(275), lang(671),
                       lang(672), lang(679), lang(677), lang(674), lang(
-                          682), lang(683), lang(686), lang(687), lang(680),
+                            682), lang(683), lang(686), lang(687), lang(680),
                       lang(681), lang(675), lang(685), lang(673), lang(
-                          678), lang(684), lang(676), lang(688), lang(400),
+                            678), lang(684), lang(676), lang(688), lang(400),
                       lang(800), lang(54)],
                      self.images.image(
-                         "configuration_icon"), "config_hoa", 262, 307, CONFIGURATION_DATA[0],
-                     CONFIGURATION_DATA[1], DATA_LANGS, LANG_END, CONFIGURATION_DATA[
+                         "configuration_icon"), "config_hoa", 262, 307,
+                     CONFIGURATION_DATA[0],
+                     CONFIGURATION_DATA[1], DATA_LANGS, LANG_END,
+                     CONFIGURATION_DATA[
                          2], CONFIGURATION_DATA[3],
                      CONFIGURATION_DATA[4]])
                 conf.w.mainloop(1)
@@ -489,18 +505,22 @@ class hoa:
                         CONFIGURATION_DATA[1] = True
                     if conf.values[2]:
                         CONFIGURATION_DATA[2] = True
-                    if CONFIGURATION_DATA[0] != conf.values[0]:  # Si cambió el idioma
+                    if CONFIGURATION_DATA[0] != conf.values[
+                        0]:  # Si cambió el idioma
                         CONFIGURATION_DATA[0] = conf.values[0]
                         CONFIGURATION_DATA[8] = CONFIGURATION_DATA[0].lower()
                         if CONFIGURATION_DATA[8] == "zh-cn":
                             CONFIGURATION_DATA[8] = "zh-CN"
                         if CONFIGURATION_DATA[8] == "pt-pt":
                             CONFIGURATION_DATA[8] = "pt-PT"
-                        if CONFIGURATION_DATA[7] == "ON" and CONFIGURATION_DATA[8] != DEFAULT_LANG_CONTENT:
+                        if CONFIGURATION_DATA[7] == "ON" and \
+                                        CONFIGURATION_DATA[
+                                            8] != DEFAULT_LANG_CONTENT:
                             CONFIGURATION_DATA[9] = True
                         else:
                             if not CONFIGURATION_DATA[17]:
-                                if CONFIGURATION_DATA[10] and CONFIGURATION_DATA[9]:
+                                if CONFIGURATION_DATA[10] and \
+                                        CONFIGURATION_DATA[9]:
                                     pass
                                 else:
                                     CONFIGURATION_DATA[9] = False
@@ -516,11 +536,14 @@ class hoa:
                         self.archivomenu = Menu(self.menubar, tearoff=0)
                         if isWindows():
                             self.archivomenu.add_command(label=lang(
-                                10), command=self.newGame, accelerator="Ctrl+N")
+                                10), command=self.newGame,
+                                accelerator="Ctrl+N")
                             self.archivomenu.add_command(label=lang(
-                                11), command=self.loadGame, accelerator="Ctrl+L")
+                                11), command=self.loadGame,
+                                accelerator="Ctrl+L")
                             self.archivomenu.add_command(label=lang(
-                                12), command=self.saveGame, accelerator="Ctrl+G")
+                                12), command=self.saveGame,
+                                accelerator="Ctrl+G")
                             self.archivomenu.add_command(
                                 label=lang(13), command=self.abortGame)
                             self.archivomenu.add_separator()
@@ -536,7 +559,8 @@ class hoa:
                             self.vermenu.add_command(label=lang(
                                 323), command=_showPlayerInfo, accelerator="I")
                             self.vermenu.add_command(label=lang(
-                                14), command=_showStatics, accelerator="Ctrl+E")
+                                14), command=_showStatics,
+                                accelerator="Ctrl+E")
                             self.vermenu.add_command(label=lang(
                                 587), command=_verQuest, accelerator="T")
                             self.vermenu.add_command(label=lang(
@@ -556,17 +580,21 @@ class hoa:
                             self.ayudamenu.add_command(label=lang(
                                 327), command=self.update, accelerator="F5")
                             self.ayudamenu.add_command(label=lang(
-                                326), command=self.devConsole, accelerator="F2")
+                                326), command=self.devConsole,
+                                accelerator="F2")
                             if "-eclipse" in sys.argv:
-                                self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
+                                self.ayudamenu.add_command(label=lang(325),
+                                                           command=_infoSystem,
                                                            accelerator="F12")
                         else:
                             self.archivomenu.add_command(
                                 label=lang(10), command=self.newGame)
                             self.archivomenu.add_command(label=lang(
-                                11), command=self.loadGame, accelerator="Control+L")
+                                11), command=self.loadGame,
+                                accelerator="Control+L")
                             self.archivomenu.add_command(label=lang(
-                                12), command=self.saveGame, accelerator="Control+G")
+                                12), command=self.saveGame,
+                                accelerator="Control+G")
                             self.archivomenu.add_command(
                                 label=lang(13), command=self.abortGame)
                             self.archivomenu.add_separator()
@@ -629,9 +657,9 @@ class hoa:
                             for k in range(5):
                                 self.vermenu.entryconfig(k, state=DISABLED)
                         if CONFIGURATION_DATA[
-                                8] not in AVAIABLE_LANGS_TOPRINT:  # Desactivar la función print si el idioma no es español o ingles
+                            8] not in AVAIABLE_LANGS_TOPRINT:  # Desactivar la función print si el idioma no es español o ingles
                             sys.stdout, sys.stderr, sys.stdin, sys.__stdout__, sys.__stderr__, sys.__stdin__ = noStdOut(), noStdOut(), noStdOut(), \
-                                noStdOut(), noStdOut(), noStdOut()
+                                                                                                               noStdOut(), noStdOut(), noStdOut()
                     else:
                         print lang(310)
                         # Si ocurrió un cambio profundo
@@ -693,12 +721,14 @@ class hoa:
                         item = self.player.getCasco()
                         if item is not None:
                             self.sfx(23)
-                            k = pop([[lang(34), lang(243), lang(242), lang(173), lang(248)],
+                            k = pop([[lang(34), lang(243), lang(242),
+                                      lang(173), lang(248)],
                                      DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE, translate(
+                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE,
+                                     translate(
                                          putStrict(item.getName())),
                                      "armadura", translate(
-                                         putStrict(item.getDescription())),
+                                    putStrict(item.getDescription())),
                                      item.getDefense(), item.getUsos()])
                             k.w.mainloop(1)
                             if k.sent:  # Si se envía un evento
@@ -708,8 +738,10 @@ class hoa:
                                     self.sfx(20)
                                     self.setInfo(lang(40))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraCasco.config(image=self.images.image("no_casco"), state=DISABLED,
-                                                                  cursor="arrow")
+                                    self.infoArmaduraCasco.config(
+                                        image=self.images.image("no_casco"),
+                                        state=DISABLED,
+                                        cursor="arrow")
                             del k
                     elif tipo == "izquierda":
                         item = self.player.getLeftWeapon()
@@ -726,8 +758,11 @@ class hoa:
                             else:
                                 bu = 0
                                 ba = 0
-                            k = pop([[lang(35), lang(241), lang(242), lang(173), lang(248), lang(267), lang(266)],
-                                     DATA_ICONS_ITEMS + item.getImage() + "_16.ico", "itemInfoArmor", POP_XSIZE,
+                            k = pop([[lang(35), lang(241), lang(242),
+                                      lang(173), lang(248), lang(267),
+                                      lang(266)],
+                                     DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
+                                     "itemInfoArmor", POP_XSIZE,
                                      POP_YSIZE,
                                      translate(
                                          putStrict(item.getName())), "armawb",
@@ -742,8 +777,9 @@ class hoa:
                                     self.sfx(35)
                                     self.setInfo(lang(41))
                                     self.static.addDroppedWeapon()
-                                    self.infoArmaduraArmaIzquierda.config(image=self.images.image("no_lw"),
-                                                                          state=DISABLED, cursor="arrow")
+                                    self.infoArmaduraArmaIzquierda.config(
+                                        image=self.images.image("no_lw"),
+                                        state=DISABLED, cursor="arrow")
                                     if self.player.getActiveBullet() is not None:
                                         self.player.addObject(
                                             self.player.getActiveBullet())
@@ -754,12 +790,14 @@ class hoa:
                         item = self.player.getChaleco()
                         if item is not None:
                             self.sfx(23)
-                            k = pop([[lang(36), lang(243), lang(242), lang(173), lang(248)],
+                            k = pop([[lang(36), lang(243), lang(242),
+                                      lang(173), lang(248)],
                                      DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE, translate(
+                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE,
+                                     translate(
                                          putStrict(item.getName())),
                                      "armadura", translate(
-                                         putStrict(item.getDescription())),
+                                    putStrict(item.getDescription())),
                                      item.getDefense(), item.getUsos()])
                             k.w.mainloop(1)
                             if k.sent:  # Si se envía un evento
@@ -769,8 +807,9 @@ class hoa:
                                     self.sfx(20)
                                     self.setInfo(lang(42))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraChaleco.config(image=self.images.image("no_chaleco"),
-                                                                    state=DISABLED, cursor="arrow")
+                                    self.infoArmaduraChaleco.config(
+                                        image=self.images.image("no_chaleco"),
+                                        state=DISABLED, cursor="arrow")
                             del k
                     elif tipo == "derecha":
                         item = self.player.getRightWeapon()
@@ -779,12 +818,14 @@ class hoa:
                                 self.sfx(24)
                             else:
                                 self.sfx(34)
-                            k = pop([[lang(37), lang(241), lang(242), lang(173), lang(248)],
+                            k = pop([[lang(37), lang(241), lang(242),
+                                      lang(173), lang(248)],
                                      DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE, translate(
+                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE,
+                                     translate(
                                          putStrict(item.getName())),
                                      "arma", translate(
-                                         putStrict(item.getDescription())),
+                                    putStrict(item.getDescription())),
                                      item.getDamage(), item.getUsos()])
                             k.w.mainloop(1)
                             if k.sent:  # Si se envía un evento
@@ -794,20 +835,23 @@ class hoa:
                                     self.sfx(35)
                                     self.setInfo(lang(43))
                                     self.static.addDroppedWeapon()
-                                    self.infoArmaduraArmaDerecha.config(image=self.images.image("no_rw"),
-                                                                        state=DISABLED, cursor="arrow")
+                                    self.infoArmaduraArmaDerecha.config(
+                                        image=self.images.image("no_rw"),
+                                        state=DISABLED, cursor="arrow")
                                 self.dibujarMundo()
                             del k
                     elif tipo == "pantalones":
                         item = self.player.getPantalones()
                         if item is not None:
                             self.sfx(23)
-                            k = pop([[lang(38), lang(243), lang(242), lang(173), lang(248)],
+                            k = pop([[lang(38), lang(243), lang(242),
+                                      lang(173), lang(248)],
                                      DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE, translate(
+                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE,
+                                     translate(
                                          putStrict(item.getName())),
                                      "armadura", translate(
-                                         putStrict(item.getDescription())),
+                                    putStrict(item.getDescription())),
                                      item.getDefense(), item.getUsos()])
                             k.w.mainloop(1)
                             if k.sent:  # Si se envía un evento
@@ -817,19 +861,22 @@ class hoa:
                                     self.sfx(20)
                                     self.setInfo(lang(44))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraPantalones.config(image=self.images.image("no_pantalon"),
-                                                                       state=DISABLED, cursor="arrow")
+                                    self.infoArmaduraPantalones.config(
+                                        image=self.images.image("no_pantalon"),
+                                        state=DISABLED, cursor="arrow")
                             del k
                     elif tipo == "botas":
                         item = self.player.getBotas()
                         if item is not None:
                             self.sfx(23)
-                            k = pop([[lang(39), lang(243), lang(242), lang(173), lang(248)],
+                            k = pop([[lang(39), lang(243), lang(242),
+                                      lang(173), lang(248)],
                                      DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE, translate(
+                                     "itemInfoArmor", POP_XSIZE, POP_YSIZE,
+                                     translate(
                                          putStrict(item.getName())),
                                      "armadura", translate(
-                                         putStrict(item.getDescription())),
+                                    putStrict(item.getDescription())),
                                      item.getDefense(), item.getUsos()])
                             k.w.mainloop(1)
                             if k.sent:  # Si se envía un evento
@@ -839,16 +886,20 @@ class hoa:
                                     self.sfx(20)
                                     self.setInfo(lang(45))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraBotas.config(image=self.images.image("no_botas"), state=DISABLED,
-                                                                  cursor="arrow")
+                                    self.infoArmaduraBotas.config(
+                                        image=self.images.image("no_botas"),
+                                        state=DISABLED,
+                                        cursor="arrow")
                             del k
             else:  # Click izquierdo, event:drop
                 if tipo == "casco":
                     if self.player.getCasco() is not None:
                         self.player.addObject(self.player.getCasco())
                         self.player.dropCasco()
-                        self.infoArmaduraCasco.config(image=self.images.image("no_casco"), state=DISABLED,
-                                                      cursor="arrow")
+                        self.infoArmaduraCasco.config(
+                            image=self.images.image("no_casco"),
+                            state=DISABLED,
+                            cursor="arrow")
                         self.sfx(20)
                         self.setInfo(lang(40))
                         self.static.addDroppedArmor()
@@ -858,8 +909,9 @@ class hoa:
                         self.player.dropLeftWeapon()
                         self.setInfo(lang(41))
                         self.static.addDroppedWeapon()
-                        self.infoArmaduraArmaIzquierda.config(image=self.images.image("no_lw"), state=DISABLED,
-                                                              cursor="arrow")
+                        self.infoArmaduraArmaIzquierda.config(
+                            image=self.images.image("no_lw"), state=DISABLED,
+                            cursor="arrow")
                         self.sfx(35)
                         if self.player.getActiveBullet() is not None:  # Si el jugador tenia una bala definida para esa arma a botar
                             # agrego como item a la bala
@@ -874,15 +926,18 @@ class hoa:
                         self.setInfo(lang(42))
                         self.static.addDroppedArmor()
                         self.sfx(20)
-                        self.infoArmaduraChaleco.config(image=self.images.image("no_chaleco"), state=DISABLED,
-                                                        cursor="arrow")
+                        self.infoArmaduraChaleco.config(
+                            image=self.images.image("no_chaleco"),
+                            state=DISABLED,
+                            cursor="arrow")
                 elif tipo == "derecha":
                     if self.player.getRightWeapon() is not None:
                         self.player.addObject(self.player.getRightWeapon())
                         self.player.dropRightWeapon()
                         self.setInfo(lang(43))
-                        self.infoArmaduraArmaDerecha.config(image=self.images.image("no_rw"), state=DISABLED,
-                                                            cursor="arrow")
+                        self.infoArmaduraArmaDerecha.config(
+                            image=self.images.image("no_rw"), state=DISABLED,
+                            cursor="arrow")
                         self.sfx(35)
                         self.static.addDroppedWeapon()
                         self.dibujarMundo()
@@ -893,8 +948,10 @@ class hoa:
                         self.setInfo(lang(44))
                         self.static.addDroppedArmor()
                         self.sfx(20)
-                        self.infoArmaduraPantalones.config(image=self.images.image("no_pantalon"), state=DISABLED,
-                                                           cursor="arrow")
+                        self.infoArmaduraPantalones.config(
+                            image=self.images.image("no_pantalon"),
+                            state=DISABLED,
+                            cursor="arrow")
                 elif tipo == "botas":
                     if self.player.getBotas() is not None:
                         self.player.addObject(self.player.getBotas())
@@ -902,8 +959,10 @@ class hoa:
                         self.setInfo(lang(45))
                         self.static.addDroppedArmor()
                         self.sfx(20)
-                        self.infoArmaduraBotas.config(image=self.images.image("no_botas"), state=DISABLED,
-                                                      cursor="arrow")
+                        self.infoArmaduraBotas.config(
+                            image=self.images.image("no_botas"),
+                            state=DISABLED,
+                            cursor="arrow")
             self.dibujarItems()
 
         def _itemMenu(i, typeClick, e=None):
@@ -952,7 +1011,8 @@ class hoa:
                             self.sfx(23)
                             self.setInfo(lang(28))
                             self.textMsg(
-                                lang(choice([484, 485, 486, 487, 488, 489, 490, 495])))
+                                lang(choice(
+                                    [484, 485, 486, 487, 488, 489, 490, 495])))
                         elif typeItem == "armor/chaleco":  # Chaleco
                             self.player.dropObject(i)
                             if self.player.getChaleco() is not None:  # Si el player tiene botas
@@ -991,10 +1051,13 @@ class hoa:
                                 lang(choice([506, 507, 508, 509, 510, 511])))
                         elif typeItem == "coin":  # Fichas / Monedas / Dinero
                             self.setInfo(
-                                lang(27, str(item.getUsos()), str(item.getName())))
+                                lang(27, str(item.getUsos()),
+                                     str(item.getName())))
                             self.sfx(5)
                             self.textMsg(
-                                lang(choice([512, 513, 514, 515, 516, 517, 518, 519, 520])))
+                                lang(choice(
+                                    [512, 513, 514, 515, 516, 517, 518, 519,
+                                     520])))
                         elif typeItem == "mana/normal":  # Mana
                             self.player.increaseMana(item.getPDV())
                             self.setInfo(lang(104, str(item.getPDV())))
@@ -1006,7 +1069,8 @@ class hoa:
                             if item.estaDestruido():
                                 self.player.dropObject(i)
                             self.textMsg(
-                                lang(choice([521, 522, 523, 524, 525, 526, 527])))
+                                lang(choice(
+                                    [521, 522, 523, 524, 525, 526, 527])))
                         elif typeItem == "object/holy":  # Biblia
                             self.player.upgradeMana()
                             self.setInfo(lang(102))
@@ -1025,13 +1089,17 @@ class hoa:
                             if item.estaDestruido():
                                 self.player.dropObject(i)
                             self.textMsg(
-                                lang(choice([528, 529, 530, 531, 532, 533, 534, 535, 536])))
+                                lang(choice(
+                                    [528, 529, 530, 531, 532, 533, 534, 535,
+                                     536])))
                         elif typeItem == "read":  # Libros
                             self.sfx(27)
                             try:
                                 self.static.addLibros()
                                 k = pop(
-                                    [translate(item.getName()), self.images.image("text_icon"), "longtext", 400, 600,
+                                    [translate(item.getName()),
+                                     self.images.image("text_icon"),
+                                     "longtext", 400, 600,
                                      LEVELS_RES + item.getBookLink()])
                                 k.w.mainloop(0)
                                 del k
@@ -1082,83 +1150,105 @@ class hoa:
                             else:
                                 self.setInfo(lang(126, item.getName()))
                             self.textMsg(
-                                lang(choice([542, 543, 544, 545, 546, 547, 548])))
+                                lang(choice(
+                                    [542, 543, 544, 545, 546, 547, 548])))
                     else:  # Click derecho, propiedades
                         if CONFIGURATION_DATA[15]:  # Si está activa la opción
                             tipo = item.getType()
                             if "armor" in tipo:
                                 self.sfx(23)
-                                k = pop([[lang(33), lang(243), lang(242), lang(173), lang(248)],
+                                k = pop([[lang(33), lang(243), lang(242),
+                                          lang(173), lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
                                              putStrict(item.getName())),
                                          "armadura", translate(
-                                             putStrict(item.getDescription())),
+                                        putStrict(item.getDescription())),
                                          item.getDefense(), item.getUsos()])
                             elif "bullet" in tipo:
                                 self.sfx(24)
-                                k = pop([[lang(33), lang(241), lang(244), lang(173), lang(248)],
+                                k = pop([[lang(33), lang(241), lang(244),
+                                          lang(173), lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
                                              putStrict(item.getName())),
                                          "bullet", translate(
-                                             putStrict(item.getDescription())),
+                                        putStrict(item.getDescription())),
                                          item.getDamage(), item.getUsos()])
                             elif "coin" in tipo:
                                 self.sfx(5)
-                                k = pop([[lang(33), lang(244), "", lang(173), lang(248)],
+                                k = pop([[lang(33), lang(244), "", lang(173),
+                                          lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
-                                             putStrict(item.getName())), "coin",
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
+                                             putStrict(item.getName())),
+                                         "coin",
                                          translate(
                                              putStrict(item.getDescription())),
                                          translate(item.getUsos())])
                             elif "mana" in tipo:
                                 self.sfx(16)
-                                k = pop([[lang(33), lang(23) + " ", lang(244), lang(173), lang(248)],
+                                k = pop([[lang(33), lang(23) + " ", lang(244),
+                                          lang(173), lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
-                                             putStrict(item.getName())), "mana",
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
+                                             putStrict(item.getName())),
+                                         "mana",
                                          translate(
                                              putStrict(item.getDescription())),
                                          item.getPDV(), item.getUsos()])
                             elif "object" in tipo:
                                 if item.getId() == 222:
                                     self.sfx(27)
-                                k = pop([[lang(33), lang(245), lang(246), lang(173), lang(248)],
+                                k = pop([[lang(33), lang(245), lang(246),
+                                          lang(173), lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
                                              putStrict(item.getName())),
                                          "objeto", translate(
-                                             putStrict(item.getDescription())),
+                                        putStrict(item.getDescription())),
                                          putStrict(str(item.getTipoObjeto())),
-                                         translate(putStrict(str(item.getUtilidad())))])
+                                         translate(putStrict(
+                                             str(item.getUtilidad())))])
                             elif "potion" in tipo:
                                 if tipo != "potion/food":
                                     self.sfx(21)
-                                k = pop([[lang(33), lang(247), lang(244), lang(173), lang(248)],
+                                k = pop([[lang(33), lang(247), lang(244),
+                                          lang(173), lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
                                              putStrict(item.getName())),
                                          "pocion", translate(
-                                             putStrict(item.getDescription())),
+                                        putStrict(item.getDescription())),
                                          item.getPDV(), item.getUsos()])
                             elif "read" in tipo:
                                 self.sfx(27)
-                                k = pop([[lang(33), "", "", lang(173), lang(248)],
-                                         DATA_ICONS_ITEMS + item.getImage() + "_16.ico", "itemInfo",
-                                         POP_XSIZE, POP_YSIZE, translate(
-                                             putStrict(item.getName())), "libro",
-                                         translate(putStrict(item.getDescription()))])
+                                k = pop(
+                                    [[lang(33), "", "", lang(173), lang(248)],
+                                     DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
+                                     "itemInfo",
+                                     POP_XSIZE, POP_YSIZE, translate(
+                                        putStrict(item.getName())), "libro",
+                                     translate(
+                                         putStrict(item.getDescription()))])
                             elif "weapon" in tipo:
                                 if isIn(item.getImage(), ARROW_WEAPONS_PREFIX):
                                     self.sfx(24)  # sonido de flechas
                                 else:
                                     self.sfx(34)
-                                k = pop([[lang(33), lang(241), lang(242), lang(173), lang(248)],
+                                k = pop([[lang(33), lang(241), lang(242),
+                                          lang(173), lang(248)],
                                          DATA_ICONS_ITEMS + item.getImage() + "_16.ico",
-                                         "itemInfo", POP_XSIZE, POP_YSIZE, translate(
-                                             putStrict(item.getName())), "arma",
+                                         "itemInfo", POP_XSIZE, POP_YSIZE,
+                                         translate(
+                                             putStrict(item.getName())),
+                                         "arma",
                                          translate(
                                              putStrict(item.getDescription())),
                                          item.getDamage(), item.getUsos()])
@@ -1180,11 +1270,13 @@ class hoa:
                                     elif action == "left":
                                         if i > 0:
                                             self.player.setItem(i,
-                                                                self.player.getItem(i - 1))
+                                                                self.player.getItem(
+                                                                    i - 1))
                                             self.player.setItem(
                                                 i - 1, item)
                                     elif action == "right":
-                                        if i < (self.player.getItemAmount() - 1):
+                                        if i < (
+                                                    self.player.getItemAmount() - 1):
                                             self.player.setItem(i,
                                                                 self.player.getItem(
                                                                     i + 1))
@@ -1192,15 +1284,18 @@ class hoa:
                                                 i + 1, item)
                                     elif action == "super_left":
                                         if self.player.getItemAmount() > 2:
-                                            self.player.setItem(i, self.player.getItem(
-                                                0))
+                                            self.player.setItem(i,
+                                                                self.player.getItem(
+                                                                    0))
                                             self.player.setItem(0, item)
                                     elif action == "super_right":
                                         if self.player.getItemAmount() > 2:
-                                            self.player.setItem(i, self.player.getItem(
-                                                self.player.getItemAmount() - 1))
+                                            self.player.setItem(i,
+                                                                self.player.getItem(
+                                                                    self.player.getItemAmount() - 1))
                                             self.player.setItem(
-                                                self.player.getItemAmount() - 1, item)
+                                                self.player.getItemAmount() - 1,
+                                                item)
                                 del k  # borro la ventana
                             except Exception, e:
                                 print langError(354, e)
@@ -1265,7 +1360,9 @@ class hoa:
                                     self.enemyId = 0
                                     if self.inBattle:
                                         self.textMsg(
-                                            lang(choice([549, 550, 551, 552, 553, 554])))
+                                            lang(choice(
+                                                [549, 550, 551, 552, 553,
+                                                 554])))
                                     else:
                                         self.textMsg(
                                             lang(choice([555, 556, 557, 558])))
@@ -1273,22 +1370,29 @@ class hoa:
                                     self.inNpc = False
                                     _setActivePowerId(self.player.getName(), 0)
                                     self.root.after(self.dificultad[5],
-                                                    lambda: _delActivePowerId(self.player.getName(), 0))
+                                                    lambda: _delActivePowerId(
+                                                        self.player.getName(),
+                                                        0))
                                     self.setInfo(lang(559))
                             else:  # Si no tiene el mana necesario
                                 self.textMsg(lang(448))
                                 self.setInfo(
-                                    lang(449, str(abs(self.player.getMana() - mana_requerido))))
+                                    lang(449, str(abs(
+                                        self.player.getMana() - mana_requerido))))
                                 self.setInfo(lang(450))
                         else:  # Click izquierdo
-                            if CONFIGURATION_DATA[16]:  # Si está activa la opción
-                                k = pop([[lang(380), lang(381), lang(382), lang(383), lang(173), lang(384)],
+                            if CONFIGURATION_DATA[
+                                16]:  # Si está activa la opción
+                                k = pop([[lang(380), lang(381), lang(382),
+                                          lang(383), lang(173), lang(384)],
                                          DATA_ICONS_POWERS + poder.getImage() + ".ico",
                                          "powerInfo", 163, 270, translate(
-                                             poder.getName()),
+                                        poder.getName()),
                                          translate(
-                                             poder.getDescripcion()), poder.getNivel(),
-                                         toHour(str(float(poder.getTime() * (1 - self.dificultad[6]))))])
+                                             poder.getDescripcion()),
+                                         poder.getNivel(),
+                                         toHour(str(float(poder.getTime() * (
+                                             1 - self.dificultad[6]))))])
                                 del k
 
         def _item_mousewheel(event):
@@ -1399,20 +1503,25 @@ class hoa:
                 else:
                     _sizex = 430
                     _sizey = 260
-                e = pop([[lang(323), lang(245).replace(":", ""), lang(228), lang(173), lang(22).replace(":", ""),
+                e = pop([[lang(323), lang(245).replace(":", ""), lang(228),
+                          lang(173), lang(22).replace(":", ""),
                           lang(23).replace(":", ""),
-                          lang(24).replace(":", ""), lang(601), lang(227), lang(381).replace(":", ""), lang(602)],
+                          lang(24).replace(":", ""), lang(601), lang(227),
+                          lang(381).replace(":", ""), lang(602)],
                          self.images.image(
-                             "user_icon"), "show_info_player", _sizey, _sizex, self.player.getName(),
+                             "user_icon"), "show_info_player", _sizey, _sizex,
+                         self.player.getName(),
                          translate(self.player.getType()
                                    ), self.player.getEdad(),
                          translate(self.player.getInfo()), self.player.getLife(
-                ), self.player.getMaxLife(),
-                    self.player.getMana(), self.player.getMaxMana(),
-                    self.player.getExperience(), self.player.getPrevExp(), self.player.getMaxExperience(),
-                    Image.open(self.images.getLinkImage(
-                        self.player.getLinkImage() + "_0")), self.player.getPais(),
-                    self.player.getLevel()])
+                    ), self.player.getMaxLife(),
+                         self.player.getMana(), self.player.getMaxMana(),
+                         self.player.getExperience(), self.player.getPrevExp(),
+                         self.player.getMaxExperience(),
+                         Image.open(self.images.getLinkImage(
+                             self.player.getLinkImage() + "_0")),
+                         self.player.getPais(),
+                         self.player.getLevel()])
                 e.w.mainloop(1)
                 del e
 
@@ -1427,10 +1536,13 @@ class hoa:
                     _sizey = 490
                 else:
                     _sizey = 515
-                statics = pop([[lang(209), lang(173), lang(195), lang(196), lang(197), lang(198), lang(199), lang(200),
-                                lang(201), lang(202), lang(203), lang(204), lang(
+                statics = pop([[lang(209), lang(173), lang(195), lang(196),
+                                lang(197), lang(198), lang(199), lang(200),
+                                lang(201), lang(202), lang(203), lang(204),
+                                lang(
                                     205), lang(206), lang(207), lang(208),
-                                lang(211), lang(444), lang(445), lang(446), lang(591), lang(722)],
+                                lang(211), lang(444), lang(445), lang(446),
+                                lang(591), lang(722)],
                                self.images.image("statics"),
                                "statics", _sizey, 280, self.static.get()])
                 statics.w.mainloop(1)
@@ -1449,11 +1561,16 @@ class hoa:
                 else:
                     _sizex = 500
                     _sizey = 120
-                p = pop([[lang(701), lang(702), lang(703), lang(706), lang(707), lang(708), lang(709), lang(710),
-                          lang(704), lang(711), lang(705), lang(712)], self.images.image("group"), "ver_followers",
+                p = pop([[lang(701), lang(702), lang(703), lang(706),
+                          lang(707), lang(708), lang(709), lang(710),
+                          lang(704), lang(711), lang(705), lang(712)],
+                         self.images.image("group"), "ver_followers",
                          _sizey, _sizex, self.dificultad[
-                             7], self.player.getAttack(), self.player.getDefensa(),
-                         self.player.getMaxLife(), self.player.getLightFriends(), self.player.getMediumFriends(),
+                             7], self.player.getAttack(),
+                         self.player.getDefensa(),
+                         self.player.getMaxLife(),
+                         self.player.getLightFriends(),
+                         self.player.getMediumFriends(),
                          self.player.getStrongFriends()])
                 p.w.mainloop(1)
                 del p
@@ -1471,9 +1588,11 @@ class hoa:
                 else:
                     _sizex = 470
                 p = pop(
-                    [[lang(587), lang(588), lang(576).title(), lang(589), lang(590)], self.images.image("quest_list"),
+                    [[lang(587), lang(588), lang(576).title(), lang(589),
+                      lang(590)], self.images.image("quest_list"),
                      "ver_quest",
-                     250, _sizex, self.player.getQuest(), self.player.getTotalQuest(), QUEST_DELIMITER])
+                     250, _sizex, self.player.getQuest(),
+                     self.player.getTotalQuest(), QUEST_DELIMITER])
                 p.w.mainloop(1)
                 del p
 
@@ -1513,10 +1632,12 @@ class hoa:
         arg = []  # matriz de argumentos
         arg_p = []  # matriz parcial de argumentos
         if len(arguments) > 2:  # Si existen argumentos
-            for k in range(1, len(arguments) - 1):  # Se crea una matriz de argumentos
+            for k in range(1, len(
+                    arguments) - 1):  # Se crea una matriz de argumentos
                 if "-" in arguments[k]:
                     arg_p.append(arguments[k].replace("-", ""))
-                    if "-" not in arguments[k + 1] and not "$" in arguments[k + 1]:
+                    if "-" not in arguments[k + 1] and not "$" in arguments[
+                                k + 1]:
                         arg_p.append(arguments[k + 1])
                         if k != len(arguments):
                             k += 2
@@ -1534,11 +1655,13 @@ class hoa:
             exit()
         self.root.title(PROGRAM_TITLE)  # título
         self.root.minsize(width=PROGRAM_SIZE[0], height=PROGRAM_SIZE[
-                          1])  # tamaño mínimo y máximo
+            1])  # tamaño mínimo y máximo
         self.root.resizable(width=False, height=False)
         self.root.geometry(
-            '%dx%d+%d+%d' % (PROGRAM_SIZE[0], PROGRAM_SIZE[1], (self.root.winfo_screenwidth() - PROGRAM_SIZE[0]) / 2,
-                             (self.root.winfo_screenheight() - PROGRAM_SIZE[1] - 50) / 2))
+            '%dx%d+%d+%d' % (PROGRAM_SIZE[0], PROGRAM_SIZE[1], (
+                self.root.winfo_screenwidth() - PROGRAM_SIZE[0]) / 2,
+                             (self.root.winfo_screenheight() - PROGRAM_SIZE[
+                                 1] - 50) / 2))
 
         # Se define el enfoque a la ventana
         if isWindows():  # Si el sistema operativo es windows
@@ -1552,8 +1675,10 @@ class hoa:
         checkScreen(self.root, PROGRAM_SIZE, lang(824))
 
         # Creación de variables
-        self.activePowers = ["playername", [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                            0]]  # matriz de datos de los poderes
+        self.activePowers = ["playername",
+                             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                              0, 0,
+                              0]]  # matriz de datos de los poderes
         self.board = None  # tablero para los combates grupales
         self.botonesItems = list()  # botones para los items
         self.botonesPoderes = list()  # botones para los poderes
@@ -1570,7 +1695,8 @@ class hoa:
                       tkFont.Font(family="Verdana", size=6),
                       tkFont.Font(family="Times", size=10),
                       tkFont.Font(family="Times", size=10, weight=tkFont.BOLD),
-                      tkFont.Font(family="Verdana", size=6, weight=tkFont.BOLD),
+                      tkFont.Font(family="Verdana", size=6,
+                                  weight=tkFont.BOLD),
                       tkFont.Font(family="Verdana", size=10),
                       tkFont.Font(family="Verdana", size=7)]
         self.inBattle = False  # indica que hay una batalla en proceso
@@ -1642,7 +1768,7 @@ class hoa:
         try:
             self.images = hoaTextures([lang(394), lang(310)])
             print lang(310)  # Cargo las texturas
-        except Exception,e:
+        except Exception, e:
             print lang(398)
             print lang(330)
             print langError(830, e)
@@ -1651,11 +1777,12 @@ class hoa:
         # Se genera la UI
         print lang(312),
         try:
-            self.root.iconbitmap(self.images.image("icon"))  # icono del programa
+            self.root.iconbitmap(
+                self.images.image("icon"))  # icono del programa
         except Exception, e:
             print ""
             print langError(828, e)
-            totalerrors+=1
+            totalerrors += 1
         self.menubar = Menu(self.root)
         self.root.config(menu=self.menubar)
         self.archivomenu = Menu(self.menubar, tearoff=0)
@@ -1700,7 +1827,8 @@ class hoa:
             self.ayudamenu.add_command(label=lang(
                 326), command=self.devConsole, accelerator="F2")
             if "-eclipse" in sys.argv:
-                self.ayudamenu.add_command(label=lang(325), command=_infoSystem,
+                self.ayudamenu.add_command(label=lang(325),
+                                           command=_infoSystem,
                                            accelerator="F12")
         else:
             self.archivomenu.add_command(label=lang(10), command=self.newGame)
@@ -1741,7 +1869,8 @@ class hoa:
         self.menubar.add_cascade(label=lang(19), menu=self.ayudamenu)
         f = Frame(self.root)
         f.pack()
-        self.initialBg = Canvas(f, width=PROGRAM_SIZE[0] + 105, height=PROGRAM_SIZE[1] + 100, bd=-2,
+        self.initialBg = Canvas(f, width=PROGRAM_SIZE[0] + 105,
+                                height=PROGRAM_SIZE[1] + 100, bd=-2,
                                 highlightthickness=0)
         self.initialBg.pack()
         if isWindows():
@@ -1766,7 +1895,8 @@ class hoa:
         self.vidaLabel = Label(menu2, text=lang(22), width=5, anchor=E)
         self.vidaLabel.pack(side=LEFT)
         self.infoVidaCanv = Canvas(
-            menu2, width=100 * BAR_POND_COEF, height=16, bg="#B30000", highlightthickness=0)
+            menu2, width=100 * BAR_POND_COEF, height=16, bg="#B30000",
+            highlightthickness=0)
         self.infoVidaCanv.pack(side=LEFT)  # barra de vida
         if isWindows():
             self.infoVida = Label(menu2, width=6, anchor=E)
@@ -1779,7 +1909,8 @@ class hoa:
         self.manaLabel = Label(menu7, text=lang(23), width=5, anchor=E)
         self.manaLabel.pack(side=LEFT)
         self.infoManaCanv = Canvas(
-            menu7, width=100 * BAR_POND_COEF, height=16, bg="#97991E", highlightthickness=0)
+            menu7, width=100 * BAR_POND_COEF, height=16, bg="#97991E",
+            highlightthickness=0)
         self.infoManaCanv.pack(side=LEFT)  # barra de mana
         if isWindows():
             self.infoMana = Label(menu7, width=6, anchor=E)
@@ -1808,7 +1939,8 @@ class hoa:
             buttonBorder = 2
         else:
             buttonBorder = 2
-        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED, image=self.images.image("no_casco"),
+        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED,
+                                        image=self.images.image("no_casco"),
                                         border=buttonBorder)
         self.infoArmaduraCasco.pack()
         a_2 = Frame(menu5)
@@ -1817,23 +1949,34 @@ class hoa:
             buttonPad = 0
         else:
             buttonPad = 3
-        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_lw"),
+        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE,
+                                                state=DISABLED,
+                                                image=self.images.image(
+                                                    "no_lw"),
                                                 border=buttonBorder)
         self.infoArmaduraArmaIzquierda.pack(side=LEFT, padx=buttonPad)
-        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_chaleco"),
+        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED,
+                                          image=self.images.image(
+                                              "no_chaleco"),
                                           border=buttonBorder)
         self.infoArmaduraChaleco.pack(side=LEFT)
-        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE, state=DISABLED, image=self.images.image("no_rw"),
+        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE,
+                                              state=DISABLED,
+                                              image=self.images.image("no_rw"),
                                               border=buttonBorder)
         self.infoArmaduraArmaDerecha.pack(padx=buttonPad)
         a_3 = Frame(menu5)
         a_3.pack()
-        self.infoArmaduraPantalones = Button(a_3, relief=GROOVE, state=DISABLED,
-                                             image=self.images.image("no_pantalon"), border=buttonBorder)
+        self.infoArmaduraPantalones = Button(a_3, relief=GROOVE,
+                                             state=DISABLED,
+                                             image=self.images.image(
+                                                 "no_pantalon"),
+                                             border=buttonBorder)
         self.infoArmaduraPantalones.pack()
         a_4 = Frame(menu5)
         a_4.pack(),
-        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED, image=self.images.image("no_botas"),
+        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED,
+                                        image=self.images.image("no_botas"),
                                         border=buttonBorder)
         self.infoArmaduraBotas.pack()
         if isWindows():
@@ -1890,27 +2033,33 @@ class hoa:
         self.infoSlider.canv.config(bg="#000000")
         self.infoSlider.pack(pady=2, anchor=NE, fill=BOTH, padx=1)
         if isWindows():
-            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=175, anchor=NW,
+            self.info = Label(self.infoSlider.interior, text="", justify=LEFT,
+                              wraplength=175, anchor=NW,
                               bg=CONFIGURATION_DATA[3],
-                              fg=CONFIGURATION_DATA[4], font=self.fonts[0], relief=FLAT, border=2, cursor="xterm")
+                              fg=CONFIGURATION_DATA[4], font=self.fonts[0],
+                              relief=FLAT, border=2, cursor="xterm")
         elif isOSX():
-            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=220, anchor=NW,
+            self.info = Label(self.infoSlider.interior, text="", justify=LEFT,
+                              wraplength=220, anchor=NW,
                               bg=CONFIGURATION_DATA[3],
-                              fg=CONFIGURATION_DATA[4], font=self.fonts[5], relief=FLAT, border=2, cursor="xterm")
+                              fg=CONFIGURATION_DATA[4], font=self.fonts[5],
+                              relief=FLAT, border=2, cursor="xterm")
         else:
-            self.info = Label(self.infoSlider.interior, text="", justify=LEFT, wraplength=250, anchor=NW,
+            self.info = Label(self.infoSlider.interior, text="", justify=LEFT,
+                              wraplength=250, anchor=NW,
                               bg=CONFIGURATION_DATA[3],
-                              fg=CONFIGURATION_DATA[4], font=self.fonts[6], relief=FLAT, border=2, cursor="xterm")
+                              fg=CONFIGURATION_DATA[4], font=self.fonts[6],
+                              relief=FLAT, border=2, cursor="xterm")
         self.info.pack(anchor=NW, fill=BOTH)
         self.infoSlider.scroller.pack_forget()
         menu7 = Frame(self.menu)
         menu7.pack()
         if isWindows():
             self.world = Canvas(self.content, width=CANVAS_SIZE[
-                                0], height=CANVAS_SIZE[1])
+                0], height=CANVAS_SIZE[1])
         else:
             self.world = Canvas(self.content, width=CANVAS_SIZE[
-                                0], height=CANVAS_SIZE[1], bd=0, highlightthickness=0)
+                0], height=CANVAS_SIZE[1], bd=0, highlightthickness=0)
         self.world.pack(fill=BOTH, padx=0)  # canvas del mundo
         print lang(310)
 
@@ -2047,8 +2196,10 @@ class hoa:
         elif len(arg) > 1:
             print lang(761),
         if _consultArgument("delpyc", arg):
-            files = ["actors", "board", "group", "item", "mob", "npc", "lib", "pop", "powers", "statics", "strict",
-                     "texture_analysis", "texture_conts", "texture_items", "texture_world", "textures", "sounds", "hoa",
+            files = ["actors", "board", "group", "item", "mob", "npc", "lib",
+                     "pop", "powers", "statics", "strict",
+                     "texture_analysis", "texture_conts", "texture_items",
+                     "texture_world", "textures", "sounds", "hoa",
                      "medt", "mpop", "textures_editor", "__init__"]
             for f in files:
                 try:
@@ -2090,7 +2241,8 @@ class hoa:
         if _consultArgument("resizable", arg):
             self.root.resizable(width=True, height=True)
             self.root.minsize(width=0, height=0)
-        if _consultArgument("savefile", arg):  # Si se recibe por argumento a saveFile
+        if _consultArgument("savefile",
+                            arg):  # Si se recibe por argumento a saveFile
             try:
                 savefile = consultParam("savefile", arg)  # archivo de guardado
                 if len(savefile) > 0 and savefile != "%NULL%":
@@ -2142,7 +2294,8 @@ class hoa:
                         else:
                             ysize = 160
                             xsize = 320
-                        e = pop([[lang(754), lang(751), lang(752), lang(753), lang(750), lang(327), lang(239)],
+                        e = pop([[lang(754), lang(751), lang(752), lang(753),
+                                  lang(750), lang(327), lang(239)],
                                  self.images.image(
                                      "actualizacion"), "actualizacion",
                                  ysize, xsize, PROGRAM_VERSION, version])
@@ -2188,7 +2341,8 @@ class hoa:
                 elif totalerrors != 0 and totalwarnings == 0:
                     print lang(760).format(str(totalerrors)).strip()
                 elif totalwarnings != 0 and totalerrors != 0:
-                    print lang(759).format(str(totalerrors), str(totalwarnings)).strip()
+                    print lang(759).format(str(totalerrors),
+                                           str(totalwarnings)).strip()
             del totalwarnings
             del totalerrors
 
@@ -2312,7 +2466,8 @@ class hoa:
                 self.sfx(35)
                 self.world.delete("player:left_weapon")
                 self.infoArmaduraArmaIzquierda.config(
-                    image=self.images.image("no_lw"), state=DISABLED, cursor="arrow")
+                    image=self.images.image("no_lw"), state=DISABLED,
+                    cursor="arrow")
                 self.setInfo(lang(41))
                 self.textMsg(lang(choice([649, 650, 651, 652, 653, 654])))
                 if self.player.getActiveBullet() is not None:  # Si el jugador tenia una bala definida para esa arma a botar
@@ -2332,7 +2487,8 @@ class hoa:
                 self.world.delete("player:right_weapon")
                 self.sfx(35)
                 self.infoArmaduraArmaDerecha.config(
-                    image=self.images.image("no_rw"), state=DISABLED, cursor="arrow")
+                    image=self.images.image("no_rw"), state=DISABLED,
+                    cursor="arrow")
                 self.setInfo(lang(43))
                 self.textMsg(lang(choice([649, 650, 651, 652, 653, 654])))
         if self.player.getChaleco() is not None:
@@ -2349,8 +2505,9 @@ class hoa:
                 self.player.dropPantalones()
                 self.static.addDroppedArmor()
                 self.sfx(20)
-                self.infoArmaduraPantalones.config(image=self.images.image("no_pantalon"), state=DISABLED,
-                                                   cursor="arrow")
+                self.infoArmaduraPantalones.config(
+                    image=self.images.image("no_pantalon"), state=DISABLED,
+                    cursor="arrow")
                 self.setInfo(lang(44))
                 self.textMsg(lang(choice([660, 661, 662, 663, 664])))
         if self.player.getBotas() is not None:
@@ -2385,7 +2542,8 @@ class hoa:
             :return:
             """
 
-            def _look(newposx, newposy, direccmatrix, direcc, avaiablepos, tags):
+            def _look(newposx, newposy, direccmatrix, direcc, avaiablepos,
+                      tags):
                 """
                 Función que busca si está disponible el movimiento
                 :param newposx: Posición x
@@ -2401,43 +2559,53 @@ class hoa:
                                            newposy) == "none":  # Si es un tile válido se agrega la posición y se imprime en el canvas
                         tag_tile = generateRandom6()
                         if turn == TURN_HN:
-                            self.world.create_rectangle(32 * newposx + self.board.getBoardCorreccionX() + 2,
-                                                        32 * newposy + self.board.getBoardCorreccionY() + 3,
-                                                        32 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                                        32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
-                                                        fill=LINE_BOARD_COLOR_ACTIVE, outline=LINE_BOARD_COLOR_ACTIVE,
-                                                        tags=tag_tile)
+                            self.world.create_rectangle(
+                                32 * newposx + self.board.getBoardCorreccionX() + 2,
+                                32 * newposy + self.board.getBoardCorreccionY() + 3,
+                                32 + 32 * newposx + self.board.getBoardCorreccionX(),
+                                32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
+                                fill=LINE_BOARD_COLOR_ACTIVE,
+                                outline=LINE_BOARD_COLOR_ACTIVE,
+                                tags=tag_tile)
                         elif turn == TURN_AI:
-                            self.world.create_rectangle(32 * newposx + self.board.getBoardCorreccionX() + 2,
-                                                        32 * newposy + self.board.getBoardCorreccionY() + 3,
-                                                        32 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                                        32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
-                                                        fill=RECT_CANT_COLOR_FG_M, outline=RECT_CANT_COLOR_FG_M,
-                                                        tags=tag_tile)
+                            self.world.create_rectangle(
+                                32 * newposx + self.board.getBoardCorreccionX() + 2,
+                                32 * newposy + self.board.getBoardCorreccionY() + 3,
+                                32 + 32 * newposx + self.board.getBoardCorreccionX(),
+                                32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
+                                fill=RECT_CANT_COLOR_FG_M,
+                                outline=RECT_CANT_COLOR_FG_M,
+                                tags=tag_tile)
                         avaiablepos.append([newposx, newposy])
                         tags.append(tag_tile)
                         self.world.tag_raise(tag_tile, "grupal:background")
                     # si el tile es un mob
-                    elif self.board.getLogic(newposx, newposy) == "mob" and turn == TURN_HN:
+                    elif self.board.getLogic(newposx,
+                                             newposy) == "mob" and turn == TURN_HN:
                         tag_tile = generateRandom6()
-                        self.world.create_rectangle(32 * newposx + self.board.getBoardCorreccionX() + 2,
-                                                    32 * newposy + self.board.getBoardCorreccionY() + 3,
-                                                    32 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                                    32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
-                                                    fill=RECT_CANT_COLOR_BG_M, outline=RECT_CANT_COLOR_BG_M,
-                                                    tags=tag_tile)
+                        self.world.create_rectangle(
+                            32 * newposx + self.board.getBoardCorreccionX() + 2,
+                            32 * newposy + self.board.getBoardCorreccionY() + 3,
+                            32 + 32 * newposx + self.board.getBoardCorreccionX(),
+                            32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
+                            fill=RECT_CANT_COLOR_BG_M,
+                            outline=RECT_CANT_COLOR_BG_M,
+                            tags=tag_tile)
                         avaiablepos.append([newposx, newposy])
                         tags.append(tag_tile)
                         self.world.tag_raise(tag_tile, "grupal:background")
                         direccmatrix[direcc] = 0
-                    elif self.board.getLogic(newposx, newposy) == "player" and turn == TURN_AI:
+                    elif self.board.getLogic(newposx,
+                                             newposy) == "player" and turn == TURN_AI:
                         tag_tile = generateRandom6()
-                        self.world.create_rectangle(32 * newposx + self.board.getBoardCorreccionX() + 2,
-                                                    32 * newposy + self.board.getBoardCorreccionY() + 3,
-                                                    32 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                                    32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
-                                                    fill=RECT_CANT_COLOR_FG_A, outline=RECT_CANT_COLOR_FG_A,
-                                                    tags=tag_tile)
+                        self.world.create_rectangle(
+                            32 * newposx + self.board.getBoardCorreccionX() + 2,
+                            32 * newposy + self.board.getBoardCorreccionY() + 3,
+                            32 + 32 * newposx + self.board.getBoardCorreccionX(),
+                            32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
+                            fill=RECT_CANT_COLOR_FG_A,
+                            outline=RECT_CANT_COLOR_FG_A,
+                            tags=tag_tile)
                         avaiablepos.append([newposx, newposy])
                         tags.append(tag_tile)
                         self.world.tag_raise(tag_tile, "grupal:background")
@@ -2447,7 +2615,8 @@ class hoa:
                 else:
                     direccmatrix[direcc] = 0
 
-            def _lookArrow(newposx, newposy, direccmatrix, direcc, avaiablepos, tags, tipo):
+            def _lookArrow(newposx, newposy, direccmatrix, direcc, avaiablepos,
+                           tags, tipo):
                 """
                 Función que busca si está disponible el movimiento para un lanzamiento de flechas
                 :param newposx: Posición x
@@ -2466,58 +2635,71 @@ class hoa:
                     elif self.board.getLogic(newposx,
                                              newposy) == "mob" and turn == TURN_HN:  # si el tile es un mob se agrega la posicion y se imprime en el canvas
                         tag_tile = generateRandom6()
-                        self.world.create_polygon(32 * newposx + self.board.getBoardCorreccionX() + 2,
-                                                  32 * newposy + self.board.getBoardCorreccionY() + 33,
-                                                  32 * newposx + self.board.getBoardCorreccionX() + 32,
-                                                  32 * newposy + self.board.getBoardCorreccionY() + 33,
-                                                  32 * newposx + self.board.getBoardCorreccionX() + 32,
-                                                  32 * newposy + self.board.getBoardCorreccionY() + 3,
-                                                  fill=RECT_CANT_COLOR_FG_A, outline=RECT_CANT_COLOR_FG_A,
-                                                  tags=tag_tile)
+                        self.world.create_polygon(
+                            32 * newposx + self.board.getBoardCorreccionX() + 2,
+                            32 * newposy + self.board.getBoardCorreccionY() + 33,
+                            32 * newposx + self.board.getBoardCorreccionX() + 32,
+                            32 * newposy + self.board.getBoardCorreccionY() + 33,
+                            32 * newposx + self.board.getBoardCorreccionX() + 32,
+                            32 * newposy + self.board.getBoardCorreccionY() + 3,
+                            fill=RECT_CANT_COLOR_FG_A,
+                            outline=RECT_CANT_COLOR_FG_A,
+                            tags=tag_tile)
                         texture_tile = generateRandom6()
                         if tipo == "PL":
-                            flecha = self.world.create_image(25 + 32 * newposx + self.board.getBoardCorreccionX(),  # @UnusedVariable
-                                                             self.board.getBoardCorreccionY() + 32 * newposy + 25,
-                                                             image=self.images.image(
-                                                                 self.player.getLeftWeapon().getImage() + "_16"),
-                                                             tags=texture_tile)
+                            flecha = self.world.create_image(
+                                25 + 32 * newposx + self.board.getBoardCorreccionX(),
+                                # @UnusedVariable
+                                self.board.getBoardCorreccionY() + 32 * newposy + 25,
+                                image=self.images.image(
+                                    self.player.getLeftWeapon().getImage() + "_16"),
+                                tags=texture_tile)
                         else:
-                            flecha = self.world.create_image(25 + 32 * newposx + self.board.getBoardCorreccionX(),  # @UnusedVariable
-                                                             self.board.getBoardCorreccionY() + 32 * newposy + 25,
-                                                             image=self.images.image(
-                                                                 self.board.getWeapon()),
-                                                             tags=texture_tile)
+                            flecha = self.world.create_image(
+                                25 + 32 * newposx + self.board.getBoardCorreccionX(),
+                                # @UnusedVariable
+                                self.board.getBoardCorreccionY() + 32 * newposy + 25,
+                                image=self.images.image(
+                                    self.board.getWeapon()),
+                                tags=texture_tile)
                         avaiablepos.append([newposx, newposy])
                         tags.append(tag_tile)
                         tags.append(texture_tile)
                         self.world.tag_raise(tag_tile, "grupal:background")
                         direccmatrix[direcc] = 0
-                    elif self.board.getLogic(newposx, newposy) == "player" and turn == TURN_AI:
+                    elif self.board.getLogic(newposx,
+                                             newposy) == "player" and turn == TURN_AI:
                         tag_tile = generateRandom6()
-                        self.world.create_rectangle(32 * newposx + self.board.getBoardCorreccionX() + 2,
-                                                    32 * newposy + self.board.getBoardCorreccionY() + 3,
-                                                    32 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                                    32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
-                                                    fill=RECT_CANT_COLOR_FG_A, outline=RECT_CANT_COLOR_FG_A,
-                                                    tags=tag_tile)
+                        self.world.create_rectangle(
+                            32 * newposx + self.board.getBoardCorreccionX() + 2,
+                            32 * newposy + self.board.getBoardCorreccionY() + 3,
+                            32 + 32 * newposx + self.board.getBoardCorreccionX(),
+                            32 + 32 * newposy + self.board.getBoardCorreccionY() + 1,
+                            fill=RECT_CANT_COLOR_FG_A,
+                            outline=RECT_CANT_COLOR_FG_A,
+                            tags=tag_tile)
                         avaiablepos.append([newposx, newposy])
                         tags.append(tag_tile)
                         self.world.tag_raise(tag_tile, "grupal:background")
                         direccmatrix[direcc] = 0
                     elif self.board.getLogic(newposx,
                                              newposy) == "player" and turn == TURN_HN:  # Si el tile contiene a un humano y juega el humano puede continuar
-                        if self.nivel_dificultad in [DIFICULTAD_FACIL, DIFICULTAD_MEDIO]:
+                        if self.nivel_dificultad in [DIFICULTAD_FACIL,
+                                                     DIFICULTAD_MEDIO]:
                             pass
                         else:
                             direccmatrix[direcc] = 0
-                    elif self.board.getLogic(newposx, newposy) == "mob" and turn == TURN_AI:
+                    elif self.board.getLogic(newposx,
+                                             newposy) == "mob" and turn == TURN_AI:
                         pass
-                    elif self.board.getLogic(newposx, newposy) == "abs" and turn == TURN_HN:
+                    elif self.board.getLogic(newposx,
+                                             newposy) == "abs" and turn == TURN_HN:
                         if self.nivel_dificultad == DIFICULTAD_FACIL:
                             pass
                         else:
                             direccmatrix[direcc] = 0
-                    elif self.board.getLogic(newposx, newposy) == "abs" and turn == TURN_AI:
+                    elif self.board.getLogic(newposx,
+                                             newposy) == "abs" and turn == TURN_AI:
                         if self.nivel_dificultad == DIFICULTAD_DIFICIL:
                             pass
                         else:
@@ -2538,7 +2720,8 @@ class hoa:
             avaiable_attack = []
             if tipo in ["FS", "FM"]:
                 direcciones = [0, 0, 0, 0, 0, 0, 0, 0]  # NE,N,NW,W,E,SE,S,SW
-            elif tipo in ["PL", "FL"]:  # Si el tipo es jugador o follower liviano
+            elif tipo in ["PL",
+                          "FL"]:  # Si el tipo es jugador o follower liviano
                 if tipo == "PL":  # Si es el jugador
                     if self.player.getLeftWeapon() is not None:  # Si posee un arma izquierda
                         if self.player.getActiveBullet() is not None:  # Si tiene balas
@@ -2559,7 +2742,8 @@ class hoa:
                         # NE,N,NW,W,E,SE,S,SW
                         direcciones = [0, 0, 0, 0, 0, 0, 0, 0]
                 elif tipo == "FL":
-                    if self.nivel_dificultad in [DIFICULTAD_FACIL, DIFICULTAD_MEDIO]:
+                    if self.nivel_dificultad in [DIFICULTAD_FACIL,
+                                                 DIFICULTAD_MEDIO]:
                         # NE,N,NW,W,E,SE,S,SW
                         direcciones = [1, 1, 1, 1, 1, 1, 1, 1]
                     else:
@@ -2567,7 +2751,8 @@ class hoa:
                         direcciones = [0, 1, 0, 1, 1, 0, 1, 0]
             elif tipo == "MB":
                 if ataque == "LARGO":
-                    if self.nivel_dificultad in [DIFICULTAD_FACIL, DIFICULTAD_MEDIO]:
+                    if self.nivel_dificultad in [DIFICULTAD_FACIL,
+                                                 DIFICULTAD_MEDIO]:
                         # NE,N,NW,W,E,SE,S,SW
                         direcciones = [0, 1, 0, 1, 1, 0, 1, 0]
                     else:
@@ -2579,29 +2764,41 @@ class hoa:
             # Se buscan las posiciones válidas para el ataque con flecha
             for c in range(1, movements + 1):
                 if direcciones[0] == 1:
-                    _lookArrow(posx - c, posy - c, direcciones, 0, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al nor-este
+                    _lookArrow(posx - c, posy - c, direcciones, 0,
+                               avaiable_attack,
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al nor-este
                 if direcciones[1] == 1:
                     _lookArrow(posx, posy - c, direcciones, 1, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al norte
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al norte
                 if direcciones[2] == 1:
-                    _lookArrow(posx + c, posy - c, direcciones, 2, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al nor-oeste
+                    _lookArrow(posx + c, posy - c, direcciones, 2,
+                               avaiable_attack,
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al nor-oeste
                 if direcciones[3] == 1:
                     _lookArrow(posx - c, posy, direcciones, 3, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al este
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al este
                 if direcciones[4] == 1:
                     _lookArrow(posx + c, posy, direcciones, 4, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al oeste
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al oeste
                 if direcciones[5] == 1:
-                    _lookArrow(posx - c, posy + c, direcciones, 5, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al sur-este
+                    _lookArrow(posx - c, posy + c, direcciones, 5,
+                               avaiable_attack,
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al sur-este
                 if direcciones[6] == 1:
                     _lookArrow(posx, posy + c, direcciones, 6, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al sur
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al sur
                 if direcciones[7] == 1:
-                    _lookArrow(posx + c, posy + c, direcciones, 7, avaiable_attack,
-                               image_avaiable_tiles_arrow, tipo)  # se busca al sur-oeste
+                    _lookArrow(posx + c, posy + c, direcciones, 7,
+                               avaiable_attack,
+                               image_avaiable_tiles_arrow,
+                               tipo)  # se busca al sur-oeste
                 if sum(direcciones) == 0:
                     break  # si ya no hay mas caminos disponibles se termina la búsqueda
 
@@ -2609,7 +2806,8 @@ class hoa:
             image_avaiable_tiles_tags = []  # tag de los movimientos nuevos
             avaiable_pos = []  # posiciones válidas
             if tipo == "FS":
-                if self.nivel_dificultad in [DIFICULTAD_FACIL, DIFICULTAD_MEDIO]:
+                if self.nivel_dificultad in [DIFICULTAD_FACIL,
+                                             DIFICULTAD_MEDIO]:
                     # NE,N,NW,W,E,SE,S,SW
                     direcciones = [1, 1, 0, 0, 1, 0, 1, 1]
                 else:
@@ -2619,7 +2817,8 @@ class hoa:
                 direcciones = [1, 1, 1, 1, 1, 1, 1, 1]  # NE,N,NW,W,E,SE,S,SW
             elif tipo == "FL":
                 direcciones = [1, 0, 1, 0, 0, 1, 0, 1]  # NE,N,NW,W,E,SE,S,SW
-            for c in range(1, movements + 1):  # Se buscan las posiciones válidas
+            for c in range(1,
+                           movements + 1):  # Se buscan las posiciones válidas
                 if direcciones[0] == 1:
                     _look(posx - c, posy - c, direcciones, 0, avaiable_pos,
                           image_avaiable_tiles_tags)  # se busca al nor-este
@@ -2649,27 +2848,34 @@ class hoa:
             tag_self = generateRandom6()  # Dibujo un recuadro en la misma posición
             if turn == TURN_HN:
                 if tipo == "PL":
-                    self.world.create_rectangle(32 * posx + self.board.getBoardCorreccionX() + 1,
-                                                32 * posy + self.board.getBoardCorreccionY() + 2,
-                                                32 + 32 * posx + self.board.getBoardCorreccionX() + 1,
-                                                32 + 32 * posy + self.board.getBoardCorreccionY() + 2,
-                                                fill=RECT_CANT_COLOR_BG_P, outline=RECT_CANT_COLOR_BG_P, tags=tag_self)
+                    self.world.create_rectangle(
+                        32 * posx + self.board.getBoardCorreccionX() + 1,
+                        32 * posy + self.board.getBoardCorreccionY() + 2,
+                        32 + 32 * posx + self.board.getBoardCorreccionX() + 1,
+                        32 + 32 * posy + self.board.getBoardCorreccionY() + 2,
+                        fill=RECT_CANT_COLOR_BG_P,
+                        outline=RECT_CANT_COLOR_BG_P, tags=tag_self)
                 else:
-                    self.world.create_rectangle(32 * posx + self.board.getBoardCorreccionX() + 1,
-                                                32 * posy + self.board.getBoardCorreccionY() + 2,
-                                                32 + 32 * posx + self.board.getBoardCorreccionX() + 1,
-                                                32 + 32 * posy + self.board.getBoardCorreccionY() + 2,
-                                                fill=RECT_CANT_COLOR_BG_F, outline=RECT_CANT_COLOR_BG_F, tags=tag_self)
+                    self.world.create_rectangle(
+                        32 * posx + self.board.getBoardCorreccionX() + 1,
+                        32 * posy + self.board.getBoardCorreccionY() + 2,
+                        32 + 32 * posx + self.board.getBoardCorreccionX() + 1,
+                        32 + 32 * posy + self.board.getBoardCorreccionY() + 2,
+                        fill=RECT_CANT_COLOR_BG_F,
+                        outline=RECT_CANT_COLOR_BG_F, tags=tag_self)
             elif turn == TURN_AI:
-                self.world.create_rectangle(32 * posx + self.board.getBoardCorreccionX() + 1,
-                                            32 * posy + self.board.getBoardCorreccionY() + 2,
-                                            32 + 32 * posx + self.board.getBoardCorreccionX() + 1,
-                                            32 + 32 * posy + self.board.getBoardCorreccionY() + 2,
-                                            fill=RECT_CANT_COLOR_BG_M, outline=RECT_CANT_COLOR_BG_M, tags=tag_self)
+                self.world.create_rectangle(
+                    32 * posx + self.board.getBoardCorreccionX() + 1,
+                    32 * posy + self.board.getBoardCorreccionY() + 2,
+                    32 + 32 * posx + self.board.getBoardCorreccionX() + 1,
+                    32 + 32 * posy + self.board.getBoardCorreccionY() + 2,
+                    fill=RECT_CANT_COLOR_BG_M, outline=RECT_CANT_COLOR_BG_M,
+                    tags=tag_self)
             avaiable_pos.append([posx, posy])
             image_avaiable_tiles_tags.append(tag_self)
 
-            self.board.addCache(avaiable_pos, image_avaiable_tiles_tags, avaiable_attack,
+            self.board.addCache(avaiable_pos, image_avaiable_tiles_tags,
+                                avaiable_attack,
                                 image_avaiable_tiles_arrow)  # se agrega el caché al board
             # Actualizo el mundo
             self.world.tag_raise(tag_self, "grupal:background")
@@ -2685,7 +2891,8 @@ class hoa:
             :return:
             """
 
-            def _drawRectangle(type, x, y, id, tag, tagnum):  # @ReservedAssignment
+            def _drawRectangle(type, x, y, id, tag,
+                               tagnum):  # @ReservedAssignment
                 """
                 Función que escribe el recuadro
                 :param type: Tipo de jugador
@@ -2698,37 +2905,46 @@ class hoa:
                 """
                 try:
                     if type == "PL":  # Si no es el jugador al quien se dibuja
-                        self.world.create_rectangle(14 + 32 * x + self.board.getBoardCorreccionX(),
-                                                    4 + 32 * y + self.board.getBoardCorreccionY(),
-                                                    31 + 32 * x + self.board.getBoardCorreccionX(),
-                                                    13 + 32 * y + self.board.getBoardCorreccionY(),
-                                                    fill=RECT_CANT_COLOR_BG_P, outline=RECT_CANT_COLOR_FG_P, tags=tag)
+                        self.world.create_rectangle(
+                            14 + 32 * x + self.board.getBoardCorreccionX(),
+                            4 + 32 * y + self.board.getBoardCorreccionY(),
+                            31 + 32 * x + self.board.getBoardCorreccionX(),
+                            13 + 32 * y + self.board.getBoardCorreccionY(),
+                            fill=RECT_CANT_COLOR_BG_P,
+                            outline=RECT_CANT_COLOR_FG_P, tags=tag)
                         self.world.tag_lower(tag, tagnum)
                     elif type == "MB":
-                        self.world.create_rectangle(19 + 32 * x + self.board.getBoardCorreccionX(),
-                                                    4 + 32 * y + self.board.getBoardCorreccionY(),
-                                                    31 + 32 * x + self.board.getBoardCorreccionX(),
-                                                    13 + 32 * y + self.board.getBoardCorreccionY(),
-                                                    fill=RECT_CANT_COLOR_BG_M, outline=RECT_CANT_COLOR_FG_M, tags=tag)
+                        self.world.create_rectangle(
+                            19 + 32 * x + self.board.getBoardCorreccionX(),
+                            4 + 32 * y + self.board.getBoardCorreccionY(),
+                            31 + 32 * x + self.board.getBoardCorreccionX(),
+                            13 + 32 * y + self.board.getBoardCorreccionY(),
+                            fill=RECT_CANT_COLOR_BG_M,
+                            outline=RECT_CANT_COLOR_FG_M, tags=tag)
                         self.world.tag_lower(tag, tagnum)
                     else:
-                        self.world.create_rectangle(19 + 32 * x + self.board.getBoardCorreccionX(),
-                                                    4 + 32 * y + self.board.getBoardCorreccionY(),
-                                                    31 + 32 * x + self.board.getBoardCorreccionX(),
-                                                    13 + 32 * y + self.board.getBoardCorreccionY(),
-                                                    fill=RECT_CANT_COLOR_BG_F, outline=RECT_CANT_COLOR_FG_F, tags=tag)
+                        self.world.create_rectangle(
+                            19 + 32 * x + self.board.getBoardCorreccionX(),
+                            4 + 32 * y + self.board.getBoardCorreccionY(),
+                            31 + 32 * x + self.board.getBoardCorreccionX(),
+                            13 + 32 * y + self.board.getBoardCorreccionY(),
+                            fill=RECT_CANT_COLOR_BG_F,
+                            outline=RECT_CANT_COLOR_FG_F, tags=tag)
                         self.world.tag_lower(tag, tagnum)
                 except:
                     pass
 
             if type == "PL":
                 tag = ["grupal:follower:actor:" +
-                       str(id), "grupal:player:box", "grupal:player:number", 22]
+                       str(id), "grupal:player:box", "grupal:player:number",
+                       22]
             elif type == "MB":
                 tag = ["grupal:mob:actor:" +
-                       str(id), "grupal:mob:box:" + str(id), "grupal:mob:number:" + str(id), 25]
+                       str(id), "grupal:mob:box:" + str(id),
+                       "grupal:mob:number:" + str(id), 25]
             else:
-                tag = ["grupal:follower:actor:" + str(id), "grupal:follower:box:" + str(id),
+                tag = ["grupal:follower:actor:" + str(id),
+                       "grupal:follower:box:" + str(id),
                        "grupal:follower:number:" + str(id), 25]
             self.world.delete(tag[1])
             if type == "MB":
@@ -2744,19 +2960,23 @@ class hoa:
             if MOVEMENT_ANIMATION[0]:  # Movimiento con animación
                 try:
                     self.root.after(TEXDT, makeCallable(
-                        partial(arrastrarImagen, tag[0], self.world, 18 + 32 * x + self.board.getBoardCorreccionX(),
+                        partial(arrastrarImagen, tag[0], self.world,
+                                18 + 32 * x + self.board.getBoardCorreccionX(),
                                 32 * y + 18 + self.board.getBoardCorreccionY())))
                     self.root.after(TEXDT, makeCallable(
-                        partial(arrastrarImagen, tag[2], self.world, tag[3] + 32 * x + self.board.getBoardCorreccionX(),
+                        partial(arrastrarImagen, tag[2], self.world, tag[
+                            3] + 32 * x + self.board.getBoardCorreccionX(),
                                 32 * y + 9 + self.board.getBoardCorreccionY())))
                     self.root.after(TEXDT, partial(
                         _drawRectangle, type, x, y, id, tag[1], tag[2]))
                 except Exception, exerr:
                     print langError(389, exerr)
             else:  # Movimiento sin animación
-                self.world.coords(tag[0], 18 + 32 * x + self.board.getBoardCorreccionX(),
+                self.world.coords(tag[0],
+                                  18 + 32 * x + self.board.getBoardCorreccionX(),
                                   32 * y + 18 + self.board.getBoardCorreccionY())
-                self.world.coords(tag[2], tag[3] + 32 * x + self.board.getBoardCorreccionX(),
+                self.world.coords(tag[2], tag[
+                    3] + 32 * x + self.board.getBoardCorreccionX(),
                                   32 * y + 9 + self.board.getBoardCorreccionY())
                 _drawRectangle(type, x, y, id, tag[1], tag[2])
             self.sonido(self.board.getSound(x, y))  # sonido del tile
@@ -2781,9 +3001,11 @@ class hoa:
 
             tag = generateRandom6()
             try:
-                self.world.create_text(10 + 32 * x + self.board.getBoardCorreccionX(),
-                                       25 + 32 * y + self.board.getBoardCorreccionY(),
-                                       text="-" + str(int), fill="red", font=self.fonts[5], anchor=CENTER, tags=tag)
+                self.world.create_text(
+                    10 + 32 * x + self.board.getBoardCorreccionX(),
+                    25 + 32 * y + self.board.getBoardCorreccionY(),
+                    text="-" + str(int), fill="red", font=self.fonts[5],
+                    anchor=CENTER, tags=tag)
             except:
                 pass
             self.world.update()
@@ -2795,7 +3017,8 @@ class hoa:
             :param finalize: Boolean
             :return: void
             """
-            if len(self.board.getEnemies()) == 0 or finalize:  # Si no hay más mobs
+            if len(
+                    self.board.getEnemies()) == 0 or finalize:  # Si no hay más mobs
                 is_dead = True
                 # Se recoge la cantidad de seguidores resultantes
                 followers = [0, 0, 0]
@@ -2810,9 +3033,14 @@ class hoa:
                         followers[1] += pl.getTotal()
                     elif pl.getType() == "FS":
                         followers[2] += pl.getTotal()
-                followers_perdidos = (self.player.getLightFriends() - followers[0]) + (
-                    self.player.getMediumFriends() - followers[1]) + \
-                    (self.player.getStrongFriends() - followers[2])
+                followers_perdidos = (
+                                         self.player.getLightFriends() -
+                                         followers[
+                                             0]) + (
+                                         self.player.getMediumFriends() -
+                                         followers[1]) + \
+                                     (self.player.getStrongFriends() -
+                                      followers[2])
                 self.player.setFriends(followers)
                 if not is_dead and not finalize:  # Si no está muerto
                     self.setInfo(lang(730))
@@ -2827,7 +3055,8 @@ class hoa:
                         # Si el objeto era stackable
                         if obj.split(ITEMSEPARATOR)[5] == "True":
                             self.setInfo(
-                                lang(95, str(obj.split(ITEMSEPARATOR)[6]), str(obj.split(ITEMSEPARATOR)[0])).lower())
+                                lang(95, str(obj.split(ITEMSEPARATOR)[6]),
+                                     str(obj.split(ITEMSEPARATOR)[0])).lower())
                         else:
                             self.setInfo(
                                 lang(96, str(obj.split(ITEMSEPARATOR)[0])))
@@ -2840,17 +3069,23 @@ class hoa:
                     self.world.delete(ALL)
                     self.tipoCombate = "NO_FIGHT"
                     # Inserto sangre en el mapa original
-                    if self.maplightning[self.board.returnOriginalEnemy().getPosicionY()][
-                            self.board.returnOriginalEnemy().getPosicionX()] == 0:  # si es de dia
-                        self.mapItemsTextures[self.board.returnOriginalEnemy().getPosicionY()][
-                            self.board.returnOriginalEnemy().getPosicionX()] = choice(EFFECT_BLOOD_DAY)
+                    if self.maplightning[
+                        self.board.returnOriginalEnemy().getPosicionY()][
+                        self.board.returnOriginalEnemy().getPosicionX()] == 0:  # si es de dia
+                        self.mapItemsTextures[
+                            self.board.returnOriginalEnemy().getPosicionY()][
+                            self.board.returnOriginalEnemy().getPosicionX()] = choice(
+                            EFFECT_BLOOD_DAY)
                     else:
-                        self.mapItemsTextures[self.board.returnOriginalEnemy().getPosicionY()][
-                            self.board.returnOriginalEnemy().getPosicionX()] = choice(EFFECT_BLOOD_NIGHT)
+                        self.mapItemsTextures[
+                            self.board.returnOriginalEnemy().getPosicionY()][
+                            self.board.returnOriginalEnemy().getPosicionX()] = choice(
+                            EFFECT_BLOOD_NIGHT)
                     self.update()
                     del self.board  # elimino el tablero
                     self.sfx(30)  # sonido de victoria
-                    e = pop([[lang(731), lang(173)], self.images.image("iconmuerte"), "aviso", 85, 270,
+                    e = pop([[lang(731), lang(173)],
+                             self.images.image("iconmuerte"), "aviso", 85, 270,
                              lang(733, str(total_experiencia)) + "\n" +
                              lang(732, str(followers_perdidos))])
                     e.w.mainloop(1)
@@ -2882,21 +3117,28 @@ class hoa:
             if MOVEMENT_ANIMATION[0]:  # Si las animaciones estan activas
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
                 if tipo == "PL":  # Si es el jugador se dibuja la flecha cargada
-                    flecha = self.world.create_image(18 + 32 * xo + self.board.getBoardCorreccionX(),  # @UnusedVariable
-                                                     self.board.getBoardCorreccionY() + 32 * yo + 18,
-                                                     image=self.images.image(
-                                                         self.player.getActiveBullet().getImage() + "_16"),
-                                                     tags=flecha_id)
+                    flecha = self.world.create_image(
+                        18 + 32 * xo + self.board.getBoardCorreccionX(),
+                        # @UnusedVariable
+                        self.board.getBoardCorreccionY() + 32 * yo + 18,
+                        image=self.images.image(
+                            self.player.getActiveBullet().getImage() + "_16"),
+                        tags=flecha_id)
                     self.player.getActiveBullet().usar()  # Se gasta una flecha
                     self.checkItems()
                     self.dibujarItems()
                 else:
-                    flecha = self.world.create_image(18 + 32 * xo + self.board.getBoardCorreccionX(),  # @UnusedVariable
-                                                     self.board.getBoardCorreccionY() + 32 * yo + 18,
-                                                     image=self.images.image(self.board.getArrow()), tags=flecha_id)
+                    flecha = self.world.create_image(
+                        18 + 32 * xo + self.board.getBoardCorreccionX(),
+                        # @UnusedVariable
+                        self.board.getBoardCorreccionY() + 32 * yo + 18,
+                        image=self.images.image(self.board.getArrow()),
+                        tags=flecha_id)
                 self.root.after(TEXDT, makeCallable(
-                    partial(arrastrarImagenPx, flecha_id, self.world, 18 + 32 * x + self.board.getBoardCorreccionX(),
-                            self.board.getBoardCorreccionY() + 32 * y + 18, DPX)))  # Muevo la flecha al mob
+                    partial(arrastrarImagenPx, flecha_id, self.world,
+                            18 + 32 * x + self.board.getBoardCorreccionX(),
+                            self.board.getBoardCorreccionY() + 32 * y + 18,
+                            DPX)))  # Muevo la flecha al mob
                 self.root.after(TIME_DISSAPEAR_EFFECT,
                                 lambda: self.world.delete(flecha_id))
 
@@ -2930,7 +3172,7 @@ class hoa:
                 cant_tot = mobs.getLifeUnit()  # vida inicial
                 if atk - dff * group.getCant() > 0:
                     kills = cant_tot - \
-                        (atk - dff * group.getCant())  # vida final
+                            (atk - dff * group.getCant())  # vida final
                     if kills <= 0:
                         _comprobarEnd(True)
                 else:
@@ -2950,7 +3192,7 @@ class hoa:
                     atk - dff * group.getCant())
                 self.updateInfoPlayer()
             if (
-                    kills <= cant_tot and mobs.getType() == "PL") or kills < cant_tot:  # si no se han matado todos los elementos del grupo o el jugador (PL) aún tiene vida
+                            kills <= cant_tot and mobs.getType() == "PL") or kills < cant_tot:  # si no se han matado todos los elementos del grupo o el jugador (PL) aún tiene vida
                 if group.getType() == "FL" and mode == "f":
                     if self.player.getType().upper() == "MAGO":
                         self.sfx(40)  # sonido de magia
@@ -2977,35 +3219,42 @@ class hoa:
                     mobs.setVida(kills)
                 if player:
                     self.world.delete("grupal:mob:number:" + str(mob_id))
-                    self.world.create_text(25 + 32 * x + self.board.getBoardCorreccionX(),
-                                           9 + 32 * y + self.board.getBoardCorreccionY(),
-                                           text=str(mobs.getCant()), fill=RECT_CANT_COLOR_TX_M, font=self.fonts[1],
-                                           anchor=CENTER,
-                                           tags="grupal:mob:number:" + str(mob_id))
+                    self.world.create_text(
+                        25 + 32 * x + self.board.getBoardCorreccionX(),
+                        9 + 32 * y + self.board.getBoardCorreccionY(),
+                        text=str(mobs.getCant()), fill=RECT_CANT_COLOR_TX_M,
+                        font=self.fonts[1],
+                        anchor=CENTER,
+                        tags="grupal:mob:number:" + str(mob_id))
                 else:
                     if mobs.getType() != "PL":
                         self.world.delete(
                             "grupal:follower:number:" + str(mob_id))
-                        self.world.create_text(25 + 32 * x + self.board.getBoardCorreccionX(),
-                                               9 + 32 * y + self.board.getBoardCorreccionY(),
-                                               text=str(mobs.getCant()), fill=RECT_CANT_COLOR_TX_F, font=self.fonts[1],
-                                               anchor=CENTER,
-                                               tags="grupal:follower:number:" + str(mob_id))
+                        self.world.create_text(
+                            25 + 32 * x + self.board.getBoardCorreccionX(),
+                            9 + 32 * y + self.board.getBoardCorreccionY(),
+                            text=str(mobs.getCant()),
+                            fill=RECT_CANT_COLOR_TX_F, font=self.fonts[1],
+                            anchor=CENTER,
+                            tags="grupal:follower:number:" + str(mob_id))
                     else:
                         self.world.delete("grupal:player:number")
-                        self.world.create_text(22 + 32 * x + self.board.getBoardCorreccionX(),
-                                               9 + 32 * y + self.board.getBoardCorreccionY(),
-                                               text=str(mobs.getLifeUnit()), fill=RECT_CANT_COLOR_TX_F,
-                                               font=self.fonts[
-                                                   1], anchor=CENTER,
-                                               tags="grupal:player:number")
+                        self.world.create_text(
+                            22 + 32 * x + self.board.getBoardCorreccionX(),
+                            9 + 32 * y + self.board.getBoardCorreccionY(),
+                            text=str(mobs.getLifeUnit()),
+                            fill=RECT_CANT_COLOR_TX_F,
+                            font=self.fonts[
+                                1], anchor=CENTER,
+                            tags="grupal:player:number")
                 if group.getType() == "PL":
                     self.player.increaseDamageNODEFN(kills)
                     self.updateInfoPlayer()
                 return True
             else:  # Si mató a todos se elimina
                 if self.board.getLight(x, y) == 0:
-                    self.board.addBlood(choice(EFFECT_BLOOD_DAY), x, y)  # @UndefinedVariable
+                    self.board.addBlood(choice(EFFECT_BLOOD_DAY), x,
+                                        y)  # @UndefinedVariable
                 else:
                     self.board.addBlood(choice(EFFECT_BLOOD_NIGHT), x, y)
                 if group.getType() == "FL" and mode == "f":
@@ -3058,12 +3307,14 @@ class hoa:
                     _nextTurn()
                     self.sonidoFx(SONIDO[39][0])
                 elif event == "click-izquierdo":  # Si es atacar y mover
-                    (x, y) = whatTileD(event2.x, self.board.getBoardCorreccionX(), event2.y,
+                    (x, y) = whatTileD(event2.x,
+                                       self.board.getBoardCorreccionX(),
+                                       event2.y,
                                        self.board.getBoardCorreccionY())
                     # Si se ha clickeado dentro de los márgenes del board
                     if 0 <= x < self.board.getBoardSizeX() and 0 <= y < self.board.getBoardSizeY():
                         if [x,
-                                y] in self.board.getAvaiablePos():  # Si el tile clickeado está dentro de las posiciones válidas
+                            y] in self.board.getAvaiablePos():  # Si el tile clickeado está dentro de las posiciones válidas
                             group = self.board.players[self.board.getTurno()]
                             # Si no hay nada en el tile clickeado se mueve
                             if self.board.getLogic(x, y) == "none":
@@ -3102,10 +3353,13 @@ class hoa:
                                     if mobs.getPosX() == x and mobs.getPosY() == y:  # Se recoge al grupo seleccionado
                                         # El jugador ataca y se comprueba si el
                                         # mob ataca también (si retorna True)
-                                        if _fight(group, mobs, True, x, y, mob_id,
+                                        if _fight(group, mobs, True, x, y,
+                                                  mob_id,
                                                   "c") and self.nivel_dificultad != DIFICULTAD_FACIL:
-                                            _fight(mobs, group, False, to[0], to[
-                                                   1], self.board.getTurno(), "c")
+                                            _fight(mobs, group, False, to[0],
+                                                   to[
+                                                       1],
+                                                   self.board.getTurno(), "c")
                                         break
                                     mob_id += 1
                             elif self.board.getLogic(x,
@@ -3116,12 +3370,14 @@ class hoa:
                             except:
                                 pass
                 elif event == "click-derecho":  # Si es lanzar una flecha a distancia
-                    (x, y) = whatTileD(event2.x, self.board.getBoardCorreccionX(), event2.y,
+                    (x, y) = whatTileD(event2.x,
+                                       self.board.getBoardCorreccionX(),
+                                       event2.y,
                                        self.board.getBoardCorreccionY())
                     # Si se ha clickeado dentro de los márgenes del board
                     if 0 <= x < self.board.getBoardSizeX() and 0 <= y < self.board.getBoardSizeY():
                         if [x,
-                                y] in self.board.getAvaiableArrow():  # Si el tile clickeado está dentro de las posiciones válidas
+                            y] in self.board.getAvaiableArrow():  # Si el tile clickeado está dentro de las posiciones válidas
                             group = self.board.players[self.board.getTurno()]
                             # Si hay un mob en dicho tile
                             if self.board.getLogic(x, y) == "mob":
@@ -3131,14 +3387,17 @@ class hoa:
                                         # defino la posicion como la misma
                                         to = [group.getPosX(), group.getPosY()]
                                         _throwArrow(x, y, to[0], to[
-                                                    1], group.getType())
+                                            1], group.getType())
                                         near = False
                                         if abs(x - to[0]) <= 1 and abs(y - to[
-                                                1]) <= 1 and self.nivel_dificultad != DIFICULTAD_FACIL:
+                                            1]) <= 1 and self.nivel_dificultad != DIFICULTAD_FACIL:
                                             near = True
-                                        if _fight(group, mobs, True, x, y, mob_id, "f") and near:
-                                            _fight(mobs, group, False, to[0], to[
-                                                   1], self.board.getTurno(), "f")
+                                        if _fight(group, mobs, True, x, y,
+                                                  mob_id, "f") and near:
+                                            _fight(mobs, group, False, to[0],
+                                                   to[
+                                                       1],
+                                                   self.board.getTurno(), "f")
                                         break
                                     mob_id += 1
                             elif self.board.getLogic(x,
@@ -3150,11 +3409,14 @@ class hoa:
                                 pass
             else:  # Si el evento es imprimir las nuevas posiciones
                 group_turn = self.board.players[self.board.getTurno()]
-                _lookAvaiablePos(group_turn.getPosX(), group_turn.getPosY(), group_turn.getMaxMovement(), TURN_HN,
-                                 group_turn.getType(), group_turn.getTipoAtaque())
+                _lookAvaiablePos(group_turn.getPosX(), group_turn.getPosY(),
+                                 group_turn.getMaxMovement(), TURN_HN,
+                                 group_turn.getType(),
+                                 group_turn.getTipoAtaque())
         # Si se encuentra en dicho modo de combate y juega la computadora
         elif self.inBattle and self.tipoCombate == MODE_FIGHT_GROUP and not self.board.returnControl():
-            if event not in ["print", "pass", "click-izquierdo", "click-derecho"]:
+            if event not in ["print", "pass", "click-izquierdo",
+                             "click-derecho"]:
                 # El ataque se diferencia por su dificultad
                 if self.nivel_dificultad == DIFICULTAD_FACIL:
                     mov_candidatos = []
@@ -3196,10 +3458,11 @@ class hoa:
                             if players.getPosX() == x and players.getPosY() == y:  # Se recoge al grupo seleccionado
                                 # El mob ataca y si sobrevive el jugador ataca
                                 # al mob si es que la dificultad no es fácil
-                                if _fight(group, players, False, x, y, player_id,
+                                if _fight(group, players, False, x, y,
+                                          player_id,
                                           "c") and self.nivel_dificultad != DIFICULTAD_FACIL:
                                     _fight(players, group, True, to[0], to[
-                                           1], self.board.getAITurno(), "c")
+                                        1], self.board.getAITurno(), "c")
                                 break
                             player_id += 1
                     else:
@@ -3245,8 +3508,10 @@ class hoa:
                     pass
             elif event == "print":  # Si el evento es imprimir
                 group_turn = self.board.mobs[self.board.getAITurno()]
-                _lookAvaiablePos(group_turn.getPosX(), group_turn.getPosY(), group_turn.getMaxMovement(), TURN_AI,
-                                 group_turn.getType(), group_turn.getTipoAtaque())
+                _lookAvaiablePos(group_turn.getPosX(), group_turn.getPosY(),
+                                 group_turn.getMaxMovement(), TURN_AI,
+                                 group_turn.getType(),
+                                 group_turn.getTipoAtaque())
             else:
                 pass
         else:
@@ -3271,34 +3536,102 @@ class hoa:
                 if modo == "fight":  # Se mueve el arma con respecto a la posición del mob
                     if self.enemy.getPosAbs() == "derecha":
                         self.root.after(50, lambda: moveWay(tag, self.world,
-                                                            [[50 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16],
-                                                             [28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16]]))
+                                                            [[50 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 16],
+                                                             [28 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 16]]))
                     elif self.enemy.getPosAbs() == "izquierda":
                         self.root.after(50, lambda: moveWay(tag, self.world,
-                                                            [[6 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16],
-                                                             [28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16]]))
+                                                            [[6 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 16],
+                                                             [28 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 16]]))
                     elif self.enemy.getPosAbs() == "arriba":
                         self.root.after(50, lambda: moveWay(tag, self.world,
-                                                            [[28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] - 6],
-                                                             [28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16]]))
+                                                            [[28 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] - 6],
+                                                             [28 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 16]]))
                     elif self.enemy.getPosAbs() == "abajo":
                         self.root.after(50, lambda: moveWay(tag, self.world,
-                                                            [[28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 48],
-                                                             [28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                              self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16]]))
+                                                            [[28 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 48],
+                                                             [28 + 32 *
+                                                              self.playerPos[
+                                                                  0] +
+                                                              self.canvasCorrecion[
+                                                                  1],
+                                                              self.canvasCorrecion[
+                                                                  0] + 32 *
+                                                              self.playerPos[
+                                                                  1] + 16]]))
                 elif modo == "alone":  # Se mueve el arma hacia la derecha
                     self.root.after(50, lambda: moveWay(tag, self.world,
-                                                        [[45 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                          self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16],
-                                                         [28 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                          self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16]]))
+                                                        [[45 + 32 *
+                                                          self.playerPos[0] +
+                                                          self.canvasCorrecion[
+                                                              1],
+                                                          self.canvasCorrecion[
+                                                              0] + 32 *
+                                                          self.playerPos[
+                                                              1] + 16],
+                                                         [28 + 32 *
+                                                          self.playerPos[0] +
+                                                          self.canvasCorrecion[
+                                                              1],
+                                                          self.canvasCorrecion[
+                                                              0] + 32 *
+                                                          self.playerPos[
+                                                              1] + 16]]))
 
         def _atacarMob(y, x):
             """
@@ -3329,7 +3662,8 @@ class hoa:
                                     x] = choice(EFFECT_BLOOD_NIGHT)
                             self.incrementarExperiencia(mob.getExp())
                             self.textMsg(
-                                lang(choice([619, 620, 621, 622, 623, 624, 625])))  # mensaje
+                                lang(choice([619, 620, 621, 622, 623, 624,
+                                             625])))  # mensaje
                             # dibujo el mundo
                             self.root.after(
                                 TIME_DISSAPEAR_EFFECT, self.dibujarMundo)
@@ -3347,7 +3681,8 @@ class hoa:
                             # self.setInfo(lang(96,str(obj.split(ITEMSEPARATOR)[0])))
                             self.updateInfoPlayer()
                         else:
-                            if ataque[1] - ataque[0] > 0:  # Si el mob recibe daño
+                            if ataque[1] - ataque[
+                                0] > 0:  # Si el mob recibe daño
                                 self.setInfo(lang(280, mob.getName()))
                                 # borro la textura de la barra de vida del mob
                                 self.world.delete("lifebar:" + str(i_d))
@@ -3380,7 +3715,8 @@ class hoa:
             :param direcc: Dirección de búsqueda
             :return: String
             """
-            if 0 <= y < self.mapSize[1] and 0 <= x < self.mapSize[0]:  # Si se mantiene en los márgenes del mapa
+            if 0 <= y < self.mapSize[1] and 0 <= x < self.mapSize[
+                0]:  # Si se mantiene en los márgenes del mapa
                 if self.mapLogic[y][x] == "mob":
                     lookmatrix[direcc] = 100
                     return "finded"
@@ -3400,16 +3736,21 @@ class hoa:
             :param y: Posición y
             :return: void
             """
-            if (self.player.getActiveBullet() is not None) and MOVEMENT_ANIMATION[
-                    0]:  # Si poseo armamento y las animaciones están activas
+            if (self.player.getActiveBullet() is not None) and \
+                    MOVEMENT_ANIMATION[
+                        0]:  # Si poseo armamento y las animaciones están activas
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
-                flecha = self.world.create_image(26 + 32 * self.playerPos[0] + self.canvasCorrecion[1],  # @UnusedVariable
-                                                 self.canvasCorrecion[
-                                                     0] + 32 * self.playerPos[1] + 26,
-                                                 image=self.images.image(
-                                                     self.player.getActiveBullet().getImage() + "_16"), tags=flecha_id)
+                flecha = self.world.create_image(
+                    26 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
+                    # @UnusedVariable
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[1] + 26,
+                    image=self.images.image(
+                        self.player.getActiveBullet().getImage() + "_16"),
+                    tags=flecha_id)
                 self.root.after(TEXDT, makeCallable(
-                    partial(arrastrarImagen, flecha_id, self.world, 26 + 32 * x + self.canvasCorrecion[1],
+                    partial(arrastrarImagen, flecha_id, self.world,
+                            26 + 32 * x + self.canvasCorrecion[1],
                             self.canvasCorrecion[0] + 32 * y + 26)))
                 self.root.after(TIME_DISSAPEAR_EFFECT,
                                 lambda: self.world.delete(flecha_id))
@@ -3438,62 +3779,91 @@ class hoa:
                         else:
                             print mano  # otro ataque
                         ataque = self.enemy.golpear(
-                            int(self.player.atacar(mano) * (self.dificultad[2] + 1)))  # Se crea el ataque
-                        self.setInfo(lang(88, str(ataque[0]), self.enemy.getName(),
-                                          str(ataque[1])))  # Mensaje en consola del ataque
+                            int(self.player.atacar(mano) * (
+                                self.dificultad[2] + 1)))  # Se crea el ataque
+                        self.setInfo(
+                            lang(88, str(ataque[0]), self.enemy.getName(),
+                                 str(ataque[
+                                         1])))  # Mensaje en consola del ataque
                         if not self.enemy.isDead():  # Si el enemigo no muere ataca
                             self.world.delete("lifebar:" + str(self.enemyId))
-                            self.lifeBar(self.enemy.getLife(), self.enemy.getMaxLife(), self.enemy.getPosicionX(),
-                                         self.enemy.getPosicionY(), self.enemyId)
+                            self.lifeBar(self.enemy.getLife(),
+                                         self.enemy.getMaxLife(),
+                                         self.enemy.getPosicionX(),
+                                         self.enemy.getPosicionY(),
+                                         self.enemyId)
                             if ataque[0] - ataque[1] > 0:
                                 self.playerText(
-                                    "-" + str(ataque[0] - ataque[1]), "rojo", False)
+                                    "-" + str(ataque[0] - ataque[1]), "rojo",
+                                    False)
                             else:
                                 self.playerText("-0", "blanco", False, True)
                             try:
                                 ataque = self.player.increaseDamage(
-                                    int(self.enemy.atacar() * (self.dificultad[0] + 1) * (self.dificultad[3] + 1)))
+                                    int(self.enemy.atacar() * (
+                                        self.dificultad[0] + 1) * (
+                                            self.dificultad[3] + 1)))
                             except Exception, exerr:
                                 print langError(365, exerr)
                             if (ataque[0] - ataque[1]) > 0:
                                 self.playerText("-" + str(
-                                    ataque[0] - ataque[1]))  # En función del ataque se imprime el daño sobre el jugador
+                                    ataque[0] - ataque[
+                                        1]))  # En función del ataque se imprime el daño sobre el jugador
                             else:
                                 self.playerText("-0", "blanco", True, True)
                             self.sfx(13)  # Sonido de golpe
                             self.setInfo(
-                                lang(89, self.enemy.getName(), str(ataque[0]), str(ataque[1])))  # Mensaje en consola
+                                lang(89, self.enemy.getName(), str(ataque[0]),
+                                     str(ataque[1])))  # Mensaje en consola
                             if not self.player.isDead():  # Se muestra el estado del enemigo si es que el jugador no ha muerto
-                                self.setInfo(self.enemy.getName() + "\n" + lang(86, str(self.enemy.getLife()),
-                                                                                str(self.enemy.getMaxLife())), False)
-                                self.textMsg(self.enemy.getName() + "\n" + lang(86, str(self.enemy.getLife()),
-                                                                                str(self.enemy.getMaxLife())), "combat")
+                                self.setInfo(
+                                    self.enemy.getName() + "\n" + lang(86, str(
+                                        self.enemy.getLife()),
+                                                                       str(
+                                                                           self.enemy.getMaxLife())),
+                                    False)
+                                self.textMsg(
+                                    self.enemy.getName() + "\n" + lang(86, str(
+                                        self.enemy.getLife()),
+                                                                       str(
+                                                                           self.enemy.getMaxLife())),
+                                    "combat")
                             else:  # Si el jugador muere
-                                if self.maplightning[self.enemy.getPosicionY()][self.enemy.getPosicionX()] == 0:
+                                if self.maplightning[
+                                    self.enemy.getPosicionY()][
+                                    self.enemy.getPosicionX()] == 0:
                                     sangre = choice(EFFECT_BLOOD_DAY)
                                 else:
                                     sangre = choice(EFFECT_BLOOD_NIGHT)
                                 self.updateInfoPlayer()
                                 self.world.delete("player")
-                                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                                                        self.canvasCorrecion[
-                                                            0] + 32 * self.playerPos[1] + 18,
-                                                        image=self.images.image(sangre))
+                                self.world.create_image(
+                                    18 + 32 * self.playerPos[0] +
+                                    self.canvasCorrecion[1],
+                                    self.canvasCorrecion[
+                                        0] + 32 * self.playerPos[1] + 18,
+                                    image=self.images.image(sangre))
                                 self.setInfo(lang(82))
                                 self.setInfo(lang(81))
                                 self.sfx(29)
-                                e = pop([[lang(82), lang(173)], self.images.image("iconmuerte"), "aviso", 85, 270,
+                                e = pop([[lang(82), lang(173)],
+                                         self.images.image("iconmuerte"),
+                                         "aviso", 85, 270,
                                          lang(83)])
                                 e.w.mainloop(1)
                                 del e
                                 self.abortGame()
                         else:  # Si el enemigo muere
                             if self.maplightning[self.enemy.getPosicionY()][
-                                    self.enemy.getPosicionX()] == 0:  # si es de dia
-                                self.mapItemsTextures[self.enemy.getPosicionY()][self.enemy.getPosicionX()] = choice(
+                                self.enemy.getPosicionX()] == 0:  # si es de dia
+                                self.mapItemsTextures[
+                                    self.enemy.getPosicionY()][
+                                    self.enemy.getPosicionX()] = choice(
                                     EFFECT_BLOOD_DAY)
                             else:
-                                self.mapItemsTextures[self.enemy.getPosicionY()][self.enemy.getPosicionX()] = choice(
+                                self.mapItemsTextures[
+                                    self.enemy.getPosicionY()][
+                                    self.enemy.getPosicionX()] = choice(
                                     EFFECT_BLOOD_NIGHT)
                             self.static.addMuerte()  # aumenta la estadística
                             self.setInfo(lang(90, self.enemy.getName()))
@@ -3510,17 +3880,22 @@ class hoa:
                                 self.player.addObject(Item(parseObject(obj)))
                                 # Si el objeto era stackable
                                 if obj.split(ITEMSEPARATOR)[5] == "True":
-                                    self.setInfo(lang(95, str(obj.split(ITEMSEPARATOR)[6]),
-                                                      str(obj.split(ITEMSEPARATOR)[0])).lower())
+                                    self.setInfo(lang(95, str(
+                                        obj.split(ITEMSEPARATOR)[6]),
+                                                      str(obj.split(
+                                                          ITEMSEPARATOR)[
+                                                              0])).lower())
                                 else:
                                     self.setInfo(
-                                        lang(96, str(obj.split(ITEMSEPARATOR)[0])))
+                                        lang(96,
+                                             str(obj.split(ITEMSEPARATOR)[0])))
                             self.enemy = None
                             self.mobs.pop(self.enemyId)
                             self.enemyId = 0
                             self.inBattle = False  # termino la batalla
                             self.update()
-                            if len(self.mobs) != 0:  # Si aún quedan mobs activo el movimiento
+                            if len(
+                                    self.mobs) != 0:  # Si aún quedan mobs activo el movimiento
                                 try:
                                     self.root.after_cancel(
                                         self.lastmovementId)  # se intnta eliminar la ultima ejecucion de la funcion
@@ -3553,38 +3928,55 @@ class hoa:
                                     # (OSEN)
                                     look = [1, 1, 1, 1]
                                     for c in range(1, int(
-                                            self.player.getTarget() / 10) + 1):  # Se recorren los tiles de acuerdo al target del jugador
+                                                    self.player.getTarget() / 10) + 1):  # Se recorren los tiles de acuerdo al target del jugador
                                         if look[0] == 1:  # Busca al Oeste
-                                            if _lookFor(self.playerPos[1], self.playerPos[0] - c, look, 0) == "finded":
+                                            if _lookFor(self.playerPos[1],
+                                                        self.playerPos[0] - c,
+                                                        look, 0) == "finded":
                                                 _atacarMob(self.playerPos[
-                                                           1], self.playerPos[0] - c)
+                                                               1],
+                                                           self.playerPos[
+                                                               0] - c)
                                                 break
                                         if look[1] == 1:  # Busca al Sur
-                                            if _lookFor(self.playerPos[1] + c, self.playerPos[0], look, 1) == "finded":
+                                            if _lookFor(self.playerPos[1] + c,
+                                                        self.playerPos[0],
+                                                        look, 1) == "finded":
                                                 _atacarMob(self.playerPos[
-                                                           1] + c, self.playerPos[0])
+                                                               1] + c,
+                                                           self.playerPos[0])
                                                 break
                                         if look[2] == 1:  # Busca al Este
-                                            if _lookFor(self.playerPos[1], self.playerPos[0] + c, look, 2) == "finded":
+                                            if _lookFor(self.playerPos[1],
+                                                        self.playerPos[0] + c,
+                                                        look, 2) == "finded":
                                                 _atacarMob(self.playerPos[
-                                                           1], self.playerPos[0] + c)
+                                                               1],
+                                                           self.playerPos[
+                                                               0] + c)
                                                 break
                                         if look[3] == 1:  # Busca al Norte
-                                            if _lookFor(self.playerPos[1] - c, self.playerPos[0], look, 3) == "finded":
+                                            if _lookFor(self.playerPos[1] - c,
+                                                        self.playerPos[0],
+                                                        look, 3) == "finded":
                                                 _atacarMob(self.playerPos[
-                                                           1] - c, self.playerPos[0])
+                                                               1] - c,
+                                                           self.playerPos[0])
                                                 break
                                     if sum(look) < 0 or int(
-                                            self.player.getTarget() / 10) == 0:  # Si la flecha se fué del mapa
+                                                    self.player.getTarget() / 10) == 0:  # Si la flecha se fué del mapa
                                         self.setInfo(
                                             lang(choice([279, 607, 608, 609])))
                                         self.textMsg(
-                                            lang(choice([610, 611, 612, 613, 614])))
-                                    elif sum(look) == 0:  # Si la flecha chocó contra un obstaculo
+                                            lang(choice(
+                                                [610, 611, 612, 613, 614])))
+                                    elif sum(
+                                            look) == 0:  # Si la flecha chocó contra un obstaculo
                                         self.setInfo(
                                             lang(choice([279, 607, 608, 609])))
                                         self.textMsg(
-                                            lang(choice([631, 632, 633, 634, 635])))
+                                            lang(choice(
+                                                [631, 632, 633, 634, 635])))
                             else:
                                 self.textMsg(lang(choice([642, 643, 644])))
                                 # si el jugador no tiene balas se muestra un
@@ -3618,7 +4010,9 @@ class hoa:
         if CONFIGURATION_DATA[11]:  # Si la terminal está activa
             # Si la función es llamada desde el background no se pide input
             if "str" not in str(type(e)):
-                consola = pop([[lang(326), lang(240), lang(400)], self.images.image("console_icon"), "command", 42, 280,
+                consola = pop([[lang(326), lang(240), lang(400)],
+                               self.images.image("console_icon"), "command",
+                               42, 280,
                                DATA_CONFIG])
                 consola.w.mainloop(1)
             if consola.sent or "str" in str(type(e)):
@@ -3669,7 +4063,9 @@ class hoa:
                                         self.images.image(
                                             it.getImage() + "_16")
                                     except Exception, exerr:
-                                        print langError(378, it.getImage() + "_16", exerr)
+                                        print langError(378,
+                                                        it.getImage() + "_16",
+                                                        exerr)
                                         return
                                     for i in range(cant):
                                         self.player.addObject(Item(item))
@@ -3687,9 +4083,12 @@ class hoa:
                         elif action == "ITEM":  # Dar objeto por string
                             item = data.split(",")
                             try:  # Se crea el objeto
-                                obj = Item([str(item[0]), str(item[1]), str(item[2]), str(item[3]), int(item[4]),
-                                            isTrue(str(item[5])), int(item[6]),
-                                            [parseType(lookType(item[7])), parseType(lookType(item[8]))]])
+                                obj = Item(
+                                    [str(item[0]), str(item[1]), str(item[2]),
+                                     str(item[3]), int(item[4]),
+                                     isTrue(str(item[5])), int(item[6]),
+                                     [parseType(lookType(item[7])),
+                                      parseType(lookType(item[8]))]])
                                 self.player.addObject(Item(obj))
                                 self.dibujarItems()
                                 self.setInfo(lang(114))
@@ -3776,11 +4175,13 @@ class hoa:
                     if self.ingame:  # Si se encuentra jugando
                         if action == "XY":
                             pos = data.split(",")
-                            if pos[0].isdigit() and pos[1].isdigit():  # Si el id es numérico
+                            if pos[0].isdigit() and pos[
+                                1].isdigit():  # Si el id es numérico
                                 x = int(pos[0])
                                 y = int(pos[1])
-                                if 0 <= y < self.mapSize[1] and 0 <= x < self.mapSize[
-                                        0]:  # Si las coordenadas están dentro del largo del mapa
+                                if 0 <= y < self.mapSize[1] and 0 <= x < \
+                                        self.mapSize[
+                                            0]:  # Si las coordenadas están dentro del largo del mapa
                                     self.move(x, y)
                                     self.setInfo(lang(116, str(x), str(y)))
                                     self.inBattle = False
@@ -3914,10 +4315,12 @@ class hoa:
                                 if l != self.player.getLevel():
                                     if l - self.player.getLevel() < 0:
                                         self.setInfo(
-                                            lang(193, str(self.player.getLevel() - l)))
+                                            lang(193, str(
+                                                self.player.getLevel() - l)))
                                     else:
                                         self.setInfo(
-                                            lang(194, str(l - self.player.getLevel())))
+                                            lang(194, str(
+                                                l - self.player.getLevel())))
                                 self.setInfo(lang(177, str(data)))
                                 self.updateInfoPlayer()
                                 self.static.addTrucos()
@@ -3968,7 +4371,8 @@ class hoa:
                                 if data in AVAIABLE_ACTOR_TEXTURES:
                                     self.player.setLinkImage(data)
                                     self.setInfo(lang(160, str(data)))
-                                    if self.maplightning[self.playerPos[1]][self.playerPos[0]] == 0:
+                                    if self.maplightning[self.playerPos[1]][
+                                        self.playerPos[0]] == 0:
                                         self.player.getLinkImage() + "_0"
                                     else:
                                         self.player.getLinkImage() + "_1"
@@ -4081,8 +4485,10 @@ class hoa:
                 elif comando == "CLEAR":
                     self.delInfo()
                 elif comando == "COMMANDS":
-                    e = pop([lang(192), self.images.image("text_icon"), "license", 400, 720,
-                             DATA_DOCUMENTS + "/documentation/commands.txt", True])
+                    e = pop(
+                        [lang(192), self.images.image("text_icon"), "license",
+                         400, 720,
+                         DATA_DOCUMENTS + "/documentation/commands.txt", True])
                     e.w.mainloop(1)
                     del e
                 elif comando == "EXIT" or comando == "QUIT":
@@ -4147,7 +4553,8 @@ class hoa:
                             self.setInfo(lang(134, str(self.player.getMap())))
                         elif action == "CANVASCORRECT":
                             self.setInfo(lang(138, str(self.canvasCorrecion[
-                                         0]), str(self.canvasCorrecion[1])))
+                                                           0]),
+                                              str(self.canvasCorrecion[1])))
                         elif action == "DIFICULTAD" or action == "PLAYER.DIF":
                             self.setInfo(
                                 lang(163, str(self.nivel_dificultad.upper())))
@@ -4156,10 +4563,12 @@ class hoa:
                                 lang(127, str(self.player.getItemAmount())))
                         elif action == "MAPSIZE":
                             self.setInfo(
-                                lang(135, str(CANVAS_MAX_SIZE[0]), str(CANVAS_MAX_SIZE[1])))
+                                lang(135, str(CANVAS_MAX_SIZE[0]),
+                                     str(CANVAS_MAX_SIZE[1])))
                         elif action == "PLAYERACTIVEBULLET" or action == "PLAYER.ACTIVEBULLET":
                             self.setInfo(
-                                lang(251, str(self.player.getActiveBullet().getName())))
+                                lang(251, str(
+                                    self.player.getActiveBullet().getName())))
                         elif action == "PLAYERAGE" or action == "PLAYER.AGE":
                             self.setInfo(lang(131, str(self.player.getEdad())))
                         elif action == "PLAYERATK" or action == "PLAYER.ATK":
@@ -4168,18 +4577,23 @@ class hoa:
                         elif action == "PLAYERBOARDATK" or action == "PLAYER.BOARD.ATK":
                             if self.inBattle and self.tipoCombate == MODE_FIGHT_GROUP:
                                 self.setInfo(
-                                    lang(737, str(int(self.player.getAttack() * 0.4 * (2 - self.dificultad[7])))))
+                                    lang(737, str(int(
+                                        self.player.getAttack() * 0.4 * (
+                                            2 - self.dificultad[7])))))
                             else:
                                 self.setInfo(lang(739))
                         elif action == "PLAYERBOARDDEF" or action == "PLAYER.BOARD.DEF":
                             if self.inBattle and self.tipoCombate == MODE_FIGHT_GROUP:
                                 self.setInfo(
-                                    lang(738, str(int(self.player.getDefensa() * 0.4 * (2 - self.dificultad[7])))))
+                                    lang(738, str(int(
+                                        self.player.getDefensa() * 0.4 * (
+                                            2 - self.dificultad[7])))))
                             else:
                                 self.setInfo(lang(740))
                         elif action == "PLAYER.CANVAS.POS":
                             self.setInfo(
-                                lang(137, str(self.playerPos[0] * 32), str(self.playerPos[1] * 32)))
+                                lang(137, str(self.playerPos[0] * 32),
+                                     str(self.playerPos[1] * 32)))
                         elif action == "PLAYERCITY" or action == "PLAYER.CITY" or action == "PLAYERPAIS" or action == "PLAYER.PAIS":
                             self.setInfo(lang(130, str(self.player.getPais())))
                         elif action == "PLAYERDEF" or action == "PLAYER.DEF":
@@ -4190,7 +4604,8 @@ class hoa:
                                 lang(132, str(self.player.getExperience())))
                         elif action == "PLAYER.FOLLOWERS" or action == "PLAYER.FOLLOWERS":
                             self.setInfo(
-                                lang(692, str(self.player.getLightFriends()), str(self.player.getMediumFriends()),
+                                lang(692, str(self.player.getLightFriends()),
+                                     str(self.player.getMediumFriends()),
                                      str(self.player.getStrongFriends())))
                         elif action == "PLAYERFP" or action == "PLAYER.FP":
                             self.setInfo(
@@ -4204,12 +4619,14 @@ class hoa:
                             self.setInfo(lang(179, str(self.player.getMana())))
                         elif action == "PLAYERMARROWD" or action == "PLAYER.MAX.ARROW.DISTANCE":
                             self.setInfo(
-                                lang(606, str(int(self.player.getTarget() / 10))))
+                                lang(606,
+                                     str(int(self.player.getTarget() / 10))))
                         elif action == "PLAYERNAME" or action == "PLAYER.NAME":
                             self.setInfo(lang(129, str(self.player.getName())))
                         elif action == "PLAYERPOS" or action == "PLAYER.POS":
                             self.setInfo(
-                                lang(136, str(self.playerPos[0]), str(self.playerPos[1])))
+                                lang(136, str(self.playerPos[0]),
+                                     str(self.playerPos[1])))
                         elif action == "PLAYERSP" or action == "PLAYER.SP":
                             self.setInfo(
                                 lang(253, str(self.player.getSecondPower())))
@@ -4229,10 +4646,13 @@ class hoa:
                             self.setInfo(lang(128, str(self.namePartida)))
                         elif action == "TILELIGHT" or action == "TILE.LIGHT":
                             self.setInfo(
-                                lang(141, str(self.maplightning[self.playerPos[1]][self.playerPos[0]])))
+                                lang(141, str(
+                                    self.maplightning[self.playerPos[1]][
+                                        self.playerPos[0]])))
                         elif action == "TILESOUND" or action == "TILE.SOUND":
                             self.setInfo(
-                                lang(140, str(self.mapSound[self.playerPos[1]][self.playerPos[0]])))
+                                lang(140, str(self.mapSound[self.playerPos[1]][
+                                                  self.playerPos[0]])))
                         elif action == "TIMEMOB" or action == "MOB.TIME.MOVEMENT":
                             self.setInfo(lang(283, str(self.dificultad[5])))
                         else:  # Caso default
@@ -4290,10 +4710,15 @@ class hoa:
                                     else:
                                         if first == last:
                                             self.setInfo(
-                                                "  ID:" + str(first) + " " + itemname, False)
+                                                "  ID:" + str(
+                                                    first) + " " + itemname,
+                                                False)
                                         else:
                                             self.setInfo(
-                                                "  ID:" + str(first) + "-" + str(last) + " " + itemname, False)
+                                                "  ID:" + str(
+                                                    first) + "-" + str(
+                                                    last) + " " + itemname,
+                                                False)
                                         first = item
                                         last = item
                                         itemname = ITEMS[item][0]
@@ -4305,7 +4730,9 @@ class hoa:
                             try:
                                 for power in POWERLIST.keys()[::-1]:
                                     self.setInfo(
-                                        "  SHORT:" + POWERLIST[power][1] + " " + POWERLIST[power][0], False)
+                                        "  SHORT:" + POWERLIST[power][
+                                            1] + " " + POWERLIST[power][0],
+                                        False)
                                 self.setInfo(lang(769))
                             except:
                                 # ocurrió un error al cargar la lista de
@@ -4391,28 +4818,34 @@ class hoa:
         # Cargo por item y dibujo (si existe)
         item = self.player.getCasco()
         if item is not None:
-            self.infoArmaduraCasco.config(image=self.images.image(item.getImage() + "_32"),
-                                          state=NORMAL, cursor="hand2")
+            self.infoArmaduraCasco.config(
+                image=self.images.image(item.getImage() + "_32"),
+                state=NORMAL, cursor="hand2")
         item = self.player.getLeftWeapon()
         if item is not None:
-            self.infoArmaduraArmaIzquierda.config(image=self.images.image(item.getImage() + "_32"),
-                                                  state=NORMAL, cursor="hand2")
+            self.infoArmaduraArmaIzquierda.config(
+                image=self.images.image(item.getImage() + "_32"),
+                state=NORMAL, cursor="hand2")
         item = self.player.getChaleco()
         if item is not None:
-            self.infoArmaduraChaleco.config(image=self.images.image(item.getImage() + "_32"),
-                                            state=NORMAL, cursor="hand2")
+            self.infoArmaduraChaleco.config(
+                image=self.images.image(item.getImage() + "_32"),
+                state=NORMAL, cursor="hand2")
         item = self.player.getRightWeapon()
         if item is not None:
-            self.infoArmaduraArmaDerecha.config(image=self.images.image(item.getImage() + "_32"),
-                                                state=NORMAL, cursor="hand2")
+            self.infoArmaduraArmaDerecha.config(
+                image=self.images.image(item.getImage() + "_32"),
+                state=NORMAL, cursor="hand2")
         item = self.player.getPantalones()
         if item is not None:
-            self.infoArmaduraPantalones.config(image=self.images.image(item.getImage() + "_32"),
-                                               state=NORMAL, cursor="hand2")
+            self.infoArmaduraPantalones.config(
+                image=self.images.image(item.getImage() + "_32"),
+                state=NORMAL, cursor="hand2")
         item = self.player.getBotas()
         if item is not None:
-            self.infoArmaduraBotas.config(image=self.images.image(item.getImage() + "_32"),
-                                          state=NORMAL, cursor="hand2")
+            self.infoArmaduraBotas.config(
+                image=self.images.image(item.getImage() + "_32"),
+                state=NORMAL, cursor="hand2")
 
     def dibujarItems(self):
         """
@@ -4421,7 +4854,8 @@ class hoa:
         """
         # Se eliminan las imágenes previas
         for bt in self.botonesItems:
-            bt.config(image=self.images.image("vacio_16"), state=DISABLED, command=None,
+            bt.config(image=self.images.image("vacio_16"), state=DISABLED,
+                      command=None,
                       cursor="arrow")
         k = 0
         j = self.player.getItemAmount()
@@ -4433,7 +4867,8 @@ class hoa:
             while True:
                 bt = self.botonesItems[k]
                 if k == 0 and self.itemnumberlist > 0:  # Si es el primer elemento se linkea la hoja anterior
-                    bt.config(image=self.images.image("arrow_left"), state=NORMAL,
+                    bt.config(image=self.images.image("arrow_left"),
+                              state=NORMAL,
                               cursor="hand2")  # se agrega al mapeado
                     k += 1
                 else:  # Si no es el primer elemento
@@ -4444,8 +4879,10 @@ class hoa:
                         # si sólo es una pagina de items
                         item = self.player.getItem(k + self.itemnumberlist)
                     try:
-                        bt.config(image=self.images.image(item.getImage() + "_16"), state=NORMAL,
-                                  cursor="hand2")  # se agrega textura a los botones
+                        bt.config(
+                            image=self.images.image(item.getImage() + "_16"),
+                            state=NORMAL,
+                            cursor="hand2")  # se agrega textura a los botones
                     except:
                         print lang(378, item.getImage() + "_16")
                     k += 1
@@ -4453,11 +4890,14 @@ class hoa:
                     # condiciones de borde
                     if k + self.itemnumberlist < j and k == 20:
                         bt = self.botonesItems[k]
-                        bt.config(image=self.images.image("arrow_right"), command=lambda: self.moverListaItems("right"),
+                        bt.config(image=self.images.image("arrow_right"),
+                                  command=lambda: self.moverListaItems(
+                                      "right"),
                                   state=NORMAL, cursor="hand2")
                         break
-                    elif (k + self.itemnumberlist >= j and self.itemnumberlist == 0) or (
-                            k + self.itemnumberlist - 1 >= j and self.itemnumberlist != 0):
+                    elif (
+                                        k + self.itemnumberlist >= j and self.itemnumberlist == 0) or (
+                                            k + self.itemnumberlist - 1 >= j and self.itemnumberlist != 0):
                         break
 
     def dibujarMundo(self, event=None):
@@ -4467,70 +4907,98 @@ class hoa:
         :return: void
         """
         self.world.delete(ALL)  # Se borran todos los objetos
-        if not (self.inBattle and (self.tipoCombate == MODE_FIGHT_GROUP or self.tipoCombate == MODE_FIGHT_LINEAL)):
+        if not (self.inBattle and (
+                        self.tipoCombate == MODE_FIGHT_GROUP or self.tipoCombate == MODE_FIGHT_LINEAL)):
             # Se dibuja al jugador
             if self.player.getLeftWeapon() is not None:  # Arma segundaria
-                self.world.create_image(9 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                        self.canvasCorrecion[
-                                            0] + 32 * self.playerPos[1] + 9 + DRAW_CANVAS_OFFSET_Y,
-                                        image=self.images.image(
-                                            self.player.getLeftWeapon().getImage() + "_16"),
-                                        tags="player:left_weapon")
+                self.world.create_image(
+                    9 + 32 * self.playerPos[0] + self.canvasCorrecion[
+                        1] + DRAW_CANVAS_OFFSET_X,
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[1] + 9 + DRAW_CANVAS_OFFSET_Y,
+                    image=self.images.image(
+                        self.player.getLeftWeapon().getImage() + "_16"),
+                    tags="player:left_weapon")
             else:
-                self.world.create_image(9 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                        self.canvasCorrecion[
-                                            0] + 32 * self.playerPos[1] + 9 + DRAW_CANVAS_OFFSET_Y,
-                                        image=self.images.image("None"), tags="player:left_weapon")
+                self.world.create_image(
+                    9 + 32 * self.playerPos[0] + self.canvasCorrecion[
+                        1] + DRAW_CANVAS_OFFSET_X,
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[1] + 9 + DRAW_CANVAS_OFFSET_Y,
+                    image=self.images.image("None"), tags="player:left_weapon")
             # Textura del jugador
             if self.maplightning[self.playerPos[1]][self.playerPos[0]] == 0:
-                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                        self.canvasCorrecion[
-                                            0] + 32 * self.playerPos[1] + 18 + DRAW_CANVAS_OFFSET_Y,
-                                        image=self.images.image(self.player.getLinkImage() + "_0"), tags="player")
+                self.world.create_image(
+                    18 + 32 * self.playerPos[0] + self.canvasCorrecion[
+                        1] + DRAW_CANVAS_OFFSET_X,
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[
+                        1] + 18 + DRAW_CANVAS_OFFSET_Y,
+                    image=self.images.image(self.player.getLinkImage() + "_0"),
+                    tags="player")
             else:
-                self.world.create_image(18 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                        self.canvasCorrecion[
-                                            0] + 32 * self.playerPos[1] + 18 + DRAW_CANVAS_OFFSET_Y,
-                                        image=self.images.image(self.player.getLinkImage() + "_1"), tags="player")
+                self.world.create_image(
+                    18 + 32 * self.playerPos[0] + self.canvasCorrecion[
+                        1] + DRAW_CANVAS_OFFSET_X,
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[
+                        1] + 18 + DRAW_CANVAS_OFFSET_Y,
+                    image=self.images.image(self.player.getLinkImage() + "_1"),
+                    tags="player")
             if self.player.getRightWeapon() is not None:  # Arma primaria
-                self.world.create_image(28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                        self.canvasCorrecion[
-                                            0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y,
-                                        image=self.images.image(
-                                            self.player.getRightWeapon().getImage() + "_16"),
-                                        tags="player:right_weapon")
+                self.world.create_image(
+                    28 + 32 * self.playerPos[0] + self.canvasCorrecion[
+                        1] + DRAW_CANVAS_OFFSET_X,
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[
+                        1] + 16 + DRAW_CANVAS_OFFSET_Y,
+                    image=self.images.image(
+                        self.player.getRightWeapon().getImage() + "_16"),
+                    tags="player:right_weapon")
             else:
-                self.world.create_image(28 + 32 * self.playerPos[0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                        self.canvasCorrecion[
-                                            0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y,
-                                        image=self.images.image("None"), tags="player:right_weapon")
+                self.world.create_image(
+                    28 + 32 * self.playerPos[0] + self.canvasCorrecion[
+                        1] + DRAW_CANVAS_OFFSET_X,
+                    self.canvasCorrecion[
+                        0] + 32 * self.playerPos[
+                        1] + 16 + DRAW_CANVAS_OFFSET_Y,
+                    image=self.images.image("None"),
+                    tags="player:right_weapon")
             # Se dibujan los mobs
             k = 0  # id del mob para dejarlo como tag
             for i in self.mobs:  # Se recorre a los mobs
                 if self.maplightning[i.getPosicionY()][i.getPosicionX()] == 0:
-                    self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                            self.canvasCorrecion[
-                                                0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y,
-                                            image=self.images.image(
-                                                i.getImage() + "_0"),
-                                            tags="mob:" + str(k))  # Se dibujan los mobs
+                    self.world.create_image(
+                        18 + 32 * i.getPosicionX() + self.canvasCorrecion[
+                            1] + DRAW_CANVAS_OFFSET_X,
+                        self.canvasCorrecion[
+                            0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y,
+                        image=self.images.image(
+                            i.getImage() + "_0"),
+                        tags="mob:" + str(k))  # Se dibujan los mobs
                 else:
-                    self.world.create_image(18 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                            self.canvasCorrecion[
-                                                0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y,
-                                            image=self.images.image(i.getImage() + "_1"), tags="mob:" + str(k))
+                    self.world.create_image(
+                        18 + 32 * i.getPosicionX() + self.canvasCorrecion[
+                            1] + DRAW_CANVAS_OFFSET_X,
+                        self.canvasCorrecion[
+                            0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y,
+                        image=self.images.image(i.getImage() + "_1"),
+                        tags="mob:" + str(k))
                 self.lifeBar(i.getLife(), i.getMaxLife(), i.getPosicionX(
                 ), i.getPosicionY(), k)  # barra de vida
                 # Si son varios se dibuja un icono de grupo en la esquina
                 # inferior derecha
                 if i.getTipoCombate() == MODE_FIGHT_GROUP and (
-                        self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO):
-                    self.world.create_image(26 + 32 * i.getPosicionX() + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                            self.canvasCorrecion[
-                                                0] + 32 * i.getPosicionY() + 26 + DRAW_CANVAS_OFFSET_Y,
-                                            image=self.images.image(
-                                                GROUP_TEXTURE_CREW),
-                                            tags="mob:icon:grupal:" + str(k))  # Se dibujan los mobs
+                                self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO):
+                    self.world.create_image(
+                        26 + 32 * i.getPosicionX() + self.canvasCorrecion[
+                            1] + DRAW_CANVAS_OFFSET_X,
+                        self.canvasCorrecion[
+                            0] + 32 * i.getPosicionY() + 26 + DRAW_CANVAS_OFFSET_Y,
+                        image=self.images.image(
+                            GROUP_TEXTURE_CREW),
+                        tags="mob:icon:grupal:" + str(
+                            k))  # Se dibujan los mobs
                 k += 1
             # Se dibujan los npc
             k = 0  # id del mob para dejarlo como tag
@@ -4538,7 +5006,8 @@ class hoa:
             # la quest requerida)
             for i in self.npc:
                 if i.canShowByQuest(self.player.getQuest()):
-                    if self.maplightning[i.getPosicionY()][i.getPosicionX()] == 0:
+                    if self.maplightning[i.getPosicionY()][
+                        i.getPosicionX()] == 0:
                         self.world.create_image(
                             18 + 32 * i.getPosicionX() +
                             self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
@@ -4552,7 +5021,8 @@ class hoa:
                             self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
                             self.canvasCorrecion[
                                 0] + 32 * i.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y,
-                            image=self.images.image(i.getImage() + "_1"), tags="npc:" + str(k))
+                            image=self.images.image(i.getImage() + "_1"),
+                            tags="npc:" + str(k))
                 k += 1
             # Se dibujan los items
             for k in range(self.mapSize[1]):
@@ -4560,9 +5030,12 @@ class hoa:
                     # Si hay una imagen que insertar
                     if self.mapItemsTextures[k][j] is not None:
                         i = self.world.create_image(
-                            18 + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X + 32 * j + textureMover(
-                                self.images.image(self.mapItemsTextures[k][j]), EJE_X),
-                            18 + self.canvasCorrecion[0] + 32 * k + textureMover(
+                            18 + self.canvasCorrecion[
+                                1] + DRAW_CANVAS_OFFSET_X + 32 * j + textureMover(
+                                self.images.image(self.mapItemsTextures[k][j]),
+                                EJE_X),
+                            18 + self.canvasCorrecion[
+                                0] + 32 * k + textureMover(
                                 self.images.image(self.mapItemsTextures[k][j]),
                                 EJE_Y) + DRAW_CANVAS_OFFSET_Y,
                             image=self.images.image(
@@ -4573,92 +5046,116 @@ class hoa:
                             self.world.lower(i)
             # Inserto el fondo
             self.world.lower(
-                self.world.create_image(306 + DRAW_CANVAS_OFFSET_X, 290 + DRAW_CANVAS_OFFSET_Y, image=self.mapImage[0],
+                self.world.create_image(306 + DRAW_CANVAS_OFFSET_X,
+                                        290 + DRAW_CANVAS_OFFSET_Y,
+                                        image=self.mapImage[0],
                                         tag="background"))
         elif self.tipoCombate == MODE_FIGHT_GROUP and self.inBattle:  # Si el modo de combate es grupal
             # Dibujo la sangre
             for blood in self.board.getBlood():
-                self.world.create_image(18 + 32 * blood[0] + self.board.getBoardCorreccionX(),
-                                        18 + 32 *
-                                        blood[1] +
-                                        self.board.getBoardCorreccionY(),
-                                        image=self.images.image(blood[2]))
+                self.world.create_image(
+                    18 + 32 * blood[0] + self.board.getBoardCorreccionX(),
+                    18 + 32 *
+                    blood[1] +
+                    self.board.getBoardCorreccionY(),
+                    image=self.images.image(blood[2]))
             # Dibujo a los followers
             k = 0
             for i in self.board.getPlayers():
-                self.world.create_image(18 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                        18 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                        image=self.images.image(
-                                            i.getImage() + "_" + str(self.board.getLight(i.getPosX(), i.getPosY()))),
-                                        tags="grupal:follower:actor:" + str(k))
+                self.world.create_image(
+                    18 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                    18 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                    image=self.images.image(
+                        i.getImage() + "_" + str(
+                            self.board.getLight(i.getPosX(), i.getPosY()))),
+                    tags="grupal:follower:actor:" + str(k))
                 if i.getType() != "PL":  # Si no es el jugador al quien se dibuja
-                    self.world.create_rectangle(19 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                                4 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                                31 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                                13 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                                fill=RECT_CANT_COLOR_BG_F, outline=RECT_CANT_COLOR_FG_F,
-                                                tags="grupal:follower:box:" + str(k))
-                    self.world.create_text(25 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                           9 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                           text=str(i.getCant()), fill=RECT_CANT_COLOR_TX_F, font=self.fonts[1],
-                                           anchor=CENTER,
-                                           tags="grupal:follower:number:" + str(k))
+                    self.world.create_rectangle(
+                        19 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                        4 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                        31 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                        13 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                        fill=RECT_CANT_COLOR_BG_F,
+                        outline=RECT_CANT_COLOR_FG_F,
+                        tags="grupal:follower:box:" + str(k))
+                    self.world.create_text(
+                        25 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                        9 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                        text=str(i.getCant()), fill=RECT_CANT_COLOR_TX_F,
+                        font=self.fonts[1],
+                        anchor=CENTER,
+                        tags="grupal:follower:number:" + str(k))
                 else:
-                    self.world.create_rectangle(14 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                                4 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                                31 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                                13 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                                fill=RECT_CANT_COLOR_BG_P, outline=RECT_CANT_COLOR_FG_P,
-                                                tags="grupal:player:box")
-                    self.world.create_text(22 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                           9 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                           text=str(i.getVida()), fill=RECT_CANT_COLOR_TX_P, font=self.fonts[1],
-                                           anchor=CENTER,
-                                           tags="grupal:player:number")
+                    self.world.create_rectangle(
+                        14 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                        4 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                        31 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                        13 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                        fill=RECT_CANT_COLOR_BG_P,
+                        outline=RECT_CANT_COLOR_FG_P,
+                        tags="grupal:player:box")
+                    self.world.create_text(
+                        22 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                        9 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                        text=str(i.getVida()), fill=RECT_CANT_COLOR_TX_P,
+                        font=self.fonts[1],
+                        anchor=CENTER,
+                        tags="grupal:player:number")
                 k += 1
             # Dibujo a los mobs
             k = 0
             for i in self.board.getEnemies():
-                self.world.create_image(18 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                        18 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                        image=self.images.image(
-                                            i.getImage() + "_" + str(self.board.getLight(i.getPosX(), i.getPosY()))),
-                                        tags="grupal:mob:actor:" + str(k))
-                self.world.create_rectangle(19 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                            4 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                            31 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                            13 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                            fill=RECT_CANT_COLOR_BG_M, outline=RECT_CANT_COLOR_FG_M,
-                                            tags="grupal:mob:box:" + str(k))
-                self.world.create_text(25 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
-                                       9 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
-                                       text=str(i.getCant()), fill=RECT_CANT_COLOR_TX_M, font=self.fonts[1],
-                                       anchor=CENTER,
-                                       tags="grupal:mob:number:" + str(k))
+                self.world.create_image(
+                    18 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                    18 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                    image=self.images.image(
+                        i.getImage() + "_" + str(
+                            self.board.getLight(i.getPosX(), i.getPosY()))),
+                    tags="grupal:mob:actor:" + str(k))
+                self.world.create_rectangle(
+                    19 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                    4 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                    31 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                    13 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                    fill=RECT_CANT_COLOR_BG_M, outline=RECT_CANT_COLOR_FG_M,
+                    tags="grupal:mob:box:" + str(k))
+                self.world.create_text(
+                    25 + 32 * i.getPosX() + self.board.getBoardCorreccionX(),
+                    9 + 32 * i.getPosY() + self.board.getBoardCorreccionY(),
+                    text=str(i.getCant()), fill=RECT_CANT_COLOR_TX_M,
+                    font=self.fonts[1],
+                    anchor=CENTER,
+                    tags="grupal:mob:number:" + str(k))
                 k += 1
             # Dibujo los obstáculos
             for k in range(self.board.getBoardSizeY()):
                 for j in range(self.board.getBoardSizeX()):
-                    self.world.create_image(18 + self.board.getBoardCorreccionX() + 32 * j,
-                                            18 + self.board.getBoardCorreccionY() + 32 * k,
-                                            image=self.images.image(
-                                                self.board.getItemTexture(j, k)),
-                                            tags="grupal:item:" + str(j) + "," + str(k))
+                    self.world.create_image(
+                        18 + self.board.getBoardCorreccionX() + 32 * j,
+                        18 + self.board.getBoardCorreccionY() + 32 * k,
+                        image=self.images.image(
+                            self.board.getItemTexture(j, k)),
+                        tags="grupal:item:" + str(j) + "," + str(k))
             # Dibujo los delimitadores
             for k in range(self.board.getBoardSizeY() - 1):
                 self.world.create_line(self.board.getBoardCorreccionX() + 2,
-                                       self.board.getBoardCorreccionY() + 32 * (k + 1) + 2,
+                                       self.board.getBoardCorreccionY() + 32 * (
+                                           k + 1) + 2,
                                        self.board.getBoardCorreccionX() + 32 * self.board.getBoardSizeX() + 2,
-                                       self.board.getBoardCorreccionY() + 32 * (k + 1) + 2,
-                                       fill=LINE_BOARD_COLOR_INACTIVE, dash=(4, 4))
+                                       self.board.getBoardCorreccionY() + 32 * (
+                                           k + 1) + 2,
+                                       fill=LINE_BOARD_COLOR_INACTIVE,
+                                       dash=(4, 4))
             for j in range(self.board.getBoardSizeX() - 1):
-                self.world.create_line(32 * (j + 1) + self.board.getBoardCorreccionX() + 1,
-                                       5 + self.board.getBoardCorreccionY(),
-                                       32 * (j + 1) +
-                                       self.board.getBoardCorreccionX() + 1,
-                                       self.board.getBoardCorreccionY() + self.board.getBoardSizeY() * 32 + 5,
-                                       fill=LINE_BOARD_COLOR_INACTIVE, dash=(4, 4))
-            self.world.create_line(self.board.getBoardCorreccionX() + 1, self.board.getBoardCorreccionY() + 2,
+                self.world.create_line(
+                    32 * (j + 1) + self.board.getBoardCorreccionX() + 1,
+                    5 + self.board.getBoardCorreccionY(),
+                    32 * (j + 1) +
+                    self.board.getBoardCorreccionX() + 1,
+                    self.board.getBoardCorreccionY() + self.board.getBoardSizeY() * 32 + 5,
+                    fill=LINE_BOARD_COLOR_INACTIVE, dash=(4, 4))
+            self.world.create_line(self.board.getBoardCorreccionX() + 1,
+                                   self.board.getBoardCorreccionY() + 2,
                                    self.board.getBoardCorreccionX() + self.board.getBoardSizeX() * 32 + 1,
                                    self.board.getBoardCorreccionY() + 2,
                                    fill=LINE_BOARD_COLOR_INACTIVE)
@@ -4667,19 +5164,23 @@ class hoa:
                                    self.board.getBoardCorreccionX() + 1 + self.board.getBoardSizeX() * 32 + 1,
                                    self.board.getBoardCorreccionY() + 2 + self.board.getBoardSizeY() * 32,
                                    fill=LINE_BOARD_COLOR_INACTIVE)
-            self.world.create_line(self.board.getBoardCorreccionX() + 1, self.board.getBoardCorreccionY() + 2,
+            self.world.create_line(self.board.getBoardCorreccionX() + 1,
+                                   self.board.getBoardCorreccionY() + 2,
                                    self.board.getBoardCorreccionX() + 1,
                                    self.board.getBoardCorreccionY() + 2 + 32 * self.board.getBoardSizeY(),
                                    fill=LINE_BOARD_COLOR_INACTIVE)
-            self.world.create_line(self.board.getBoardCorreccionX() + 1 + 32 * self.board.getBoardSizeX(),
-                                   self.board.getBoardCorreccionY() + 2,
-                                   self.board.getBoardCorreccionX() + 1 + 32 * self.board.getBoardSizeX(),
-                                   self.board.getBoardCorreccionY() + 2 + 32 * self.board.getBoardSizeY(),
-                                   fill=LINE_BOARD_COLOR_INACTIVE)
+            self.world.create_line(
+                self.board.getBoardCorreccionX() + 1 + 32 * self.board.getBoardSizeX(),
+                self.board.getBoardCorreccionY() + 2,
+                self.board.getBoardCorreccionX() + 1 + 32 * self.board.getBoardSizeX(),
+                self.board.getBoardCorreccionY() + 2 + 32 * self.board.getBoardSizeY(),
+                fill=LINE_BOARD_COLOR_INACTIVE)
             # Se dibuja el fondo
-            self.world.lower(self.world.create_image(306 + DRAW_CANVAS_OFFSET_X, 290 + DRAW_CANVAS_OFFSET_Y,
-                                                     image=self.board.bgimage,
-                                                     tags="grupal:background"))
+            self.world.lower(
+                self.world.create_image(306 + DRAW_CANVAS_OFFSET_X,
+                                        290 + DRAW_CANVAS_OFFSET_Y,
+                                        image=self.board.bgimage,
+                                        tags="grupal:background"))
             self.combateGrupal("print")
             self.world.update()
 
@@ -4690,7 +5191,8 @@ class hoa:
         """
         # Se eliminan las imágenes previas
         for bt in self.botonesPoderes:
-            bt.config(image=self.images.image("vacio_16"), state=DISABLED, command=None,
+            bt.config(image=self.images.image("vacio_16"), state=DISABLED,
+                      command=None,
                       cursor="arrow")
         for i in range(min(self.player.getPowerAmount(), 7)):
             bt = self.botonesPoderes[i]
@@ -4740,13 +5242,15 @@ class hoa:
                 for bullet in self.player.getItems():  # Si el item es una bala se agrega
                     if bullet.getType() == "bullet":
                         armamento.append(
-                            [translate(bullet.getName()), bullet.getDamage(), bullet.getUsos(), bulletid])
+                            [translate(bullet.getName()), bullet.getDamage(),
+                             bullet.getUsos(), bulletid])
                     bulletid += 1  # aumenta el contador
                 if len(armamento) > 1:  # Si hay mas de un armamento
                     self.setInfo(lang(264))
                     # Se arma una ventana con todos los bullets activos y se
                     # retorna un id
-                    e = pop([[lang(254), lang(249), lang(256), "", "", lang(255), lang(259), lang(260), lang(268)],
+                    e = pop([[lang(254), lang(249), lang(256), "", "",
+                              lang(255), lang(259), lang(260), lang(268)],
                              DATA_ICONS_ITEMS + self.player.getLeftWeapon().getImage() +
                              "_16.ico", "escogerArmamento",
                              130, 300, ["bullet"], [armamento, [], []]])
@@ -4757,17 +5261,20 @@ class hoa:
                                 self.player.getActiveBullet())
                             self.player.dropObject(
                                 self.player.getActiveBullet())
-                        if e.values[0] != -1:  # Si se mandó una respuesta válida
+                        if e.values[
+                            0] != -1:  # Si se mandó una respuesta válida
                             bullet = self.player.getItem(e.values[0])
                             if bullet.getType() == "bullet":
                                 self.player.setActiveBullet(
                                     bullet)  # se define la bala
                                 self.player.dropObject(
-                                    e.values[0])  # se bota el item definido dado que ya existe una copia
+                                    e.values[
+                                        0])  # se bota el item definido dado que ya existe una copia
                                 self.setInfo(lang(262, translate(
                                     self.player.getActiveBullet().getName())))  # mensaje 'se ha definido'
                             else:  # Si el id cambió en el transcurso de definirlo
-                                self.error(lang(272, translate(self.player.getLeftWeapon().getName())),
+                                self.error(lang(272, translate(
+                                    self.player.getLeftWeapon().getName())),
                                            85)  # mensaje de error inesperado
                                 self.player.delActiveBullet()  # se borra el armamento
                         else:
@@ -4778,15 +5285,19 @@ class hoa:
                     del e
                 elif len(armamento) == 1:  # Si sólo hay un armamento
                     self.player.setActiveBullet(
-                        self.player.getItem(armamento[0][3]))  # se define la bala como bala principal
+                        self.player.getItem(armamento[0][
+                                                3]))  # se define la bala como bala principal
                     self.player.dropObject(
-                        armamento[0][3])  # se bota la bala desde los items (dado que existen dos copias)
+                        armamento[0][
+                            3])  # se bota la bala desde los items (dado que existen dos copias)
                     self.setInfo(lang(250, armamento[0][0],
-                                      translate(self.player.getLeftWeapon().getName())))  # se muestra mensaje
+                                      translate(
+                                          self.player.getLeftWeapon().getName())))  # se muestra mensaje
                 else:  # Si no tiene armas
                     self.player.delActiveBullet()  # si no hay armamento se borra el actual
                     e = pop(
-                        [[lang(271), lang(173)], DATA_ICONS_ITEMS + self.player.getLeftWeapon().getImage() + "_16.ico",
+                        [[lang(271), lang(173)],
+                         DATA_ICONS_ITEMS + self.player.getLeftWeapon().getImage() + "_16.ico",
                          "aviso", 85, 270, lang(270)])
                     e.w.mainloop(2)
                     del e
@@ -4829,8 +5340,10 @@ class hoa:
                 self.playerText("+", "verde", True)
             self.sfx(30)
             self.setInfo(lang(92))
-            e = pop([[lang(92), lang(173)], self.images.image("icon"), "aviso", 70, 270,
-                     lang(93, str(self.player.getLevel()))])
+            e = pop(
+                [[lang(92), lang(173)], self.images.image("icon"), "aviso", 70,
+                 270,
+                 lang(93, str(self.player.getLevel()))])
             e.w.mainloop(1)
             del e
         self.setInfo(lang(94, str(experiencia)))
@@ -4848,8 +5361,10 @@ class hoa:
         # se obtiene la imagen de acuerdo al nivel de vida
         img = "life{0}".format(int(math.ceil(max(prev * 100 / tot, 1) / 10.0)))
         try:
-            self.world.create_image(32 * x + self.canvasCorrecion[1] + 18, 32 * y + self.canvasCorrecion[0] - 9,
-                                    image=self.images.image(img), tags="lifebar:" + str(k))
+            self.world.create_image(32 * x + self.canvasCorrecion[1] + 18,
+                                    32 * y + self.canvasCorrecion[0] - 9,
+                                    image=self.images.image(img),
+                                    tags="lifebar:" + str(k))
         except:
             print lang(366)
 
@@ -4875,9 +5390,11 @@ class hoa:
 
         if not self.isNewGameCreating:
             if self.multiplayer_isconected:  # Si el jugador está conectado a un servidor
-                v = pop([[lang(795), lang(796), lang(797), lang(239)], self.images.image("server_disconnect"),
+                v = pop([[lang(795), lang(796), lang(797), lang(239)],
+                         self.images.image("server_disconnect"),
                          "deseaDesconectarse",
-                         75, 310, CONFIGURATION_DATA[1]])  # Se consulta si cerrar o no la sesión activa
+                         75, 310, CONFIGURATION_DATA[
+                             1]])  # Se consulta si cerrar o no la sesión activa
                 v.w.mainloop(1)
                 if v.sent:  # Se procede en función de la respuesta
                     if v.values[0] == "si":
@@ -4895,8 +5412,11 @@ class hoa:
             print lang(407)
             if e != "argv":  # Si el archivo no se pasó por argumento
                 print lang(406),
-                archivo = str(askopenfilename(title=lang(52), initialdir=DATA_SAVES, defaultextension=".save",
-                                              filetypes=[(lang(563), ".save")])).encode("utf-8"). \
+                archivo = str(
+                    askopenfilename(title=lang(52), initialdir=DATA_SAVES,
+                                    defaultextension=".save",
+                                    filetypes=[(lang(563), ".save")])).encode(
+                    "utf-8"). \
                     replace(u"\ufeff", "").replace("\xef\xbb\xbf", "")
             else:
                 archivo = DATA_SAVES + b  # si se pasó se carga junto al directorio
@@ -4940,34 +5460,48 @@ class hoa:
                         return
                 try:  # Se cargan los archivos de guardado
                     print lang(409),
-                    load = loadFromArchive(archivo.replace(".save", ".sav"), lang(400),
+                    load = loadFromArchive(archivo.replace(".save", ".sav"),
+                                           lang(400),
                                            False)  # archivo principal de actor
                     console = loadFromArchive(archivo.replace(
                         ".save", ".hoacmd"), lang(400), False)  # consola
                     key1 = loadFromArchive(archivo.replace(
-                        ".save", ".key1"), lang(400), False)  # llaves de seguridad
+                        ".save", ".key1"), lang(400),
+                        False)  # llaves de seguridad
                     key2 = loadFromArchive(archivo.replace(
-                        ".save", ".key2"), lang(400), False)  # llaves de seguridad
+                        ".save", ".key2"), lang(400),
+                        False)  # llaves de seguridad
                     key3 = loadFromArchive(archivo.replace(
-                        ".save", ".key3"), lang(400), False)  # llaves de seguridad
+                        ".save", ".key3"), lang(400),
+                        False)  # llaves de seguridad
                     key4 = loadFromArchive(archivo.replace(
-                        ".save", ".key4"), lang(400), False)  # llaves de seguridad
+                        ".save", ".key4"), lang(400),
+                        False)  # llaves de seguridad
                     key5 = loadFromArchive(archivo.replace(
-                        ".save", ".key5"), lang(400), False)  # llaves de seguridad
-                    loadmapmob = loadFromArchive(archivo.replace(".save", ".mapmob"), lang(400),
-                                                 False)  # información de los mobs del mapa actual
-                    loadmapnpc = loadFromArchive(archivo.replace(".save", ".mapnpc"), lang(400),
-                                                 False)  # información de los npc del mapa actual
-                    loadpowers = loadFromArchive(archivo.replace(".save", ".powers"), lang(400),
-                                                 False)  # poderes del jugador
-                    loadquest = loadFromArchive(archivo.replace(".save", ".quest"), lang(400),
-                                                False)  # quest del jugador
-                    loadstatics = loadFromArchive(archivo.replace(".save", ".statics"), lang(400), False)[0].split(
-                        self.static.getSeparator())  # estadísticas
-                    loadmaplogic = loadFromArchive(archivo.replace(".save", ".maplogic"), lang(400),
-                                                   False)  # mapa lógico del guardado
-                    loadmapitemtexture = loadFromArchive(archivo.replace(".save", ".mapitemtexture"), lang(400),
-                                                         False)  # texturas de items del mapa
+                        ".save", ".key5"), lang(400),
+                        False)  # llaves de seguridad
+                    loadmapmob = loadFromArchive(
+                        archivo.replace(".save", ".mapmob"), lang(400),
+                        False)  # información de los mobs del mapa actual
+                    loadmapnpc = loadFromArchive(
+                        archivo.replace(".save", ".mapnpc"), lang(400),
+                        False)  # información de los npc del mapa actual
+                    loadpowers = loadFromArchive(
+                        archivo.replace(".save", ".powers"), lang(400),
+                        False)  # poderes del jugador
+                    loadquest = loadFromArchive(
+                        archivo.replace(".save", ".quest"), lang(400),
+                        False)  # quest del jugador
+                    loadstatics = \
+                        loadFromArchive(archivo.replace(".save", ".statics"),
+                                        lang(400), False)[0].split(
+                            self.static.getSeparator())  # estadísticas
+                    loadmaplogic = loadFromArchive(
+                        archivo.replace(".save", ".maplogic"), lang(400),
+                        False)  # mapa lógico del guardado
+                    loadmapitemtexture = loadFromArchive(
+                        archivo.replace(".save", ".mapitemtexture"), lang(400),
+                        False)  # texturas de items del mapa
                     console.reverse()  # se invierte el orden de los comandos
                     print lang(310)
                 except:  # Error al cargar los archivos del guardado
@@ -4975,19 +5509,26 @@ class hoa:
                     print lang(352)
                     self.abortGame()
                     self.error(lang(215), 85)
-                if (amir(archivo.replace(".save", ".sav")).strip() == key1[0] and amir(
-                    archivo.replace(".save", ".statics")).strip() == key2[0] and
-                        amir(archivo.replace(".save", ".maplogic")).strip() == key3[0] and amir(
-                        archivo.replace(".save", ".hoacmd")).strip() == key4[0] and
-                        amir(archivo.replace(".save", ".mapmob")).strip() == key5[
-                        0]):  # Si el archivo no ha sido modificado
+                if (amir(archivo.replace(".save", ".sav")).strip() == key1[
+                    0] and amir(
+                    archivo.replace(".save", ".statics")).strip() == key2[
+                    0] and
+                            amir(archivo.replace(".save",
+                                                 ".maplogic")).strip() == key3[
+                            0] and amir(
+                    archivo.replace(".save", ".hoacmd")).strip() == key4[0] and
+                            amir(
+                                archivo.replace(".save", ".mapmob")).strip() ==
+                            key5[
+                                0]):  # Si el archivo no ha sido modificado
                     self.stopSound()  # se paran todos los sonidos
                     try:
                         self.delInfo()  # se borra la consola
                     except:
                         totalerrors += 1
                         print lang(351)
-                    if console[0] != "%NOCONSOLE%":  # Si la consola no está vacía
+                    if console[
+                        0] != "%NOCONSOLE%":  # Si la consola no está vacía
                         if len(console) < LIMIT_MESSAGES_CONSOLE:
                             for i in console:
                                 self.console.insert(0, i)
@@ -5011,7 +5552,8 @@ class hoa:
                         self.activePowers.pop()
                     self.activePowers.append("playername")
                     self.activePowers.append(
-                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+                        [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                         0])
                     self.itemnumberlist = 0  # pagina en 0
                     self.player = None  # borro al jugador
                     self.player = actors()  # nueva clase actor
@@ -5107,29 +5649,37 @@ class hoa:
                         self.abortGame()
                         self.error(lang(223), 85)
                         return
-                    if len(self.mobs) != 0:  # Si hay mobs en el mapa que se cargó
+                    if len(
+                            self.mobs) != 0:  # Si hay mobs en el mapa que se cargó
                         try:  # Se cargan los mob
                             print lang(413),
                             delMatrix(self.mobs)
                             self.enemyId = 0
-                            if loadmapmob[0] != "%NOMOBS%":  # Si hay mobs por cargar
+                            if loadmapmob[
+                                0] != "%NOMOBS%":  # Si hay mobs por cargar
                                 for prop in loadmapmob:  # Se recorrren los mob
                                     prop = prop.split(MOB_SEPARATOR)
                                     # Se agrega el objeto a la lista de
                                     # enemigos
                                     self.mobs.append(
-                                        mob(int(prop[0]), int(prop[1]), prop[2], int(prop[3]), int(prop[4]), prop[5],
-                                            prop[6], int(prop[7]), int(prop[8]), int(
+                                        mob(int(prop[0]), int(prop[1]),
+                                            prop[2], int(prop[3]),
+                                            int(prop[4]), prop[5],
+                                            prop[6], int(prop[7]),
+                                            int(prop[8]), int(
                                                 prop[9]), int(prop[10]),
                                             int(prop[11]), int(prop[12]), prop[
-                                                13], prop[14], prop[15], int(prop[16]),
-                                            int(prop[17]), int(prop[18]), prop[19], prop[20], prop[21]))
+                                                13], prop[14], prop[15],
+                                            int(prop[16]),
+                                            int(prop[17]), int(prop[18]),
+                                            prop[19], prop[20], prop[21]))
                             try:
                                 # se elimina el ultimo movimiento
                                 self.root.after_cancel(self.lastmovementId)
                             except:
                                 totalerrors += 1
-                            if len(self.mobs) != 0:  # Activa el movimiento de los mobs
+                            if len(
+                                    self.mobs) != 0:  # Activa el movimiento de los mobs
                                 self.lastmovementId = self.root.after(
                                     self.dificultad[5], self.moveMobs)
                                 self.movement = True
@@ -5147,16 +5697,21 @@ class hoa:
                             print lang(441),
                             delMatrix(self.npc)
                             self.npcId = -1
-                            if loadmapnpc[0] != "%NONPC%":  # Si hay npc por cargar
+                            if loadmapnpc[
+                                0] != "%NONPC%":  # Si hay npc por cargar
                                 for elem in loadmapnpc:  # Se recorren los npc
                                     elem = elem.split(NPC_SEPARATOR)
                                     # Se agrega el elemento a la lista de npc
                                     self.npc.append(
-                                        npc(elem[0], elem[1], elem[2], elem[3], elem[4], elem[5], int(elem[6]), elem[7],
+                                        npc(elem[0], elem[1], elem[2], elem[3],
+                                            elem[4], elem[5], int(elem[6]),
+                                            elem[7],
                                             int(elem[8]), elem[9], int(
-                                                elem[10]), int(elem[11]), elem[12],
+                                                elem[10]), int(elem[11]),
+                                            elem[12],
                                             int(elem[13]),
-                                            int(elem[14]), int(elem[15]), elem[16]))
+                                            int(elem[14]), int(elem[15]),
+                                            elem[16]))
                             movement = False
                             for elem in self.npc:
                                 if elem.getMove():
@@ -5196,19 +5751,21 @@ class hoa:
                     try:  # Se cargan las estadísticas
                         print lang(414),
                         self.static.restart()  # borro las estadíssticas anteriores
-                        self.static.__init__(int(loadstatics[0]), int(loadstatics[1]), int(loadstatics[2]),
+                        self.static.__init__(int(loadstatics[0]),
+                                             int(loadstatics[1]),
+                                             int(loadstatics[2]),
                                              int(loadstatics[3]),
                                              int(loadstatics[4]), int(
-                                                 loadstatics[5]), int(loadstatics[6]),
+                                loadstatics[5]), int(loadstatics[6]),
                                              int(loadstatics[7]),
                                              int(loadstatics[8]), int(
-                                                 loadstatics[9]), int(loadstatics[10]),
+                                loadstatics[9]), int(loadstatics[10]),
                                              int(loadstatics[11]),
                                              int(loadstatics[12]), int(
-                                                 loadstatics[13]), int(loadstatics[14]),
+                                loadstatics[13]), int(loadstatics[14]),
                                              int(loadstatics[15]),
                                              int(loadstatics[16]), int(
-                                                 loadstatics[17]), int(loadstatics[18]),
+                                loadstatics[17]), int(loadstatics[18]),
                                              int(loadstatics[19]))
                         print lang(310)
                     except:  # Error al cargar las estadísticas
@@ -5232,7 +5789,8 @@ class hoa:
                     try:  # Se cargan las balas y poderes
                         if load[18] != "%NULL%":
                             self.player.setActiveBullet(
-                                Item(parseObject(load[18])))  # armamento predefinido
+                                Item(parseObject(
+                                    load[18])))  # armamento predefinido
                         else:
                             self.player.delActiveBullet()
                         if load[19] != "%NULL%":
@@ -5381,8 +5939,9 @@ class hoa:
                 self.canmove = True
 
             self.canmove = False
-            if self.maplightning[self.playerPos[1]][self.playerPos[0]] != self.maplightning[y][
-                    x]:  # Si hay algún cambio en la iluminación
+            if self.maplightning[self.playerPos[1]][self.playerPos[0]] != \
+                    self.maplightning[y][
+                        x]:  # Si hay algún cambio en la iluminación
                 # Modifico la iluminación de la textura
                 if self.maplightning[y][x] == 0:
                     self.world.itemconfig("player", image=self.images.image(
@@ -5403,36 +5962,50 @@ class hoa:
                 Mueve la textura sin animación
                 :return: void
                 """
-                self.world.coords("player", 18 + 32 * x + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                  self.canvasCorrecion[0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)
-                self.world.coords("player:left_weapon", 9 + 32 * x + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                  self.canvasCorrecion[0] + 32 * y + 9 + DRAW_CANVAS_OFFSET_Y)
+                self.world.coords("player", 18 + 32 * x + self.canvasCorrecion[
+                    1] + DRAW_CANVAS_OFFSET_X,
+                                  self.canvasCorrecion[
+                                      0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)
+                self.world.coords("player:left_weapon",
+                                  9 + 32 * x + self.canvasCorrecion[
+                                      1] + DRAW_CANVAS_OFFSET_X,
+                                  self.canvasCorrecion[
+                                      0] + 32 * y + 9 + DRAW_CANVAS_OFFSET_Y)
                 self.world.coords("player:right_weapon",
                                   28 + 32 *
                                   self.playerPos[
-                                      0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                  self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y)
+                                      0] + self.canvasCorrecion[
+                                      1] + DRAW_CANVAS_OFFSET_X,
+                                  self.canvasCorrecion[0] + 32 *
+                                  self.playerPos[
+                                      1] + 16 + DRAW_CANVAS_OFFSET_Y)
 
             if MOVEMENT_ANIMATION[0]:  # Movimiento con animación
                 try:
                     self.root.after(int(TEXDT / 4), makeCallable(
-                        partial(arrastrarImagen, "player:left_weapon", self.world,
+                        partial(arrastrarImagen, "player:left_weapon",
+                                self.world,
                                 9 + 32 * x +
-                                    self.canvasCorrecion[
-                                        1] + DRAW_CANVAS_OFFSET_X,
-                                    self.canvasCorrecion[0] + 32 * y + 9 + DRAW_CANVAS_OFFSET_Y)))
+                                self.canvasCorrecion[
+                                    1] + DRAW_CANVAS_OFFSET_X,
+                                self.canvasCorrecion[
+                                    0] + 32 * y + 9 + DRAW_CANVAS_OFFSET_Y)))
                     self.root.after(int(TEXDT / 4), makeCallable(
                         partial(arrastrarImagen, "player", self.world,
                                 18 + 32 * x +
-                                    self.canvasCorrecion[
-                                        1] + DRAW_CANVAS_OFFSET_X,
-                                    self.canvasCorrecion[0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)))
+                                self.canvasCorrecion[
+                                    1] + DRAW_CANVAS_OFFSET_X,
+                                self.canvasCorrecion[
+                                    0] + 32 * y + 18 + DRAW_CANVAS_OFFSET_Y)))
                     self.root.after(int(TEXDT / 4), makeCallable(
-                        partial(arrastrarImagen, "player:right_weapon", self.world,
+                        partial(arrastrarImagen, "player:right_weapon",
+                                self.world,
                                 28 + 32 *
-                                    self.playerPos[
-                                        0] + self.canvasCorrecion[1] + DRAW_CANVAS_OFFSET_X,
-                                    self.canvasCorrecion[0] + 32 * self.playerPos[1] + 16 + DRAW_CANVAS_OFFSET_Y)))
+                                self.playerPos[
+                                    0] + self.canvasCorrecion[
+                                    1] + DRAW_CANVAS_OFFSET_X,
+                                self.canvasCorrecion[0] + 32 * self.playerPos[
+                                    1] + 16 + DRAW_CANVAS_OFFSET_Y)))
                 except:
                     _moveNoAnimation()
                     print lang(389)
@@ -5463,18 +6036,21 @@ class hoa:
             for i_d in mob_id:  # Se van recorriendo los ids generados aleatoriamente
                 mob = self.mobs[i_d]  # se carga el mob asociado a ese id
                 x, y = mob.move(self.playerPos[0], self.playerPos[
-                                1])  # se mueve el mob
+                    1])  # se mueve el mob
                 # Si las coordenadas estan dentro del mapa
                 if 0 <= y < self.mapSize[1] and 0 <= x < self.mapSize[0]:
                     if self.mapLogic[y][x] == "none":  # Si el lugar esta vacío
-                        if self.maplightning[mob.getPosicionY()][mob.getPosicionX()] != self.maplightning[y][
-                                x]:  # Si cambia la iluminación
+                        if self.maplightning[mob.getPosicionY()][
+                            mob.getPosicionX()] != self.maplightning[y][
+                            x]:  # Si cambia la iluminación
                             if self.maplightning[y][x] == 0:
                                 self.world.itemconfig(
-                                    "mob:" + str(i_d), image=self.images.image(mob.getImage() + "_0"))
+                                    "mob:" + str(i_d), image=self.images.image(
+                                        mob.getImage() + "_0"))
                             else:
                                 self.world.itemconfig(
-                                    "mob:" + str(i_d), image=self.images.image(mob.getImage() + "_1"))
+                                    "mob:" + str(i_d), image=self.images.image(
+                                        mob.getImage() + "_1"))
                         # Actualizo el mapa lógico
                         self.mapLogic[mob.getPosicionY()][
                             mob.getPosicionX()] = "none"
@@ -5483,14 +6059,17 @@ class hoa:
                         mob.setPosicionY(y)
                     # Si la siguiente combinación está vacía
                     elif self.mapLogic[y][mob.getPosicionX()] == "none":
-                        if self.maplightning[mob.getPosicionY()][mob.getPosicionX()] != self.maplightning[y][
-                                mob.getPosicionX()]:  # Si cambia la iluminación
+                        if self.maplightning[mob.getPosicionY()][
+                            mob.getPosicionX()] != self.maplightning[y][
+                            mob.getPosicionX()]:  # Si cambia la iluminación
                             if self.maplightning[y][mob.getPosicionX()] == 0:
                                 self.world.itemconfig(
-                                    "mob:" + str(i_d), image=self.images.image(mob.getImage() + "_0"))
+                                    "mob:" + str(i_d), image=self.images.image(
+                                        mob.getImage() + "_0"))
                             else:
                                 self.world.itemconfig(
-                                    "mob:" + str(i_d), image=self.images.image(mob.getImage() + "_1"))
+                                    "mob:" + str(i_d), image=self.images.image(
+                                        mob.getImage() + "_1"))
                         # Actualizo el mapa lógico
                         self.mapLogic[mob.getPosicionY()][
                             mob.getPosicionX()] = "none"
@@ -5498,14 +6077,18 @@ class hoa:
                         mob.setPosicionY(y)
                     # Si el lugar está vacío
                     elif self.mapLogic[mob.getPosicionY()][x] == "none":
-                        if self.maplightning[mob.getPosicionY()][mob.getPosicionX()] != \
-                                self.maplightning[mob.getPosicionY()][x]:  # Si cambia la iluminación
+                        if self.maplightning[mob.getPosicionY()][
+                            mob.getPosicionX()] != \
+                                self.maplightning[mob.getPosicionY()][
+                                    x]:  # Si cambia la iluminación
                             if self.maplightning[mob.getPosicionY()][x] == 0:
                                 self.world.itemconfig(
-                                    "mob:" + str(i_d), image=self.images.image(mob.getImage() + "_0"))
+                                    "mob:" + str(i_d), image=self.images.image(
+                                        mob.getImage() + "_0"))
                             else:
                                 self.world.itemconfig(
-                                    "mob:" + str(i_d), image=self.images.image(mob.getImage() + "_1"))
+                                    "mob:" + str(i_d), image=self.images.image(
+                                        mob.getImage() + "_1"))
                         # Actualizo el mapa lógico
                         self.mapLogic[mob.getPosicionY()][
                             mob.getPosicionX()] = "none"
@@ -5514,48 +6097,67 @@ class hoa:
                     try:  # Se mueve la textura del mob
                         # Movimiento sin animación
                         if not MOVEMENT_ANIMATION[0]:
-                            self.world.coords("mob:" + str(i_d), 18 + 32 * mob.getPosicionX() + self.canvasCorrecion[
-                                1] + DRAW_CANVAS_OFFSET_X, self.canvasCorrecion[
-                                0] + 32 * mob.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y)
+                            self.world.coords("mob:" + str(i_d),
+                                              18 + 32 * mob.getPosicionX() +
+                                              self.canvasCorrecion[
+                                                  1] + DRAW_CANVAS_OFFSET_X,
+                                              self.canvasCorrecion[
+                                                  0] + 32 * mob.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y)
                             self.world.coords("lifebar:" + str(i_d),
-                                              32 * mob.getPosicionX() + self.canvasCorrecion[
+                                              32 * mob.getPosicionX() +
+                                              self.canvasCorrecion[
                                                   1] + 18 + DRAW_CANVAS_OFFSET_X,
-                                              32 * mob.getPosicionY() + self.canvasCorrecion[
+                                              32 * mob.getPosicionY() +
+                                              self.canvasCorrecion[
                                                   0] - 9 + DRAW_CANVAS_OFFSET_Y)
                             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
-                                self.world.coords("mob:icon:grupal:" + str(i_d),
-                                                  27 + 32 * mob.getPosicionX() + self.canvasCorrecion[
-                                                      1] + DRAW_CANVAS_OFFSET_X,
-                                                  self.canvasCorrecion[
-                                                      0] + 32 * mob.getPosicionY() + 26 + DRAW_CANVAS_OFFSET_Y)
+                                self.world.coords(
+                                    "mob:icon:grupal:" + str(i_d),
+                                    27 + 32 * mob.getPosicionX() +
+                                    self.canvasCorrecion[
+                                        1] + DRAW_CANVAS_OFFSET_X,
+                                    self.canvasCorrecion[
+                                        0] + 32 * mob.getPosicionY() + 26 + DRAW_CANVAS_OFFSET_Y)
                         else:  # Movimiento con animación
-                            self.root.after(TEXDT, makeCallable(partial(arrastrarImagen, "mob:" + str(i_d), self.world,
-                                                                        17 + 32 * mob.getPosicionX() +
-                                                                        self.canvasCorrecion[
-                                                                            1] + DRAW_CANVAS_OFFSET_X,
-                                                                        self.canvasCorrecion[
-                                                                            0] + 32 * mob.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y)))
                             self.root.after(TEXDT, makeCallable(
-                                partial(arrastrarImagen, "lifebar:" + str(i_d), self.world,
+                                partial(arrastrarImagen, "mob:" + str(i_d),
+                                        self.world,
+                                        17 + 32 * mob.getPosicionX() +
+                                        self.canvasCorrecion[
+                                            1] + DRAW_CANVAS_OFFSET_X,
+                                        self.canvasCorrecion[
+                                            0] + 32 * mob.getPosicionY() + 18 + DRAW_CANVAS_OFFSET_Y)))
+                            self.root.after(TEXDT, makeCallable(
+                                partial(arrastrarImagen, "lifebar:" + str(i_d),
+                                        self.world,
                                         32 * mob.getPosicionX() +
                                         self.canvasCorrecion[
                                             1] + 17 + DRAW_CANVAS_OFFSET_X,
-                                        32 * mob.getPosicionY() + self.canvasCorrecion[0] - 10 + DRAW_CANVAS_OFFSET_Y)))
+                                        32 * mob.getPosicionY() +
+                                        self.canvasCorrecion[
+                                            0] - 10 + DRAW_CANVAS_OFFSET_Y)))
                             if self.nivel_dificultad == DIFICULTAD_FACIL or self.nivel_dificultad == DIFICULTAD_MEDIO:
                                 self.root.after(TEXDT, makeCallable(
-                                    partial(arrastrarImagen, "mob:icon:grupal:" + str(i_d), self.world,
+                                    partial(arrastrarImagen,
+                                            "mob:icon:grupal:" + str(i_d),
+                                            self.world,
                                             32 * mob.getPosicionX() +
                                             self.canvasCorrecion[
                                                 1] + 27 + DRAW_CANVAS_OFFSET_X,
-                                            32 * mob.getPosicionY() + self.canvasCorrecion[
+                                            32 * mob.getPosicionY() +
+                                            self.canvasCorrecion[
                                                 0] + 26 + DRAW_CANVAS_OFFSET_Y)))
                     except:
                         print lang(328)
                     # Si el mob está encima, abajo, a la derecha o a la
                     # izquierda del jugador // no válido es en diagonal
-                    if (abs(mob.getPosicionX() - self.playerPos[0]) == 1 and mob.getPosicionY() == self.playerPos[1]) or \
-                            (abs(mob.getPosicionY() - self.playerPos[1]) == 1 and mob.getPosicionX() == self.playerPos[
-                                0]):
+                    if (abs(mob.getPosicionX() - self.playerPos[
+                        0]) == 1 and mob.getPosicionY() == self.playerPos[
+                        1]) or \
+                            (abs(mob.getPosicionY() - self.playerPos[
+                                1]) == 1 and mob.getPosicionX() ==
+                                self.playerPos[
+                                    0]):
                         self.setCombat(mob, i_d)
                         break
             del mob_id  # borro la matriz de ids
@@ -5585,15 +6187,19 @@ class hoa:
                     x, y = np.moveNpc()
                     # Si el movimiento es valido
                     if 0 <= y < self.mapSize[1] and 0 <= x < self.mapSize[0]:
-                        if self.mapLogic[y][x] == "none":  # Si el lugar está vacío
-                            if self.maplightning[np.getPosicionY()][np.getPosicionX()] != self.maplightning[y][
-                                    x]:  # Si cambia la iluminación
+                        if self.mapLogic[y][
+                            x] == "none":  # Si el lugar está vacío
+                            if self.maplightning[np.getPosicionY()][
+                                np.getPosicionX()] != self.maplightning[y][
+                                x]:  # Si cambia la iluminación
                                 if self.maplightning[y][x] == 0:
                                     self.world.itemconfig("npc:" + str(i_d),
-                                                          image=self.images.image(np.getImage() + "_0"))
+                                                          image=self.images.image(
+                                                              np.getImage() + "_0"))
                                 else:
                                     self.world.itemconfig("npc:" + str(i_d),
-                                                          image=self.images.image(np.getImage() + "_1"))
+                                                          image=self.images.image(
+                                                              np.getImage() + "_1"))
                             # Actualizo el mapa lógico
                             self.mapLogic[np.getPosicionY()][
                                 np.getPosicionX()] = "none"
@@ -5602,14 +6208,18 @@ class hoa:
                             np.setPosicionY(y)
                         # si la siguiente combinacion está vacía
                         elif self.mapLogic[y][np.getPosicionX()] == "none":
-                            if self.maplightning[np.getPosicionY()][np.getPosicionX()] != self.maplightning[y][
-                                    np.getPosicionX()]:  # Si cambia la iluminación
-                                if self.maplightning[y][np.getPosicionX()] == 0:
+                            if self.maplightning[np.getPosicionY()][
+                                np.getPosicionX()] != self.maplightning[y][
+                                np.getPosicionX()]:  # Si cambia la iluminación
+                                if self.maplightning[y][
+                                    np.getPosicionX()] == 0:
                                     self.world.itemconfig("npc:" + str(i_d),
-                                                          image=self.images.image(np.getImage() + "_0"))
+                                                          image=self.images.image(
+                                                              np.getImage() + "_0"))
                                 else:
                                     self.world.itemconfig("npc:" + str(i_d),
-                                                          image=self.images.image(np.getImage() + "_1"))
+                                                          image=self.images.image(
+                                                              np.getImage() + "_1"))
                             # Actualizo el mapa lógico
                             self.mapLogic[np.getPosicionY()][
                                 np.getPosicionX()] = "none"
@@ -5617,14 +6227,19 @@ class hoa:
                             np.setPosicionY(y)
                         # Si el lugar está vacío
                         elif self.mapLogic[np.getPosicionY()][x] == "none":
-                            if self.maplightning[np.getPosicionY()][np.getPosicionX()] != \
-                                    self.maplightning[np.getPosicionY()][x]:  # Si cambia la iluminación
-                                if self.maplightning[np.getPosicionY()][x] == 0:
+                            if self.maplightning[np.getPosicionY()][
+                                np.getPosicionX()] != \
+                                    self.maplightning[np.getPosicionY()][
+                                        x]:  # Si cambia la iluminación
+                                if self.maplightning[np.getPosicionY()][
+                                    x] == 0:
                                     self.world.itemconfig("npc:" + str(i_d),
-                                                          image=self.images.image(np.getImage() + "_0"))
+                                                          image=self.images.image(
+                                                              np.getImage() + "_0"))
                                 else:
                                     self.world.itemconfig("npc:" + str(i_d),
-                                                          image=self.images.image(np.getImage() + "_1"))
+                                                          image=self.images.image(
+                                                              np.getImage() + "_1"))
                             # Actualizo el mapa lógico
                             self.mapLogic[np.getPosicionY()][
                                 np.getPosicionX()] = "none"
@@ -5636,13 +6251,16 @@ class hoa:
                                 self.world.coords("npc:" + str(i_d),
                                                   18 + 32 * np.getPosicionX() +
                                                   self.canvasCorrecion[1],
-                                                  self.canvasCorrecion[0] + 32 * np.getPosicionY() + 18)
+                                                  self.canvasCorrecion[
+                                                      0] + 32 * np.getPosicionY() + 18)
                             else:  # Movimiento con animación
                                 self.root.after(TEXDT, makeCallable(
-                                    partial(arrastrarImagen, "npc:" + str(i_d), self.world,
+                                    partial(arrastrarImagen, "npc:" + str(i_d),
+                                            self.world,
                                             18 + 32 * np.getPosicionX() +
                                             self.canvasCorrecion[1],
-                                            self.canvasCorrecion[0] + 32 * np.getPosicionY() + 18)))
+                                            self.canvasCorrecion[
+                                                0] + 32 * np.getPosicionY() + 18)))
                         except:
                             pass
             del npc_id
@@ -5662,7 +6280,8 @@ class hoa:
         """
 
         # Si se puede mover y no está en contacto con un mob y/o npc
-        if (not self.inBattle and not self.player.isDead() and not self.inNpc) and self.canmove:
+        if (
+                        not self.inBattle and not self.player.isDead() and not self.inNpc) and self.canmove:
             try:
                 self.world.delete("textmsg")
                 self.world.delete("textback")
@@ -5683,7 +6302,7 @@ class hoa:
                 if x < self.mapSize[0] - 1:
                     x += 1
             if x != self.playerPos[0] or y != self.playerPos[
-                    1]:  # Si hubo algún cambio (eso es cuando no se puede mover mas allá de los limites del mapa)
+                1]:  # Si hubo algún cambio (eso es cuando no se puede mover mas allá de los limites del mapa)
                 action = self.mapLogic[y][x]
                 logic = action.split(",")[0]
                 if logic in AVAIABLE_WALK:  # Si no hay nada en el bloque que sigue
@@ -5949,8 +6568,10 @@ class hoa:
                     self.setInfo(lang(78))
                     self.move(x, y)
                     try:
-                        k = pop([lang(79), self.images.image("text_icon"), "longtext", 400, 600,
-                                 LEVELS_RES + action.split(",")[1], self.player.getName()])
+                        k = pop([lang(79), self.images.image("text_icon"),
+                                 "longtext", 400, 600,
+                                 LEVELS_RES + action.split(",")[1],
+                                 self.player.getName()])
                         k.w.mainloop(1)
                         del k
                     except:
@@ -6006,21 +6627,25 @@ class hoa:
                 if not self.inNpc:
                     if not self.multiplayer_isconected:  # Si no está conectado a un servidor
                         ventana = pop(
-                            [[lang(774), lang(775), lang(776), lang(777), lang(778), lang(779), lang(780), lang(781)],
-                             self.images.image("server_icon"), "server_connect", 100, 290, DATA_CONFIG])
+                            [[lang(774), lang(775), lang(776), lang(777),
+                              lang(778), lang(779), lang(780), lang(781)],
+                             self.images.image("server_icon"),
+                             "server_connect", 100, 290, DATA_CONFIG])
                         ventana.w.mainloop(1)
                         if ventana.sent:
                             try:
                                 self.world.config(cursor="wait")
                                 self.root.config(cursor="wait")
                                 print lang(791),
-                                self.multiplayer_me, self.multiplayer_me_conn = connect_server(ventana.values[0],
-                                                                                               ventana.values[1])
+                                self.multiplayer_me, self.multiplayer_me_conn = connect_server(
+                                    ventana.values[0],
+                                    ventana.values[1])
                                 self.multiplayer_isconected = True
                                 self.multiplayer_server = str(
-                                    ventana.values[0]) + ":" + str(ventana.values[1])
+                                    ventana.values[0]) + ":" + str(
+                                    ventana.values[1])
                                 self.setInfo(lang(792, ventana.values[
-                                             0], str(ventana.values[1])), True)
+                                    0], str(ventana.values[1])), True)
                                 print lang(310)
                             except:
                                 print lang(398)
@@ -6035,7 +6660,9 @@ class hoa:
                             if self.multiplayer_isconected:  # Se obtienen los lobby del juego
                                 # Inserto un lobby nulo
                                 data = simplejson.dumps(
-                                    [self.multiplayer_lobby, self.player.getName(), self.player.getMap()])
+                                    [self.multiplayer_lobby,
+                                     self.player.getName(),
+                                     self.player.getMap()])
                                 self.multiplayer_me_conn.send(data)
                                 self.multiplayer_joinLobby()
                     else:
@@ -6078,9 +6705,11 @@ class hoa:
             data = simplejson.loads(self.multiplayer_me_conn.recv(2000))
             if len(data) != 0:  # Si existen entradas en el servidor
                 ventana = pop(
-                    [[lang(805), lang(806), lang(807), lang(808), lang(809), lang(810), lang(811), lang(812), lang(813),
+                    [[lang(805), lang(806), lang(807), lang(808), lang(809),
+                      lang(810), lang(811), lang(812), lang(813),
                       lang(54), lang(814), lang(817)],
-                     self.images.image("door_in"), "server_joinlobby", 110, 330, data])
+                     self.images.image("door_in"), "server_joinlobby", 110,
+                     330, data])
                 ventana.w.mainloop(1)
                 if ventana.sent:
                     if ventana.values[0] == "disconnect":
@@ -6095,8 +6724,10 @@ class hoa:
                             self.multiplayer_desconnect(False, True)
                             self.error(lang(815), 82)
                     elif ventana.values[0] == "create":
-                        ventana1 = pop([[lang(808), lang(225), lang(820), lang(54)], self.images.image("server_add"),
-                                        "server_create", 42, 280])
+                        ventana1 = pop(
+                            [[lang(808), lang(225), lang(820), lang(54)],
+                             self.images.image("server_add"),
+                             "server_create", 42, 280])
                         ventana1.w.mainloop(1)
                         if ventana1.sent:
                             if ventana.values[0] == "disconnect":
@@ -6106,7 +6737,9 @@ class hoa:
                                     lobbyname = ventana1.values[0]
                                     self.multiplayer_lobby = lobbyname
                                     newdata = simplejson.dumps(
-                                        [self.multiplayer_lobby, self.player.getName(), self.player.getMap()])
+                                        [self.multiplayer_lobby,
+                                         self.player.getName(),
+                                         self.player.getMap()])
                                     self.multiplayer_me_conn.send(newdata)
                                     self.setInfo(
                                         lang(822, self.multiplayer_lobby))
@@ -6145,9 +6778,11 @@ class hoa:
         """
         if not self.isNewGameCreating:  # Si no hay otra ventana de creación abierta
             if self.multiplayer_isconected:  # Si el jugador está conectado a un servidor
-                v = pop([[lang(795), lang(799), lang(797), lang(239)], self.images.image("server_disconnect"),
+                v = pop([[lang(795), lang(799), lang(797), lang(239)],
+                         self.images.image("server_disconnect"),
                          "deseaDesconectarse",
-                         75, 335, CONFIGURATION_DATA[1]])  # Se consulta si cerrar o no la sesión activa
+                         75, 335, CONFIGURATION_DATA[
+                             1]])  # Se consulta si cerrar o no la sesión activa
                 v.w.mainloop(1)
                 if v.sent:  # Se procede en función de la respuesta
                     if v.values[0] == "si":
@@ -6169,11 +6804,15 @@ class hoa:
                 _sizex = 455
                 _sizey = 270
             ventana = pop(
-                [[lang(46), lang(224), lang(225), lang(226), lang(227), lang(228), lang(229), "[Fácil/Medio/Difícil]",
+                [[lang(46), lang(224), lang(225), lang(226), lang(227),
+                  lang(228), lang(229), "[Fácil/Medio/Difícil]",
                   lang(245).replace(
-                      ":", ""), "[Guerrero/Mago/Skaard/Ugraar]", lang(233), lang(781), lang(782),
+                      ":", ""), "[Guerrero/Mago/Skaard/Ugraar]", lang(233),
+                  lang(781), lang(782),
                   lang(783),
-                  lang(784), lang(785), lang(786)], self.images.image("new_user_icon"), "new_game", _sizey, _sizex])
+                  lang(784), lang(785), lang(786)],
+                 self.images.image("new_user_icon"), "new_game", _sizey,
+                 _sizex])
             ventana.w.mainloop(1)
             if ventana.sent:  # Si la ventana se envió
                 try:  # Empiezo a crear la nueva partida
@@ -6215,7 +6854,8 @@ class hoa:
                     self.update()  # se actualiza la UI
                     self.sfx(30)  # se carga el sonido de comienzo
                     editorkey = base64.b64encode(
-                        md5.new(self.player.getName()).digest())  # se comprueba si el jugador es editor o no
+                        md5.new(
+                            self.player.getName()).digest())  # se comprueba si el jugador es editor o no
                     if editorkey == "NEp/Qn+3ZWEO+W63vOlSVw==" or editorkey == "Y/sQiCQbCs3XmHrwwfT35g==":
                         self.player.setEditor()
                     self.menu.pack(side=LEFT, fill=Y)
@@ -6261,7 +6901,8 @@ class hoa:
                                     "{yes}", "").split("%"))
                                 self.textMsg(line[0], "normal")
                                 self.setInfo(
-                                    lang(436, self.currentNpc.getName(), line[0]))
+                                    lang(436, self.currentNpc.getName(),
+                                         line[0]))
                             else:
                                 adv = False
                         elif action == "no":
@@ -6271,7 +6912,8 @@ class hoa:
                                     "{yes}", "").split("%"))
                                 self.textMsg(line[1], "normal")
                                 self.setInfo(
-                                    lang(436, self.currentNpc.getName(), line[1]))
+                                    lang(436, self.currentNpc.getName(),
+                                         line[1]))
                             else:
                                 adv = False
                         elif action == "accept":  # Avanzar en el string
@@ -6282,7 +6924,8 @@ class hoa:
                                     line = translate(line.replace(
                                         "{setquest ", "").replace("}", ""))
                                     self.setInfo(
-                                        lang(choice([571, 575, 577, 578, 579, 580])))
+                                        lang(choice(
+                                            [571, 575, 577, 578, 579, 580])))
                                     self.world.delete("textmsg")
                                     self.world.delete("textback")
                                     self.playerText(
@@ -6296,7 +6939,8 @@ class hoa:
                                             self.currentNpc.getObject())))  # Se agrega nuevo objeto al jugador
                                         self.dibujarItems()
                                         self.setInfo(
-                                            lang(435, self.currentNpc.getName()))
+                                            lang(435,
+                                                 self.currentNpc.getName()))
                                         self.playerText(
                                             "+" + lang(143), "blanco", True)
                                         if not self.currentNpc.getStringAmount() == self.currentNpc.getCount():
@@ -6305,7 +6949,9 @@ class hoa:
                                                 self.currentNpc.getCurrentString())
                                             self.textMsg(line, "normal")
                                             self.setInfo(
-                                                lang(436, self.currentNpc.getName(), line))
+                                                lang(436,
+                                                     self.currentNpc.getName(),
+                                                     line))
                                 # Si se pide un objeto al jugador
                                 elif line == "{request}":
                                     object_id = self.currentNpc.getRequest()
@@ -6321,7 +6967,8 @@ class hoa:
                                         if finded:
                                             req = self.player.getItem(k)
                                             self.textMsg(
-                                                lang(560, translate(req.getName())))
+                                                lang(560,
+                                                     translate(req.getName())))
                                         else:
                                             self.textMsg(
                                                 lang(choice([561, 562])))
@@ -6332,7 +6979,8 @@ class hoa:
                                     line = translate(line.replace(
                                         "{setquest ", "").replace("}", ""))
                                     self.setInfo(
-                                        lang(choice([571, 575, 577, 578, 579, 580])))
+                                        lang(choice(
+                                            [571, 575, 577, 578, 579, 580])))
                                     self.world.delete("textmsg")
                                     self.world.delete("textback")
                                     self.playerText(
@@ -6341,7 +6989,9 @@ class hoa:
                                     self.static.addQuest()
                                 elif "{follower" in line:
                                     line = translate(line.replace(
-                                        "{follower ", "").replace("}", "").split(" "))
+                                        "{follower ", "").replace("}",
+                                                                  "").split(
+                                        " "))
                                     tipo = line[0].upper()
                                     cant = line[1].strip()
                                     if cant.isdigit():  # Si la cantidad de followers es numérica
@@ -6357,9 +7007,12 @@ class hoa:
                                         if tipo == "LIV" or tipo == "MED" or tipo == "STR":
                                             self.setInfo(lang(715, str(cant)))
                                             self.textMsg(
-                                                lang(choice([716, 717, 718, 719, 720])))
+                                                lang(choice(
+                                                    [716, 717, 718, 719,
+                                                     720])))
                                             self.playerText(
-                                                "+" + lang(721), "naranja", True, False)
+                                                "+" + lang(721), "naranja",
+                                                True, False)
                                             self.static.addFollower(cant)
                                         if not self.currentNpc.getStringAmount() == self.currentNpc.getCount():
                                             self.currentNpc.addCount()
@@ -6367,24 +7020,31 @@ class hoa:
                                                 self.currentNpc.getCurrentString())
                                             self.textMsg(line, "normal")
                                             self.setInfo(
-                                                lang(436, self.currentNpc.getName(), line))
+                                                lang(436,
+                                                     self.currentNpc.getName(),
+                                                     line))
                                     else:
                                         print lang(713)
                                 else:
                                     line = translate(line)
                                     self.textMsg(line, "normal")
                                     self.setInfo(
-                                        lang(436, self.currentNpc.getName(), line))
+                                        lang(436, self.currentNpc.getName(),
+                                             line))
                                     try:
                                         if "{setquest" in self.currentNpc.NextString():
                                             self.currentNpc.addCount()
                                             line = self.currentNpc.getCurrentString()  # obtengo el string
                                             line = translate(line.replace(
-                                                "{setquest ", "").replace("}", ""))
+                                                "{setquest ", "").replace("}",
+                                                                          ""))
                                             self.setInfo(
-                                                lang(choice([571, 575, 577, 578, 579, 580])))
+                                                lang(choice(
+                                                    [571, 575, 577, 578, 579,
+                                                     580])))
                                             self.playerText(
-                                                "+" + lang(576), "blanco", True, True)
+                                                "+" + lang(576), "blanco",
+                                                True, True)
                                             self.player.addQuest(line)
                                             self.static.addQuest()
                                     except:
@@ -6393,7 +7053,7 @@ class hoa:
                             adv = True
                     if adv:  # Si termina el diálogo con el npc
                         if (
-                                self.currentNpc.getStringAmount() == self.currentNpc.getCount() and self.npcId >= 0 and adv) or line == "{end}":
+                                            self.currentNpc.getStringAmount() == self.currentNpc.getCount() and self.npcId >= 0 and adv) or line == "{end}":
                             def _setnonpc():  # Elimina al npc activo
                                 self.inNpc = False
                                 self.npcId = -1
@@ -6452,35 +7112,47 @@ class hoa:
             try:
                 if bold:
                     if player:
-                        msgid = self.world.create_text(self.playerPos[0] * 32 + self.canvasCorrecion[1] + 22,
-                                                       self.playerPos[1] * 32 + self.canvasCorrecion[0] + 3, text=msg,
-                                                       fill=color, font=self.fonts[3])
+                        msgid = self.world.create_text(
+                            self.playerPos[0] * 32 + self.canvasCorrecion[
+                                1] + 22,
+                            self.playerPos[1] * 32 + self.canvasCorrecion[
+                                0] + 3, text=msg,
+                            fill=color, font=self.fonts[3])
                     else:
-                        msgid = self.world.create_text(self.enemy.getPosicionX() * 32 + self.canvasCorrecion[1] + 22,
-                                                       self.enemy.getPosicionY() * 32 +
-                                                       self.canvasCorrecion[
-                                                           0] + 3,
-                                                       text=msg, fill=color, font=self.fonts[3])
+                        msgid = self.world.create_text(
+                            self.enemy.getPosicionX() * 32 +
+                            self.canvasCorrecion[1] + 22,
+                            self.enemy.getPosicionY() * 32 +
+                            self.canvasCorrecion[
+                                0] + 3,
+                            text=msg, fill=color, font=self.fonts[3])
                     if msg.replace("+", "").replace("-", "").isdigit():
                         self.root.after(PLAYER_TEXT_TIME,
-                                        lambda: self.world.delete(msgid))  # se borra el mensaje tras medio segundo
+                                        lambda: self.world.delete(
+                                            msgid))  # se borra el mensaje tras medio segundo
                     else:
                         self.root.after(PLAYER_TEXT_TIME * 3,
                                         lambda: self.world.delete(msgid))
                 else:
                     if player:
-                        msgid = self.world.create_text(self.playerPos[0] * 32 + self.canvasCorrecion[1] + 22,
-                                                       self.playerPos[1] * 32 + self.canvasCorrecion[0] + 3, text=msg,
-                                                       fill=color, font=self.fonts[2])
+                        msgid = self.world.create_text(
+                            self.playerPos[0] * 32 + self.canvasCorrecion[
+                                1] + 22,
+                            self.playerPos[1] * 32 + self.canvasCorrecion[
+                                0] + 3, text=msg,
+                            fill=color, font=self.fonts[2])
                     else:
-                        msgid = self.world.create_text(self.enemy.getPosicionX() * 32 + self.canvasCorrecion[1] + 22,
-                                                       self.enemy.getPosicionY() * 32 +
-                                                       self.canvasCorrecion[
-                                                           0] + 3,
-                                                       text=msg, fill=color, font=self.fonts[2])
+                        msgid = self.world.create_text(
+                            self.enemy.getPosicionX() * 32 +
+                            self.canvasCorrecion[1] + 22,
+                            self.enemy.getPosicionY() * 32 +
+                            self.canvasCorrecion[
+                                0] + 3,
+                            text=msg, fill=color, font=self.fonts[2])
                     if msg.replace("+", "").replace("-", "").isdigit():
                         self.root.after(PLAYER_TEXT_TIME,
-                                        lambda: self.world.delete(msgid))  # se borra el mensaje tras medio segundo
+                                        lambda: self.world.delete(
+                                            msgid))  # se borra el mensaje tras medio segundo
                     else:
                         self.root.after(PLAYER_TEXT_TIME * 3,
                                         lambda: self.world.delete(msgid))
@@ -6495,16 +7167,21 @@ class hoa:
         :return: void
         """
         print lang(402),
-        if (self.ingame and e != "command" and not self.inBattle and not self.inNpc) and CONFIGURATION_DATA[
-                12]:  # Si hay una partida en curso y no está en una batalla
+        if (
+                            self.ingame and e != "command" and not self.inBattle and not self.inNpc) and \
+                CONFIGURATION_DATA[
+                    12]:  # Si hay una partida en curso y no está en una batalla
             # Si está habilitado guardar al salir
             if CONFIGURATION_DATA[2] and self.namePartida != "":
                 print lang(403)
                 self.saveGame("exit")
             else:  # Si no está habilitado guardar al salir
-                e = pop([[lang(64), lang(236), lang(237), lang(238), lang(239)], self.images.image("save_icon"),
-                         "deseaGuardar",
-                         75, 250, CONFIGURATION_DATA[1]])  # Se pregunta si quiere guardar o no
+                e = pop(
+                    [[lang(64), lang(236), lang(237), lang(238), lang(239)],
+                     self.images.image("save_icon"),
+                     "deseaGuardar",
+                     75, 250, CONFIGURATION_DATA[
+                         1]])  # Se pregunta si quiere guardar o no
                 e.w.mainloop(1)
                 if e.sent:  # Se procede en función de la respuesta
                     if e.values[0] == "si":
@@ -6536,15 +7213,17 @@ class hoa:
         :return: void
         """
         if (self.ingame and not self.player.isDead()) and CONFIGURATION_DATA[
-                12]:  # Si se esta jugando (esto evita que se pueda guardar sin hacer nada
+            12]:  # Si se esta jugando (esto evita que se pueda guardar sin hacer nada
             if not self.inBattle and not self.inNpc:  # Si no se encuentra peleando ni interactuando con un npc
                 nameSav = ""
                 continuar = False
                 # Si no se ha cargado (es una nueva partida) se pregunta por un
                 # nombre
                 if not self.loaded:
-                    ventana = pop([[lang(60), lang(234), lang(235), lang(64), lang(781), lang(787), lang(788)],
-                                   self.images.image("save_icon"), "save_game_name", 120, 280])
+                    ventana = pop([[lang(60), lang(234), lang(235), lang(64),
+                                    lang(781), lang(787), lang(788)],
+                                   self.images.image("save_icon"),
+                                   "save_game_name", 120, 280])
                     ventana.w.mainloop(1)
                     if ventana.sent:
                         nameSav = ventana.values[0]
@@ -6572,15 +7251,18 @@ class hoa:
                         archivo.write(
                             self.nivel_dificultad.decode('utf-8') + "\n")
                         archivo.write(
-                            str(self.player.getDamage()).decode('utf-8') + "\n")
+                            str(self.player.getDamage()).decode(
+                                'utf-8') + "\n")
                         archivo.write(
-                            str(self.player.getExperience()).decode('utf-8') + "\n")
+                            str(self.player.getExperience()).decode(
+                                'utf-8') + "\n")
                         archivo.write(
                             str(self.player.getInfo()).decode('utf-8') + "\n")
                         archivo.write(
                             str(self.player.getLevel()).decode('utf-8') + "\n")
                         archivo.write(
-                            str(self.player.getLinkImage()).decode('utf-8') + "\n")
+                            str(self.player.getLinkImage()).decode(
+                                'utf-8') + "\n")
                         archivo.write(
                             str(self.player.getMana()).decode('utf-8') + "\n")
                         archivo.write(
@@ -6588,7 +7270,8 @@ class hoa:
                         archivo.write(
                             str(self.player.getType()).decode('utf-8') + "\n")
                         archivo.write(
-                            str(self.player.getVelocidad()).decode('utf-8') + "\n")
+                            str(self.player.getVelocidad()).decode(
+                                'utf-8') + "\n")
                         archivo.write(str(self.playerPos[0]) + "\n")
                         archivo.write(str(self.playerPos[1]) + "\n")
                         archivo.write(str(self.itemnumberlist) + "\n")
@@ -6620,12 +7303,14 @@ class hoa:
                         archivo.write("#weapons#\n")
                         try:
                             archivo.write(
-                                self.player.getLeftWeapon().export().decode('utf-8'))
+                                self.player.getLeftWeapon().export().decode(
+                                    'utf-8'))
                         except:
                             archivo.write("%NULL%\n")
                         try:
                             archivo.write(
-                                self.player.getRightWeapon().export().decode('utf-8'))
+                                self.player.getRightWeapon().export().decode(
+                                    'utf-8'))
                         except:
                             archivo.write("%NULL%\n")
                         print lang(310)
@@ -6640,22 +7325,26 @@ class hoa:
                         archivo.write("#armor#\n")
                         try:
                             archivo.write(
-                                self.player.getCasco().export().decode('utf-8'))
+                                self.player.getCasco().export().decode(
+                                    'utf-8'))
                         except:
                             archivo.write("%NULL%\n")
                         try:
                             archivo.write(
-                                self.player.getChaleco().export().decode('utf-8'))
+                                self.player.getChaleco().export().decode(
+                                    'utf-8'))
                         except:
                             archivo.write("%NULL%\n")
                         try:
                             archivo.write(
-                                self.player.getPantalones().export().decode('utf-8'))
+                                self.player.getPantalones().export().decode(
+                                    'utf-8'))
                         except:
                             archivo.write("%NULL%\n")
                         try:
                             archivo.write(
-                                self.player.getBotas().export().decode('utf-8'))
+                                self.player.getBotas().export().decode(
+                                    'utf-8'))
                         except:
                             archivo.write("%NULL%\n")
                         print lang(310)
@@ -6836,37 +7525,53 @@ class hoa:
                         self.error(lang(222), 85)
                     try:  # Archivo de guardado
                         print lang(428)
-                        print lang(401).format("(...)" + (DATA_SAVES + nameSav + ".save")[-44:]),
-                        filesave = zipfile.ZipFile(DATA_SAVES + nameSav + ".save",
-                                                   mode='w')  # archivo final de guardado
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".hoacmd",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de comandos
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".key1",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".key2",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".key3",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".key4",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".key5",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".mapitemtexture",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de texturas
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".maplogic",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega los elementos lógicos del mapa
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".mapmob",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega los mobs del mapa
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".mapnpc",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de npc del mapa actual
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".powers",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de los poderes
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".quest",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de las quest
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".sav",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo principal
-                        filesave.write(DATA_SAVES_NO_DIRECTORY + nameSav + ".statics",
-                                       compress_type=zipfile.ZIP_DEFLATED)  # se agregan las estadísticas del jugador
+                        print lang(401).format(
+                            "(...)" + (DATA_SAVES + nameSav + ".save")[-44:]),
+                        filesave = zipfile.ZipFile(
+                            DATA_SAVES + nameSav + ".save",
+                            mode='w')  # archivo final de guardado
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".hoacmd",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de comandos
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".key1",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".key2",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".key3",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".key4",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".key5",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de seguridad
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".mapitemtexture",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de texturas
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".maplogic",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega los elementos lógicos del mapa
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".mapmob",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega los mobs del mapa
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".mapnpc",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de npc del mapa actual
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".powers",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de los poderes
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".quest",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo de las quest
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".sav",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agrega el archivo principal
+                        filesave.write(
+                            DATA_SAVES_NO_DIRECTORY + nameSav + ".statics",
+                            compress_type=zipfile.ZIP_DEFLATED)  # se agregan las estadísticas del jugador
                         filesave.close()  # cierro el archivo generado
                         print lang(310)
                     except:  # Error al crear el archivo de guardado
@@ -6874,7 +7579,8 @@ class hoa:
                         self.error(lang(213))
                         print lang(440)
                     self.loaded = True  # se establece como cargada la partida
-                    if tipo not in ["shorcut"]:  # Si no fue por atajo de teclado
+                    if tipo not in [
+                        "shorcut"]:  # Si no fue por atajo de teclado
                         # La partida fue guardada exitosamente
                         if tipo not in ["exit", "autosave", "command"]:
                             self.sfx(37)
@@ -6907,7 +7613,8 @@ class hoa:
         self.enemy.setName(translate(self.enemy.getName()))
         self.enemy.setInfo(translate(self.enemy.getInformacion()))
         self.enemy.setDefensa(int(self.enemy.getDefensa() * (
-            self.dificultad[1] + 1)))  # se define la defensa basal mob en funcion de la dificultad
+            self.dificultad[
+                1] + 1)))  # se define la defensa basal mob en funcion de la dificultad
         self.enemyId = i_d  # se obtiene el id del mob
         self.inBattle = True  # modo batalla (loop)
         try:
@@ -6920,7 +7627,8 @@ class hoa:
         if self.tipoCombate == MODE_FIGHT_NORMAL or self.player.getTotalFriends() == 0:
             self.tipoCombate = MODE_FIGHT_NORMAL
             self.enemy.setPosAbs(self.playerPos[0],
-                                 self.playerPos[1])  # se define la posición absoluta con respecto al jugador
+                                 self.playerPos[
+                                     1])  # se define la posición absoluta con respecto al jugador
             self.textMsg(self.enemy.getName() + "\n" +
                          self.enemy.getInformacion(), "combat")
             try:  # Si el mob posee un sonido caracteristico se le reproduce
@@ -6931,21 +7639,24 @@ class hoa:
                 print lang(328)
         elif self.tipoCombate == MODE_FIGHT_GROUP:  # Si es un combate grupal
             self.sfx(29)  # sonido del combate grupal
-            self.board = board(self.player, self.enemy, self.mapTextures[self.playerPos[1]][self.playerPos[0]],
+            self.board = board(self.player, self.enemy,
+                               self.mapTextures[self.playerPos[1]][
+                                   self.playerPos[0]],
                                self.mapTextures[self.enemy.getPosicionY()][
-                self.enemy.getPosicionX()],
-                choice(TEXTURE_OBSTACLES),
-                self.maplightning[self.playerPos[1]][
+                                   self.enemy.getPosicionX()],
+                               choice(TEXTURE_OBSTACLES),
+                               self.maplightning[self.playerPos[1]][
                                    self.playerPos[0]],
-                self.maplightning[self.enemy.getPosicionY()][
-                self.enemy.getPosicionX()],
-                self.nivel_dificultad, self.dificultad[
+                               self.maplightning[self.enemy.getPosicionY()][
+                                   self.enemy.getPosicionX()],
+                               self.nivel_dificultad, self.dificultad[
                                    7], self.images,
-                self.mapSound[self.playerPos[1]][
+                               self.mapSound[self.playerPos[1]][
                                    self.playerPos[0]],
-                self.mapSound[self.enemy.getPosicionY()][
-                self.enemy.getPosicionX()],
-                self.player.getArrowTexture(), self.player.getWeaponTexture())
+                               self.mapSound[self.enemy.getPosicionY()][
+                                   self.enemy.getPosicionX()],
+                               self.player.getArrowTexture(),
+                               self.player.getWeaponTexture())
             print lang(726),
             try:
                 self.board.generate()  # genero un tablero al azar
@@ -6955,16 +7666,19 @@ class hoa:
             print lang(310)
             for i in self.board.players:
                 i.setMaxDistance(
-                    int(self.board.getBoardSizeX() * MAX_1ST_MOVEMENT))  # establezco el máximo movimiento de los grupos
+                    int(
+                        self.board.getBoardSizeX() * MAX_1ST_MOVEMENT))  # establezco el máximo movimiento de los grupos
             self.board.setTotalExp()
             self.board.modifyBoardCorreccionX(DRAW_CANVAS_OFFSET_X)
             self.board.modifyBoardCorreccionY(DRAW_CANVAS_OFFSET_Y)
             self.dibujarMundo()
             self.combateGrupal("print")
-            self.setInfo(lang(725, str(int(self.enemy.getLife() * (2 - self.dificultad[7]) * 0.12)),
+            self.setInfo(lang(725, str(
+                int(self.enemy.getLife() * (2 - self.dificultad[7]) * 0.12)),
                               str(int(self.enemy.getAtaque() *
                                       (2 - self.dificultad[7]) * 0.4)),
-                              str(int(self.enemy.getDefensa() * (2 - self.dificultad[7]) * 0.3))), False)
+                              str(int(self.enemy.getDefensa() * (
+                                  2 - self.dificultad[7]) * 0.3))), False)
         self.setInfo(self.enemy.getName() + "\n" +
                      lang(87, self.enemy.getInformacion()), False)
         if self.tipoCombate == MODE_FIGHT_GROUP:
@@ -7012,7 +7726,8 @@ class hoa:
         """
         try:
             mapa = loadFromArchive(
-                DATA_LEVELS + self.player.getMap(), lang(400))  # carga del mapa
+                DATA_LEVELS + self.player.getMap(),
+                lang(400))  # carga del mapa
             self.root.title(self.programTitle + " - " +
                             str(translate(mapa[0])).replace("'", ""))
             size = mapa[2].split(",")
@@ -7031,7 +7746,7 @@ class hoa:
             # se crea la imágen de fondo
             fim = Image.new("RGB", (CANVAS_SIZE[0], CANVAS_SIZE[1]), "#000000")
             self.mapBackgroundSound[0] = SOUND_AMBIENCE + \
-                mapa[4]  # establezco el sonido
+                                         mapa[4]  # establezco el sonido
             for i in range(6, len(mapa)):  # Se agregan datos al mapa
                 self.mapItemsTextures.append([0] * self.mapSize[0])
                 self.mapLogic.append([0] * self.mapSize[0])
@@ -7045,12 +7760,14 @@ class hoa:
                     light = int(fila[j][0])
                     item = fila[j][1]
                     self.maplightning[k][j] = light
-                    (texture, sound, terrainlog) = textureTerrainAnalysis(int(fila[j][2]),  # @UnusedVariable
-                                                                          light)  # cargo la textura y el sonido @UnusedVariable
+                    (texture, sound, terrainlog) = textureTerrainAnalysis(
+                        int(fila[j][2]),  # @UnusedVariable
+                        light)  # cargo la textura y el sonido @UnusedVariable
                     im.paste(self.images.image(texture),
-                             (32 * j, 32 * k, 32 * (j + 1), 32 * (k + 1)))  # se agrega imagen al fondo
+                             (32 * j, 32 * k, 32 * (j + 1),
+                              32 * (k + 1)))  # se agrega imagen al fondo
                     self.mapSound[k][j] = SOUND_WALK + \
-                        sound + SOUND_FORMAT  # se agrega sonido
+                                          sound + SOUND_FORMAT  # se agrega sonido
                     self.mapTextures[k][j] = texture  # se agrega la textura
                     item = item.split("-")
                     logic = int(item[0])
@@ -7079,13 +7796,16 @@ class hoa:
                         prop = item[2].split(",")
                         if len(prop) == 17:
                             prop += ["%NOSOUND%"]
-                        self.mobs.append(mob(int(prop[0]), int(prop[1]), textureMobAnalysis(int(prop[2])),
+                        self.mobs.append(mob(int(prop[0]), int(prop[1]),
+                                             textureMobAnalysis(int(prop[2])),
                                              int(prop[3]), int(prop[4]), prop[
-                                                 5], prop[6], j, k, int(prop[7]),
+                                                 5], prop[6], j, k,
+                                             int(prop[7]),
                                              int(prop[8]), int(prop[9]), int(
-                                                 prop[10]), prop[11], prop[12], prop[13],
+                                prop[10]), prop[11], prop[12], prop[13],
                                              int(prop[14]),
-                                             j, k, prop[15], prop[16], prop[17]))
+                                             j, k, prop[15], prop[16],
+                                             prop[17]))
                     elif logic == 9:
                         log = "people"  # Mob lógico - persona que realiza metodos sobre el jugador
                     elif logic == 10:
@@ -7159,10 +7879,12 @@ class hoa:
                     elif logic == 43:  # Npc
                         log = "npc"
                         prop = item[2].split(",")
-                        self.npc.append(npc(prop[0], textureMobAnalysis(int(prop[1])), prop[2], prop[3], prop[4],
-                                            prop[5], int(prop[6]), prop[7], int(
-                                                prop[8]), prop[9], j, k, "FALSE", 0, j,
-                                            k, prop[10]))
+                        self.npc.append(
+                            npc(prop[0], textureMobAnalysis(int(prop[1])),
+                                prop[2], prop[3], prop[4],
+                                prop[5], int(prop[6]), prop[7], int(
+                                    prop[8]), prop[9], j, k, "FALSE", 0, j,
+                                k, prop[10]))
                     elif logic == 44:
                         log = "alfombra"
                     else:
@@ -7173,12 +7895,15 @@ class hoa:
                 k += 1
             if CANVAS_MAX_SIZE[0] > self.mapSize[1]:
                 self.canvasCorrecion[0] = (
-                    CANVAS_MAX_SIZE[0] - self.mapSize[1]) * 16  # Horizontal
+                                              CANVAS_MAX_SIZE[0] -
+                                              self.mapSize[
+                                                  1]) * 16  # Horizontal
             else:
                 self.canvasCorrecion[0] = 0
             if CANVAS_MAX_SIZE[1] > self.mapSize[0]:
                 self.canvasCorrecion[1] = (
-                    CANVAS_MAX_SIZE[1] - self.mapSize[0]) * 16  # Vertical
+                                              CANVAS_MAX_SIZE[1] -
+                                              self.mapSize[0]) * 16  # Vertical
             else:
                 self.canvasCorrecion[1] = 0
             self.canvasCorrecion[0] += DRAW_CANVAS_OFFSET_X
@@ -7213,7 +7938,8 @@ class hoa:
                 del movement
             self.static.addMapas()
             fim.paste(im,
-                      (self.canvasCorrecion[1], self.canvasCorrecion[0], 32 * self.mapSize[0] + self.canvasCorrecion[1],
+                      (self.canvasCorrecion[1], self.canvasCorrecion[0],
+                       32 * self.mapSize[0] + self.canvasCorrecion[1],
                        32 * self.mapSize[1] + self.canvasCorrecion[0]))
             self.mapImage.pop()  # borro la ultima imagen de fondo
             # agrego imagen de fondo
@@ -7246,7 +7972,8 @@ class hoa:
         :return: void
         """
         self.sonidoFx(
-            choice(SONIDO[t]))  # carga el sonido desde la lista eligiendo un sonido al azar
+            choice(SONIDO[
+                       t]))  # carga el sonido desde la lista eligiendo un sonido al azar
 
     def sfxBackgroundRepeat(self, e=None):
         """
@@ -7254,7 +7981,8 @@ class hoa:
         :param e: Event
         :return: void
         """
-        if CONFIGURATION_DATA[1] and TKSNACK[0]:  # Si los sonidos están activados
+        if CONFIGURATION_DATA[1] and TKSNACK[
+            0]:  # Si los sonidos están activados
             self.sndBg.play()
             if self.mapBackgroundSound[1] is not None:
                 self.root.after_cancel(self.mapBackgroundSound[1])
@@ -7295,9 +8023,11 @@ class hoa:
         :return: void
         """
         # Si el archivo existe y los sonidos están activados
-        if archivo != "" and CONFIGURATION_DATA[1] and archivo != SOUND_AMBIENCE + "%MAPSOUND%" and TKSNACK[0]:
+        if archivo != "" and CONFIGURATION_DATA[
+            1] and archivo != SOUND_AMBIENCE + "%MAPSOUND%" and TKSNACK[0]:
             try:
-                print lang(670).format("(...)" + (self.mapBackgroundSound[0])[-37:]),
+                print lang(670).format(
+                    "(...)" + (self.mapBackgroundSound[0])[-37:]),
                 self.sndBg.read(archivo)
                 self.mapBackgroundSound[2] = self.sndBg.length(
                     unit="SECONDS") * 1000
@@ -7327,7 +8057,8 @@ class hoa:
         :param mode: Modo de reproducción
         :return: void
         """
-        if (CONFIGURATION_DATA[1] or mode == "silent") and TKSNACK[0]:  # Si los sonidos están activados
+        if (CONFIGURATION_DATA[1] or mode == "silent") and TKSNACK[
+            0]:  # Si los sonidos están activados
             if mode != "silent":
                 print lang(432),
             try:
@@ -7375,32 +8106,41 @@ class hoa:
                 time = 1
             try:
                 if self.playerPos[0] <= self.mapSize[1] / 2:
-                    bloq = self.world.create_rectangle(self.playerPos[0] * 32 + self.canvasCorrecion[1] + 37,
-                                                       self.playerPos[
-                                                           1] * 32 + self.canvasCorrecion[0] - height,
-                                                       self.playerPos[0] * 32 + self.canvasCorrecion[
-                                                           1] + 32 + width + 5, self.playerPos[1] * 32 +
-                                                       self.canvasCorrecion[0] + 3, fill="#FFFFE1", outline="#646464",
-                                                       tags="textback")
-                    msg = self.world.create_text(self.playerPos[0] * 32 + self.canvasCorrecion[1] + 42,
-                                                 self.playerPos[
-                                                     1] * 32 + self.canvasCorrecion[0] + 3 - height,
-                                                 text=txt, fill="#000000", font=tfont, width=width, anchor=NW,
-                                                 tags="textmsg")
+                    bloq = self.world.create_rectangle(
+                        self.playerPos[0] * 32 + self.canvasCorrecion[1] + 37,
+                        self.playerPos[
+                            1] * 32 + self.canvasCorrecion[0] - height,
+                        self.playerPos[0] * 32 + self.canvasCorrecion[
+                            1] + 32 + width + 5, self.playerPos[1] * 32 +
+                        self.canvasCorrecion[0] + 3, fill="#FFFFE1",
+                        outline="#646464",
+                        tags="textback")
+                    msg = self.world.create_text(
+                        self.playerPos[0] * 32 + self.canvasCorrecion[1] + 42,
+                        self.playerPos[
+                            1] * 32 + self.canvasCorrecion[0] + 3 - height,
+                        text=txt, fill="#000000", font=tfont, width=width,
+                        anchor=NW,
+                        tags="textmsg")
                 else:
-                    bloq = self.world.create_rectangle(self.playerPos[0] * 32 + self.canvasCorrecion[1] - width + 5,
-                                                       self.playerPos[1] * 32 + self.canvasCorrecion[0] -
-                                                       height + corr,
-                                                       self.playerPos[
-                                                           0] * 32 + self.canvasCorrecion[1] + 5,
-                                                       self.playerPos[1] * 32 +
-                                                       self.canvasCorrecion[0] + 3 + corr, fill="#FFFFE1",
-                                                       outline="#646464", tags="textback")
-                    msg = self.world.create_text(self.playerPos[0] * 32 + self.canvasCorrecion[1],
-                                                 self.playerPos[
-                                                     1] * 32 + self.canvasCorrecion[0] + 3 - height + corr,
-                                                 text=txt, fill="#000000", font=tfont, width=width, anchor=NE,
-                                                 tags="textmsg")
+                    bloq = self.world.create_rectangle(
+                        self.playerPos[0] * 32 + self.canvasCorrecion[
+                            1] - width + 5,
+                        self.playerPos[1] * 32 + self.canvasCorrecion[0] -
+                        height + corr,
+                        self.playerPos[
+                            0] * 32 + self.canvasCorrecion[1] + 5,
+                        self.playerPos[1] * 32 +
+                        self.canvasCorrecion[0] + 3 + corr, fill="#FFFFE1",
+                        outline="#646464", tags="textback")
+                    msg = self.world.create_text(
+                        self.playerPos[0] * 32 + self.canvasCorrecion[1],
+                        self.playerPos[
+                            1] * 32 + self.canvasCorrecion[
+                            0] + 3 - height + corr,
+                        text=txt, fill="#000000", font=tfont, width=width,
+                        anchor=NE,
+                        tags="textmsg")
                 self.root.after(SHOWMESSAGESTIME * time,
                                 lambda: self.world.delete(msg))
                 self.root.after(SHOWMESSAGESTIME * time,
@@ -7436,10 +8176,12 @@ class hoa:
         self.infoVidaCanv.create_rectangle(
             0, 0, barras + 1, 18, fill="#008000", outline="#008000")
         self.infoVida.config(text=str(life).zfill(3) +
-                             "/" + str(maxl).zfill(3))
+                                  "/" + str(maxl).zfill(3))
         barras = min(100 * BAR_POND_COEF,
-                     int((self.player.getExperience() - self.player.getPrevExp()) * 100 * BAR_POND_COEF / max(1,
-                                                                                                              self.player.getMaxExperience() - self.player.getPrevExp())))
+                     int((
+                             self.player.getExperience() - self.player.getPrevExp()) * 100 * BAR_POND_COEF / max(
+                         1,
+                         self.player.getMaxExperience() - self.player.getPrevExp())))
         self.infoExpCanv.delete(ALL)
         self.infoExpCanv.create_rectangle(
             0, 0, barras + 1, 18, fill="#000080", outline="#000080")
@@ -7459,4 +8201,4 @@ class hoa:
         self.infoManaCanv.create_rectangle(
             0, 0, barras + 1, 18, fill="#6F7116", outline="#6F7116")
         self.infoMana.config(text=str(mana).zfill(3) +
-                             "/" + str(maxm).zfill(3))
+                                  "/" + str(maxm).zfill(3))

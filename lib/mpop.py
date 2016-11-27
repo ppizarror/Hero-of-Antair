@@ -18,8 +18,7 @@ else:
 COMMENT_COLOR = "#666666"
 
 
-class pop:  # Ventanas emergentes
-
+class pop(object):
     def __init__(self, properties):  # Función constructora
         lang = properties[0]
         if "list" in str(type(lang)):
@@ -37,8 +36,9 @@ class pop:  # Ventanas emergentes
         self.values = []
         if size[0] != 0 and size[1] != 0:
             self.w.minsize(width=size[0], height=size[1])
-            self.w.geometry('%dx%d+%d+%d' % (size[0], size[1], (self.w.winfo_screenwidth(
-            ) - size[0]) / 2, (self.w.winfo_screenheight() - size[1]) / 2))
+            self.w.geometry(
+                '%dx%d+%d+%d' % (size[0], size[1], (self.w.winfo_screenwidth(
+                ) - size[0]) / 2, (self.w.winfo_screenheight() - size[1]) / 2))
         self.w.resizable(width=False, height=False)
         self.w.focus_force()
         self.w.title(title)
@@ -49,9 +49,11 @@ class pop:  # Ventanas emergentes
             Label(self.w, text=lang[2] + properties[6],
                   font=DEFAULT_FONT_TITLE, border=5).pack()
             Label(self.w, text=lang[
-                3] + str(properties[7]), font=DEFAULT_FONT_TITLE, border=5).pack()
+                                   3] + str(properties[7]),
+                  font=DEFAULT_FONT_TITLE, border=5).pack()
             Button(
-                self.w, text=lang[4], command=self.w.destroy, relief=GROOVE).pack()
+                self.w, text=lang[4], command=self.w.destroy,
+                relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
         elif typeObject == "deseaGuardar":  # Desea guardar
             if properties[5] and isWindows():
@@ -76,13 +78,15 @@ class pop:  # Ventanas emergentes
                 5], wraplength=250, anchor=N, border=10).pack()
             Label(self.w, text="")
             Button(
-                self.w, text="Cerrar", command=self.w.destroy, relief=GROOVE).pack()
+                self.w, text="Cerrar", command=self.w.destroy,
+                relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "infoTile_info":  # Información del tile
             f = Frame(self.w, border=3)
             f.pack(fill=X, padx=5, pady=1)
-            Label(f, text="Posición (x,y)", anchor=W, width=10, fg=COMMENT_COLOR).pack(
+            Label(f, text="Posición (x,y)", anchor=W, width=10,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT)
             Label(f, text="(" + str(properties[5][1]) + "," + str(
                 properties[5][0]) + ")", anchor=W, width=5).pack(side=LEFT)
@@ -90,7 +94,8 @@ class pop:  # Ventanas emergentes
             separator.pack(fill=X, padx=0, pady=2)
             f = Frame(self.w, border=3)
             f.pack(fill=X, padx=5, pady=0)
-            Label(f, text="Iluminación", anchor=NW, width=10, fg=COMMENT_COLOR).pack(
+            Label(f, text="Iluminación", anchor=NW, width=10,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT, anchor=N)
             if str(properties[8]) == "1":
                 i = "No"
@@ -100,20 +105,25 @@ class pop:  # Ventanas emergentes
                 side=LEFT)
             f = Frame(self.w, border=3)
             f.pack(fill=X, padx=5, pady=0)
-            Label(f, text="Terreno", anchor=NW, width=10, fg=COMMENT_COLOR).pack(
+            Label(f, text="Terreno", anchor=NW, width=10,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT, anchor=N)
-            Label(f, text=properties[7], anchor=NW, wraplength=250, justify=LEFT).pack(
+            Label(f, text=properties[7], anchor=NW, wraplength=250,
+                  justify=LEFT).pack(
                 side=LEFT)
             separator = Frame(self.w, height=2, bd=1, relief=GROOVE)
             separator.pack(fill=X, padx=0, pady=2)
             f = Frame(self.w, border=3)
             f.pack(fill=X, padx=5, pady=0)
-            Label(f, text="Lógico", anchor=NW, width=10, fg=COMMENT_COLOR).pack(
+            Label(f, text="Lógico", anchor=NW, width=10,
+                  fg=COMMENT_COLOR).pack(
                 side=LEFT, anchor=N)
             Label(f, text=properties[
-                6], anchor=NW, wraplength=237, justify=LEFT, height=2).pack(side=LEFT)
+                6], anchor=NW, wraplength=237, justify=LEFT, height=2).pack(
+                side=LEFT)
             Button(
-                self.w, text="Cerrar", command=self.w.destroy, relief=GROOVE).pack()
+                self.w, text="Cerrar", command=self.w.destroy,
+                relief=GROOVE).pack()
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_event":  # Nuevo evento
@@ -123,90 +133,106 @@ class pop:  # Ventanas emergentes
             f1.pack()
             f11 = Frame(f1)
             f11.pack(side=LEFT)
-            Button(f11, text="Move", relief=GROOVE, command=lambda: self.new_event(
-                "move"), width=btWidth).pack()
+            Button(f11, text="Move", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "move"), width=btWidth).pack()
             Label(f1, text=" ").pack(side=LEFT)
             f12 = Frame(f1)
             f12.pack()
-            Button(f12, text="Disminuir HP", relief=GROOVE, command=lambda: self.new_event(
-                "minushp"), width=btWidth).pack()
+            Button(f12, text="Disminuir HP", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "minushp"), width=btWidth).pack()
             f2 = Frame(self.w, border=1)
             f2.pack()
             f21 = Frame(f2)
             f21.pack(side=LEFT)
-            Button(f21, text="Disminuir Mana", relief=GROOVE, command=lambda: self.new_event(
-                "minusmana"), width=btWidth).pack()
+            Button(f21, text="Disminuir Mana", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "minusmana"), width=btWidth).pack()
             Label(f2, text=" ").pack(side=LEFT)
             f22 = Frame(f2)
             f22.pack()
-            Button(f22, text="No pasar", relief=GROOVE, command=lambda: self.new_event(
-                "nopass"), width=btWidth).pack()
+            Button(f22, text="No pasar", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "nopass"), width=btWidth).pack()
             f3 = Frame(self.w, border=1)
             f3.pack()
             f31 = Frame(f3)
             f31.pack(side=LEFT)
-            Button(f31, text="Objeto", relief=GROOVE, command=lambda: self.new_event(
-                "object"), width=btWidth).pack()
+            Button(f31, text="Objeto", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "object"), width=btWidth).pack()
             Label(f3, text=" ").pack(side=LEFT)
             f32 = Frame(f3)
             f32.pack()
-            Button(f32, text="Pasar", relief=GROOVE, command=lambda: self.new_event(
-                "pass"), width=btWidth).pack()
+            Button(f32, text="Pasar", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "pass"), width=btWidth).pack()
             f4 = Frame(self.w, border=1)
             f4.pack()
             f41 = Frame(f4)
             f41.pack(side=LEFT)
-            Button(f41, text="Aumentar HP", relief=GROOVE, command=lambda: self.new_event(
-                "plushp"), width=btWidth).pack()
+            Button(f41, text="Aumentar HP", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "plushp"), width=btWidth).pack()
             Label(f4, text=" ").pack(side=LEFT)
             f42 = Frame(f4)
             f42.pack()
-            Button(f42, text="Aumentar Mana", relief=GROOVE, command=lambda: self.new_event(
-                "plusmana"), width=btWidth).pack()
+            Button(f42, text="Aumentar Mana", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "plusmana"), width=btWidth).pack()
             f5 = Frame(self.w, border=1)
             f5.pack()
             f51 = Frame(f5)
             f51.pack(side=LEFT)
-            Button(f51, text="Teletransportar", relief=GROOVE, command=lambda: self.new_event(
-                "teleport"), width=btWidth).pack()
+            Button(f51, text="Teletransportar", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "teleport"), width=btWidth).pack()
             Label(f5, text=" ").pack(side=LEFT)
             f52 = Frame(f5)
             f52.pack()
-            Button(f52, text="Longtext", relief=GROOVE, command=lambda: self.new_event(
-                "longtext"), width=btWidth).pack()
+            Button(f52, text="Longtext", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "longtext"), width=btWidth).pack()
             f6 = Frame(self.w, border=1)
             f6.pack()
             f61 = Frame(f6)
             f61.pack(side=LEFT)
-            Button(f61, text="Sound", relief=GROOVE, command=lambda: self.new_event(
-                "sound"), width=btWidth).pack()
+            Button(f61, text="Sound", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "sound"), width=btWidth).pack()
             Label(f6, text=" ").pack(side=LEFT)
             f62 = Frame(f6)
             f62.pack()
-            Button(f62, text="Mute", relief=GROOVE, command=lambda: self.new_event(
-                "mute"), width=btWidth).pack()
+            Button(f62, text="Mute", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "mute"), width=btWidth).pack()
             f7 = Frame(self.w, border=1)
             f7.pack()
             f71 = Frame(f7)
             f71.pack(side=LEFT)
-            Button(f71, text="Autosave", relief=GROOVE, command=lambda: self.new_event(
-                "autosave"), width=btWidth).pack()
+            Button(f71, text="Autosave", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "autosave"), width=btWidth).pack()
             Label(f7, text=" ").pack(side=LEFT)
             f72 = Frame(f7)
             f72.pack()
-            Button(f72, text="Muerte Subita", relief=GROOVE, command=lambda: self.new_event(
-                "suddendeath"), width=btWidth).pack()
+            Button(f72, text="Muerte Subita", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "suddendeath"), width=btWidth).pack()
             f8 = Frame(self.w, border=1)
             f8.pack()
             f81 = Frame(f8)
             f81.pack(side=LEFT)
-            Button(f81, text="No pass Alert", relief=GROOVE, command=lambda: self.new_event(
-                "nopassalert"), width=btWidth).pack()
+            Button(f81, text="No pass Alert", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "nopassalert"), width=btWidth).pack()
             Label(f8, text=" ").pack(side=LEFT)
             f82 = Frame(f8)
             f82.pack()
-            Button(f82, text="Text", relief=GROOVE, command=lambda: self.new_event(
-                "text"), width=btWidth).pack()
+            Button(f82, text="Text", relief=GROOVE,
+                   command=lambda: self.new_event(
+                       "text"), width=btWidth).pack()
             Label(self.w, text=" ").pack()
             Button(self.w, text="Cancelar",
                    command=self.w.destroy, relief=GROOVE).pack()
@@ -235,8 +261,10 @@ class pop:  # Ventanas emergentes
                    command=self.sendResBuild).pack()
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "new_nokey_building":  # Nuevo edificio sin llave
-            Label(self.w, text="Rellene 'Archivo de mapa' para crear un link a su archivo o deje el campo en " +
-                               "blanco para crear un edificio decorativo.", border=10, wraplength=280,
+            Label(self.w,
+                  text="Rellene 'Archivo de mapa' para crear un link a su archivo o deje el campo en " +
+                       "blanco para crear un edificio decorativo.", border=10,
+                  wraplength=280,
                   fg=COMMENT_COLOR).pack()
             f = Frame(self.w, border=3)
             f.pack()
@@ -251,7 +279,8 @@ class pop:  # Ventanas emergentes
             self.w.bind("<Escape>", self.destruir)
         # Ingresar los datos para una puerta
         elif typeObject == "new_door" or typeObject == "edit_door":
-            Label(self.w, text="Ingrese los siguientes datos para crear una puerta.",
+            Label(self.w,
+                  text="Ingrese los siguientes datos para crear una puerta.",
                   border=10, fg=COMMENT_COLOR).pack()
             f = Frame(self.w, border=3)
             f.pack()
@@ -299,7 +328,8 @@ class pop:  # Ventanas emergentes
             if _sound:
                 self.sound.config(fileformat="mp3")
             Label(
-                self.w, text="Escoga un sonido de fondo para el actual mapa", border=10).pack()
+                self.w, text="Escoga un sonido de fondo para el actual mapa",
+                border=10).pack()
             f = Frame(self.w, border=3)
             f.pack()
             Label(f, text="Archivo", anchor=E, width=6).pack(side=LEFT)
@@ -330,11 +360,14 @@ class pop:  # Ventanas emergentes
                 self.sound.stop()
 
             if _sound:
-                Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
+                Button(f, bitmap='snackPlay', command=_play,
+                       relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
-                Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
+                Button(f, bitmap='snackPause', command=_pause,
+                       relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
-                Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
+                Button(f, bitmap='snackStop', command=_stop,
+                       relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
             Button(self.w, text="Insertar", relief=GROOVE,
                    command=self.enviarBgSound).pack(pady=10)
@@ -350,7 +383,8 @@ class pop:  # Ventanas emergentes
                 self.sound = tkSnack.Sound()
                 self.sound.config(fileformat="mp3")
             Label(
-                self.w, text="Escoja un sonido para el actual mob", border=10).pack()
+                self.w, text="Escoja un sonido para el actual mob",
+                border=10).pack()
             f = Frame(self.w, border=3)
             f.pack()
             Label(f, text="Archivo", anchor=E, width=6).pack(side=LEFT)
@@ -381,18 +415,22 @@ class pop:  # Ventanas emergentes
                 self.sound.stop()
 
             if _sound:
-                Button(f, bitmap='snackPlay', command=_play, relief=GROOVE).pack(
+                Button(f, bitmap='snackPlay', command=_play,
+                       relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
-                Button(f, bitmap='snackPause', command=_pause, relief=GROOVE).pack(
+                Button(f, bitmap='snackPause', command=_pause,
+                       relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
-                Button(f, bitmap='snackStop', command=_stop, relief=GROOVE).pack(
+                Button(f, bitmap='snackStop', command=_stop,
+                       relief=GROOVE).pack(
                     side=LEFT, padx=1, pady=1)
             Button(self.w, text="Insertar", relief=GROOVE,
                    command=self.enviarBgSound).pack(pady=10)
             self.w.bind("<Escape>", self.destruir)
         # Ingresar los datos para una escalera
         elif typeObject == "new_stair" or typeObject == "edit_stair":
-            Label(self.w, text="Ingrese los siguientes datos para crear una escalera",
+            Label(self.w,
+                  text="Ingrese los siguientes datos para crear una escalera",
                   border=10, fg=COMMENT_COLOR).pack()
             f = Frame(self.w, border=3)
             f.pack()
@@ -491,9 +529,11 @@ class pop:  # Ventanas emergentes
                 f = Frame(self.w, border=8)
                 f.pack(fill=X)
                 Button(
-                    f, text="Cambiar a NPC", relief=GROOVE, command=_newNpc).pack()
+                    f, text="Cambiar a NPC", relief=GROOVE,
+                    command=_newNpc).pack()
             Label(
-                self.w, text="Ingrese las propiedades del mob", border=5).pack()
+                self.w, text="Ingrese las propiedades del mob",
+                border=5).pack()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
             Label(f, text="Nombre", anchor=E, width=11).pack(side=LEFT)
@@ -534,7 +574,8 @@ class pop:  # Ventanas emergentes
             self.experienciamob.pack(side=LEFT, padx=3)
             f = Frame(self.w, border=3)
             f.pack(fill=X)
-            Label(f, text="Máxima distancia desde el Origen", anchor=E, width=32).pack(
+            Label(f, text="Máxima distancia desde el Origen", anchor=E,
+                  width=32).pack(
                 side=LEFT, padx=2)
             self.maxdistmob = Entry(f, relief=GROOVE, width=6)
             self.maxdistmob.pack(side=LEFT)
@@ -556,7 +597,8 @@ class pop:  # Ventanas emergentes
             self.soundmob.pack(side=LEFT, padx=2)
             if _sound:
                 Button(
-                    f, bitmap='snackPlay', relief=GROOVE, command=_setmusic).pack()
+                    f, bitmap='snackPlay', relief=GROOVE,
+                    command=_setmusic).pack()
             f = Frame(self.w)
             f.pack(fill=X, padx=3, pady=3)
             Label(f, text="Persigue  ", anchor=E, width=12).pack(side=LEFT)
@@ -583,7 +625,8 @@ class pop:  # Ventanas emergentes
             self.tipocombmob = StringVar(f)
             self.tipocombmob.set("Normal")  # valor por defecto
             w2 = apply(
-                OptionMenu, (f, self.tipocombmob) + tuple(["Lineal", "Normal", "Grupal"]))
+                OptionMenu,
+                (f, self.tipocombmob) + tuple(["Lineal", "Normal", "Grupal"]))
             w2["width"] = tuplewidth
             w2["relief"] = GROOVE
             w2.pack(side=LEFT)
@@ -694,7 +737,8 @@ class pop:  # Ventanas emergentes
         # Crear un nuevo mob
         elif typeObject == "new_npc" or typeObject == "edit_npc":
             Label(
-                self.w, text="Ingrese las propiedades del npc", border=5).pack()
+                self.w, text="Ingrese las propiedades del npc",
+                border=5).pack()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
             Label(f, text="Nombre ", anchor=E, width=11).pack(side=LEFT)
@@ -817,7 +861,8 @@ class pop:  # Ventanas emergentes
                     pass
         elif typeObject == "new_object":  # Crear un nuevo objeto
             Label(
-                self.w, text="Ingrese las propiedades del objeto", border=10).pack()
+                self.w, text="Ingrese las propiedades del objeto",
+                border=10).pack()
             f = Frame(self.w, border=3)
             f.pack(fill=X)
             Label(f, text="Nombre ", anchor=E, width=12).pack(side=LEFT)
@@ -956,7 +1001,8 @@ class pop:  # Ventanas emergentes
                             self.propiedadesobj.insert(0, "hp,0")
                         elif tipo == "read":
                             valid = [
-                                "libro_", "book_", "spellbook_", "spellbook", "papel_"]
+                                "libro_", "book_", "spellbook_", "spellbook",
+                                "papel_"]
                             self.propiedadesobj.insert(0, "file,0")
                         elif tipo == "weapon/left":
                             valid = ["arco_", "ballesta_", "escudo_", "lanza_"]
@@ -968,7 +1014,8 @@ class pop:  # Ventanas emergentes
                             if isIn(i, valid):
                                 valid_textures.append(i)
                         menu = apply(
-                            OptionMenu, (fe, self.texturaobj) + tuple(valid_textures))
+                            OptionMenu,
+                            (fe, self.texturaobj) + tuple(valid_textures))
                         menu["width"] = 26
                         menu["relief"] = GROOVE
                         menu["anchor"] = W
@@ -1009,7 +1056,8 @@ class pop:  # Ventanas emergentes
                 except:
                     pass
         elif typeObject == "new_move":  # Ingresar un movimiento
-            Label(self.w, text="Ingrese dos puntos para mover al jugador, A (inicio) a B (final)",
+            Label(self.w,
+                  text="Ingrese dos puntos para mover al jugador, A (inicio) a B (final)",
                   border=10, wraplength=280).pack()
             f = Frame(self.w, border=10)
             f.pack()
@@ -1115,7 +1163,8 @@ class pop:  # Ventanas emergentes
         # Nueva antorcha con luminosidad por definir
         elif typeObject == "new_torch":
             Label(
-                self.w, text="Ingrese la luminosidad de la antorcha", border=10).pack()
+                self.w, text="Ingrese la luminosidad de la antorcha",
+                border=10).pack()
             f = Frame(self.w, border=3)
             f.pack()
             Label(f, text="Luminosidad ", anchor=E, width=10).pack(side=LEFT)
@@ -1138,7 +1187,8 @@ class pop:  # Ventanas emergentes
             Button(self.w, text="Guardar", relief=GROOVE,
                    command=self.savegame).pack()
         # Licencia o gnu
-        elif typeObject in ["licence", "changelog", "ayuda", "longtext", "license"]:
+        elif typeObject in ["licence", "changelog", "ayuda", "longtext",
+                            "license"]:
             archivo = open(properties[5], "r")
             Yscroll = Scrollbar(self.w)
             Yscroll.pack(side=RIGHT, fill=Y)
@@ -1163,10 +1213,12 @@ class pop:  # Ventanas emergentes
     def addObject(self, e=None):
         if isWindows():
             q = pop(
-                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object',
+                 280, 320])
         else:
             q = pop(
-                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object',
+                 300, 360])
         q.w.mainloop(2)
         if q.sent:
             self.objetomob.delete(0, END)
@@ -1177,10 +1229,12 @@ class pop:  # Ventanas emergentes
     def addObjectnpc(self, e=None):
         if isWindows():
             q = pop(
-                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 280, 320])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object',
+                 280, 320])
         else:
             q = pop(
-                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object', 300, 360])
+                ['Nuevo objeto', "data/icons/new_object.ico", 'new_object',
+                 300, 360])
         q.w.mainloop(2)
         if q.sent:
             self.objetonpc.delete(0, END)
@@ -1334,11 +1388,13 @@ class pop:  # Ventanas emergentes
         g = str(self.vidaobj.get())
         h = str(self.propiedadesobj.get())
         # Si todos los campos son no vacios (excepto la descripción
-        if len(a) > 0 and len(c) > 0 and len(d) > 0 and len(e) > 0 and len(f) > 0 and len(g) > 0:
+        if len(a) > 0 and len(c) > 0 and len(d) > 0 and len(e) > 0 and len(
+                f) > 0 and len(g) > 0:
             if c.strip() != "< -- >" and d.strip() != "< -- >":
                 # Si el id es un número, la vida es un numero y el stackable es
                 # un booleano y las propiedades estan separadas por una coma
-                if e.isdigit() and g.isdigit() and (f.upper() == "TRUE" or f.upper() == "FALSE"):
+                if e.isdigit() and g.isdigit() and (
+                                f.upper() == "TRUE" or f.upper() == "FALSE"):
                     if len(b) == 0:
                         b = "No hay una descripcion disponible"
                     else:
@@ -1395,8 +1451,9 @@ class pop:  # Ventanas emergentes
         # Se comprueban los campos numéricos
         if a.isdigit() and b.isdigit() and c.isdigit() and d.isdigit() and g.isdigit() and i.isdigit() and j.isdigit() and h.isdigit() and n.isdigit():
             # Ningún campo puede estar vacío
-            if len(e) > 0 and len(f) > 0 and int(b) > 0 and int(c) >= 0 and int(d) >= 0 and int(g) >= 0 and int(
-                    h) >= 0 and int(i) >= 0 and int(j) >= 0 and int(n) >= 0:
+            if len(e) > 0 and len(f) > 0 and int(b) > 0 and int(
+                    c) >= 0 and int(d) >= 0 and int(g) >= 0 and int(
+                h) >= 0 and int(i) >= 0 and int(j) >= 0 and int(n) >= 0:
                 self.sent = True
                 self.values.append(a)
                 self.values.append(b)
@@ -1522,7 +1579,8 @@ class pop:  # Ventanas emergentes
         b = str(self.buildKey.get())
         # Si ambos campos estan vacios o ambos campos no estan vacios o hay un
         # mapa que no necesita llaves
-        if (a == "" and b == "") or (len(a) > 0 and len(b) > 0) or (len(a) > 0 and len(b) == 0):
+        if (a == "" and b == "") or (len(a) > 0 and len(b) > 0) or (
+                        len(a) > 0 and len(b) == 0):
             if (".lvl" not in a) and len(a) > 0:
                 # Se le agrega .lvl al nombre del mapa en caso que exista
                 a += ".lvl"

@@ -23,9 +23,11 @@ COEF_MOB = {"HP": 0.12, "TAR": 0.23, "ATK": 0.4,
 COEF_PLAYER = {"HP": 0.5, "TAR": 0.35, "ATK": 0.4,
                "DEF": 0.5, "VEL": 0}  # coeficiente del jugador
 COEF_TAR = {"L": 0.35, "M": 0.22, "S": 0.12}  # coeficiente del target por tipo
-COEF_VEL = {"L": {"FACIL": 5, "MEDIO": 4, "DIFICIL": 3}, "M": {"FACIL": 4, "MEDIO": 3, "DIFICIL": 2},
+COEF_VEL = {"L": {"FACIL": 5, "MEDIO": 4, "DIFICIL": 3},
+            "M": {"FACIL": 4, "MEDIO": 3, "DIFICIL": 2},
             "S": {"FACIL": 3, "MEDIO": 2, "DIFICIL": 1},
-            "P": {"FACIL": 5, "MEDIO": 4, "DIFICIL": 3}}  # indica la cantidad máxima de tiles por movimiento
+            "P": {"FACIL": 5, "MEDIO": 4,
+                  "DIFICIL": 3}}  # indica la cantidad máxima de tiles por movimiento
 COEF_VIDA = {"L": 0.1, "M": 0.13, "S": 0.15}  # coeficiente de vida por tipo
 ENEMY_COEFICIENT = {"FACIL": 0.875, "MEDIO": 1.050,
                     "DIFICIL": 1.275}  # indica la proporción de enemigos en función de la dificultad
@@ -58,10 +60,12 @@ TURN_AI = 0  # turno de la computadora
 TURN_HN = 1  # turno del humano
 
 
-class board:
+# noinspection PyPep8Naming,PyShadowingNames
+class board(object):
     """Clase board"""
 
-    def __init__(self, player, enemies, textureA, textureB, obstacle, iluminacionA, iluminacionB, dificultad,
+    def __init__(self, player, enemies, textureA, textureB, obstacle,
+                 iluminacionA, iluminacionB, dificultad,
                  dificultad_coef,
                  image, soundA, soundB, arrowtexture, weapontexture):
         """
@@ -139,19 +143,25 @@ class board:
         medium_friends = self.player.getMediumFriends()
         strong_friends = self.player.getStrongFriends()
         # Se agrega al jugador
-        self.players.append(group("PL", 1, self.player.getMaxLife() - self.player.getDamage(),
-                                  self.player.getAttack() *
-                                  COEF_PLAYER["ATK"] *
-                                  (2 - self.dificultad_coef),
-                                  self.player.getDefensa(), self.player.getLinkImage(),
-                                  True, self.player.getTarget(), COEF_VEL["P"][self.dificultad], "Player"))
+        self.players.append(
+            group("PL", 1, self.player.getMaxLife() - self.player.getDamage(),
+                  self.player.getAttack() *
+                  COEF_PLAYER["ATK"] *
+                  (2 - self.dificultad_coef),
+                  self.player.getDefensa(), self.player.getLinkImage(),
+                  True, self.player.getTarget(),
+                  COEF_VEL["P"][self.dificultad], "Player"))
         while light_friends > 0:  # Genero grupos de followers livianos
             followers = min(light_friends,
-                            random.randint(int(PARTITION_PLAYER[self.dificultad] * GROUP_MAX_SIZE[self.dificultad]),
-                                           GROUP_MAX_SIZE[self.dificultad]))
+                            random.randint(int(
+                                PARTITION_PLAYER[self.dificultad] *
+                                GROUP_MAX_SIZE[self.dificultad]),
+                                GROUP_MAX_SIZE[self.dificultad]))
             if followers > 0:
                 self.players.append(
-                    group("FL", followers, self.player.getMaxLife() * COEF_VIDA["L"] * self.dificultad_coef,
+                    group("FL", followers,
+                          self.player.getMaxLife() * COEF_VIDA[
+                              "L"] * self.dificultad_coef,
                           self.player.getAttack() *
                           COEF_ATK["L"] * self.dificultad_coef,
                           self.player.getDefensa() *
@@ -163,11 +173,15 @@ class board:
                 light_friends -= followers
         while medium_friends > 0:  # Genero grupos de followers medios
             followers = min(medium_friends,
-                            random.randint(int(PARTITION_PLAYER[self.dificultad] * GROUP_MAX_SIZE[self.dificultad]),
-                                           GROUP_MAX_SIZE[self.dificultad]))
+                            random.randint(int(
+                                PARTITION_PLAYER[self.dificultad] *
+                                GROUP_MAX_SIZE[self.dificultad]),
+                                GROUP_MAX_SIZE[self.dificultad]))
             if followers > 0:
                 self.players.append(
-                    group("FM", followers, self.player.getMaxLife() * COEF_VIDA["M"] * self.dificultad_coef,
+                    group("FM", followers,
+                          self.player.getMaxLife() * COEF_VIDA[
+                              "M"] * self.dificultad_coef,
                           self.player.getAttack() *
                           COEF_ATK["M"] * self.dificultad_coef,
                           self.player.getDefensa() *
@@ -179,11 +193,15 @@ class board:
                 medium_friends -= followers
         while strong_friends > 0:  # Genero grupos de followers pesados
             followers = min(strong_friends,
-                            random.randint(int(PARTITION_PLAYER[self.dificultad] * GROUP_MAX_SIZE[self.dificultad]),
-                                           GROUP_MAX_SIZE[self.dificultad]))
+                            random.randint(int(
+                                PARTITION_PLAYER[self.dificultad] *
+                                GROUP_MAX_SIZE[self.dificultad]),
+                                GROUP_MAX_SIZE[self.dificultad]))
             if followers > 0:
                 self.players.append(
-                    group("FS", followers, self.player.getMaxLife() * COEF_VIDA["S"] * self.dificultad_coef,
+                    group("FS", followers,
+                          self.player.getMaxLife() * COEF_VIDA[
+                              "S"] * self.dificultad_coef,
                           self.player.getAttack() *
                           COEF_ATK["S"] * self.dificultad_coef,
                           self.player.getDefensa() *
@@ -200,8 +218,8 @@ class board:
         :return: void
         """
         total_friends = (
-            self.player.getLightFriends() + self.player.getMediumFriends() + self.player.getStrongFriends()) + \
-            BASE_ENEMIES[self.dificultad]
+                        self.player.getLightFriends() + self.player.getMediumFriends() + self.player.getStrongFriends()) + \
+                        BASE_ENEMIES[self.dificultad]
         total_mobs = int(total_friends * ENEMY_COEFICIENT[self.dificultad])
         if self.enemies.getTipoAtaque() == "LARGO":
             large = True
@@ -209,8 +227,10 @@ class board:
             large = False
         while total_mobs > 0:  # Genero grupos de followers pesados
             mobs = min(total_mobs,
-                       random.randint(int(PARTITION_PLAYER[self.dificultad] * GROUP_MAX_SIZE[self.dificultad]),
-                                      GROUP_MAX_SIZE[self.dificultad]))
+                       random.randint(int(
+                           PARTITION_PLAYER[self.dificultad] * GROUP_MAX_SIZE[
+                               self.dificultad]),
+                           GROUP_MAX_SIZE[self.dificultad]))
             self.mobs.append(group("MB", mobs,
                                    self.enemies.getLife() *
                                    COEF_MOB["HP"] * (2 - self.dificultad_coef),
@@ -233,10 +253,13 @@ class board:
         Función que genera un tablero al azar
         :return: void
         """
-        alto = min(BOARD_LIMIT[0], 3 + int(3.00 * int(len(self.players) / 4)) - 2 * int(len(self.players) / 8) - int(
-            len(self.players) / 16))
+        alto = min(BOARD_LIMIT[0],
+                   3 + int(3.00 * int(len(self.players) / 4)) - 2 * int(
+                       len(self.players) / 8) - int(
+                       len(self.players) / 16))
         ancho = min(BOARD_LIMIT[1],
-                    2 + int(2.00 * int(len(self.players) / 2)) - int(int(len(self.players) / 4) / 4) - int(
+                    2 + int(2.00 * int(len(self.players) / 2)) - int(
+                        int(len(self.players) / 4) / 4) - int(
                         len(self.players) / 8) -
                     int(len(self.players) / 16))
         for i in range(alto):  # Creo las matrices del mundo @UnusedVariable
@@ -251,12 +274,14 @@ class board:
         self.boardSize[1] = ancho - 1
         if BOARD_LIMIT[1] > (self.boardSize[1] + 1):
             self.boardCorrecion[0] = (
-                BOARD_LIMIT[1] - self.boardSize[1] - 1) * 16 + 32  # Horizontal
+                                         BOARD_LIMIT[1] - self.boardSize[
+                                             1] - 1) * 16 + 32  # Horizontal
         else:
             self.boardCorrecion[0] = 32
         if BOARD_LIMIT[0] > (self.boardSize[0] + 1):
             self.boardCorrecion[1] = (
-                BOARD_LIMIT[0] - self.boardSize[0] - 1) * 16 + 32  # Vertical
+                                         BOARD_LIMIT[0] - self.boardSize[
+                                             0] - 1) * 16 + 32  # Vertical
         else:
             self.boardCorrecion[1] = 32
 
@@ -266,7 +291,8 @@ class board:
         :return: void
         """
         last_pos = min(
-            int(self.boardSize[1] / 2) + random.randint(-2, 2), self.boardSize[1])
+            int(self.boardSize[1] / 2) + random.randint(-2, 2),
+            self.boardSize[1])
         for i in range(self.boardSize[0] + 1):
             for k in range(0, last_pos):  # Se ilumina el bloque A
                 self.maplight[i][k] = self.lightA
@@ -282,8 +308,10 @@ class board:
         :return: void
         """
         last_pos = min(
-            int(self.boardSize[1] / 2) + random.randint(-2, 2), self.boardSize[1])
-        im = Image.new("RGB", ((self.boardSize[1] + 3) * 32, (self.boardSize[0] + 3) * 32),
+            int(self.boardSize[1] / 2) + random.randint(-2, 2),
+            self.boardSize[1])
+        im = Image.new("RGB", (
+            (self.boardSize[1] + 3) * 32, (self.boardSize[0] + 3) * 32),
                        "#000000")  # se crea la imágen de fondo
         # se crea la imágen de fondo
         fim = Image.new("RGB", (CANVAS_SIZE[0], CANVAS_SIZE[1]), "#000000")
@@ -298,7 +326,8 @@ class board:
                         sum(self.maplight[0]) / (self.boardSize[1] + 1))
                 self.mapsound[i][k] = self.soundA
                 im.paste(self.images.image(self.textureA + "_" + light),
-                         (32 * k, 32 * i, 32 * (k + 1), 32 * (i + 1)))  # se agrega imagen al fondo
+                         (32 * k, 32 * i, 32 * (k + 1),
+                          32 * (i + 1)))  # se agrega imagen al fondo
             # Se colorea el bloque B
             for k in range(last_pos + 1, self.boardSize[1] + 3):
                 try:
@@ -312,7 +341,8 @@ class board:
                         light = str(self.maplight[i][k - 2])
                 self.mapsound[i][k] = self.soundB
                 im.paste(self.images.image(self.textureB + "_" + light),
-                         (32 * k, 32 * i, 32 * (k + 1), 32 * (i + 1)))  # se agrega imagen al fondo
+                         (32 * k, 32 * i, 32 * (k + 1),
+                          32 * (i + 1)))  # se agrega imagen al fondo
             last_pos += random.randint(-2, 2)
             last_pos = min(last_pos, self.boardSize[1])
         fim.paste(im, (
@@ -330,23 +360,33 @@ class board:
         """
         if self.dificultad == "FACIL":
             cant = min(MAX_OBSTACLES,
-                       int(len(self.players) / 3) + 2 * int(len(self.players) / 8) + int(len(self.players) / 16))
+                       int(len(self.players) / 3) + 2 * int(
+                           len(self.players) / 8) + int(
+                           len(self.players) / 16))
         elif self.dificultad == "MEDIO":
-            cant = min(MAX_OBSTACLES, int(len(self.players) / 3) + 2 * int((len(self.players) - 1) / 4) +
-                       int(len(self.players) / 8) + int(len(self.players) / 16))
+            cant = min(MAX_OBSTACLES, int(len(self.players) / 3) + 2 * int(
+                (len(self.players) - 1) / 4) +
+                       int(len(self.players) / 8) + int(
+                len(self.players) / 16))
         elif self.dificultad == "DIFICIL":
-            cant = min(MAX_OBSTACLES, int(len(self.players) / 3) + 4 * int((len(self.players) - 1) / 4) +
-                       2 * int(len(self.players) / 8) + int(len(self.players) / 16))
+            cant = min(MAX_OBSTACLES, int(len(self.players) / 3) + 4 * int(
+                (len(self.players) - 1) / 4) +
+                       2 * int(len(self.players) / 8) + int(
+                len(self.players) / 16))
         pos_obstacles = []
         # noinspection PyUnboundLocalVariable
         for i in range(cant):  # Se agregan cant posiciones @UnusedVariable
             pos_obstacles.append([random.randint(2 + int(len(self.mobs) / 16),
-                                                 max(2, self.boardSize[1] - (2 + int(len(self.mobs) / 16)))),
+                                                 max(2, self.boardSize[1] - (
+                                                     2 + int(
+                                                         len(
+                                                             self.mobs) / 16)))),
                                   random.randint(0, self.boardSize[0])])
         for pos in pos_obstacles:  # Se agregan elementos a los mapas lógicos y gráficos
             self.maplogics[pos[1]][pos[0]] = "obs"
             self.mapitems[pos[1]][pos[0]] = self.obstacle + \
-                "_" + str(self.maplight[pos[1]][pos[0]])
+                                            "_" + str(
+                self.maplight[pos[1]][pos[0]])
         del pos_obstacles
 
     def placeFriends(self):
@@ -357,18 +397,21 @@ class board:
         friends_pos = []
         while True:  # genero las posiciones
             if self.dificultad == "FACIL":
-                random_pos = [random.randint(0, 1 + int(len(self.mobs) / 16) + int(self.boardSize[1] / 8)),
+                random_pos = [random.randint(0, 1 + int(
+                    len(self.mobs) / 16) + int(self.boardSize[1] / 8)),
                               random.randint(0, self.boardSize[0])]
             elif self.dificultad == "MEDIO":
-                random_pos = [random.randint(0, 1 + int(len(self.mobs) / 16) + int(self.boardSize[1] / 6)),
+                random_pos = [random.randint(0, 1 + int(
+                    len(self.mobs) / 16) + int(self.boardSize[1] / 6)),
                               random.randint(0, self.boardSize[0])]
             elif self.dificultad == "DIFICIL":
-                random_pos = [random.randint(0, 1 + int(len(self.mobs) / 16) + int(self.boardSize[1] / 4)),
+                random_pos = [random.randint(0, 1 + int(
+                    len(self.mobs) / 16) + int(self.boardSize[1] / 4)),
                               random.randint(0, self.boardSize[0])]
             if random_pos not in friends_pos and self.maplogics[random_pos[1]][
-                    random_pos[0]] == "none":
-                    # Si la posición random es válida
-                    friends_pos.append(random_pos)
+                random_pos[0]] == "none":
+                # Si la posición random es válida
+                friends_pos.append(random_pos)
             if len(friends_pos) == len(self.players):
                 break
         k = 0
@@ -386,15 +429,22 @@ class board:
         mobs_pos = []
         while True:  # genero las posiciones
             if self.dificultad == "FACIL":
-                random_pos = [random.randint(self.boardSize[1] - (1 + int(len(self.mobs) / 16)), self.boardSize[1]),
-                              random.randint(0, self.boardSize[0])]
+                random_pos = [random.randint(
+                    self.boardSize[1] - (1 + int(len(self.mobs) / 16)),
+                    self.boardSize[1]),
+                    random.randint(0, self.boardSize[0])]
             elif self.dificultad == "MEDIO":
-                random_pos = [random.randint(self.boardSize[1] - (1 + int(len(self.mobs) / 8)), self.boardSize[1]),
-                              random.randint(0, self.boardSize[0])]
+                random_pos = [random.randint(
+                    self.boardSize[1] - (1 + int(len(self.mobs) / 8)),
+                    self.boardSize[1]),
+                    random.randint(0, self.boardSize[0])]
             elif self.dificultad == "DIFICIL":
-                random_pos = [random.randint(self.boardSize[1] - (1 + int(len(self.mobs) / 4)), self.boardSize[1]),
-                              random.randint(0, self.boardSize[0])]
-            if random_pos not in mobs_pos and self.maplogics[random_pos[1]][random_pos[0]] == "none":
+                random_pos = [random.randint(
+                    self.boardSize[1] - (1 + int(len(self.mobs) / 4)),
+                    self.boardSize[1]),
+                    random.randint(0, self.boardSize[0])]
+            if random_pos not in mobs_pos and self.maplogics[random_pos[1]][
+                random_pos[0]] == "none":
                 mobs_pos.append(
                     random_pos)  # Si la posición random es válida
             if len(mobs_pos) == len(self.mobs):

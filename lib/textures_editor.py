@@ -1165,7 +1165,7 @@ terrain = [
 ]
 
 
-class mapEditorTextures:
+class mapEditorTextures(object):
     """Clase principal de texturas del editor de mapas"""
 
     def __init__(self):
@@ -1603,7 +1603,8 @@ def getTileLogicNeighbor(data, j, k, logic_matrix):
             del_normal = [data, j, k]
             data = data.split("-")
             del_copy = data[
-                0] + "-copy(" + data[1] + "%" + str(j) + "%" + str(k) + ")"
+                           0] + "-copy(" + data[1] + "%" + str(j) + "%" + str(
+                k) + ")"
             if len(data) > 2:
                 del_copy += "-" + data[2]
         else:

@@ -29,13 +29,16 @@ def _positive(a):
         return 0
 
 
-class mob:
+class mob(object):
     """Clase mob, enemigo"""
 
-    def __init__(self, ataque, vida, imagen, target, velocidad, nombre, informacion, posx,
-                 posy, regeneracion, movimiento, defensa, exp, obj="", escapa="FALSE", persigue="FALSE", distance=0,
+    def __init__(self, ataque, vida, imagen, target, velocidad, nombre,
+                 informacion, posx,
+                 posy, regeneracion, movimiento, defensa, exp, obj="",
+                 escapa="FALSE", persigue="FALSE", distance=0,
                  initposx=-1, initposy=-1,
-                 tipocombate="NORMAL", tipoataque="NORMAL", sonido="%NOSOUND%"):
+                 tipocombate="NORMAL", tipoataque="NORMAL",
+                 sonido="%NOSOUND%"):
         """
         Función constructora
         :param ataque: Ataque
@@ -183,33 +186,42 @@ class mob:
                         p_y = self.posicion[1]
                 else:  # Si se mueve al azar
                     p_x = self.posicion[
-                        0] + random.randint(-self.velocidad, self.velocidad)
+                              0] + random.randint(-self.velocidad,
+                                                  self.velocidad)
                     p_y = self.posicion[
-                        1] + random.randint(-self.velocidad, self.velocidad)
+                              1] + random.randint(-self.velocidad,
+                                                  self.velocidad)
             else:  # Si no se mueden mover infinitamente
                 if self.persigue:  # Si el mob persigue al jugador
-                    if abs(px - self.initPos[0]) <= self.distance and abs(py - self.initPos[1]) <= self.distance:
+                    if abs(px - self.initPos[0]) <= self.distance and abs(
+                                    py - self.initPos[1]) <= self.distance:
                         if px > self.posicion[0]:
                             p_x = min(
-                                self.posicion[0] + self.velocidad, self.initPos[0] + self.distance)
+                                self.posicion[0] + self.velocidad,
+                                self.initPos[0] + self.distance)
                         elif px < self.posicion[0]:
                             p_x = max(
-                                self.posicion[0] - self.velocidad, self.initPos[0] - self.distance)
+                                self.posicion[0] - self.velocidad,
+                                self.initPos[0] - self.distance)
                         else:
                             p_x = self.posicion[0]
                         if py > self.posicion[1]:
                             p_y = min(
-                                self.posicion[1] + self.velocidad, self.initPos[1] + self.distance)
+                                self.posicion[1] + self.velocidad,
+                                self.initPos[1] + self.distance)
                         elif py < self.posicion[1]:
                             p_y = max(
-                                self.posicion[1] - self.velocidad, self.initPos[1] - self.distance)
+                                self.posicion[1] - self.velocidad,
+                                self.initPos[1] - self.distance)
                         else:
                             p_y = self.posicion[1]
                     else:
                         rannewposx = random.randint(-self.velocidad,
-                                                    self.velocidad) + self.posicion[0]
+                                                    self.velocidad) + \
+                                     self.posicion[0]
                         rannewposy = random.randint(-self.velocidad,
-                                                    self.velocidad) + self.posicion[1]
+                                                    self.velocidad) + \
+                                     self.posicion[1]
                         if abs(rannewposx - self.initPos[0]) <= self.distance:
                             p_x = rannewposx
                         else:
@@ -220,9 +232,11 @@ class mob:
                             p_y = self.posicion[1]
                 else:  # Si no persigue
                     rannewposx = random.randint(-self.velocidad,
-                                                self.velocidad) + self.posicion[0]
+                                                self.velocidad) + \
+                                 self.posicion[0]
                     rannewposy = random.randint(-self.velocidad,
-                                                self.velocidad) + self.posicion[1]
+                                                self.velocidad) + \
+                                 self.posicion[1]
                     if abs(rannewposx - self.initPos[0]) <= self.distance:
                         p_x = rannewposx
                     else:
@@ -259,7 +273,8 @@ class mob:
         """
         if (attack - self.defensa - self.regeneracion) > 0:
             self.vida = min(
-                self.maxvida, self.vida - _positive(attack - self.defensa - self.regeneracion))
+                self.maxvida, self.vida - _positive(
+                    attack - self.defensa - self.regeneracion))
         return attack, self.regeneracion + self.defensa
 
     def getLife(self):
@@ -389,16 +404,28 @@ class mob:
         Función que exporta un mob
         :return: String
         """
-        return replaceStrict(str(self.ataque)) + MOB_SEPARATOR + replaceStrict(str(self.vida)) + MOB_SEPARATOR + \
-            replaceStrict(str(self.imagen)) + MOB_SEPARATOR + replaceStrict(str(self.target)) + MOB_SEPARATOR + \
-            replaceStrict(str(self.velocidad)) + MOB_SEPARATOR + replaceStrict(str(self.nombre)) + MOB_SEPARATOR + \
-            replaceStrict(str(self.informacion)) + MOB_SEPARATOR + replaceStrict(
+        return replaceStrict(str(self.ataque)) + MOB_SEPARATOR + replaceStrict(
+            str(self.vida)) + MOB_SEPARATOR + \
+               replaceStrict(str(self.imagen)) + MOB_SEPARATOR + replaceStrict(
+            str(self.target)) + MOB_SEPARATOR + \
+               replaceStrict(
+                   str(self.velocidad)) + MOB_SEPARATOR + replaceStrict(
+            str(self.nombre)) + MOB_SEPARATOR + \
+               replaceStrict(
+                   str(self.informacion)) + MOB_SEPARATOR + replaceStrict(
             str(self.posicion[0])) + MOB_SEPARATOR + \
-            replaceStrict(str(self.posicion[1])) + MOB_SEPARATOR + replaceStrict(
+               replaceStrict(
+                   str(self.posicion[1])) + MOB_SEPARATOR + replaceStrict(
             str(self.regeneracion)) + MOB_SEPARATOR + \
-            replaceStrict(str(self.movimiento)) + MOB_SEPARATOR + replaceStrict(str(self.defensa)) + MOB_SEPARATOR + \
-            replaceStrict(str(self.expDrown)) + MOB_SEPARATOR + replaceStrict(str(self.objDrown)) + MOB_SEPARATOR + \
-            replaceStrict(str(self.escapa)) + MOB_SEPARATOR + replaceStrict(str(self.persigue)) + MOB_SEPARATOR + \
-            str(self.distance) + MOB_SEPARATOR + str(self.initPos[0]) + MOB_SEPARATOR + str(self.initPos[1]) + \
-            MOB_SEPARATOR + str(self.tipocombate) + MOB_SEPARATOR + \
-            str(self.tipoataque) + MOB_SEPARATOR + str(self.sonido) + "\n"
+               replaceStrict(
+                   str(self.movimiento)) + MOB_SEPARATOR + replaceStrict(
+            str(self.defensa)) + MOB_SEPARATOR + \
+               replaceStrict(
+                   str(self.expDrown)) + MOB_SEPARATOR + replaceStrict(
+            str(self.objDrown)) + MOB_SEPARATOR + \
+               replaceStrict(str(self.escapa)) + MOB_SEPARATOR + replaceStrict(
+            str(self.persigue)) + MOB_SEPARATOR + \
+               str(self.distance) + MOB_SEPARATOR + str(
+            self.initPos[0]) + MOB_SEPARATOR + str(self.initPos[1]) + \
+               MOB_SEPARATOR + str(self.tipocombate) + MOB_SEPARATOR + \
+               str(self.tipoataque) + MOB_SEPARATOR + str(self.sonido) + "\n"

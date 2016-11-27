@@ -17,13 +17,15 @@ NPC_TIME_MOVEMENT = 6000
 STRING_SEP = "/"
 
 
-class npc:
+class npc(object):
     """
     Objetos npc
     """
 
-    def __init__(self, nombre, imagen, descripcion, strings, obj, req, oro, move, dist,
-                 fade, posx, posy, ended="FALSE", count=0, initposx=-1, initposy=-1,
+    def __init__(self, nombre, imagen, descripcion, strings, obj, req, oro,
+                 move, dist,
+                 fade, posx, posy, ended="FALSE", count=0, initposx=-1,
+                 initposy=-1,
                  needquest="None"):
         """
         Función constructora
@@ -307,14 +309,22 @@ class npc:
         Exportar los datos
         :return: String
         """
-        return replaceStrict(str(self.nombre)) + NPC_SEPARATOR + replaceStrict(str(self.imagen)) + \
-            NPC_SEPARATOR + replaceStrict(str(self.descripcion)) + NPC_SEPARATOR + replaceStrict(str(self.strings)) + \
-            NPC_SEPARATOR + replaceStrict(str(self.obj)) + NPC_SEPARATOR + replaceStrict(
+        return replaceStrict(str(self.nombre)) + NPC_SEPARATOR + replaceStrict(
+            str(self.imagen)) + \
+               NPC_SEPARATOR + replaceStrict(
+            str(self.descripcion)) + NPC_SEPARATOR + replaceStrict(
+            str(self.strings)) + \
+               NPC_SEPARATOR + replaceStrict(
+            str(self.obj)) + NPC_SEPARATOR + replaceStrict(
             str(self.req)) + NPC_SEPARATOR + \
-            replaceStrict(str(self.oro)) + NPC_SEPARATOR + replaceStrict(
-            str(self.move)) + NPC_SEPARATOR + replaceStrict(str(self.distance)) + \
-            NPC_SEPARATOR + replaceStrict(str(self.fade)) + NPC_SEPARATOR + str(
-            self.posicion[0]) + NPC_SEPARATOR + str(self.posicion[1]) + NPC_SEPARATOR + \
-            str(self.ended) + NPC_SEPARATOR + str(self.stringCount) + NPC_SEPARATOR + str(
+               replaceStrict(str(self.oro)) + NPC_SEPARATOR + replaceStrict(
+            str(self.move)) + NPC_SEPARATOR + replaceStrict(
+            str(self.distance)) + \
+               NPC_SEPARATOR + replaceStrict(
+            str(self.fade)) + NPC_SEPARATOR + str(
+            self.posicion[0]) + NPC_SEPARATOR + str(
+            self.posicion[1]) + NPC_SEPARATOR + \
+               str(self.ended) + NPC_SEPARATOR + str(
+            self.stringCount) + NPC_SEPARATOR + str(
             self.initPos[0]) + NPC_SEPARATOR + str(self.initPos[1]) + \
-            NPC_SEPARATOR + str(self.needquest) + "\n"
+               NPC_SEPARATOR + str(self.needquest) + "\n"
