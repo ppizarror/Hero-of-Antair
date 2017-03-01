@@ -1,18 +1,19 @@
 # coding=utf-8
-#
-# Editor de mapas
+"""
+MEDT
+Editor de mapas.
 
-# MEDT
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías de alto nivel
 from lib import *  # @UnusedWildImport
 
 # Información del programa
 PROGRAM_TITLE = "Editor de mapas"
-PROGRAM_VERSION = 1.8
+PROGRAM_VERSION = 1.9
 printAsciiArtME()  # imprimo el logo del programa en ascii
 print "\nMap editor version: " + str(PROGRAM_VERSION)
 print "\nCargando librerias ...",
@@ -815,19 +816,11 @@ class mapeditor(object):
         self.archivomenu.entryconfig(4, state=DISABLED)
         self.archivomenu.entryconfig(6, state=DISABLED)
         self.herrammenu = Menu(menu, tearoff=0)
-        self.herrammenu.add_command(
-            label='Borrar actor', accelerator="Ctrl+J", command=_delactor)
-        self.herrammenu.add_command(
-            label='Borrar decoración', accelerator="Ctrl+U",
-            command=_deldecoration)
-        self.herrammenu.add_command(
-            label='Borrar terreno', accelerator="Ctrl+K", command=_delterrain)
-        self.herrammenu.add_command(
-            label='Borrar seleción actual', accelerator="Esc",
-            command=self.delActive)
-        self.herrammenu.add_command(
-            label='Establecer sonido de fondo', accelerator="Ctrl+M",
-            command=_changeSound)
+        self.herrammenu.add_command(label='Borrar actor', accelerator="Ctrl+J", command=_delactor)
+        self.herrammenu.add_command(label='Borrar decoración', accelerator="Ctrl+U", command=_deldecoration)
+        self.herrammenu.add_command(label='Borrar terreno', accelerator="Ctrl+K", command=_delterrain)
+        self.herrammenu.add_command(label='Borrar seleción actual', accelerator="Esc", command=self.delActive)
+        self.herrammenu.add_command(label='Establecer sonido de fondo', accelerator="Ctrl+M", command=_changeSound)
         for k in range(5):
             self.herrammenu.entryconfig(k, state=DISABLED)
         menu.add_cascade(label='Herramientas', menu=self.herrammenu)
@@ -1264,15 +1257,10 @@ class mapeditor(object):
             for j in range(self.mapSize[1]):  # Items
                 for i in range(self.mapSize[0]):
                     # Si existe una imagen la agrego al mundo
-                    if self.worldItems[j][i] != "None" and not isIn(
-                            self.worldItems[j][i], EVENT_IMAGE_EDITOR):
+                    if self.worldItems[j][i] != "None" and not isIn(self.worldItems[j][i], EVENT_IMAGE_EDITOR):
                         imagen = self.mapTile.create_image(
-                            18 + 32 * i +
-                            textureMover(
-                                self.images[self.worldItems[j][i]], EJE_X),
-                            18 + 32 * j +
-                            textureMover(
-                                self.images[self.worldItems[j][i]], EJE_Y),
+                            18 + 32 * i + textureMover(self.images[self.worldItems[j][i]], EJE_X),
+                            18 + 32 * j + textureMover(self.images[self.worldItems[j][i]], EJE_Y),
                             image=self.images[self.worldItems[j][i]])
                         # Compruebo la imagen para ver el zindex
                         if isIn(self.worldItems[j][i], LOWER_TEXTURES):
@@ -1284,20 +1272,13 @@ class mapeditor(object):
                         self.mapTile.create_image(18 + 32 * i + textureMover(
                             self.images[self.worldItems[j][i]], EJE_X),
                                                   18 + 32 * j +
-                                                  textureMover(
-                                                      self.images[
-                                                          self.worldItems[j][
-                                                              i]], EJE_Y),
-                                                  image=self.images[
-                                                      self.worldItems[j][i]])
+                                                  textureMover(self.images[self.worldItems[j][i]], EJE_Y),
+                                                  image=self.images[self.worldItems[j][i]])
         if self.showTerrain:  # Si se pueden dibujar las texturas de terreno
             for j in range(self.mapSize[1]):  # Texturas de terreno
                 for i in range(self.mapSize[0]):
                     self.mapTile.lower(
-                        self.mapTile.create_image(18 + 32 * i, 18 + 32 * j,
-                                                  image=self.images[
-                                                      self.worldGraph[j][
-                                                          i]]))  # @UndefinedVariable
+                        self.mapTile.create_image(18 + 32 * i, 18 + 32 * j, image=self.images[self.worldGraph[j][i]]))
         # Dibujo la información de los tiles
         if self.showLines != False or self.showNumbers != False or self.showLogics != False:
             for i in range(0, self.mapSize[1]):
@@ -1349,8 +1330,7 @@ class mapeditor(object):
                             except:
                                 maxdist = 0
                             if velocidad > 0 and mov > 0 and maxdist != 0:
-                                self.setImageSquare(i, j, maxdist,
-                                                    COLOR_MOVEMENT[0])
+                                self.setImageSquare(i, j, maxdist, COLOR_MOVEMENT[0])
                         elif actor[0] == "43":  # Si es un npc
                             prop = actor[2].split(",")
                             move = prop[7]
@@ -1422,9 +1402,7 @@ class mapeditor(object):
         """
         if not self.isNewMapCreating:  # Si no hay una ventana abierta
             self.isNewMapCreating = True  # Se establece que hay una ventana abierta
-            vpop = pop(
-                ["Nuevo Mapa", self.images["mapeditoricon"], "new_map", 280,
-                 300])  # Ventana consultora de información
+            vpop = pop(["Nuevo Mapa", self.images["mapeditoricon"], "new_map", 280, 300])
             vpop.w.mainloop(1)
             if vpop.sent:  # Si los datos fueron enviados
                 datos = vpop.values
@@ -1943,8 +1921,7 @@ class mapeditor(object):
                         else:
                             properties += '%NULL%,'
                         properties += data[12] + ',' + data[13] + ',' + data[
-                            14] + ',' + data[15] + ',' + data[
-                                          16]  # se agregan propiedades de perseguir y escapar
+                            14] + ',' + data[15] + ',' + data[16]  # se agregan propiedades de perseguir y escapar
                         # se agrega sonido del mob
                         properties += ',' + data[17]
                         self.actualActor = tex, properties, "mob"

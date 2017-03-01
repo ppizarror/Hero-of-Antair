@@ -1,10 +1,10 @@
 # coding=utf-8
 """
-Editor de mapas
-
 MAP EDITOR
-Autor: PABLO PIZARRO @ ppizarro
-Fecha: JULIO 2015
+Editor de mapas.
+
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: JULIO 2015, 2017
 Licencia: GPLv2
 """
 

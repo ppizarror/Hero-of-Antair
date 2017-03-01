@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Texturas usadas por el editor de mapas
+"""
+TEXTURES EDITOR
+Texturas usadas por el editor de mapas.
 
-# TEXTURES EDITOR
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerias
 from Tkinter import PhotoImage  # @UnusedImport
@@ -1173,420 +1174,287 @@ class mapEditorTextures(object):
         Función constructora, en ella se cargan todas las imágenes
         :return: void
         """
+        # Se genera el objeto hoaTextures
+        self._hoatextures = hoaTextures()
+        # Se cargan los paquetes
+        self.packages = self._hoatextures.packages
         # Cargo las imagenes básicas
-        self.images = hoaTextures().images
+        self.images = self._hoatextures.images
         # Cargo las imágenes del mundo
         for link in IMAGES.keys():
-            self.images[link] = PhotoImage(file=IMAGES[link])
+            self.loadIMAGE(link)
         # Texturas especiales para map editor
-        self.images["a_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "a_mov.gif")
+        self.images["a_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "a_mov.gif")
         self.images["alert_icon"] = DATA_ICONS + "alert.ico"
-        self.images["amove"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "amove.gif")
-        self.images["autosave"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "autosave.gif")
+        self.images["amove"] = PhotoImage(file=DATA_IMAGES_EDITOR + "amove.gif")
+        self.images["autosave"] = PhotoImage(file=DATA_IMAGES_EDITOR + "autosave.gif")
         self.images["autosave_ico"] = DATA_ICONS + "autosave.ico"
-        self.images["b_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "b_mov.gif")
-        self.images["black"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "black.gif")
-        self.images["bmove"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "bmove.gif")
+        self.images["b_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "b_mov.gif")
+        self.images["black"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "black.gif")
+        self.images["bmove"] = PhotoImage(file=DATA_IMAGES_EDITOR + "bmove.gif")
         self.images["building_add"] = DATA_ICONS + "building_add.ico"
-        self.images["c_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "c_mov.gif")
-        self.images["d_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "d_mov.gif")
-        self.images["dirt10_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt10_0.gif")
-        self.images["dirt10_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt10_1.gif")
-        self.images["dirt1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt1_0.gif")
-        self.images["dirt1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt1_1.gif")
-        self.images["dirt2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt2_0.gif")
-        self.images["dirt2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt2_1.gif")
-        self.images["dirt3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt3_0.gif")
-        self.images["dirt3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt3_1.gif")
-        self.images["dirt4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt4_0.gif")
-        self.images["dirt4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt4_1.gif")
-        self.images["dirt5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt5_0.gif")
-        self.images["dirt5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt5_1.gif")
-        self.images["dirt6_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt6_0.gif")
-        self.images["dirt6_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt6_1.gif")
-        self.images["dirt7_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt7_0.gif")
-        self.images["dirt7_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt7_1.gif")
-        self.images["dirt8_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt8_0.gif")
-        self.images["dirt8_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt8_1.gif")
-        self.images["dirt9_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt9_0.gif")
-        self.images["dirt9_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "dirt9_1.gif")
+        self.images["c_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "c_mov.gif")
+        self.images["d_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "d_mov.gif")
+        self.images["dirt10_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt10_0.gif")
+        self.images["dirt10_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt10_1.gif")
+        self.images["dirt1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt1_0.gif")
+        self.images["dirt1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt1_1.gif")
+        self.images["dirt2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt2_0.gif")
+        self.images["dirt2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt2_1.gif")
+        self.images["dirt3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt3_0.gif")
+        self.images["dirt3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt3_1.gif")
+        self.images["dirt4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt4_0.gif")
+        self.images["dirt4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt4_1.gif")
+        self.images["dirt5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt5_0.gif")
+        self.images["dirt5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt5_1.gif")
+        self.images["dirt6_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt6_0.gif")
+        self.images["dirt6_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt6_1.gif")
+        self.images["dirt7_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt7_0.gif")
+        self.images["dirt7_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt7_1.gif")
+        self.images["dirt8_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt8_0.gif")
+        self.images["dirt8_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt8_1.gif")
+        self.images["dirt9_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt9_0.gif")
+        self.images["dirt9_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "dirt9_1.gif")
         self.images["door"] = DATA_IMAGES_EDITOR + "door_icon.ico"
-        self.images["e_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "e_mov.gif")
+        self.images["e_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "e_mov.gif")
         self.images["error_icon"] = DATA_ICONS + "error_icon.ico"
         self.images["event_ico"] = DATA_ICONS + "event.ico"
-        self.images["events"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "events.gif")
-        self.images["f_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "f_mov.gif")
-        self.images["floor10_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor10_0.gif")
-        self.images["floor10_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor10_1.gif")
-        self.images["floor11_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor11_0.gif")
-        self.images["floor11_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor11_1.gif")
-        self.images["floor1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor1_0.gif")
-        self.images["floor1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor1_1.gif")
-        self.images["floor2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor2_0.gif")
-        self.images["floor2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor2_1.gif")
-        self.images["floor3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor3_0.gif")
-        self.images["floor3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor3_1.gif")
-        self.images["floor4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor4_0.gif")
-        self.images["floor4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor4_1.gif")
-        self.images["floor5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor5_0.gif")
-        self.images["floor5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor5_1.gif")
-        self.images["floor6_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor6_0.gif")
-        self.images["floor6_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor6_1.gif")
-        self.images["floor7_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor7_0.gif")
-        self.images["floor7_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor7_1.gif")
-        self.images["floor8_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor8_0.gif")
-        self.images["floor8_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor8_1.gif")
-        self.images["floor9_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor9_0.gif")
-        self.images["floor9_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "floor9_1.gif")
-        self.images["g_mov"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "g_mov.gif")
-        self.images["grass1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass1_0.gif")
-        self.images["grass1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass1_1.gif")
-        self.images["grass2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass2_0.gif")
-        self.images["grass2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass2_1.gif")
-        self.images["grass3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass3_0.gif")
-        self.images["grass3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass3_1.gif")
-        self.images["grass4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass4_0.gif")
-        self.images["grass4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass4_1.gif")
-        self.images["grass5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass5_0.gif")
-        self.images["grass5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass5_1.gif")
-        self.images["grass6_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass6_0.gif")
-        self.images["grass6_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass6_1.gif")
-        self.images["grass7_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass7_0.gif")
-        self.images["grass7_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass7_1.gif")
-        self.images["grass8_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass8_0.gif")
-        self.images["grass8_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass8_1.gif")
-        self.images["grass9_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass9_0.gif")
-        self.images["grass9_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grass9_1.gif")
-        self.images["grava1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grava1_0.gif")
-        self.images["grava1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grava1_1.gif")
-        self.images["grava2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grava2_0.gif")
-        self.images["grava2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grava2_1.gif")
-        self.images["grava3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grava3_0.gif")
-        self.images["grava3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "grava3_1.gif")
+        self.images["events"] = PhotoImage(file=DATA_IMAGES_EDITOR + "events.gif")
+        self.images["f_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "f_mov.gif")
+        self.images["floor10_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor10_0.gif")
+        self.images["floor10_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor10_1.gif")
+        self.images["floor11_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor11_0.gif")
+        self.images["floor11_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor11_1.gif")
+        self.images["floor1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor1_0.gif")
+        self.images["floor1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor1_1.gif")
+        self.images["floor2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor2_0.gif")
+        self.images["floor2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor2_1.gif")
+        self.images["floor3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor3_0.gif")
+        self.images["floor3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor3_1.gif")
+        self.images["floor4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor4_0.gif")
+        self.images["floor4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor4_1.gif")
+        self.images["floor5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor5_0.gif")
+        self.images["floor5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor5_1.gif")
+        self.images["floor6_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor6_0.gif")
+        self.images["floor6_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor6_1.gif")
+        self.images["floor7_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor7_0.gif")
+        self.images["floor7_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor7_1.gif")
+        self.images["floor8_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor8_0.gif")
+        self.images["floor8_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor8_1.gif")
+        self.images["floor9_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor9_0.gif")
+        self.images["floor9_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "floor9_1.gif")
+        self.images["g_mov"] = PhotoImage(file=DATA_IMAGES_EDITOR + "g_mov.gif")
+        self.images["grass1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass1_0.gif")
+        self.images["grass1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass1_1.gif")
+        self.images["grass2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass2_0.gif")
+        self.images["grass2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass2_1.gif")
+        self.images["grass3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass3_0.gif")
+        self.images["grass3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass3_1.gif")
+        self.images["grass4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass4_0.gif")
+        self.images["grass4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass4_1.gif")
+        self.images["grass5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass5_0.gif")
+        self.images["grass5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass5_1.gif")
+        self.images["grass6_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass6_0.gif")
+        self.images["grass6_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass6_1.gif")
+        self.images["grass7_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass7_0.gif")
+        self.images["grass7_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass7_1.gif")
+        self.images["grass8_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass8_0.gif")
+        self.images["grass8_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass8_1.gif")
+        self.images["grass9_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass9_0.gif")
+        self.images["grass9_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grass9_1.gif")
+        self.images["grava1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grava1_0.gif")
+        self.images["grava1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grava1_1.gif")
+        self.images["grava2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grava2_0.gif")
+        self.images["grava2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grava2_1.gif")
+        self.images["grava3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grava3_0.gif")
+        self.images["grava3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "grava3_1.gif")
         self.images["group"] = DATA_ICONS + "group.ico"
-        self.images["ice1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ice1_0.gif")
-        self.images["ice1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ice1_1.gif")
-        self.images["ice2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ice2_0.gif")
-        self.images["ice2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ice2_1.gif")
-        self.images["ice3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ice3_0.gif")
-        self.images["ice3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ice3_1.gif")
-        self.images["ladrillo1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo1_0.gif")
-        self.images["ladrillo1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo1_1.gif")
-        self.images["ladrillo2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo2_0.gif")
-        self.images["ladrillo2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo2_1.gif")
-        self.images["ladrillo3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo3_0.gif")
-        self.images["ladrillo3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo3_1.gif")
-        self.images["ladrillo4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo4_0.gif")
-        self.images["ladrillo4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "ladrillo4_1.gif")
-        self.images["lava1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "lava1.gif")
-        self.images["lava2"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "lava2.gif")
-        self.images["lava3"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "lava3.gif")
+        self.images["ice1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ice1_0.gif")
+        self.images["ice1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ice1_1.gif")
+        self.images["ice2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ice2_0.gif")
+        self.images["ice2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ice2_1.gif")
+        self.images["ice3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ice3_0.gif")
+        self.images["ice3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ice3_1.gif")
+        self.images["ladrillo1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo1_0.gif")
+        self.images["ladrillo1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo1_1.gif")
+        self.images["ladrillo2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo2_0.gif")
+        self.images["ladrillo2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo2_1.gif")
+        self.images["ladrillo3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo3_0.gif")
+        self.images["ladrillo3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo3_1.gif")
+        self.images["ladrillo4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo4_0.gif")
+        self.images["ladrillo4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "ladrillo4_1.gif")
+        self.images["lava1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "lava1.gif")
+        self.images["lava2"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "lava2.gif")
+        self.images["lava3"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "lava3.gif")
         self.images["lightbulb_add"] = DATA_ICONS + "lightbulb_add.ico"
         self.images["lightning"] = DATA_ICONS + "lightning.ico"
-        self.images["longtext"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "longtext.gif")
+        self.images["longtext"] = PhotoImage(file=DATA_IMAGES_EDITOR + "longtext.gif")
         self.images["longtext_ico"] = DATA_ICONS + "longtext.ico"
         self.images["mapeditoricon"] = DATA_ICONS + "mapeditor.ico"
         self.images["mapinfo"] = DATA_ICONS + "mapinfo.ico"
-        self.images["minushp"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "minushp.gif")
+        self.images["minushp"] = PhotoImage(file=DATA_IMAGES_EDITOR + "minushp.gif")
         self.images["minushp_ico"] = DATA_ICONS + "minushp.ico"
-        self.images["minusmana"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "minusman.gif")
+        self.images["minusmana"] = PhotoImage(file=DATA_IMAGES_EDITOR + "minusman.gif")
         self.images["minusmana_ico"] = DATA_ICONS + "minusmana.ico"
         self.images["move"] = PhotoImage(file=DATA_IMAGES_EDITOR + "move.gif")
         self.images["move_ico"] = DATA_ICONS + "move.ico"
         self.images["mute"] = PhotoImage(file=DATA_IMAGES_EDITOR + "mute.gif")
         self.images["mute_ico"] = DATA_ICONS + "mute.ico"
-        self.images["nether1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether1_0.gif")
-        self.images["nether1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether1_1.gif")
-        self.images["nether2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether2_0.gif")
-        self.images["nether2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether2_1.gif")
-        self.images["nether3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether3_0.gif")
-        self.images["nether3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether3_1.gif")
-        self.images["nether4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether4_0.gif")
-        self.images["nether4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether4_1.gif")
-        self.images["nether5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether5_0.gif")
-        self.images["nether5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "nether5_1.gif")
+        self.images["nether1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether1_0.gif")
+        self.images["nether1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether1_1.gif")
+        self.images["nether2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether2_0.gif")
+        self.images["nether2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether2_1.gif")
+        self.images["nether3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether3_0.gif")
+        self.images["nether3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether3_1.gif")
+        self.images["nether4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether4_0.gif")
+        self.images["nether4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether4_1.gif")
+        self.images["nether5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether5_0.gif")
+        self.images["nether5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "nether5_1.gif")
         self.images["new_object"] = DATA_ICONS + "new_object.ico"
-        self.images["noneterrain"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "noneterrain.gif")
-        self.images["nopass"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "nopass.gif")
+        self.images["noneterrain"] = PhotoImage(file=DATA_IMAGES_EDITOR + "noneterrain.gif")
+        self.images["nopass"] = PhotoImage(file=DATA_IMAGES_EDITOR + "nopass.gif")
         self.images["nopass_ico"] = DATA_ICONS + "nopass.ico"
-        self.images["nopassalert"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "nopassalert.gif")
+        self.images["nopassalert"] = PhotoImage(file=DATA_IMAGES_EDITOR + "nopassalert.gif")
         self.images["nopassalert_ico"] = DATA_ICONS + "nopassalert.ico"
-        self.images["object"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "object.gif")
+        self.images["object"] = PhotoImage(file=DATA_IMAGES_EDITOR + "object.gif")
         self.images["object_ico"] = DATA_ICONS + "object.ico"
-        self.images["pantano1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pantano1_0.gif")
-        self.images["pantano1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pantano1_1.gif")
-        self.images["pantano2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pantano2_0.gif")
-        self.images["pantano2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pantano2_1.gif")
+        self.images["pantano1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pantano1_0.gif")
+        self.images["pantano1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pantano1_1.gif")
+        self.images["pantano2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pantano2_0.gif")
+        self.images["pantano2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pantano2_1.gif")
         self.images["pass"] = PhotoImage(file=DATA_IMAGES_EDITOR + "pass.gif")
         self.images["pass_ico"] = DATA_ICONS + "pass.ico"
-        self.images["pavimento10_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento10_0.gif")
-        self.images["pavimento10_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento10_1.gif")
-        self.images["pavimento11_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento11_0.gif")
-        self.images["pavimento11_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento11_1.gif")
-        self.images["pavimento1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento1_0.gif")
-        self.images["pavimento1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento1_1.gif")
-        self.images["pavimento2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento2_0.gif")
-        self.images["pavimento2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento2_1.gif")
-        self.images["pavimento3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento3_0.gif")
-        self.images["pavimento3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento3_1.gif")
-        self.images["pavimento4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento4_0.gif")
-        self.images["pavimento4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento4_1.gif")
-        self.images["pavimento5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento5_0.gif")
-        self.images["pavimento5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento5_1.gif")
-        self.images["pavimento6_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento6_0.gif")
-        self.images["pavimento6_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento6_1.gif")
-        self.images["pavimento7_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento7_0.gif")
-        self.images["pavimento7_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento7_1.gif")
-        self.images["pavimento8_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento8_0.gif")
-        self.images["pavimento8_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento8_1.gif")
-        self.images["pavimento9_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento9_0.gif")
-        self.images["pavimento9_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pavimento9_1.gif")
-        self.images["pisomadera1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera1_0.gif")
-        self.images["pisomadera1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera1_1.gif")
-        self.images["pisomadera2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera2_0.gif")
-        self.images["pisomadera2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera2_1.gif")
-        self.images["pisomadera3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera3_0.gif")
-        self.images["pisomadera3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera3_1.gif")
-        self.images["pisomadera4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera4_0.gif")
-        self.images["pisomadera4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera4_1.gif")
-        self.images["pisomadera5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera5_0.gif")
-        self.images["pisomadera5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera5_1.gif")
-        self.images["pisomadera6_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera6_0.gif")
-        self.images["pisomadera6_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "pisoMadera6_1.gif")
-        self.images["playerpos"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "playerpos.gif")
-        self.images["plushp"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "plushp.gif")
+        self.images["pavimento10_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento10_0.gif")
+        self.images["pavimento10_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento10_1.gif")
+        self.images["pavimento11_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento11_0.gif")
+        self.images["pavimento11_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento11_1.gif")
+        self.images["pavimento1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento1_0.gif")
+        self.images["pavimento1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento1_1.gif")
+        self.images["pavimento2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento2_0.gif")
+        self.images["pavimento2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento2_1.gif")
+        self.images["pavimento3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento3_0.gif")
+        self.images["pavimento3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento3_1.gif")
+        self.images["pavimento4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento4_0.gif")
+        self.images["pavimento4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento4_1.gif")
+        self.images["pavimento5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento5_0.gif")
+        self.images["pavimento5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento5_1.gif")
+        self.images["pavimento6_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento6_0.gif")
+        self.images["pavimento6_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento6_1.gif")
+        self.images["pavimento7_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento7_0.gif")
+        self.images["pavimento7_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento7_1.gif")
+        self.images["pavimento8_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento8_0.gif")
+        self.images["pavimento8_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento8_1.gif")
+        self.images["pavimento9_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento9_0.gif")
+        self.images["pavimento9_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pavimento9_1.gif")
+        self.images["pisomadera1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera1_0.gif")
+        self.images["pisomadera1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera1_1.gif")
+        self.images["pisomadera2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera2_0.gif")
+        self.images["pisomadera2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera2_1.gif")
+        self.images["pisomadera3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera3_0.gif")
+        self.images["pisomadera3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera3_1.gif")
+        self.images["pisomadera4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera4_0.gif")
+        self.images["pisomadera4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera4_1.gif")
+        self.images["pisomadera5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera5_0.gif")
+        self.images["pisomadera5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera5_1.gif")
+        self.images["pisomadera6_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera6_0.gif")
+        self.images["pisomadera6_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "pisoMadera6_1.gif")
+        self.images["playerpos"] = PhotoImage(file=DATA_IMAGES_EDITOR + "playerpos.gif")
+        self.images["plushp"] = PhotoImage(file=DATA_IMAGES_EDITOR + "plushp.gif")
         self.images["plushp_ico"] = DATA_ICONS + "plushp.ico"
-        self.images["plusmana"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "plusmana.gif")
+        self.images["plusmana"] = PhotoImage(file=DATA_IMAGES_EDITOR + "plusmana.gif")
         self.images["plusmana_ico"] = DATA_ICONS + "plusmana.ico"
-        self.images["quest"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "quest.gif")
+        self.images["quest"] = PhotoImage(file=DATA_IMAGES_EDITOR + "quest.gif")
         self.images["quest_ico"] = DATA_ICONS + "quest.ico"
-        self.images["sand1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand1_0.gif")
-        self.images["sand1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand1_1.gif")
-        self.images["sand2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand2_0.gif")
-        self.images["sand2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand2_1.gif")
-        self.images["sand3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand3_0.gif")
-        self.images["sand3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand3_1.gif")
-        self.images["sand4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand4_0.gif")
-        self.images["sand4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand4_1.gif")
-        self.images["sand5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand5_0.gif")
-        self.images["sand5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "sand5_1.gif")
+        self.images["sand1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand1_0.gif")
+        self.images["sand1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand1_1.gif")
+        self.images["sand2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand2_0.gif")
+        self.images["sand2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand2_1.gif")
+        self.images["sand3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand3_0.gif")
+        self.images["sand3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand3_1.gif")
+        self.images["sand4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand4_0.gif")
+        self.images["sand4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand4_1.gif")
+        self.images["sand5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand5_0.gif")
+        self.images["sand5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "sand5_1.gif")
         self.images["save_icon"] = DATA_ICONS + "save.ico"
         self.images["sign_ico"] = DATA_IMAGES_EDITOR + "sign_ico.ico"
-        self.images["sound"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "sound.gif")
+        self.images["sound"] = PhotoImage(file=DATA_IMAGES_EDITOR + "sound.gif")
         self.images["sound_ico"] = DATA_ICONS + "sound.ico"
         self.images["stair_icon"] = DATA_IMAGES_EDITOR + "stair_icon.ico"
-        self.images["suddendeath"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "suddendeath.gif")
+        self.images["suddendeath"] = PhotoImage(file=DATA_IMAGES_EDITOR + "suddendeath.gif")
         self.images["suddendeath_ico"] = DATA_ICONS + "suddendeath.ico"
-        self.images["teleport"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "teleport.gif")
+        self.images["teleport"] = PhotoImage(file=DATA_IMAGES_EDITOR + "teleport.gif")
         self.images["teleport_ico"] = DATA_ICONS + "teleport.ico"
         self.images["text"] = PhotoImage(file=DATA_IMAGES_EDITOR + "text.gif")
         self.images["text_ico"] = DATA_ICONS + "text.ico"
         self.images["text_icon"] = DATA_ICONS + "text_icon.ico"
         self.images["text_icon"] = DATA_ICONS + "text_icon.ico"
         self.images["textfield_add"] = DATA_ICONS + "textfield_add.ico"
-        self.images["trash"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "trash.gif")
-        self.images["trash2"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "trash2.gif")
-        self.images["trash5"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "trash5.gif")
-        self.images["trash6"] = PhotoImage(
-            file=DATA_IMAGES_EDITOR + "trash6.gif")
-        self.images["water1_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water1_0.gif")
-        self.images["water1_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water1_1.gif")
-        self.images["water2_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water2_0.gif")
-        self.images["water2_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water2_1.gif")
-        self.images["water3_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water3_0.gif")
-        self.images["water3_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water3_1.gif")
-        self.images["water4_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water4_0.gif")
-        self.images["water4_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water4_1.gif")
-        self.images["water5_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water5_0.gif")
-        self.images["water5_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water5_1.gif")
-        self.images["water6_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water6_0.gif")
-        self.images["water6_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water6_1.gif")
-        self.images["water7_0"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water7_0.gif")
-        self.images["water7_1"] = PhotoImage(
-            file=DATA_IMAGES_TERRAIN + "water7_1.gif")
+        self.images["trash"] = PhotoImage(file=DATA_IMAGES_EDITOR + "trash.gif")
+        self.images["trash2"] = PhotoImage(file=DATA_IMAGES_EDITOR + "trash2.gif")
+        self.images["trash5"] = PhotoImage(file=DATA_IMAGES_EDITOR + "trash5.gif")
+        self.images["trash6"] = PhotoImage(file=DATA_IMAGES_EDITOR + "trash6.gif")
+        self.images["water1_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water1_0.gif")
+        self.images["water1_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water1_1.gif")
+        self.images["water2_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water2_0.gif")
+        self.images["water2_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water2_1.gif")
+        self.images["water3_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water3_0.gif")
+        self.images["water3_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water3_1.gif")
+        self.images["water4_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water4_0.gif")
+        self.images["water4_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water4_1.gif")
+        self.images["water5_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water5_0.gif")
+        self.images["water5_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water5_1.gif")
+        self.images["water6_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water6_0.gif")
+        self.images["water6_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water6_1.gif")
+        self.images["water7_0"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water7_0.gif")
+        self.images["water7_1"] = PhotoImage(file=DATA_IMAGES_TERRAIN + "water7_1.gif")
+
+    def inZip(self, pack):
+        """
+        Comprueba si la imagen a cargar esta en un zip o en un directorio
+        :return: Boolean
+        """
+        if pack in self.packages.keys():
+            return True
+        return False
+
+    @staticmethod
+    def getPackage(image):
+        """
+        Transforma la ubicación de la imagen a un paquete
+        :return: String
+        """
+        image = image.replace(DATA_IMAGES, "").split("/")
+        image.pop()
+        return "-".join(image)
+
+    def loadIMAGE(self, image):
+        """
+        Función que carga una imagen de un zip si corresponde
+        caso contrario retorna un string
+        :param image: String del imagen a cargar
+        """
+        pack = self.getPackage(IMAGES[image])
+        if self.inZip(pack):
+            if ".gif" in IMAGES[image]:
+                try:
+                    self.images[image] = PhotoImage(data=self.packages[pack].read(image + ".gif"))
+                except:
+                    print 'Error al cargar la imagen {1}/{0}'.format(image, pack)
+                    exit()
+            else:
+                print "TODO: NO GIF"
+        else:
+            self.images[image] = PhotoImage(file=IMAGES[image])
+
+    def loadIMAGE_ITEM(self, image):
+        """
+        Función que carga una imagen de un item de un zip si corresponde
+        caso contrario retorna un string
+        :param image: String del imagen a cargar
+        """
+        pack = self.getPackage(IMAGES_ITEMS[image])
+        self.images[image] = PhotoImage(
+            data=self.packages[pack].read(image + ".gif"))
 
 
 def getTileLogicNeighbor(data, j, k, logic_matrix):
