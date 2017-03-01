@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Items usables por el jugador
+"""
+ITEM
+Items usables por el jugador.
 
-# ITEM
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías de alto nivel
 from lib import *  # @UnusedWildImport

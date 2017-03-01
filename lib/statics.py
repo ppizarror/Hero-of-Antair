@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Estadisticas del jugador
+"""
+STATICS
+Estadisticas del jugador.
 
-# STATICS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Constantes del programa
 _STATIC = ";"

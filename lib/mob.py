@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Actores (mob), entidades lógicas hostiles del juego
+"""
+MOB
+Actores (mob), entidades lógicas hostiles del juego.
 
-# MOB
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 from lib import *  # @UnusedWildImport

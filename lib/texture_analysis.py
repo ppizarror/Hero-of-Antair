@@ -1,11 +1,13 @@
 # coding=utf-8
-#
-# ID de las texturas
+"""
+TEXTURE ANALYSIS
+ID de las texturas.
 
-# TEXTURE ANALYSIS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2014-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2014-2015, 2017
+Licencia: GPLv2
+"""
+
 
 def etextureMobAnalysis(itemTexture, light):
     """

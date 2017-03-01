@@ -1,12 +1,13 @@
 # coding=utf-8
-#
-# NPC (Not player character) entidades lógicas que proveen de quest e
-# items al jugador
+"""
+NPC
+NPC (Not player character) entidades lógicas que proveen de quest e
+items al jugador.
 
-# NPC
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 from lib import *  # @UnusedWildImport

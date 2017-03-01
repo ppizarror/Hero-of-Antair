@@ -1,24 +1,27 @@
 ##!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Crea las imágenes de HOA
+"""
+CURSORS
+Crea las imágenes de HOA.
 
-# CURSORS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: ABRIL 2014
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: ABRIL 2014, 2017
+Licencia: GPLv2
+"""
 
 # Importacion de librerías
 import os
 import sys
 from PIL import Image  # @UnusedImport
 import PIL
+
 reload(sys)
 sys.setdefaultencoding('UTF8')  # @UndefinedVariable
 
 # Definicion de constantes
 ACTUAL_FOLDER = str(os.getcwd()).replace("\\", "/") + "/"
 VALID_FILES = ["gif", "png", "jpg", "bmp", "jpeg", "ico"]
+
 
 # Funciones
 def consultArgument(argument, arguments):  # funcion que consulta la existencia de un argumento
@@ -30,8 +33,10 @@ def consultArgument(argument, arguments):  # funcion que consulta la existencia 
 
 def consultParam(argument, arguments):  # funcion que consulta el parametro de un argumento
     for i in arguments:
-        if i[0] == argument: return i[1]
+        if i[0] == argument:
+            return i[1]
     return "%NULL%"  # si no existe retorna null
+
 
 # Consulto los archivos del directorio actual
 archivos = os.listdir(ACTUAL_FOLDER)
@@ -49,7 +54,8 @@ for k in range(1, len(arguments) - 1):  # se crea una matriz de argumentos
         arg_p.append(arguments[k].replace("-", ""))
         if "-" not in arguments[k + 1] and not "$" in arguments[k + 1]:
             arg_p.append(arguments[k + 1])
-            if k != len(arguments): k += 2
+            if k != len(arguments):
+                k += 2
         else:
             arg_p.append("")
         arg.append(arg_p)
@@ -76,7 +82,8 @@ if consultArgument("help", arg):
 else:
 
     # licencia
-    if consultArgument("licence", arg): print "GPLv2"
+    if consultArgument("licence", arg):
+        print "GPLv2"
 
     if len(archivos) > 0:  # si existen archivos
         if consultArgument("fileformat", arg):
@@ -87,14 +94,16 @@ else:
             tipo = raw_input("Ingrese el tipo de formato que quiere transformar: ").lower().strip().replace(".", "")
         if tipo in VALID_FILES:  # si el formato es correcto
             for fil in archivos:  # se recorren los archivos validos
-                if tipo in fil: archivos_validos.append(fil)
+                if tipo in fil:
+                    archivos_validos.append(fil)
             del archivos
             if len(archivos_validos) > 0:  # Si existen archivos tras el filtrado
                 if consultArgument("to", arg):
                     newTipe = consultParam("to", arg)  # consulto por el tamano desado
                 else:
                     newTipe = raw_input("Ingrese el formato de salida: : ")
-                if newTipe == "": newTipe = tipo  # si no se ingreso nada el formato de salida es igual al de entrada
+                if newTipe == "":
+                    newTipe = tipo  # si no se ingreso nada el formato de salida es igual al de entrada
                 if consultArgument("size", arg):
                     size = consultParam("size", arg)  # consulto por el tamano desado
                 else:
@@ -141,12 +150,15 @@ else:
                                         try:
                                             if keep:
                                                 pngfilename = archivo
-                                                for res in VALID_FILES: pngfilename = pngfilename.replace("." + res, "")
+                                                for res in VALID_FILES:
+                                                    pngfilename = pngfilename.replace("." + res, "")
                                                 pngfilename += ".png"
                                             else:
                                                 pngfilename = namefile + str(number) + "_0" + ".png"
-                                            if lower: pngfilename = pngfilename.lower()
-                                            if upper: pngfilename = pngfilename.upper()
+                                            if lower:
+                                                pngfilename = pngfilename.lower()
+                                            if upper:
+                                                pngfilename = pngfilename.upper()
                                             imagen = Image.open(archivo)
                                             imagen.convert("RGBA")
                                             try:
@@ -179,13 +191,16 @@ else:
                                                 pass
                                             if keep:
                                                 newimagefilename = archivo
-                                                for res in VALID_FILES: newimagefilename = newimagefilename.replace(
+                                                for res in VALID_FILES:
+                                                    newimagefilename = newimagefilename.replace(
                                                     "." + res, "")
                                                 newimagefilename += "." + newTipe
                                             else:
                                                 newimagefilename = namefile + str(number) + "_0" + "." + newTipe
-                                            if lower: newimagefilename = newimagefilename.lower()
-                                            if upper: newimagefilename = newimagefilename.upper()
+                                            if lower:
+                                                newimagefilename = newimagefilename.lower()
+                                            if upper:
+                                                newimagefilename = newimagefilename.upper()
                                             imagen.paste(imagen, layer)
                                             if newTipe == "gif":
                                                 try:
@@ -201,7 +216,8 @@ else:
                                                     raise IOError
                                             del imagen
                                             os.remove(ACTUAL_FOLDER + pngfilename)
-                                            if not silence: print "Archivo '{0}' generado exitosamente".format(
+                                            if not silence:
+                                                print "Archivo '{0}' generado exitosamente".format(
                                                 newimagefilename)
                                         except:
                                             print "Error :: Ocurrio un error al transformar la imagen '{0}'".format(

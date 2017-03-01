@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Actor, entidad lógica manejada por el usuario
+"""
+ACTORS
+Actor, entidad lógica manejada por el usuario.
 
-# ACTORS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 import random

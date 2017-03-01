@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-#
-# Hero of Antair, motor gráfico para juego RPG
+"""
+HOA
+Hero of Antair, motor gráfico para juego RPG.
 
-# HOA
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías de alto nivel
 from lib import *  # @UnusedWildImport

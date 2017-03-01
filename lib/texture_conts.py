@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Constantes usadas por las texturas
+"""
+TEXTURE CONTS
+Constantes usadas por las texturas.
 
-# TEXTURE CONTS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerias
 import os
@@ -15,8 +16,7 @@ _libdir = "lib"
 ACTUAL_FOLDER = str(
     os.path.abspath(os.path.dirname(__file__))).replace("\\", "/").replace(
     _libdir, "")
-# prefijos de armas arrojadizas de flechas
-ARROW_WEAPONS_PREFIX = ["arco", "ballesta"]
+ARROW_WEAPONS_PREFIX = ["arco", "ballesta"]  # prefijos de armas arrojadizas de flechas
 AVAIABLE_ACTOR_TEXTURES = ["actor1", "actor2", "actor3", "actor4", "actor7",
                            "actor8", "actor9", "actor10", "actor11",
                            "actor12", "actor13", "actor14", "actor15",
@@ -171,132 +171,132 @@ TEXTURE_OBSTACLES = ["ambiance_other27", "ambiance_other32",
 TEXTURE_WATER = [109, 110, 111, 124, 125, 131, 132, 194, 195]
 
 # MAPEO DE ELEMENTOS LOGICOS POR ID
+
+# ITEM_TYOE_CROSS
+#    -#-
+#    #x#
+#    -#-
 ITEM_TYPE_CROSS = [452, 1219, 1222, 1225]
+
+# ITEM_TYPE_FULL
 #    -#-
 #    #x#
-#    -#-
-
-# ITEM_TYPE_CROSS
+#    ###
 ITEM_TYPE_FULL = [437, 447, 451, 455, 1234]
+
 # ITEM_TYPE_FULL
-#    -#-
+#    ###
 #    #x#
 #    ###
-
-# ITEM_TYPE_CROSS
 ITEM_TYPE_FULL_A = [1210, 1223, 1237, 1238, 1242, 1246]
-# ITEM_TYPE_FULL
-#    ###
-#    #x#
-#    ###
 
-ITEM_TYPE_FULL_V = [434, 436, 438, 440, 446, 450, 1226]
 # ITEM_TYPE_FULL
 #    -#-
 #    #x#
 #    -##
+ITEM_TYPE_FULL_V = [434, 436, 438, 440, 446, 450, 1226]
 
-ITEM_TYPE_MEDIUM = [
-    435, 448, 454, 456, 1228, 1229, 1231, 1232, 1233, 1235, 1236, 1241]
 # ITEM_TYPE_MEDIUM
 #    ---
 #    #x#
 #    ###
+ITEM_TYPE_MEDIUM = [
+    435, 448, 454, 456, 1228, 1229, 1231, 1232, 1233, 1235, 1236, 1241]
 
-ITEM_TYPE_MEDIUM_A = [1227, 1248]
 # ITEM_TYPE_MEDIUM_A
 #    ###
 #    #x#
 #    ---
+ITEM_TYPE_MEDIUM_A = [1227, 1248]
 
-ITEM_TYPE_MEDIUM_L = [443, 457]
 # ITEM_TYPE_MEDIUM_L
 #    ---
 #    -x#
 #    ###
+ITEM_TYPE_MEDIUM_L = [443, 457]
 
-ITEM_TYPE_MEDIUM_R = [433, 444, 453, 1243, 1247]
 # ITEM_TYPE_MEDIUM_R
 #    ---
 #    #x#
 #    ##-
+ITEM_TYPE_MEDIUM_R = [433, 444, 453, 1243, 1247]
 
+# ITEM_TYPE_MEDIUM_S
+#    ---
+#    #x#
+#    -##
 ITEM_TYPE_MEDIUM_S = [445, 449, 1185, 1186, 1187, 1188, 1189, 1190, 1191, 1192,
                       1193, 1194, 1195,
                       1196, 1197, 1198, 1199, 1200, 1201, 1202, 1203, 1204,
                       1205, 1206, 1207, 1208,
                       1209, 1220, 1240]
-# ITEM_TYPE_MEDIUM_S
-#    ---
-#    #x#
-#    -##
 
-ITEM_TYPE_MEDIUM_T = [1217]
 # ITEM_TYPE_MEDIUM_T
 #    -##
 #    #x#
 #    ---
+ITEM_TYPE_MEDIUM_T = [1217]
 
-ITEM_TYPE_MEDIUM_U = [1218]
 # ITEM_TYPE_MEDIUM_T
 #    ###
 #    #x#
 #    ##-
+ITEM_TYPE_MEDIUM_U = [1218]
 
-ITEM_TYPE_MEDIUM_V = [439, 441, 442, 1221, 1239, 1244, 1245]
 # ITEM_TYPE_MEDIUM_V
 #    -#-
 #    #x#
 #    ##-
+ITEM_TYPE_MEDIUM_V = [439, 441, 442, 1221, 1239, 1244, 1245]
 
-ITEM_TYPE_SMALL = [676, 823, 824, 825, 826, 827, 828, 831, 832,
-                   833, 834, 835, 836, 837, 691, 692, 696, 708, 899, 900, 904,
-                   255]
 # ITEM_TYPE_SMALL
 #    ##-
 #    #x-
 #    ---
+ITEM_TYPE_SMALL = [676, 823, 824, 825, 826, 827, 828, 831, 832,
+                   833, 834, 835, 836, 837, 691, 692, 696, 708, 899, 900, 904,
+                   255]
 
-ITEM_TYPE_SMALL_L = [1115]
 # ITEM_TYPE_SMALL
 #    -#-
 #    #x-
 #    ---
+ITEM_TYPE_SMALL_L = [1115]
 
-ITEM_TYPE_SMALL_LINE_DOW = [
-    1212, 1213, 1214, 1215, 1216, 1250, 1252, 1253, 1254, 1255, 1256]
 # ITEM_TYPE_SMALL_LINE_DOWN
 #    ---
 #    -x-
 #    -#-
+ITEM_TYPE_SMALL_LINE_DOW = [
+    1212, 1213, 1214, 1215, 1216, 1250, 1252, 1253, 1254, 1255, 1256]
 
-ITEM_TYPE_SMALL_LINE_DOWN = [676, 822, 830, 1179, 1130, 1131, 637]
 # ITEM_TYPE_SMALL_LINE_DOWN
 #    ---
 #    #x-
 #    ---
+ITEM_TYPE_SMALL_LINE_DOWN = [676, 822, 830, 1179, 1130, 1131, 637]
 
-ITEM_TYPE_SMALL_LINE_RIGHT = [838]
 # ITEM_TYPE_SMALL_LINE_RIGHT
 #    -#-
 #    -x-
 #    ---
+ITEM_TYPE_SMALL_LINE_RIGHT = [838]
 
-ITEM_TYPE_SMALL_LINE_DIAG = [
-    1059, 1060, 1061, 1062, 1063, 1064, 1065, 1067, 1068, 1069, 1070]
 # ITEM_TYPE_SMALL_LINE_DIAG
 #    #--
 #    -x-
 #    ---
+ITEM_TYPE_SMALL_LINE_DIAG = [
+    1059, 1060, 1061, 1062, 1063, 1064, 1065, 1067, 1068, 1069, 1070]
 
-ITEM_TYPE_SMALL_T = [456, 1251]
 # ITEM_TYPE_SMALL_T
 #    ---
 #    -x-
 #    ###
+ITEM_TYPE_SMALL_T = [456, 1251]
 
-ITEM_TYPE_SMALL_Z = [458, 1211, 1249, 1257, 1258]
 # ITEM_TYPE_SMALL_T
 #    ---
 #    #x-
 #    -##
+ITEM_TYPE_SMALL_Z = [458, 1211, 1249, 1257, 1258]

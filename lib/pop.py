@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Ventanas emergentes de HOA
+"""
+POP
+Ventanas emergentes de HOA.
 
-# POP
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerias
 from lib import *  # @UnusedWildImport

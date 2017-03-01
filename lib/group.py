@@ -1,18 +1,20 @@
 # coding=utf-8
-#
-# Se define la agrupación de actores para el modo de combate grupal donde
-# se explicitan métodos y cantidades
-# Tipos: (pueden agregarse más)
-# FL: seguidor liviano
-# FM: seguidor medio
-# FS: seguidor fuerte
-# PL: jugador
-# MB: mob
+"""
+GROUP
+Se define la agrupación de actores para el modo de combate grupal donde
+se explicitan métodos y cantidades.
 
-# GROUP
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: JULIO 2015
-# Licencia: GPLv2
+Tipos: (pueden agregarse más)
+FL: seguidor liviano
+FM: seguidor medio
+FS: seguidor fuerte
+PL: jugador
+MB: mob
+
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: JULIO 2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 import random

@@ -1,18 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Importa librerías, maneja constantes y provee de funciones utiliatarias
-# XCOM : Coma
-# XPYC : Punto y coma
-# XDP: Dos puntos
-# XGUI: Guion
-# XII : '
-# XLASH : /
+"""
+LIB
+Importa librerías, maneja constantes y provee de funciones utiliatarias.
 
-# LIB
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+XCOM : Coma
+XPYC : Punto y coma
+XDP: Dos puntos
+XGUI: Guion
+XII : '
+XLASH : /
+
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de liberías de alto nivel
 import os  # @UnusedImport @Reimport @NoMove

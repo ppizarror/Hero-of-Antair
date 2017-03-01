@@ -1,12 +1,13 @@
 # !/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Archivo principal del juego
+"""
+MAIN
+Archivo principal del juego.
 
-# MAIN
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: JULIO 2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: JULIO 2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 from lib.hoa import *  # @UnusedWildImport @UnresolvedImport

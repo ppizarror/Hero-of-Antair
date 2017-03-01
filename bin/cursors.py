@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Programa que muestra los cursores disponibles en tkinter
+"""
+CURSORS
+Programa que muestra los cursores disponibles en T-Kinter.
 
-# CURSORS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: SEPT 2013
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: SEPT 2013, 2017
+Licencia: GPLv2
+"""
 
 # Importacion de librerias
 from Tkinter import *  # @UnusedWildImport

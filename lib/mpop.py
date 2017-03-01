@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Maneja ventanas utilitarias del editor de mapas
+"""
+MPOP
+Maneja ventanas utilitarias del editor de mapas.
 
-# MPOP
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2014-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2014-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerias
 from lib import *  # @UnusedWildImport
@@ -1353,8 +1354,10 @@ class pop(object):
                 # Si la hora corresponde
                 if (c == "dia" or "day") or (c == "noche" or c == "night"):
                     # Si el terreno corresponde
-                    if str(d).isdigit() or len(d) == 0:
-                        if len(d) != 0:  # Si el terreno es valido
+                    if str(d).isdigit() or len(d) == 0 or d.lower() == "default":
+                        if d.lower() == "default":
+                            d = 101
+                        elif len(d) != 0:  # Si el terreno es valido
                             if 100 < int(d) < 200:
                                 d = int(d)
                             else:

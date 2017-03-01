@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Provee constantes y funciones para los sonidos del juego
+"""
+SOUNDS
+Provee constantes y funciones para los sonidos del juego.
 
-# SOUNDS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 import os

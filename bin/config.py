@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Maneja las configuraciones del núcleo de HOA
+"""
+CONFIG
+Maneja las configuraciones del núcleo de HOA.
 
-# CONFIG
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: JULIO 2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: JULIO 2015, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 import os  # @UnusedImport

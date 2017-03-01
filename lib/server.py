@@ -1,17 +1,18 @@
 # coding=utf-8
-#
-# Servidor para jugar online
+"""
+SERVER
+Servidor para jugar online.
 
-# SERVER
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2014-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2014-2015
+Licencia: GPLv2
+"""
 
+# Importación de librerías
 import select
 import uuid
 from lib import *  # @UnusedWildImport
 
-# Importación de librerías
 # Constantes del programa
 AUTOR_NAME = "Pablo Pizarro"
 BUFFER_SIZE = 2000

@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Texturas del mundo
+"""
+TEXTURE WORLD
+Texturas del mundo.
 
-# TEXTURE WORLD
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2013-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2013-2015, 2017
+Licencia: GPLv2
+"""
 
 # Constantes del programa
 from texture_conts import *  # @UnusedWildImport
@@ -713,6 +714,7 @@ IMAGES = {
     "puerta11_1": DATA_IMAGES_CONSTRUCTION + "puerta11_1.gif",
     "puerta12_0": DATA_IMAGES_CONSTRUCTION + "puerta12_0.gif",
     "puerta12_1": DATA_IMAGES_CONSTRUCTION + "puerta12_1.gif",
+
     # Decoración #interiores
     "barril1_0": DATA_IMAGES_INTERIOR + "barril1_0.gif",
     "barril1_1": DATA_IMAGES_INTERIOR + "barril1_1.gif",
@@ -1088,6 +1090,7 @@ IMAGES = {
     "trophy19_1": DATA_IMAGES_INTERIOR + "trophy19_1.gif",
     "trophy20_0": DATA_IMAGES_INTERIOR + "trophy20_0.gif",
     "trophy20_1": DATA_IMAGES_INTERIOR + "trophy20_1.gif",
+
     # Ambiente
     "ambiance_grass1_0": DATA_IMAGES_AMBIANCE + "ambiance_grass1_0.gif",
     "ambiance_grass1_1": DATA_IMAGES_AMBIANCE + "ambiance_grass1_1.gif",
@@ -1926,6 +1929,7 @@ IMAGES = {
     "tronco1_1": DATA_IMAGES_AMBIANCE + "tronco1_1.gif",
     "tronco2_0": DATA_IMAGES_AMBIANCE + "tronco2_0.gif",
     "tronco2_1": DATA_IMAGES_AMBIANCE + "tronco2_1.gif",
+
     # Edificios
     "building1_0": DATA_IMAGES_BUILDING_BIG + "building1_0.gif",
     "building1_1": DATA_IMAGES_BUILDING_BIG + "building1_1.gif",
@@ -2124,6 +2128,7 @@ IMAGES = {
     "house_0": DATA_IMAGES_BUILDING + "house_0.gif",
     "house_1": DATA_IMAGES_BUILDING + "house_1.gif",
     "volcan": DATA_IMAGES_BUILDING + "volcan.gif",
+
     # Powers
     "dobdam": DATA_IMAGES_POWERS + "dobdam.gif",
     "dobdef": DATA_IMAGES_POWERS + "dobdef.gif",

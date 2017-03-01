@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Crea un toggle frame
+"""
+TOGGLEDFRAME
+Crea un toggle frame.
 
-# TOGGLEDFRAME
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: AGOSTO 2014
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: AGOSTO 2014, 2017
+Licencia: GPLv2
+"""
 
 # Importación de librerías
 import ttk
 import Tkinter as tk
 
-class toggledFrame(tk.Frame):
 
+class toggledFrame(tk.Frame):
     def __init__(self, parent, text='', **options):
         tk.Frame.__init__(self, parent, **options)
         self.show = tk.IntVar()

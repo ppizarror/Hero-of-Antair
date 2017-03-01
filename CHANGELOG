@@ -4,1464 +4,1467 @@
 => Ver 0.x:
 
 	[0.0.1]
-	      Consola primitiva.
-	      Nombre de usuario disponible.
-	      Edad y tipo de personaje.
-	      Funcion de vida, mana y experiencia.
-	      Funciones para barras coloreadas de informacion.
-	      imagenes para items.
-	      Creacion primitiva de mapeado.
-	      Nuevo sistema de iluminacion.
-	      Carga de mapas y niveles.
-	      Nuevas propiedades para los jugadores, informacion,
-	      velocidad, imagen, curar, armas y armadura.
-	      Nuevo sistema de armaduras.
-	      Items para jugadores.
-	      Se crean los eventos del programa.
-	      Sistema de guardado y carga de partidas.
-	      Nuevas funciones <ayuda, licencia, about y changelog>.
-              Funciones para cambiar parametros a jugadores.
-	      Nuevos items, arboles, rocas y antorchas.
-              Nuevo item <chest>.
+		Consola primitiva.
+		Nombre de usuario disponible.
+		Edad y tipo de personaje.
+		Funcion de vida, mana y experiencia.
+		Funciones para barras coloreadas de informacion.
+		imagenes para items.
+		Creacion primitiva de mapeado.
+		Nuevo sistema de iluminacion.
+		Carga de mapas y niveles.
+		Nuevas propiedades para los jugadores, informacion,
+		velocidad, imagen, curar, armas y armadura.
+		Nuevo sistema de armaduras.
+		Items para jugadores.
+		Se crean los eventos del programa.
+		Sistema de guardado y carga de partidas.
+		Nuevas funciones <ayuda, licencia, about y changelog>.
+		Funciones para cambiar parametros a jugadores.
+		Nuevos items, arboles, rocas y antorchas.
+		Nuevo item <chest>.
 
 	[0.0.2]
-	      10 nuevas texturas con sus iluminaciones.
-              Nuevos documentos.
-	      Introduccion de formato de nivel.
-	      Correccion de errores.
-	      Nuevo sistema de carga.
-	      Nuevo AI de jugador.
-	      Nuevas caracteristicas para el jugador.
-	      Correccion en carga de partida.
-              Sistema optimizado de armadura y armas.
-
-              Sistema de items mejorado.
-	      Creacion de un editor de mapas.
-              Correccion de fallos globales.
-	      Agregadas nuevas imagenes, texturas y items.
-	      Nuevo sistema de importacion de librerias
-	      y manejo de errores.
-	      Se imprime en consola los errores y librerias.
-	      cargadas, se restringe el acceso de HOA en
-	      sistemas operativos POSIX.
+		10 nuevas texturas con sus iluminaciones.
+		Nuevos documentos.
+		Introduccion de formato de nivel.
+		Correccion de errores.
+		Nuevo sistema de carga.
+		Nuevo AI de jugador.
+		Nuevas caracteristicas para el jugador.
+		Correccion en carga de partida.
+		Sistema optimizado de armadura y armas.
+		Sistema de items mejorado.
+		Creacion de un editor de mapas.
+		Correccion de fallos globales.
+		Agregadas nuevas imagenes, texturas y items.
+		Nuevo sistema de importacion de librerias
+		y manejo de errores.
+		Se imprime en consola los errores y librerias.
+		cargadas, se restringe el acceso de HOA en
+		sistemas operativos POSIX.
 
 	[0.0.3]
-              Arreglo de ventanas, redimensionado especial
-	      redimensionado de recuadros, modificacion de
-	      iconos.
-              Arreglo en carpetas del sistema.
-	      Correccion de bugs en el movimiento de los
-	      mobs.
-              Correccion de bugs en el ataque a mobs.
-	      Correccion de errores en la localizacion de
-	      mobs.
-              Correccion de error al tener mas de 20 mobs
-	      activos.
-              Optimizacion de variables y de recursos.
-              Correccion en fallas en la barra de experiencia
-	      y mana.
-	      Nivel medio también aumenta de vida y mana tras
-	      subir de nivel.
-              Correccion de errores menores en la creacion de
-	      una nueva partida.
-	      Arreglo de variables varias.
-	      Inclusion de nuevos eventos de usuario.
-	      Correccion menor de bugs.
-	      Correccion de espacios en blanco tras el
-	      traslado de mobs.
-	      Nueva funcion de edificios.
-	      Optimizacion de variables y de memoria.
-	      Arreglado el error de probabilidades en el
-	      movimiento de un mob.
+		Arreglo de ventanas, redimensionado especial
+		redimensionado de recuadros, modificacion de
+		iconos.
+		Arreglo en carpetas del sistema.
+		Correccion de bugs en el movimiento de los
+		mobs.
+		Correccion de bugs en el ataque a mobs.
+		Correccion de errores en la localizacion de
+		mobs.
+		Correccion de error al tener mas de 20 mobs
+		activos.
+		Optimizacion de variables y de recursos.
+		Correccion en fallas en la barra de experiencia
+		y mana.
+		Nivel medio también aumenta de vida y mana tras
+		subir de nivel.
+		Correccion de errores menores en la creacion de
+		una nueva partida.
+		Arreglo de variables varias.
+		Inclusion de nuevos eventos de usuario.
+		Correccion menor de bugs.
+		Correccion de espacios en blanco tras el
+		traslado de mobs.
+		Nueva funcion de edificios.
+		Optimizacion de variables y de memoria.
+		Arreglado el error de probabilidades en el
+		movimiento de un mob.
 
 	[0.0.4]
-	      Disminucion en 2mb en el consumo promedio de RAM
-	      Correccion de links en puertas.
-	      Nuevas acciones de movimiento.
-	      Redimension de ventanas de error.
-	      Correccion de error en archivo .key de una partida
-	      guardada.
-              Los edificios ahora también se someten a la accion
-	      de la iluminacion.
-	      Agregadas nuevas imagenes.
-	      Modificacion al brillo de 5 edificios y 3 arboles.
-	      Correccion de errores al cargar una partida.
-	      Insercion de nuevos tipos logicos (13, 14, 15).
-	      Correccion de error en puertas que no necesitan una
-	      llave.
-	      Correccion de redimensionado.
-	      Correccion de error al guardar una partida tras morir.
-	      No se puede guardar una partida tras morir.
-	      Correccion de errores al cargar una partida modificada
-	      ilegalmente.
-	      Correccion de errores en el intento de parchar el
-	      juego.
-	      Eliminacion de variables sin uso y mejoras en el
-              consumo de memoria.
-              Las partidas guardadas ahora incluyen los objetos que
-	      posee el jugador.
-	      Se guarda la configuracion de la armadura y la opcion
-	      de las armas.
-	      Se guardan todos los items integramente, respetando las
-	      posiciones de cada uno.
+		Disminucion en 2mb en el consumo promedio de RAM
+		Correccion de links en puertas.
+		Nuevas acciones de movimiento.
+		Redimension de ventanas de error.
+		Correccion de error en archivo .key de una partida
+		guardada.
+		Los edificios ahora también se someten a la accion
+		de la iluminacion.
+		Agregadas nuevas imagenes.
+		Modificacion al brillo de 5 edificios y 3 arboles.
+		Correccion de errores al cargar una partida.
+		Insercion de nuevos tipos logicos (13, 14, 15).
+		Correccion de error en puertas que no necesitan una
+		llave.
+		Correccion de redimensionado.
+		Correccion de error al guardar una partida tras morir.
+		No se puede guardar una partida tras morir.
+		Correccion de errores al cargar una partida modificada
+		ilegalmente.
+		Correccion de errores en el intento de parchar el
+		juego.
+		Eliminacion de variables sin uso y mejoras en el
+		consumo de memoria.
+		Las partidas guardadas ahora incluyen los objetos que
+		posee el jugador.
+		Se guarda la configuracion de la armadura y la opcion
+		de las armas.
+		Se guardan todos los items integramente, respetando las
+		posiciones de cada uno.
 
 	[0.0.5]
-	      Se cargan los items desde una partida guardada.
-	      Se carga la armadura guardada.
-	      Se cargan las armas guardadas.
-	      Se arreglan el uso de funciones relantizadoras.
-	      Se eliminan variables sin usar.
-	      Se eliminan objetos ya usados para improvisar en memoria.
-	      Se cambia la forma en la que se crea un objeto.
-              Se pregunta si quiere guardar al cerrar el programa
-	      mientras se juega.
-	      Arreglado error al existir comas "," en un objeto.
-	      Nueva forma de guardar las propiedades de un objeto.
-              Se pueden usar caracteres restrictivos tales como la.
-	      coma, el punto y coma, el guion.
-	      Correccion de errores en la carga de partidas guardadas.
-              Se eliminan variables sin usar.
-	      Se corrige el orden del codigo fuente.
-	      Se agregan nuevos elementos logicos.
-	      Se modifican elementos logicos y se cambian condicionales.
-	      en el movimiento del jugador.
-	      Se corrige la informacion de las carpetas donde
-              residen los niveles y las partidas guardadas.
-	      Se corrige error al cargar una partida o un mapa.
-	      Creacion de nuevas carpetas y directorios.
+		Se cargan los items desde una partida guardada.
+		Se carga la armadura guardada.
+		Se cargan las armas guardadas.
+		Se arreglan el uso de funciones relantizadoras.
+		Se eliminan variables sin usar.
+		Se eliminan objetos ya usados para improvisar en memoria.
+		Se cambia la forma en la que se crea un objeto.
+		Se pregunta si quiere guardar al cerrar el programa
+		mientras se juega.
+		Arreglado error al existir comas "," en un objeto.
+		Nueva forma de guardar las propiedades de un objeto.
+		Se pueden usar caracteres restrictivos tales como la.
+		coma, el punto y coma, el guion.
+		Correccion de errores en la carga de partidas guardadas.
+		Se eliminan variables sin usar.
+		Se corrige el orden del codigo fuente.
+		Se agregan nuevos elementos logicos.
+		Se modifican elementos logicos y se cambian condicionales.
+		en el movimiento del jugador.
+		Se corrige la informacion de las carpetas donde
+		residen los niveles y las partidas guardadas.
+		Se corrige error al cargar una partida o un mapa.
+		Creacion de nuevas carpetas y directorios.
 
 	[0.0.6]
-              Implementacion de sonidos.
-	      Implementacion de nuevos eventos.
-	      Cada terreno tiene sonidos distintos.
-	      Sonido de introduccion, eventos, acciones, peleas,
-              caminar, efectos.
-              Solucionado error al cerrar el programa mientas se
-              ejecutaba la intro.
-	      Nuevos efectos de sonido.
-	      Sonido de intro.
-              Nuevo fondo de intro.
-              Los sonidos del juego ahora se definen por un sfx.
-	      Nueva funcion sfx.
-	      Nuevo ejecutable (exe) de la aplicacion.
-              Efectos de armas, y movimiento añadidos.
-              Solucion error al pausar sonidos.
-              Solucion error al intentar ejecutar sonidos que
-              no estuvieran previamente definidos.
-              Solucionado error al cerrar el programa.
-	      Disminucion de 70 mb de ram a 56 mb.
-	      Eliminado 2 canciones de la intro.
-              Nuevos efectos de sonido.
-	      Los mensajes pop-up de informacion ahora tienen
-              evento nuevo.
-              Se pueden cerrar los pop-up al pulsar Enter.
-	      Actualizado la libreria de sonidos.
-	      Los movimientos, luchas y demas tienen efectos de sonido.
-              Al comenzar una pelea solo el 50% de los casos
-              se reproduce el sonido caracteristico del mob.
-              Creacion de archivo de texto con los sfx disponibles.
-	      Arreglados los exe ejecutables de la aplicacion.
-	      El directorio data contiene la informacion de tkSnack.
+		Implementacion de sonidos.
+		Implementacion de nuevos eventos.
+		Cada terreno tiene sonidos distintos.
+		Sonido de introduccion, eventos, acciones, peleas,
+		caminar, efectos.
+		Solucionado error al cerrar el programa mientas se
+		ejecutaba la intro.
+		Nuevos efectos de sonido.
+		Sonido de intro.
+		Nuevo fondo de intro.
+		Los sonidos del juego ahora se definen por un sfx.
+		Nueva funcion sfx.
+		Nuevo ejecutable (exe) de la aplicacion.
+		Efectos de armas, y movimiento añadidos.
+		Solucion error al pausar sonidos.
+		Solucion error al intentar ejecutar sonidos que
+		no estuvieran previamente definidos.
+		Solucionado error al cerrar el programa.
+		Disminucion de 70 mb de ram a 56 mb.
+		Eliminado 2 canciones de la intro.
+		Nuevos efectos de sonido.
+		Los mensajes pop-up de informacion ahora tienen
+		evento nuevo.
+		Se pueden cerrar los pop-up al pulsar Enter.
+		Actualizado la libreria de sonidos.
+		Los movimientos, luchas y demas tienen efectos de sonido.
+		Al comenzar una pelea solo el 50% de los casos
+		se reproduce el sonido caracteristico del mob.
+		Creacion de archivo de texto con los sfx disponibles.
+		Arreglados los exe ejecutables de la aplicacion.
+		El directorio data contiene la informacion de tkSnack.
 
 	[0.0.7]
-              Arreglado ficheros de sonidos.
-              Actualizacion de varios sonidos, correccion de su tamaño.
-              Arreglado el problema al abrir puertas.
-	      Nuevos sonidos para puertas.
- 	      Correccion al no tener una llave que abra una
-              puerta especifica.
-	      Los input del comando se guardan en un archivo .hoacmd
-              con el mismo nombre de la partida.
-	      Nuevo sistema de comandos.
-              Formado de comandos arreglado.
-              Nuevas funciones de comandos.
-              Arreglado error de ataque negativo de mob.
-              Arreglado error al abrir puertas.
-              Arreglado error al cargar una partida donde
-              se esta muerto.
-              Nuevo formato de menú.
-              Los comandos se cargan al cargar una partida.
-	      Los eventos de errores se visualizan en el comando.
-              Mas eventos se hacen presentes en el comando.
-              Se cambia el fondo del comando de blanco a negro.
-              Se cambia la tipografia del comando.
-	      Nuevos iconos de sistema.
-              Arreglado error al guardar los comandos.
-	      Arregladas imagenes con fondos distintos.
-              Nuevos eventos de objetos.
-	      Los objetos botados por los mobs ahora son
-              capturados por el jugador.
-	      Correccion a la hora de mostrar el tipo de
-              jugador en la informacion.
-	      Correccion de errores al cargar objetos desde el mob.
-	      Correccion de errores al guardar un objeto.
-              con propiedades.
-              Correccion de errores al matar un mob sin un objeto.
-	      Nuevas imagenes.
+		Arreglado ficheros de sonidos.
+		Actualizacion de varios sonidos, correccion de su tamaño.
+		Arreglado el problema al abrir puertas.
+		Nuevos sonidos para puertas.
+		Correccion al no tener una llave que abra una
+		puerta especifica.
+		Los input del comando se guardan en un archivo .hoacmd
+		con el mismo nombre de la partida.
+		Nuevo sistema de comandos.
+		Formado de comandos arreglado.
+		Nuevas funciones de comandos.
+		Arreglado error de ataque negativo de mob.
+		Arreglado error al abrir puertas.
+		Arreglado error al cargar una partida donde
+		se esta muerto.
+		Nuevo formato de menú.
+		Los comandos se cargan al cargar una partida.
+		Los eventos de errores se visualizan en el comando.
+		Mas eventos se hacen presentes en el comando.
+		Se cambia el fondo del comando de blanco a negro.
+		Se cambia la tipografia del comando.
+		Nuevos iconos de sistema.
+		Arreglado error al guardar los comandos.
+		Arregladas imagenes con fondos distintos.
+		Nuevos eventos de objetos.
+		Los objetos botados por los mobs ahora son
+		capturados por el jugador.
+		Correccion a la hora de mostrar el tipo de
+		jugador en la informacion.
+		Correccion de errores al cargar objetos desde el mob.
+		Correccion de errores al guardar un objeto.
+		con propiedades.
+		Correccion de errores al matar un mob sin un objeto.
+		Nuevas imagenes.
 
 	[0.0.8]
-              Correccion de BASE64 de varias imagenes.
-              Nuevos eventos agregados: minushp, minusmana,
-              object, move, plushp, plusmana.
-	      Correccion de errores al cargar un mapa.
-              con objetos que tengan caracteres prohibidos.
-	      Se aplican los objetos stackables.
-              Se buscan por nuevos objetos.
-              Se avisa si el objeto es stackable o no y
-              se muestra como mensaje.
-	      Nuevo sistema de objetos.
-              Nueva forma de almacenar los objetos stackables.
-	      Correccion de errores en la textura de ciertas imagenes.
-	      Correccion de serios errores tras la muerte del jugador.
-              Nuevo sistema de abortar juego.
-	      Nueva entrada en menú para abortar.
-              Tras la muerte del jugador el juego se aborta.
-              Correccion de sonido en ciertas texturas.
-              Los sonidos se reproducen en distintos canales,
-              background, fx y normal.
-              Los sonidos no se pausan si se reproducen al mismo tiempo.
-	      Se elimina la alerta y el mensaje en el evento nopass.
-              Nuevo tipo de puerta al mismo mapa sin link.
-	      Los mobs se mueven ahora sin la necesidad que el
-              jugador se mueva (proceso independiente).
-              Si no hay mobs no se ejecuta la funcion.
-              Correccion de errores al cargar mobs sin movimiento.
-              Nuevos eventos.
-              Correccion de errores a la hora de cargar un evento.
-	      Eliminacion de sonidos.
-              Correccion de errores a la hora de cargar una partida.
-              Nuevos items y sus propiedades.
-              Nuevas imagenes de items.
+		Correccion de BASE64 de varias imagenes.
+		Nuevos eventos agregados: minushp, minusmana,
+		object, move, plushp, plusmana.
+		Correccion de errores al cargar un mapa.
+		con objetos que tengan caracteres prohibidos.
+		Se aplican los objetos stackables.
+		Se buscan por nuevos objetos.
+		Se avisa si el objeto es stackable o no y
+		se muestra como mensaje.
+		Nuevo sistema de objetos.
+		Nueva forma de almacenar los objetos stackables.
+		Correccion de errores en la textura de ciertas imagenes.
+		Correccion de serios errores tras la muerte del jugador.
+		Nuevo sistema de abortar juego.
+		Nueva entrada en menú para abortar.
+		Tras la muerte del jugador el juego se aborta.
+		Correccion de sonido en ciertas texturas.
+		Los sonidos se reproducen en distintos canales,
+		background, fx y normal.
+		Los sonidos no se pausan si se reproducen al mismo tiempo.
+		Se elimina la alerta y el mensaje en el evento nopass.
+		Nuevo tipo de puerta al mismo mapa sin link.
+		Los mobs se mueven ahora sin la necesidad que el
+		jugador se mueva (proceso independiente).
+		Si no hay mobs no se ejecuta la funcion.
+		Correccion de errores al cargar mobs sin movimiento.
+		Nuevos eventos.
+		Correccion de errores a la hora de cargar un evento.
+		Eliminacion de sonidos.
+		Correccion de errores a la hora de cargar una partida.
+		Nuevos items y sus propiedades.
+		Nuevas imagenes de items.
 
 	[0.0.9]
-	      Sistema de idiomas.
-	      Nuevo archivo de configuraciones, nuevas carpetas.
-	      Posibilidad de cambiar el idioma mediante el archivo
-              config.ini dentro de /config.
-              Se cambia el sistema de la escritura de la carga de las
-              librerias.
-              Se optimiza el codigo, se arreglan bucles de ciertos
-              procesos.
-              Solucion de errores al cargar un idioma, se cargan las
-              constantes de los idiomas.
-              Solucion de texto en utf-8.
-	      Traduccion de todos los items de BASE64 a GIF.
-              Actualizacion del codigo fuente.
-              Solucionado fondo transparente canvas.
-	      Nuevo sistema de paginado de items.
-              Nueva funcionalidad de items, pociones, mana y libros.
-      	      Nuevo sistema de comandos.
-	      Nuevo sistema de items, el ID se reemplaza por
-              el tipo.
-              Todos los items tienen un icono (.ico) que se usara
-              en las ventanas.
-              Todos las imagenes han sido pasadas de BASE64 a gif.
+		Sistema de idiomas.
+		Nuevo archivo de configuraciones, nuevas carpetas.
+		Posibilidad de cambiar el idioma mediante el archivo
+		config.ini dentro de /config.
+		Se cambia el sistema de la escritura de la carga de las
+		librerias.
+		Se optimiza el codigo, se arreglan bucles de ciertos
+		procesos.
+		Solucion de errores al cargar un idioma, se cargan las
+		constantes de los idiomas.
+		Solucion de texto en utf-8.
+		Traduccion de todos los items de BASE64 a GIF.
+		Actualizacion del codigo fuente.
+		Solucionado fondo transparente canvas.
+		Nuevo sistema de paginado de items.
+		Nueva funcionalidad de items, pociones, mana y libros.
+		Nuevo sistema de comandos.
+		Nuevo sistema de items, el ID se reemplaza por
+		el tipo.
+		Todos los items tienen un icono (.ico) que se usara
+		en las ventanas.
+		Todos las imagenes han sido pasadas de BASE64 a gif.
 
 	[0.1.0]
-              Nuevas imagenes de loading al cargar una partida.
-              Solucion error de formateo utf-8 en las partidas
-	      guardadas.
-	      Correccion de sonidos.
-              Items predefinidos en clase ITEMS, solo se llaman
-              mediante un ID Unico.
-              Todos los mobs y el actor tienen texturas para
-              la iluminacion (0 y 1).
-              Correccion de errores en constantes.
-              Correccion de errores en strict.
-              Correccion de errores en amir.
-              Correccion de errores en el paginado de items, se
-              arregla error del primer boton al tener muchas
-              paginas.
-              Nueva funcion de ayuda de comandos.
-              Nueva ventana de configuraciones.
-              Las funciones mapa e info se dejan en exclusiva para
-              las partidas guardadas.
-	      Correccion de errores al escribir sobre el jugador.
-              Al gastar los elementos en la pelea
-              dejan de funcionar.
-              Correccion de errores al obtener informacion de
-	      un arma derecha.
-              Nuevo formato de changelog.
-              Nuevo formato de documentacion.
-	      Correccion de errores en el formateo.
-              Nuevo sistema de UFT8 con ayuda de la libreria sys.
-              El programa se puede ejecutar fuera de Eclipse.
-              Solucion de errores al cargar archivos de idiomas.
-              Las configuraciones se guardan en archivo .cfg.
-              Correccion de errores al cargar sonidos.
-              Correccion de errores al decodificar ascii.
-	      Los golpes solo se pueden realizar en una partida.
-              Solucion mensaje SAVE en command.
-	      Se muestra una barra de vida sobre los mobs.
-              Correccion de mensaje sobre el mob y player al ser
-              atacado.
-              Correccion del movimiento de un mob fuera del mapa.
-              Correccion en sonidos.
-              Correccion de errores en la pelea con mobs.
-              Correccion de errores en la escritura de informacion
-              sobre los mobs.
-	      Al guardar se guarda la informacion de los items
-              logicos y los mobs de la partida actual.
-              Nuevo sistema de guardado, solo se guarda 1 archivo
-              empaquetado en un archivo .save.
-              Solucion de errores al cargar una partida guardada.
-              Nuevo sistema de rastreo de errores y aviso de ellos.
-              Solucion al escribir la barra de vida sobre el mob
-              tras su muerte.
-              Solucion de error al no mostrar mensaje tras la muerte
-              de un mob.
-	      22 nuevos comandos.
-              El ataque, defensa y target ahora son en funcion del
-              nivel del jugador.
+		Nuevas imagenes de loading al cargar una partida.
+		Solucion error de formateo utf-8 en las partidas
+		guardadas.
+		Correccion de sonidos.
+		Items predefinidos en clase ITEMS, solo se llaman
+		mediante un ID Unico.
+		Todos los mobs y el actor tienen texturas para
+		la iluminacion (0 y 1).
+		Correccion de errores en constantes.
+		Correccion de errores en strict.
+		Correccion de errores en amir.
+		Correccion de errores en el paginado de items, se
+		arregla error del primer boton al tener muchas
+		paginas.
+		Nueva funcion de ayuda de comandos.
+		Nueva ventana de configuraciones.
+		Las funciones mapa e info se dejan en exclusiva para
+		las partidas guardadas.
+		Correccion de errores al escribir sobre el jugador.
+		Al gastar los elementos en la pelea
+		dejan de funcionar.
+		Correccion de errores al obtener informacion de
+		un arma derecha.
+		Nuevo formato de changelog.
+		Nuevo formato de documentacion.
+		Correccion de errores en el formateo.
+		Nuevo sistema de UFT8 con ayuda de la libreria sys.
+		El programa se puede ejecutar fuera de Eclipse.
+		Solucion de errores al cargar archivos de idiomas.
+		Las configuraciones se guardan en archivo .cfg.
+		Correccion de errores al cargar sonidos.
+		Correccion de errores al decodificar ascii.
+		Los golpes solo se pueden realizar en una partida.
+		Solucion mensaje SAVE en command.
+		Se muestra una barra de vida sobre los mobs.
+		Correccion de mensaje sobre el mob y player al ser
+		atacado.
+		Correccion del movimiento de un mob fuera del mapa.
+		Correccion en sonidos.
+		Correccion de errores en la pelea con mobs.
+		Correccion de errores en la escritura de informacion
+		sobre los mobs.
+		Al guardar se guarda la informacion de los items
+		logicos y los mobs de la partida actual.
+		Nuevo sistema de guardado, solo se guarda 1 archivo
+		empaquetado en un archivo .save.
+		Solucion de errores al cargar una partida guardada.
+		Nuevo sistema de rastreo de errores y aviso de ellos.
+		Solucion al escribir la barra de vida sobre el mob
+		tras su muerte.
+		Solucion de error al no mostrar mensaje tras la muerte
+		de un mob.
+		22 nuevos comandos.
+		El ataque, defensa y target ahora son en funcion del
+		nivel del jugador.
 
 	[0.1.1]
-              Solucion problema al mostrar barras de experiencia, vida
-              y mana.
-              Solucion de errores al mostrar la cantidad de experiencia
-              del jugador en la barra de informacion.
-              Correccion de errores al subir de nivel y al dibujar
-              los niveles de experiencia.
-              Correccion de error al cargar un lang que no existe.
-	      Nueva clase statics.
-              Ventana de estadisticas.
- 	      Cambio de texto a algunos mensajes predefinidos del
-              programa.
-              Modificacion del .exe ejecutable de HOA.
-              Correccion de errores al cargar la consola si no
-              esta en una partida o no es editable.
-	      Nuevo fichero .statics dentro del archivo de guardado.
-              Correccion de error al abrir una ventana mientras se
-              carga una partida.
-              Correccion de error al guardar una partida en un mapa
-              no valido.
-	      Todas las variables de clases externas pasaron a privadas,
-              se eliminan los accesos que no sean por métodos y se
-              crean nuevos get y set para variables que no tengan
-              comunicacion.
-              Resizado de ventana principal y secundarias (pop).
-              A ciertas ventanas (pop) se les permite ingresar strings
-              de idioma.
-              Aumenta el nivel de seguridad de los archivos de
-              guardado.
-              Correccion del formato de guardado.
-              Correccion de errores utf-8 en archivos de guardado.
-              Amir ahora realiza archivos de seguridad sin espacios
-              y con un nivel mas alto de seguridad.
-              Correccion de errores al cargar y guardar partidas.
-              Modificacion de mensajes al iniciar una nueva partida.
-              Correccion de errores al eliminar archivos tras
-              cargar y guardar.
-              Los comandos ahora tienen colores.
+		Solucion problema al mostrar barras de experiencia, vida
+		y mana.
+		Solucion de errores al mostrar la cantidad de experiencia
+		del jugador en la barra de informacion.
+		Correccion de errores al subir de nivel y al dibujar
+		los niveles de experiencia.
+		Correccion de error al cargar un lang que no existe.
+		Nueva clase statics.
+		Ventana de estadisticas.
+		Cambio de texto a algunos mensajes predefinidos del
+		programa.
+		Modificacion del .exe ejecutable de HOA.
+		Correccion de errores al cargar la consola si no
+		esta en una partida o no es editable.
+		Nuevo fichero .statics dentro del archivo de guardado.
+		Correccion de error al abrir una ventana mientras se
+		carga una partida.
+		Correccion de error al guardar una partida en un mapa
+		no valido.
+		Todas las variables de clases externas pasaron a privadas,
+		se eliminan los accesos que no sean por métodos y se
+		crean nuevos get y set para variables que no tengan
+		comunicacion.
+		Resizado de ventana principal y secundarias (pop).
+		A ciertas ventanas (pop) se les permite ingresar strings
+		de idioma.
+		Aumenta el nivel de seguridad de los archivos de
+		guardado.
+		Correccion del formato de guardado.
+		Correccion de errores utf-8 en archivos de guardado.
+		Amir ahora realiza archivos de seguridad sin espacios
+		y con un nivel mas alto de seguridad.
+		Correccion de errores al cargar y guardar partidas.
+		Modificacion de mensajes al iniciar una nueva partida.
+		Correccion de errores al eliminar archivos tras
+		cargar y guardar.
+		Los comandos ahora tienen colores.
 
 	[0.1.2]
-              Mejor manejo de errores al cargar y guardar archivos.
-              Al cargar un archivo se muestra un mensaje en la consola
-              de python.
-              Eliminacion de variables sin usar al cargar y guardar
-              archivos.
-              Los archivos de guardado ahora estan encriptados.
-              Solucion de error al cargar armas y armaduras desde
-              un archivo de guardado.
-              El nivel de error ahora es 2 y no 0.
-              Resizado de ventanas por parametro.
-              Nueva funcion para poner color a mensajes en ventana
-              de consola externa.
-              Solucion de error al cargar un mapa que no tenga un
-              player pos.
-              Nuevos colores de funciones.
-              Nuevo formateo de errores.
-              Solucion en identificador de lang.
-	      Solucion de error al identificar el delta de level
-              al usar el comando set experience ###.
-              Solucion de error al definir a un jugador como editor.
-              Modificacion en los archivos de sonido.
-              Modificacion en la ventana de configuraciones, ahora
-              se guarda usando menus.
-	      La posicion de la hoja de los items es guardada en
-              el archivo del usuario.
-              Solucion de errores al cargar y guardar partidas.
+		Mejor manejo de errores al cargar y guardar archivos.
+		Al cargar un archivo se muestra un mensaje en la consola
+		de python.
+		Eliminacion de variables sin usar al cargar y guardar
+		archivos.
+		Los archivos de guardado ahora estan encriptados.
+		Solucion de error al cargar armas y armaduras desde
+		un archivo de guardado.
+		El nivel de error ahora es 2 y no 0.
+		Resizado de ventanas por parametro.
+		Nueva funcion para poner color a mensajes en ventana
+		de consola externa.
+		Solucion de error al cargar un mapa que no tenga un
+		player pos.
+		Nuevos colores de funciones.
+		Nuevo formateo de errores.
+		Solucion en identificador de lang.
+		Solucion de error al identificar el delta de level
+		al usar el comando set experience ###.
+		Solucion de error al definir a un jugador como editor.
+		Modificacion en los archivos de sonido.
+		Modificacion en la ventana de configuraciones, ahora
+		se guarda usando menus.
+		La posicion de la hoja de los items es guardada en
+		el archivo del usuario.
+		Solucion de errores al cargar y guardar partidas.
 
 	[0.1.3]
-              Resizado de ventanas de errores al cargar y guardar.
-              Nuevas variables de usuario: bala, poder principal y
-              poder secundario.
-              Solucion de error al dibujar barra de vida sobre el mob.
-              Se agregan mas comentarios al programa.
-              Solucion de error al guardar la vida.
-              Se arregla ortografia en los archivos de idiomas.
-              Solucion de error al cargar la lista de idiomas al
-              mostrar la ventana de configuraciones.
-              Solucion de error al cargar una partida donde
-              se haya guardado un fichero sin mobs, ahora se
-              consulta si el archivo no tiene %NOMOBS%, si lo tiene
-              no se cargan.
-              Se borran variables sin usar.
-	      Correccion de bugs al pelear.
-              Correccion de bugs al cargar un mapa defectuoso via
-              comando.
-              Correccion de varios comandos SET.
-	      Se pasan mas objetos pop() con lang.
-	      Nueva funcion PRINT $msg en comandos.
-              Se redimensionan las ventanas internas.
-              La barra de mana tiene un color externo, el rojo de
-              la barra de vida disminuye en intensidad.
-	      Nuevos atajos de teclado, informacion de sistema,
-	      informacion de item, establecer armamento, ataque
-	      principal y ataque secundario.
+		Resizado de ventanas de errores al cargar y guardar.
+		Nuevas variables de usuario: bala, poder principal y
+		poder secundario.
+		Solucion de error al dibujar barra de vida sobre el mob.
+		Se agregan mas comentarios al programa.
+		Solucion de error al guardar la vida.
+		Se arregla ortografia en los archivos de idiomas.
+		Solucion de error al cargar la lista de idiomas al
+		mostrar la ventana de configuraciones.
+		Solucion de error al cargar una partida donde
+		se haya guardado un fichero sin mobs, ahora se
+		consulta si el archivo no tiene %NOMOBS%, si lo tiene
+		no se cargan.
+		Se borran variables sin usar.
+		Correccion de bugs al pelear.
+		Correccion de bugs al cargar un mapa defectuoso via
+		comando.
+		Correccion de varios comandos SET.
+		Se pasan mas objetos pop() con lang.
+		Nueva funcion PRINT $msg en comandos.
+		Se redimensionan las ventanas internas.
+		La barra de mana tiene un color externo, el rojo de
+		la barra de vida disminuye en intensidad.
+		Nuevos atajos de teclado, informacion de sistema,
+		informacion de item, establecer armamento, ataque
+		principal y ataque secundario.
 
 	[0.1.4]
-	      Nueva funcion para escoger armamento.
-              El armamento se escoge automaticamente si el jugador
-              tiene solo 1.
-              Se busca armamento al definir un arma izquierda.
-              Nuevos comandos print: print player.activebullet,
-	      player.sp, player.fp.
-	      Se borran todos los objetos pop() usando del().
-              Se filtran las funciones de pop() y solo se dejan
-              las funciones que son usadas por hoa().
-	      Ventana para escoger armamento, poder principal y
-              poder secundario.
-	      Al cambiar el arma derecha la municion se restablece.
-              La ventana envia el id del armamento y se establece
-              automaticamente.
-              Se pueden eliminar armas desde el recuadro del
-              escudo.
-              Las armas con flechas muestran la cantidad de flechas
-              que quedan y el nuevo ataque.
-              El recuadro de informacion de item de armas y
-              armaduras no muestra los recuadros "<, <-,>,->".
-              Las balas y poderes se guardan en el archivo del usuario
-              siguiendo la logica de los items.
-              Solucion de error al cargar icono al definir las balas.
-              Las balas ahora muestran el icono del arma.
-              Solucion de error en comando DROP.
-              El comando DROP ITEM modifica las estadisticas de
-              cantidad de items botados.
-              Nuevos mensajes al usuario.
-              Si el armamento cambia en id se muestra un mensaje
-	      de error.
+		Nueva funcion para escoger armamento.
+		El armamento se escoge automaticamente si el jugador
+		tiene solo 1.
+		Se busca armamento al definir un arma izquierda.
+		Nuevos comandos print: print player.activebullet,
+		player.sp, player.fp.
+		Se borran todos los objetos pop() usando del().
+		Se filtran las funciones de pop() y solo se dejan
+		las funciones que son usadas por hoa().
+		Ventana para escoger armamento, poder principal y
+		poder secundario.
+		Al cambiar el arma derecha la municion se restablece.
+		La ventana envia el id del armamento y se establece
+		automaticamente.
+		Se pueden eliminar armas desde el recuadro del
+		escudo.
+		Las armas con flechas muestran la cantidad de flechas
+		que quedan y el nuevo ataque.
+		El recuadro de informacion de item de armas y
+		armaduras no muestra los recuadros "<, <-,>,->".
+		Las balas y poderes se guardan en el archivo del usuario
+		siguiendo la logica de los items.
+		Solucion de error al cargar icono al definir las balas.
+		Las balas ahora muestran el icono del arma.
+		Solucion de error en comando DROP.
+		El comando DROP ITEM modifica las estadisticas de
+		cantidad de items botados.
+		Nuevos mensajes al usuario.
+		Si el armamento cambia en id se muestra un mensaje
+		de error.
 
 	[0.1.5]
-              A los string amir se les borra el primer y ultimo
-              espacio.
-              Se formatean la lista de armamento disponible al cambiar
-              el arma derecha, ahora solo se muestra el nombre en
-              el menu.
-	      Al disparar una flecha en el combate se reduce la cantidad
-              de usos de esta.
-              Se inhabilitan/habilitan los botones del menu:
-              "cargar partida, abortar juego y estadisticas".
-	      Se restablecen los colores del mana.
-	      Nuevos items de sangre.
-	      Al matar un mob queda una mancha de sangre en el
-              terreno.
-	      Correccion de error al elegir el armamento.
-              La textura del jugador ahora no es del caracter
-              logico, por tanto al pasar sobre algún item este no se
-              borra a menos que se exprese lo contrario.
-	      Nuevas propiedades para los mobs: perseguir y escapar.
-              Cargado y guardado de propiedades nuevas de mobs.
-	      Los mobs persiguen al jugador.
-              Correccion del movimiento de los mobs, se define una
-              constante de tiempo TIME_MOVEMOBS.
-              Se define TIME_MOVEMOBS a 2500.
-	      Se redefinen todas las constantes dentro del codigo
-              fuente.
+		A los string amir se les borra el primer y ultimo
+		espacio.
+		Se formatean la lista de armamento disponible al cambiar
+		el arma derecha, ahora solo se muestra el nombre en
+		el menu.
+		Al disparar una flecha en el combate se reduce la cantidad
+		de usos de esta.
+		Se inhabilitan/habilitan los botones del menu:
+		"cargar partida, abortar juego y estadisticas".
+		Se restablecen los colores del mana.
+		Nuevos items de sangre.
+		Al matar un mob queda una mancha de sangre en el
+		terreno.
+		Correccion de error al elegir el armamento.
+		La textura del jugador ahora no es del caracter
+		logico, por tanto al pasar sobre algún item este no se
+		borra a menos que se exprese lo contrario.
+		Nuevas propiedades para los mobs: perseguir y escapar.
+		Cargado y guardado de propiedades nuevas de mobs.
+		Los mobs persiguen al jugador.
+		Correccion del movimiento de los mobs, se define una
+		constante de tiempo TIME_MOVEMOBS.
+		Se define TIME_MOVEMOBS a 2500.
+		Se redefinen todas las constantes dentro del codigo
+		fuente.
 
 	[0.1.6]
-	      Se guarda el identificador al llamar a la funcion movemobs
-              y se borra con after_id solucionando el problema del
-              doble movimiento.
-	      Se detecta la ubicacion actual de las carpetas y se
-              modifican las demas ubicaciones.
-              Solucion de error al ejecutar el programa en una carpeta
-              fuera de workspace/ ahora HOA puede iniciarse en cualquier
-              lugar.
-	      Solucion de error al guardar un archivo dado la
-              nueva carga de archivos.
-	      Eliminacion del directorio statics/.
-	      Se prueban varias posibilidades en el movimiento de los
-              mobs si estan en modo persecucion.
-              Solucion de error al no establecer el elemento logico
-              del player al cargar una partida.
-	      Los mobs entran en batalla al estar cerca del jugador.
-              Correccion de errores en la funcion moveMobs().
-	      Redimension de las ventanas principales y
-	      secundarias.
-	      Modificacion de los iconos del juego.
-	      Organizacion de constantes por nombre.
-	      Organizacion por nombre del armamento que se
-	      carga al definir un arma secundaria.
-	      Correccion de varios lang.
-	      Modificacion del titulo del juego.
-	      Modificacion en la numeracion de las versiones del
-	      programa.
-	      Solucion de errores al cargar el juego.
-	      Solucion de errores al cargar las texturas desde una
-	      partida guardada.
+		Se guarda el identificador al llamar a la funcion movemobs
+		y se borra con after_id solucionando el problema del
+		doble movimiento.
+		Se detecta la ubicacion actual de las carpetas y se
+		modifican las demas ubicaciones.
+		Solucion de error al ejecutar el programa en una carpeta
+		fuera de workspace/ ahora HOA puede iniciarse en cualquier
+		lugar.
+		Solucion de error al guardar un archivo dado la
+		nueva carga de archivos.
+		Eliminacion del directorio statics/.
+		Se prueban varias posibilidades en el movimiento de los
+		mobs si estan en modo persecucion.
+		Solucion de error al no establecer el elemento logico
+		del player al cargar una partida.
+		Los mobs entran en batalla al estar cerca del jugador.
+		Correccion de errores en la funcion moveMobs().
+		Redimension de las ventanas principales y
+		secundarias.
+		Modificacion de los iconos del juego.
+		Organizacion de constantes por nombre.
+		Organizacion por nombre del armamento que se
+		carga al definir un arma secundaria.
+		Correccion de varios lang.
+		Modificacion del titulo del juego.
+		Modificacion en la numeracion de las versiones del
+		programa.
+		Solucion de errores al cargar el juego.
+		Solucion de errores al cargar las texturas desde una
+		partida guardada.
 
 	[0.1.7]
-	      Ahora la textura del mapa es generada como imagen,
-	      esto permite una carga mas rapida de los mapas.
-	      8 nuevos comandos de usuario.
-	      Solucion y manejo de errores en la funcion
-	      devConsole()
-	      F5 ahora actualiza el programa.
-	      Eliminacion de variables sin usar.
-	      Nuevas funciones del() para ventanas para optimizar
-	      memoria.
-	      Solucion de error al matar un enemigo muy rapido.
-	      Nuevo sistema de dibujado en el mapa.
-	      Todos los elementos del mapa son dibujados con
-	      tags.
-	      Los mobs se mueven en el canvas llamando al tag.
-	      El jugador se mueve usando tag.
-	      Los items se borran usando tag.
-	      Correccion de error al mover con tag, reemplazo de
-	      funcion canvas.move() a canvas.coords().
-	      El tiempo de movimiento de los mobs ahora es en
-	      funcion de la dificultad del juego.
-	      Correccion de error al dibujar la barra de
-	      experiencia tras matar a un mob (usando un arma
-	      segundaria o principal).
-	      Corregida funcion F5.
+		Ahora la textura del mapa es generada como imagen,
+		esto permite una carga mas rapida de los mapas.
+		8 nuevos comandos de usuario.
+		Solucion y manejo de errores en la funcion
+		devConsole()
+		F5 ahora actualiza el programa.
+		Eliminacion de variables sin usar.
+		Nuevas funciones del() para ventanas para optimizar
+		memoria.
+		Solucion de error al matar un enemigo muy rapido.
+		Nuevo sistema de dibujado en el mapa.
+		Todos los elementos del mapa son dibujados con
+		tags.
+		Los mobs se mueven en el canvas llamando al tag.
+		El jugador se mueve usando tag.
+		Los items se borran usando tag.
+		Correccion de error al mover con tag, reemplazo de
+		funcion canvas.move() a canvas.coords().
+		El tiempo de movimiento de los mobs ahora es en
+		funcion de la dificultad del juego.
+		Correccion de error al dibujar la barra de
+		experiencia tras matar a un mob (usando un arma
+		segundaria o principal).
+		Corregida funcion F5.
 
 	[0.1.8]
-	      Ahora la funcion dibujarMundo() se usa solo para
-	      generar el mapa y matar un mob, esto logra un mejor
-	      uso de la memoria y una carga mas rapida de los mapas.
-	      Solucion de error al formatear las carpetas de entrada
-	      al cargar una partida guardada.
-	      Correccion de lang al ejecutar comandos.
-	      Correccion de error al ejecutar sonidos que no existen
-	      o que no se han cargado al ejecutarlos.
-	      Correccion de ortografia en lang ES.
-	      Nuevos colores para consola.
-	      HOA ahora carga argumentos externos.
-	      Nuevos argumentos: -dev, -nosound, -resizable, -savefile.
-	      Error al no disminuir la cantidad de usos tras disparar
-	      una flecha mientras no se esta en una pelea.
-	      Cambio la ubicacion de path permitiendo cargar librerias
-	      que no estan instaladas previamente.
-	      Desarrollo de funcion informacion de sistema.
-	      Nuevas librerias para manejar manejo de memoria.
+		Ahora la funcion dibujarMundo() se usa solo para
+		generar el mapa y matar un mob, esto logra un mejor
+		uso de la memoria y una carga mas rapida de los mapas.
+		Solucion de error al formatear las carpetas de entrada
+		al cargar una partida guardada.
+		Correccion de lang al ejecutar comandos.
+		Correccion de error al ejecutar sonidos que no existen
+		o que no se han cargado al ejecutarlos.
+		Correccion de ortografia en lang ES.
+		Nuevos colores para consola.
+		HOA ahora carga argumentos externos.
+		Nuevos argumentos: -dev, -nosound, -resizable, -savefile.
+		Error al no disminuir la cantidad de usos tras disparar
+		una flecha mientras no se esta en una pelea.
+		Cambio la ubicacion de path permitiendo cargar librerias
+		que no estan instaladas previamente.
+		Desarrollo de funcion informacion de sistema.
+		Nuevas librerias para manejar manejo de memoria.
 
 	[0.1.9]
-	      Nueva organizacion de imagenes por directorios.
-	      Organizacion por tipo de imagenes en la matriz self.images
-	      ahora las imagenes se ordenan por efecto, ambiente, terreno
-	      item, etc.
-	      Solucion de error al cargar imagenes no existentes.
-	      Eliminacion de imagenes sin usar.
-	      Se ordenan por nombre las imagenes.
-	      Nuevas constantes para definir los directorios internos
-	      de DATA_IMAGES.
-	      Eliminacion de variables muertas.
-	      Correccion de error al crear la informacion para
-	      "informacion del sistema" tras pulsar <F1>.
-	      Se modifican los sonidos de introduccion, estos según MP3
-	      en vez de WAV, esto disminuye el peso del programa de
-	      133mb a 53mb [80mb].
-              Solucion de error en la carga de música.
-	      Modificacion del nombre de ciertos archivos de sonido.
-	      Modificacion de sonidos de efectos <fire>,<fire5>
-	      <teletransportacion1> a formato "MP3", esto redujo el peso
-	      del programa de 53mb a 46mb [7mb].
-	      Modificacion de sonidos de peleas y mobs, reduccion del peso
-	      del programa de 46mb a 44mb [2mb].
-	      Nuevo archivo de texto en images/items/ donde indica las
-	      texturas de los items.
-	      Modificacion al cargar sonidos de mobs.
-              Modificacion de nombre de varios archivos de sonidos.
-              Solucion de error al crear la ventana de comandos.
+		Nueva organizacion de imagenes por directorios.
+		Organizacion por tipo de imagenes en la matriz self.images
+		ahora las imagenes se ordenan por efecto, ambiente, terreno
+		item, etc.
+		Solucion de error al cargar imagenes no existentes.
+		Eliminacion de imagenes sin usar.
+		Se ordenan por nombre las imagenes.
+		Nuevas constantes para definir los directorios internos
+		de DATA_IMAGES.
+		Eliminacion de variables muertas.
+		Correccion de error al crear la informacion para
+		"informacion del sistema" tras pulsar <F1>.
+		Se modifican los sonidos de introduccion, estos según MP3
+		en vez de WAV, esto disminuye el peso del programa de
+		133mb a 53mb [80mb].
+		Solucion de error en la carga de música.
+		Modificacion del nombre de ciertos archivos de sonido.
+		Modificacion de sonidos de efectos <fire>,<fire5>
+		<teletransportacion1> a formato "MP3", esto redujo el peso
+		del programa de 53mb a 46mb [7mb].
+		Modificacion de sonidos de peleas y mobs, reduccion del peso
+		del programa de 46mb a 44mb [2mb].
+		Nuevo archivo de texto en images/items/ donde indica las
+		texturas de los items.
+		Modificacion al cargar sonidos de mobs.
+		Modificacion de nombre de varios archivos de sonidos.
+		Solucion de error al crear la ventana de comandos.
 
 	[0.2.0]
-	      Si la consola esta vacia no se imprime el mensaje
-	      %NOCONSOLE% al cargar.
-	      Solucion de error en el comando CLEAR.
-	      Solucion de error en el comando LOAD.
-              Eliminacion de iconos sin usar.
-	      Nuevas texturas para mobs y ambiente, estas cambian
-              completamente de forma dado que su perspectiva no es
-              lineal.
-              Se crea carpeta _images donde estaran todas las imagenes
-              anteriores para no perder nada.
-              Nuevas texturas de items.
-	      Creacion de carpeta scripts para donde se guardan todos los
-	      scripts utiles de HOA.
-	      Creacion de script _image.py para tratar todos los archivos gif
-	      redimensionarlos y convertirlos para usarlos en el juego.
-	      Creacion de fast_item_creator.py para generar texto útil para
-	      usarlo en el codigo fuente del juego.
-              Nueva documentacion para usar los scripts.
-	      Agregada funcion de argumentos para _image.py.
-	      Creado nuevo script _creator.py para generar archivos útiles
-	      para poder usar los items.
-              Nuevos archivos _paste.txt y _textures.txt para mantener los
-	      archivos linkeados y puedan usarse
-	      Nuevo script _preview.py para revisar todos los items.
-	      Ahora la ventana de creacion de items muestra una
-	      previsualizacion de items.
-              Nuevas imagenes de espadas.
+		Si la consola esta vacia no se imprime el mensaje
+		%NOCONSOLE% al cargar.
+		Solucion de error en el comando CLEAR.
+		Solucion de error en el comando LOAD.
+		Eliminacion de iconos sin usar.
+		Nuevas texturas para mobs y ambiente, estas cambian
+		completamente de forma dado que su perspectiva no es
+		lineal.
+		Se crea carpeta _images donde estaran todas las imagenes
+		anteriores para no perder nada.
+		Nuevas texturas de items.
+		Creacion de carpeta scripts para donde se guardan todos los
+		scripts utiles de HOA.
+		Creacion de script _image.py para tratar todos los archivos gif
+		redimensionarlos y convertirlos para usarlos en el juego.
+		Creacion de fast_item_creator.py para generar texto útil para
+		usarlo en el codigo fuente del juego.
+		Nueva documentacion para usar los scripts.
+		Agregada funcion de argumentos para _image.py.
+		Creado nuevo script _creator.py para generar archivos útiles
+		para poder usar los items.
+		Nuevos archivos _paste.txt y _textures.txt para mantener los
+		archivos linkeados y puedan usarse
+		Nuevo script _preview.py para revisar todos los items.
+		Ahora la ventana de creacion de items muestra una
+		previsualizacion de items.
+		Nuevas imagenes de espadas.
 
 	[0.2.1]
-	      Nuevos archivos de documentacion.
-	      Nuevo argumento: <delpyc>, este argumento borra todos los
-	      archivos .pyc generados tras cargar una libreria.
-	      Los iconos de los items se guardan en icons/items.
-	      Solucion de error al cargar items no validos.
-	      Si ocurre un error al cargar un item se define un icono por
-              defecto <hoa.ico>.
-	      Solucion de error al copiar iconos _16 a carpeta _icons.
-	      Se mueve tkSnack.py a data/scripts.
-	      Nuevo path del sistema en lib.py <scripts>.
-	      Solucion de grave error al dibujar un mapa tras cargarlo.
-	      Solucion de error al eliminar una puerta tras abrirla.
-	      Solucion de errores al cargar mobs.
-              Solucion de error al dibujar items.
-	      Nuevos scripts <fast_mob_creator.py> y nueva funcionalidad a
-	      <fast_item_creator.py>.
-	      Nuevos items.
-	      Nuevas armaduras.
-	      Nuevos bolsos.
-	      Nuevos mensajes al usuario en consola.
-	      Nuevos actores.
-	      Solucion de error al caminar sobre un elemento logico no
-	      valido.
-	      Eliminacion de archivos <.pyc> en main.py de langs.
+		Nuevos archivos de documentacion.
+		Nuevo argumento: <delpyc>, este argumento borra todos los
+		archivos .pyc generados tras cargar una libreria.
+		Los iconos de los items se guardan en icons/items.
+		Solucion de error al cargar items no validos.
+		Si ocurre un error al cargar un item se define un icono por
+		defecto <hoa.ico>.
+		Solucion de error al copiar iconos _16 a carpeta _icons.
+		Se mueve tkSnack.py a data/scripts.
+		Nuevo path del sistema en lib.py <scripts>.
+		Solucion de grave error al dibujar un mapa tras cargarlo.
+		Solucion de error al eliminar una puerta tras abrirla.
+		Solucion de errores al cargar mobs.
+		Solucion de error al dibujar items.
+		Nuevos scripts <fast_mob_creator.py> y nueva funcionalidad a
+		<fast_item_creator.py>.
+		Nuevos items.
+		Nuevas armaduras.
+		Nuevos bolsos.
+		Nuevos mensajes al usuario en consola.
+		Nuevos actores.
+		Solucion de error al caminar sobre un elemento logico no
+		valido.
+		Eliminacion de archivos <.pyc> en main.py de langs.
 
 	[0.2.2]
-	      Nuevo formato de imagenes.
-	      Nuevas imagenes <ambiance grass>.
-	      Los items se dibujan al fondo.
-	      Se empuja hacia el fondo a ciertos items que se encuentren en
-	      listas predefinidas.
-	      Nuevas carpetas big dentro de las texturas.
-	      Nuevas tamaño de imagenes: 64x64.
-	      Correccion de error al cargar imagenes sobre 32x32.
-	      Nuevo elemento logico: <sign>, <estatua>, <hongo>, <cactus>,
-	      <nature>.
-	      Nuevos mensajes para el elemento logico <sign>.
- 	      225 nuevas imagenes.
-	      Solucion de error al ejecutar la ventana sin haber terminado
-              el proceso de carga.
-              Se borran varios mensajes a consola.
-              Nuevo formato de mensajes a consola indicando la carga del
-              juego, ahora se usa <msg ... ok>.
-	      154 nuevas imagenes.
-	      Nuevo tamaño de imagenes soportado: 128x128.
-              Modificacion en el orden de carga de objetos, esto acelera
-	      el inicio del programa en 1-2 segundos.
-              Solucion de error al cargar iconos del sistema.
-              Correccion de <_image.py> ahora se puede escoger formato
-              de salida.
-              Solucion de errores en <_image.py> al establecer
-              transparencia en archivos .png.
+		Nuevo formato de imagenes.
+		Nuevas imagenes <ambiance grass>.
+		Los items se dibujan al fondo.
+		Se empuja hacia el fondo a ciertos items que se encuentren en
+		listas predefinidas.
+		Nuevas carpetas big dentro de las texturas.
+		Nuevas tamaño de imagenes: 64x64.
+		Correccion de error al cargar imagenes sobre 32x32.
+		Nuevo elemento logico: <sign>, <estatua>, <hongo>, <cactus>,
+		<nature>.
+		Nuevos mensajes para el elemento logico <sign>.
+		225 nuevas imagenes.
+		Solucion de error al ejecutar la ventana sin haber terminado
+		el proceso de carga.
+		Se borran varios mensajes a consola.
+		Nuevo formato de mensajes a consola indicando la carga del
+		juego, ahora se usa <msg ... ok>.
+		154 nuevas imagenes.
+		Nuevo tamaño de imagenes soportado: 128x128.
+		Modificacion en el orden de carga de objetos, esto acelera
+		el inicio del programa en 1-2 segundos.
+		Solucion de error al cargar iconos del sistema.
+		Correccion de <_image.py> ahora se puede escoger formato
+		de salida.
+		Solucion de errores en <_image.py> al establecer
+		transparencia en archivos .png.
 
 	[0.2.3]
-	      Aumenta la calidad de los archivos generados en <_image.py>
-              dado que se le agrega una nueva caracteristica: quality.
-	      Nuevas librerias: <WConio>.
-	      Solucion de errores en la carga del programa.
-	      Solucion de error al volver a matar un mob tras estar muerto
-	      dado que el sistema no procesa rapidamente las instrucciones
-	      [posible uso doble].
-	      Nuevo formato de salida en consola.
-              Correccion de errores en argumento por consola <delpyc>.
-	      Se borran los campos de informacion de nombre y tipo.
-	      Nuevo item en el menú: poderes.
-	      Organizacion y rediseño de todos los elementos del menu.
-	      Nuevo formato de carga de texturas, ahora existe una funcion
-	      interna <_loadTextures()> que permite cargar ocultando la
-	      informacion.
-	      Modificacion del tamaño del programa.
-	      Nuevo manejo de bordes de los elementos del menu.
-	      Se alinea el recuadro de comandos con el mundo, mejorando la
-	      calidad visual.
+		Aumenta la calidad de los archivos generados en <_image.py>
+		dado que se le agrega una nueva caracteristica: quality.
+		Nuevas librerias: <WConio>.
+		Solucion de errores en la carga del programa.
+		Solucion de error al volver a matar un mob tras estar muerto
+		dado que el sistema no procesa rapidamente las instrucciones
+		[posible uso doble].
+		Nuevo formato de salida en consola.
+		Correccion de errores en argumento por consola <delpyc>.
+		Se borran los campos de informacion de nombre y tipo.
+		Nuevo item en el menú: poderes.
+		Organizacion y rediseño de todos los elementos del menu.
+		Nuevo formato de carga de texturas, ahora existe una funcion
+		interna <_loadTextures()> que permite cargar ocultando la
+		informacion.
+		Modificacion del tamaño del programa.
+		Nuevo manejo de bordes de los elementos del menu.
+		Se alinea el recuadro de comandos con el mundo, mejorando la
+		calidad visual.
 
 	[0.2.4]
-	      Modificacion del menu, ahora los poderes van primero.
-	      Modificacion de las texturas de los botones de los poderes,
-	      Ahora se muestran los recuadros de los botones de los items.
-	      Los botones de los items leen dos propiedades: clicks e id.
-	      Redimension de los elementos de la interfaz.
-	      Modificacion de 10 langs.
-	      Redimension de la ventana principal.
-	      Modificacion del padding de self.world.
-	      Eliminacion de variables sin usar.
-	      Se renombran varias variables para hacer mas entendible el
-	      codigo.
-	      Nuevo script <cursors.py>.
-	      Modificacion de mensaje "cargando idioma"
-	      Nuevos cursores para elementos de la interfaz: cargar,
-	      items, poderes, vida, mana, experiencia.
-	      Correccion de errores al cargar items.
-	      Correccion de errores al cargar texturas.
-	      Correccion de error en la carga de la libreria Tkinter dado
-	      una fusion.
-	      Correccion de script <VerticalScrolledFrame.py>.
-	      Eliminacion de 20 caracteres lang.
-	      Modificacion de sonidos iniciales intro1,intro2,intro3
-              de mp3 a wav con 22050 hz.
-	      Modificacion de formato de imagenes, reemplazo de texto
-	      "WAV" a "wav".
-	      Los sonidos <fire1>,<fire5>,<teletransportacion1> fueron
-              convertidos de mp3 a wav con 22050 hz.
-              Se agiliza la carga del programa.
+		Modificacion del menu, ahora los poderes van primero.
+		Modificacion de las texturas de los botones de los poderes,
+		Ahora se muestran los recuadros de los botones de los items.
+		Los botones de los items leen dos propiedades: clicks e id.
+		Redimension de los elementos de la interfaz.
+		Modificacion de 10 langs.
+		Redimension de la ventana principal.
+		Modificacion del padding de self.world.
+		Eliminacion de variables sin usar.
+		Se renombran varias variables para hacer mas entendible el
+		codigo.
+		Nuevo script <cursors.py>.
+		Modificacion de mensaje "cargando idioma"
+		Nuevos cursores para elementos de la interfaz: cargar,
+		items, poderes, vida, mana, experiencia.
+		Correccion de errores al cargar items.
+		Correccion de errores al cargar texturas.
+		Correccion de error en la carga de la libreria Tkinter dado
+		una fusion.
+		Correccion de script <VerticalScrolledFrame.py>.
+		Eliminacion de 20 caracteres lang.
+		Modificacion de sonidos iniciales intro1,intro2,intro3
+		de mp3 a wav con 22050 hz.
+		Modificacion de formato de imagenes, reemplazo de texto
+		"WAV" a "wav".
+		Los sonidos <fire1>,<fire5>,<teletransportacion1> fueron
+		convertidos de mp3 a wav con 22050 hz.
+		Se agiliza la carga del programa.
 
 	[0.2.5]
-	      850 nuevos items.
-	      Nueva clase: <sound>
-	      Los sonidos, tanto librerias como constantes son cargadas
-	      desde la clase.
-	      Nueva clase: <texture>.
-	      Las imagenes del programa son cargadas usando texture.py.
-	      Las imagenes del programa son relacionadas usando
-	      texture.py y sus métodos.
-	      Todas las constantes del programa relacionadas con las
-	      imagenes fueron movidas a <texture.py>.
-	      Nuevas imagenes, organizacion del codigo, solucion de errores
-	      al cargar imagenes, optimizacion de cargado.
-	      Se borran iconos sin uso.
-	      Nuevo formato de carga.
-	      La armadura inactiva posee iconos.
-	      Nuevo formato de mensaje al usuario de comandos
-	      <Cargando['filename']> y <Borrando['filename']>.
-	      Redimension de ventanas y menus.
-	      Redimension del programa.
-	      Error al ejecutar tcl.
-	      Eliminacion de librerias sin importar.
-	      Correccion de bug en estadisticas/puertas abiertas dado que
-	      no se cargaban todos los datos.
+		850 nuevos items.
+		Nueva clase: <sound>
+		Los sonidos, tanto librerias como constantes son cargadas
+		desde la clase.
+		Nueva clase: <texture>.
+		Las imagenes del programa son cargadas usando texture.py.
+		Las imagenes del programa son relacionadas usando
+		texture.py y sus métodos.
+		Todas las constantes del programa relacionadas con las
+		imagenes fueron movidas a <texture.py>.
+		Nuevas imagenes, organizacion del codigo, solucion de errores
+		al cargar imagenes, optimizacion de cargado.
+		Se borran iconos sin uso.
+		Nuevo formato de carga.
+		La armadura inactiva posee iconos.
+		Nuevo formato de mensaje al usuario de comandos
+		<Cargando['filename']> y <Borrando['filename']>.
+		Redimension de ventanas y menus.
+		Redimension del programa.
+		Error al ejecutar tcl.
+		Eliminacion de librerias sin importar.
+		Correccion de bug en estadisticas/puertas abiertas dado que
+		no se cargaban todos los datos.
 
 	[0.2.6]
-	      Nuevos iconos.
-	      Nuevas imagenes.
-	      Nuevos items.
-	      Nuevo formato para <texture>.
-	      Correccion de bug al cargar mapa no valido al comenzar una
-	      partida guardada.
-	      Correccion de bug al guardar una partida tras usar el comando
-	      <move map %map> cuando %map no existe.
-	      Correccion de links a sonidos.
-	      Correccion de script <_create>.
-	      Nuevos elementos logicos.
-	      Nuevo elemento: <object/carry>.
+		Nuevos iconos.
+		Nuevas imagenes.
+		Nuevos items.
+		Nuevo formato para <texture>.
+		Correccion de bug al cargar mapa no valido al comenzar una
+		partida guardada.
+		Correccion de bug al guardar una partida tras usar el comando
+		<move map %map> cuando %map no existe.
+		Correccion de links a sonidos.
+		Correccion de script <_create>.
+		Nuevos elementos logicos.
+		Nuevo elemento: <object/carry>.
 
 	[0.2.7]
-	      Actualizacion de la documentacion.
-	      Solucion de entradas en <changelog>.
-	      Solucion de errores en comando <move>,<give>.
-	      Nuevas imagenes para <items>.
-	      Redimension de ventana.
-	      Redimension de widgets.
-	      Nuevas propiedades para funciones de <lib>.
-	      Eliminacion de entradas en <lang>.
-	      Eliminacion de mensajes al usuario via consola.
-	      Reorganizacion del codigo fuente de todos los archivos del
-	      juego.
-	      Correccion ortografica de todos los archivos del juego.
-	      Correccion de comentarios en todos los archivos del juego.
-	      Correccion del tamaño de las filas de cada archivo en todo
-	      el juego.
-	      Desde mob se importan las constantes usadas en <hoa.py>:
-	      <MOB_SEPARATOR> y <TIME_MOVE_MOBS_NORMAL>.
-	      Redimension de la ventana <changelog>.
-	      Correccion ortografica de <changelog>.
-	      Correccion en mensaje <Recurso ['filename']>.
-	      Las imagenes de 64x64 se imprimen con una correccion.
-	      Si una imagen es <None> no se imprime, esto ahorra memoria.
-	      Correccion de errores varios.
+		Actualizacion de la documentacion.
+		Solucion de entradas en <changelog>.
+		Solucion de errores en comando <move>,<give>.
+		Nuevas imagenes para <items>.
+		Redimension de ventana.
+		Redimension de widgets.
+		Nuevas propiedades para funciones de <lib>.
+		Eliminacion de entradas en <lang>.
+		Eliminacion de mensajes al usuario via consola.
+		Reorganizacion del codigo fuente de todos los archivos del
+		juego.
+		Correccion ortografica de todos los archivos del juego.
+		Correccion de comentarios en todos los archivos del juego.
+		Correccion del tamaño de las filas de cada archivo en todo
+		el juego.
+		Desde mob se importan las constantes usadas en <hoa.py>:
+		<MOB_SEPARATOR> y <TIME_MOVE_MOBS_NORMAL>.
+		Redimension de la ventana <changelog>.
+		Correccion ortografica de <changelog>.
+		Correccion en mensaje <Recurso ['filename']>.
+		Las imagenes de 64x64 se imprimen con una correccion.
+		Si una imagen es <None> no se imprime, esto ahorra memoria.
+		Correccion de errores varios.
 
 	[0.2.8]
-	      Los movimientos ahora tienen animacion (tanto del jugador
-	      como de mobs); los movimientos antiguos se dejaron registrados
-	      como comentarios.
-	      Desarrollo de sonidos en background que se repitan con el
-	      tiempo.
-	      Correccion de errores al cargar mapas.
-	      Correccion de error al no presentar bien el titulo tras
-	      obtener un error al cargar un mapa.
-	      Nuevos sonidos.
-	      Correccion de errores al dibujar recuadro de carga.
-	      Correccion de errores al cargar partidas.
-	      Al tener errores se restablece el icono del raton.
-	      Las imagenes de 128x128 también son sometidas a correccion.
-	      Correccion de errores en la propiedad z-index de texturas.
-	      Nuevas texturas.
-	      3 constantes son importadas via archivo externo.
-	      Nuevo script en sound/ambiance/ cataloga los sonidos y
-	      crea un archivo de texto con sus links.
-	      Correccion en todos los shorcut del menu.
-	      Nuevos atajos de teclado para funciones.
-	      Nuevas entradas en el menu.
-	      Correccion de error al cargar la partida tras ingresar
-	      a un mapa en mal estado en movePlayer().
-	      Si ocurre un error al cargar el mapa desde loadGame()
-	      se lanza una excepcion.
- 	      Correccion de errores al parar el sonido tras obtener
-	      una excepcion.
-	      Redimension de ventanas de error.
-	      Redimension de botones.
-	      Se cambia el nombre a varios elementos del menu.
-	      Reordenamiento del menu.
-	      Se crean mas atajos de teclado.
-	      Nuevas imagenes de edificios.
+		Los movimientos ahora tienen animacion (tanto del jugador
+		como de mobs); los movimientos antiguos se dejaron registrados
+		como comentarios.
+		Desarrollo de sonidos en background que se repitan con el
+		tiempo.
+		Correccion de errores al cargar mapas.
+		Correccion de error al no presentar bien el titulo tras
+		obtener un error al cargar un mapa.
+		Nuevos sonidos.
+		Correccion de errores al dibujar recuadro de carga.
+		Correccion de errores al cargar partidas.
+		Al tener errores se restablece el icono del raton.
+		Las imagenes de 128x128 también son sometidas a correccion.
+		Correccion de errores en la propiedad z-index de texturas.
+		Nuevas texturas.
+		3 constantes son importadas via archivo externo.
+		Nuevo script en sound/ambiance/ cataloga los sonidos y
+		crea un archivo de texto con sus links.
+		Correccion en todos los shorcut del menu.
+		Nuevos atajos de teclado para funciones.
+		Nuevas entradas en el menu.
+		Correccion de error al cargar la partida tras ingresar
+		a un mapa en mal estado en movePlayer().
+		Si ocurre un error al cargar el mapa desde loadGame()
+		se lanza una excepcion.
+		Correccion de errores al parar el sonido tras obtener
+		una excepcion.
+		Redimension de ventanas de error.
+		Redimension de botones.
+		Se cambia el nombre a varios elementos del menu.
+		Reordenamiento del menu.
+		Se crean mas atajos de teclado.
+		Nuevas imagenes de edificios.
 
 	[0.2.9]
-	      La iluminacion del jugador cambia al moverse.
-	      Se corrige el movimiento en <y> al mover al jugador.
-              Se reemplaza la textura de los mobs al moverse.
-	      El menu <configuracion> ahora va en Archivo.
-	      Modificacion de la imagen de fondo.
-	      Solucion de errores al crear una nueva partida.
-	      Se corrige la creacion de mobs.
-	      Nuevos items.
-	      Al crear una nueva partida el jugador, dependiendo
-	      del tipo obtiene objetos utiles.
-	      Nueva variable definidora de mapas iniciales.
-	      Solucion de error al imprimir al cargar una partida.
-	      Solucion de error al cargar iconos no validos.
-	      Solucion de error al cargar sonidos no validos.
-	      Nuevo nivel inicial: start.lvl.
-	      Los items de comida ahora son utiles.
-	      Los items de comida no sonaran al consultar por su
-              informacion.
-	      Nuevo comando: MUTE.
-	      Nueva forma de atrapar los errores.
-	      Correccion ortografica de algunos comentarios.
-	      Correccion ortografica de varias entradas en LANG.
-	      Correccion de error al cargar libros.
+		La iluminacion del jugador cambia al moverse.
+		Se corrige el movimiento en <y> al mover al jugador.
+		Se reemplaza la textura de los mobs al moverse.
+		El menu <configuracion> ahora va en Archivo.
+		Modificacion de la imagen de fondo.
+		Solucion de errores al crear una nueva partida.
+		Se corrige la creacion de mobs.
+		Nuevos items.
+		Al crear una nueva partida el jugador, dependiendo
+		del tipo obtiene objetos utiles.
+		Nueva variable definidora de mapas iniciales.
+		Solucion de error al imprimir al cargar una partida.
+		Solucion de error al cargar iconos no validos.
+		Solucion de error al cargar sonidos no validos.
+		Nuevo nivel inicial: start.lvl.
+		Los items de comida ahora son utiles.
+		Los items de comida no sonaran al consultar por su
+		informacion.
+		Nuevo comando: MUTE.
+		Nueva forma de atrapar los errores.
+		Correccion ortografica de algunos comentarios.
+		Correccion ortografica de varias entradas en LANG.
+		Correccion de error al cargar libros.
 
 	[0.3.0]
-	      Los errores son mostrados via consola junto a un mensaje
- 	      de codigo  [Codigo: x11xx].
-	      Todos los errores via except tienen codigo en LANG.
-	      Solucion de error al no borrar las imagenes de la
-	      armadura tras cargar una partida.
-	      Optimizacion del codigo.
-	      Correccion de comentarios.
-	      Creacion de clase powers.
-	      Importacion de clase powers.
-	      Creacion de 19 poderes con imagenes.
-	      Creada la funcion que dibuja los poderes.
-	      Nuevos métodos para clase actor:powers.
-	      Nuevo comando: GIVE POWER SHORT.
-	      Creacion de entradas en textures.py
-	      Nuevos directorios: powers y icons/powers.
-	      Correccion de entradas en LANG:ES.
-	      Nuevo comando: DROP POWERS.
-	      Nuevo comando: VERSION.
-              Correccion de errores al crear item por ID.
- 	      Correccion de textura biblia en ITEMS.
-              Nuevo manejo de errores al crear comandos.
-	      Correccion error al dibujar un item con una textura no
-	      valida.
-	      Se modifica el maximo de mensajes en consola de 13 a 16.
-	      Ventana de informacion de poder.
-	      Los poderes varian segun nivel del jugador, se redibuja
-	      al subir o bajar de nivel.
-	      Solucion de errores al manejar poderes.
- 	      Optimizacion de codigo.
-	      Correccion al cargar items via comandos.
+		Los errores son mostrados via consola junto a un mensaje
+		de codigo  [Codigo: x11xx].
+		Todos los errores via except tienen codigo en LANG.
+		Solucion de error al no borrar las imagenes de la
+		armadura tras cargar una partida.
+		Optimizacion del codigo.
+		Correccion de comentarios.
+		Creacion de clase powers.
+		Importacion de clase powers.
+		Creacion de 19 poderes con imagenes.
+		Creada la funcion que dibuja los poderes.
+		Nuevos métodos para clase actor:powers.
+		Nuevo comando: GIVE POWER SHORT.
+		Creacion de entradas en textures.py
+		Nuevos directorios: powers y icons/powers.
+		Correccion de entradas en LANG:ES.
+		Nuevo comando: DROP POWERS.
+		Nuevo comando: VERSION.
+		Correccion de errores al crear item por ID.
+		Correccion de textura biblia en ITEMS.
+		Nuevo manejo de errores al crear comandos.
+		Correccion error al dibujar un item con una textura no
+		valida.
+		Se modifica el maximo de mensajes en consola de 13 a 16.
+		Ventana de informacion de poder.
+		Los poderes varian segun nivel del jugador, se redibuja
+		al subir o bajar de nivel.
+		Solucion de errores al manejar poderes.
+		Optimizacion de codigo.
+		Correccion al cargar items via comandos.
 
 	[0.3.1]
-	      Los poderes se cargan y se guardan.
-	      Solucion en mensaje de error x1137.
-	      Nuevos comandos SHOW (muestra estructuras del juego).
-	      Correccion de errores en comandos.
-	      Eliminacion de 3 comandos sin uso.
-	      Correccion en algunas imagenes.
-	      Correccion de 2 imagenes de poderes.
-	      Correccion de algunos langs de carga.
-	      Correccion de 2 poderes.
-	      Correccion de bugs en el time de los poderes.
-	      Correccion de varios comentarios.
-	      Nuevo comando: DELETESTATICS.
-	      Actualizacion del fichero commands.txt
+		Los poderes se cargan y se guardan.
+		Solucion en mensaje de error x1137.
+		Nuevos comandos SHOW (muestra estructuras del juego).
+		Correccion de errores en comandos.
+		Eliminacion de 3 comandos sin uso.
+		Correccion en algunas imagenes.
+		Correccion de 2 imagenes de poderes.
+		Correccion de algunos langs de carga.
+		Correccion de 2 poderes.
+		Correccion de bugs en el time de los poderes.
+		Correccion de varios comentarios.
+		Nuevo comando: DELETESTATICS.
+		Actualizacion del fichero commands.txt
 
 	[0.3.2]
-	      Correccion en la carga de los poderes.
-	      Correccion de errores al no modificar el estado
-	      de los poderes cargados tras modificar el nivel del
-	      jugador.
-	      Correccion de la imagen en 12 items.
-	      Correccion de error fatal al cargar item con una
-	      imagen no valida.
-	      Nuevo comando: CHANGELOG.
-	      Se extiende la codificacion a UTF-8.
- 	      Nuevos idiomas: Ruso y arabe.
-	      Correccion de errores al cargar idiomas.
-	      Nuevo script: transformer.py.
-	      Solucion de error al cargar idioma dado un caracter
-	      no valido en el numero.
-	      Correccion de error al mover una imagen tras haber
-	      cargado un mapa.
-	      Correccion de idiomas Italiano y francés.
-	      Los idiomas se muestran en su correspondiente idioma
-	      en la ventana de configuraciones.
-	      Nuevos script para lang, exportacion, transformacion
-	      e importacion.
-	      Correccion de errores en la carga de idiomas.
+		Correccion en la carga de los poderes.
+		Correccion de errores al no modificar el estado
+		de los poderes cargados tras modificar el nivel del
+		jugador.
+		Correccion de la imagen en 12 items.
+		Correccion de error fatal al cargar item con una
+		imagen no valida.
+		Nuevo comando: CHANGELOG.
+		Se extiende la codificacion a UTF-8.
+		Nuevos idiomas: Ruso y arabe.
+		Correccion de errores al cargar idiomas.
+		Nuevo script: transformer.py.
+		Solucion de error al cargar idioma dado un caracter
+		no valido en el numero.
+		Correccion de error al mover una imagen tras haber
+		cargado un mapa.
+		Correccion de idiomas Italiano y francés.
+		Los idiomas se muestran en su correspondiente idioma
+		en la ventana de configuraciones.
+		Nuevos script para lang, exportacion, transformacion
+		e importacion.
+		Correccion de errores en la carga de idiomas.
 
 	[0.3.3]
-	      Nueva forma de cargado de imagenes, se cambia el cargado
-	      automatico de las imagenes por una carga on-demand.
-	      Nuevas constantes para links de imagenes.
-              Al cargar las imagenes se muestra un mensaje en consola.
-	      Correccion de errores al cargar poderes.
-	      El tiempo de carga se redujo de 35 segundos a 2 segundos.
-	      Correccion de errores en la carga de imagenes de 16x.
-	      Correccion de varias entradas en lang.
-	      Correccion de error en comando SHOW.
-	      Se muestra un mensaje al terminar el programa.
-	      Correccion ortografica de varios comentarios.
-	      Correccion de métodos.
-              Eliminacion de variables sin usar.
-	      Correccion de varias identaciones.
-	      Actualizacion del color basico de la terminal.
-	      Se muestra el autor en el inicio de hoa.py.
-	      Mensajes del sistema al abortar, cerrar, cargar y guardar.
-	      Correccion de errores al cerrar el juego.
-              Al cerrar no se detiene el sonido.
-	      Correccion de errores al no guardar la partida tras un
-	      error.
-	      Al abortar se eliminan los poderes.
-	      Al crear una nueva partida se borran los poderes.
-	      Si el jugador solo tiene 1 municion no se muestra el mensaje
-	      "porfavor elija la municion".
-	      Correcciones en los mensajes Borrando archivo, Generando
-	      archivo y Cargando archivo.
-              El método loadFromArchive obtiene el lang desde el exterior.
-	      Correccion de errores al mostrar mensajes del sistema.
-	      Eliminacion de variables.
-	      Correccion ortografica de los comentarios de cargar y guardar.
-	      Mejor manejo del cierre del programa.
+		Nueva forma de cargado de imagenes, se cambia el cargado
+		automatico de las imagenes por una carga on-demand.
+		Nuevas constantes para links de imagenes.
+		Al cargar las imagenes se muestra un mensaje en consola.
+		Correccion de errores al cargar poderes.
+		El tiempo de carga se redujo de 35 segundos a 2 segundos.
+		Correccion de errores en la carga de imagenes de 16x.
+		Correccion de varias entradas en lang.
+		Correccion de error en comando SHOW.
+		Se muestra un mensaje al terminar el programa.
+		Correccion ortografica de varios comentarios.
+		Correccion de métodos.
+		Eliminacion de variables sin usar.
+		Correccion de varias identaciones.
+		Actualizacion del color basico de la terminal.
+		Se muestra el autor en el inicio de hoa.py.
+		Mensajes del sistema al abortar, cerrar, cargar y guardar.
+		Correccion de errores al cerrar el juego.
+		Al cerrar no se detiene el sonido.
+		Correccion de errores al no guardar la partida tras un
+		error.
+		Al abortar se eliminan los poderes.
+		Al crear una nueva partida se borran los poderes.
+		Si el jugador solo tiene 1 municion no se muestra el mensaje
+		"porfavor elija la municion".
+		Correcciones en los mensajes Borrando archivo, Generando
+		archivo y Cargando archivo.
+		El método loadFromArchive obtiene el lang desde el exterior.
+		Correccion de errores al mostrar mensajes del sistema.
+		Eliminacion de variables.
+		Correccion ortografica de los comentarios de cargar y guardar.
+		Mejor manejo del cierre del programa.
 
 	[0.3.4]
-	      Las imagenes ahora se cargan desde 2 archivos mas, texture_res
-	      y texture_methods.
-	      Correccion de errores en la carga de imagenes.
-	      La carga de texturas se reduce en tiempo.
-	      Actualizacion de ficheros.
-	      Correccion del programa al cerrar, se sustituye os.exit por
-	      exit().
- 	      Correccion en el uso de la memoria.
-	      Ahora se importa garbage collector (gc) para borrar la memoria
-	      tras cerrar el programa.
-	      Correccion de textos en cargando libreria.
-	      Nuevos mensajes en consola al cargar y guardar.
-	      Correccion al salir tras haber creado una nueva partida.
-	      Correccion al establecer una partida guardada tras crearla.
-	      Correccion de bugs al cargar partidas.
-	      Correccion de bugs al cargar sonidos repetidos.
-	      Nuevo formato para mostrar mensajes al usuario, ahora se
-	      despliega un recuadro flotante.
+		Las imagenes ahora se cargan desde 2 archivos mas, texture_res
+		y texture_methods.
+		Correccion de errores en la carga de imagenes.
+		La carga de texturas se reduce en tiempo.
+		Actualizacion de ficheros.
+		Correccion del programa al cerrar, se sustituye os.exit por
+		exit().
+		Correccion en el uso de la memoria.
+		Ahora se importa garbage collector (gc) para borrar la memoria
+		tras cerrar el programa.
+		Correccion de textos en cargando libreria.
+		Nuevos mensajes en consola al cargar y guardar.
+		Correccion al salir tras haber creado una nueva partida.
+		Correccion al establecer una partida guardada tras crearla.
+		Correccion de bugs al cargar partidas.
+		Correccion de bugs al cargar sonidos repetidos.
+		Nuevo formato para mostrar mensajes al usuario, ahora se
+		despliega un recuadro flotante.
 
 	[0.3.5]
-	      El recuadro flotante cambia de color si se ubica el mouse sobre
-	      el.
-	      Correccion en la posicion del recuadro flotante.
-	      Correccion en mensajes de errores.
-	      Correccion de imagenes.
-	      Correccion en el ataque de los mobs.
-	      Mensajes de combate, señales, letreros y llaves se muestran
-	      también como recuadros flotantes.
-	      Nueva clase npc.
-	      Los npc del mapa se guardan y se cargan correctamente.
-	      Ahora la lista de comandos se borra al crear un nuevo juego.
-	      Al crear un nuevo juego se define si es editor o no (antes solo
-	      se hacia al cargar una partida).
-	      Correccion de error fatal al realizar amir a un archivo con acentos,
-	      si no se puede realizar amir se escribe un texto %NOAMIR%.
-	      Nueva estadistica: npc interactuados.
-	      Nueva estadistica: poderes usados.
-	      Nueva estadistica: señales leidas.
-	      Correccion de texto para estadistica, mapas cargados a mapas
-	      visitados.
-	      Se configura el acceso a algunos comandos.
+		El recuadro flotante cambia de color si se ubica el mouse sobre
+		el.
+		Correccion en la posicion del recuadro flotante.
+		Correccion en mensajes de errores.
+		Correccion de imagenes.
+		Correccion en el ataque de los mobs.
+		Mensajes de combate, señales, letreros y llaves se muestran
+		también como recuadros flotantes.
+		Nueva clase npc.
+		Los npc del mapa se guardan y se cargan correctamente.
+		Ahora la lista de comandos se borra al crear un nuevo juego.
+		Al crear un nuevo juego se define si es editor o no (antes solo
+		se hacia al cargar una partida).
+		Correccion de error fatal al realizar amir a un archivo con acentos,
+		si no se puede realizar amir se escribe un texto %NOAMIR%.
+		Nueva estadistica: npc interactuados.
+		Nueva estadistica: poderes usados.
+		Nueva estadistica: señales leidas.
+		Correccion de texto para estadistica, mapas cargados a mapas
+		visitados.
+		Se configura el acceso a algunos comandos.
 
 	[0.3.6]
-	      Nuevo comando: abort.
-	      Correccion ortografica de algunos comentarios.
-	      Eliminacion de algunas variables.
-	      Se cambia el formato del(var) a del var.
-	      Eliminacion de algunos ficheros.
-	      Se corrige el error del movimiento rapido, ahora hay un limite
-	      de tiempo para poder mover al player.
-	      Se muestra mensaje de bienvenida al cargar una partida.
-	      Se corrigen errores en los eventos aumentar mana y vida.
-	      Se muestran mensajes al llegar a ciertos eventos.
-	      Se corrigen errores al mostrar aumentos de mana y vida en eventos.
-	      Correccion de error al agregar un objeto desde la consola.
-	      Se agrega funcionalidad del poder escape rapido.
-	      Se muestran mensajes al interactuar con objetos.
-	      Correccion de error al parar el movimiento de los mobs tras terminar
-	      un dialogo con un npc o usar un poder.
-	      Si el jugador muere se inserta sangre y se actualizan las barras
-	      de informacion.
-	      Se corrige error en el comando DROP WEAPONS.
+		Nuevo comando: abort.
+		Correccion ortografica de algunos comentarios.
+		Eliminacion de algunas variables.
+		Se cambia el formato del(var) a del var.
+		Eliminacion de algunos ficheros.
+		Se corrige el error del movimiento rapido, ahora hay un limite
+		de tiempo para poder mover al player.
+		Se muestra mensaje de bienvenida al cargar una partida.
+		Se corrigen errores en los eventos aumentar mana y vida.
+		Se muestran mensajes al llegar a ciertos eventos.
+		Se corrigen errores al mostrar aumentos de mana y vida en eventos.
+		Correccion de error al agregar un objeto desde la consola.
+		Se agrega funcionalidad del poder escape rapido.
+		Se muestran mensajes al interactuar con objetos.
+		Correccion de error al parar el movimiento de los mobs tras terminar
+		un dialogo con un npc o usar un poder.
+		Si el jugador muere se inserta sangre y se actualizan las barras
+		de informacion.
+		Se corrige error en el comando DROP WEAPONS.
 
 	[0.3.7]
-	      Correccion de error al cambiar iluminacion de los mobs
-	      al cambiarse de tile.
-	      Correccion de error al repetir sonidos tras crear una
-	      nueva partida.
-	      Los npc ahora se mueven.
-	      Los npc responden a y/n.
- 	      Correccion de funcion infoSystem().
-	      Correccion de permisos para varios comandos.
-	      Correccion de error al cargar npc guardados.
-	      Correccion de error en el evento move.
-	      Nueva entrada a strict.py.
-	      Correccion del desplazamiento vertical al moverse con una animacion.
-	      Correccion de errores al no detener carga tras obtener un error en
-	      la carga de un archivo.
+		Correccion de error al cambiar iluminacion de los mobs
+		al cambiarse de tile.
+		Correccion de error al repetir sonidos tras crear una
+		nueva partida.
+		Los npc ahora se mueven.
+		Los npc responden a y/n.
+		Correccion de funcion infoSystem().
+		Correccion de permisos para varios comandos.
+		Correccion de error al cargar npc guardados.
+		Correccion de error en el evento move.
+		Nueva entrada a strict.py.
+		Correccion del desplazamiento vertical al moverse con una animacion.
+		Correccion de errores al no detener carga tras obtener un error en
+		la carga de un archivo.
 
 	[0.3.8]
-	      Nueva caracteristica agregada: QUESTS.
-	      Los npc responden a las quest que tenga el jugador.
-	      Nuevos comandos DROP QUEST, GIVE QUEST.
-	      Correccion de error al perder la version en el titulo tras
-	      usar el argumento -dev.
-	      Se modifica el titulo del programa, cambio de [VER] a vVER.
-	      Correccion de errores al cargar un archivo.
-	      Se corrige error al guardar las partidas.
-	      Se eliminan variables sin usar.
-	      Optimizacion del codigo.
-	      Nueva funcion: ver quest (T).
-	      Nueva estadistica: quest hechas.
-	      Ahora los mobs se mueven en funcion de su maxima distancia.
-	      Los mobs que persiguen ilimitadamente se restringen a su
-	      movimiento.
-	      Se elimina la funcion informacion de los items.
-	      Se corrige uso del mana al aplicar un poder.
-	      Se corrige matriz de experiencias para el jugador Skaard.
-	      Se optimiza la carga de las imagenes.
-	      Se corrige error al consultar informacion de items.
-	      Nueva funcion: informacion del jugador (atajo de teclado I).
-	      Nuevo método para imagenes: getLinkImage().
-	      Se corrige carga de configuraciones.
- 	      Se modifica la comprobacion de quest.
+		Nueva caracteristica agregada: QUESTS.
+		Los npc responden a las quest que tenga el jugador.
+		Nuevos comandos DROP QUEST, GIVE QUEST.
+		Correccion de error al perder la version en el titulo tras
+		usar el argumento -dev.
+		Se modifica el titulo del programa, cambio de [VER] a vVER.
+		Correccion de errores al cargar un archivo.
+		Se corrige error al guardar las partidas.
+		Se eliminan variables sin usar.
+		Optimizacion del codigo.
+		Nueva funcion: ver quest (T).
+		Nueva estadistica: quest hechas.
+		Ahora los mobs se mueven en funcion de su maxima distancia.
+		Los mobs que persiguen ilimitadamente se restringen a su
+		movimiento.
+		Se elimina la funcion informacion de los items.
+		Se corrige uso del mana al aplicar un poder.
+		Se corrige matriz de experiencias para el jugador Skaard.
+		Se optimiza la carga de las imagenes.
+		Se corrige error al consultar informacion de items.
+		Nueva funcion: informacion del jugador (atajo de teclado I).
+		Nuevo método para imagenes: getLinkImage().
+		Se corrige carga de configuraciones.
+		Se modifica la comprobacion de quest.
 
 	[0.3.9]
-	      Se modifica la carga de las imagenes, los items ahora
-	      estan en texture_items.py y las imagenes del mundo en
-	      texture_world.py
-	      Se crea archivo de constantes para texturas.
-	      Se mueven funciones a lib.py.
-	      La consola tiene funcion de desplazamiento.
-	      Al cargar o crear una nueva partida la consola se desplaza
-	      hacia el inicio.
-	      Si se agrega una nueva entrada a la consola esta se desplaza
-	      hacia el inicio.
-	      Se corrige error al poder usar poderes fuera de un juego.
-	      Se mantiene el consumo de ram a ~70mb.
-	      Se mantiene el consumo de cpu a 8%.
-	      Nuevas constantes para definir modos de combate.
-	      Correccion de errores al eliminar archivos .pyc.
-	      Se modifica el archivo ScrolledFrame para poder modificar
-	      las propiedades del scrolling.
-	      Se redenominan 3 archivos.
-	      Los mob tienen 3 tipos de combate, lineal, grupal y normal.
-	      Los mob tienen 2 modos de ataque: normal y largo alcance.
-	      Se eliminan las funciones showInfoEnemy y showAllInfoEnemy.
-	      Se modifica la forma de comenzar las batallas.
-	      Optimizacion del codigo.
-	      Se eliminan mensajes en consola de errores inutiles.
+		Se modifica la carga de las imagenes, los items ahora
+		estan en texture_items.py y las imagenes del mundo en
+		texture_world.py
+		Se crea archivo de constantes para texturas.
+		Se mueven funciones a lib.py.
+		La consola tiene funcion de desplazamiento.
+		Al cargar o crear una nueva partida la consola se desplaza
+		hacia el inicio.
+		Si se agrega una nueva entrada a la consola esta se desplaza
+		hacia el inicio.
+		Se corrige error al poder usar poderes fuera de un juego.
+		Se mantiene el consumo de ram a ~70mb.
+		Se mantiene el consumo de cpu a 8%.
+		Nuevas constantes para definir modos de combate.
+		Correccion de errores al eliminar archivos .pyc.
+		Se modifica el archivo ScrolledFrame para poder modificar
+		las propiedades del scrolling.
+		Se redenominan 3 archivos.
+		Los mob tienen 3 tipos de combate, lineal, grupal y normal.
+		Los mob tienen 2 modos de ataque: normal y largo alcance.
+		Se eliminan las funciones showInfoEnemy y showAllInfoEnemy.
+		Se modifica la forma de comenzar las batallas.
+		Optimizacion del codigo.
+		Se eliminan mensajes en consola de errores inutiles.
 
 	[0.4.0]
-	      Se soluciona error fatal al borrar memoria tras cerrar el
-	      programa. Si se tenian muchas ventanas abiertas el sistema
-	      operativo se congelaba obligando al reinicio del sistema.
-	      Se elimina gc.collect() al terminar el programa.
-	      Se corrige error al desplazar los comandos.
-	      Se fusionan elementos print en una sola linea.
-	      Se organizan variables por nombre.
-	      Se eliminan 3 métodos que eran llamados solo una vez.
-	      Los actores tienen diferentes imagenes segun su nivel, la
-	      imagen se actualiza al modificar de nivel.
-	      Se redibuja el mundo al modificar el nivel por comandos.
-	      Modificacion de la descripcion de los actores.
-	      El target afecta de forma positiva a la mano izquierda y
-	      negativa a la mano derecha.
-	      Solo se envian enteros positivos en el ataque del jugador.
-	      Se modifica la ventana de informacion del jugador.
-	      Correccion de error al obtener el objeto de un mob.
-	      Eliminacion de funciones.
-	      Limpieza general del codigo.
-	      Nuevo método para lanzar flechas y lanzas.
-	      Nuevo comando: INFO -PLAYERMARROWD.
-	      El target definira el maximo alcance con flechas.
-	      Se modifica el modo de combate normal.
-	      Se reorganizan los comandos.
-	      Se dibuja el arma izquierda y derecha en el mundo,
-	      junto al jugador.
-	      El arma izquierda y derecha siguen al jugador.
-	      Se dibuja la municion lanzada fuera de combate (flechas,
-	      lanzas).
-	      Se optimiza el codigo.
-	      Correccion de ciertos comentarios.
-	      Nuevo formato para crear nuevas partidas.
-	      Se muestran mensajes al perder flechas.
-	      Reorganizacion de constantes para las texturas.
-	      Se eliminan los comandos ABOUT, CONFIG, STATICS, HELP.
-	      Se eliminan funciones innecesarias y se apilan dentro
-              de sub_funciones.
-	      Se eliminan las funciones updateLife, updateMana y
-              updateExperience.
-	      Se eliminan variables.
-	      Optimizacion de la carga.
-	      Eliminacion de variables sin usar.
+		Se soluciona error fatal al borrar memoria tras cerrar el
+		programa. Si se tenian muchas ventanas abiertas el sistema
+		operativo se congelaba obligando al reinicio del sistema.
+		Se elimina gc.collect() al terminar el programa.
+		Se corrige error al desplazar los comandos.
+		Se fusionan elementos print en una sola linea.
+		Se organizan variables por nombre.
+		Se eliminan 3 métodos que eran llamados solo una vez.
+		Los actores tienen diferentes imagenes segun su nivel, la
+		imagen se actualiza al modificar de nivel.
+		Se redibuja el mundo al modificar el nivel por comandos.
+		Modificacion de la descripcion de los actores.
+		El target afecta de forma positiva a la mano izquierda y
+		negativa a la mano derecha.
+		Solo se envian enteros positivos en el ataque del jugador.
+		Se modifica la ventana de informacion del jugador.
+		Correccion de error al obtener el objeto de un mob.
+		Eliminacion de funciones.
+		Limpieza general del codigo.
+		Nuevo método para lanzar flechas y lanzas.
+		Nuevo comando: INFO -PLAYERMARROWD.
+		El target definira el maximo alcance con flechas.
+		Se modifica el modo de combate normal.
+		Se reorganizan los comandos.
+		Se dibuja el arma izquierda y derecha en el mundo,
+		junto al jugador.
+		El arma izquierda y derecha siguen al jugador.
+		Se dibuja la municion lanzada fuera de combate (flechas,
+		lanzas).
+		Se optimiza el codigo.
+		Correccion de ciertos comentarios.
+		Nuevo formato para crear nuevas partidas.
+		Se muestran mensajes al perder flechas.
+		Reorganizacion de constantes para las texturas.
+		Se eliminan los comandos ABOUT, CONFIG, STATICS, HELP.
+		Se eliminan funciones innecesarias y se apilan dentro
+		de sub_funciones.
+		Se eliminan las funciones updateLife, updateMana y
+		updateExperience.
+		Se eliminan variables.
+		Optimizacion de la carga.
+		Eliminacion de variables sin usar.
 
 	[0.4.1]
-	      Se configura la forma en que se combate.
-	      Solucion de error al mostrar mensajes incorrectos tras
-              botar un objeto.
-	      Solucion de error al mostrar mensajes de error de movimiento
-              al estar en un combate que no es normal.
-	      Solucion de error al lanzar flechas y/o realizar ataques
-              mientras se estaa peleando en un combate que no es normal.
-	      Correccion de errores en el dibujo de items.
-	      Correccion de error al no borrar los poderes tras cargar
-              una partida.
-	      Se eliminan funciones.
-	      Se optimiza la importacion.
-	      Se configura la definicion de constantes.
-	      Se agregan nuevos sonidos para los mobs.
-	      Se redefine la carga de sonidos para los mobs.
-	      Se agregan nuevos efectos graficos: movimiento de
-              espada y flechas.
-	      Se corrigen funciones de desplazamiento grafico.
-	      Se corrigen titulos de algunas ventanas.
-	      Se corrigen errores al crear nuevas partidas.
+		Se configura la forma en que se combate.
+		Solucion de error al mostrar mensajes incorrectos tras
+		botar un objeto.
+		Solucion de error al mostrar mensajes de error de movimiento
+		al estar en un combate que no es normal.
+		Solucion de error al lanzar flechas y/o realizar ataques
+		mientras se estaa peleando en un combate que no es normal.
+		Correccion de errores en el dibujo de items.
+		Correccion de error al no borrar los poderes tras cargar
+		una partida.
+		Se eliminan funciones.
+		Se optimiza la importacion.
+		Se configura la definicion de constantes.
+		Se agregan nuevos sonidos para los mobs.
+		Se redefine la carga de sonidos para los mobs.
+		Se agregan nuevos efectos graficos: movimiento de
+		espada y flechas.
+		Se corrigen funciones de desplazamiento grafico.
+		Se corrigen titulos de algunas ventanas.
+		Se corrigen errores al crear nuevas partidas.
 
 	[0.4.2]
-	      Comienza el desarrollo del combate grupal.
-	      Redimension de algunas ventanas pop.
-	      Modifico los comentarios del programa completo.
-	      Reordeno definicion de variables en __init__ ademas de dar
-	      sus comentarios respectivos.
-	      Reordeno funciones entre hoa.py y lib.py.
-	      La carga de un sonido de fondo es notificada en la consola.
-	      Correccion de algunos comandos.
-	      Nueva configuracion: color de fondo para la consola y color
-	      de texto para la consola.
-	      Se modifica el archivo de configuraciones.
-	      Se modifica el nombre de la consola a "Terminal".
-	      Se agrega nuevo atajo de teclado <Control-T> para abrir
-	      la terminal.
- 	      Solucion error fatal al escribir trabajos que tengan un
-	      mal estado.
-	      Se reorganiza la forma de definir los eventos del programa.
-	      Nueva forma de cargar los poderes.
-	      Se agregan nuevos atajos de teclado: <Control-Up> y
-	      <Control-Down> para mover la consola.
-	      Se modifica el atajo de teclado para la ayuda a <F1>.
-	      Nuevo elemento: seguidores.
-	      Nuevo comando: DROP FOLLOWERS, GIVE FOLLOWER.
- 	      Se corrigen errores al crear seguidores.
-	      Nueva funcion: ver seguidores.
-	      Nueva funcion: nuevo seguidor desde npc.
-	      Nueva estadistica: seguidores.
+		Comienza el desarrollo del combate grupal.
+		Redimension de algunas ventanas pop.
+		Modifico los comentarios del programa completo.
+		Reordeno definicion de variables en __init__ ademas de dar
+		sus comentarios respectivos.
+		Reordeno funciones entre hoa.py y lib.py.
+		La carga de un sonido de fondo es notificada en la consola.
+		Correccion de algunos comandos.
+		Nueva configuracion: color de fondo para la consola y color
+		de texto para la consola.
+		Se modifica el archivo de configuraciones.
+		Se modifica el nombre de la consola a "Terminal".
+		Se agrega nuevo atajo de teclado <Control-T> para abrir
+		la terminal.
+		Solucion error fatal al escribir trabajos que tengan un
+		mal estado.
+		Se reorganiza la forma de definir los eventos del programa.
+		Nueva forma de cargar los poderes.
+		Se agregan nuevos atajos de teclado: <Control-Up> y
+		<Control-Down> para mover la consola.
+		Se modifica el atajo de teclado para la ayuda a <F1>.
+		Nuevo elemento: seguidores.
+		Nuevo comando: DROP FOLLOWERS, GIVE FOLLOWER.
+		Se corrigen errores al crear seguidores.
+		Nueva funcion: ver seguidores.
+		Nueva funcion: nuevo seguidor desde npc.
+		Nueva estadistica: seguidores.
 
 	[0.4.3]
-	      Ahora las configuraciones de guardado y sonido se aplican
-	      automaticamente.
-	      Se dibuja el board tras un combate grupal.
-	      Nueva clase: group.
-	      Correccion de error al salir del programa.
-	      Se optimiza carga de librerias.
-	      Correccion de error al cargar el programa.
-	      Correccion ortografica de comentarios.
-	      Se reorganizan librerias.
-	      Los mobs en el combate grupal también varian en sus
-	      parametros.
-	      Correccion de error al imprimir la informacion de los
-	      seguidores.
-	      Nuevos colores para la configuracion.
-	      Se corrige error al definir los cursores.
-	      Se elimina la variable canvasSize y se deja como una
-	      constante.
-	      Nuevos métodos para las imagenes.
-	      Correccion de errores al crear tableros.
-	      Se define el limite maximo de amigos en 900.
-	      Nuevos comandos PLAYER.BOARD.ATK, PLAYER.BOARD.DEF.
-	      Se definen el movimiento y los combates player->mob
-	      en el board.
-	      Se improvisa la pelea.
-	      Se agrega sangre al board.
-	      Se corrige el término del proceso iniciado por Python,
-	      corrigiendo el uso de la memoria.
-	      Se corrigen caracteristicas de los grupos.
-	      Nuevos idiomas: portugués y Aleman.
+		Ahora las configuraciones de guardado y sonido se aplican
+		automaticamente.
+		Se dibuja el board tras un combate grupal.
+		Nueva clase: group.
+		Correccion de error al salir del programa.
+		Se optimiza carga de librerias.
+		Correccion de error al cargar el programa.
+		Correccion ortografica de comentarios.
+		Se reorganizan librerias.
+		Los mobs en el combate grupal también varian en sus
+		parametros.
+		Correccion de error al imprimir la informacion de los
+		seguidores.
+		Nuevos colores para la configuracion.
+		Se corrige error al definir los cursores.
+		Se elimina la variable canvasSize y se deja como una
+		constante.
+		Nuevos métodos para las imagenes.
+		Correccion de errores al crear tableros.
+		Se define el limite maximo de amigos en 900.
+		Nuevos comandos PLAYER.BOARD.ATK, PLAYER.BOARD.DEF.
+		Se definen el movimiento y los combates player->mob
+		en el board.
+		Se improvisa la pelea.
+		Se agrega sangre al board.
+		Se corrige el término del proceso iniciado por Python,
+		corrigiendo el uso de la memoria.
+		Se corrigen caracteristicas de los grupos.
+		Nuevos idiomas: portugués y Aleman.
 
 	[0.4.4]
-	      El boton <Esc> salta el turno en el combate grupal.
-	      Nuevos idiomas: Japonés y Chino.
-	      recién en esta version se termina la ejecucion del
-	      programa de forma correcta. Ahora se llama a taskkill
-	      directamente indicando el ID del proceso.
-	      El idioma se configura automaticamente tras cambiar
-	      de lenguaje en las configuraciones.
-	      Se modifica la forma de cargar las librerias.
-	      Nueva funcion: traduccion automatica a través de
-	      internet.
-	      Nuevo comando: TRANSLATE.
-	      Reorganizacion de __init__.
-	      Correccion de comentarios.
-	      Se eliminan librerias no usadas.
-	      Las librerias externas se almacenan en /lib.
-	      Nuevos argumentos: -help, -disableanimation,
-              -disablestdout, -disableterminal, -disabletranslation,
-              -enabletranslation, -enableterminal, -enableranslation,
-	      -version, -changelog, -disableinfo, -disableinfoarmor,
-              -disableinfoitem, -disableinfopower, -disableconfig,
-	      -disablesave.
-	      Se reorganizan carga de argumentos.
-	      Se cambia el color de la version de rojo a morado.
-	      Se imprime un arte ASCII en la carga del programa.
-	      Se reorganizan elementos en lib.py.
-	      Se mueven funciones asociadas a los items a items.py.
-	      Se soluciona error al usar poderes sin haberlos
-	      consultado mientras se esta en un combate grupal.
-	      Se modifica el wrap de las entradas en la consola.
-	      Se configura creacion de menus en funcion de los
-              argumentos.
-	      Se modifica la carga de configuraciones al inicio
-              del programa, ahora estan encapsuladas para evitar
-              exceso de variables.
-	      Reorganizacion de funciones.
-	      Reorganizacion de constantes.
+		El boton <Esc> salta el turno en el combate grupal.
+		Nuevos idiomas: Japonés y Chino.
+		recién en esta version se termina la ejecucion del
+		programa de forma correcta. Ahora se llama a taskkill
+		directamente indicando el ID del proceso.
+		El idioma se configura automaticamente tras cambiar
+		de lenguaje en las configuraciones.
+		Se modifica la forma de cargar las librerias.
+		Nueva funcion: traduccion automatica a través de
+		internet.
+		Nuevo comando: TRANSLATE.
+		Reorganizacion de __init__.
+		Correccion de comentarios.
+		Se eliminan librerias no usadas.
+		Las librerias externas se almacenan en /lib.
+		Nuevos argumentos: -help, -disableanimation,
+		-disablestdout, -disableterminal, -disabletranslation,
+		-enabletranslation, -enableterminal, -enableranslation,
+		-version, -changelog, -disableinfo, -disableinfoarmor,
+		-disableinfoitem, -disableinfopower, -disableconfig,
+		-disablesave.
+		Se reorganizan carga de argumentos.
+		Se cambia el color de la version de rojo a morado.
+		Se imprime un arte ASCII en la carga del programa.
+		Se reorganizan elementos en lib.py.
+		Se mueven funciones asociadas a los items a items.py.
+		Se soluciona error al usar poderes sin haberlos
+		consultado mientras se esta en un combate grupal.
+		Se modifica el wrap de las entradas en la consola.
+		Se configura creacion de menus en funcion de los
+		argumentos.
+		Se modifica la carga de configuraciones al inicio
+		del programa, ahora estan encapsuladas para evitar
+		exceso de variables.
+		Reorganizacion de funciones.
+		Reorganizacion de constantes.
 
 	[0.4.5]
-	      Se corrige el cambio de idioma doble en una misma
-	      partida.
-	      Se corrige un error extraÒo al no poder conectarse
-	      a la red crasheando el juego.
-	      Se corrige sonido de golpe de espada.
-	      Nuevo argumento agregado: noupdates.
-	      Nueva funcion: benchmark, ahora permite generar
- 	      benchmarks para obtener el rendimiento del sistema
-	      y asi escoger mejor los tiempos de ejecucion del
-   	      juego.
-	      Nuevo argumento: -benchmark.
-	      Se agrega un icono a los mobs indicando que son un
-	      grupo.
-	      Al cambiar la dificultad desde un comando se actualiza
-	      el juego (y asi aplicandolos).
-	      Se ejecuta una prueba de rendimiento para definir las
-	      constantes de tazas de actualizacion en ms.
-	      Ahora cada mob tiene un sonido como propiedad, el cual
-	      se carga y se guarda sin problemas.
-	      Correccion de errores en la carga de sonidos de los
-	      mobs.
-	      Se corrigen los comandos desde la consola.
-	      Corregido la comprobacion de las versiones.
-	      Corregido mensaje: "argumentos cargados" desde la
-              consola.
-	      Corregido desplazamiento del personaje.
-	      Se eliminan los .exe ejecutables
-	      Se actualiza la pagina web para comprobar las
-              versiones.
-	      Se comprueba el sistema operativo antes de ejecutar el
-	      programa, si la version no es correcta entonces se cierra
-	      la aplicacion.
-	      Se comprueba que la version de Python sea la 2.7.x, caso
-	      contrario la aplicacion se cerrara y redirigira a la pagina
-	      de descargas <https://www.python.org/download/releases/>.
+		Se corrige el cambio de idioma doble en una misma
+		partida.
+		Se corrige un error extraÒo al no poder conectarse
+		a la red crasheando el juego.
+		Se corrige sonido de golpe de espada.
+		Nuevo argumento agregado: noupdates.
+		Nueva funcion: benchmark, ahora permite generar
+		benchmarks para obtener el rendimiento del sistema
+		y asi escoger mejor los tiempos de ejecucion del
+		juego.
+		Nuevo argumento: -benchmark.
+		Se agrega un icono a los mobs indicando que son un
+		grupo.
+		Al cambiar la dificultad desde un comando se actualiza
+		el juego (y asi aplicandolos).
+		Se ejecuta una prueba de rendimiento para definir las
+		constantes de tazas de actualizacion en ms.
+		Ahora cada mob tiene un sonido como propiedad, el cual
+		se carga y se guarda sin problemas.
+		Correccion de errores en la carga de sonidos de los
+		mobs.
+		Se corrigen los comandos desde la consola.
+		Corregido la comprobacion de las versiones.
+		Corregido mensaje: "argumentos cargados" desde la
+		consola.
+		Corregido desplazamiento del personaje.
+		Se eliminan los .exe ejecutables
+		Se actualiza la pagina web para comprobar las
+		versiones.
+		Se comprueba el sistema operativo antes de ejecutar el
+		programa, si la version no es correcta entonces se cierra
+		la aplicacion.
+		Se comprueba que la version de Python sea la 2.7.x, caso
+		contrario la aplicacion se cerrara y redirigira a la pagina
+		de descargas <https://www.python.org/download/releases/>.
 
 	[0.4.6]
-	      Se eliminan constantes no usadas.
-	      Creacion de lanzadores .exe.
-	      Se comprueba que la version de Python solo sea de 32 bits.
-	      Se modifica la obtencion del directorio actual.
-	      Se organizan variables.
-	      Modificacion del tamaño de la ventana.
-	      Se arreglan elementos visuales del menu.
-	      El atajo (Informacion del sistema) solo es visible si se
-	      lanza con -eclipse.
-	      Se corrige error al cargar un sonido en un mapa si estaa
-	      desactivada la funcion.
-	      Nuevo comando: /linecounter.
-	      Se crean nuevos comandos hoa: SHOW POWERS, SHOW MAPS, SHOW
-	      ITEMS.
-	      Se redimensionan ventanas de la linea de comandos.
-	      Se redimensionan ventanas generales.
-	      Al ingresar un nuevo comando la consola sube hasta el tope.
-	      La ventana de texto puede tener un XScroll admitiendo mas
-	      largo que 600px.
-	      Se cambia la forma de carga de imagenes: separacion por
-	      grupos inteligentes.
-	      Se redenominan algunos script.
-	      Reestructuracion de lib.
-	      Reestructuracion de hoa.
- 	      Se comprueba si se ha iniciado una partida antes de ejecutar
-	      un comando, caso contrario lanza error.
-	      El comando LOAD recibe como parametro adicional %filename
-	      permitiendo la carga automatica de un archivo desde la linea
-	      de comandos.
+		Se eliminan constantes no usadas.
+		Creacion de lanzadores .exe.
+		Se comprueba que la version de Python solo sea de 32 bits.
+		Se modifica la obtencion del directorio actual.
+		Se organizan variables.
+		Modificacion del tamaño de la ventana.
+		Se arreglan elementos visuales del menu.
+		El atajo (Informacion del sistema) solo es visible si se
+		lanza con -eclipse.
+		Se corrige error al cargar un sonido en un mapa si estaa
+		desactivada la funcion.
+		Nuevo comando: /linecounter.
+		Se crean nuevos comandos hoa: SHOW POWERS, SHOW MAPS, SHOW
+		ITEMS.
+		Se redimensionan ventanas de la linea de comandos.
+		Se redimensionan ventanas generales.
+		Al ingresar un nuevo comando la consola sube hasta el tope.
+		La ventana de texto puede tener un XScroll admitiendo mas
+		largo que 600px.
+		Se cambia la forma de carga de imagenes: separacion por
+		grupos inteligentes.
+		Se redenominan algunos script.
+		Reestructuracion de lib.
+		Reestructuracion de hoa.
+		Se comprueba si se ha iniciado una partida antes de ejecutar
+		un comando, caso contrario lanza error.
+		El comando LOAD recibe como parametro adicional %filename
+		permitiendo la carga automatica de un archivo desde la linea
+		de comandos.
 
 	[0.4.7]
-	      Servidor!
-	      Nuevo comando: CONNECT, permite la conexion a un servidor.
-	      Nuevo archivo: server.py, server.exe.
-	      Manejo de errores asociado a las conexiones por servidor.
-	      Reorganizacion del codigo en forma alfabética de hoa.py.
-	      Se agregan mensajes de error al ingresar formularios.
-	      Correccion de error fatal al aplicar stopSound() cuando no
-	      tenia la libreria snacklib en tcl/.
-	      Se corrige formato de mensajes de error.
-	      Se corrigen errores al cargar mapas.
-	      Se avisa cuando se cree una nueva partida o se intente cargar
-	      una mientras esté iniciada una sesion multijugador.
-	      Nuevo comando: TOP, permite hacer un scrolling de la ventana
-	      de comandos hasta el principio.
-	      Se corrigen errores en mensajes.
-	      Se corrige error en la carga de idiomas.
-	      Se corrige error en la configuracion de las traducciones
-	      online.
-	      Al apagar la música mediante la configuracion se detiene
-	      automaticamente.
-	      Se agregan funciones "prevcommands" a la ventana de comandos,
-	      ahora al presionar "arriba" y "abajo" se desplegaran en pantalla
-	      los últimos comandos ejecutados.
-	      Se corrige error en el servicio de traducciones.
-	      Se modifica carga del argumento "-enabletranslation".
-	      Se modifican funciones lib.
-	      Se corrige traduccion de ventanas de items.
-	      Se corrige la tabulacion de los comandos {SHOW POWERS, SHOW
-	      ITEMS, SHOW MAPS}.
-	      Se maneja error al no poder cargar tkSound al no tener las librerias
-	      snacklib tras detener la ejecucion de una música cuando no se han
- 	      instanciado las librerias pertinentes.
-	      Se corrige formato de comandos.
-	      Se borran espacios innecesarios en el codigo.
-	      Los textos se traducen solo una vez.
-	      Se agrega traduccion a los dialogos de los npc.
-	      El comando clear es valido aun cuando no se haya cargado
-	      una partida, demas elimina el historial de comandos ejecutados.
+		Servidor!
+		Nuevo comando: CONNECT, permite la conexion a un servidor.
+		Nuevo archivo: server.py, server.exe.
+		Manejo de errores asociado a las conexiones por servidor.
+		Reorganizacion del codigo en forma alfabética de hoa.py.
+		Se agregan mensajes de error al ingresar formularios.
+		Correccion de error fatal al aplicar stopSound() cuando no
+		tenia la libreria snacklib en tcl/.
+		Se corrige formato de mensajes de error.
+		Se corrigen errores al cargar mapas.
+		Se avisa cuando se cree una nueva partida o se intente cargar
+		una mientras esté iniciada una sesion multijugador.
+		Nuevo comando: TOP, permite hacer un scrolling de la ventana
+		de comandos hasta el principio.
+		Se corrigen errores en mensajes.
+		Se corrige error en la carga de idiomas.
+		Se corrige error en la configuracion de las traducciones
+		online.
+		Al apagar la música mediante la configuracion se detiene
+		automaticamente.
+		Se agregan funciones "prevcommands" a la ventana de comandos,
+		ahora al presionar "arriba" y "abajo" se desplegaran en pantalla
+		los últimos comandos ejecutados.
+		Se corrige error en el servicio de traducciones.
+		Se modifica carga del argumento "-enabletranslation".
+		Se modifican funciones lib.
+		Se corrige traduccion de ventanas de items.
+		Se corrige la tabulacion de los comandos {SHOW POWERS, SHOW
+		ITEMS, SHOW MAPS}.
+		Se maneja error al no poder cargar tkSound al no tener las librerias
+		snacklib tras detener la ejecucion de una música cuando no se han
+		instanciado las librerias pertinentes.
+		Se corrige formato de comandos.
+		Se borran espacios innecesarios en el codigo.
+		Los textos se traducen solo una vez.
+		Se agrega traduccion a los dialogos de los npc.
+		El comando clear es valido aun cuando no se haya cargado
+		una partida, demas elimina el historial de comandos ejecutados.
 
 	[0.4.8]
-	      Creacion de salas servidor.
-	      Se puede unir a una sala en un servidor.
-	      Correccion de error terminal servidor al cerrar un cliente de forma
- 	      brusca.
-	      Correccion de historial de comandos.
-	      Se agrega historial a la conexion de los servidores.
-	      Eliminacion de errores al unirse a un servidor.
-	      Se redimensionan ventanas de error.
-	      Correcciones varias del codigo fuente.
-	      Eliminacion de comentarios.
-	      Introduccion al combate grupal de la computadora.
-	      Optimizacion del codigo fuente.
-	      Eliminacion de archivos no utilizados.
+		Creacion de salas servidor.
+		Se puede unir a una sala en un servidor.
+		Correccion de error terminal servidor al cerrar un cliente de forma
+		brusca.
+		Correccion de historial de comandos.
+		Se agrega historial a la conexion de los servidores.
+		Eliminacion de errores al unirse a un servidor.
+		Se redimensionan ventanas de error.
+		Correcciones varias del codigo fuente.
+		Eliminacion de comentarios.
+		Introduccion al combate grupal de la computadora.
+		Optimizacion del codigo fuente.
+		Eliminacion de archivos no utilizados.
 
 	[0.4.9]
-	      Se agregan sonidos al desplazar a los jugadores en el modo de combate
-	      grupal.
-	      Se modifica el movimiento de los followers.
-	      La maxima distancia del follower medio se modifica a 1.
-	      La maxima distancia de los mobs esta definida en funcion de la
-	      dificultad del juego.
-	      Se imprimen los movimiento de los mobs en el modo de combate grupal.
-	      Se comprueba el tamaño de la pantalla antes de iniciar el juego.
-	      Se corrige errores en el titulo de la aplicacion al cargar una partida.
-	      Se corrigen errores en ciertos comandos.
-	      Se corrigen errores al guardar una partida.
-	      Se corrigen errores al cargar ciertos sonidos de fondo.
-	      Introduccion a los movimientos de los mobs en el modo de combate grupal.
-	      La barra de vida del jugador principal se modifica en el modo de combate
-	      grupal.
-	      Nuevos sonidos de magia.
-	      Se introduce el ataque derecho en el modo de combate grupal.
-	      Correccion de ingreso al servidor.
-	      Los comandos cargados se ponen en mayusculas.
-	      Las partidas guardadas ahora seran guardadas en minúscula.
-	      Las texturas de los seguidores varia en funcion del tipo de jugador.
-	      Las armas y la municion de los seguidores varia en funcion del tipo
-	      de jugador.
-	      El sonido del ataque varia en funcion del arma utilizada.
-	      Se modifican ciertos aspectos numéricos en la definicion de la dificultad
-	      del juego para el modo de combate grupal.
-	      Se introducen texturas de ataque magico.
-	      Se corrige dimension de la interfaz grafica.
-	      Los movimientos de los seguidores varia en funcion de la dificultad.
-	      El alcance de los seguidores y de los enemigos varia en funcion de la
-	      dificultad.
-	      El alcance de las flechas varia en funcion de la dificultad para el modo
-	      de combate grupal.
-	      El tiempo de ejecucion de partial para el movimiento de imagenes ahora
-	      esta en funcion del benchmark inicial.
-	      Se separan las texturas del board a parametros constantes.
+		Se agregan sonidos al desplazar a los jugadores en el modo de combate
+		grupal.
+		Se modifica el movimiento de los followers.
+		La maxima distancia del follower medio se modifica a 1.
+		La maxima distancia de los mobs esta definida en funcion de la
+		dificultad del juego.
+		Se imprimen los movimiento de los mobs en el modo de combate grupal.
+		Se comprueba el tamaño de la pantalla antes de iniciar el juego.
+		Se corrige errores en el titulo de la aplicacion al cargar una partida.
+		Se corrigen errores en ciertos comandos.
+		Se corrigen errores al guardar una partida.
+		Se corrigen errores al cargar ciertos sonidos de fondo.
+		Introduccion a los movimientos de los mobs en el modo de combate grupal.
+		La barra de vida del jugador principal se modifica en el modo de combate
+		grupal.
+		Nuevos sonidos de magia.
+		Se introduce el ataque derecho en el modo de combate grupal.
+		Correccion de ingreso al servidor.
+		Los comandos cargados se ponen en mayusculas.
+		Las partidas guardadas ahora seran guardadas en minúscula.
+		Las texturas de los seguidores varia en funcion del tipo de jugador.
+		Las armas y la municion de los seguidores varia en funcion del tipo
+		de jugador.
+		El sonido del ataque varia en funcion del arma utilizada.
+		Se modifican ciertos aspectos numéricos en la definicion de la dificultad
+		del juego para el modo de combate grupal.
+		Se introducen texturas de ataque magico.
+		Se corrige dimension de la interfaz grafica.
+		Los movimientos de los seguidores varia en funcion de la dificultad.
+		El alcance de los seguidores y de los enemigos varia en funcion de la
+		dificultad.
+		El alcance de las flechas varia en funcion de la dificultad para el modo
+		de combate grupal.
+		El tiempo de ejecucion de partial para el movimiento de imagenes ahora
+		esta en funcion del benchmark inicial.
+		Se separan las texturas del board a parametros constantes.
 
 	[0.5.0]
-	      Nuevo sistema operativo soportado: mac-os y linux.
-	      Nueva funcion: isWindows() que permite comprobar distintos sistemas cliente.
-	      Redimension de elementos graficos en funcion del sistema cliente.
-	      Reorganizacion de librerias.
-              Correccion ortografica del changelog, adicionalmente se corrigen elementos
-              no utf-8 permitiendo su lectura en sistemas posix.
-	      Eliminacion de acentos en el changelog.
+		Nuevo sistema operativo soportado: mac-os y linux.
+		Nueva funcion: isWindows() que permite comprobar distintos sistemas cliente.
+		Redimension de elementos graficos en funcion del sistema cliente.
+		Reorganizacion de librerias.
+		Correccion ortografica del changelog, adicionalmente se corrigen elementos
+		no utf-8 permitiendo su lectura en sistemas posix.
+		Eliminacion de acentos en el changelog.
 
 	[0.5.1]
-	      Correccion de error al mover texturas en el canvas debido a la actuali-
-	      zacion de Tkinter en las versiones nuevas de Python, la cual la funcion
-	      after consulta el parametro __name__ del argumento.
-              Modificacion de los mensajes flash, se alarga el tiempo de eliminacion.
-	      Se corrigen bugs de la funcion amir.
-	      Actualizacion de la biblioteca PIL incluida en la libreria del software.
-	      Recorreccion de la funcion arrastrarImagen.
-              Se corrigen dimensiones de las ventanas.
-              Se corrige srolling de la consola.
+		Correccion de error al mover texturas en el canvas debido a la actuali-
+		zacion de Tkinter en las versiones nuevas de Python, la cual la funcion
+		after consulta el parametro __name__ del argumento.
+		Modificacion de los mensajes flash, se alarga el tiempo de eliminacion.
+		Se corrigen bugs de la funcion amir.
+		Actualizacion de la biblioteca PIL incluida en la libreria del software.
+		Recorreccion de la funcion arrastrarImagen.
+		Se corrigen dimensiones de las ventanas.
+		Se corrige srolling de la consola.
 
 	[0.5.2]
-	      Adopcion parcial del formato PEP-8.
-	      Formateo total del codigo.
-	      Documentadas todas las funciones y clases.
-	      Se corrigen directorios, se mueven licence y changelog a la raiz y se
-	      renombra lib/ por bin/.
-	      Refactorizacion parcial de principales funciones.
-	      Se corrigen errores en la terminal para OSX.
-              Reestructuracion de la UI en OSX.
+		Adopcion parcial del formato PEP-8.
+		Formateo total del codigo.
+		Documentadas todas las funciones y clases.
+		Se corrigen directorios, se mueven licence y changelog a la raiz y se
+		renombra lib/ por bin/.
+		Refactorizacion parcial de principales funciones.
+		Se corrigen errores en la terminal para OSX.
+		Reestructuracion de la UI en OSX.
 
 	[0.5.3]
-	      Reformateado formato de argumentos.
-	      Reformateado comando de ayuda —-help.
-	      Reformateo de directorios, se agrega el directorio lib/ el cual contiene
-	      todos los archivos logicos del juego.
-	      Nuevo comando: —-config.
-	      Reformateo en error printing, se agregan colores a la consola.
-	      Reformateo de archivos .py en bin/.
-	      Solucion de errores en el argumento .delpyc.
-	      El ‘resource printing’ esta sujeto a configuraciones.
-	      Solucion de error en key binding de funciones en la UI.
-	      Nuevos archivos: <release>, <color>, <errors>, <main>, <map editor>.
-	      Se modifica lanzador por defecto.
-	      El logo se imprime desplazado 20 caracteres en vez de console.width/2.
+		Reformateado formato de argumentos.
+		Reformateado comando de ayuda —-help.
+		Reformateo de directorios, se agrega el directorio lib/ el cual contiene
+		todos los archivos logicos del juego.
+		Nuevo comando: —-config.
+		Reformateo en error printing, se agregan colores a la consola.
+		Reformateo de archivos .py en bin/.
+		Solucion de errores en el argumento .delpyc.
+		El ‘resource printing’ esta sujeto a configuraciones.
+		Solucion de error en key binding de funciones en la UI.
+		Nuevos archivos: <release>, <color>, <errors>, <main>, <map editor>.
+		Se modifica lanzador por defecto.
+		El logo se imprime desplazado 20 caracteres en vez de console.width/2.
 
 	[0.5.4]
-	      Reformateo de codigo a estandares PEP-8.
-	      Arreglo de importacion PIL en OSX.
-	      Correccion en dimensiones de ventana en OSX.
-	      Se agrupan las imagenes en paquetes .data para minimizar numero
-	      de archivos.
+		Reformateo de codigo a estandares PEP-8.
+		Arreglo de importacion PIL en OSX.
+		Correccion en dimensiones de ventana en OSX.
+		Se agrupan las imagenes en paquetes .data para minimizar numero
+		de archivos.
 
 	[0.5.5]
-	  	  Actualizacion de variables, reorganizacion de importaciones.
-		  Se agregan nuevas etiquetas para pydev.
-		  Se elimina import de pygame.
+		Actualizacion de variables, reorganizacion de importaciones.
+		Se agregan nuevas etiquetas para pydev.
+		Se elimina import de pygame.
 
     [0.5.6]
-  	      Se agrega soporte para Linux y cygwin.
-		  Se arregla la importacion de python imaging library.
-		  Se corrige dimension de ventanas para los sistemas posix.
-		  Se corrige slider de windows.
-		  Nuevo sistema de mensajeria de erorres.
-		  Se corrigen entradas del diccionario.
-		  Se recorrigen librerias e importaciones.
-		  Se corrige entrada de directorios en _actualpath.
-		  Se agrega nueva entrada en gitignore para evitar .stackdumps
-		  Se corrige error al cargar iconos de ventana en sistemas posix.
-		  Se eliminan variable sin usar en lib y hoa.
-		  Se eliminan mensajes sin uso.
+		Se agrega soporte para Linux y cygwin.
+		Se arregla la importacion de python imaging library.
+		Se corrige dimension de ventanas para los sistemas posix.
+		Se corrige slider de windows.
+		Nuevo sistema de mensajeria de erorres.
+		Se corrigen entradas del diccionario.
+		Se recorrigen librerias e importaciones.
+		Se corrige entrada de directorios en _actualpath.
+		Se agrega nueva entrada en gitignore para evitar .stackdumps
+		Se corrige error al cargar iconos de ventana en sistemas posix.
+		Se eliminan variable sin usar en lib y hoa.
+		Se eliminan mensajes sin uso.
+
+	[0.5.7]
+		Modificado estilo de header de cada archivo.
+		Se corrigieron errores asociados a PEP-8.

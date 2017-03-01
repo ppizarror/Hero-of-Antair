@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Texturas de los items
+"""
+TEXTURE ITEMS
+Texturas de los items.
 
-# TEXTURE ITEMS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2014-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2014-2015, 2017
+Licencia: GPLv2
+"""
 
 # Constantes del programa
 from texture_conts import DATA_IMAGES_ITEMS

@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-#
-# Desactiva el canal de salida de python
+"""
+NOSTDOUT
+Desactiva el canal de salida de python.
 
-# NOSTDOUT
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: ENERO 2014
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: ENERO 2014, 2017
+Licencia: GPLv2
+"""
 
 
-class noStdOut:
-
+class noStdOut(object):
     def __init__(self): pass
 
     def write(self, data): pass

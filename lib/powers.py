@@ -1,11 +1,12 @@
 # coding=utf-8
-#
-# Poderes del jugador
+"""
+POWERS
+Poderes del jugador.
 
-# POWERS
-# Autor: PABLO PIZARRO @ ppizarro
-# Fecha: 2014-2015
-# Licencia: GPLv2
+Autor: PABLO PIZARRO @ ppizarror
+Fecha: 2014-2015, 2017
+Licencia: GPLv2
+"""
 
 # Constantes del programa
 POWERSEP = ";"
