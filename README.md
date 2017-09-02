@@ -50,13 +50,16 @@ Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la p
 Hero of Antair funciona en Windows, Mac OS, Linux e incluso en Cygwin!
 
 ## Ejecutar
-Para correr el juego ingrese en la terminal: _python main.py_
+Para correr el juego ingrese en la terminal: 
+```python
+python main.py
+```
 
 ## Licencia
-Este proyecto está licenciado bajo [GPLv2 (GNU General Public License, version 2)][12].
+Este proyecto está licenciado bajo GPLv2 (GNU General Public License, version 2) [https://www.gnu.org/licenses/gpl-2.0.html].
 
 ## Autor
-Pablo Pizarro, 2013-2016
+<a href="http://ppizarror.com">Pablo Pizarro R.</a>, 2013-2016.
 
 [1]:	https://docs.python.org/2/library/tkinter.html
 [2]:	https://pypi.python.org/pypi/pyperclip
@@ -69,8 +72,7 @@ Pablo Pizarro, 2013-2016
 [9]:	http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
 [10]:	http://newcenturycomputers.net/projects/wconio.html
 [11]:	https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
-[12]:	https://www.gnu.org/licenses/gpl-2.0.html
 
-[image-1]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/7d25a7df4feb37b8c9385e18a3e8e20642920c7f/resources/images/hoa/captura1.png "Una ventana cualquiera"
-[image-2]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/hoa/editor1.png "Editor de mapas"
-[image-3]:	https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/resources/images/hoa/editor2.png "Muchas opciones!"
+[image-1]: http://ppizarror.com/resources/images/hoa/captura1.png "Una ventana cualquiera"
+[image-2]: http://ppizarror.com/resources/images/hoa/editor1.png "Editor de mapas"
+[image-3]: http://ppizarror.com/resources/images/hoa/editor2.png "Muchas opciones!"
