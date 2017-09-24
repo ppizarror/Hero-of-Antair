@@ -1,15 +1,3 @@
-<h1 align="center">
-  <a href="http://ppizarror.com/Hero-of-Antair/" title="Hero of Antair">
-    <img alt="Hero of Antair" src="https://github.com/ppizarror/Hero-of-Antair/raw/master/data/images/gui/hoa.jpg" width="460px" height="215px" />
-  </a>
-  <br /><br />
-  Hero of Antair</h1>
-<p align="center">Proyecto RPG en 2d creado en python-tkinter</p>
-<div align="center"><a href="http://ppizarror.com"><img alt="@ppizarror" src="http://ppizarror.com/badges/autor.svg" /></a>
-<a href="https://www.gnu.org/licenses/gpl-2.0.html/"><img alt="Licencia GPL v2" src="http://ppizarror.com/badges/licenciagpl2.svg" /></a>
-<a href="https://www.python.org/downloads/"><img alt="Python 2.7" src="http://ppizarror.com/badges/python27.svg" /></a>
-</div><br />
-
 Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando la librería gráfica Tkinter.
 
 ## Descripción
@@ -76,6 +64,3 @@ Este proyecto está licenciado bajo GPLv2 (GNU General Public License, version 2
 [image-1]: http://ppizarror.com/resources/images/hoa/captura1.png "Una ventana cualquiera"
 [image-2]: http://ppizarror.com/resources/images/hoa/editor1.png "Editor de mapas"
 [image-3]: http://ppizarror.com/resources/images/hoa/editor2.png "Muchas opciones!"
-
-## Autor
-<a href="http://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2013 - 2016
