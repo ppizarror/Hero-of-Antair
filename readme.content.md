@@ -25,7 +25,7 @@ Su utilización es muy sencilla, ¡solo basta hacer clic en el elemento añadir 
 - Ruso
 - Tailandés
 
-Las traducciones fuera del Español fueron realizadas con el traductor de google, por lo tanto pueden contener errores.
+Las traducciones fuera del Español fueron realizadas con el traductor de google, por lo tanto pueden contener errores
 
 ## Requisitos
 Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la plataforma de Python 2.7, adicionalmente se utilizan las siguientes librerías, las cuales se incluyen dentro del proyecto:
