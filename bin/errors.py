@@ -32,7 +32,7 @@ ST_ERROR = "[ERR]"
 ST_INFO = "[INF]"
 ST_WARNING_ID = "[ERR][{0}]"
 ST_WARNING = "[WRN]"
-WRAP_ERROR_MSG = 71
+WRAP_ERROR_MSG = 120
 
 
 def st_error(msg, callExit=False, module=None, errname=None):

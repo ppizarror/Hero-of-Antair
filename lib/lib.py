@@ -460,7 +460,7 @@ def checkScreen(window, config, msg):
     """
     # Se comprueba el tamaño de la pantalla
     if (window.winfo_screenwidth() < config[0]) or (
-        window.winfo_screenheight() < config[1]):
+            window.winfo_screenheight() < config[1]):
         st_error(msg, True)
 
 
@@ -800,21 +800,20 @@ def loadFromArchive(archive, lang="Cargando archivo '{0}' ...",
     """
     if showState and VERBOSE_FILELOAD:
         print lang.format(
-            "(...)" + archive[CONSOLE_WRAP:].replace("//", "/")).replace("\"",
-                                                                         ""),
+            "(...)" + archive[CONSOLE_WRAP:].replace("//", "/")).replace("\"", ""),
     try:
-        l = list()
+        lst = list()
         archive = open(archive, "r")
         for i in archive:
-            l.append(i.decode('utf-8').strip())
+            lst.append(i.decode('utf-8').strip())
         archive.close()
         if showState and VERBOSE_FILELOAD:
             print "ok"
     except:
         if showState and VERBOSE_FILELOAD:
             print "error"
-        l = []
-    return l
+        lst = []
+    return lst
 
 
 # noinspection PyUnboundLocalVariable,PyShadowingBuiltins
@@ -921,7 +920,7 @@ def lookPrimaryArguments(data=None):
                 listedfiles = []
                 totallines = []
                 for file in os.listdir(
-                                _actualpath + "/lib/"):  # @ReservedAssignment
+                        _actualpath + "/lib/"):  # @ReservedAssignment
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/lib/" + file, "r")
@@ -931,7 +930,7 @@ def lookPrimaryArguments(data=None):
                         totallines.append(total)
                         total = 0
                 for file in os.listdir(
-                                _actualpath + "/bin/"):  # @ReservedAssignment
+                        _actualpath + "/bin/"):  # @ReservedAssignment
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/bin/" + file, "r")
@@ -1063,17 +1062,17 @@ def lookPrimaryArguments(data=None):
         pass
 
 
-def makeCallable(function):
+def makeCallable(fn):
     """
     Función que crea una función llamable
-    :param function: Puntero a función
+    :param fn: Puntero a función
     :return: Función
     """
     try:
-        function.__name__ = generateRandom6()
+        fn.__name__ = generateRandom6()
     except:
         pass
-    return function
+    return fn
 
 
 def parseObject(a):
@@ -1246,8 +1245,7 @@ def libstartUp():
     Función destinada a la primera ejecución del programa
     :return: void
     """
-    if not ((
-                        "-launcher" in sys.argv or "-eclipse" in sys.argv or "-cmd" in sys.argv) or len(
+    if not (("-launcher" in sys.argv or "-eclipse" in sys.argv or "-cmd" in sys.argv) or len(
             sys.argv) == 1) and not DEV_MODE:  # Se comprueba el lanzador
         sys.stderr.write("Error :: Lanzador no valido\n")
         exit()
@@ -1260,13 +1258,10 @@ def libstartUp():
         version_actual = "(version actual: {0}.{1}.{2})\n".format(
             sys.version_info.major, sys.version_info.minor,
             sys.version_info.micro)
-        st_error(
-            "HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
+        st_error("HOA solo puede ejecutarse en versiones 2.7.x de Python " + version_actual)
         try:
             url = "https://www.python.org/download/releases/"
-            sys.stderr.write(
-                "Redirigiendo a la pagina de descargas de Python <{0}>\n".format(
-                    url))
+            sys.stderr.write("Redirigiendo a la pagina de descargas de Python <{0}>\n".format(url))
             time.sleep(2)
             webbrowser.open(url)
         except:
