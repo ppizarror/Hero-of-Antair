@@ -4,7 +4,7 @@ TEXTURE ANALYSIS
 ID de las texturas.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2014-2015, 2017
+Fecha: 2014-2015, 2017-2018
 Licencia: GPLv2
 """
 

@@ -10,7 +10,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Constantes del programa
 MOB_SEPARATOR = "/__/"
@@ -195,7 +195,7 @@ class mob(object):
             else:  # Si no se mueden mover infinitamente
                 if self.persigue:  # Si el mob persigue al jugador
                     if abs(px - self.initPos[0]) <= self.distance and abs(
-                                    py - self.initPos[1]) <= self.distance:
+                            py - self.initPos[1]) <= self.distance:
                         if px > self.posicion[0]:
                             p_x = min(
                                 self.posicion[0] + self.velocidad,

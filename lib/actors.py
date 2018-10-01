@@ -396,9 +396,9 @@ class actors(object):
         Quitar armadura completa
         :return: void
         """
-        for i in range(4):  # @UnusedVariable
+        for i in range(4):
             self.armor.pop(0)
-        for i in range(4):  # @UnusedVariable
+        for i in range(4):
             self.armor.append(None)
 
     def dropItems(self):
@@ -406,9 +406,9 @@ class actors(object):
         Eliminar todos los items del jugador
         :return: void
         """
-        l = len(self.items)
-        if l > 0:
-            for i in range(l):  # @UnusedVariable
+        lt = len(self.items)
+        if lt > 0:
+            for i in range(lt):
                 self.items.pop(0)
 
     def dropPowers(self):
@@ -416,9 +416,9 @@ class actors(object):
         Elimina todos los poderes del jugador
         :return: void
         """
-        l = len(self.powers)
-        if l > 0:
-            for i in range(l):  # @UnusedVariable
+        lt = len(self.powers)
+        if lt > 0:
+            for i in range(lt):
                 self.powers.pop(0)
 
     def dropMagics(self):
@@ -426,9 +426,9 @@ class actors(object):
         Elimina todas las magias
         :return: void
         """
-        l = len(self.magic)
-        if l > 0:
-            for i in range(l):  # @UnusedVariable
+        lt = len(self.magic)
+        if lt > 0:
+            for i in range(lt):
                 self.magic.pop(0)
 
     def kill(self):
@@ -1069,9 +1069,9 @@ class actors(object):
         Elimina las quest
         :return: void
         """
-        l = len(self.playerquest)
-        if l > 0:
-            for i in range(l):  # @UnusedVariable
+        lt = len(self.playerquest)
+        if lt > 0:
+            for i in range(lt):
                 self.playerquest.pop()
 
     def getTotalQuest(self):

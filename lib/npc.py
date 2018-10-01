@@ -10,7 +10,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Constantes del programa
 NPC_SEPARATOR = "{npcsep}"

@@ -11,7 +11,7 @@ Licencia: GPLv2
 # Importación de librerías
 import select
 import uuid
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Constantes del programa
 AUTOR_NAME = "Pablo Pizarro"
@@ -126,7 +126,7 @@ class Server(object):
         while True:
             time.sleep(DELAY)
             inputr, outputr, exceptr = select.select(self.input_list, [],
-                                                     [])  # @UnusedVariable
+                                                     [])
             for self.s in inputr:
                 if self.s == self.server:
                     self.on_accept()

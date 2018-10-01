@@ -9,7 +9,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerias
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Constantes del programa
 if isWindows():
@@ -402,7 +402,7 @@ class pop(object):
             armamento = properties[6][0]
             armamento.sort()
             fp = properties[6][1]
-            sp = properties[6][2]  # @UnusedVariable
+            sp = properties[6][2]
             if "bullet" in tipo:
                 f = Frame(self.w, border=3)
                 f.pack(fill=X)
@@ -1102,9 +1102,9 @@ class pop(object):
                             "license"]:
             print "Recurso [{0}] ...".format(properties[5].replace("//", "/")),
             try:
-                name = properties[6]  # @UnusedVariable
+                name = properties[6]
             except:
-                name = ""  # @UnusedVariable
+                name = ""
             archivo = open(properties[5], "r")
             Yscroll = Scrollbar(self.w, orient=VERTICAL, highlightthickness=0)
             Yscroll.pack(side=RIGHT, fill=Y)

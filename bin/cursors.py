@@ -10,7 +10,7 @@ Licencia: GPLv2
 """
 
 # Importacion de librerias
-from Tkinter import *  # @UnusedWildImport
+from Tkinter import *  
 from functools import partial
 
 # Cargo los cursores disponibles

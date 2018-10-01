@@ -12,9 +12,7 @@ Licencia: GPLv2
 import os
 
 # Constantes del programa
-ACTUAL_FOLDER = str(
-    os.path.abspath(os.path.dirname(__file__))).replace("\\", "/").replace(
-    "lib", "")
+ACTUAL_FOLDER = str(os.path.abspath(os.path.dirname(__file__))).replace("\\", "/").replace("lib", "")
 AUDIO_VOLUME = 80
 DATA_FOLDER = ACTUAL_FOLDER + "data/"
 DATA_SOUND = DATA_FOLDER + "sound/"

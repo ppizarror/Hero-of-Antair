@@ -9,7 +9,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerias
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Constantes del programa
 if isWindows():
@@ -1397,7 +1397,7 @@ class pop(object):
                 # Si el id es un número, la vida es un numero y el stackable es
                 # un booleano y las propiedades estan separadas por una coma
                 if e.isdigit() and g.isdigit() and (
-                                f.upper() == "TRUE" or f.upper() == "FALSE"):
+                        f.upper() == "TRUE" or f.upper() == "FALSE"):
                     if len(b) == 0:
                         b = "No hay una descripcion disponible"
                     else:
@@ -1583,7 +1583,7 @@ class pop(object):
         # Si ambos campos estan vacios o ambos campos no estan vacios o hay un
         # mapa que no necesita llaves
         if (a == "" and b == "") or (len(a) > 0 and len(b) > 0) or (
-                        len(a) > 0 and len(b) == 0):
+                len(a) > 0 and len(b) == 0):
             if (".lvl" not in a) and len(a) > 0:
                 # Se le agrega .lvl al nombre del mapa en caso que exista
                 a += ".lvl"

@@ -60,8 +60,8 @@ sys.path.append(_actualpath + "/bin/simplejson/")
 sys.path.append(_actualpath + "/bin/wconio/")
 
 # Importación de librerías del sistema
-from config import *  # @UnusedWildImport
-from errors import *  # @UnusedWildImport
+from config import *
+from errors import *
 from noStdOut import *
 from pympler import summary, muppy  # @UnusedImport
 import simplejson  # @UnusedImport
@@ -73,9 +73,9 @@ _wconio = True
 _winsound = True
 
 try:
-    from Tkinter import *  # @UnusedWildImport
-    from VerticalScrolledFrame import *  # @UnusedWildImport
-    from tkFileDialog import *  # @UnusedWildImport
+    from Tkinter import *
+    from VerticalScrolledFrame import *
+    from tkFileDialog import *
     import tkFont  # @UnusedImport
     import tkMessageBox  # @UnusedImport
 except Exception, e:
@@ -86,24 +86,23 @@ except Exception, e:
 # Librerias depentientes del SO
 if os.name == "nt":
     sys.path.append(_actualpath + "data/images/")
-    from pil import Image, ImageTk  # @UnusedImport @Reimport @UnresolvedImport
+    from pil import Image, ImageTk
 else:
     try:
-        from PIL import Image  # @UnusedImport @UnresolvedImport @Reimport
+        from PIL import Image
     except:
         try:
             sys.path.append(_actualpath + "data/images/")
-            from pil import Image  # @UnusedImport @Reimport @UnresolvedImport
+            from pil import Image
         except Exception, e:
             st_error(
                 "La libreria PIL no se encuentra disponible en su ordenador, pruebe instalando Pillow",
                 True, "lib.py", e)
     try:
-        from PIL import ImageTk  # @UnusedImport @UnresolvedImport @Reimport
+        from PIL import ImageTk
     except:
         try:
-            from pil import \
-                ImageTk  # @UnusedImport @Reimport @UnresolvedImport
+            from pil import ImageTk
         except Exception, e:
             st_error(
                 "La libreria python-imaging-tk no se encuentra disponible en su ordenador",
@@ -566,7 +565,7 @@ def delMatrix(matrix):
     """
     a = len(matrix)
     if a > 0:
-        for k in range(a):  # @UnusedVariable
+        for k in range(a):
             matrix.pop(0)
 
 
@@ -597,7 +596,7 @@ def generateRandom6():
     :return: String
     """
     return ''.join(
-        choice(string.ascii_uppercase) for i in range(6))  # @UnusedVariable
+        choice(string.ascii_uppercase) for i in range(6))
 
 
 def generateRandom12():
@@ -606,7 +605,7 @@ def generateRandom12():
     :return: String
     """
     return ''.join(
-        choice(string.ascii_uppercase) for i in range(12))  # @UnusedVariable
+        choice(string.ascii_uppercase) for i in range(12))
 
 
 def getBetweenTags(html, tagi, tagf):
@@ -924,7 +923,7 @@ def lookPrimaryArguments(data=None):
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/lib/" + file, "r")
-                        for l in archv:  # @UnusedVariable
+                        for l in archv:
                             total += 1
                         archv.close()
                         totallines.append(total)
@@ -934,7 +933,7 @@ def lookPrimaryArguments(data=None):
                     if ".py" in file and ".pyc" not in file:
                         listedfiles.append(file)
                         archv = open(_actualpath + "/bin/" + file, "r")
-                        for l in archv:  # @UnusedVariable
+                        for l in archv:
                             total += 1
                         archv.close()
                         totallines.append(total)
@@ -1112,7 +1111,7 @@ def printAsciiArtHOA():
         WConio.clrscr()
     try:
         # se obtiene el largo de la consola para dejarlo centrado
-        (width, height) = getTerminalSize()  # @UnusedVariable
+        (width, height) = getTerminalSize()
         asciiart = open("data/doc/other/asciiart.txt", "r")
         _aligned = False
         if _aligned:
@@ -1136,7 +1135,7 @@ def printAsciiArtME():
         WConio.clrscr()
     try:
         # se obtiene el largo de la consola para dejarlo centrado
-        (width, height) = getTerminalSize()  # @UnusedVariable
+        (width, height) = getTerminalSize()
         asciiart = open("data/doc/other/asciiartm.txt", "r")
         for i in asciiart:
             print " " * (int((width - 26) / 2) - 1), i.rstrip()
@@ -1154,7 +1153,7 @@ def printAsciiArtServer():
         WConio.clrscr()
     try:
         # se obtiene el largo de la consola para dejarlo centrado
-        (width, height) = getTerminalSize()  # @UnusedVariable
+        (width, height) = getTerminalSize()
         asciiart = open("data/doc/other/asciiartserver.txt", "r")
         for i in asciiart:
             print " " * (int((width - 26) / 2) - 1), i.rstrip()

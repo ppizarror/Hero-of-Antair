@@ -9,7 +9,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías de alto nivel
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Constantes del programa
 ITEMSEPARATOR = "/_/"

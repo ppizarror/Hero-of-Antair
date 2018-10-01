@@ -9,9 +9,9 @@ Licencia: GPLv2
 """
 
 # Importación de librerias
-from Tkinter import PhotoImage  # @UnusedImport
-import os  # @UnusedImport
-from textures import *  # @UnusedWildImport
+from Tkinter import PhotoImage
+import os
+from textures import *
 
 # Constantes
 # Actores / Mobs
@@ -1529,7 +1529,7 @@ def logicTileCorrection(data, j, k, logic_matrix, texture_matrix):
     :return: void
     """
     data = data.split("-")
-    id = int(data[1])  # @ReservedAssignment
+    id = int(data[1])
     logic = data[0] + "-copy(" + str(id) + "%" + str(j) + "%" + str(k) + ")"
     if len(data) > 2:
         logic += "-" + data[2]

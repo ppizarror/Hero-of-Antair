@@ -10,8 +10,8 @@ Licencia: GPLv2
 """
 
 # Importación de librerías
-from group import *  # @UnusedWildImport
-from lib import *  # @UnusedWildImport
+from group import *
+from lib import *
 
 # Constantes del programa
 BASE_ENEMIES = {"FACIL": 0, "MEDIO": 5, "DIFICIL": 10}
@@ -219,7 +219,7 @@ class board(object):
         :return: void
         """
         total_friends = (
-                        self.player.getLightFriends() + self.player.getMediumFriends() + self.player.getStrongFriends()) + \
+                                self.player.getLightFriends() + self.player.getMediumFriends() + self.player.getStrongFriends()) + \
                         BASE_ENEMIES[self.dificultad]
         total_mobs = int(total_friends * ENEMY_COEFICIENT[self.dificultad])
         if self.enemies.getTipoAtaque() == "LARGO":
@@ -267,7 +267,7 @@ class board(object):
             self.mapitems.append(["None"] * ancho)
             self.maplight.append([0] * ancho)
             self.maplogics.append(["none"] * ancho)
-        for i in range(alto + 2):  # @UnusedVariable
+        for i in range(alto + 2):
             self.mapsound.append([0] * (ancho + 2))
         # se disminuye en 1 dado que ahora se trabaja en matrices
         self.boardSize[0] = alto - 1
@@ -275,14 +275,14 @@ class board(object):
         self.boardSize[1] = ancho - 1
         if BOARD_LIMIT[1] > (self.boardSize[1] + 1):
             self.boardCorrecion[0] = (
-                                         BOARD_LIMIT[1] - self.boardSize[
-                                             1] - 1) * 16 + 32  # Horizontal
+                                             BOARD_LIMIT[1] - self.boardSize[
+                                         1] - 1) * 16 + 32  # Horizontal
         else:
             self.boardCorrecion[0] = 32
         if BOARD_LIMIT[0] > (self.boardSize[0] + 1):
             self.boardCorrecion[1] = (
-                                         BOARD_LIMIT[0] - self.boardSize[
-                                             0] - 1) * 16 + 32  # Vertical
+                                             BOARD_LIMIT[0] - self.boardSize[
+                                         0] - 1) * 16 + 32  # Vertical
         else:
             self.boardCorrecion[1] = 32
 
@@ -379,9 +379,9 @@ class board(object):
         for i in range(cant):  # Se agregan cant posiciones @UnusedVariable
             pos_obstacles.append([random.randint(2 + int(len(self.mobs) / 16),
                                                  max(2, self.boardSize[1] - (
-                                                     2 + int(
-                                                         len(
-                                                             self.mobs) / 16)))),
+                                                         2 + int(
+                                                     len(
+                                                         self.mobs) / 16)))),
                                   random.randint(0, self.boardSize[0])])
         for pos in pos_obstacles:  # Se agregan elementos a los mapas lógicos y gráficos
             self.maplogics[pos[1]][pos[0]] = "obs"

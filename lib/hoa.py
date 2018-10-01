@@ -9,7 +9,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías de alto nivel
-from lib import *  # @UnusedWildImport
+from lib import *
 from release import *
 
 # Inicio del sistema
@@ -32,14 +32,14 @@ print "\nAutor: " + AUTOR_NAME
 print "\nCargando librerias ...",
 try:
     from actors import actors
-    from board import *  # @UnusedWildImport
-    from item import *  # @UnusedWildImport
+    from board import *
+    from item import *
     from mob import mob, MOB_SEPARATOR, TIME_MOVE_MOBS_NORMAL
     from npc import npc, NPC_SEPARATOR, NPC_TIME_MOVEMENT
     from pop import pop
     from powers import *
-    from sounds import *  # @UnusedWildImport
-    from textures import *  # @UnusedWildImport
+    from sounds import *
+    from textures import *
     import statics
     import zipfile  # @Reimport
 except Exception, e:
@@ -2536,7 +2536,7 @@ class hoa(object):
                         if tipo == "PL":
                             flecha = self.world.create_image(
                                 25 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                # @UnusedVariable
+
                                 self.board.getBoardCorreccionY() + 32 * newposy + 25,
                                 image=self.images.image(
                                     self.player.getLeftWeapon().getImage() + "_16"),
@@ -2544,7 +2544,7 @@ class hoa(object):
                         else:
                             flecha = self.world.create_image(
                                 25 + 32 * newposx + self.board.getBoardCorreccionX(),
-                                # @UnusedVariable
+
                                 self.board.getBoardCorreccionY() + 32 * newposy + 25,
                                 image=self.images.image(
                                     self.board.getWeapon()),
@@ -3006,7 +3006,7 @@ class hoa(object):
                 if tipo == "PL":  # Si es el jugador se dibuja la flecha cargada
                     flecha = self.world.create_image(
                         18 + 32 * xo + self.board.getBoardCorreccionX(),
-                        # @UnusedVariable
+
                         self.board.getBoardCorreccionY() + 32 * yo + 18,
                         image=self.images.image(
                             self.player.getActiveBullet().getImage() + "_16"),
@@ -3017,7 +3017,7 @@ class hoa(object):
                 else:
                     flecha = self.world.create_image(
                         18 + 32 * xo + self.board.getBoardCorreccionX(),
-                        # @UnusedVariable
+
                         self.board.getBoardCorreccionY() + 32 * yo + 18,
                         image=self.images.image(self.board.getArrow()),
                         tags=flecha_id)
@@ -3629,7 +3629,7 @@ class hoa(object):
                 flecha_id = generateRandom12()  # Dibujo la imagen de la flecha
                 flecha = self.world.create_image(
                     26 + 32 * self.playerPos[0] + self.canvasCorrecion[1],
-                    # @UnusedVariable
+
                     self.canvasCorrecion[
                         0] + 32 * self.playerPos[1] + 26,
                     image=self.images.image(
@@ -6711,7 +6711,7 @@ class hoa(object):
                         self.player.addObject(Item(ITEMS[56]))
                     else:
                         self.player.addObject(Item(ITEMS[39]))
-                        for w in range(25):  # @UnusedVariable
+                        for w in range(25):
                             self.player.addObject(Item(ITEMS[24]))
                     self.ingame = True  # indica que el mundo se ha cargado
                     self.setWorld()  # cargo el mundo inicial
@@ -7629,7 +7629,7 @@ class hoa(object):
                     item = fila[j][1]
                     self.maplightning[k][j] = light
                     (texture, sound, terrainlog) = textureTerrainAnalysis(
-                        int(fila[j][2]),  # @UnusedVariable
+                        int(fila[j][2]),
                         light)  # cargo la textura y el sonido @UnusedVariable
                     im.paste(self.images.image(texture),
                              (32 * j, 32 * k, 32 * (j + 1),

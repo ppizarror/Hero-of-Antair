@@ -4,16 +4,16 @@ TEXTURES
 Texturas del juego.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017
+Fecha: 2013-2015, 2017-2018
 Licencia: GPLv2
 """
 
 # Importación de librerias
 import zipfile
-from lib import *  # @UnusedWildImport
-from texture_analysis import *  # @UnusedWildImport
-from texture_items import *  # @UnusedWildImport
-from texture_world import *  # @UnusedWildImport
+from lib import *
+from texture_analysis import *
+from texture_items import *
+from texture_world import *
 
 
 # noinspection PyMethodMayBeStatic

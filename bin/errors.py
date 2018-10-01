@@ -11,7 +11,7 @@ Licencia: GPLv2
 
 # Importación de librerías
 from color import color  # @UnusedImport
-from config import *  # @UnusedWildImport
+from config import *
 
 # Constantes
 BR_ERRORxERROR_SET_FORM = 8

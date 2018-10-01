@@ -9,7 +9,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías de alto nivel
-from lib import *  # @UnusedWildImport
+from lib import *
 
 # Información del programa
 PROGRAM_TITLE = "Editor de mapas"
@@ -21,8 +21,8 @@ print "\nCargando librerias ...",
 # Importación de librerías
 try:
     from mpop import pop
-    from textures_editor import *  # @UnusedWildImport
-    import gc  # @Reimport
+    from textures_editor import *
+    import gc
 except:
     print "error"
     exit()
@@ -748,7 +748,7 @@ class mapeditor(object):
         self.core.resizable(width=False, height=False)
         self.core.geometry(
             '%dx%d+%d+%d' % (PROGRAM_SIZE[0], PROGRAM_SIZE[1], (
-                self.core.winfo_screenwidth() - PROGRAM_SIZE[0]) / 2,
+                    self.core.winfo_screenwidth() - PROGRAM_SIZE[0]) / 2,
                              (self.core.winfo_screenheight() - PROGRAM_SIZE[
                                  1] - 50) / 2))
         self.core.focus_force()
@@ -927,7 +927,7 @@ class mapeditor(object):
                         pady=3, relief=GROOVE)
         l3.pack(padx=3, pady=5, anchor=NW)
         j = 0
-        for i in range(redondear(len(actores), bpf)):  # @UnusedVariable
+        for i in range(redondear(len(actores), bpf)):
             f = Frame(l3)
             f.pack()
             for k in range(bpf):
@@ -950,7 +950,7 @@ class mapeditor(object):
                         padx=3, pady=3, relief=GROOVE)
         l4.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(terrain), bpf)):  # @UnusedVariable
+        for i in range(redondear(len(terrain), bpf)):
             f = Frame(l4)
             f.pack()
             for k in range(bpf):
@@ -974,7 +974,7 @@ class mapeditor(object):
                         padx=3, pady=3, relief=GROOVE)
         l6.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(environment), bpf)):  # @UnusedVariable
+        for i in range(redondear(len(environment), bpf)):
             f = Frame(l6)
             f.pack()
             for k in range(bpf):
@@ -999,7 +999,7 @@ class mapeditor(object):
                          relief=GROOVE)
         l10.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(benvironment), bpfg)):  # @UnusedVariable
+        for i in range(redondear(len(benvironment), bpfg)):
             f = Frame(l10)
             f.pack()
             for k in range(bpfg):
@@ -1024,7 +1024,7 @@ class mapeditor(object):
                         relief=GROOVE)
         l7.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(interior), bpf)):  # @UnusedVariable
+        for i in range(redondear(len(interior), bpf)):
             f = Frame(l7)
             f.pack()
             for k in range(bpf):
@@ -1048,7 +1048,7 @@ class mapeditor(object):
                          relief=GROOVE)
         l12.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(binterior), bpfg)):  # @UnusedVariable
+        for i in range(redondear(len(binterior), bpfg)):
             f = Frame(l12)
             f.pack()
             for k in range(bpfg):
@@ -1072,7 +1072,7 @@ class mapeditor(object):
                         relief=GROOVE)
         l9.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(construccion), bpf)):  # @UnusedVariable
+        for i in range(redondear(len(construccion), bpf)):
             f = Frame(l9)
             f.pack()
             for k in range(bpf):
@@ -1098,7 +1098,7 @@ class mapeditor(object):
                          relief=GROOVE)
         l11.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(bconstruccion), bpfg)):  # @UnusedVariable
+        for i in range(redondear(len(bconstruccion), bpfg)):
             f = Frame(l11)
             f.pack()
             for k in range(bpfg):
@@ -1123,7 +1123,7 @@ class mapeditor(object):
                          padx=3, pady=5, relief=GROOVE)
         l13.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(bbuilding), bbpfg)):  # @UnusedVariable
+        for i in range(redondear(len(bbuilding), bbpfg)):
             f = Frame(l13)
             f.pack()
             for k in range(bbpfg):
@@ -1147,7 +1147,7 @@ class mapeditor(object):
                         padx=3, pady=5, relief=GROOVE)
         l8.pack(padx=3, pady=6, anchor=NW)
         j = 0
-        for i in range(redondear(len(building), bpf)):  # @UnusedVariable
+        for i in range(redondear(len(building), bpf)):
             f = Frame(l8)
             f.pack()
             for k in range(bpf):
@@ -1458,18 +1458,18 @@ class mapeditor(object):
                     archivo.write(self.mapDescription + "\n")
                     archivo.write(self.mapSound + "\n\n")
                     for k in range(self.mapSize[1]):  # Contenido
-                        l = ""
+                        lt = ""
                         for j in range(self.mapSize[0]):
                             # Agrego la información de cada matriz
                             if j != self.mapSize[0] - 1:
-                                l += str(self.worldLight[k][j]) + ":" + str(
+                                lt += str(self.worldLight[k][j]) + ":" + str(
                                     self.worldLogic[k][j]) + ":" + str(
                                     self.worldTextures[k][j]) + ";"
                             else:
-                                l += str(self.worldLight[k][j]) + ":" + str(
+                                lt += str(self.worldLight[k][j]) + ":" + str(
                                     self.worldLogic[k][j]) + ":" + str(
                                     self.worldTextures[k][j])
-                        archivo.write(l + "\n")
+                        archivo.write(lt + "\n")
                     archivo.flush()
                     archivo.close()
                     namefile = str(nameFile).replace(
@@ -1496,7 +1496,7 @@ class mapeditor(object):
         :return: void
         """
         if self.isMapEditing == False and (
-                            self.actualActor != -1 or self.actualEnvironment != -1 or self.actualTexture != -1):
+                self.actualActor != -1 or self.actualEnvironment != -1 or self.actualTexture != -1):
             self.isMapEditing = True
         tile = whatTile(e.x, e.y)
         if 0 <= tile[0] < self.mapSize[1] and 0 <= tile[1] < self.mapSize[
@@ -1702,9 +1702,9 @@ class mapeditor(object):
                             for i in range(self.mapSize[0]):
                                 if self.worldLogic[j][i] == "25-0-" + str(
                                         tile[1]) + "," + str(tile[0]) or \
-                                                self.worldLogic[j][
-                                                    i] == "19-0-" + str(
-                                            tile[1]) + "," + str(tile[0]):
+                                        self.worldLogic[j][
+                                            i] == "19-0-" + str(
+                                    tile[1]) + "," + str(tile[0]):
                                     self.worldLogic[j][i] = "0-0"
                                     self.worldItems[j][i] = "None"
         self.drawTiles()
@@ -1771,10 +1771,10 @@ class mapeditor(object):
                             # Si las coordenadas ingresadas son válidas
                             if (0 <= int(coords[1]) <= self.mapSize[
                                 0] and 0 <= int(coords[3]) <= self.mapSize[
-                                0]) and \
+                                    0]) and \
                                     (0 <= int(coords[0]) <= self.mapSize[
                                         1] and 0 <= int(coords[2]) <=
-                                        self.mapSize[1]):
+                                     self.mapSize[1]):
                                 self.worldLogic[int(coords[1])][
                                     int(coords[0])] = "19-0-" + str(
                                     coords[2]) + "," + str(
@@ -2119,14 +2119,14 @@ class mapeditor(object):
                     self.worldGraph[j][i] = str(
                         self.worldGraph[j][i]).replace("_0", "_1")
                 if self.worldItems[j][i] is not None and (
-                                "_1" in self.worldItems[j][i] and
-                                self.worldLight[j][
-                                    i] == 0):
+                        "_1" in self.worldItems[j][i] and
+                        self.worldLight[j][
+                            i] == 0):
                     self.worldItems[j][i] = str(self.worldItems[j][i]).replace(
                         "_1", "_0")  # matrices de items
                 elif self.worldItems[j][i] is not None and (
-                                "_0" in self.worldItems[j][i] and
-                                self.worldLight[j][i] == 1):
+                        "_0" in self.worldItems[j][i] and
+                        self.worldLight[j][i] == 1):
                     self.worldItems[j][i] = str(
                         self.worldItems[j][i]).replace("_0", "_1")
 
@@ -2188,12 +2188,12 @@ class mapeditor(object):
             delMatrix(self.worldGraph)
             delMatrix(self.worldLightVectors)
             delMatrix(self.worldItems)
-            for i in range(self.mapSize[1]):  # @UnusedVariable
+            for i in range(self.mapSize[1]):
                 self.worldTextures.append([tex] * self.mapSize[0])
                 self.worldLight.append([light] * self.mapSize[0])
                 self.worldItems.append(["None"] * self.mapSize[0])
                 (texture, sound, log) = textureTerrainAnalysis(
-                    # @UnusedVariable
+
                     tex, light, True)  # Cargo la información
                 self.worldGraph.append([texture] * self.mapSize[0])
                 self.worldLogic.append([log] * self.mapSize[0])
@@ -2254,7 +2254,7 @@ class mapeditor(object):
                             self.worldLight[k][j] = light  # Luz del tile
                             # Cargo el terreno
                             (tex, sound, terrainlog) = textureTerrainAnalysis(
-                                # @UnusedVariable
+
                                 int(fila[j][2]), light, True)
                             self.worldGraph[k][j] = tex
                             self.worldTextures[k][j] = int(fila[j][2])

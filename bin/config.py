@@ -11,7 +11,7 @@ Licencia: GPLv2
 
 # Importación de librerías
 import os  # @UnusedImport
-from errors import *  # @UnusedWildImport
+from errors import *
 
 # Constantes
 _bindir = "bin"

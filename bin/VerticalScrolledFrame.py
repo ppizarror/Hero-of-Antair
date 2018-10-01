@@ -1,6 +1,6 @@
 # Clase para usar el frame vertical, gracias a:
 # http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
-# @UnusedWildImport
+
 from Tkinter import Frame, Scrollbar, Canvas, NW, BOTH, TRUE, LEFT, RIGHT, VERTICAL, FALSE, Y
 
 class VerticalScrolledFrame(Frame):
