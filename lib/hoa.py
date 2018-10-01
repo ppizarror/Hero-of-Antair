@@ -8006,8 +8006,8 @@ class hoa(object):
                         text=txt, fill="#000000", font=tfont, width=width,
                         anchor=NE,
                         tags="textmsg")
-                self.root.after(SHOWMESSAGESTIME * time,lambda: self.world.delete(msg))
-                self.root.after(SHOWMESSAGESTIME * time,lambda: self.world.delete(bloq))
+                self.root.after(SHOWMESSAGESTIME * time, lambda: self.world.delete(msg))
+                self.root.after(SHOWMESSAGESTIME * time, lambda: self.world.delete(bloq))
             except:
                 print lang(433)
             self.world.update()
