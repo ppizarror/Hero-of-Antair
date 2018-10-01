@@ -17,28 +17,28 @@ Licencia: GPLv2
 """
 
 # Importación de liberías de alto nivel
-import os  # @UnusedImport @Reimport @NoMove
+import os
 import sys
-import base64  # @UnusedImport
-import codecs  # @UnusedImport
+import base64
+import codecs
 import cookielib
 import ctypes
 from datetime import date
-from functools import partial  # @UnusedImport
-import gc  # @UnusedImport
+from functools import partial
+import gc
 import htmlentitydefs
-import io  # @UnusedImport
+import io
 import json
-from math import log  # @UnusedImport
-import math  # @UnusedImport
-import md5  # @UnusedImport
+from math import log
+import math
+import md5
 from random import choice
-import random  # @UnusedImport
-import re  # @Reimport @UnusedImport
+import random
+import re
 import socket
 import string
 import time
-import types  # @UnusedImport
+import types
 from urllib import urlencode
 from urllib2 import urlopen, Request
 import urllib2
@@ -63,8 +63,8 @@ sys.path.append(_actualpath + "/bin/wconio/")
 from config import *
 from errors import *
 from noStdOut import *
-from pympler import summary, muppy  # @UnusedImport
-import simplejson  # @UnusedImport
+from pympler import summary, muppy
+import simplejson
 
 # Importación de librerías de bajo nivel
 _mechanize = True
@@ -76,8 +76,8 @@ try:
     from Tkinter import *
     from VerticalScrolledFrame import *
     from tkFileDialog import *
-    import tkFont  # @UnusedImport
-    import tkMessageBox  # @UnusedImport
+    import tkFont
+    import tkMessageBox
 except Exception, e:
     st_error("La libreria Tkinter no se encuentra disponible en su ordenador",
              True, "lib.py", e)
@@ -108,11 +108,11 @@ else:
                 "La libreria python-imaging-tk no se encuentra disponible en su ordenador",
                 True, "lib.py", e)
 try:
-    import tkSnack  # @UnusedImport
+    import tkSnack
 except:
     _tksnack = False
 try:
-    import winsound  # @UnusedImport
+    import winsound
 except:
     _winsound = False
 try:

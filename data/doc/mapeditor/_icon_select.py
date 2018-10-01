@@ -7,7 +7,7 @@ import os
 import shutil
 import sys
 
-import Win32IconImagePlugin  # @UnusedImport @UnresolvedImport
+import Win32IconImagePlugin   @UnresolvedImport
 
 
 ACTUAL_PATH = str(os.getcwd()) #Definicion del directorio actual

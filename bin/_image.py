@@ -12,7 +12,7 @@ Licencia: GPLv2
 # Importacion de librerías
 import os
 import sys
-from PIL import Image  # @UnusedImport
+from PIL import Image
 import PIL
 
 reload(sys)

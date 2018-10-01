@@ -7,7 +7,7 @@
 from Tkinter import *
 import datetime
 import os
-import sys  # @UnusedImport @Reimport
+import sys   @Reimport
 from tkFileDialog import *
 import tkFont
 import ttk

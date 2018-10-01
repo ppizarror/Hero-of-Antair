@@ -7961,8 +7961,7 @@ class hoa(object):
             tfont = self.fonts[2]
             if mode == "combat" or mode == "npc":
                 txta = txt.split("\n")
-                width = max(tfont.measure(
-                    txta[0]), tfont.measure(txta[1])) + 10
+                width = max(tfont.measure(txta[0]), tfont.measure(txta[1])) + 10
                 height = 32
                 corr = -4
                 time = 2
@@ -7985,8 +7984,7 @@ class hoa(object):
                         tags="textback")
                     msg = self.world.create_text(
                         self.playerPos[0] * 32 + self.canvasCorrecion[1] + 42,
-                        self.playerPos[
-                            1] * 32 + self.canvasCorrecion[0] + 3 - height,
+                        self.playerPos[1] * 32 + self.canvasCorrecion[0] + 3 - height,
                         text=txt, fill="#000000", font=tfont, width=width,
                         anchor=NW,
                         tags="textmsg")
@@ -7996,8 +7994,7 @@ class hoa(object):
                             1] - width + 5,
                         self.playerPos[1] * 32 + self.canvasCorrecion[0] -
                         height + corr,
-                        self.playerPos[
-                            0] * 32 + self.canvasCorrecion[1] + 5,
+                        self.playerPos[0] * 32 + self.canvasCorrecion[1] + 5,
                         self.playerPos[1] * 32 +
                         self.canvasCorrecion[0] + 3 + corr, fill="#FFFFE1",
                         outline="#646464", tags="textback")
@@ -8009,10 +8006,8 @@ class hoa(object):
                         text=txt, fill="#000000", font=tfont, width=width,
                         anchor=NE,
                         tags="textmsg")
-                self.root.after(SHOWMESSAGESTIME * time,
-                                lambda: self.world.delete(msg))
-                self.root.after(SHOWMESSAGESTIME * time,
-                                lambda: self.world.delete(bloq))
+                self.root.after(SHOWMESSAGESTIME * time,lambda: self.world.delete(msg))
+                self.root.after(SHOWMESSAGESTIME * time,lambda: self.world.delete(bloq))
             except:
                 print lang(433)
             self.world.update()

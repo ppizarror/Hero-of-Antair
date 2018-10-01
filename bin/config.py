@@ -10,7 +10,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías
-import os  # @UnusedImport
+import os
 from errors import *
 
 # Constantes

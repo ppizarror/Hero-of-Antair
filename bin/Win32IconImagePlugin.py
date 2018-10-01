@@ -49,7 +49,7 @@ import struct
 
 import PIL.BmpImagePlugin
 import PIL.Image
-import PIL.ImageChops  # @UnusedImport
+import PIL.ImageChops
 import PIL.ImageFile
 import PIL.PngImagePlugin
 

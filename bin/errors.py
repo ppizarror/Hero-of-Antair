@@ -10,7 +10,7 @@ Licencia: GPLv2
 """
 
 # Importación de librerías
-from color import color  # @UnusedImport
+from color import color
 from config import *
 
 # Constantes

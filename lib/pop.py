@@ -1067,7 +1067,7 @@ class pop(object):
             self.w.bind("<Return>", self.destruir)
             self.w.bind("<Escape>", self.destruir)
         elif typeObject == "ver_quest":  # Ver las quest
-            import ttk  # @UnusedImport
+            import ttk
 
             Label(self.w, text=self.lang[1], border=10).pack()
             data = properties[5]
