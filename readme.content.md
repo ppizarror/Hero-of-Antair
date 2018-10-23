@@ -61,6 +61,6 @@ Este proyecto está licenciado bajo GPLv2 [https://www.gnu.org/licenses/gpl-2.0.
 [10]:	http://newcenturycomputers.net/projects/wconio.html
 [11]:	https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
 
-[image-1]: http://ppizarror.com/resources/images/hoa/captura1.png "Una ventana cualquiera"
-[image-2]: http://ppizarror.com/resources/images/hoa/editor1.png "Editor de mapas"
-[image-3]: http://ppizarror.com/resources/images/hoa/editor2.png "Muchas opciones!"
+[image-1]: https://ppizarror.com/resources/images/hoa/captura1.png "Una ventana cualquiera"
+[image-2]: https://ppizarror.com/resources/images/hoa/editor1.png "Editor de mapas"
+[image-3]: https://ppizarror.com/resources/images/hoa/editor2.png "Muchas opciones!"
