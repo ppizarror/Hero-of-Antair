@@ -7,7 +7,7 @@
             "WIDTH": 460,
             "HEIGHT": 215
         },
-        "URL": "https://ppizarror.com/Hero-of-Antair/",
+        "URL": "",
         "URL_TITLE": "Hero of Antair"
     },
     "AUTHOR": {
@@ -23,17 +23,17 @@
     "DESCRIPTION": "Proyecto RPG en 2d creado en python-tkinter",
     "BADGES": {
         "0": {
-            "IMAGE": "https://ppizarror.com/badges/autor.svg",
+            "IMAGE": "https://res.ppizarror.com/badges/autor.svg",
             "HREF": "https://ppizarror.com",
             "ALT": "@ppizarror"
         },
         "1": {
-            "IMAGE": "https://ppizarror.com/badges/licenciagpl2.svg",
+            "IMAGE": "https://res.ppizarror.com/badges/licenciagpl2.svg",
             "HREF": "https://www.gnu.org/licenses/gpl-2.0.html/",
             "ALT": "Licencia GPL v2"
         },
 		"2": {
-		  "IMAGE": "https://ppizarror.com/badges/python27.svg",
+		  "IMAGE": "https://res.ppizarror.com/badges/python27.svg",
 		  "HREF": "https://www.python.org/downloads/",
 		  "ALT": "Python 2.7"
 		}
