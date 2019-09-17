@@ -11,7 +11,7 @@ Licencia: GPLv2
 # Constantes
 AUTOR_NAME = "Pablo Pizarro"
 AUTOR_NAME_EMAIL = "pablo@ppizarror.com"
-PROGRAM_VERSION = "0.5.8"
+PROGRAM_VERSION = "0.6.0"
 PROGRAM_TITLE = "Hero of Antair"
 
 # Propiedades del proyecto

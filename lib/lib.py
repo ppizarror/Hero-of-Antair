@@ -148,7 +148,7 @@ DEV_MODE = True
 OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
 LINK_PROJECT = "https://github.com/ppizarror/Hero-of-Antair/"
-LINK_UPDATES = "https://raw.githubusercontent.com/ppizarror/ppizarror.github.io/master/version/HOA"
+LINK_UPDATES = "https://v.ppizarror.com/HOA"
 SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5",
                   ".quest", ".powers", ".hoacmd", ".maplogic",
                   ".mapmob", ".mapnpc", ".statics", ".mapitemtexture"]
@@ -551,8 +551,8 @@ def delAcentos(txt):
     :param txt: String
     :return: String formateado
     """
-    txt = txt.replace("�?", "A").replace("É", "E").replace(
-        "�?", "I").replace("Ó", "O").replace("Ú", "U")
+    txt = txt.replace("Á", "A").replace("É", "E").replace(
+        "Í", "I").replace("Ó", "O").replace("Ú", "U")
     return txt.replace("á", "a").replace("é", "e").replace("í", "i").replace(
         "ó", "o").replace("ú", "u")
 
