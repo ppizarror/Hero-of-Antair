@@ -7,7 +7,7 @@
 from Tkinter import *
 import datetime
 import os
-import sys   @Reimport
+import sys
 from tkFileDialog import *
 import tkFont
 import ttk
@@ -351,6 +351,7 @@ archive.close()
 DATADELIMITER = DATADELIMITER.replace("*", " ")
 
 
+# noinspection PyMethodMayBeStatic,PyTupleAssignmentBalance
 class langs:
 
     def __init__(self, lang=False):  # Función constructora
@@ -358,7 +359,7 @@ class langs:
         self.root.title(TITLE)
         self.root.minsize(width=PROGRAMSIZE[0], height=PROGRAMSIZE[1])
         self.root.geometry(
-            '%dx%d+%d+%d' % (PROGRAMSIZE[0], PROGRAMSIZE[1], (self.root.winfo_screenwidth() - PROGRAMSIZE[0]) / 2, \
+            '%dx%d+%d+%d' % (PROGRAMSIZE[0], PROGRAMSIZE[1], (self.root.winfo_screenwidth() - PROGRAMSIZE[0]) / 2,
                              (self.root.winfo_screenheight() - PROGRAMSIZE[1] - 50) / 2))
         self.root.iconbitmap(ICONPROGRAM)
         self.root.focus_force()
@@ -468,7 +469,7 @@ class langs:
                 self.tree.item(item, values=(a, str(q.values[0])))
                 self.ml_data[i] = (a, q.values[0])
                 if q.values[0] != b: self.titlefy(True)
-            del (q)
+            del q
         except:
             pass
 
@@ -491,7 +492,8 @@ class langs:
 
     def _delete_all(self):  # Borra todos los elementos de la lista
         child = self.tree.get_children()
-        for i in child: self.tree.delete(i)
+        for i in child:
+            self.tree.delete(i)
 
     def _insert_item(self, item):  # Inserta un elemento
         self.tree.insert('', 'end', values=item)
@@ -554,8 +556,8 @@ class langs:
                         msg = "Las IDs: " + notfound + "no han sido encontradas."
                     e = pop(["Error", ALERTICON, "error", 75, 250, msg])
                     e.w.mainloop(0)
-                    del (e)
-            del (q)
+                    del e
+            del q
 
     def buscar(self, t="", m=False, e=False):  # Función que busca un string (elegido, o a buscar)
         if self.loaded:  # Si hay un idioma ya cargado
@@ -573,8 +575,8 @@ class langs:
                 if item == "":
                     e = pop(["Error", ALERTICON, "error", 75, 250, "Elemento no encontrado."])
                     e.w.mainloop(0)
-                    del (e)
-            del (q)
+                    del e
+            del q
 
     def deletefromid(self, j):  # Busca un id en la matriz y lo elimina
         j = int(j)
@@ -590,7 +592,8 @@ class langs:
         j = int(j)
         k = 0
         for i in self.ml_data:
-            if int(i[0]) == j: return k
+            if int(i[0]) == j:
+                return k
             k += 1
         return False
 
@@ -605,7 +608,7 @@ class langs:
                     return
                 else:
                     pass
-            del (e)
+            del e
         try:
             os.remove("main.pyc")
         except:
@@ -631,7 +634,7 @@ class langs:
                 self.ml_data.append(item)
                 self._insert_item(item)
                 self.titlefy(True)
-            del (q)
+            del q
 
     def newLang(self, e=False):  # Función que crea un nuevo idioma
         q = pop(['Crear nuevo idioma', ICONPROGRAM, 'newlang', 77, 280])
@@ -645,7 +648,7 @@ class langs:
                     self.namelang = lang
                     self.loaded = True
                     self._show_tree()
-                del (e)
+                del e
             else:
                 self.namelang = lang
                 self.loaded = True
@@ -653,7 +656,7 @@ class langs:
             self.titlefy()
             self._delete_all()
             delMatrix(self.ml_data)
-        del (q)
+        del q
 
     def modificar(self, t="", m=False, e=False):  # Función que modifica un string (a buscar)
         if self.loaded:  # Si hay un idioma ya cargado
@@ -671,12 +674,12 @@ class langs:
                                 self.tree.item(k, values=self.ml_data[i])
                                 self.titlefy(True)
                                 break
-                    del (e)
+                    del e
                 else:
                     e = pop(["Error", ALERTICON, "error", 75, 250, "Elemento no encontrado."])
                     e.w.mainloop(0)
-                    del (e)
-            del (q)
+                    del e
+            del q
 
     def licencia(self, e=False):  # Función que carga la licencia del programa
         pop(["Licencia GNU", ICONPROGRAM, "licence", 400, 600, DATADOCUMENTS + "GNU.txt"]).w.mainloop(0)
@@ -714,7 +717,7 @@ class langs:
             delMatrix(self.ml_data)
             e = pop(["Error al cargar", ALERTICON, "error", 75, 300, "Error al cargar el idioma"])
             e.w.mainloop(0)
-            del (e)
+            del e
 
     def saveLang(self, e=False):  # Función que guarda un idioma
         if self.loaded:  # Si hay un idioma cargado
@@ -725,21 +728,21 @@ class langs:
                     save_from_list(LANGFILE, LANGLIST)
                 self.ml_data.sort()
                 archive = open(self.namelang, "w")  # Se guarda el archivo de idioma
-                for i in self.ml_data: archive.write(
-                    str(int(i[0])) + DATADELIMITER + str(i[1]).replace(" ", "|") + "\n")
+                for i in self.ml_data:
+                    archive.write(str(int(i[0])) + DATADELIMITER + str(i[1]).replace(" ", "|") + "\n")
                 archive.close()
                 # Se guarda el archivo de idioma en la carpeta de recuperación
-                archive = open(DATARECOVER + self.namelang.replace(LANGEND, \
-                                                                   " - ") + str(datetime.datetime.now())[0:19].replace(
+                archive = open(DATARECOVER +
+                               self.namelang.replace(LANGEND, " - ") + str(datetime.datetime.now())[0:19].replace(
                     ":", "-") + LANGEND, "w")
-                for i in self.ml_data: archive.write(
-                    str(int(i[0])) + DATADELIMITER + str(i[1]).replace(" ", "|") + "\n")
+                for i in self.ml_data:
+                    archive.write(str(int(i[0])) + DATADELIMITER + str(i[1]).replace(" ", "|") + "\n")
                 archive.close()
                 self.titlefy()
             except:
                 e = pop(["Error", ALERTICON, "error", 75, 275, "Error al guardar el idioma"])
                 e.w.mainloop(0)
-                del (e)
+                del e
 
     def titlefy(self, asterisco=False):  # Modifica el titulo del programa
         if asterisco:

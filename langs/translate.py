@@ -52,7 +52,7 @@ def get_google_translate(text, translate_lang, source_lang=None): #Traduce una l
         n = json.loads(string)
         translate_text = n[0][0][0]
         return translate_text
-    except Exception, e: print e
+    except Exception as e: print e
 
 try: #Comienza la ejecución
     #Obtengo el nombre del archivo a traducir

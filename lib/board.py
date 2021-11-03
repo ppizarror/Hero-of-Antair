@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 BOARD
 Tablero para el combate grupal.
