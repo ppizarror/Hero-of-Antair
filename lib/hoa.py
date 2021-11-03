@@ -1,10 +1,10 @@
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 HOA
 Hero of Antair, motor gráfico para juego RPG.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017
+Fecha: 2013-2015, 2017, 2021
 Licencia: GPLv2
 """
 
@@ -15,8 +15,7 @@ from release import *
 # Inicio del sistema
 libstartUp()
 lookPrimaryArguments(PROGRAM_VERSION)  # se buscan los argumentos primarios
-if getConfigValue("terminal.art",
-                  True):  # se imprime el arte @UndefinedVariable
+if getConfigValue("terminal.art", True):  # se imprime el arte
     printAsciiArtHOA()
 __versionstr__ = "HOA - version: " + PROGRAM_VERSION
 if getConfigValue("terminal.version.colored"):
@@ -41,8 +40,8 @@ try:
     from sounds import *
     from textures import *
     import statics
-    import zipfile  # @Reimport
-except Exception, e:
+    import zipfile
+except Exception as e:
     print "error"
     st_error("Error al cargar librerias internas", True, "hoa.py", e)
     exit()
@@ -417,7 +416,7 @@ class hoa(object):
             e.w.mainloop(1)
             del e
 
-        def _ayuda(e=None):
+        def _help(e=None):
             """
             Función que carga la ayuda del juego
             :param e: Evento
@@ -532,7 +531,7 @@ class hoa(object):
                             self.archivomenu.add_command(label=lang(15), command=self.salir, accelerator="Ctrl+S")
                             self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
                             self.vermenu = Menu(self.menubar, tearoff=0)
-                            self.vermenu.add_command(label=lang(702), command=_verFollowers, accelerator="U")
+                            self.vermenu.add_command(label=lang(702), command=_showFollowers, accelerator="U")
                             self.vermenu.add_command(label=lang(323), command=_showPlayerInfo, accelerator="I")
                             self.vermenu.add_command(label=lang(14), command=_showStatics, accelerator="Ctrl+E")
                             self.vermenu.add_command(label=lang(587), command=_verQuest, accelerator="T")
@@ -540,7 +539,7 @@ class hoa(object):
                             self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
                             self.ayudamenu = Menu(self.menubar, tearoff=0)
                             self.ayudamenu.add_command(label=lang(18), command=_about)
-                            self.ayudamenu.add_command(label=lang(19), command=_ayuda, accelerator="F1")
+                            self.ayudamenu.add_command(label=lang(19), command=_help, accelerator="F1")
                             self.ayudamenu.add_command(label=lang(20), command=_changelog)
                             self.ayudamenu.add_command(label=lang(21), command=_licence)
                             self.ayudamenu.add_separator()
@@ -558,7 +557,7 @@ class hoa(object):
                             self.archivomenu.add_command(label=lang(15), command=self.salir)
                             self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
                             self.vermenu = Menu(self.menubar, tearoff=0)
-                            self.vermenu.add_command(label=lang(702), command=_verFollowers)
+                            self.vermenu.add_command(label=lang(702), command=_showFollowers)
                             self.vermenu.add_command(label=lang(323), command=_showPlayerInfo)
                             self.vermenu.add_command(label=lang(14), command=_showStatics)
                             self.vermenu.add_command(label=lang(587), command=_verQuest)
@@ -566,7 +565,7 @@ class hoa(object):
                             self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
                             self.ayudamenu = Menu(self.menubar, tearoff=0)
                             self.ayudamenu.add_command(label=lang(18), command=_about)
-                            self.ayudamenu.add_command(label=lang(19), command=_ayuda)
+                            self.ayudamenu.add_command(label=lang(19), command=_help)
                             self.ayudamenu.add_command(label=lang(20), command=_changelog)
                             self.ayudamenu.add_command(label=lang(21), command=_licence)
                             self.ayudamenu.add_separator()
@@ -578,7 +577,7 @@ class hoa(object):
                         self.vidaLabel.config(text=lang(22))
                         self.manaLabel.config(text=lang(23))
                         self.experienciaLabel.config(text=lang(24))
-                        self.poderFrame.config(text=" " + lang(314))
+                        self.powerFrame.config(text=" " + lang(314))
                         self.itemFrame.config(text=lang(25))
                         if not CONFIGURATION_DATA[11]:
                             self.ayudamenu.entryconfig(6, state=DISABLED)
@@ -675,7 +674,7 @@ class hoa(object):
                                     self.sfx(20)
                                     self.setInfo(lang(40))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraCasco.config(
+                                    self.infoArmorHelmet.config(
                                         image=self.images.image("no_casco"),
                                         state=DISABLED,
                                         cursor="arrow")
@@ -712,7 +711,7 @@ class hoa(object):
                                     self.sfx(35)
                                     self.setInfo(lang(41))
                                     self.static.addDroppedWeapon()
-                                    self.infoArmaduraArmaIzquierda.config(
+                                    self.infoArmorLeftWeapon.config(
                                         image=self.images.image("no_lw"),
                                         state=DISABLED, cursor="arrow")
                                     if self.player.getActiveBullet() is not None:
@@ -740,7 +739,7 @@ class hoa(object):
                                     self.sfx(20)
                                     self.setInfo(lang(42))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraChaleco.config(
+                                    self.infoArmorChest.config(
                                         image=self.images.image("no_chaleco"),
                                         state=DISABLED, cursor="arrow")
                             del k
@@ -767,7 +766,7 @@ class hoa(object):
                                     self.sfx(35)
                                     self.setInfo(lang(43))
                                     self.static.addDroppedWeapon()
-                                    self.infoArmaduraArmaDerecha.config(
+                                    self.infoArmorRightWeapon.config(
                                         image=self.images.image("no_rw"),
                                         state=DISABLED, cursor="arrow")
                                 self.dibujarMundo()
@@ -792,7 +791,7 @@ class hoa(object):
                                     self.sfx(20)
                                     self.setInfo(lang(44))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraPantalones.config(
+                                    self.infoArmorPants.config(
                                         image=self.images.image("no_pantalon"),
                                         state=DISABLED, cursor="arrow")
                             del k
@@ -816,7 +815,7 @@ class hoa(object):
                                     self.sfx(20)
                                     self.setInfo(lang(45))
                                     self.static.addDroppedArmor()
-                                    self.infoArmaduraBotas.config(
+                                    self.infoArmorBoots.config(
                                         image=self.images.image("no_botas"),
                                         state=DISABLED,
                                         cursor="arrow")
@@ -826,7 +825,7 @@ class hoa(object):
                     if self.player.getCasco() is not None:
                         self.player.addObject(self.player.getCasco())
                         self.player.dropCasco()
-                        self.infoArmaduraCasco.config(
+                        self.infoArmorHelmet.config(
                             image=self.images.image("no_casco"),
                             state=DISABLED,
                             cursor="arrow")
@@ -839,7 +838,7 @@ class hoa(object):
                         self.player.dropLeftWeapon()
                         self.setInfo(lang(41))
                         self.static.addDroppedWeapon()
-                        self.infoArmaduraArmaIzquierda.config(
+                        self.infoArmorLeftWeapon.config(
                             image=self.images.image("no_lw"), state=DISABLED,
                             cursor="arrow")
                         self.sfx(35)
@@ -856,7 +855,7 @@ class hoa(object):
                         self.setInfo(lang(42))
                         self.static.addDroppedArmor()
                         self.sfx(20)
-                        self.infoArmaduraChaleco.config(
+                        self.infoArmorChest.config(
                             image=self.images.image("no_chaleco"),
                             state=DISABLED,
                             cursor="arrow")
@@ -865,7 +864,7 @@ class hoa(object):
                         self.player.addObject(self.player.getRightWeapon())
                         self.player.dropRightWeapon()
                         self.setInfo(lang(43))
-                        self.infoArmaduraArmaDerecha.config(
+                        self.infoArmorRightWeapon.config(
                             image=self.images.image("no_rw"), state=DISABLED,
                             cursor="arrow")
                         self.sfx(35)
@@ -878,7 +877,7 @@ class hoa(object):
                         self.setInfo(lang(44))
                         self.static.addDroppedArmor()
                         self.sfx(20)
-                        self.infoArmaduraPantalones.config(
+                        self.infoArmorPants.config(
                             image=self.images.image("no_pantalon"),
                             state=DISABLED,
                             cursor="arrow")
@@ -889,7 +888,7 @@ class hoa(object):
                         self.setInfo(lang(45))
                         self.static.addDroppedArmor()
                         self.sfx(20)
-                        self.infoArmaduraBotas.config(
+                        self.infoArmorBoots.config(
                             image=self.images.image("no_botas"),
                             state=DISABLED,
                             cursor="arrow")
@@ -1020,7 +1019,7 @@ class hoa(object):
                                      LEVELS_RES + item.getBookLink()])
                                 k.w.mainloop(0)
                                 del k
-                            except Exception, e:
+                            except Exception as e:
                                 print langError(355, e)
                             self.sfx(27)
                         # Armas segundarias (arcos, flechas)
@@ -1201,7 +1200,7 @@ class hoa(object):
                                                 self.player.getItemAmount() - 1,
                                                 item)
                                 del k  # borro la ventana
-                            except Exception, e:
+                            except Exception as e:
                                 print langError(354, e)
                     self.dibujarItems()  # se actualizan los items gráficos
 
@@ -1224,7 +1223,7 @@ class hoa(object):
                 if name == self.activePowers[0]:
                     try:
                         self.activePowers[1][i] = 1
-                    except Exception, e:
+                    except Exception as e:
                         print langError(390, e)
                 else:
                     print lang(392)
@@ -1239,7 +1238,7 @@ class hoa(object):
                 if name == self.activePowers[0]:
                     try:
                         self.activePowers[1][i] = 0
-                    except Exception, e:
+                    except Exception as e:
                         print langError(390, e)
                 else:
                     print lang(391)
@@ -1396,7 +1395,7 @@ class hoa(object):
             if self.ingame:  # Si se encuentra en una partida
                 if isWindows():
                     _sizex = 400
-                    _sizey = 230
+                    _sizey = 240
                 else:
                     _sizex = 430
                     _sizey = 260
@@ -1413,8 +1412,7 @@ class hoa(object):
                          self.player.getMana(), self.player.getMaxMana(),
                          self.player.getExperience(), self.player.getPrevExp(),
                          self.player.getMaxExperience(),
-                         Image.open(self.images.getLinkImage(
-                             self.player.getLinkImage() + "_0")),
+                         [self.images, self.player.getLinkImage() + "_0"],
                          self.player.getPais(),
                          self.player.getLevel()])
                 e.w.mainloop(1)
@@ -1442,7 +1440,7 @@ class hoa(object):
                 statics.w.mainloop(1)
                 del statics
 
-        def _verFollowers(e=None):
+        def _showFollowers(e=None):
             """
             Función que muestra a los seguidores del jugador
             :param e: Evento
@@ -1542,7 +1540,7 @@ class hoa(object):
         # Se crea la ventana
         try:
             self.root = Tk()
-        except Exception, e:
+        except Exception as e:
             print langError(827, e)
             exit()
         self.root.title(PROGRAM_TITLE)  # título
@@ -1645,7 +1643,7 @@ class hoa(object):
             self.sfx(0)
             print lang(310)  # cargo el sonido de introducción
             TKSNACK[0] = True
-        except Exception, e:  # Ocurrió un error al cargar la libreria de datos de tcl, se menciona y se deshabilitan los sonidos
+        except Exception as e:  # Ocurrió un error al cargar la libreria de datos de tcl, se menciona y se deshabilitan los sonidos
             print lang(756)
             print langError(794, e)
             TKSNACK[0] = False
@@ -1653,13 +1651,24 @@ class hoa(object):
             self.sndBg = None
             self.sndFx = None
             totalwarnings += 1
+        if not TKSNACK[0]:
+            _playsound = False
+            try:
+                from playsound import playsound
+                _playsound = True
+            except:
+                pass
+            if _playsound:
+                self.playsound = playsound
+            else:
+                self.playsound = False
 
         # Instancio las texturas
         print lang(311),
         try:
             self.images = hoaTextures([lang(394), lang(310)])
             print lang(310)  # Cargo las texturas
-        except Exception, e:
+        except Exception as e:
             print lang(398)
             print lang(330)
             print langError(830, e)
@@ -1670,46 +1679,46 @@ class hoa(object):
         try:
             self.root.iconbitmap(
                 self.images.image("icon"))  # icono del programa
-        except Exception, e:
+        except Exception as e:
             print ""
             print langError(828, e)
             totalerrors += 1
         self.menubar = Menu(self.root)
         self.root.config(menu=self.menubar)
-        self.archivomenu = Menu(self.menubar, tearoff=0)
+        self.archivemenu = Menu(self.menubar, tearoff=0)
         if isWindows():
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_command(label=lang(
                 10), command=self.newGame, accelerator="Ctrl+N")
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_command(label=lang(
                 11), command=self.loadGame, accelerator="Ctrl+L")
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_command(label=lang(
                 12), command=self.saveGame, accelerator="Ctrl+G")
-            self.archivomenu.add_command(
+            self.archivemenu.add_command(
                 label=lang(13), command=self.abortGame)
-            self.archivomenu.add_separator()
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_separator()
+            self.archivemenu.add_command(label=lang(
                 17), command=_configure, accelerator="Ctrl+C")
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_command(label=lang(
                 15), command=self.salir, accelerator="Ctrl + S")
-            self.archivomenu.entryconfig(2, state=DISABLED)
-            self.archivomenu.entryconfig(3, state=DISABLED)
-            self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
-            self.vermenu = Menu(self.menubar, tearoff=0)
-            self.vermenu.add_command(label=lang(
-                702), command=_verFollowers, accelerator="U")
-            self.vermenu.add_command(label=lang(
+            self.archivemenu.entryconfig(2, state=DISABLED)
+            self.archivemenu.entryconfig(3, state=DISABLED)
+            self.menubar.add_cascade(label=lang(16), menu=self.archivemenu)
+            self.seemenu = Menu(self.menubar, tearoff=0)
+            self.seemenu.add_command(label=lang(
+                702), command=_showFollowers, accelerator="U")
+            self.seemenu.add_command(label=lang(
                 323), command=_showPlayerInfo, accelerator="I")
-            self.vermenu.add_command(label=lang(
+            self.seemenu.add_command(label=lang(
                 14), command=_showStatics, accelerator="Ctrl+E")
-            self.vermenu.add_command(label=lang(
+            self.seemenu.add_command(label=lang(
                 587), command=_verQuest, accelerator="T")
-            self.vermenu.add_command(label=lang(
+            self.seemenu.add_command(label=lang(
                 322), command=_showMap, accelerator="M")
-            self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
+            self.menubar.add_cascade(label=lang(321), menu=self.seemenu)
             self.ayudamenu = Menu(self.menubar, tearoff=0)
             self.ayudamenu.add_command(label=lang(18), command=_about)
             self.ayudamenu.add_command(label=lang(
-                19), command=_ayuda, accelerator="F1")
+                19), command=_help, accelerator="F1")
             self.ayudamenu.add_command(label=lang(20), command=_changelog)
             self.ayudamenu.add_command(label=lang(21), command=_licence)
             self.ayudamenu.add_separator()
@@ -1722,29 +1731,29 @@ class hoa(object):
                                            command=_infoSystem,
                                            accelerator="F12")
         else:
-            self.archivomenu.add_command(label=lang(10), command=self.newGame)
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_command(label=lang(10), command=self.newGame)
+            self.archivemenu.add_command(label=lang(
                 11), command=self.loadGame, accelerator="Control+L")
-            self.archivomenu.add_command(label=lang(
+            self.archivemenu.add_command(label=lang(
                 12), command=self.saveGame, accelerator="Control+G")
-            self.archivomenu.add_command(
+            self.archivemenu.add_command(
                 label=lang(13), command=self.abortGame)
-            self.archivomenu.add_separator()
-            self.archivomenu.add_command(label=lang(17), command=_configure)
-            self.archivomenu.add_command(label=lang(15), command=self.salir)
-            self.archivomenu.entryconfig(2, state=DISABLED)
-            self.archivomenu.entryconfig(3, state=DISABLED)
-            self.menubar.add_cascade(label=lang(16), menu=self.archivomenu)
-            self.vermenu = Menu(self.menubar, tearoff=0)
-            self.vermenu.add_command(label=lang(702), command=_verFollowers)
-            self.vermenu.add_command(label=lang(323), command=_showPlayerInfo)
-            self.vermenu.add_command(label=lang(14), command=_showStatics)
-            self.vermenu.add_command(label=lang(587), command=_verQuest)
-            self.vermenu.add_command(label=lang(322), command=_showMap)
-            self.menubar.add_cascade(label=lang(321), menu=self.vermenu)
+            self.archivemenu.add_separator()
+            self.archivemenu.add_command(label=lang(17), command=_configure)
+            self.archivemenu.add_command(label=lang(15), command=self.salir)
+            self.archivemenu.entryconfig(2, state=DISABLED)
+            self.archivemenu.entryconfig(3, state=DISABLED)
+            self.menubar.add_cascade(label=lang(16), menu=self.archivemenu)
+            self.seemenu = Menu(self.menubar, tearoff=0)
+            self.seemenu.add_command(label=lang(702), command=_showFollowers)
+            self.seemenu.add_command(label=lang(323), command=_showPlayerInfo)
+            self.seemenu.add_command(label=lang(14), command=_showStatics)
+            self.seemenu.add_command(label=lang(587), command=_verQuest)
+            self.seemenu.add_command(label=lang(322), command=_showMap)
+            self.menubar.add_cascade(label=lang(321), menu=self.seemenu)
             self.ayudamenu = Menu(self.menubar, tearoff=0)
             self.ayudamenu.add_command(label=lang(18), command=_about)
-            self.ayudamenu.add_command(label=lang(19), command=_ayuda)
+            self.ayudamenu.add_command(label=lang(19), command=_help)
             self.ayudamenu.add_command(label=lang(20), command=_changelog)
             self.ayudamenu.add_command(label=lang(21), command=_licence)
             self.ayudamenu.add_separator()
@@ -1753,7 +1762,7 @@ class hoa(object):
             if "-eclipse" in sys.argv:
                 self.ayudamenu.add_command(label=lang(325), command=_infoSystem)
         for k in range(5):
-            self.vermenu.entryconfig(k, state=DISABLED)
+            self.seemenu.entryconfig(k, state=DISABLED)
         self.menubar.add_cascade(label=lang(19), menu=self.ayudamenu)
         f = Frame(self.root)
         f.pack()
@@ -1826,55 +1835,55 @@ class hoa(object):
             buttonBorder = 2
         else:
             buttonBorder = 2
-        self.infoArmaduraCasco = Button(a_1, relief=GROOVE, state=DISABLED,
-                                        image=self.images.image("no_casco"),
-                                        border=buttonBorder)
-        self.infoArmaduraCasco.pack()
+        self.infoArmorHelmet = Button(a_1, relief=GROOVE, state=DISABLED,
+                                      image=self.images.image("no_casco"),
+                                      border=buttonBorder)
+        self.infoArmorHelmet.pack()
         a_2 = Frame(menu5)
         a_2.pack()
         if isWindows():
             buttonPad = 0
         else:
             buttonPad = 3
-        self.infoArmaduraArmaIzquierda = Button(a_2, relief=GROOVE,
-                                                state=DISABLED,
-                                                image=self.images.image(
-                                                    "no_lw"),
-                                                border=buttonBorder)
-        self.infoArmaduraArmaIzquierda.pack(side=LEFT, padx=buttonPad)
-        self.infoArmaduraChaleco = Button(a_2, relief=GROOVE, state=DISABLED,
+        self.infoArmorLeftWeapon = Button(a_2, relief=GROOVE,
+                                          state=DISABLED,
                                           image=self.images.image(
-                                              "no_chaleco"),
+                                              "no_lw"),
                                           border=buttonBorder)
-        self.infoArmaduraChaleco.pack(side=LEFT)
-        self.infoArmaduraArmaDerecha = Button(a_2, relief=GROOVE,
-                                              state=DISABLED,
-                                              image=self.images.image("no_rw"),
-                                              border=buttonBorder)
-        self.infoArmaduraArmaDerecha.pack(padx=buttonPad)
+        self.infoArmorLeftWeapon.pack(side=LEFT, padx=buttonPad)
+        self.infoArmorChest = Button(a_2, relief=GROOVE, state=DISABLED,
+                                     image=self.images.image(
+                                         "no_chaleco"),
+                                     border=buttonBorder)
+        self.infoArmorChest.pack(side=LEFT)
+        self.infoArmorRightWeapon = Button(a_2, relief=GROOVE,
+                                           state=DISABLED,
+                                           image=self.images.image("no_rw"),
+                                           border=buttonBorder)
+        self.infoArmorRightWeapon.pack(padx=buttonPad)
         a_3 = Frame(menu5)
         a_3.pack()
-        self.infoArmaduraPantalones = Button(a_3, relief=GROOVE,
-                                             state=DISABLED,
-                                             image=self.images.image(
-                                                 "no_pantalon"),
-                                             border=buttonBorder)
-        self.infoArmaduraPantalones.pack()
+        self.infoArmorPants = Button(a_3, relief=GROOVE,
+                                     state=DISABLED,
+                                     image=self.images.image(
+                                         "no_pantalon"),
+                                     border=buttonBorder)
+        self.infoArmorPants.pack()
         a_4 = Frame(menu5)
         a_4.pack(),
-        self.infoArmaduraBotas = Button(a_3, relief=GROOVE, state=DISABLED,
-                                        image=self.images.image("no_botas"),
-                                        border=buttonBorder)
-        self.infoArmaduraBotas.pack()
+        self.infoArmorBoots = Button(a_3, relief=GROOVE, state=DISABLED,
+                                     image=self.images.image("no_botas"),
+                                     border=buttonBorder)
+        self.infoArmorBoots.pack()
         if isWindows():
-            self.poderFrame = LabelFrame(
+            self.powerFrame = LabelFrame(
                 self.menu, text=" " + lang(314), border=0)
-            self.poderFrame.pack(pady=2, padx=1)  # poderes
+            self.powerFrame.pack(pady=2, padx=1)  # poderes
         else:
-            self.poderFrame = LabelFrame(
+            self.powerFrame = LabelFrame(
                 self.menu, text=" " + lang(314), border=0)
-            self.poderFrame.pack(pady=0, padx=1)  # poderes
-        z = Frame(self.poderFrame)
+            self.powerFrame.pack(pady=0, padx=1)  # poderes
+        z = Frame(self.powerFrame)
         z.pack()
         if isWindows():
             buttonBorder = 1
@@ -1953,8 +1962,8 @@ class hoa(object):
         # Se establecen los eventos del programa
         try:
             print lang(691),
-            self.root.bind("<Control-A>", _ayuda)
-            self.root.bind("<Control-a>", _ayuda)
+            self.root.bind("<Control-A>", _help)
+            self.root.bind("<Control-a>", _help)
             self.root.bind("<Control-C>", _configure)
             self.root.bind("<Control-c>", _configure)
             self.root.bind("<Control-E>", _showStatics)
@@ -1963,7 +1972,7 @@ class hoa(object):
             self.root.bind("<Control-t>", self.devConsole)
             self.root.bind("<Control-N>", self.newGame)
             self.root.bind("<Control-n>", self.newGame)
-            self.root.bind("<F1>", _ayuda)
+            self.root.bind("<F1>", _help)
             self.root.bind("<F2>", lambda event: self.devConsole())
             self.root.bind("<F5>", self.update)
             if "-eclipse" in sys.argv:
@@ -1974,8 +1983,8 @@ class hoa(object):
             self.root.bind("<m>", _showMap)
             self.root.bind("<T>", _verQuest)
             self.root.bind("<t>", _verQuest)
-            self.root.bind("<U>", _verFollowers)
-            self.root.bind("<u>", _verFollowers)
+            self.root.bind("<U>", _showFollowers)
+            self.root.bind("<u>", _showFollowers)
             if isWindows():
                 self.root.bind("<Control-S>", self.salir)
                 self.root.bind("<Control-s>", self.salir)
@@ -2046,34 +2055,34 @@ class hoa(object):
             self.root.bind("<f>", cmd)
             cmd1 = partial(_itemArmadura, "casco", 0)
             cmd2 = partial(_itemArmadura, "casco", 1)
-            self.infoArmaduraCasco.bind('<Button-1>', cmd1)
-            self.infoArmaduraCasco.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorHelmet.bind('<Button-1>', cmd1)
+            self.infoArmorHelmet.bind(_SECOND_BUTTON, cmd2)
             cmd1 = partial(_itemArmadura, "izquierda", 0)
             cmd2 = partial(_itemArmadura, "izquierda", 1)
-            self.infoArmaduraArmaIzquierda.bind('<Button-1>', cmd1)
-            self.infoArmaduraArmaIzquierda.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorLeftWeapon.bind('<Button-1>', cmd1)
+            self.infoArmorLeftWeapon.bind(_SECOND_BUTTON, cmd2)
             cmd1 = partial(_itemArmadura, "izquierda", 0)
             cmd2 = partial(_itemArmadura, "izquierda", 1)
-            self.infoArmaduraArmaIzquierda.bind('<Button-1>', cmd1)
-            self.infoArmaduraArmaIzquierda.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorLeftWeapon.bind('<Button-1>', cmd1)
+            self.infoArmorLeftWeapon.bind(_SECOND_BUTTON, cmd2)
             cmd1 = partial(_itemArmadura, "chaleco", 0)
             cmd2 = partial(_itemArmadura, "chaleco", 1)
-            self.infoArmaduraChaleco.bind('<Button-1>', cmd1)
-            self.infoArmaduraChaleco.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorChest.bind('<Button-1>', cmd1)
+            self.infoArmorChest.bind(_SECOND_BUTTON, cmd2)
             cmd1 = partial(_itemArmadura, "derecha", 0)
             cmd2 = partial(_itemArmadura, "derecha", 1)
-            self.infoArmaduraArmaDerecha.bind('<Button-1>', cmd1)
-            self.infoArmaduraArmaDerecha.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorRightWeapon.bind('<Button-1>', cmd1)
+            self.infoArmorRightWeapon.bind(_SECOND_BUTTON, cmd2)
             cmd1 = partial(_itemArmadura, "pantalones", 0)
             cmd2 = partial(_itemArmadura, "pantalones", 1)
-            self.infoArmaduraPantalones.bind('<Button-1>', cmd1)
-            self.infoArmaduraPantalones.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorPants.bind('<Button-1>', cmd1)
+            self.infoArmorPants.bind(_SECOND_BUTTON, cmd2)
             cmd1 = partial(_itemArmadura, "botas", 0)
             cmd2 = partial(_itemArmadura, "botas", 1)
-            self.infoArmaduraBotas.bind('<Button-1>', cmd1)
-            self.infoArmaduraBotas.bind(_SECOND_BUTTON, cmd2)
+            self.infoArmorBoots.bind('<Button-1>', cmd1)
+            self.infoArmorBoots.bind(_SECOND_BUTTON, cmd2)
             print lang(310)
-        except Exception, extp:
+        except Exception as extp:
             print lang(758, extp)
             totalerrors += 1
 
@@ -2102,7 +2111,7 @@ class hoa(object):
             CONFIGURATION_DATA[14] = False
         if _consultArgument("disableconfig", arg):
             CONFIGURATION_DATA[13] = False
-            self.archivomenu.entryconfig(5, state=DISABLED)
+            self.archivemenu.entryconfig(5, state=DISABLED)
         if _consultArgument("disableiteminfo", arg):
             CONFIGURATION_DATA[15] = False
         if _consultArgument("disableinfo", arg):
@@ -2209,7 +2218,7 @@ class hoa(object):
             self.root.after(100, makeCallable(
                 partial(arrastrarImagen, "test:canvasapi", self.world, 8, 8)))
             print lang(310)
-        except Exception, exerr:
+        except Exception as exerr:
             MOVEMENT_ANIMATION[0] = False
             totalerrors += 1
             print lang(54).lower()
@@ -2254,10 +2263,10 @@ class hoa(object):
                 self.initialBg.create_image(
                     405, 299, image=self.images.image("background"))
                 self.initialBg.update()
-                self.archivomenu.entryconfig(2, state=DISABLED)
-                self.archivomenu.entryconfig(3, state=DISABLED)
+                self.archivemenu.entryconfig(2, state=DISABLED)
+                self.archivemenu.entryconfig(3, state=DISABLED)
                 for k in range(5):
-                    self.vermenu.entryconfig(k, state=DISABLED)
+                    self.seemenu.entryconfig(k, state=DISABLED)
                 self.sfx(0)
 
             # Se destruye la información del jugador
@@ -2342,7 +2351,7 @@ class hoa(object):
                 self.player.dropCasco()
                 self.static.addDroppedArmor()
                 self.sfx(20)
-                self.infoArmaduraCasco.config(image=self.images.image(
+                self.infoArmorHelmet.config(image=self.images.image(
                     "no_casco"), state=DISABLED, cursor="arrow")
                 self.textMsg(lang(choice([645, 646, 647, 648])))
                 self.setInfo(lang(40))
@@ -2352,7 +2361,7 @@ class hoa(object):
                 self.player.dropLeftWeapon()
                 self.sfx(35)
                 self.world.delete("player:left_weapon")
-                self.infoArmaduraArmaIzquierda.config(
+                self.infoArmorLeftWeapon.config(
                     image=self.images.image("no_lw"), state=DISABLED,
                     cursor="arrow")
                 self.setInfo(lang(41))
@@ -2373,7 +2382,7 @@ class hoa(object):
                 self.static.addDroppedWeapon()
                 self.world.delete("player:right_weapon")
                 self.sfx(35)
-                self.infoArmaduraArmaDerecha.config(
+                self.infoArmorRightWeapon.config(
                     image=self.images.image("no_rw"), state=DISABLED,
                     cursor="arrow")
                 self.setInfo(lang(43))
@@ -2383,7 +2392,7 @@ class hoa(object):
                 self.player.dropChaleco()
                 self.static.addDroppedArmor()
                 self.sfx(20)
-                self.infoArmaduraChaleco.config(image=self.images.image(
+                self.infoArmorChest.config(image=self.images.image(
                     "no_chaleco"), state=DISABLED, cursor="arrow")
                 self.setInfo(lang(42))
                 self.textMsg(lang(choice([655, 656, 657, 658, 659])))
@@ -2392,7 +2401,7 @@ class hoa(object):
                 self.player.dropPantalones()
                 self.static.addDroppedArmor()
                 self.sfx(20)
-                self.infoArmaduraPantalones.config(
+                self.infoArmorPants.config(
                     image=self.images.image("no_pantalon"), state=DISABLED,
                     cursor="arrow")
                 self.setInfo(lang(44))
@@ -2402,7 +2411,7 @@ class hoa(object):
                 self.player.dropBotas()
                 self.static.addDroppedWeapon()
                 self.sfx(20)
-                self.infoArmaduraBotas.config(image=self.images.image(
+                self.infoArmorBoots.config(image=self.images.image(
                     "no_botas"), state=DISABLED, cursor="arrow")
                 self.setInfo(lang(45))
                 self.textMsg(lang(choice([665, 666, 667, 668, 669])))
@@ -2768,7 +2777,7 @@ class hoa(object):
             self.world.tag_raise(tag_self, "grupal:background")
             self.world.update()
 
-        def _move(x, y, id, type):  # @ReservedAssignment
+        def _move(x, y, id, type):
             """
             Mueve al grupo
             :param x: Posición x
@@ -2778,8 +2787,7 @@ class hoa(object):
             :return:
             """
 
-            def _drawRectangle(type, x, y, id, tag,
-                               tagnum):  # @ReservedAssignment
+            def _drawRectangle(type, x, y, id, tag, tagnum):
                 """
                 Función que escribe el recuadro
                 :param type: Tipo de jugador
@@ -2856,7 +2864,7 @@ class hoa(object):
                                 32 * y + 9 + self.board.getBoardCorreccionY())))
                     self.root.after(TEXDT, partial(
                         _drawRectangle, type, x, y, id, tag[1], tag[2]))
-                except Exception, exerr:
+                except Exception as exerr:
                     print langError(389, exerr)
             else:  # Movimiento sin animación
                 self.world.coords(tag[0],
@@ -2868,7 +2876,7 @@ class hoa(object):
                 _drawRectangle(type, x, y, id, tag[1], tag[2])
             self.sonido(self.board.getSound(x, y))  # sonido del tile
 
-        def _intAlert(x, y, int):  # @ReservedAssignment
+        def _intAlert(x, y, int):
             """
             Dibuja un int en el mundo
             :param x: Posición x
@@ -3140,8 +3148,7 @@ class hoa(object):
                 return True
             else:  # Si mató a todos se elimina
                 if self.board.getLight(x, y) == 0:
-                    self.board.addBlood(choice(EFFECT_BLOOD_DAY), x,
-                                        y)  # @UndefinedVariable
+                    self.board.addBlood(choice(EFFECT_BLOOD_DAY), x, y)
                 else:
                     self.board.addBlood(choice(EFFECT_BLOOD_NIGHT), x, y)
                 if group.getType() == "FL" and mode == "f":
@@ -3690,7 +3697,7 @@ class hoa(object):
                                     int(self.enemy.atacar() * (
                                             self.dificultad[0] + 1) * (
                                                 self.dificultad[3] + 1)))
-                            except Exception, exerr:
+                            except Exception as exerr:
                                 print langError(365, exerr)
                             if (ataque[0] - ataque[1]) > 0:
                                 self.playerText("-" + str(
@@ -3786,7 +3793,7 @@ class hoa(object):
                                 try:
                                     self.root.after_cancel(
                                         self.lastmovementId)  # se intnta eliminar la ultima ejecucion de la funcion
-                                except Exception, exerr:
+                                except Exception as exerr:
                                     print langError(363, exerr)
                                 self.root.after(
                                     self.dificultad[5], self.moveMobs)
@@ -3911,13 +3918,13 @@ class hoa(object):
                 if comando == "GIVE" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(375, exerr)
                         self.error(lang(377))
                         return
                     try:
                         data = get[2]
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(376, exerr)
                         self.error(lang(377))
                         return
@@ -3938,18 +3945,18 @@ class hoa(object):
                                                 return  # si el id no es numerico
                                         else:
                                             cant = 1
-                                    except Exception, exerr:
+                                    except Exception as exerr:
                                         print langError(360, exerr)
                                         cant = 1
                                     try:
                                         it = Item(item)  # se genera el objeto
-                                    except Exception, exerr:
+                                    except Exception as exerr:
                                         print langError(374, exerr)
                                         return
                                     try:
                                         self.images.image(
                                             it.getImage() + "_16")
-                                    except Exception, exerr:
+                                    except Exception as exerr:
                                         print langError(378,
                                                         it.getImage() + "_16",
                                                         exerr)
@@ -3961,7 +3968,7 @@ class hoa(object):
                                         lang(111, str(data), str(cant)))
                                     self.static.addTrucos()
                                     del it
-                                except Exception, exerr:
+                                except Exception as exerr:
                                     print langError(359, exerr)
                                     self.error(lang(110))
                             else:
@@ -3980,7 +3987,7 @@ class hoa(object):
                                 self.dibujarItems()
                                 self.setInfo(lang(114))
                                 self.static.addTrucos()
-                            except Exception, exerr:
+                            except Exception as exerr:
                                 print langError(358, exerr)
                                 self.error(lang(113))
                         elif action == "POWER":  # Dar poder por string
@@ -4049,13 +4056,13 @@ class hoa(object):
                 elif comando == "MOVE" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(375, exerr)
                         self.error(lang(377))
                         return
                     try:
                         data = get[2]
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(376, exerr)
                         self.error(lang(377))
                         return
@@ -4111,13 +4118,13 @@ class hoa(object):
                 elif comando == "SET" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(375, exerr)
                         self.error(lang(377))
                         return
                     try:
                         data = get[2]
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(376, exerr)
                         self.error(lang(377))
                         return
@@ -4144,7 +4151,7 @@ class hoa(object):
                                     self.player.setLevel(int(data))
                                     self.player.setAttack()
                                     self.player.setDefensa()
-                                    self.player.setImage()
+                                    self.player.updateLinkImage()
                                     self.player.setTarget()
                                     self.player.upgradeExp()
                                     self.player.upgradeLife()
@@ -4249,7 +4256,7 @@ class hoa(object):
                             elif action == "TEXTURE" or action == "PLAYER.TEXTURE":
                                 data = data.replace("_0", "").replace("_1", "")
                                 if data in AVAIABLE_ACTOR_TEXTURES:
-                                    self.player.setLinkImage(data)
+                                    self.player.setImage(data)
                                     self.setInfo(lang(160, str(data)))
                                     if self.maplightning[self.playerPos[1]][
                                         self.playerPos[0]] == 0:
@@ -4290,7 +4297,7 @@ class hoa(object):
                 elif comando == "DROP" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(375, exerr)
                         self.error(lang(377))
                         return
@@ -4393,7 +4400,7 @@ class hoa(object):
                     if self.ingame:
                         try:
                             action = get[1].upper()
-                        except Exception, exerr:
+                        except Exception as exerr:
                             print langError(375, exerr)
                             self.error(lang(377))
                             return
@@ -4420,7 +4427,7 @@ class hoa(object):
                 elif comando == "INFO" and self.player.isEditor():
                     try:
                         action = get[1].upper()
-                    except Exception, exerr:
+                    except Exception as exerr:
                         print langError(375, exerr)
                         self.error(lang(377))
                         return
@@ -4549,7 +4556,7 @@ class hoa(object):
                     if self.ingame:
                         try:
                             action = get[1].upper()
-                        except Exception, exerr:
+                        except Exception as exerr:
                             print langError(375, exerr)
                             self.error(lang(377))
                             return
@@ -4560,7 +4567,7 @@ class hoa(object):
                     if self.ingame:
                         try:
                             action = get[1].upper()
-                        except Exception, exerr:
+                        except Exception as exerr:
                             print langError(375, exerr)
                             self.error(lang(377))
                             return
@@ -4662,7 +4669,7 @@ class hoa(object):
                     self.error(lang(133), 70)  # el comando no existe
             try:
                 del consola
-            except Exception, exerr:
+            except Exception as exerr:
                 print langError(351, exerr)
 
     def dibujarArmor(self):
@@ -4671,47 +4678,47 @@ class hoa(object):
         :return: void
         """
         # Borro todas las imágenes anteriores
-        self.infoArmaduraArmaDerecha.config(
+        self.infoArmorRightWeapon.config(
             image=self.images.image("no_rw"), state=DISABLED, cursor="arrow")
-        self.infoArmaduraArmaIzquierda.config(
+        self.infoArmorLeftWeapon.config(
             image=self.images.image("no_lw"), state=DISABLED, cursor="arrow")
-        self.infoArmaduraBotas.config(image=self.images.image(
+        self.infoArmorBoots.config(image=self.images.image(
             "no_botas"), state=DISABLED, cursor="arrow")
-        self.infoArmaduraCasco.config(image=self.images.image(
+        self.infoArmorHelmet.config(image=self.images.image(
             "no_casco"), state=DISABLED, cursor="arrow")
-        self.infoArmaduraChaleco.config(image=self.images.image(
+        self.infoArmorChest.config(image=self.images.image(
             "no_chaleco"), state=DISABLED, cursor="arrow")
-        self.infoArmaduraPantalones.config(image=self.images.image(
+        self.infoArmorPants.config(image=self.images.image(
             "no_pantalon"), state=DISABLED, cursor="arrow")
         # Cargo por item y dibujo (si existe)
         item = self.player.getCasco()
         if item is not None:
-            self.infoArmaduraCasco.config(
+            self.infoArmorHelmet.config(
                 image=self.images.image(item.getImage() + "_32"),
                 state=NORMAL, cursor="hand2")
         item = self.player.getLeftWeapon()
         if item is not None:
-            self.infoArmaduraArmaIzquierda.config(
+            self.infoArmorLeftWeapon.config(
                 image=self.images.image(item.getImage() + "_32"),
                 state=NORMAL, cursor="hand2")
         item = self.player.getChaleco()
         if item is not None:
-            self.infoArmaduraChaleco.config(
+            self.infoArmorChest.config(
                 image=self.images.image(item.getImage() + "_32"),
                 state=NORMAL, cursor="hand2")
         item = self.player.getRightWeapon()
         if item is not None:
-            self.infoArmaduraArmaDerecha.config(
+            self.infoArmorRightWeapon.config(
                 image=self.images.image(item.getImage() + "_32"),
                 state=NORMAL, cursor="hand2")
         item = self.player.getPantalones()
         if item is not None:
-            self.infoArmaduraPantalones.config(
+            self.infoArmorPants.config(
                 image=self.images.image(item.getImage() + "_32"),
                 state=NORMAL, cursor="hand2")
         item = self.player.getBotas()
         if item is not None:
-            self.infoArmaduraBotas.config(
+            self.infoArmorBoots.config(
                 image=self.images.image(item.getImage() + "_32"),
                 state=NORMAL, cursor="hand2")
 
@@ -5302,7 +5309,7 @@ class hoa(object):
                 self.initialBg.create_rectangle(0, 0, 1000, 1000, fill="black")
                 try:
                     self.initialBg.config(cursor="wait")
-                except Exception, e:
+                except Exception as e:
                     print langError(829, e)
                 self.root.title(lang(210))  # modifico el título con cargando
                 # pantalla de cargado 1
@@ -5435,13 +5442,12 @@ class hoa(object):
                         self.root.after(0, _loadingScreen(
                             self.images.image("loading1")))
                         self.nivel_dificultad = load[4]  # dificultad del juego
-                        self.player.setLinkImage(load[9])  # textura
+                        self.player.setImage(load[9])  # textura
                         self.setDificultad()  # se define la dificultad
                         if load[11] == "%ERROR_LOADINGMAP%":
                             # si ocurre un error al cargar el mapa
                             raise Exception(lang(98))
                         self.player.setMap(load[11])  # mapa a cargar
-                        self.setWorld()  # creo el mundo para generar el fondo y consultar los elementos lógicos
                         self.root.after(1, _loadingScreen(
                             self.images.image("loading2")))
                         # se define el nivel del jugador
@@ -5460,11 +5466,16 @@ class hoa(object):
                         self.activePowers[0] = load[1]  # nombre a los poderes
                         # se cargan los amigos
                         self.player.setFriends(load[17])
-                    except:  # Error al cargar los datos del usuario
+                        # establece la imagen del jugador
+                        self.player.updateLinkImage()
+                        self.setWorld()  # creo el mundo para generar el fondo y consultar los elementos lógicos
+                    except Exception as e:  # Error al cargar los datos del usuario
+                        print(traceback.format_exc())
                         print lang(398)
                         print lang(350)
                         self.abortGame()
                         self.error(lang(145))
+                        borrarArchivosGuardado(archivo)
                         return
                     # se comprueba si el jugador es editor o no
                     editorkey = base64.b64encode(
@@ -5546,8 +5557,7 @@ class hoa(object):
                                 self.root.after_cancel(self.lastmovementId)
                             except:
                                 totalerrors += 1
-                            if len(
-                                    self.mobs) != 0:  # Activa el movimiento de los mobs
+                            if len(self.mobs) != 0:  # Activa el movimiento de los mobs
                                 self.lastmovementId = self.root.after(
                                     self.dificultad[5], self.moveMobs)
                                 self.movement = True
@@ -5766,10 +5776,10 @@ class hoa(object):
                     self.content.pack()
                     self.initialBg.pack_forget()
                     if CONFIGURATION_DATA[12]:
-                        self.archivomenu.entryconfig(2, state=NORMAL)
-                    self.archivomenu.entryconfig(3, state=NORMAL)
+                        self.archivemenu.entryconfig(2, state=NORMAL)
+                    self.archivemenu.entryconfig(3, state=NORMAL)
                     for k in range(5):
-                        self.vermenu.entryconfig(k, state=NORMAL)
+                        self.seemenu.entryconfig(k, state=NORMAL)
                     self.sfx(30)
                     # Mensaje de bienvenida
                     self.setInfo(lang(447, self.player.getName()))
@@ -6731,13 +6741,13 @@ class hoa(object):
                     self.content.pack()
                     self.initialBg.pack_forget()
                     if CONFIGURATION_DATA[12]:
-                        self.archivomenu.entryconfig(2, state=NORMAL)
-                    self.archivomenu.entryconfig(3, state=NORMAL)
-                    self.vermenu.entryconfig(0, state=NORMAL)
-                    self.vermenu.entryconfig(1, state=NORMAL)
-                    self.vermenu.entryconfig(2, state=NORMAL)
-                    self.vermenu.entryconfig(3, state=NORMAL)
-                    self.vermenu.entryconfig(4, state=NORMAL)
+                        self.archivemenu.entryconfig(2, state=NORMAL)
+                    self.archivemenu.entryconfig(3, state=NORMAL)
+                    self.seemenu.entryconfig(0, state=NORMAL)
+                    self.seemenu.entryconfig(1, state=NORMAL)
+                    self.seemenu.entryconfig(2, state=NORMAL)
+                    self.seemenu.entryconfig(3, state=NORMAL)
+                    self.seemenu.entryconfig(4, state=NORMAL)
                 except:  # Error al crear la nueva partida
                     print lang(398)
                     print lang(604)
@@ -7072,7 +7082,7 @@ class hoa(object):
         else:
             import signal
 
-            os.kill(os.getpid(), signal.SIGKILL)  # @UndefinedVariable
+            os.kill(os.getpid(), signal.SIGKILL)
 
     def saveGame(self, tipo=None):
         """
@@ -7630,7 +7640,7 @@ class hoa(object):
                     self.maplightning[k][j] = light
                     (texture, sound, terrainlog) = textureTerrainAnalysis(
                         int(fila[j][2]),
-                        light)  # cargo la textura y el sonido @UnusedVariable
+                        light)  # cargo la textura y el sonido
                     im.paste(self.images.image(texture),
                              (32 * j, 32 * k, 32 * (j + 1),
                               32 * (k + 1)))  # se agrega imagen al fondo
@@ -7824,7 +7834,7 @@ class hoa(object):
             self.sfxBackgroundRepeat()  # Repito indefinidamente el sonido
             del im
             del fim  # Borro las imágenes generadas
-        except:  # Si ocurre algún error durante la carga del mapa
+        except Exception as e:  # Si ocurre algún error durante la carga del mapa
             print lang(361)
             self.player.setMap("%ERROR_LOADINGMAP%")
             self.stopSound()
@@ -7832,6 +7842,7 @@ class hoa(object):
             self.movement = False
             self.npcMovement = False
             self.error(lang(98))
+            print(traceback.format_exc())
 
     def sfx(self, t):
         """
@@ -7870,6 +7881,7 @@ class hoa(object):
         """
         self.sonido(SONIDO[n][t])  # carga y reproduce el sonido
 
+    # noinspection PyCallingNonCallable
     def sonido(self, archivo):
         """
         Función que reproduce un archivo
@@ -7883,6 +7895,9 @@ class hoa(object):
                 self.snd.play()
             except:
                 print st_error(lang(404, "(...)" + archivo[CONSOLE_WRAP:]))
+        playsound_enabled = False
+        if not TKSNACK[0] and self.playsound is not None and playsound_enabled:
+            self.playsound(archivo)
 
     def sonidoBg(self, archivo):
         """

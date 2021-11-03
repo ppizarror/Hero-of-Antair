@@ -295,3 +295,8 @@
 		Se corrigió error al cargar imágenes con nuevo sistema de paquetes.
 		Solucionado error al crear un nuevo mapa (default image).
 		Corregidos errores asociados al PEP-8.
+
+	[2.0]
+	    Mejoras y correcciones de popups.
+	    Corrección carga de texturas.
+	    Soporte para última versión Pillow

@@ -4,14 +4,14 @@ RELEASE
 Información del autor y del programa.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: JULIO 2015, 2017
+Fecha: JULIO 2015, 2017, 2021
 Licencia: GPLv2
 """
 
 # Constantes
 AUTOR_NAME = "Pablo Pizarro"
 AUTOR_NAME_EMAIL = "pablo@ppizarror.com"
-PROGRAM_VERSION = "0.6.0"
+PROGRAM_VERSION = "0.6.1"
 PROGRAM_TITLE = "Hero of Antair"
 
 # Propiedades del proyecto

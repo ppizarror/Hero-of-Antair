@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 LIB
 Importa librerías, maneja constantes y provee de funciones utiliatarias.
@@ -12,7 +11,7 @@ XII : '
 XLASH : /
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017
+Fecha: 2013-2015, 2017, 2021
 Licencia: GPLv2
 """
 
@@ -38,6 +37,7 @@ import re
 import socket
 import string
 import time
+import traceback
 import types
 from urllib import urlencode
 from urllib2 import urlopen, Request
@@ -78,39 +78,24 @@ try:
     from tkFileDialog import *
     import tkFont
     import tkMessageBox
-except Exception, e:
+except Exception as e:
     st_error("La libreria Tkinter no se encuentra disponible en su ordenador",
              True, "lib.py", e)
 # noinspection PyDeprecation
 
 # Librerias depentientes del SO
-if os.name == "nt":
+try:
     sys.path.append(_actualpath + "data/images/")
-    from pil import Image, ImageTk
-else:
-    try:
-        from PIL import Image
-    except:
-        try:
-            sys.path.append(_actualpath + "data/images/")
-            from pil import Image
-        except Exception, e:
-            st_error(
-                "La libreria PIL no se encuentra disponible en su ordenador, pruebe instalando Pillow",
-                True, "lib.py", e)
-    try:
-        from PIL import ImageTk
-    except:
-        try:
-            from pil import ImageTk
-        except Exception, e:
-            st_error(
-                "La libreria python-imaging-tk no se encuentra disponible en su ordenador",
-                True, "lib.py", e)
+    from PIL import Image, ImageTk
+except Exception as e:
+    st_error(
+        "La libreria PIL no se encuentra disponible en su ordenador, pruebe instalando Pillow",
+        True, "lib.py", e)
 try:
     import tkSnack
 except:
     _tksnack = False
+
 try:
     import winsound
 except:

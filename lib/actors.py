@@ -1,11 +1,10 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 ACTORS
 Actor, entidad lógica manejada por el usuario.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017
+Fecha: 2013-2015, 2017, 2021
 Licencia: GPLv2
 """
 
@@ -43,6 +42,7 @@ class actors(object):
         # define los followers, livianos, medios, pesados
         self.friends = [0, 0, 0]
         self.info = ""  # descripción del jugador
+        self.image = None  # imagen del jugador
         self.images = []  # imágenes por niveles del jugador
         # imágenes de los followers, liv, med y pesado
         self.images_friends = ["", "", ""]
@@ -195,7 +195,7 @@ class actors(object):
         self.mana = self.maxManaLevels[self.level - 1]
         self.setAttack()
         self.setDefensa()
-        self.setImage()
+        self.updateLinkImage()
         self.setMaxExpLevel()
         self.setMaxLife()
         self.setMaxMana()
@@ -638,7 +638,7 @@ class actors(object):
                 self.level += 1
                 self.setAttack()
                 self.setDefensa()
-                self.setImage()
+                self.updateLinkImage()
                 self.setMaxExpLevel()
                 self.setMaxLife()
                 self.setMaxMana()
@@ -706,13 +706,6 @@ class actors(object):
         """
         return self.linkImage
 
-    def getImages(self):
-        """
-        Obtener las imágenes
-        :return: List
-        """
-        return self.images
-
     def setExperience(self, exp):
         """
         Definir la experiencia
@@ -730,13 +723,13 @@ class actors(object):
         if level <= 12:
             self.level = level
 
-    def setLinkImage(self, img):
+    def setImage(self, img):
         """
         Definir el link de la imagen del jugador
         :param img: String
         :return: void
         """
-        self.linkImage = img
+        self.image = img
 
     def setMana(self, mana):
         """
@@ -768,7 +761,7 @@ class actors(object):
         """
         self.maxMana = self.maxManaLevels[self.level - 1]
 
-    def setImage(self):
+    def updateLinkImage(self):
         """
         Define la imagen del actor en función de su nivel
         :return: void

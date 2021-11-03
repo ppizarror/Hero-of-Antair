@@ -4,7 +4,7 @@ MAP EDITOR
 Editor de mapas.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: JULIO 2015, 2017
+Fecha: JULIO 2015, 2017, 2021
 Licencia: GPLv2
 """
 

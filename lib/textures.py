@@ -4,7 +4,7 @@ TEXTURES
 Texturas del juego.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017-2018
+Fecha: 2013-2015, 2017-2018, 2021
 Licencia: GPLv2
 """
 

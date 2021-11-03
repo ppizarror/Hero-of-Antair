@@ -4,7 +4,7 @@ MEDT
 Editor de mapas.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017
+Fecha: 2013-2015, 2017, 2021
 Licencia: GPLv2
 """
 
@@ -13,7 +13,7 @@ from lib import *
 
 # Información del programa
 PROGRAM_TITLE = "Editor de mapas"
-PROGRAM_VERSION = 1.9
+PROGRAM_VERSION = 2.0
 printAsciiArtME()  # imprimo el logo del programa en ascii
 print "\nMap editor version: " + str(PROGRAM_VERSION)
 print "\nCargando librerias ...",

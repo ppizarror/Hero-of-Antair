@@ -1,11 +1,10 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 MOB
 Actores (mob), entidades lógicas hostiles del juego.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: 2013-2015, 2017
+Fecha: 2013-2015, 2017, 2021
 Licencia: GPLv2
 """
 
@@ -15,7 +14,7 @@ from lib import *
 # Constantes del programa
 MOB_SEPARATOR = "/__/"
 # tiempo en milisegundos que se usara para mover a los mobs
-TIME_MOVE_MOBS_NORMAL = 4000
+TIME_MOVE_MOBS_NORMAL = 2000
 
 
 def _positive(a):

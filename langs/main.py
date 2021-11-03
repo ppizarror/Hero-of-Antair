@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 # Lang editor
 # Pablo Pizarro, 2013
 

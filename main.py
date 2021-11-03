@@ -1,11 +1,10 @@
-# !/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 MAIN
 Archivo principal del juego.
 
 Autor: PABLO PIZARRO @ ppizarror
-Fecha: JULIO 2015, 2017
+Fecha: JULIO 2015, 2017, 2021
 Licencia: GPLv2
 """
 

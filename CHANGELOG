@@ -400,7 +400,7 @@
 		comando.
 		Correccion de varios comandos SET.
 		Se pasan mas objetos pop() con lang.
-		Nueva funcion PRINT $msg en comandos.
+		Nueva funcion PRINT msg en comandos.
 		Se redimensionan las ventanas internas.
 		La barra de mana tiene un color externo, el rojo de
 		la barra de vida disminuye en intensidad.
@@ -1468,3 +1468,11 @@
 	[0.5.7]
 		Modificado estilo de header de cada archivo.
 		Se corrigieron errores asociados a PEP-8.
+
+	[0.6.0]
+		Release de GitHub, corrección de errores.
+
+	[0.6.1]
+		Corrección de errores carga de texturas.
+		Mejoras en niveles.
+		Soporte para última versión de Pillow
