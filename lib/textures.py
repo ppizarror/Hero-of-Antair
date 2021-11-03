@@ -272,9 +272,9 @@ class hoaTextures(object):
             if VERBOSE_TEXLOAD:
                 print str(self.lang[0]).replace("%", image),
             try:
-                self._loadIMAGE(image)
+                self.loadIMAGE(image)
             except:
-                self._loadIMAGE_ITEM(image)
+                self.loadIMAGE_ITEM(image)
             if VERBOSE_TEXLOAD:
                 print self.lang[1]
             return self.images[image]
@@ -300,32 +300,41 @@ class hoaTextures(object):
             print self.lang[1]
         return "None"
 
-    def _loadIMAGE(self, image):
+    def loadIMAGE(self, image, master=None):
         """
         Función que carga una imagen de un zip si corresponde
         caso contrario retorna un string
         :param image: String del imagen a cargar
+        :param master: En que ventana carga
         """
         pack = self.getPackage(IMAGES[image])
+        pimg = None
         if self.inZip(pack):
             if ".gif" in IMAGES[image]:
-                self.images[image] = PhotoImage(
-                    data=self.packages[pack].read(image + ".gif"))
+                pimg = PhotoImage(
+                    data=self.packages[pack].read(image + ".gif"),
+                    master=master
+                )
             else:
                 print "TODO: NO GIF"
         else:
-            self.images[image] = PhotoImage(file=IMAGES[image])
+            pimg = PhotoImage(file=IMAGES[image], master=master)
+        if master is None and pimg is not None:
+            self.images[image] = pimg
+        return pimg
 
-    def _loadIMAGE_ITEM(self, image):
+    def loadIMAGE_ITEM(self, image, master=None):
         """
         Función que carga una imagen de un item de un zip si corresponde
         caso contrario retorna un string
         :param image: String del imagen a cargar
+        :param master: En que ventana carga
         """
         pack = self.getPackage(IMAGES_ITEMS[image])
-        self.images[image] = PhotoImage(
-            data=self.packages[pack].read(image + ".gif"))
-
+        pimg = PhotoImage(data=self.packages[pack].read(image + ".gif"), master=master)
+        if master is None:
+            self.images[image] = pimg
+        return pimg
 
 def arrastrarImagen(image, canvas, c, d):
     """
