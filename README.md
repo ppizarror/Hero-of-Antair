@@ -48,9 +48,10 @@ Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la p
 - [MySQLdb][3]
 - [mechanize][4]
 - [Pillow][5]
+- [playsound][12] (opcional)
 - [Pympler][6]
 - [Simplejson][7]
-- [Snacklib][8]
+- [Snacklib][8] (opcional)
 - [VerticalScrolledFrame][9]
 - [WConio][10]
 - [Win32IconImagePlugin][11]
@@ -78,6 +79,7 @@ Este proyecto está licenciado bajo GPLv2 [https://www.gnu.org/licenses/gpl-2.0.
 [9]: http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
 [10]: http://newcenturycomputers.net/projects/wconio.html
 [11]: https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
+[12]: https://github.com/TaylorSMarks/playsound
 
 [image-1]: https://res.ppizarror.com/images/hoa/captura1.png "Una ventana cualquiera"
 [image-2]: https://res.ppizarror.com/images/hoa/editor1.png "Editor de mapas"
