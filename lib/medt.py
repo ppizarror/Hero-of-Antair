@@ -338,16 +338,15 @@ class mapeditor(object):
             :return: void
             """
             if self.isEvent:
-                logic = self.worldLogic[self.workTile[0]][
-                    self.workTile[1]].split("-")
+                logic = self.worldLogic[self.workTile[0]][self.workTile[1]].split("-")
                 main_logic = logic[0]
                 sec_logic = logic[1]
                 prop = logic[2].split(",")
                 if main_logic == "3":  # Chest
                     pass
                 elif main_logic == "6":  # Puerta
-                    p = pop(['Nueva puerta', self.images['door'],
-                             'new_door', 145, 290, prop[0], prop[1]])
+                    p = pop(['Editar puerta', self.images['door'],
+                             'edit_door', 145, 290, prop[0], prop[1]])
                     p.w.mainloop(1)
                     if p.sent:
                         self.worldLogic[self.workTile[0]][
@@ -370,23 +369,17 @@ class mapeditor(object):
                         prop += [0, "NORMAL", "NORMAL", "%NOSOUND%"]
                     tex = prop[2]
                     if isWindows():
-                        p = pop(
-                            ['Editar mob', self.images['group'], 'edit_mob',
-                             398, 290, putStrict(prop[5]), prop[1],
-                             prop[7],
-                             prop[0], prop[9],
-                             prop[3], prop[4], prop[8], prop[9], prop[
-                                 14], putStrict(prop[6]), putStrict(prop[11]),
-                             prop[12], prop[13], prop[15], prop[16], prop[17]])
+                        pw, ph = 398, 290
                     else:
-                        p = pop(
-                            ['Editar mob', self.images['group'], 'edit_mob',
-                             460, 350, putStrict(prop[5]), prop[1],
-                             prop[7],
-                             prop[0], prop[9],
-                             prop[3], prop[4], prop[8], prop[9], prop[
-                                 14], putStrict(prop[6]), putStrict(prop[11]),
-                             prop[12], prop[13], prop[15], prop[16], prop[17]])
+                        pw, ph = 460, 350
+                    p = pop(
+                        ['Editar mob', self.images['group'], 'edit_mob',
+                         pw, ph, putStrict(prop[5]), prop[1],
+                         prop[7],
+                         prop[0], prop[9],
+                         prop[3], prop[4], prop[8], prop[10], prop[
+                             14], putStrict(prop[6]), putStrict(prop[11]),
+                         prop[12], prop[13], prop[15], prop[16], prop[17]])
                     p.w.mainloop(1)
                     if p.sent:
                         data = p.values
@@ -407,8 +400,7 @@ class mapeditor(object):
                             14] + ',' + data[15] + ',' + data[
                                           16]  # se agregan propiedades de perseguir y escapar
                         properties += ',' + data[17]  # se agrega sonido
-                        self.worldLogic[self.workTile[0]][
-                            self.workTile[1]] = properties
+                        self.worldLogic[self.workTile[0]][self.workTile[1]] = properties
                     del p
                     self.drawTiles()
                 elif main_logic == "11":  # Item
@@ -518,21 +510,16 @@ class mapeditor(object):
                     prop += ["None"]  # se agrega vector para evitar errores
                     tex = prop[1]
                     if isWindows():
-                        k = pop(
-                            ['Editar npc', self.images['group'], 'edit_npc',
-                             307, 290, putStrict(prop[0]),
-                             putStrict(prop[2]), putStrict(
-                                prop[3]), prop[6], prop[8],
-                             putStrict(prop[4]), putStrict(prop[5]), prop[7],
-                             prop[9], prop[10]])
+                        pw, ph = 307, 290
                     else:
-                        k = pop(
-                            ['Editar npc', self.images['group'], 'edit_npc',
-                             350, 350, putStrict(prop[0]),
-                             putStrict(prop[2]), putStrict(
-                                prop[3]), prop[6], prop[8],
-                             putStrict(prop[4]), putStrict(prop[5]), prop[7],
-                             prop[9], prop[10]])
+                        pw, ph = 350, 350
+                    k = pop(
+                        ['Editar npc', self.images['group'], 'edit_npc',
+                         pw, ph, putStrict(prop[0]),
+                         putStrict(prop[2]), putStrict(
+                            prop[3]), prop[6], prop[8],
+                         putStrict(prop[4]), putStrict(prop[5]), prop[7],
+                         prop[9], prop[10]])
                     k.w.mainloop(1)
                     if k.sent:
                         npc = k.values

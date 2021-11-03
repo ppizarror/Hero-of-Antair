@@ -892,8 +892,10 @@ class pop(object):
             imageplayer.pack()
             # Se escribe la imagen del jugador
             try:
-                imageplayer.create_image(0, 0, image=properties[16])
-            except:
+                imageplayer.create_image(0, 0, image=properties[16][0].loadIMAGE(properties[16][1], master=self.w))
+                imageplayer.update()
+            except Exception as e:
+                print(traceback.format_exc())
                 imageplayer.pack_forget()
             f2 = LabelFrame(f2, relief=GROOVE, text=self.lang[7])
             f2.pack(padx=5)
