@@ -1,4 +1,4 @@
-#
+# coding=utf-8
 # The Python Imaging Library.
 # $Id$
 #
@@ -34,12 +34,15 @@ class _imagingft_not_installed:
     def __getattr__(self, id):
         raise ImportError("The _imagingft C module is not installed")
 
+
 try:
     import _imagingft
+
     core = _imagingft
     del _imagingft
 except ImportError:
     core = _imagingft_not_installed()
+
 
 # FIXME: add support for pilfont2 format (see FontFile.py)
 
@@ -101,7 +104,7 @@ class ImageFont:
         if file.readline() != "PILfont\n":
             raise SyntaxError("Not a PILfont file")
         d = string.split(file.readline(), ";")
-        self.info = [] # FIXME: should be a dictionary
+        self.info = []  # FIXME: should be a dictionary
         while True:
             s = file.readline()
             if not s or s == "DATA\n":
@@ -109,7 +112,7 @@ class ImageFont:
             self.info.append(s)
 
         # read PILfont metrics
-        data = file.read(256*20)
+        data = file.read(256 * 20)
 
         # check image
         if image.mode not in ("1", "L"):
@@ -122,6 +125,7 @@ class ImageFont:
         # delegate critical operations to internal type
         self.getsize = self.font.getsize
         self.getmask = self.font.getmask
+
 
 ##
 # Wrapper for FreeType fonts.  Application code should use the
@@ -149,8 +153,9 @@ class FreeTypeFont:
     def getmask2(self, text, mode="", fill=Image.core.fill):
         size, offset = self.font.getsize(text)
         im = fill("L", size, 0)
-        self.font.render(text, im.id, mode=="1")
+        self.font.render(text, im.id, mode == "1")
         return im, offset
+
 
 ##
 # Wrapper that creates a transposed font from any existing font
@@ -166,7 +171,7 @@ class TransposedFont:
 
     def __init__(self, font, orientation=None):
         self.font = font
-        self.orientation = orientation # any 'transpose' argument, or None
+        self.orientation = orientation  # any 'transpose' argument, or None
 
     def getsize(self, text):
         w, h = self.font.getsize(text)
@@ -179,6 +184,7 @@ class TransposedFont:
         if self.orientation is not None:
             return im.transpose(self.orientation)
         return im
+
 
 ##
 # Load font file.  This function loads a font object from the given
@@ -193,6 +199,7 @@ def load(filename):
     f = ImageFont()
     f._load_pilfont(filename)
     return f
+
 
 ##
 # Load a TrueType or OpenType font file, and create a font object.
@@ -228,6 +235,7 @@ def truetype(filename, size, index=0, encoding=""):
                 return FreeTypeFont(filename, size, index, encoding)
         raise
 
+
 ##
 # Load font file.  Same as load, but searches for a bitmap font along
 # the Python path.
@@ -247,6 +255,7 @@ def load_path(filename):
                 pass
     raise IOError("cannot find font file")
 
+
 ##
 # Load a (probably rather ugly) default font.
 #
@@ -258,8 +267,8 @@ def load_default():
     import base64
     f = ImageFont()
     f._load_pilfont_data(
-         # courB08
-         StringIO(base64.decodestring('''
+        # courB08
+        StringIO(base64.decodestring('''
 UElMZm9udAo7Ozs7OzsxMDsKREFUQQoAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -378,9 +387,11 @@ w7IkEbzhVQAAAABJRU5ErkJggg==
 '''))))
     return f
 
+
 if __name__ == "__main__":
     # create font data chunk for embedding
     import base64, os, sys
+
     font = "../Images/courB08"
     print "    f._load_pilfont_data("
     print "         # %s" % os.path.basename(font)

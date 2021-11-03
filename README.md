@@ -47,7 +47,7 @@ Hero of Antair funciona tanto en Windows como en Ubuntu, requiere solamente la p
 - [pyperclip][2]
 - [MySQLdb][3]
 - [mechanize][4]
-- [PIL (Python Imaging Library)][5]
+- [Pillow][5]
 - [Pympler][6]
 - [Simplejson][7]
 - [Snacklib][8]
@@ -70,11 +70,11 @@ Este proyecto está licenciado bajo GPLv2 [https://www.gnu.org/licenses/gpl-2.0.
 [1]: https://docs.python.org/2/library/tkinter.html
 [2]: https://pypi.python.org/pypi/pyperclip
 [3]: http://mysql-python.sourceforge.net/MySQLdb.html
-[4]: https://pypi.python.org/pypi/mechanize/
-[5]: https://pypi.python.org/pypi/PIL
+[4]: https://pypi.python.org/pypi/mechanize
+[5]: https://pypi.org/project/Pillow
 [6]: https://pypi.python.org/pypi/Pympler
-[7]: https://pypi.python.org/pypi/simplejson/
-[8]: http://www.speech.kth.se/snack/
+[7]: https://pypi.python.org/pypi/simplejson
+[8]: http://www.speech.kth.se/snack
 [9]: http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
 [10]: http://newcenturycomputers.net/projects/wconio.html
 [11]: https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
@@ -83,6 +83,6 @@ Este proyecto está licenciado bajo GPLv2 [https://www.gnu.org/licenses/gpl-2.0.
 [image-2]: https://res.ppizarror.com/images/hoa/editor1.png "Editor de mapas"
 [image-3]: https://res.ppizarror.com/images/hoa/editor2.png "Muchas opciones!"
 
-
 ## Autor
-<a href="https://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2013 - 2018
+
+<a href="https://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2013 - 2021

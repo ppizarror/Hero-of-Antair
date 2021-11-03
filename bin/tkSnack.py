@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 tkSnack
 An interface to Kare Sjolander's Snack Tcl extension
@@ -206,7 +207,7 @@ class Sound(TkObject):
                               + self._options(kw))
         return self._getdoubles(result)
 
-    def filter(self, filter, **kw):  # @ReservedAssignment
+    def filter(self, filter, **kw):
         """Applies the given filter to the sound."""
         return self.tk.call((self.name, 'filter', filter.name) +
                             self._options(kw))
@@ -220,7 +221,7 @@ class Sound(TkObject):
         """Removes all audio data from the sound."""
         self.tk.call(self.name, 'flush')
 
-    def info(self, format='string'):  # @ReservedAssignment
+    def info(self, format='string'):
         """Returns a list with information about the sound.  The entries are
         [length, rate, max, min, encoding, channels, fileFormat, headerSize]
         """
@@ -248,11 +249,11 @@ class Sound(TkObject):
         """Reads new sound data from a file.  Synonym for "read"."""
         self.tk.call((self.name, 'read', filename) + self._options(kw))
 
-    def max(self, **kw):  # @ReservedAssignment
+    def max(self, **kw):
         """Returns the largest positive sample value of the sound."""
         return _cast(self.tk.call((self.name, 'max') + self._options(kw)))
 
-    def min(self, **kw):  # @ReservedAssignment
+    def min(self, **kw):
         """Returns the largest negative sample value of the sound."""
         return _cast(self.tk.call((self.name, 'min') + self._options(kw)))
 
@@ -450,7 +451,7 @@ class MixerControllerSingleton(TkObject):
         result = self.tk.call('snack::mixer', 'devices')
         return self.tk.splitlist(result)
 
-    def input(self, jack=None, tclVar=None):  # @ReservedAssignment
+    def input(self, jack=None, tclVar=None):
         """Gets/sets the current input jack.  Optionally link a boolean
         Tcl variable."""
         opts = ()
@@ -527,8 +528,7 @@ class SoundFrame(Tkinter.Frame):
         Tkinter.Button(bbar, text='Info', command=self.info).pack(side='left')
 
     def load(self):
-        # @ReservedAssignment
-        file = Tkroot.tk.call('eval', 'snack::getOpenFile')  # @ReservedAssignment
+        file = Tkroot.tk.call('eval', 'snack::getOpenFile')
         self.sound.read(file, progress='snack::progressCallback')
 
     def play(self):

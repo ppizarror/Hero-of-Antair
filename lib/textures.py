@@ -272,9 +272,9 @@ class hoaTextures(object):
             if VERBOSE_TEXLOAD:
                 print str(self.lang[0]).replace("%", image),
             try:
-                self.loadIMAGE(image)
+                self._loadIMAGE(image)
             except:
-                self.loadIMAGE_ITEM(image)
+                self._loadIMAGE_ITEM(image)
             if VERBOSE_TEXLOAD:
                 print self.lang[1]
             return self.images[image]
@@ -300,7 +300,7 @@ class hoaTextures(object):
             print self.lang[1]
         return "None"
 
-    def loadIMAGE(self, image):
+    def _loadIMAGE(self, image):
         """
         Función que carga una imagen de un zip si corresponde
         caso contrario retorna un string
@@ -316,7 +316,7 @@ class hoaTextures(object):
         else:
             self.images[image] = PhotoImage(file=IMAGES[image])
 
-    def loadIMAGE_ITEM(self, image):
+    def _loadIMAGE_ITEM(self, image):
         """
         Función que carga una imagen de un item de un zip si corresponde
         caso contrario retorna un string
