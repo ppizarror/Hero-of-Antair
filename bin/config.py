@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 CONFIG
 Maneja las configuraciones del núcleo de HOA.

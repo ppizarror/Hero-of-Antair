@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Created on 31/01/2012
 
@@ -9,6 +10,7 @@ Dual listbox widget implementation (Gtk+3).
 # Implement exceptions
 # Use Gtk.SelectionMode.MULTIPLE
 from gi.repository import Gtk  # @UnresolvedImport
+
 
 # noinspection PyMethodMayBeStatic
 class DualListBox(Gtk.Box):

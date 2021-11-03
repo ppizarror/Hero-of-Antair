@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Expose a memory-profiling panel to the Django Debug toolbar.
 """

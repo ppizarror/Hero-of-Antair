@@ -1,4 +1,6 @@
-"""Tree-like exploration of object referrers.
+# coding=utf-8
+"""
+Tree-like exploration of object referrers.
 
 This module provides a base implementation for tree-like referrers browsing.
 The two non-interactive classes ConsoleBrowser and FileBrowser output a tree
@@ -33,6 +35,7 @@ class _Node(object):
     in a tree which is not of the type _Node is considered a leaf.
 
     """
+
     def __init__(self, o, str_func=None):
         """You have to define the object this node represents. Also you can
         define an output function which will be used to represent this node.
@@ -172,8 +175,8 @@ class StreamBrowser(RefBrowser):
         prefix += str(tree)
         # and as many spaces as the vertex is long
         carryon += self.space * len(str(tree))
-        if (level == self.maxdepth) or (not isinstance(tree, _Node)) or\
-           (len_children == 0):
+        if (level == self.maxdepth) or (not isinstance(tree, _Node)) or \
+                (len_children == 0):
             self.stream.write(prefix + '\n')
             return
         else:
@@ -244,6 +247,7 @@ try:
     import Tkinter as _Tkinter
     from idlelib import TreeWidget as _TreeWidget
 
+
     class _TreeNode(_TreeWidget.TreeNode):
         """TreeNode used by the InteractiveBrowser.
 
@@ -251,6 +255,7 @@ try:
         context.
 
         """
+
         def reload_referrers(self):
             """Reload all referrers for this _TreeNode."""
             self.item.node = self.item.reftree._get_tree(self.item.node.o, 1)
@@ -284,6 +289,7 @@ try:
                 menu.post(event.x_root, event.y_root)
 
             self.label.bind("<Button-3>", do_popup)
+
             # override, i.e. disable the editing of items
 
             # disable editing of TreeNodes
@@ -295,6 +301,7 @@ try:
 
             def edit_cancel(self, event=None):
                 pass  # PYCHOK see comment above
+
 
     class _ReferrerTreeItem(_TreeWidget.TreeItem, _Tkinter.Label):
         """Tree item wrapper around _Node object."""
@@ -357,7 +364,7 @@ try:
             sublist = []
 
             children = self.node.children
-            if (len(children) == 0) and\
+            if (len(children) == 0) and \
                     (muppy._is_containerobject(self.node.o)):
                 self.node = self.reftree._get_tree(self.node.o, 1)
                 self._clear_children()
@@ -387,6 +394,7 @@ class InteractiveBrowser(RefBrowser):
     be raised.
 
     """
+
     def __init__(self, rootobject, maxdepth=3,
                  str_func=gui_default_str_function, repeat=True):
         """You have to provide the root object used in the refbrowser.
@@ -445,5 +453,5 @@ def write_sample():
 
 
 if __name__ == "__main__":
-#    print_sample()
+    #    print_sample()
     write_sample()

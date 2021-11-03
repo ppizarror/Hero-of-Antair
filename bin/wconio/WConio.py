@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+# coding=utf-8
 """WConio.py -- Windows Console I/O Module
 
 The _WConio.pyd module is based on TCCONIO; the comment from the original
@@ -21,7 +21,6 @@ honestly don't understand it well enough anyway.  Patches are welcome!
 __version__ = "1.5"
 
 from _WConio import *
-
 
 BLACK = 0
 BLUE = 1

@@ -1,3 +1,4 @@
+# coding=utf-8
 """MySQL REFRESH Constants
 
 These constants seem to mostly deal with things internal to the

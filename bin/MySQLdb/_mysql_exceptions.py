@@ -1,3 +1,4 @@
+# coding=utf-8
 """_mysql_exceptions: Exception classes for _mysql and MySQLdb.
 
 These classes are dictated by the DB API v2.0:

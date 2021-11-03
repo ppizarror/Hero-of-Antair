@@ -1,5 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 CURSORS
 Programa que muestra los cursores disponibles en T-Kinter.
@@ -10,7 +9,7 @@ Licencia: GPLv2
 """
 
 # Importacion de librerias
-from Tkinter import *  
+from Tkinter import *
 from functools import partial
 
 # Cargo los cursores disponibles
@@ -23,6 +22,7 @@ cur.sort()
 # Deficion de variables
 pos = [0]
 PROGRAM_SIZE = 300, 300
+
 
 # Definicion de funciones
 

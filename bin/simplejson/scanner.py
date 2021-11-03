@@ -1,4 +1,6 @@
-"""JSON token scanner
+# coding=utf-8
+"""
+JSON token scanner
 """
 import re
 
@@ -34,6 +36,7 @@ class JSONDecodeError(ValueError):
     endcolno: The column corresponding to end (may be None)
 
     """
+
     # Note that this exception is used from _speedups
     def __init__(self, msg, doc, pos, end=None):
         ValueError.__init__(self, errmsg(msg, doc, pos, end=end))

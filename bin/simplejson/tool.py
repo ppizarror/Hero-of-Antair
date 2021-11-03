@@ -1,4 +1,6 @@
-r"""Command-line tool to validate and pretty-print JSON
+# coding=utf-8
+"""
+Command-line tool to validate and pretty-print JSON
 
 Usage::
 

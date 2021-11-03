@@ -1,4 +1,6 @@
-"""times module
+# coding=utf-8
+"""
+times module
 
 This module provides some Date and Time classes for dealing with MySQL data.
 
@@ -9,7 +11,6 @@ import math
 from time import localtime
 
 from _mysql import string_literal
-
 
 Date = date
 Time = time

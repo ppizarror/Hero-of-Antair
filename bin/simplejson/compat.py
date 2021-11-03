@@ -1,16 +1,19 @@
+# coding=utf-8
 """Python 3 compatibility shims
 """
 import sys
 
-
 if sys.version_info[0] < 3:
     PY3 = False
+
 
     def b(s):
         return s
 
+
     def u(s):
         return unicode(s, 'unicode_escape')
+
 
     import cStringIO as StringIO
 
@@ -21,6 +24,7 @@ if sys.version_info[0] < 3:
     integer_types = (int, long)
     unichr = unichr
     reload_module = reload
+
 
     def fromhex(s):
         return s.decode('hex')
@@ -33,11 +37,14 @@ else:
         from imp import reload as reload_module
     import codecs
 
+
     def b(s):
         return codecs.latin_1_encode(s)[0]
 
+
     def u(s):
         return s
+
 
     import io
 
@@ -48,8 +55,10 @@ else:
     string_types = (str,)
     integer_types = (int,)
 
+
     def unichr(s):
         return u(chr(s))
+
 
     def fromhex(s):
         return bytes.fromhex(s)

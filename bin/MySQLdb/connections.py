@@ -1,5 +1,5 @@
+# coding=utf-8
 """
-
 This module implements connections for MySQLdb. Presently there is
 only one class: Connection. Others are unlikely. However, you might
 want to make your own subclasses. In most cases, you will probably

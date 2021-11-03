@@ -1,3 +1,4 @@
+# coding=utf-8
 """MySQL ER Constants
 
 These constants are error codes for the bulk of the error conditions

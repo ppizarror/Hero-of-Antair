@@ -1,5 +1,4 @@
-##!/usr/bin/env python
-# -*- coding: utf-8 -*-
+# coding=utf-8
 """
 CURSORS
 Crea las imágenes de HOA.
@@ -193,7 +192,7 @@ else:
                                                 newimagefilename = archivo
                                                 for res in VALID_FILES:
                                                     newimagefilename = newimagefilename.replace(
-                                                    "." + res, "")
+                                                        "." + res, "")
                                                 newimagefilename += "." + newTipe
                                             else:
                                                 newimagefilename = namefile + str(number) + "_0" + "." + newTipe
@@ -218,7 +217,7 @@ else:
                                             os.remove(ACTUAL_FOLDER + pngfilename)
                                             if not silence:
                                                 print "Archivo '{0}' generado exitosamente".format(
-                                                newimagefilename)
+                                                    newimagefilename)
                                         except:
                                             print "Error :: Ocurrio un error al transformar la imagen '{0}'".format(
                                                 archivo)

@@ -1,3 +1,4 @@
+# coding=utf-8
 """MySQL FIELD_TYPE Constants
 
 These constants represent the various column (field) types that are

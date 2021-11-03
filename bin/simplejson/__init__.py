@@ -1,4 +1,5 @@
-r"""JSON (JavaScript Object Notation) <http://json.org> is a subset of
+# coding=utf-8
+"""JSON (JavaScript Object Notation) <http://json.org> is a subset of
 JavaScript syntax (ECMA-262 3rd edition) used as a lightweight data
 interchange format.
 
@@ -104,7 +105,6 @@ from decimal import Decimal
 from .decoder import JSONDecoder
 from .encoder import JSONEncoder, JSONEncoderForHTML
 from .scanner import JSONDecodeError
-
 
 __version__ = '3.6.3'
 __all__ = [
@@ -252,11 +252,11 @@ def dump(obj, fp, skipkeys=False, ensure_ascii=True, check_circular=True,
     # cached encoder
     if (not skipkeys and ensure_ascii and
             check_circular and allow_nan and
-                cls is None and indent is None and separators is None and
-                encoding == 'utf-8' and default is None and use_decimal
-        and namedtuple_as_object and tuple_as_array
-        and not bigint_as_string and int_as_string_bitcount is None
-        and not item_sort_key and not for_json and not ignore_nan and not kw):
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and use_decimal
+            and namedtuple_as_object and tuple_as_array
+            and not bigint_as_string and int_as_string_bitcount is None
+            and not item_sort_key and not for_json and not ignore_nan and not kw):
         iterable = _default_encoder.iterencode(obj)
     else:
         if cls is None:
@@ -366,14 +366,14 @@ def dumps(obj, skipkeys=False, ensure_ascii=True, check_circular=True,
     """
     # cached encoder
     if (
-                                                                                    not skipkeys and ensure_ascii and
-                                                                                check_circular and allow_nan and
-                                                                            cls is None and indent is None and separators is None and
-                                                                encoding == 'utf-8' and default is None and use_decimal
-                                            and namedtuple_as_object and tuple_as_array
-                                    and not bigint_as_string and int_as_string_bitcount is None
-                            and not sort_keys and not item_sort_key and not for_json
-                and not ignore_nan and not kw
+            not skipkeys and ensure_ascii and
+            check_circular and allow_nan and
+            cls is None and indent is None and separators is None and
+            encoding == 'utf-8' and default is None and use_decimal
+            and namedtuple_as_object and tuple_as_array
+            and not bigint_as_string and int_as_string_bitcount is None
+            and not sort_keys and not item_sort_key and not for_json
+            and not ignore_nan and not kw
     ):
         return _default_encoder.encode(obj)
     if cls is None:
@@ -507,9 +507,9 @@ def loads(s, encoding=None, cls=None, object_hook=None, parse_float=None,
 
     """
     if (cls is None and encoding is None and object_hook is None and
-                parse_int is None and parse_float is None and
-                parse_constant is None and object_pairs_hook is None
-        and not use_decimal and not kw):
+            parse_int is None and parse_float is None and
+            parse_constant is None and object_pairs_hook is None
+            and not use_decimal and not kw):
         return _default_decoder.decode(s)
     if cls is None:
         cls = JSONDecoder

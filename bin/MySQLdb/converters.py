@@ -1,4 +1,6 @@
-"""MySQLdb type conversion module
+# coding=utf-8
+"""
+MySQLdb type conversion module
 
 This module handles all the type conversions for MySQL. If the default
 type conversions aren't what you need, you can make your own. The
@@ -37,7 +39,6 @@ import array
 from MySQLdb.constants import FIELD_TYPE, FLAG
 from MySQLdb.times import *
 from _mysql import string_literal, escape_sequence, escape_dict, escape, NULL
-
 
 try:
     from types import IntType, LongType, FloatType, NoneType, TupleType, ListType, DictType, InstanceType, \

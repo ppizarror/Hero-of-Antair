@@ -1,4 +1,6 @@
-"""The tracker module allows you to track changes in the memory usage over
+# coding=utf-8
+"""
+The tracker module allows you to track changes in the memory usage over
 time.
 
 Using the SummaryTracker, you can create summaries and compare them
@@ -32,6 +34,7 @@ class SummaryTracker(object):
     need.
 
     """
+
     def __init__(self, ignore_self=True):
         """Constructor.
 
@@ -180,6 +183,7 @@ class ObjectTracker(object):
         keyword arguments
         ignore -- list of objects to ignore
         """
+
         def remove_ignore(objects, ignore=[]):
             # remove all objects listed in the ignore list
             res = []

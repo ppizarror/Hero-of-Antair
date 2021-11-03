@@ -1,3 +1,4 @@
+# coding=utf-8
 """MySQL Connection Errors
 
 Nearly all of these raise OperationalError. COMMANDS_OUT_OF_SYNC

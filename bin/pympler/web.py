@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 This module provides a web-based memory profiling interface. The Pympler web
 frontend exposes process information, tracker statistics, and garbage graphs.
@@ -37,13 +38,8 @@ from pympler.util import bottle
 from pympler.util.compat import dumps
 from pympler.util.stringutils import safe_repr
 
-
 if sys.hexversion < 0x02050000:
     raise ImportError("Web frontend requires Python 2.5 or newer.")
-
-
-
-
 
 
 class ServerState(threading.local):
@@ -54,6 +50,7 @@ class ServerState(threading.local):
 
     Cache internal structures (garbage graphs, tracker statistics).
     """
+
     def __init__(self):
         self.server = None
         self.stats = None
@@ -273,6 +270,7 @@ def show_documentation():
 
 class PymplerServer(bottle.ServerAdapter):
     """Simple WSGI server."""
+
     def run(self, handler):
         self.server = make_server(self.host, self.port, handler)
         self.server.serve_forever()
@@ -323,6 +321,7 @@ def start_profiler(host='localhost', port=8090, tracker=None, stats=None,
 
 class ProfilerThread(Thread):
     """Encapsulates a thread to run the web server."""
+
     def __init__(self, group=None, target=None, name='Pympler web frontend',
                  **kwargs):
         super(ProfilerThread, self).__init__(group=group,

@@ -1,3 +1,4 @@
+# coding=utf-8
 import gc
 from inspect import isframe, stack
 

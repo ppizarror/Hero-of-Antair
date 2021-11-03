@@ -1,4 +1,6 @@
-"""MySQLdb Cursors
+# coding=utf-8
+"""
+MySQLdb Cursors
 
 This module implements Cursors of various types for MySQLdb. By
 default, MySQLdb uses the Cursor class.
@@ -11,7 +13,6 @@ import sys
 from _mysql_exceptions import Warning, Error, InterfaceError, DataError, \
     DatabaseError, OperationalError, IntegrityError, InternalError, \
     NotSupportedError, ProgrammingError
-
 
 try:
     from types import ListType, TupleType, UnicodeType

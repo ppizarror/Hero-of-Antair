@@ -1,6 +1,6 @@
+# coding=utf-8
 """
 Memory usage profiler for Python.
-
 """
 import inspect
 import sys
@@ -85,10 +85,11 @@ class MProfiler(object):
     def run(self, cmd):
         sys.setprofile(self.profile)
         try:
-            exec(cmd)
+            exec (cmd)
         finally:
             sys.setprofile(None)
         return self
+
 
 if __name__ == "__main__":
     p = MProfiler()

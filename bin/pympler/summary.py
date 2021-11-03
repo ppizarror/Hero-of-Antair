@@ -1,4 +1,6 @@
-"""A collection of functions to summarize object information.
+# coding=utf-8
+"""
+A collection of functions to summarize object information.
 
 This module provides several function which will help you to analyze object
 information which was gathered. Often it is sufficient to work with aggregated
@@ -49,12 +51,12 @@ import types
 
 from pympler.util import stringutils
 
-
 # default to asizeof if sys.getsizeof is not available (prior to Python 2.6)
 try:
     from sys import getsizeof as _getsizeof
 except ImportError:
     from pympler.asizeof import flatsize
+
     _getsizeof = flatsize
 
 representations = {}
@@ -108,6 +110,7 @@ def _init_representations():
         lambda s: "set, len=%s" % len(s)
     ]
     representations[set] = _set
+
 
 _init_representations()
 

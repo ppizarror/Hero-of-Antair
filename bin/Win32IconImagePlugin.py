@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-#
+# coding=utf-8
 # Copyright 2008 Bryan Davis <casadebender+pil@gmail.com>
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -53,7 +51,6 @@ import PIL.ImageChops
 import PIL.ImageFile
 import PIL.PngImagePlugin
 
-
 _MAGIC = '\0\0\1\0'
 log = logging.getLogger(__name__)
 
@@ -87,8 +84,8 @@ class Win32IcoFile(object):
                     directory[j] = 256
             icon_header = dict(zip(dir_fields, directory))
             icon_header['color_depth'] = (
-                icon_header['bpp'] or
-                (icon_header['nb_color'] == 16 and 4))
+                    icon_header['bpp'] or
+                    (icon_header['nb_color'] == 16 and 4))
             icon_header['dim'] = (icon_header['width'], icon_header['height'])
             self.entry.append(icon_header)
         # end for (read headers)
@@ -282,6 +279,7 @@ def _accept(prefix):
     Quick file test helper for Image.open()
     """
     return prefix[:4] == _MAGIC
+
 
 # end _accept
 

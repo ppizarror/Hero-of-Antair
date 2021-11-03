@@ -1,3 +1,4 @@
+# coding=utf-8
 """Project metadata.
 
 This information is used in setup.py as well as in doc/source/conf.py.
@@ -5,14 +6,14 @@ This information is used in setup.py as well as in doc/source/conf.py.
 """
 
 project_name = 'Pympler'
-version      = '0.3.1'
-url          = 'http://pythonhosted.org/Pympler/'
-license      = 'Apache License, Version 2.0' #PYCHOK valid
-author       = 'Jean Brouwers, Ludwig Haehne, Robert Schuppenies'
+version = '0.3.1'
+url = 'http://pythonhosted.org/Pympler/'
+license = 'Apache License, Version 2.0'  # PYCHOK valid
+author = 'Jean Brouwers, Ludwig Haehne, Robert Schuppenies'
 author_email = 'pympler-dev@googlegroups.com'
-copyright    = '2008-2012, ' + author #PYCHOK valid
-description  = ('A development tool to measure, monitor and analyze '
-                'the memory behavior of Python objects.')
+copyright = '2008-2012, ' + author  # PYCHOK valid
+description = ('A development tool to measure, monitor and analyze '
+               'the memory behavior of Python objects.')
 long_description = '''
 Pympler is a development tool to measure, monitor and analyze the
 memory behavior of Python objects in a running Python application.

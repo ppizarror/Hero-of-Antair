@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Generate charts from gathered data.
 
@@ -6,8 +7,10 @@ Requires **matplotlib**.
 
 try:
     import matplotlib
+
     matplotlib.use('Agg')
     import matplotlib.pyplot as plt
+
 
     def tracker_timespace(filename, stats):
         """

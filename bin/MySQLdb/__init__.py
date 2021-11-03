@@ -1,4 +1,6 @@
-"""MySQLdb - A DB API v2.0 compatible interface to MySQL.
+# coding=utf-8
+"""
+MySQLdb - A DB API v2.0 compatible interface to MySQL.
 
 This package is a wrapper around _mysql, which mostly implements the
 MySQL C API.
@@ -14,13 +16,13 @@ MySQLdb.converters module.
 """
 
 __revision__ = """$Revision$"""[11:-2]
+
 from MySQLdb.constants import FIELD_TYPE
 from MySQLdb.release import __version__, version_info, __author__
 from MySQLdb.times import Date, Time, Timestamp, \
     DateFromTicks, TimeFromTicks, TimestampFromTicks
 from _mysql import *
 import _mysql
-
 
 if version_info != _mysql.version_info:
     raise ImportError("this is MySQLdb version %s, but _mysql is version %r" %

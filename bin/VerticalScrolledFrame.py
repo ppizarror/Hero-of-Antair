@@ -1,7 +1,9 @@
+# coding=utf-8
 # Clase para usar el frame vertical, gracias a:
 # http://tkinter.unpythonic.net/wiki/VerticalScrolledFrame
 
 from Tkinter import Frame, Scrollbar, Canvas, NW, BOTH, TRUE, LEFT, RIGHT, VERTICAL, FALSE, Y
+
 
 class VerticalScrolledFrame(Frame):
 
@@ -25,9 +27,11 @@ class VerticalScrolledFrame(Frame):
             canvas.config(scrollregion="0 0 %s %s" % size)
             if interior.winfo_reqwidth() != canvas.winfo_width():
                 canvas.config(width=interior.winfo_reqwidth())
+
         interior.bind('<Configure>', _configure_interior)
 
         def _configure_canvas(event):
             if interior.winfo_reqwidth() != canvas.winfo_width():
                 canvas.itemconfigure(interior_id, width=canvas.winfo_width())
+
         canvas.bind('<Configure>', _configure_canvas)

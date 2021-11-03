@@ -1,4 +1,6 @@
-"""Implementation of JSONDecoder
+# coding=utf-8
+"""
+Implementation of JSONDecoder
 """
 from __future__ import absolute_import
 
@@ -123,8 +125,8 @@ def py_scanstring(s, end, encoding=None, strict=True,
             # Note that this will join high/low surrogate pairs
             # but will also pass unpaired surrogates through
             if (_maxunicode > 65535 and
-                            uni & 0xfc00 == 0xd800 and
-                        s[end:end + 2] == '\\u'):
+                    uni & 0xfc00 == 0xd800 and
+                    s[end:end + 2] == '\\u'):
                 esc2 = s[end + 2:end + 6]
                 escX = esc2[1:2]
                 if len(esc2) == 4 and not (escX == 'x' or escX == 'X'):
@@ -140,6 +142,7 @@ def py_scanstring(s, end, encoding=None, strict=True,
         # Append the unescaped character
         _append(char)
     return _join(chunks), end
+
 
 # Use speedup if available
 scanstring = c_scanstring or py_scanstring

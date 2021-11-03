@@ -1,4 +1,6 @@
-"""Implementation of JSONEncoder
+# coding=utf-8
+"""
+Implementation of JSONEncoder
 """
 from __future__ import absolute_import
 
@@ -21,7 +23,6 @@ def _import_speedups():
 
 
 c_encode_basestring_ascii, c_make_encoder = _import_speedups()
-
 
 # ESCAPE = re.compile(ur'[\x00-\x1f\\"\b\f\n\r\t\u2028\u2029]')
 # This is required because u() will mangle the string and ur'' isn't valid
@@ -96,7 +97,7 @@ def py_encode_basestring_ascii(s, _PY3=PY3):
 
 
 encode_basestring_ascii = (
-    c_encode_basestring_ascii or py_encode_basestring_ascii)
+        c_encode_basestring_ascii or py_encode_basestring_ascii)
 
 
 class JSONEncoder(object):
@@ -340,7 +341,7 @@ class JSONEncoder(object):
         int_as_string_bitcount = (
             53 if self.bigint_as_string else self.int_as_string_bitcount)
         if (_one_shot and c_make_encoder is not None
-            and self.indent is None):
+                and self.indent is None):
             _iterencode = c_make_encoder(
                 markers, self.default, _encoder, self.indent,
                 self.key_separator, self.item_separator, self.sort_keys,
@@ -417,20 +418,20 @@ def _make_iterencode(markers, _default, _encoder, _indent, _floatstr,
 
     if (_int_as_string_bitcount is not None and
             (_int_as_string_bitcount <= 0 or
-                 not isinstance(_int_as_string_bitcount, integer_types))):
+             not isinstance(_int_as_string_bitcount, integer_types))):
         raise TypeError("int_as_string_bitcount must be a positive integer")
 
     def _encode_int(value):
         skip_quoting = (
-            _int_as_string_bitcount is None
-            or
-            _int_as_string_bitcount < 1
+                _int_as_string_bitcount is None
+                or
+                _int_as_string_bitcount < 1
         )
         if (
-                    skip_quoting or
-                            (-1 << _int_as_string_bitcount)
-                            < value <
-                        (1 << _int_as_string_bitcount)
+                skip_quoting or
+                (-1 << _int_as_string_bitcount)
+                < value <
+                (1 << _int_as_string_bitcount)
         ):
             return str(value)
         return '"' + str(value) + '"'

@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 Provide saving, loading and presenting gathered `ClassTracker` statistics.
 """

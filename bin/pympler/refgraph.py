@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 This module exposes utilities to illustrate objects and their references as
 (directed) graphs. The current implementation requires 'graphviz' to be

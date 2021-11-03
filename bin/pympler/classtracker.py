@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 The `ClassTracker` is a facility delivering insight into the memory
 distribution of a Python program. It can introspect memory consumption of

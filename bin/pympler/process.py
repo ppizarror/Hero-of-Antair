@@ -1,3 +1,4 @@
+# coding=utf-8
 """
 This module queries process memory allocation metrics from the operating
 system. It provides a platform independent layer to get the amount of virtual
