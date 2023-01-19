@@ -21,8 +21,9 @@ Si bien mucho de esto esta en una fase muy temprana de desarrollo con el tiempo 
 Adicional al juego HOA incluye un editor de mapas con múltiples herramientas, manejo de texturas, inclusión de objetos, eventos, mobs, npc’s, sonidos, textos, y muchas otras cosas más.
 Su utilización es muy sencilla, ¡solo basta hacer clic en el elemento añadir y agregarlo a tu mapa!
 
-![][image-2]
-![][image-3]
+![Pantalla principal][image-1]
+![Editor][image-2]
+![Editor avanzado][image-3]
 
 ## Idiomas disponibles
 
@@ -87,4 +88,4 @@ Este proyecto está licenciado bajo GPLv2 [https://www.gnu.org/licenses/gpl-2.0.
 
 ## Autor
 
-<a href="https://ppizarror.com" title="ppizarror">Pablo Pizarro R.</a> | 2013 - 2021
+[Pablo Pizarro R.](https://ppizarror.com) | 2013 - 2021
