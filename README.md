@@ -3,9 +3,9 @@
   <br /><br />
   Hero of Antair</h1>
 <p align="center">Proyecto RPG en 2d creado en python-tkinter</p>
-<div align="center"><a href="https://ppizarror.com"><img alt="@ppizarror" src="https://res.ppizarror.com/badges/autor.svg" /></a>
-<a href="https://www.gnu.org/licenses/gpl-2.0.html/"><img alt="Licencia GPL v2" src="https://res.ppizarror.com/badges/licenciagpl2.svg" /></a>
-<a href="https://www.python.org/downloads/"><img alt="Python 2.7" src="https://res.ppizarror.com/badges/python27.svg" /></a>
+<div align="center"><a href="https://ppizarror.com"><img alt="@ppizarror" src="https://img.shields.io/badge/Autor-Pablo%20Pizarro%20R.-9f9f9f" /></a>
+<a href="https://www.gnu.org/licenses/gpl-2.0.html/"><img alt="Licencia GPL v2" src="https://img.shields.io/badge/Licencia-GPL--2.0-007ec6" /></a>
+<a href="https://www.python.org/downloads/"><img alt="Python 2.7" src="https://img.shields.io/badge/Python-2.7-e05d44" /></a>
 </div><br />
 
 Un simple motor RPG en dos dimensiones creado enteramente con Python, utilizando la librería gráfica Tkinter.
@@ -82,9 +82,9 @@ Este proyecto está licenciado bajo GPLv2 [https://www.gnu.org/licenses/gpl-2.0.
 [11]: https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
 [12]: https://github.com/TaylorSMarks/playsound
 
-[image-1]: https://res.ppizarror.com/images/hoa/captura1.png "Una ventana cualquiera"
-[image-2]: https://res.ppizarror.com/images/hoa/editor1.png "Editor de mapas"
-[image-3]: https://res.ppizarror.com/images/hoa/editor2.png "Muchas opciones!"
+[image-1]: https://raw.githubusercontent.com/ppizarror/Hero-of-Antair/master/.github/images/captura1.png "Una ventana cualquiera"
+[image-2]: https://raw.githubusercontent.com/ppizarror/Hero-of-Antair/master/.github/images/editor1.png "Editor de mapas"
+[image-3]: https://raw.githubusercontent.com/ppizarror/Hero-of-Antair/master/.github/images/editor2.png "Muchas opciones!"
 
 ## Autor
 

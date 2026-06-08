@@ -133,6 +133,7 @@ DEV_MODE = True
 OK = "ok"
 QUERY_WEB = True  # modo comunicación con mechanize
 LINK_PROJECT = "https://github.com/ppizarror/Hero-of-Antair/"
+# Retired endpoint: v.ppizarror.com was decommissioned with the server migration; update-check is non-functional.
 LINK_UPDATES = "https://v.ppizarror.com/HOA"
 SAVE_FILETYPES = [".sav", ".key1", ".key2", ".key3", ".key4", ".key5",
                   ".quest", ".powers", ".hoacmd", ".maplogic",
